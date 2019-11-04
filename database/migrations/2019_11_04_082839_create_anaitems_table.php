@@ -15,7 +15,12 @@ class CreateAnaitemsTable extends Migration
     {
         Schema::create('anaitems', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
+            $table->char('abbrev', 4);
+            $table->char('nom', 191);
+            $table->bigInteger('unite_id')->unsigned();
+            $table->foreign('unite_id')->references('id')->on('unite');
+            $table->bigInteger('qtt_id')->unsigned();
+            $table->foreign('qtt_id')->references('id')->on('qtt');
         });
     }
 

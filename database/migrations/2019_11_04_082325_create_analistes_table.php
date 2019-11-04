@@ -18,6 +18,8 @@ class CreateAnalistesTable extends Migration
             $table->char('nom', 191);
             $table->bigInteger('espece_id')->unsigned();
             $table->foreign('espece_id')->references('id')->on('especes');
+            $table->char('icone_id', 191);
+            $table->foreign('icone_id')->references('id')->on('icones');
         });
     }
 
