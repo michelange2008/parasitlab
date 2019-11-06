@@ -9,12 +9,14 @@ namespace App\Http\Controllers\Extranet;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 
 class ExtranetController extends Controller
 {
 
     public function accueil()
     {
+      $data = User::all();
       return "coucou";
     }
 }
