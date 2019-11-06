@@ -4,7 +4,7 @@ namespace App\Models\Analyses;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Anaprix extends Model
+class Anaacte extends Model
 {
-    //
+    public $timestamps = false;
 }

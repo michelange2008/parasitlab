@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 
-class Client extends Model
+class Veto extends Model
 {
-    public function veto()
+    public function user()
     {
-      return $this->belongsTo(Veto::class);
+      return hasOne(User::class);
     }
 }

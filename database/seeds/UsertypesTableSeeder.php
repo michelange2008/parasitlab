@@ -13,13 +13,20 @@ class UsertypesTableSeeder extends Seeder
     {
         DB::table('usertypes')->insert([
           [
-            'type' =>'simple',
+            'id' => 1,
+            'nom' =>'simple',
           ],
           [
-            'type' => 'admin',
+            'id' => 2,
+            'nom' => 'admin',
           ],
           [
-            'type' => 'webmin',
+            'id' => 3,
+            'nom' => 'webmin',
+          ],
+          [
+            'id' => 4,
+            'nom' => 'veto',
           ],
         ]);
     }

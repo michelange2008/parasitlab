@@ -13,23 +13,40 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
         [
+          'id' => 1,
           'name' => 'Michel BOUY',
           'email' => 'michel.bouy@fibl.org',
           'password' => bcrypt('17891789Mm'),
-          'type_id' => 3,
+          'usertype_id' => 3,
         ],
         [
+          'id' => 2,
           'name' => 'Amélie LEBRE',
           'email' => 'amelie.lebre@fibl.org',
           'password' => bcrypt('haemonchus'),
-          'type_id' => 2
+          'usertype_id' => 2
         ],
         [
+          'id' => 3,
           'name' => 'Eleveur',
           'email' => 'eleveur@vache.com',
           'password' => bcrypt('azerty'),
-          'type_id' => 1,
-        ]
+          'usertype_id' => 1,
+        ],
+        [
+          'id' => 4,
+          'name' => 'véto inconnu',
+          'email' => 'veto@vache.com',
+          'password' => bcrypt('vetoinconnu'),
+          'usertype_id' => 4,
+        ],
+        [
+          'id' => 5,
+          'name' => 'antikor',
+          'email' => 'antikor@orange.fr',
+          'password' => bcrypt('enerlite+1'),
+          'usertype_id' => 4,
+        ],
       ]);
     }
 }

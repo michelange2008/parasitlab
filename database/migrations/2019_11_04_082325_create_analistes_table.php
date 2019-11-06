@@ -14,11 +14,11 @@ class CreateAnalistesTable extends Migration
     public function up()
     {
         Schema::create('analistes', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char('nom', 191);
-            $table->bigInteger('espece_id')->unsigned();
+            $table->increments('id');
+            $table->string('nom', 191);
+            $table->integer('espece_id')->unsigned();
             $table->foreign('espece_id')->references('id')->on('especes');
-            $table->char('icone_id', 191);
+            $table->integer('icone_id')->unsigned()->default(1);
             $table->foreign('icone_id')->references('id')->on('icones');
         });
     }

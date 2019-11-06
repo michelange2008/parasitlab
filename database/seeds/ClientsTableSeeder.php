@@ -18,6 +18,7 @@ class ClientsTableSeeder extends Seeder
           'cp' => "26300",
           'commune' => "Barbières",
           'tel' => '0601234567',
+          
         ]);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIconesTable extends Migration
+class CreateQttsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateIconesTable extends Migration
      */
     public function up()
     {
-        Schema::create('icones', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char('nom', 191);
+        Schema::create('qtts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string("nom", 20);
         });
     }
 
@@ -26,6 +26,6 @@ class CreateIconesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('icones');
+        Schema::dropIfExists('qtts');
     }
 }

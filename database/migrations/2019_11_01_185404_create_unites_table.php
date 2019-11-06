@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQttsTable extends Migration
+class CreateUnitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateQttsTable extends Migration
      */
     public function up()
     {
-        Schema::create('qtts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char("nom", 20);
+        Schema::create('unites', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nom', 20);
         });
     }
 
@@ -26,6 +26,6 @@ class CreateQttsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qtts');
+        Schema::dropIfExists('unites');
     }
 }

@@ -12,9 +12,9 @@ class QttsTableSeeder extends Seeder
     public function run()
     {
         DB::table("qtts")->insert([
-          ["nom" => "valeur" ],
-          ["nom" => "estimation" ],
-          ["nom" => "presence" ],
-        ])
+          [ 'id' => 1, "nom" => "valeur" ],
+          [ 'id' => 2, "nom" => "estimation" ],
+          [ 'id' => 3, "nom" => "presence" ],
+        ]);
     }
 }

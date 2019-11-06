@@ -13,28 +13,34 @@ class EspecesTableSeeder extends Seeder
     {
         DB::table('especes')->insert([
           [
+            'id' => 1,
             "nom" => "petits ruminants",
-            "icone" => 6,
+            "icone_id" => 6,
           ],
           [
+            'id' => 2,
             "nom" => "ovins",
-            "icone" => 4,
+            "icone_id" => 4,
           ],
           [
+            'id' => 3,
             "nom" => "caprins",
-            "icone" => 2,
+            "icone_id" => 2,
           ],
           [
+            'id' => 4,
+            "icone_id" => 3,
             "nom" => "équins",
-            "icone" => 3,
           ],
           [
+            'id' => 5,
             "nom" => "bovins",
-            "icone" => 1,
+            "icone_id" => 1,
           ],
           [
+            'id' => 6,
             "nom" => "porcins",
-            "icone" => 5,
+            "icone_id" => 5,
           ],
         ]);
     }

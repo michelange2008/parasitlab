@@ -11,6 +11,10 @@ class UnitesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+      DB::table("unites")->insert([
+        [ 'id' => 1, "nom" => "opg" ],
+        [ 'id' => 2, "nom" => "ookystes" ],
+        ['id' => 3, "nom" => "larves" ],
+      ]);
     }
 }

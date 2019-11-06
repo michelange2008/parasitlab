@@ -14,13 +14,13 @@ class CreateAnaitemsTable extends Migration
     public function up()
     {
         Schema::create('anaitems', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char('abbrev', 4);
-            $table->char('nom', 191);
-            $table->bigInteger('unite_id')->unsigned();
-            $table->foreign('unite_id')->references('id')->on('unite');
-            $table->bigInteger('qtt_id')->unsigned();
-            $table->foreign('qtt_id')->references('id')->on('qtt');
+            $table->increments('id');
+            $table->string('abbreviation', 4);
+            $table->string('nom', 191);
+            $table->integer('unite_id')->unsigned();
+            $table->foreign('unite_id')->references('id')->on('unites');
+            $table->integer('qtt_id')->unsigned();
+            $table->foreign('qtt_id')->references('id')->on('qtts');
         });
     }
 

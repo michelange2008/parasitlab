@@ -36,4 +36,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function client()
+    {
+      return $this->hasOne(Models\Client::class);
+    }
+
+    public function admin()
+    {
+      return $this->hasOne(Models\Admin::class);
+    }
+
+  public function usertype()
+    {
+      return $this->belongsTo(Models\Usertype::class);
+    }
+  public function veto()
+  {
+    return $this->hasOne(Models\Veto::class);
+  }
 }

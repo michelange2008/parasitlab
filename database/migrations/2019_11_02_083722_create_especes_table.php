@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnitesTable extends Migration
+class CreateEspecesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateUnitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('unites', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->char('nom', 20);
+        Schema::create('especes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nom', 191);
+            $table->integer('icone_id')->unsigned();
+            $table->foreign('icone_id')->references('id')->on('icones');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateUnitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unites');
+        Schema::dropIfExists('especes');
     }
 }
