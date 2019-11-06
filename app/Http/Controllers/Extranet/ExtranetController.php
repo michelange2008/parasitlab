@@ -9,14 +9,15 @@ namespace App\Http\Controllers\Extranet;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\Productions\Demande;
 
 class ExtranetController extends Controller
 {
 
     public function accueil()
     {
-      $data = User::all();
+      $demande = Demande::first();
+      dd($demande->facture);
       return "coucou";
     }
 }

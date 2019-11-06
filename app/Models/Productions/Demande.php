@@ -8,6 +8,21 @@ class Demande extends Model
 {
     public function user()
     {
-      return $this->belongsTo(App\User::class);
+      return $this->belongsTo(\App\User::class);
+    }
+
+    public function espece()
+    {
+      return $this->belongsTo(\App\Models\Espece::class);
+    }
+
+    public function anapack()
+    {
+      return $this->belongsTo(\App\Models\Analyses\Anapack::class);
+    }
+
+    public function facture()
+    {
+      return $this->belongsTo(\App\User::class);
     }
 }
