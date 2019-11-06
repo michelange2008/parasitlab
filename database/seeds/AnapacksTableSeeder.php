@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AnapackTableSeeder extends Seeder
+class AnapacksTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class AnapackTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('anapack')->insert([
+        DB::table('anapacks')->insert([
           [
             'id' => 1,
             "nom" => "coproscopie simple",
@@ -46,7 +46,7 @@ class AnapackTableSeeder extends Seeder
             'id' => 6,
             "nom" => "visite d'élevage",
             "description" => "visite d'élevage + déplacement",
-            "description" => "il s'agit d'une visite d'élevage pour analyser plus en détail la question du parasitisme dans votre élevage",
+            "detail" => "il s'agit d'une visite d'élevage pour analyser plus en détail la question du parasitisme dans votre élevage",
           ],
         ]);
     }

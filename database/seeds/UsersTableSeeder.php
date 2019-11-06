@@ -35,9 +35,9 @@ class UsersTableSeeder extends Seeder
         ],
         [
           'id' => 4,
-          'name' => 'véto inconnu',
-          'email' => 'veto@vache.com',
-          'password' => bcrypt('vetoinconnu'),
+          'name' => 'aucun vétérinaire',
+          'email' => 'michelange@wanadoo.fr',
+          'password' => bcrypt('%!*sqy78JK%ù=ff'),
           'usertype_id' => 4,
         ],
         [

@@ -17,7 +17,7 @@ class CreateAnapacksTable extends Migration
             $table->increments('id');
             $table->string("nom",191);
             $table->text("description");
-            $table->text("detail");
+            $table->longtext("detail");
         });
     }
 
