@@ -16,8 +16,6 @@ class ExtranetController extends Controller
 
     public function accueil()
     {
-      $demande = Demande::first();
-      dd($demande->facture);
-      return "coucou";
+      return view('extranet.accueil');
     }
 }

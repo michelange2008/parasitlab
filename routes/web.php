@@ -18,8 +18,10 @@ Route::get('/', ['uses' => 'Extranet\ExtranetController@accueil', 'as' => 'accue
 
 Auth::routes();
 
-Route::get('/accueil', 'Extranet\Controller@accueil')->name('accueil');
+Route::get('/accueil', 'Extranet\ExtranetController@accueil')->name('accueil');
 
-Route::get('/admin', 'AdminController@adminIndex')->name('adminIndex');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/intranet', 'IntranetController@intranetIndex')->name('intranetIndex');
+Route::get('/admin', 'Admin\AdminController@adminIndex')->name('adminIndex');
+
+Route::get('/intranet', 'Intranet\IntranetController@intranetIndex')->name('intranetIndex');
