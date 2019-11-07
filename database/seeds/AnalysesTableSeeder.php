@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AnalistesTableSeeder extends Seeder
+class AnalysesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class AnalistesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('analistes')->insert([
+        DB::table('analyses')->insert([
           [
             'id' => 1,
             "nom" => "coproscopie (petits ruminants)",

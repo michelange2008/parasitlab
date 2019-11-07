@@ -37,22 +37,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function client()
+    public function eleveur()
     {
-      return $this->hasOne(Models\Client::class);
+      return $this->hasOne(Models\Eleveur::class);
     }
 
-    public function admin()
+    public function Labo()
     {
-      return $this->hasOne(Models\Admin::class);
+      return $this->hasOne(Models\Labo::class);
     }
 
-  public function usertype()
+    public function usertype()
+      {
+        return $this->belongsTo(Models\Usertype::class);
+      }
+    public function veto()
     {
-      return $this->belongsTo(Models\Usertype::class);
+      return $this->hasOne(Models\Veto::class);
     }
-  public function veto()
-  {
-    return $this->hasOne(Models\Veto::class);
-  }
 }

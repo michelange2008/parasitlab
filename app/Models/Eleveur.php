@@ -5,8 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 
-class Client extends Model
+class Eleveur extends Model
 {
+    public function user()
+    {
+      return $this->hasOne(User::class);
+    }
+
     public function veto()
     {
       return $this->belongsTo(Veto::class);

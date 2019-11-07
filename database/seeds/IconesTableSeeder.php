@@ -12,6 +12,7 @@ class IconesTableSeeder extends Seeder
     public function run()
     {
         DB::table('icones')->insert([
+          ['id' => 0, "nom" => "default.svg"],
           ['id' => 1, "nom" => "bv.svg"],
           ['id' => 2, "nom" => "cp.svg"],
           ['id' => 3, "nom" => "cv.svg"],

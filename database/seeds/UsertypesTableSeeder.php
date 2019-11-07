@@ -14,11 +14,11 @@ class UsertypesTableSeeder extends Seeder
         DB::table('usertypes')->insert([
           [
             'id' => 1,
-            'nom' =>'simple',
+            'nom' =>'eleveur',
           ],
           [
             'id' => 2,
-            'nom' => 'admin',
+            'nom' => 'labo',
           ],
           [
             'id' => 3,

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnalistesTable extends Migration
+class CreateAnalysesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAnalistesTable extends Migration
      */
     public function up()
     {
-        Schema::create('analistes', function (Blueprint $table) {
+        Schema::create('analyses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom', 191);
             $table->integer('espece_id')->unsigned();
@@ -30,6 +30,6 @@ class CreateAnalistesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('analistes');
+        Schema::dropIfExists('analyses');
     }
 }
