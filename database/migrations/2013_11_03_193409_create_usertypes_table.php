@@ -16,7 +16,7 @@ class CreateUsertypesTable extends Migration
         Schema::create('usertypes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom', 50);
-            $table->integer('icone_id')->default(1);
+            $table->unsignedInteger('icone_id')->default(1);
             $table->foreign('icone_id')->references('id')->on('icones');
         });
     }

@@ -12,16 +12,27 @@ class IconesTableSeeder extends Seeder
     public function run()
     {
         DB::table('icones')->insert([
-          ['id' => 0, "nom" => "default.svg"],
-          ['id' => 1, "nom" => "bv.svg"],
-          ['id' => 2, "nom" => "cp.svg"],
-          ['id' => 3, "nom" => "cv.svg"],
-          ['id' => 4, "nom" => "ov.svg"],
-          ['id' => 5, "nom" => "pc.svg"],
-          ['id' => 6, "nom" => "pr.svg"],
-          ['id' => 7, "nom" => "tout.svg"],
-          ['id' => 8, "nom" => "coproscopie.svg"],
-          ['id' => 9, "nom" => "baermann.svg"],
+          ['id' => 1, "nom" => "default.svg"],
+          ['id' => 2, "nom" => "bv.svg"],
+          ['id' => 3, "nom" => "cp.svg"],
+          ['id' => 4, "nom" => "cv.svg"],
+          ['id' => 5, "nom" => "ov.svg"],
+          ['id' => 6, "nom" => "pc.svg"],
+          ['id' => 7, "nom" => "pr.svg"],
+          ['id' => 8, "nom" => "tout.svg"],
+          ['id' => 9, "nom" => "copr.svg"],
+          ['id' => 10, "nom" => "baer.svg"],
+          ['id' => 11, "nom" => "eleveur.svg"],
+          ['id' => 12, "nom" => "labo.svg"],
+          ['id' => 13, "nom" => "webmin.svg"],
+          ['id' => 14, "nom" => "veto.svg"],
+          ['id' => 15, "nom" => "haem.svg"],
+          ['id' => 16, "nom" => "pack.svg"],
+          ['id' => 17, "nom" => "inte.svg"],
+          ['id' => 18, "nom" => "visi.svg"],
+          ['id' => 19, "nom" => "depl.svg"],
+          ['id' => 20, "nom" => "mela.svg"],
+
         ]);
     }
 }

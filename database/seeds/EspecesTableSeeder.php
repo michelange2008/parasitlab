@@ -15,32 +15,32 @@ class EspecesTableSeeder extends Seeder
           [
             'id' => 1,
             "nom" => "petits ruminants",
-            "icone_id" => 6,
+            "icone_id" => 7,
           ],
           [
             'id' => 2,
             "nom" => "ovins",
-            "icone_id" => 4,
+            "icone_id" => 5,
           ],
           [
             'id' => 3,
             "nom" => "caprins",
-            "icone_id" => 2,
+            "icone_id" => 3,
           ],
           [
             'id' => 4,
-            "icone_id" => 3,
+            "icone_id" => 4,
             "nom" => "équins",
           ],
           [
             'id' => 5,
             "nom" => "bovins",
-            "icone_id" => 1,
+            "icone_id" => 2,
           ],
           [
             'id' => 6,
             "nom" => "porcins",
-            "icone_id" => 5,
+            "icone_id" => 6,
           ],
         ]);
     }
