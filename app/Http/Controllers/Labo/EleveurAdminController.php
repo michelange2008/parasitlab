@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Labo;
 
 use Illuminate\Http\Request;
 
-class VetoController extends Controller
+class EleveurAdminController extends Controller
 {
     /**
      * Display a listing of the resource.

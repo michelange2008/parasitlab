@@ -14,14 +14,14 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', ['uses' => 'Extranet\ExtranetController@accueil', 'as' => 'accueil']);
+Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
 
 Auth::routes();
 
-Route::get('/accueil', 'Extranet\ExtranetController@accueil')->name('accueil');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'Admin\AdminController@adminIndex')->name('adminIndex');
+Route::get('/laboratoire', 'Labo\LaboController@index')->name('laboratoire');
 
-Route::get('/intranet', 'Intranet\IntranetController@intranetIndex')->name('intranetIndex');
+Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
+
+Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');

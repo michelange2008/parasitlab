@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Extranet;
+namespace App\Http\Controllers;
 
 /**
 * Controller destiné à gérer tout ce qui est public
 */
-
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

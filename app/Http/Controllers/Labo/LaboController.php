@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Labo;
 
 /**
 * Controller destiné à gérer tout ce qui a trait à l'administration du site
@@ -18,6 +18,7 @@ class LaboController extends Controller
   public function __construct()
   {
       $this->middleware('auth');
+      $this->middleware('labo');
   }
 
   /**
@@ -25,7 +26,7 @@ class LaboController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function adminIndex()
+  public function index()
   {
       return "Admin";
   }

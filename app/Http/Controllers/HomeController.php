@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Usertype;
+
 class HomeController extends Controller
 {
     /**
@@ -23,7 +25,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-      dd(auth()->user()->usertype_id);
+      $usertype = Usertype::all();
+      // dd(auth()->user()->usertype->route);
+      
+      if(!$usertype->contains(auth()->user()->usertype_id)) 
+      {
+        
+        return redirect()->route('accueil');
+        
+      }
+      
+      else
+      {
+        
+        return redirect()->route((auth()->user()->usertype->route));
+        
+      }
         return view('home');
     }
 }
