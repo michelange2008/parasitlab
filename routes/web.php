@@ -25,3 +25,11 @@ Route::get('/laboratoire', 'Labo\LaboController@index')->name('laboratoire');
 Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
 
 Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
+
+Route::group(['prefix' => "laboratoire"], function(){
+
+  route::resource('demandes', 'Labo\DemandeController');
+
+});
+
+Route::resource('user', 'UserController');

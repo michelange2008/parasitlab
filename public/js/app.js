@@ -11916,7 +11916,7 @@ jQuery.each( {
 	pageY: true,
 	shiftKey: true,
 	view: true,
-	"string": true,
+	"char": true,
 	code: true,
 	charCode: true,
 	key: true,
@@ -15086,7 +15086,7 @@ var
 	 */
 	transports = {},
 
-	// Avoid comment-prolog string sequence (#10098); must appease lint and evade compression
+	// Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
 	allTypes = "*/".concat( "*" ),
 
 	// Anchor tag for parsing the document origin
@@ -36985,8 +36985,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\michel\Documents\www\parasitlab\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\michel\Documents\www\parasitlab\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /srv/parasitlab/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /srv/parasitlab/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

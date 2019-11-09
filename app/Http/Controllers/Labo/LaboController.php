@@ -7,9 +7,12 @@ namespace App\Http\Controllers\Labo;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Traits\LitJson;
 
 class LaboController extends Controller
 {
+
+  use LitJson;
   /**
    * Create a new controller instance.
    *
@@ -28,7 +31,12 @@ class LaboController extends Controller
    */
   public function index()
   {
-      return "Admin";
+
+      $menu = $this->litJson("menuLabo");
+
+      return view('labo.laboIndex', [
+        'menu' => $menu,
+      ]);
   }
 
   /**

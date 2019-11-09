@@ -9,6 +9,6 @@ class Veto extends Model
 {
     public function user()
     {
-      return hasOne(User::class);
+      return $this->belongsTo(User::class);
     }
 }
