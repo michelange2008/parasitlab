@@ -26,10 +26,13 @@ Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
 
 Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
-Route::group(['prefix' => "laboratoire"], function(){
+Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){
 
   route::resource('demandes', 'Labo\DemandeController');
 
-});
+  Route::resource('user', 'UserController');
 
-Route::resource('user', 'UserController');
+  Route::resource('vetoAdmin', 'Labo\VetoAdminController');
+
+  Route::resource('eleveurAdmin', 'Labo\EleveurAdminController');
+});

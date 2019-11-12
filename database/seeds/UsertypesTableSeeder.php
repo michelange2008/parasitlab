@@ -14,23 +14,21 @@ class UsertypesTableSeeder extends Seeder
         DB::table('usertypes')->insert([
           [
             'id' => 1,
-            'nom' =>'eleveur',
+            'nom' =>'éleveur',
             'icone_id' => 11,
+            'route' => 'eleveur',
           ],
           [
             'id' => 2,
-            'nom' => 'labo',
+            'nom' => 'laboratoire',
             'icone_id' => 12,
+            'route' => 'laboratoire',
           ],
           [
             'id' => 3,
-            'nom' => 'webmin',
-            'icone_id' => 13,
-          ],
-          [
-            'id' => 4,
-            'nom' => 'veto',
+            'nom' => 'vétérinaire',
             'icone_id' => 14,
+            'route' => 'veterinaire',
           ],
         ]);
     }

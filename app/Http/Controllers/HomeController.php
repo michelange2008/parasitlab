@@ -27,19 +27,19 @@ class HomeController extends Controller
     {
       $usertype = Usertype::all();
       // dd(auth()->user()->usertype->route);
-      
-      if(!$usertype->contains(auth()->user()->usertype_id)) 
+
+      if(!$usertype->contains(auth()->user()->usertype_id))
       {
-        
+
         return redirect()->route('accueil');
-        
+
       }
-      
+
       else
       {
-        
+
         return redirect()->route((auth()->user()->usertype->route));
-        
+
       }
         return view('home');
     }

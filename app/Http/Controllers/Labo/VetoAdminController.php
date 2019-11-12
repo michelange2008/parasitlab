@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Labo;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class VetoAdminController extends Controller
 {
@@ -27,9 +28,9 @@ class VetoAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($user_id)
     {
-        //
+        return "création d'un nouveau véto";
     }
 
     /**

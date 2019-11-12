@@ -15,6 +15,6 @@ class Usertype extends Model
 
     public function icone()
     {
-      return $this->hasOne(Icone::class);
+      return $this->belongsTo(Icone::class);
     }
 }

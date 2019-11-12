@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
           'name' => 'Michel BOUY',
           'email' => 'michel.bouy@fibl.org',
           'password' => bcrypt('17891789Mm'),
-          'usertype_id' => 3,
+          'usertype_id' => 2,
         ],
         [
           'id' => 2,
@@ -38,14 +38,14 @@ class UsersTableSeeder extends Seeder
           'name' => 'aucun vétérinaire',
           'email' => 'michelange@wanadoo.fr',
           'password' => bcrypt('%!*sqy78JK%ù=ff'),
-          'usertype_id' => 4,
+          'usertype_id' => 3,
         ],
         [
           'id' => 5,
           'name' => 'antikor',
           'email' => 'antikor@orange.fr',
           'password' => bcrypt('enerlite+1'),
-          'usertype_id' => 4,
+          'usertype_id' => 3,
         ],
       ]);
     }

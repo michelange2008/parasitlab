@@ -19,9 +19,14 @@
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
-        "sass-loader": "^7.1.0"
+        "sass-loader": "^7.1.0",
+        "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "bootstrap-table": "^1.15.5",
+        "datatables.net-dt": "^1.10.20",
+        "datatables.net-fixedheader-dt": "^3.1.6",
+        "datatables.net-responsive-dt": "^2.2.3",
         "npm": "^6.12.1"
     }
 }

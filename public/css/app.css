@@ -1,5 +1,60 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.bg-bleu {
+  background: #2E6B85;
+}
+
+.bg-bleu-clair {
+  background: #488199;
+}
+
+.bg-bleu-tres-clair {
+  background: #76A6BB;
+}
+
+.bg-bleu-fonce {
+  background: #1A5772;
+}
+
+.bg-bleu-tres-fonce {
+  background: #0A425A;
+}
+
+.color-bleu {
+  color: #2E6B85;
+}
+
+.color-bleu-clair {
+  color: #488199;
+}
+
+.color-bleu-tres-clair {
+  color: #76A6BB;
+}
+
+.color-bleu-fonce {
+  color: #1A5772;
+}
+
+.color-bleu-tres-fonce {
+  color: #0A425A;
+}
+
+.btn-bleu {
+  background: #0A425A !important;
+  color: #76A6BB !important;
+}
+
+.alert-bleu {
+  background: #76A6BB;
+  color: #0A425A;
+}
+
+.alert-bleu-tres-fonce {
+  background: #0A425A;
+  color: #76A6BB;
+}
+
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -4348,7 +4403,7 @@ input[type=button].btn-block {
   background-color: #3490dc;
   border: 0;
   border-radius: 1rem;
-  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -moz-appearance: none;
        appearance: none;
@@ -4356,7 +4411,7 @@ input[type=button].btn-block {
 
 @media (prefers-reduced-motion: reduce) {
   .custom-range::-moz-range-thumb {
-    -webkit-transition: none;
+    -moz-transition: none;
     transition: none;
   }
 }
@@ -4384,14 +4439,14 @@ input[type=button].btn-block {
   background-color: #3490dc;
   border: 0;
   border-radius: 1rem;
-  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -ms-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   appearance: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .custom-range::-ms-thumb {
-    -webkit-transition: none;
+    -ms-transition: none;
     transition: none;
   }
 }
@@ -11100,43 +11155,13 @@ a.text-dark:focus {
   }
 }
 
-.bg-bleue {
-  background: #2E6B85;
+.img-50 {
+  width: 50px;
+  height: 50px;
 }
 
-.bg-bleue-clair {
-  background: #488199;
-}
-
-.bg-bleue-tres-clair {
-  background: #76A6BB;
-}
-
-.bg-bleue-fonce {
-  background: #1A5772;
-}
-
-.bg-bleue-tres-fonce {
-  background: #0A425A;
-}
-
-.color-bleue {
-  color: #2E6B85;
-}
-
-.color-bleue-clair {
-  color: #488199;
-}
-
-.color-bleue-tres-clair {
-  color: #76A6BB;
-}
-
-.color-bleue-fonce {
-  color: #1A5772;
-}
-
-.color-bleue-tres-fonce {
-  color: #0A425A;
+.img-25 {
+  width: 25px;
+  height: 25px;
 }
 

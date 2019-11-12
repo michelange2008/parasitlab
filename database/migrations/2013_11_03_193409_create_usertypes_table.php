@@ -18,6 +18,7 @@ class CreateUsertypesTable extends Migration
             $table->string('nom', 50);
             $table->unsignedInteger('icone_id')->default(1);
             $table->foreign('icone_id')->references('id')->on('icones');
+            $table->string('route', 50);
         });
     }
 

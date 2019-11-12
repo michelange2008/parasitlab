@@ -7,12 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="{{asset('storage/oeuf.svg')}}" />
 
     <title>{{ config('app.name', "Parasit'Lab") }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,6 +17,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/fixedHeader.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.jquery.dataTables.min.css')}}">
+
 </head>
 <body>
 
@@ -27,5 +29,7 @@
 
         @yield('content')
 
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

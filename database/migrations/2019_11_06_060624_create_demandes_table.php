@@ -26,10 +26,10 @@ class CreateDemandesTable extends Migration
             $table->foreign('veto_id')->references('id')->on('vetos');
             $table->integer('facture')->unsigned();
             $table->foreign('facture')->references('id')->on('users');
-            $table->timestamp('prelevement');
+            $table->timestamp('prelevement')->nullable();
             $table->timestamp('reception');
-            $table->timestamp('resultat');
-            $table->timestamp('envoi');
+            $table->timestamp('resultat')->nullable();
+            $table->timestamp('envoi')->nullable();
             $table->timestamps();
         });
     }
