@@ -1,0 +1,62 @@
+{
+  "item_1" :
+  {
+    "nom" : "Accueil",
+    "tooltip" : "Retour à l'accueil général",
+    "route" : "accueil"
+  },
+  "item_2" :
+  {
+    "nom" : "Nouveau",
+    "tooltip" : "Création d'une nouvelle demande d'analyse",
+    "route" : "demandes.create"
+  },
+  "item_3" :
+  {
+    "nom" : "Demandes",
+    "tooltip" : "Tout ce qui concerne les demandes d'analyse: nouvelles, en cours, résultats, etc.",
+    "route" : "laboratoire",
+    "sousmenu" :
+    {
+      "sousmenu_1" :
+      {
+        "nom" : "Ajouter",
+        "tooltip" : "Création d'une nouvelle demande d'analyse",
+        "route" : "demandes.create"
+      },
+      "sousmenu_2" :
+      {
+        "nom" : "Modifier",
+        "tooltip" : "modifier une demande d'analyse en cours",
+        "route" : "demandes.index"
+      }
+    }
+  },
+  "item_4" :
+  {
+    "nom" : "Utilisateurs",
+    "tooltip" : "Tout ce qui concerne les utilisateurs: éleveurs et vétérinaires",
+    "route" : "laboratoire",
+    "sousmenu" :
+    {
+      "sousmenu_1" :
+      {
+        "nom" : "Eleveurs",
+        "tooltip" : "Ajouter, modifier, supprimer des éleveurs",
+        "route" : "eleveurAdmin.index"
+      },
+      "sousmenu_2" :
+      {
+        "nom" : "Vétérinaires",
+        "tooltip" : "Ajouter, modifier, supprimer des vétérinaires",
+        "route" : "vetoAdmin.index"
+      },
+      "sousmenu_3" :
+      {
+        "nom" : "Tous",
+        "tooltip" : "Consulter tous les utilisateurs",
+        "route" : "user.index"
+      }
+    }
+  }
+}
