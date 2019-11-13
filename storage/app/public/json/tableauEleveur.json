@@ -1,0 +1,11 @@
+{
+  "name" : "nom",
+  "email" : "email",
+  "ede" : "ede",
+  "address_1" : "adresse",
+  "cpcommune" : "commune",
+  "tel" : "téléphone",
+  "veto" : "vétérinaire",
+  "voir" : "voir",
+  "suppr" : "del"
+}
