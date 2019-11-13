@@ -11,4 +11,9 @@ class Veto extends Model
     {
       return $this->belongsTo(User::class);
     }
+
+    public function eleveurs()
+    {
+      return $this->hasMany(Eleveur::class);
+    }
 }

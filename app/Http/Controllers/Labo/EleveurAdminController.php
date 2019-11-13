@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Models\Eleveur;
 use App\Models\Veto;
+use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
 
@@ -34,30 +35,15 @@ class EleveurAdminController extends Controller
      */
     public function index()
     {
-      // $eleveurs = DB::table('users')->join('eleveurs', 'user_id', '=', 'users.id')
-      //                               ->get();
+      $intitules = $this->litJson("tableauEleveur");
+
       $eleveurs = Eleveur::all();
-      foreach ($eleveurs as $key => $eleveur) {
-        $analyses = Demandes::where('user_id', $eleveur->id)->get();
-        $eleveurs[$key]
-      }
-      $eleveurs_analyse = DB::table('users')->join('eleveurs', 'user_id', '=', 'users.id')
-                                    ->leftjoin('demandes', 'demandes.user_id', '=', 'users.id')->get();
 
-      // $eleveurs = DB::table('demandes')->join('users', 'users.id', '=', 'user_id' )
-      //                                   ->join('eleveurs', 'eleveurs.user_id', '=', 'users.id')
-      //                                   ->groupBy('demandes.user_id')
-      //                                   ->get();
-      // $analyses = DB::table('demandes');
-      //
-      // $eleveurs = DB::table('users')->joinSub($analyses, 'analyses', function($join){
-      //   $join->on('users.id','=', 'analyses.user_id')->get();
-      // });
-
-
-      dd($eleveurs);
-
-      return view('admin.eleveurIndex');
+      return view('admin.eleveurIndex', [
+        'menu' => $this->menu,
+        'intitules' => $intitules,
+        'eleveurs' => $eleveurs,
+      ]);
 
 
 
@@ -115,7 +101,17 @@ class EleveurAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $eleveur = DB::table('users')->where('users.id', $id)->join('eleveurs', 'user_id', '=', 'users.id')->first();
+
+        $analyses = Demande::where('user_id', $id)->orderBy('reception', 'desc')->get();
+
+        // dd($analyses);
+
+        return view('admin.eleveurShow', [
+          'menu' => $this->menu,
+          'eleveur' => $eleveur,
+          'analyses' => $analyses,
+        ]);
     }
 
     /**

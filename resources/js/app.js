@@ -4,10 +4,17 @@ require( 'datatables.net-dt' );
 require( 'datatables.net-fixedheader-dt' );
 require( 'datatables.net-responsive-dt' );
 
-
-
 $(document).ready(function() {
+
   $('#table-users').dataTable({
+    responsive :true,
+    fixedHeader: true,
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+    }
+  });
+
+  $('#table-eleveurs').dataTable({
     responsive :true,
     fixedHeader: true,
     "language": {

@@ -54453,6 +54453,13 @@ $(document).ready(function () {
       "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
     }
   });
+  $('#table-eleveurs').dataTable({
+    responsive: true,
+    fixedHeader: true,
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+    }
+  });
 
   Date.prototype.toDateInputValue = function () {
     var local = new Date(this);
