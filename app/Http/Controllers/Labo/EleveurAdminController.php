@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Labo;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use App\User;
 use App\Models\Eleveur;
 use App\Models\Veto;
@@ -104,8 +105,6 @@ class EleveurAdminController extends Controller
         $eleveur = DB::table('users')->where('users.id', $id)->join('eleveurs', 'user_id', '=', 'users.id')->first();
 
         $analyses = Demande::where('user_id', $id)->orderBy('reception', 'desc')->get();
-
-        // dd($analyses);
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
