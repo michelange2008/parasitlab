@@ -27,8 +27,8 @@
                 <td>{{ $eleveur->user->name }}</td>
                 <td>{{ $eleveur->user->email}}</td>
                 <td>{{ $eleveur->ede }}</td>
-                <td>{{ $eleveur->address_1." ".$eleveur->address_2 }}</td>
-                <td>{{ $eleveur->cp." ".$eleveur->commune }}</td>
+                <td>{{ $eleveur->cp }}</td>
+                <td>{{ $eleveur->commune }}</td>
                 <td>{{ $eleveur->tel }}</td>
                 <td>{{ $eleveur->veto->user->name }}</td>
                 <td>

@@ -22,6 +22,11 @@ $(document).ready(function() {
     }
   });
 
+  $('#list-tab-eleveur a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+});
+
   Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());

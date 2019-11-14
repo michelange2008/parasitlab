@@ -81,3 +81,12 @@ $rouge-tres-fonce: #8F230A;
   background: $bleu-tres-fonce;
   color: $bleu-tres-clair;
 }
+
+.list-group-item.active {
+  background: $bleu-tres-fonce !important;
+}
+
+.list-group-item-bleu-tres-clair {
+  background: $bleu-tres-clair !important;
+
+}

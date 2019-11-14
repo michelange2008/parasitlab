@@ -102,7 +102,7 @@ class EleveurAdminController extends Controller
      */
     public function show($id)
     {
-        $eleveur = DB::table('users')->where('users.id', $id)->join('eleveurs', 'user_id', '=', 'users.id')->first();
+        $eleveur = User::find($id);
 
         $analyses = Demande::where('user_id', $id)->orderBy('reception', 'desc')->get();
 
