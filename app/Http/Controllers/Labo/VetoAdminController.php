@@ -75,7 +75,7 @@ class VetoAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "coucou véto";
     }
 
     /**

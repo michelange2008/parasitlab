@@ -12,11 +12,12 @@ use App\Models\Veto;
 use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
-
+use App\Http\Traits\FormatEde;
+use App\Http\Traits\FormatTel;
 
 class EleveurAdminController extends Controller
 {
-    use LitJson;
+    use LitJson, FormatEde, FormatTel;
 
     protected $menu;
     /**
@@ -36,7 +37,7 @@ class EleveurAdminController extends Controller
      */
     public function index()
     {
-      $intitules = $this->litJson("tableauEleveur");
+      $intitules = $this->litJson("tableauEleveurs");
 
       $eleveurs = Eleveur::all();
 
@@ -102,14 +103,23 @@ class EleveurAdminController extends Controller
      */
     public function show($id)
     {
-        $eleveur = User::find($id);
+        $user = User::find($id);
+
+        $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
+        $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);
 
         $analyses = Demande::where('user_id', $id)->orderBy('reception', 'desc')->get();
 
+        $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
+
+        $pays = $this->litJson("pays");
+
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
-          'eleveur' => $eleveur,
+          'user' => $user,
+          'vetos' => $vetos,
           'analyses' => $analyses,
+          'pays' => $pays,
         ]);
     }
 
@@ -133,7 +143,7 @@ class EleveurAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      return "coucou eleveur";
     }
 
     /**

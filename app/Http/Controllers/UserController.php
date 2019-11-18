@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\Http\Traits\LitJson;
 use App\User;
 use App\Models\Usertype;
+use App\Http\Traits\QuelUsertype;
 
 class UserController extends Controller
 {
-    use LitJson;
+    use LitJson, QuelUsertype;
 
     protected $menu;
     /**
@@ -69,12 +71,12 @@ class UserController extends Controller
 
       $nouvel_user->save();
 
-      if ($usertype->route === 'eleveur') {
+      if ($this->estEleveur($usertype->id)) {
         return redirect()->route('eleveurAdmin.create', [
           'user_id' => $nouvel_user->id,
         ]);
       }
-      elseif($usertype->route === 'veterinaire') {
+      elseif($this->estVeto($usertype->id)) {
         return redirect()->route('vetoAdmin.create', [
           'user_id' => $nouvel_user->id,
         ]);
@@ -115,7 +117,39 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datas = $request->all();
+// dd($datas['ede']);
+        DB::table('users')->where('id', $id)
+              ->Update(
+                [
+                  'id' => $id,
+                  'name' => $datas['name'],
+                  'email' => $datas['email'],
+                  'password' => $datas['password'],
+                  'usertype_id' => $datas['usertype_id'],
+                ]);
+
+        if($this->estVeto($datas['usertype_id'])) {
+          return redirect()->route('vetoAdmin.update', ['id' => $id, 'request' => $request]);
+        }
+        elseif ($this->estEleveur($datas['usertype_id'])) {
+
+          DB::table('eleveurs')->where('user_id', $id)
+                ->Update([
+                  'user_id' => $id,
+                  'ede' => $datas['ede'],
+                  'address_1' => $datas['address_1'],
+                  'address_2' => $datas['address_2'],
+                  'cp' => $datas['cp'],
+                  'commune' => $datas['commune'],
+                  'pays' => $datas['pays'],
+                  'indicatif' => $datas['indicatif'],
+                  'tel' => $datas['tel'],
+                  'veto_id' => $datas['veto_id'],
+                ]);
+          return redirect()->route('eleveurAdmin.show', $id);
+        }
+
     }
 
     /**

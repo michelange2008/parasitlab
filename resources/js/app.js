@@ -22,6 +22,14 @@ $(document).ready(function() {
     }
   });
 
+  $('#table-demandes').dataTable({
+    responsive :true,
+    fixedHeader: true,
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+    }
+  });
+
   $('#list-tab-eleveur a').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show')

@@ -16,4 +16,9 @@ class Veto extends Model
     {
       return $this->hasMany(Eleveur::class);
     }
+
+    public function demandes()
+    {
+      return $this->hasMany(Productions\Demande::class);
+    }
 }

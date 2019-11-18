@@ -42,7 +42,7 @@
 
 .btn-bleu {
   background: #0A425A !important;
-  color: #76A6BB !important;
+  color: white !important;
 }
 
 .alert-bleu {
@@ -11166,6 +11166,11 @@ a.text-dark:focus {
 .img-50 {
   width: 50px;
   height: 50px;
+}
+
+.img-40 {
+  width: 40px;
+  height: 40px;
 }
 
 .img-25 {

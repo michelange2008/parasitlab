@@ -1,11 +1,12 @@
 {
-  "name" : "nom",
-  "email" : "email",
-  "ede" : "ede",
-  "cp" : "cp",
-  "commune" : "commune",
-  "tel" : "téléphone",
-  "veto" : "vétérinaire",
+  "name" : "Analyse",
+  "espece" : "Espèce",
+  "toveto" : "Envoi au vétérinaire",
+  "reception" : "Date de réception",
+  "resultats" : "Date de résultats",
+  "resultats_envoyes" : "Date d'envoi",
+  "facture_envoyee" : "Facture envoyée",
+  "facture_payee" : "Facture payée",
   "voir" : "voir",
   "suppr" : "del"
 }

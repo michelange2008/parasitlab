@@ -10,11 +10,16 @@ class Espece extends Model
 
     public function icone()
     {
-      return $this->hasOne(Icone::class);
+      return $this->belongsTo(Icone::class);
     }
 
     public function analyses()
     {
       return $this->hasMany(Analyses\Analyse::class);
+    }
+
+    public function demandes()
+    {
+      return $this->hasMany(Productions\Demande::class);
     }
 }

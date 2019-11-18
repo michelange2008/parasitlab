@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Demande extends Model
 {
     protected $guarded = [];
-    
+
     public function user()
     {
       return $this->belongsTo(\App\User::class);
@@ -25,6 +25,11 @@ class Demande extends Model
 
     public function facture()
     {
-      return $this->belongsTo(\App\User::class);
+      return $this->belongsTo(Facture::class);
+    }
+
+    public function veto()
+    {
+      return $this->belongsTo(\App\Models\Veto::class);
     }
 }

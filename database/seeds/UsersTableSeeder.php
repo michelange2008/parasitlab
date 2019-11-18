@@ -47,6 +47,27 @@ class UsersTableSeeder extends Seeder
           'password' => bcrypt('enerlite+1'),
           'usertype_id' => 3,
         ],
+        [
+          'id' => 6,
+          'name' => 'GAEC de la lune',
+          'email' => 'gaeclune@vache.com',
+          'password' => bcrypt('azerty'),
+          'usertype_id' => 1,
+        ],
+        [
+          'id' => 7,
+          'name' => 'EARL des étoiles',
+          'email' => 'earletoiles@vache.com',
+          'password' => bcrypt('azerty'),
+          'usertype_id' => 1,
+        ],
+        [
+          'id' => 8,
+          'name' => 'SCEA des galaxies',
+          'email' => 'scea@vache.com',
+          'password' => bcrypt('azerty'),
+          'usertype_id' => 1,
+        ],
       ]);
     }
 }

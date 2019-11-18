@@ -32,9 +32,15 @@ class DemandeController extends Controller
 
     public function index()
     {
+      $intitules = $this->LitJson("tableauEleveur");
 
+      $demandes = Demande::all();
 
-        return view('labo.demandeIndex');
+        return view('labo.laboIndex', [
+          "menu" => $this->menu,
+          "intitules" => $intitules,
+          "demandes" => $demandes,
+        ]);
     }
 
     /**

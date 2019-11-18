@@ -54460,6 +54460,13 @@ $(document).ready(function () {
       "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
     }
   });
+  $('#table-demandes').dataTable({
+    responsive: true,
+    fixedHeader: true,
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
+    }
+  });
   $('#list-tab-eleveur a').on('click', function (e) {
     e.preventDefault();
     $(this).tab('show');
@@ -54539,8 +54546,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /srv/parasitlab/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /srv/parasitlab/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\michel\Documents\www\parasitlab\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\michel\Documents\www\parasitlab\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

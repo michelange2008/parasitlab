@@ -24,12 +24,14 @@ class CreateDemandesTable extends Migration
             $table->boolean('toveto');
             $table->unsignedInteger('veto_id')->default(4);
             $table->foreign('veto_id')->references('id')->on('vetos');
-            $table->integer('facture')->unsigned();
-            $table->foreign('facture')->references('id')->on('users');
+            $table->integer('facture_dest')->unsigned();
+            $table->foreign('facture_dest')->references('id')->on('users');
             $table->timestamp('prelevement')->nullable();
             $table->timestamp('reception');
             $table->timestamp('resultat')->nullable();
             $table->timestamp('envoi')->nullable();
+            $table->UnsignedInteger('facture')->nullable();
+            $table->foreign('facture')->references('id')->on('factures');
             $table->timestamps();
         });
     }

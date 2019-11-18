@@ -31,12 +31,7 @@ class LaboController extends Controller
    */
   public function index()
   {
-
-      $menu = $this->litJson("menuLabo");
-
-      return view('labo.laboIndex', [
-        'menu' => $menu,
-      ]);
+    return redirect()-> route('demandes.index');
   }
 
   /**
