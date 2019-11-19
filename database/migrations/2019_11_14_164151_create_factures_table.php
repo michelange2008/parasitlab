@@ -16,11 +16,14 @@ class CreateFacturesTable extends Migration
         Schema::create('factures', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('demande_id');
-            $table->foreign('demande_id')->references('id')->on('demandes');
-            $table->boolean('faite');
-            $table->timestamp('faite_date');
-            $table->boolean('payee');
-            $table->timestamp('payee_date');
+            $table->integer('facture_dest')->unsigned();
+            $table->foreign('facture_dest')->references('id')->on('users');
+            $table->boolean('faite')->default(0);
+            $table->timestamp('faite_date')->nullable();
+            $table->boolean('envoyee')->default(0);
+            $table->timestamp('envoyee_date')->nullable();
+            $table->boolean('payee')->default(0);
+            $table->timestamp('payee_date')->nullable();
         });
     }
 

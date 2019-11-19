@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
       $this->call(AnaitemsTableSeeder::class);
       $this->call(AnaactesTableSeeder::class);
       $this->call(AnapacksTableSeeder::class);
+      $this->call(FacturesTableSeeder::class);
       $this->call(DemandeTableSeeder::class);
     }
 }
