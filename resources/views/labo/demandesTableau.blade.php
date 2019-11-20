@@ -11,6 +11,11 @@
       <tr>
         <td>{{ $demande->anapack->nom}}</td>
         <td class="text-center">
+          <a href="{{ route('demandes.show', $demande->id) }}">
+            <i class="text-center text-success material-icons">launch</i>
+          </a>
+        </td>
+        <td class="text-center">
           <span class="d-none">{{$demande->espece->nom}}</span>
           <img class="img-40" src="{{ asset('storage/img/icones/'.$demande->espece->icone->nom) }}" alt="{{$demande->espece->nom}}">
         </td>
@@ -33,11 +38,6 @@
         </td>
         <td class="text-center">
           {{($demande->facture->payee ? (new Carbon\Carbon($demande->facture->payee_date))->format('d/m/y') : "") }}
-        </td>
-        <td class="text-center">
-          <a href="{{ route('demandes.show', $demande->id) }}">
-            <i class="text-center text-success material-icons">launch</i>
-          </a>
         </td>
         <td class="text-center">
           <a href="{{ route('demandes.destroy', $demande->id) }}">

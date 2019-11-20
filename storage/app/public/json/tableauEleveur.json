@@ -1,5 +1,6 @@
 {
   "name" : "Analyse",
+  "voir" : "",
   "espece" : "Esp.",
   "toveto" : "Envoi au vétérinaire",
   "reception" : "Date de réception",
@@ -7,6 +8,5 @@
   "resultats_envoyes" : "Date d'envoi",
   "facture_envoyee" : "Facture envoyée",
   "facture_payee" : "Facture payée",
-  "voir" : "voir",
   "suppr" : "del"
 }
