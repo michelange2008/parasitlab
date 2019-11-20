@@ -1,8 +1,8 @@
 <table id="table-demandes" class="table hover">
-  <thead>
+  <thead class="alert-bleu-tres-fonce">
     <tr>
       @foreach ($intitules as $intitule)
-        <th>{{$intitule}}</th>
+        <th class="align-middle text-center">{{$intitule}}</th>
       @endforeach
     </tr>
   </thead>
@@ -20,19 +20,19 @@
           </a>
         </td>
         <td class="text-center">
-          {{(new Carbon\Carbon($demande->reception))->toFormattedDateString() }}
+          {{(new Carbon\Carbon($demande->reception))->format('d/m/y') }}
         </td>
         <td class="text-center">
-          {{(null !== $demande->resultat ? (new Carbon\Carbon($demande->resultat))->toFormattedDateString() : "") }}
+          {{(null !== $demande->resultat ? (new Carbon\Carbon($demande->resultat))->format('d/m/y') : "") }}
         </td>
         <td class="text-center">
-          {{(null !== $demande->envoi ? (new Carbon\Carbon($demande->envoi))->toFormattedDateString() : "") }}
+          {{(null !== $demande->envoi ? (new Carbon\Carbon($demande->envoi))->format('d/m/y') : "") }}
         </td>
         <td class="text-center">
-          {{($demande->facture->envoyee ? (new Carbon\Carbon($demande->facture->envoyee_date))->toFormattedDateString() : "") }}
+          {{($demande->facture->envoyee ? (new Carbon\Carbon($demande->facture->envoyee_date))->format('d/m/y') : "") }}
         </td>
         <td class="text-center">
-          {{($demande->facture->payee ? (new Carbon\Carbon($demande->facture->payee_date))->toFormattedDateString() : "") }}
+          {{($demande->facture->payee ? (new Carbon\Carbon($demande->facture->payee_date))->format('d/m/y') : "") }}
         </td>
         <td class="text-center">
           <a href="{{ route('demandes.show', $demande->id) }}">

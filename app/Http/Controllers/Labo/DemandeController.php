@@ -36,7 +36,7 @@ class DemandeController extends Controller
 
       $demandes = Demande::all();
 
-        return view('labo.laboIndex', [
+      return view('labo.laboIndex', [
           "menu" => $this->menu,
           "intitules" => $intitules,
           "demandes" => $demandes,

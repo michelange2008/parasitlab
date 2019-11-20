@@ -54446,6 +54446,7 @@ __webpack_require__(/*! datatables.net-fixedheader-dt */ "./node_modules/datatab
 __webpack_require__(/*! datatables.net-responsive-dt */ "./node_modules/datatables.net-responsive-dt/js/responsive.dataTables.js");
 
 $(document).ready(function () {
+  $('[data-toggle="tooltip"]').tooltip();
   $('#table-users').dataTable({
     responsive: true,
     fixedHeader: true,

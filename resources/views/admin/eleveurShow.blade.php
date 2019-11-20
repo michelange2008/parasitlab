@@ -6,44 +6,20 @@
 
   <div class="container">
     <div class="row mt-3">
-      <div class="col-md-10 mx-auto alert alert-bleu">
-        <h3>{{ $user->name }}</h3>
+      <div class="col-md-10 mx-auto alert alert-bleu d-flex justify-content-between align-items-middle">
+        <div class="d-inline-flex align-items-middle">
+          <img class="img-40" src="{{ asset('storage/img/icones/eleveur.svg') }}" alt="">
+          <h3 class="mx-3">{{ $user->name }}</h3>
+        </div>
+        <button class="btn btn-bleu rounded-0" type="button" data-toggle="collapse" data-target="#modifier" aria-expanded="false" aria-controls="modifier">
+            Détails
+          </button>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10">
-        <p>
-          <button class="btn btn-bleu rounded-0" type="button" data-toggle="collapse" data-target="#voir" aria-expanded="false" aria-controls="voir">
-            Voir
-          </button>
-          <button class="btn btn-warning rounded-0" type="button" data-toggle="collapse" data-target="#modifier" aria-expanded="false" aria-controls="modifier">
-            Modifier
-          </button>
-        </p>
-        <div class="collapse" id="voir">
-          <div class="card card-body">
-            <div class="">
-              <p><span class="text-muted">Numéro de cheptel: </span>{{ $user->eleveur->ede }}</p>
-            </div>
-            <div class="">
-              <p><span class="text-muted">Adresse mail: </span>{{ $user->email }}</p>
-            </div>
-            <div class="">
-              <p>
-                <span class="text-muted">Adresse: </span>
-                {{ $user->eleveur->address_1 }} {{ $user->eleveur->address_2 }} {{ $user->eleveur->cp }} {{ $user->eleveur->commune }}
-              </p>
-            </div>
-            <div class="">
-              <p><span class="text-muted">Téléphone: </span>(00{{ $user->eleveur->indicatif }}) {{ $user->eleveur->tel }}</p>
-            </div>
-            <div class="">
-              <p><span class="text-muted">Vétérinaire déclaré:</span> {{ ucfirst($user->eleveur->veto->user->name) }}</p>
-            </div>
-          </div>
-        </div>
         <div class="collapse" id="modifier">
           <div class="card card-body">
             {!! Form::open(['route' => ['user.update', $user->id]], $user->id) !!}
@@ -124,8 +100,8 @@
     </div>
     <div class="row">
       <div class="col-md-1"></div>
-      <div class="col-md-9">
-        
+      <div class="col-md-10">
+        @include('labo.demandesTableau', ['demandes' => $demandes, 'intitules' => $intitules])
       </div>
     </div>
 

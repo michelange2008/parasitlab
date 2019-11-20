@@ -108,17 +108,19 @@ class EleveurAdminController extends Controller
         $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
         $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);
 
-        $analyses = Demande::where('user_id', $id)->orderBy('reception', 'desc')->get();
+        $demandes = Demande::where('user_id', $id)->orderBy('reception', 'desc')->get();
 
         $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
 
         $pays = $this->litJson("pays");
+        $intitules = $this->litJson("tableauEleveur");
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
           'user' => $user,
           'vetos' => $vetos,
-          'analyses' => $analyses,
+          'demandes' => $demandes,
+          'intitules' => $intitules,
           'pays' => $pays,
         ]);
     }

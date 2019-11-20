@@ -6,6 +6,8 @@ require( 'datatables.net-responsive-dt' );
 
 $(document).ready(function() {
 
+  $('[data-toggle="tooltip"]').tooltip();
+
   $('#table-users').dataTable({
     responsive :true,
     fixedHeader: true,
