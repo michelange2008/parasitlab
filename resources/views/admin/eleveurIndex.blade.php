@@ -5,14 +5,14 @@
 @section('content')
 
   <div class="container-fluid">
-    <div class="row my-3">
-      <div class="col-md-10 alert alert-bleu d-inline-flex mx-auto">
+    <div class="row my-3 justify-content-center">
+      <div class="col-md-11 alert alert-bleu d-inline-flex">
         <img src="{{ asset('storage/img/icones/eleveur.svg') }}" class="img-50" alt="Eleveur">
         <h3 class="mx-3 my-auto">Liste des éleveurs</h3>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-10 mx-auto">
+    <div class="row justify-content-center">
+      <div class="col-md-11">
         <table id="table-eleveurs" class="table table-hover">
           <thead class="alert-bleu-tres-fonce">
             <tr>
@@ -35,7 +35,7 @@
                   <a href="{{ route('eleveurAdmin.show', $eleveur->user->id ) }}"><i class="text-center text-success material-icons">launch</i></a>
                 </td>
                 <td>
-                  <a href="#"><i class="text-center text-danger material-icons">delete_outlined</i></a>
+                  <a href="{{ route('eleveurAdmin.destroy', $eleveur->user->id ) }}"><i class="text-center text-danger material-icons">delete_outlined</i></a>
                 </td>
               </tr>
             @endforeach
