@@ -8,7 +8,7 @@
     <div class="row mt-3">
       <div class="col-md-10 mx-auto alert alert-bleu d-flex justify-content-between align-items-middle">
         <div class="d-inline-flex align-items-middle">
-          <img class="img-40" src="{{ asset('storage/img/icones/eleveur.svg') }}" alt="">
+          <img class="img-40" src="{{ asset('storage/img/icones/')."/".$user->usertype->icone->nom }}" alt="">
           <h3 class="mx-3">{{ $user->name }}</h3>
         </div>
         <button class="btn btn-bleu rounded-0" type="button" data-toggle="collapse" data-target="#modifier" aria-expanded="false" aria-controls="modifier">
