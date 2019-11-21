@@ -32,7 +32,7 @@ class DemandeController extends Controller
 
     public function index()
     {
-      $intitules = $this->LitJson("tableauEleveur");
+      $intitules = $this->LitJson("tableauDemandes");
 
       $demandes = Demande::all();
 

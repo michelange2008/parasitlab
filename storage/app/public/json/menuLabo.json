@@ -1,9 +1,15 @@
 {
   "item_1" :
   {
-    "nom" : "Accueil",
-    "tooltip" : "Retour à l'accueil général",
+    "nom" : "Accueil général",
+    "tooltip" : "Retour à l'accueil général (extranet)",
     "route" : "accueil"
+  },
+  "item_1b" :
+  {
+    "nom" : "Accueil laboratoire",
+    "tooltip" : "Retour à l'accueil général (extranet)",
+    "route" : "laboratoire"
   },
   "item_2" :
   {

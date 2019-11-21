@@ -1,0 +1,13 @@
+{
+  "name" : "Analyse",
+  "voir" : "voir",
+  "eleveur" : "Eleveur",
+  "espece" : "Esp.",
+  "toveto" : "-> vétérinaire",
+  "reception" : "Réception",
+  "resultats" : "Résultats",
+  "resultats_envoyes" : "Envoi",
+  "facture_envoyee" : "Fact. envoyée",
+  "facture_payee" : "Fact. payée",
+  "suppr" : "del"
+}

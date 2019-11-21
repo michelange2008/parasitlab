@@ -15,6 +15,7 @@
             <i class="text-center text-success material-icons">launch</i>
           </a>
         </td>
+        <td>{{ $demande->user->name }}</td>
         <td class="text-center">
           <span class="d-none">{{$demande->espece->nom}}</span>
           <img class="img-40" src="{{ asset('storage/img/icones/'.$demande->espece->icone->nom) }}" alt="{{$demande->espece->nom}}">
