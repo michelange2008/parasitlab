@@ -4,7 +4,7 @@ require( 'datatables.net-dt' );
 require( 'datatables.net-fixedheader-dt' );
 require( 'datatables.net-responsive-dt' );
 
-$(document).ready(function() {
+$(function() {
 
   $('[data-toggle="tooltip"]').tooltip();
 
@@ -32,31 +32,16 @@ $(document).ready(function() {
     ],
     scrolling : 500,
     paging : false,
-    // buttons : [
-    //   {
-    //     text : "efface",
-    //     action : function( e, dt, node, config ) {
-    //       $("input[type='search']").val("");
-    //     }
-    //   }
-    // ],
- //    responsive: {
- //     details: {
- //         display: $.fn.dataTable.Responsive.display.modal( {
- //             header: function ( row ) {
- //                 var data = row.data();
- //                 return 'Details for '+data[0]+' '+data[1];
- //             }
- //         } ),
- //         renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
- //             tableClass: 'table'
- //         } )
- //     }
- // },
     fixedHeader: true,
     "language": {
       "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
     }
+  });
+
+  $('.supprAnalyse').on('click', function(event) {
+    event.preventDefault();
+    alert('coucou');
+    console.log('suppression');
   });
 
   $('#list-tab-eleveur a').on('click', function (e) {

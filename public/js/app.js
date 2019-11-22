@@ -54445,7 +54445,7 @@ __webpack_require__(/*! datatables.net-fixedheader-dt */ "./node_modules/datatab
 
 __webpack_require__(/*! datatables.net-responsive-dt */ "./node_modules/datatables.net-responsive-dt/js/responsive.dataTables.js");
 
-$(document).ready(function () {
+$(function () {
   $('[data-toggle="tooltip"]').tooltip();
   $('#table-users').dataTable({
     responsive: true,
@@ -54472,31 +54472,15 @@ $(document).ready(function () {
     }],
     scrolling: 500,
     paging: false,
-    // buttons : [
-    //   {
-    //     text : "efface",
-    //     action : function( e, dt, node, config ) {
-    //       $("input[type='search']").val("");
-    //     }
-    //   }
-    // ],
-    //    responsive: {
-    //     details: {
-    //         display: $.fn.dataTable.Responsive.display.modal( {
-    //             header: function ( row ) {
-    //                 var data = row.data();
-    //                 return 'Details for '+data[0]+' '+data[1];
-    //             }
-    //         } ),
-    //         renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
-    //             tableClass: 'table'
-    //         } )
-    //     }
-    // },
     fixedHeader: true,
     "language": {
       "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
     }
+  });
+  $('.supprAnalyse').on('click', function (event) {
+    event.preventDefault();
+    alert('coucou');
+    console.log('suppression');
   });
   $('#list-tab-eleveur a').on('click', function (e) {
     e.preventDefault();
@@ -54577,8 +54561,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /srv/parasitlab/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /srv/parasitlab/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\michel\Documents\www\parasitlab\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\michel\Documents\www\parasitlab\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

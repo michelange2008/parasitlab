@@ -11,17 +11,29 @@
       <tr>
         <td>{{ $demande->anapack->nom}}</td>
         <td class="text-center">
-          <a href="{{ route('demandes.show', $demande->id) }}">
+          <a href="{{ route('demandes.show', $demande->id) }}"
+            data-toggle="tooltip" data-placement="top"
+            title="Voir le détail de l'analyse">
             <i class="text-center text-success material-icons">launch</i>
           </a>
         </td>
-        <td>{{ $demande->user->name }}</td>
+        <td>
+          <a href="{{ route('eleveurAdmin.show', $demande->user->id) }}"
+            data-toggle="tooltip" data-placement="top"
+            title="cliquer pour afficher l'éleveur">
+              {{ $demande->user->name }}</td>
+          </a>
         <td class="text-center">
           <span class="d-none">{{$demande->espece->nom}}</span>
-          <img class="img-40" src="{{ asset('storage/img/icones/'.$demande->espece->icone->nom) }}" alt="{{$demande->espece->nom}}">
+          <img class="img-40" src="{{ asset('storage/img/icones/'.$demande->espece->icone->nom) }}"
+            alt="{{$demande->espece->nom}}"
+            data-toggle="tooltip" data-placement="top"
+            title="{{ $demande->espece->nom }}">
         </td>
         <td class="text-center">
-          <a href="{{ route('vetoAdmin.show', $demande->veto->id)}}">
+          <a href="{{ route('vetoAdmin.show', $demande->veto->id)}}"
+            data-toggle="tooltip" data-placement="top"
+            title="cliquer pour afficher le vétérinaire">
             {{ ($demande->toveto === 1 ? $demande->veto->user->name : "") }}
           </a>
         </td>
@@ -34,17 +46,14 @@
         <td class="text-center">
           {{(null !== $demande->envoi ? (new Carbon\Carbon($demande->envoi))->format('d/m/y') : "") }}
         </td>
-        <td class="text-center d-flex align-items-middle">
-          {{ $demande->facture->id }} <i class="material-icons">zoom_in</i>
-        </td>
-        {{-- <td class="text-center">
-          {{($demande->facture->envoyee ? (new Carbon\Carbon($demande->facture->envoyee_date))->format('d/m/y') : "") }}
+        <td class="text-center">
+          <a href="#">{{ $demande->facture->id }} <i class="material-icons">zoom_in</i></a>
         </td>
         <td class="text-center">
-          {{($demande->facture->payee ? (new Carbon\Carbon($demande->facture->payee_date))->format('d/m/y') : "") }}
-        </td> --}}
-        <td class="text-center">
-          <a href="{{ route('demandes.destroy', $demande->id) }}">
+          <a id="supprAnalyse_{{$demande->id}}" class="supprAnalyse"
+            href="{{ route('demandes.destroy', $demande->id) }}"
+            data-toggle="tooltip" data-placement="top"
+            title="Supprimer cette analyse">
             <i class="text-center text-danger material-icons">delete_outlined</i>
           </a>
         </td>
