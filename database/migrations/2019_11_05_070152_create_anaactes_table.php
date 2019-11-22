@@ -20,8 +20,9 @@ class CreateAnaactesTable extends Migration
           $table->string('description');
           $table->unsignedInteger('icone_id')->default(1);
           $table->foreign('icone_id')->references('id')->on('icones');
-          $table->float('puht', 8, 2);
-          $table->float('tva', 3, 2)->default(0.2);
+          $table->decimal('pu_ht', 8, 2);
+          $table->unsignedInteger('tva_id')->default(1);
+          $table->foreign('tva_id')->references('id')->on('tvas');
         });
     }
 

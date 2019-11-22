@@ -34,12 +34,15 @@
         <td class="text-center">
           {{(null !== $demande->envoi ? (new Carbon\Carbon($demande->envoi))->format('d/m/y') : "") }}
         </td>
-        <td class="text-center">
+        <td class="text-center d-flex align-items-middle">
+          {{ $demande->facture->id }} <i class="material-icons">zoom_in</i>
+        </td>
+        {{-- <td class="text-center">
           {{($demande->facture->envoyee ? (new Carbon\Carbon($demande->facture->envoyee_date))->format('d/m/y') : "") }}
         </td>
         <td class="text-center">
           {{($demande->facture->payee ? (new Carbon\Carbon($demande->facture->payee_date))->format('d/m/y') : "") }}
-        </td>
+        </td> --}}
         <td class="text-center">
           <a href="{{ route('demandes.destroy', $demande->id) }}">
             <i class="text-center text-danger material-icons">delete_outlined</i>

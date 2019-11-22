@@ -7,7 +7,6 @@
   "reception" : "Réception",
   "resultats" : "Résultats",
   "resultats_envoyes" : "Envoi",
-  "facture_envoyee" : "Fact. envoyée",
-  "facture_payee" : "Fact. payée",
+  "num_facture" : "N° fact.",
   "suppr" : "del"
 }

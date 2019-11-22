@@ -19,6 +19,8 @@ class CreateFacturesTable extends Migration
             $table->integer('facture_dest')->unsigned();
             $table->foreign('facture_dest')->references('id')->on('users');
             $table->boolean('faite')->default(0);
+            $table->decimal('total_ht', 8, 2)->default(0);
+            $table->decimal('total_ttc', 8, 2)->default(0);
             $table->timestamp('faite_date')->nullable();
             $table->boolean('envoyee')->default(0);
             $table->timestamp('envoyee_date')->nullable();
