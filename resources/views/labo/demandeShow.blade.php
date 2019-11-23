@@ -14,6 +14,11 @@
         ])
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-8">
+        @include('fragments.demandeDetail' ['demande' => $demande])
+      </div>
+    </div>
   </div>
 
 @endsection
