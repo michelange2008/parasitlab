@@ -21,6 +21,7 @@ class CreateDemandesTable extends Migration
             $table->foreign('espece_id')->references('id')->on('especes');
             $table->unsignedInteger('anapack_id');
             $table->foreign('anapack_id')->references('id')->on('anapacks');
+            $table->string('identification', 191);
             $table->boolean('toveto');
             $table->unsignedInteger('veto_id')->default(4);
             $table->foreign('veto_id')->references('id')->on('vetos');
@@ -31,6 +32,7 @@ class CreateDemandesTable extends Migration
             $table->unsignedInteger('facture_id')->nullable();
             $table->foreign('facture_id')->references('id')->on('factures');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

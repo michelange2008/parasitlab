@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/fixedHeader.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/responsive.jquery.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/jquery-confirm.css')}}">
 
 </head>
 <body>

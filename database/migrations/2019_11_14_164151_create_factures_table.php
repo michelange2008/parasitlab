@@ -26,6 +26,7 @@ class CreateFacturesTable extends Migration
             $table->timestamp('envoyee_date')->nullable();
             $table->boolean('payee')->default(0);
             $table->timestamp('payee_date')->nullable();
+            $table->softDeletes();
         });
     }
 

@@ -54,6 +54,13 @@ class AnapacksTableSeeder extends Seeder
             "detail" => "il s'agit d'une visite d'élevage pour analyser plus en détail la question du parasitisme dans votre élevage",
             "icone_id" => 18,
           ],
+          [
+            'id' => 7,
+            "nom" => "test de Baermann",
+            "description" => "Recherche de larves de strongles respiratoires",
+            "detail" => "il s'agit d'une technique particulière permettant de mettre en évidence les larves de strongles respiratoires",
+            "icone_id" => 10,
+          ],
         ]);
     }
 }

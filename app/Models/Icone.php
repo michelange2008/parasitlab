@@ -22,4 +22,14 @@ class Icone extends Model
   {
     return $this->hasOne(Usertype::class);
   }
+
+  public function anapack()
+  {
+    return $this->hasOne(Analyses\Anapack::class);
+  }
+
+  public function anaacte()
+  {
+    return $this->hasOne(Analyses\Anaacte::class);
+  }
 }

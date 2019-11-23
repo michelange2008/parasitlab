@@ -7,11 +7,14 @@
   <div class="container">
     <div class="row mt-3 justify-content-center">
       <div class="col-md-11">
-        @include('admin.titreUtilisateur', ["user" => $user, "collapse" => "modifier"])
+        @include('fragments.titreUtilisateur', [
+          "user_name" => $user->name,
+          "icone" => $user->usertype->icone->nom,
+          "collapse" => "modifier"])
       </div>
 
       <div class="col-md-11">
-        @include('admin.breadcrumb', [
+        @include('fragments.breadcrumb', [
           "liste" => [
           "Accueil" => "laboratoire",
           "Eleveurs" => "eleveurAdmin.index"
@@ -22,7 +25,7 @@
 
     <div class="row justify-content-center">
       <div class="col-md-11">
-        @include('admin.eleveurModifier', [
+        @include('fragments.eleveurModifier', [
           "user" => $user,
           "vetos" => $vetos,
           "pays" => $pays,

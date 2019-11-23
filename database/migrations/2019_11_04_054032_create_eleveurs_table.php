@@ -28,6 +28,7 @@ class CreateEleveursTable extends Migration
             $table->integer('veto_id')->unsigned()->default(1);
             $table->foreign('veto_id')->references('id')->on('vetos');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

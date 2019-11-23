@@ -160,6 +160,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "kill the user !";
     }
 }

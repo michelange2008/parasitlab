@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/css/jquery.dataTables.min.css": "/css/jquery.dataTables.min.css",
     "/css/responsive.jquery.dataTables.min.css": "/css/responsive.jquery.dataTables.min.css",
-    "/css/fixedHeader.dataTables.min.css": "/css/fixedHeader.dataTables.min.css"
+    "/css/fixedHeader.dataTables.min.css": "/css/fixedHeader.dataTables.min.css",
+    "/css/jquery-confirm.css": "/css/jquery-confirm.css"
 }

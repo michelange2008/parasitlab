@@ -11,21 +11,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      $this->call(IconesTableSeeder::class);
-      $this->call(UsertypesTableSeeder::class);
-      $this->call(UsersTableSeeder::class);
-      $this->call(QttsTableSeeder::class);
-      $this->call(VetosTableSeeder::class);
-      $this->call(UnitesTableSeeder::class);
-      $this->call(EspecesTableSeeder::class);
-      $this->call(TvasTableSeeder::class);
-      $this->call(EleveursTableSeeder::class);
-      $this->call(LabosTableSeeder::class);
-      $this->call(AnalysesTableSeeder::class);
-      $this->call(AnaitemsTableSeeder::class);
-      $this->call(AnaactesTableSeeder::class);
-      $this->call(AnapacksTableSeeder::class);
-      $this->call(FacturesTableSeeder::class);
-      $this->call(DemandeTableSeeder::class);
+      // $this->call(IconesTableSeeder::class);
+      // $this->call(UsertypesTableSeeder::class);
+      // $this->call(UsersTableSeeder::class);
+      // $this->call(QttsTableSeeder::class);
+      // $this->call(VetosTableSeeder::class);
+      // $this->call(UnitesTableSeeder::class);
+      // $this->call(EspecesTableSeeder::class);
+      // $this->call(TvasTableSeeder::class);
+      // $this->call(EleveursTableSeeder::class);
+      // $this->call(LabosTableSeeder::class);
+      // $this->call(AnalysesTableSeeder::class);
+      // $this->call(AnaitemsTableSeeder::class);
+      // $this->call(AnaactesTableSeeder::class);
+      // $this->call(AnapacksTableSeeder::class);
+      // $this->call(FacturesTableSeeder::class);
+      // $this->call(DemandeTableSeeder::class);
+      $this->call(Anaacte_anapackTableSeeder::class);
+
     }
 }

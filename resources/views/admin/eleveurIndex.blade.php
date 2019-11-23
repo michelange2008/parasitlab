@@ -16,7 +16,7 @@
         <table id="table-eleveurs" class="table table-hover">
           <thead class="alert-bleu-tres-fonce">
             <tr>
-              @foreach ($intitules as $intitule)
+              @foreach ($intitules as $intitule) <!-- issu de tableauEleveurs.json -->
                 <th class="align-middle">{{ $intitule }}</th>
               @endforeach
             </tr>
@@ -25,6 +25,9 @@
             @foreach ($eleveurs as $eleveur)
               <tr>
                 <td>{{ $eleveur->user->name }}</td>
+                <td>
+                  @include('fragments.voir', ['id' => $eleveur->user->id, 'route' => 'eleveurAdmin.show'])
+                </td>
                 <td>{{ $eleveur->user->email}}</td>
                 <td>{{ $eleveur->ede }}</td>
                 <td>{{ $eleveur->cp }}</td>
@@ -32,10 +35,7 @@
                 <td>{{ $eleveur->tel }}</td>
                 <td>{{ $eleveur->veto->user->name }}</td>
                 <td>
-                  <a href="{{ route('eleveurAdmin.show', $eleveur->user->id ) }}"><i class="text-center text-success material-icons">launch</i></a>
-                </td>
-                <td>
-                  <a href="{{ route('eleveurAdmin.destroy', $eleveur->user->id ) }}"><i class="text-center text-danger material-icons">delete_outlined</i></a>
+                  @include('fragments.supprLigne', ['id' => $eleveur->user->id, 'route' => "user.destroy"])
                 </td>
               </tr>
             @endforeach

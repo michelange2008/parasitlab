@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnaactesAnapacksTable extends Migration
+class CreateAnaacteAnapackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAnaactesAnapacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('anaactes_anapacks', function (Blueprint $table) {
+        Schema::create('anaacte_anapack', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('anapack_id')->unsigned();
           $table->foreign('anapack_id')->references('id')->on('anapacks');
           $table->integer('anaacte_id')->unsigned();
           $table->foreign('anaacte_id')->references('id')->on('anaactes');
-          $table->integer('nombre')->default(1);
         });
     }
 

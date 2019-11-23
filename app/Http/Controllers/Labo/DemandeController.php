@@ -144,7 +144,13 @@ class DemandeController extends Controller
      */
     public function show($id)
     {
-        //
+      // dd(Demande::find($id));
+
+        return view('labo.demandeShow', [
+          'menu' => $this->menu,
+          'demande' => Demande::find($id),
+        ]);
+
     }
 
     /**
@@ -167,7 +173,7 @@ class DemandeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -178,6 +184,10 @@ class DemandeController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+      Demande::where('id', $id)->delete();
+
+        return redirect()->route('demandes.index')->with('status', "La demande d'analyse a été supprimée");
+
     }
 }

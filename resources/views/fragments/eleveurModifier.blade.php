@@ -1,4 +1,6 @@
-<!-- FRAGMENT DESTINE A MODIFIER UN ELEVEUR -->
+<!-- FRAGMENT DESTINE A MODIFIER UN ELEVEUR
+NECESSITE 4 VARIABLES: user, vetos, pays, collapse
+FONCTIONNE AVEC LE FRAGMENT titreUtilisateur-->
 
   <div class="collapse" id="{{ $collapse }}">
     <div class="card card-body">

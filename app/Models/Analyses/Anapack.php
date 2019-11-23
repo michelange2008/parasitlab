@@ -7,4 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Anapack extends Model
 {
     public $timestamps = false;
+
+    public function anaactes()
+    {
+      return $this->belongsToMany(Anaacte::class);
+    }
+
+    public function icone()
+    {
+      return $this->belongsTo(\App\Models\Icone::class);
+    }
+
 }
