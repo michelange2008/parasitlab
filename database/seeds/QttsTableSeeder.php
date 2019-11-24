@@ -15,6 +15,7 @@ class QttsTableSeeder extends Seeder
           [ 'id' => 1, "nom" => "valeur" ],
           [ 'id' => 2, "nom" => "estimation" ],
           [ 'id' => 3, "nom" => "presence" ],
+          [ 'id' => 4, "nom" => "pourcentage" ],
         ]);
     }
 }

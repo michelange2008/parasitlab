@@ -75,6 +75,13 @@ class AnaitemsTableSeeder extends Seeder
             "unite_id" => "1",
             "qtt_id" => "1",
           ],
+          [
+            'id' => 10,
+            "abbreviation" => "HAEM",
+            "nom" => "haemonchus",
+            "unite_id" => "4",
+            "qtt_id" => "4",
+          ],
         ]);
     }
 }

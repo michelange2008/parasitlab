@@ -37,6 +37,11 @@ class AnalysesTableSeeder extends Seeder
             "nom" => "test de baermann (bovins)",
             "espece_id" => 5
           ],
+          [
+            'id' => 6,
+            "nom" => "pourcentage d'Haemonchus (petits ruminants)",
+            "espece_id" => 1
+          ],
         ]);
     }
 }
