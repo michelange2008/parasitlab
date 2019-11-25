@@ -15,9 +15,17 @@ class Prelevement extends Migration
     {
       Schema::create('prelevements', function (Blueprint $table) {
           $table->increments('id');
+          // IDENTIFICATION
+          $table->string('identification', 191);
+          // DEMANDE
           $table->unsignedInteger('demande_id');
           $table->foreign('demande_id')->references('id')->on('demandes');
-          $table->unsignedInteger('analyse');
+          // ANALYSE
+          $table->unsignedInteger('analyse_id');
+          $table->foreign('analyse_id')->references('id')->on('analyses');
+          // RESULTAT
+
+
       });
     }
 

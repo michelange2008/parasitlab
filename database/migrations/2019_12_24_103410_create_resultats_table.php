@@ -15,11 +15,15 @@ class CreateResultatsTable extends Migration
     {
         Schema::create('resultats', function (Blueprint $table) {
             $table->increments('id');
+            // PRLEVEMENT
             $table->unsignedInteger('prelevement_id');
             $table->foreign('prelevement_id')->references('id')->on('prelevements');
+            // ANALYSE
             $table->unsignedInteger('analyse_id');
             $table->foreign('analyse_id')->references('id')->on('analyses');
+            // RESULTAT
             $table->string('valeur, 191')->default(0);
+            // DATES
             $table->timestamps();
         });
     }
