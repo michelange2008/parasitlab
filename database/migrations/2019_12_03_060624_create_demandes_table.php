@@ -32,7 +32,6 @@ class CreateDemandesTable extends Migration
             $table->unsignedInteger('facture_id')->nullable();
             $table->foreign('facture_id')->references('id')->on('factures');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
