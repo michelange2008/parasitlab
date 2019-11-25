@@ -42,6 +42,11 @@ class PrelevementsTable extends Seeder
             'identification' => "Mustang",
             'demande_id' => 3,
           ],
+          [
+            'id' => 7,
+            'identification' => "Jument",
+            'demande_id' => 4,
+          ],
         ]);
     }
 }
