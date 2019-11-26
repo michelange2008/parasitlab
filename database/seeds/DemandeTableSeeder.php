@@ -71,7 +71,7 @@ class DemandeTableSeeder extends Seeder
           [
             'id' => 5,
             'user_id' => 7,
-            'nb_prelevement' => 1,
+            'nb_prelevement' => 2,
             'espece_id' => 5,
             'anapack_id' => 1,
             'toveto' => 0,
@@ -85,14 +85,14 @@ class DemandeTableSeeder extends Seeder
           [
             'id' => 6,
             'user_id' => 7,
-            'nb_prelevement' => 1,
-            'espece_id' => 4,
+            'nb_prelevement' => 3,
+            'espece_id' => 3,
             'anapack_id' => 2,
             'toveto' => 0,
             'veto_id' => 1,
             'date_prelevement' => null,
             'date_reception' => "2019-11-06 00:00:00",
-            'date_resultat' => null,
+            'date_resultat' => "2019-11-08 00:00:00",
             'date_envoi' => null,
             "facture_id" => 6,
           ]

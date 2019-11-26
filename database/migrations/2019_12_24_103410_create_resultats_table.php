@@ -18,11 +18,14 @@ class CreateResultatsTable extends Migration
             // PRLEVEMENT
             $table->unsignedInteger('prelevement_id');
             $table->foreign('prelevement_id')->references('id')->on('prelevements');
-            // ANALYSE
+            // ACTE
             $table->unsignedInteger('analyse_id');
             $table->foreign('analyse_id')->references('id')->on('analyses');
+            // ITEM
+            $table->unsignedInteger('anaitem_id');
+            $table->foreign('anaitem_id')->references('id')->on('anaitems');
             // RESULTAT
-            $table->string('valeur, 191')->default(0);
+            $table->string('valeur', 191)->nullable()->default(null);
             // DATES
             $table->timestamps();
         });

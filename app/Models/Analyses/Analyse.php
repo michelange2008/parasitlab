@@ -17,4 +17,9 @@ class Analyse extends Model
     {
       return $this->belongsTo(/App/Models/Icone::class);
     }
+
+    public function prelevements()
+    {
+      return $this->hasMany(/App/Models/Productions/Prelevement::class);
+    }
 }

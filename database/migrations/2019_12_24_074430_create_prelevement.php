@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Prelevement extends Migration
+class CreatePrelevement extends Migration
 {
     /**
      * Run the migrations.
@@ -23,9 +23,8 @@ class Prelevement extends Migration
           // ANALYSE
           $table->unsignedInteger('analyse_id');
           $table->foreign('analyse_id')->references('id')->on('analyses');
-          // RESULTAT
-
-
+          // DATES
+          $table->timestamps();
       });
     }
 

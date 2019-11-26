@@ -33,4 +33,9 @@ class Demande extends Model
     {
       return $this->belongsTo(\App\Models\Veto::class);
     }
+
+    public function prelevements()
+    {
+      return $this->hasMany(Prelevement::class);
+    }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Anaitem_analyseTable extends Seeder
+class Anaitem_analyseTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

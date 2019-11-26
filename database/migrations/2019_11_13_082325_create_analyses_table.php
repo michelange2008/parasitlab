@@ -15,9 +15,15 @@ class CreateAnalysesTable extends Migration
     {
         Schema::create('analyses', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('nom', 191);
+
+            $table->integer('anaacte_id')->unsigned();
+            $table->foreign('anaacte_id')->references('id')->on('anaactes');
+
             $table->integer('espece_id')->unsigned();
             $table->foreign('espece_id')->references('id')->on('especes');
+
             $table->integer('icone_id')->unsigned()->default(1);
             $table->foreign('icone_id')->references('id')->on('icones');
         });
@@ -30,6 +36,8 @@ class CreateAnalysesTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('analyses');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
