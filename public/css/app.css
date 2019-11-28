@@ -40,6 +40,46 @@
   color: #0A425A;
 }
 
+.bg-rouge {
+  background: #D35E42;
+}
+
+.bg-rouge-clair {
+  background: #F3866C;
+}
+
+.bg-rouge-tres-clair {
+  background: #FFAF9C;
+}
+
+.bg-rouge-fonce {
+  background: #B43F23;
+}
+
+.bg-rouge-tres-fonce {
+  background: #8F230A;
+}
+
+.color-rouge {
+  color: #D35E42;
+}
+
+.color-rouge-clair {
+  color: #F3866C;
+}
+
+.color-rouge-tres-clair {
+  color: #FFAF9C;
+}
+
+.color-rouge-fonce {
+  color: #B43F23;
+}
+
+.color-rouge-tres-fonce {
+  color: #8F230A !important;
+}
+
 .btn-bleu {
   background: #0A425A !important;
   color: white !important;
