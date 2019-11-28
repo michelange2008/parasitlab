@@ -1,5 +1,5 @@
 <!-- FRAGMENT AFFICHANT UN TABLEAU DES DEMANDES D'ANALYSES
-VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) --> 
+VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) -->
 
 <table id="table-demandes" class="table hover">
   <thead class="alert-bleu-tres-fonce">
@@ -12,7 +12,7 @@ VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) -->
   <tbody>
     @foreach ($demandes as $demande)
       <tr>
-        <td>{{ $demande->anapack->nom}} (<strong>{{ $demande->identification }}</strong>)</td>
+        <td>{{ $demande->anapack->nom}} (<strong>{{ $demande->nb_prelevement }} prélèv.</strong>)</td>
 
         <td class="text-center">
 
@@ -44,13 +44,13 @@ VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) -->
 
         </td>
         <td class="text-center">
-          @include('fragments.colonneDate', ['date' => $demande->reception ])
+          @include('fragments.colonneDate', ['date' => $demande->date_reception ])
         </td>
         <td class="text-center">
-          @include('fragments.colonneDate', ['date' => $demande->resultat ])
+          @include('fragments.colonneDate', ['date' => $demande->date_resultat ])
         </td>
         <td class="text-center">
-          @include('fragments.colonneDate', ['date' => $demande->envoi ])
+          @include('fragments.colonneDate', ['date' => $demande->date_envoi ])
         </td>
         <td class="text-center">
           <a href="#" class="btn btn-sm btn-bleu rounded-0">{{ $demande->facture->id }} <i class="material-icons">zoom_in</i></a>

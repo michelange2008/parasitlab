@@ -51,8 +51,14 @@ class User extends Authenticatable
       {
         return $this->belongsTo(Models\Usertype::class);
       }
+
     public function veto()
     {
       return $this->hasOne(Models\Veto::class);
+    }
+
+    public function factures()
+    {
+      return $this->hasMany(Models\Productions\Facture::class);
     }
 }

@@ -17,7 +17,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -25,7 +25,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -33,7 +33,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -41,7 +41,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -49,7 +49,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -57,7 +57,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -65,7 +65,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -73,7 +73,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 1,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -84,7 +84,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -92,7 +92,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -100,7 +100,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -108,7 +108,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -116,7 +116,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -124,7 +124,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -132,7 +132,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -140,7 +140,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 2,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -151,7 +151,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -159,7 +159,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -167,7 +167,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -175,7 +175,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -183,7 +183,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -191,7 +191,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -199,7 +199,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -207,7 +207,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 3,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => null,
             'created_at' => "2019-11-06 00:00:00",
@@ -218,7 +218,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -226,7 +226,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -234,7 +234,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -242,7 +242,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -250,7 +250,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -258,7 +258,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -266,7 +266,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -274,7 +274,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -282,7 +282,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 4,
-            'analyse_id' => 1,
+
             'anaitem_id' => 10,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -293,7 +293,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -301,7 +301,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -309,7 +309,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -317,7 +317,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -325,7 +325,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -333,7 +333,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -341,7 +341,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -349,7 +349,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -357,7 +357,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 5,
-            'analyse_id' => 1,
+
             'anaitem_id' => 10,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -368,7 +368,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 6,
-            'analyse_id' => 3,
+
             'anaitem_id' => 1,
             'valeur' => "250",
             'created_at' => "2019-11-02 00:00:00",
@@ -379,7 +379,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 7,
-            'analyse_id' => 3,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-06-08 00:00:00",
@@ -390,7 +390,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 13,
-            'analyse_id' => 3,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-08-08 00:00:00",
@@ -401,7 +401,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -409,7 +409,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 2,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -417,7 +417,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 3,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -425,7 +425,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 4,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -433,7 +433,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 5,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -441,7 +441,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 7,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -449,7 +449,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 8,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -457,7 +457,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 8,
-            'analyse_id' => 2,
+
             'anaitem_id' => 9,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -468,7 +468,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 1,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -476,7 +476,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 2,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -484,7 +484,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 3,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -492,7 +492,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 4,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -500,7 +500,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 5,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -508,7 +508,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 7,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -516,7 +516,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 8,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -524,7 +524,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 9,
-            'analyse_id' => 2,
+
             'anaitem_id' => 9,
             'valeur' => null,
             'created_at' => "2019-11-08 00:00:00",
@@ -535,7 +535,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -543,7 +543,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -551,7 +551,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -559,7 +559,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -567,7 +567,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -575,7 +575,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -583,7 +583,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -591,7 +591,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 10,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -602,7 +602,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -610,7 +610,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -618,7 +618,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -626,7 +626,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -634,7 +634,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -642,7 +642,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -650,7 +650,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -658,7 +658,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 11,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -669,7 +669,7 @@ class ResultatsTableSeeder extends Seeder
           */
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 1,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -677,7 +677,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 2,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -685,7 +685,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 3,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -693,7 +693,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 4,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -701,7 +701,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 5,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -709,7 +709,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 7,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -717,7 +717,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 8,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",
@@ -725,7 +725,7 @@ class ResultatsTableSeeder extends Seeder
           ],
           [
             'prelevement_id' => 12,
-            'analyse_id' => 1,
+
             'anaitem_id' => 9,
             'valeur' => "350",
             'created_at' => "2019-11-06 00:00:00",

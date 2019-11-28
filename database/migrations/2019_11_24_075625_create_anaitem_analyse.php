@@ -29,6 +29,6 @@ class CreateAnaitemAnalyse extends Migration
      */
     public function down()
     {
-        //
+      Schema::dropIfExists('anaitem_analyse');
     }
 }

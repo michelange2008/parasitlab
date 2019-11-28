@@ -108,7 +108,7 @@ class EleveurAdminController extends Controller
         $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
         $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);
 
-        $demandes = Demande::where('user_id', $id)->orderBy('reception', 'desc')->get();
+        $demandes = Demande::where('user_id', $id)->orderBy('date_reception', 'desc')->get();
 
         $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
 

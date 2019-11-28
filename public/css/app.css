@@ -55,6 +55,11 @@
   color: #76A6BB;
 }
 
+.alert-rouge-tres-fonce {
+  background: #8F230A;
+  color: #FFAF9C;
+}
+
 .list-group-item.active {
   background: #0A425A !important;
 }

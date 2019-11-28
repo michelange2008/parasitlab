@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\FormatTel;
 use App\User;
 use App\Models\Eleveur;
 use App\Models\Espece;
@@ -17,7 +18,7 @@ use App\Models\Productions\Demande;
 
 class DemandeController extends Controller
 {
-    use LitJson;
+    use LitJson, FormatTel;
 
     protected $menu;
     /**
@@ -144,11 +145,12 @@ class DemandeController extends Controller
      */
     public function show($id)
     {
-      // dd(Demande::find($id));
+      $demande = Demande::find($id);
+      $demande->user->eleveur->tel = $this->ajouteEspaceTel($demande->user->eleveur->tel);
 
         return view('labo.demandeShow', [
           'menu' => $this->menu,
-          'demande' => Demande::find($id),
+          'demande' => $demande,
         ]);
 
     }

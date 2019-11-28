@@ -8,15 +8,15 @@
     <div class="row my-3 justify-content-center">
       <div class="col-md-8">
         @include('fragments.titreUtilisateur', [
-          'user_name' => $demande->anapack->nom." (".$demande->identification.")",
+          'user_name' => $demande->anapack->nom,
           'icone' => $demande->anapack->icone->nom,
-          'collapse' => "demande",
+          'collapse' => "demande"
         ])
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-md-8">
-        @include('fragments.demandeDetail' ['demande' => $demande])
+        @include('fragments.demandeDetail', ['demande' => $demande, "collapse" => 'demande'])
       </div>
     </div>
   </div>

@@ -13,4 +13,8 @@ class Facture extends Model
       return $this->hasOne(Demande::class);
     }
 
+    public function user()
+    {
+      return $this->belongsTo(\App\User::class, 'facture_dest');
+    }
 }

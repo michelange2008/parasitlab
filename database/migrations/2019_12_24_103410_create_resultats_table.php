@@ -18,9 +18,6 @@ class CreateResultatsTable extends Migration
             // PRLEVEMENT
             $table->unsignedInteger('prelevement_id');
             $table->foreign('prelevement_id')->references('id')->on('prelevements');
-            // ACTE
-            $table->unsignedInteger('analyse_id');
-            $table->foreign('analyse_id')->references('id')->on('analyses');
             // ITEM
             $table->unsignedInteger('anaitem_id');
             $table->foreign('anaitem_id')->references('id')->on('anaitems');
