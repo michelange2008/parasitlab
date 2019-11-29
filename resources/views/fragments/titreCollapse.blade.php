@@ -9,7 +9,7 @@ LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPO
 
     <img class="img-40" src="{{ asset('storage/img/icones/')."/".$icone }}" alt="">
 
-    <h3 class="mx-3">{{ $user_name }}</h3>
+    <h3 class="mx-3">{{ $titre }}</h3>
 
   </div>
 
@@ -18,7 +18,7 @@ LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPO
 
       Détails
       <span data-toggle="modal" data-target="#id">
-        <a data-toggle="tooltip" data-placement="top" title="Cliquer pour voir les informations sur {{ $user_name }} et les modifier">
+        <a data-toggle="tooltip" data-placement="top" title="Cliquer pour voir les informations sur {{ $titre }} et les modifier">
           +
         </a>
       </span>

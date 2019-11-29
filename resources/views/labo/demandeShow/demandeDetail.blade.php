@@ -1,4 +1,4 @@
-<div class="" id="{{ $collapse }}">
+<div class="collapse" id="{{ $collapse }}">
   <div class="card card-body">
     <div class="row">
       <div class="col-md-12 d-inline-flex d-flex justify-content-between">
@@ -22,14 +22,14 @@
         <div class="row mx-1">
           <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-around">
 
-            @include('fragments.syntheseTitre', ['titre' => 'analyse', 'route' => '#'])
+            @include('labo.demandeShow.syntheseTitre', ['titre' => 'analyse', 'route' => '#'])
 
           </div>
         </div>
     <!-- DETAIL ANALYSE-->
         <div class="row mx-1 border">
 
-          @include('fragments.syntheseAnalyse', ['demande' => $demande])
+          @include('labo.demandeShow.syntheseAnalyse', ['demande' => $demande])
 
         </div>
 
@@ -43,18 +43,18 @@
 
           <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-around">
 
-            @include('fragments.syntheseTitre', ['titre' => 'facture', 'route' => '#'])
+            @include('labo.demandeShow.syntheseTitre', ['titre' => 'facture', 'route' => '#'])
 
           </div>
 
         </div>
 
-    <!-- DETAIL FACTURE-->    
+    <!-- DETAIL FACTURE-->
         <div class="row mx-1 border">
 
           <div class="col-md-12">
 
-            @include('fragments.syntheseFacture', ['demande' => $demande])
+            @include('labo.demandeShow.syntheseFacture', ['demande' => $demande])
 
           </div>
 
@@ -65,17 +65,17 @@
     </div>
 
 <!-- LIENS POUR RENVOYER ANALYSE ET FACTURE-->
-    <div class="row my-3 border">
+    <div class="row my-3">
 
       <div class="col-md-6">
 
-        @include('fragments.syntheseRenvoiAnalyse', ['demande' => $demande, 'route' => "#"])
+        @include('labo.demandeShow.syntheseRenvoiAnalyse', ['demande' => $demande, 'route' => "#"])
 
       </div>
 
       <div class="col-md-6">
 
-        @include('fragments.syntheseRenvoiFacture', ['demande' => $demande, 'route' => "#"])
+        @include('labo.demandeShow.syntheseRenvoiFacture', ['demande' => $demande, 'route' => "#"])
 
       </div>
 

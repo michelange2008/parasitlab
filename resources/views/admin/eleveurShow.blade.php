@@ -7,8 +7,8 @@
   <div class="container">
     <div class="row mt-3 justify-content-center">
       <div class="col-md-11">
-        @include('fragments.titreUtilisateur', [
-          "user_name" => $user->name,
+        @include('fragments.titreCollapse', [
+          "titre" => $user->name,
           "icone" => $user->usertype->icone->nom,
           "collapse" => "modifier"])
       </div>

@@ -16,6 +16,7 @@ class UnitesTableSeeder extends Seeder
         [ 'id' => 2, "nom" => "ookystes" ],
         ['id' => 3, "nom" => "larves" ],
         ['id' => 4, "nom" => "%" ],
+        ['id' => 5, "nom" => "" ],
       ]);
     }
 }

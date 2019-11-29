@@ -18,4 +18,9 @@ class Anaitem extends Model
     {
       return $this->belongsTo(Unite::class);
     }
+
+    public function resultats()
+    {
+      return $this->hasMany(\App\Models\Productions\Resultat::class);
+    }
 }

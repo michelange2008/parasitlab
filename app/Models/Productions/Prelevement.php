@@ -16,4 +16,9 @@ class Prelevement extends Model
     {
       return $this->belongsTo(\App\Models\Analyses\Analyse::class);
     }
+
+    public function resultats()
+    {
+      return $this->hasMany(Resultat::class);
+    }
 }

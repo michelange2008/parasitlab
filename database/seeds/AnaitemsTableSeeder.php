@@ -58,14 +58,14 @@ class AnaitemsTableSeeder extends Seeder
             'id' => 7,
             "abbreviation" => "DICR",
             "nom" => "petite douve",
-            "unite_id" => "1",
+            "unite_id" => "5",
             "qtt_id" => "3",
           ],
           [
             'id' => 8,
             "abbreviation" => "FASC",
             "nom" => "grande douve",
-            "unite_id" => "1",
+            "unite_id" => "5",
             "qtt_id" => "3",
           ],
           [
@@ -81,6 +81,13 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "haemonchus",
             "unite_id" => "4",
             "qtt_id" => "4",
+          ],
+          [
+            'id' => 11,
+            "abbreviation" => "MONI",
+            "nom" => "moniezia expansa (ténia)",
+            "unite_id" => "5",
+            "qtt_id" => "3",
           ],
         ]);
     }

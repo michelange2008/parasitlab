@@ -10,16 +10,16 @@ class Analyse extends Model
 
     public function espece()
     {
-      return $this->belongsTo(/App/Models/Espece::class);
+      return $this->belongsTo(\App\Models\Espece::class);
     }
 
     public function icone()
     {
-      return $this->belongsTo(/App/Models/Icone::class);
+      return $this->belongsTo(\App\Models\Icone::class);
     }
 
     public function prelevements()
     {
-      return $this->hasMany(/App/Models/Productions/Prelevement::class);
+      return $this->hasMany(\App\Models\Productions\Prelevement::class);
     }
 }
