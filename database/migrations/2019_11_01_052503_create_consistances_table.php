@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEtatsTable extends Migration
+class CreateConsistancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateEtatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('etats', function (Blueprint $table) {
+        Schema::create('consistances', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom', 50);
-            $table->timestamps();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateEtatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('etats');
+        Schema::dropIfExists('consistances');
     }
 }

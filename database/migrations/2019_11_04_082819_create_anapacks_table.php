@@ -18,6 +18,7 @@ class CreateAnapacksTable extends Migration
             $table->string("nom",191);
             $table->text("description");
             $table->longtext("detail");
+            $table->boolean('serie');
             $table->unsignedInteger('icone_id')->default('1');
             $table->foreign('icone_id')->references('id')->on('icones');
         });

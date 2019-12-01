@@ -26,7 +26,7 @@ class CreateDemandesTable extends Migration
             $table->unsignedInteger('anapack_id');
             $table->foreign('anapack_id')->references('id')->on('anapacks');
 
-            $table->unsignedInteger('serie_id');
+            $table->unsignedInteger('serie_id')->nullable();
             $table->foreign('serie_id')->references('id')->on('series');
 
             $table->boolean('toveto');

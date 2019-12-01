@@ -14,7 +14,19 @@ class CreateSeriesTable extends Migration
     public function up()
     {
         Schema::create('series', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedInteger('anapack_id');
+            $table->foreign('anapack_id')->references('id')->on('anapacks');
+
+            $table->unsignedInteger('espece_id');
+            $table->foreign('espece_id')->references('id')->on('especes');
+
+            $table->boolean('acheve')->default(false);
+
             $table->timestamps();
         });
     }
