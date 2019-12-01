@@ -20,7 +20,7 @@
     </table>
     <div class="row justify-content-center">
       <div class="col-md-12">
-        <strong>Parasites non détectés: </strong>
+        <strong>Autres parasites recherchés mais non détectés: </strong>
         @foreach ($prelevement->resultats as $resultat)
           @if ($resultat->valeur === "0" || $resultat->valeur === "absence")
             @if ($loop->last)
@@ -28,6 +28,8 @@
             @else
               {{ $resultat->anaitem->nom }},
             @endif
+          @else
+            aucun
           @endif
         @endforeach
       </div>

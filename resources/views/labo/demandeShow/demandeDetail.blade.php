@@ -1,18 +1,6 @@
 <div class="collapse" id="{{ $collapse }}">
   <div class="card card-body">
-    <div class="row">
-      <div class="col-md-12 d-inline-flex d-flex justify-content-between">
-        <img class="img-50" src="{{ asset('/storage/img/icones/')."/".$demande->espece->icone->nom }}" alt="espece">
-        <h3 class="card-title">
-          <a class=" color-rouge-tres-fonce" href="{{ route('eleveurAdmin.show', $demande->user->id) }}">
-            <strong>{{ $demande->user->name }}</strong>
-          </a>
-        </h3>
-        <h5>
-          ({{ $demande->user->eleveur->tel}})
-        </h5>
-      </div>
-    </div>
+
 <!-- AFFICHAGE DES SYNTHESES: ANALYSE ET FACTURE-->
     <div class="row my-3">
 <!-- AFFICHAGE DES DONNEES ANALYSE -->

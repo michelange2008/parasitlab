@@ -21,4 +21,14 @@ class Prelevement extends Model
     {
       return $this->hasMany(Resultat::class);
     }
+
+    public function Etat()
+    {
+      return $this->belongsTo(Etat::class);
+    }
+
+    public function Consistance()
+    {
+      return $this->belongsTo(Consistance::class);
+    }
 }

@@ -9,19 +9,22 @@ LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPO
 
     <img class="img-40" src="{{ asset('storage/img/icones/')."/".$icone }}" alt="">
 
-    <h3 class="mx-3">{{ $titre }}</h3>
+    <h3 class="mx-3">{{ ucfirst($titre) }}</h3>
 
   </div>
-
+@if ($detail)
+<!-- AFFICHAGE DU BOUTON DETAIL SEULEMENT SI LA VARIABLE COLLAPSE-->
   <button class="btn btn-bleu rounded-0" type="button"
-          data-toggle="collapse" data-target="#{{ $collapse }}" aria-expanded="false" aria-controls="modifier">
+  data-toggle="collapse" data-target="#{{ $collapse }}" aria-expanded="false" aria-controls="modifier">
 
-      Détails
-      <span data-toggle="modal" data-target="#id">
-        <a data-toggle="tooltip" data-placement="top" title="Cliquer pour voir les informations sur {{ $titre }} et les modifier">
-          +
-        </a>
-      </span>
-    </button>
+  Détails
+  <span data-toggle="modal" data-target="#id">
+    <a data-toggle="tooltip" data-placement="top" title="Cliquer pour voir les informations sur {{ $titre }} et les modifier">
+      +
+    </a>
+  </span>
+</button>
+
+@endif
 
 </div>

@@ -23,6 +23,12 @@ class CreatePrelevement extends Migration
           // ANALYSE
           $table->unsignedInteger('analyse_id');
           $table->foreign('analyse_id')->references('id')->on('analyses');
+          // ETAT DU PRELEVEMENT
+          $table->unsignedInteger('etat_id')->default(1);
+          $table->foreign('etat_id')->references('id')->on('etats');
+          // CONSISTANCE
+          $table->unsignedInteger('consistance_id');
+          $table->foreign('consistance_id')->references('id')->on('consistances');
           // DATES
           $table->timestamps();
       });

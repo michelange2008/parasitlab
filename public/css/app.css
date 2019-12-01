@@ -86,17 +86,17 @@
 }
 
 .alert-bleu {
-  background: #76A6BB;
+  background: #76A6BB !important;
   color: #0A425A;
 }
 
 .alert-bleu-tres-fonce {
-  background: #0A425A;
+  background: #0A425A !important;
   color: #76A6BB;
 }
 
 .alert-rouge-tres-fonce {
-  background: #8F230A;
+  background: #8F230A !important;
   color: #FFAF9C;
 }
 

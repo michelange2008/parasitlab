@@ -38,4 +38,9 @@ class Demande extends Model
     {
       return $this->hasMany(Prelevement::class);
     }
+
+    public function serie()
+    {
+      return $this->belongsTo(Serie::class);
+    }
 }

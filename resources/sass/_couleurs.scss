@@ -59,17 +59,17 @@ $rouge-tres-fonce: #8F230A;
 }
 
 .alert-bleu {
-  background: $bleu-tres-clair;
+  background: $bleu-tres-clair !important;
   color: $bleu-tres-fonce;
 }
 
 .alert-bleu-tres-fonce {
-  background: $bleu-tres-fonce;
+  background: $bleu-tres-fonce !important;
   color: $bleu-tres-clair;
 }
 
 .alert-rouge-tres-fonce {
-  background: $rouge-tres-fonce;
+  background: $rouge-tres-fonce !important;
   color: $rouge-tres-clair;
 }
 

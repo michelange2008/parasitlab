@@ -17,18 +17,28 @@ class CreateDemandesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+
             $table->unsignedInteger('nb_prelevement');
+
             $table->unsignedInteger('espece_id');
             $table->foreign('espece_id')->references('id')->on('especes');
+
             $table->unsignedInteger('anapack_id');
             $table->foreign('anapack_id')->references('id')->on('anapacks');
+
+            $table->unsignedInteger('serie_id');
+            $table->foreign('serie_id')->references('id')->on('series');
+
             $table->boolean('toveto');
+
             $table->unsignedInteger('veto_id')->default(4);
             $table->foreign('veto_id')->references('id')->on('vetos');
+
             $table->timestamp('date_prelevement')->nullable();
             $table->timestamp('date_reception');
             $table->timestamp('date_resultat')->nullable();
             $table->timestamp('date_envoi')->nullable();
+
             $table->unsignedInteger('facture_id')->nullable();
             $table->foreign('facture_id')->references('id')->on('factures');
             $table->timestamps();

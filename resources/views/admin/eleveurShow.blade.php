@@ -10,7 +10,9 @@
         @include('fragments.titreCollapse', [
           "titre" => $user->name,
           "icone" => $user->usertype->icone->nom,
-          "collapse" => "modifier"])
+          "collapse" => "modifier",
+          'detail' => true,
+        ])
       </div>
 
       <div class="col-md-11">
