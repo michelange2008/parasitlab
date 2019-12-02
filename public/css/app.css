@@ -61,19 +61,19 @@
 }
 
 .color-rouge {
-  color: #D35E42;
+  color: #D35E42 !important;
 }
 
 .color-rouge-clair {
-  color: #F3866C;
+  color: #F3866C !important;
 }
 
 .color-rouge-tres-clair {
-  color: #FFAF9C;
+  color: #FFAF9C !important;
 }
 
 .color-rouge-fonce {
-  color: #B43F23;
+  color: #B43F23 !important;
 }
 
 .color-rouge-tres-fonce {
@@ -11221,5 +11221,9 @@ a.text-dark:focus {
 .img-25 {
   width: 25px;
   height: 25px;
+}
+
+a {
+  color: inherit;
 }
 

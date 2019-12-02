@@ -54502,6 +54502,7 @@ $(function () {
       responsivePriority: 2,
       targets: -1
     }],
+    "order": [[6, "desc"]],
     scrolling: 500,
     paging: false,
     fixedHeader: true,

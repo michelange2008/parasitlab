@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-bleu-tres-fonce">
+<nav class="navbar navbar-expand-lg navbar-dark bg-bleu-tres-fonce sticky-top">
   <a class="navbar-brand" href="#">
     <img src="{{ asset('storage/logo-clair.svg') }}" alt="Parasit'Lab" height="30">
   </a>

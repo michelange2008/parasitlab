@@ -150,7 +150,8 @@ class DemandeController extends Controller
       $demande->user->eleveur->tel = $this->ajouteEspaceTel($demande->user->eleveur->tel);
       $demande->user->eleveur->ede = $this->edeAvecEspace($demande->user->eleveur->ede);
 
-      $total_demandes = Demande::where('id', $id)->count(); // nombre d'analyses faites par cet éleveur
+      $total_demandes = Demande::where('user_id', $demande->user->id)->count(); // nombre d'analyses faites par cet éleveur
+
       // Nombre de factures impayées de cet éleveur
       $nb_factures_impayees = DB::table('demandes')
                             ->join('factures', 'demandes.id', '=', 'factures.demande_id')

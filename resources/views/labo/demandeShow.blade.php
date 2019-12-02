@@ -5,6 +5,7 @@
 @section('content')
 
   <div class="container-fluid">
+
     <div class="row my-3 justify-content-center">
       <div class="col-md-4 col-sm-4">
 <!-- FICHE RESUME DE L ELEVEUR-->
@@ -28,6 +29,7 @@
             ])
           </div>
         </div>
+
         <div class="row justify-content-center">
           <div class="col-md-12">
     <!-- INFORMATIONS SUR L ANALYSE-->

@@ -46,10 +46,10 @@ $rouge-tres-fonce: #8F230A;
 .bg-rouge-fonce { background: $rouge-fonce;}
 .bg-rouge-tres-fonce { background: $rouge-tres-fonce;}
 
-.color-rouge { color: $rouge;}
-.color-rouge-clair { color: $rouge-clair;}
-.color-rouge-tres-clair { color: $rouge-tres-clair;}
-.color-rouge-fonce { color: $rouge-fonce;}
+.color-rouge { color: $rouge !important;}
+.color-rouge-clair { color: $rouge-clair !important;}
+.color-rouge-tres-clair { color: $rouge-tres-clair !important;}
+.color-rouge-fonce { color: $rouge-fonce !important;}
 .color-rouge-tres-fonce { color: $rouge-tres-fonce !important;}
 
 

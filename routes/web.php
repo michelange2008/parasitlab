@@ -35,4 +35,6 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::resource('vetoAdmin', 'Labo\VetoAdminController');
 
   Route::resource('eleveurAdmin', 'Labo\EleveurAdminController');
+
+  Route::resource('serie', 'Labo\SerieController');
 });

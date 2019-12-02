@@ -1,5 +1,6 @@
 {
   "name" : "Analyse",
+  "serie" : "Série",
   "voir" : "voir",
   "eleveur" : "Eleveur",
   "espece" : "Esp.",
@@ -7,6 +8,7 @@
   "reception" : "Réception",
   "resultats" : "Résultats",
   "resultats_envoyes" : "Envoi",
+  "informations" : "informations",
   "num_facture" : "N° fact.",
   "suppr" : "del"
 }

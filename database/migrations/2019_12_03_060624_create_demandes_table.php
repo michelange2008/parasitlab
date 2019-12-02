@@ -29,6 +29,8 @@ class CreateDemandesTable extends Migration
             $table->unsignedInteger('serie_id')->nullable();
             $table->foreign('serie_id')->references('id')->on('series');
 
+            $table->mediumText('informations')->nullable();
+
             $table->boolean('toveto');
 
             $table->unsignedInteger('veto_id')->default(4);

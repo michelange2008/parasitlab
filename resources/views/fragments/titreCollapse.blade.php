@@ -18,7 +18,7 @@ LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPO
   data-toggle="collapse" data-target="#{{ $collapse }}" aria-expanded="false" aria-controls="modifier">
 
   Détails
-  <span data-toggle="modal" data-target="#id">
+  <span data-toggle="modal" data-target="#{{ $collapse }}">
     <a data-toggle="tooltip" data-placement="top" title="Cliquer pour voir les informations sur {{ $titre }} et les modifier">
       +
     </a>
