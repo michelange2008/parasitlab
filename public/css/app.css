@@ -95,6 +95,11 @@
   color: #76A6BB;
 }
 
+.alert-rouge {
+  background: #FFAF9C !important;
+  color: #8F230A;
+}
+
 .alert-rouge-tres-fonce {
   background: #8F230A !important;
   color: #FFAF9C;

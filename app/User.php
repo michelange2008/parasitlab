@@ -61,4 +61,10 @@ class User extends Authenticatable
     {
       return $this->hasMany(Models\Productions\Facture::class);
     }
+
+    public function serie()
+    {
+      return $this->hasOne(App\Models\Productions\Serie::class);
+    }
+    
 }

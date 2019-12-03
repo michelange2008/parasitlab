@@ -68,6 +68,11 @@ $rouge-tres-fonce: #8F230A;
   color: $bleu-tres-clair;
 }
 
+.alert-rouge {
+  background: $rouge-tres-clair !important;
+  color: $rouge-tres-fonce;
+}
+
 .alert-rouge-tres-fonce {
   background: $rouge-tres-fonce !important;
   color: $rouge-tres-clair;

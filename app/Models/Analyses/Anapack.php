@@ -18,4 +18,9 @@ class Anapack extends Model
       return $this->belongsTo(\App\Models\Icone::class);
     }
 
+    public function serie()
+    {
+      return $this->hasOne(App\Models\Productions\Serie::class);
+    }
+
 }

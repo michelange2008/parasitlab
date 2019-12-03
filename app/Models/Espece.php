@@ -22,4 +22,9 @@ class Espece extends Model
     {
       return $this->hasMany(Productions\Demande::class);
     }
+
+    public function serie()
+    {
+      return $this->hasOne(Labo\Serie::class);
+    }
 }

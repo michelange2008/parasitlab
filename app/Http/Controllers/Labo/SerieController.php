@@ -5,12 +5,25 @@ namespace App\Http\Controllers\Labo;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Serie;
+use App\Http\Traits\LitJson;
 use App\Http\Traits\VerifieSerie;
 
 class SerieController extends Controller
 {
 
-    use VerifieSerie;
+    use LitJson, VerifieSerie;
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('labo');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,11 +63,20 @@ class SerieController extends Controller
      */
     public function show($id)
     {
-        $serie = Demande::where('serie_id', $id)->get();
+        $serie = Serie::find($id);
 
-        $identique = $this->identificationsIdentiques($serie);
+        $demandes = Demande::where('serie_id', $id)->orderBy('date_reception', 'asc')->get();
 
-        dd($identique);
+        $identique = $this->identificationsIdentiques($demandes);
+
+        $menu = $this->litJson('menuLabo');
+
+        return view('labo.serieShow', [
+          'menu' => $menu,
+          'serie' => $serie,
+          'demandes' => $demandes,
+          'identique' => $identique,
+        ]);
     }
 
     /**
