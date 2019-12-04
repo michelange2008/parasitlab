@@ -6,24 +6,20 @@
 <div class="container-fluid">
 
   <div class="row justify-content-center my-3">
-    @if ($serie->acheve)
-      <div class="col-md-8 d-inline-flex alert alert-bleu rounded-0">
-        <img class="img-40 mx-3" src="{{asset('storage/img/icones')."/".$serie->espece->icone->nom}}" alt="">
-        <h3>{{ucfirst($serie->user->name)}} - {{ucfirst($serie->anapack->nom)}} <small>(série terminée)</small></h3>
-      </div>
-    @else
-      <div class="col-md-8 d-inline-flex alert alert-rouge rounded-0">
-        <img class="img-40 mx-3" src="{{asset('storage/img/icones')."/".$serie->espece->icone->nom}}" alt="">
-        <h3>{{ucfirst($serie->user->name)}} - {{ucfirst($serie->anapack->nom)}} <small>(série en cours)</small></h3>
-      </div>
-    @endif
+      @include('labo.serieShow.titreSerie', ['serie' => $serie])
   </div>
+@if ($serie->acheve)
 
   @if ($identique)
 
     <div class="row justify-content-center">
       <div class="col-md-8">
-        @include('labo.serieShow.detailIdentique', ['demandes', $demandes])
+        @include('labo.serieShow.detailIdentique', [
+          'serie'=> $serie,
+          'titres' => $titres,
+          'valeurs' => $valeurs,
+          'nb_prelevements' => $nb_prelevements
+        ])
       </div>
     </div>
 
@@ -31,9 +27,13 @@
 
   <div class="row">
     <div class="col-md-8">
-      @include('labo.serieShow.detailDifferent', ['demandes', $demandes])
+      @include('labo.serieShow.detailDifferent')
     </div>
   </div>
+
+@else
+
+@endif
 
 </div>
 @endsection

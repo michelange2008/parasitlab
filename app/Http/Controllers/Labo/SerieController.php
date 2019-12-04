@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
 use App\Http\Traits\LitJson;
-use App\Http\Traits\VerifieSerie;
+use App\Http\Traits\SerieFactory;
 
 class SerieController extends Controller
 {
 
-    use LitJson, VerifieSerie;
+    use LitJson, SerieFactory;
     /**
      * Create a new controller instance.
      *
@@ -65,6 +65,8 @@ class SerieController extends Controller
     {
         $serie = Serie::find($id);
 
+        $serieTableau = $this->construitTableauResultats($serie);
+
         $demandes = Demande::where('serie_id', $id)->orderBy('date_reception', 'asc')->get();
 
         $identique = $this->identificationsIdentiques($demandes);
@@ -74,7 +76,9 @@ class SerieController extends Controller
         return view('labo.serieShow', [
           'menu' => $menu,
           'serie' => $serie,
-          'demandes' => $demandes,
+          'titres' => $serieTableau['titres'],
+          'valeurs' => $serieTableau['valeurs'],
+          'nb_prelevements' => $serie->demandes[0]->prelevements->count(),
           'identique' => $identique,
         ]);
     }

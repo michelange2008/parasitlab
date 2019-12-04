@@ -1,42 +1,46 @@
   <ul class="list-group list-group-horizontal-md">
     <li class="list-group-item">Dans cette série, tous les lots sont identiques</li>
-    <li class="list-group-item">Il y a {{ $demandes->count() }} prélèvement à chaque fois</li>
+    <li class="list-group-item">Il y a {{ $nb_prelevements }} lots à chaque fois (
+      @foreach ($serie->demandes[0]->prelevements as $prelevement)
+        @if ($loop->first)
+           {{ $prelevement->identification }}
+        @elseif ($loop->last)
+          et {{ $prelevement->identification }}
+        @else
+          , {{ $prelevement->identification }}
+        @endif
+      @endforeach
+      )</li>
   </ul>
 
-<table class="table table-hover">
+<table class="my-3 table table-hover table-bordered">
   <thead>
     <tr>
-      <th>Lot</th>
-      @foreach ($demandes as $demande)
-        <th class="text-center">
-          @isset($demande->date_prelevement)
-            @include('fragments.colonneDate', ['date' => $demande->date_prelevement])
-          @else
-            @include('fragments.colonneDate', ['date' => $demande->date_reception])
-          @endisset
-        </th>
+      @foreach ($titres as $titre)
+        @if ($titre == $titre[0])
+          <th>{{ $titre }}</th>
+        @else
+          <th class="text-center">{{ $titre }}</th>
+        @endif
       @endforeach
     </tr>
   </thead>
-  @foreach ($demande->prelevements as $prelevement)
-    <thead class="thead-dark">
+  <tbody>
+    @foreach ($valeurs as $valeur)
       <tr>
-        <th colspan="4">{{ $prelevement->identification }}</th>
+        @foreach ($valeur as $value)
+          @if ($valeur[1] === "")
+            <td class="bg-bleu text-white"><strong>{{ $value }}</strong></td>
+          @else
+            @if ($value !== $valeur[0])
+              <td class="text-center">{{ $value }}</td>
+            @else
+              <td>{{ $value }}</td>
+            @endif
+          @endif
+        @endforeach
       </tr>
-    </thead>
-    <tbody>
-      @foreach ($prelevement->resultats as $resultat)
-        @if ($resultat->valeur !== null && $resultat->valeur !== "0" && $resultat->valeur != "absence")
-          <tr>
-            <td>
-              {{$resultat->anaitem->nom}}
-            </td>
-            <td>
-              {{ $resultat->valeur }}
-            </td>
-          </tr>
-        @endif
-      @endforeach
-    </tbody>
-  @endforeach
+    @endforeach
+
+  </tbody>
   </table>

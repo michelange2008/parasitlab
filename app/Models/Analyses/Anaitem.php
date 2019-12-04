@@ -23,4 +23,5 @@ class Anaitem extends Model
     {
       return $this->hasMany(\App\Models\Productions\Resultat::class);
     }
+
 }

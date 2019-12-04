@@ -22,4 +22,5 @@ class Analyse extends Model
     {
       return $this->hasMany(\App\Models\Productions\Prelevement::class);
     }
+
 }
