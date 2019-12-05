@@ -20,6 +20,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -28,6 +29,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -36,6 +38,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -44,6 +47,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -52,6 +56,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -60,6 +65,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -68,6 +74,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -76,6 +83,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -87,6 +95,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -95,6 +104,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -103,6 +113,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -111,6 +122,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -119,6 +131,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -127,6 +140,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -135,6 +149,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -143,6 +158,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -154,6 +170,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -162,6 +179,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -170,6 +188,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -178,6 +197,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -186,6 +206,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -194,6 +215,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -202,6 +224,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -210,6 +233,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => null,
           ],
@@ -221,6 +245,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -229,6 +254,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -237,6 +263,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -245,6 +272,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -253,6 +281,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -261,6 +290,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -269,6 +299,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -277,6 +308,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -285,6 +317,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 10,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -296,6 +329,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -304,6 +338,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -312,6 +347,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -320,6 +356,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -328,6 +365,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -336,6 +374,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -344,6 +383,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -352,6 +392,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -360,6 +401,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 10,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -371,6 +413,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => "250",
+            'positif' => false,
             'created_at' => "2019-11-02 00:00:00",
             'updated_at' => "2019-11-06 00:00:00"
           ],
@@ -382,6 +425,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-06-08 00:00:00",
             'updated_at' => null,
           ],
@@ -393,6 +437,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-08-08 00:00:00",
             'updated_at' => null,
           ],
@@ -404,6 +449,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -412,6 +458,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -420,6 +467,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -428,6 +476,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -436,6 +485,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -444,6 +494,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -452,6 +503,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -460,6 +512,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -471,6 +524,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -479,6 +533,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -487,6 +542,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -495,6 +551,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -503,6 +560,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -511,6 +569,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -519,6 +578,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -527,6 +587,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => null,
+            'positif' => false,
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
@@ -538,6 +599,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => "2350",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -546,6 +608,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => "50",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -554,6 +617,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -562,6 +626,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => "50",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -570,6 +635,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => "200",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -578,6 +644,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => "absence",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -586,6 +653,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => "absence",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -594,6 +662,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -605,6 +674,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => "1050",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -613,6 +683,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -621,6 +692,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -629,6 +701,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => "150",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -637,6 +710,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => "800",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -645,6 +719,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => "absence",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -653,6 +728,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => "absence",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -661,6 +737,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -672,6 +749,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => "350",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -680,6 +758,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => "350",
+            'positif' => true,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -688,6 +767,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 3,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -696,6 +776,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 4,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -704,6 +785,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 5,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -712,6 +794,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 7,
             'valeur' => "absence",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -720,6 +803,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 8,
             'valeur' => "absence",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -728,6 +812,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 9,
             'valeur' => "0",
+            'positif' => false,
             'created_at' => "2019-11-06 00:00:00",
             'updated_at' => "2019-11-08 00:00:00"
           ],
@@ -739,6 +824,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "2350",
+          'positif' => true,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -747,6 +833,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "50",
+          'positif' => true,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -755,6 +842,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 3,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -763,6 +851,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "50",
+          'positif' => true,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -771,6 +860,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "200",
+          'positif' => true,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -779,6 +869,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -787,6 +878,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -795,6 +887,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -806,6 +899,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "50",
+          'positif' => true,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -814,6 +908,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -822,6 +917,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 3,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -830,6 +926,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -838,6 +935,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -846,6 +944,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -854,6 +953,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -862,6 +962,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-11-06 00:00:00",
           'updated_at' => "2019-11-08 00:00:00"
         ],
@@ -878,6 +979,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "450",
+          'positif' => true,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -886,6 +988,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -894,6 +997,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 3,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -902,6 +1006,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -910,6 +1015,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -918,6 +1024,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -926,6 +1033,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -934,6 +1042,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -945,6 +1054,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "150",
+          'positif' => true,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -953,6 +1063,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -961,6 +1072,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 3,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -969,6 +1081,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "50",
+          'positif' => true,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -977,6 +1090,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "300",
+          'positif' => true,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -985,6 +1099,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -993,6 +1108,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1001,6 +1117,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1012,6 +1129,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "50",
+          'positif' => true,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1020,6 +1138,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1029,6 +1148,7 @@ class ResultatsTableSeeder extends Seeder
           'anaitem_id' => 3,
           'valeur' => "0",
           'created_at' => "2019-06-15 00:00:00",
+          'positif' => false,
           'updated_at' => "2019-06-17 00:00:00"
         ],
         [
@@ -1036,6 +1156,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1044,6 +1165,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1052,6 +1174,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1060,6 +1183,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1068,6 +1192,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-06-15 00:00:00",
           'updated_at' => "2019-06-17 00:00:00"
         ],
@@ -1081,6 +1206,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "1450",
+          'positif' => true,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1089,6 +1215,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1097,6 +1224,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 3,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1105,6 +1233,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1113,6 +1242,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1121,6 +1251,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1129,6 +1260,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1137,6 +1269,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1148,6 +1281,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "850",
+          'positif' => true,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1156,6 +1290,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1164,6 +1299,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 3,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1172,6 +1308,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "50",
+          'positif' => true,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1180,6 +1317,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "300",
+          'positif' => true,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1188,6 +1326,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1196,6 +1335,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1204,6 +1344,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1215,6 +1356,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "150",
+          'positif' => true,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1223,6 +1365,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 2,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1231,6 +1374,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 3,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1239,6 +1383,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 4,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1247,6 +1392,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 5,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1255,6 +1401,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 7,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1263,6 +1410,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 8,
           'valeur' => "absence",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1271,6 +1419,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 9,
           'valeur' => "0",
+          'positif' => false,
           'created_at' => "2019-07-20 00:00:00",
           'updated_at' => "2019-07-20 00:00:00",
         ],
@@ -1284,6 +1433,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 1,
         'valeur' => "2050",
+        'positif' => true,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1292,6 +1442,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 2,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1300,6 +1451,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 3,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1308,6 +1460,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 4,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1316,6 +1469,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 5,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1324,6 +1478,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 7,
         'valeur' => "absence",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1332,6 +1487,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 8,
         'valeur' => "absence",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1340,6 +1496,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 9,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1351,6 +1508,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 1,
         'valeur' => "1000",
+        'positif' => true,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1359,6 +1517,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 2,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1367,6 +1526,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 3,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1375,6 +1535,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 4,
         'valeur' => "50",
+        'positif' => true,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1383,6 +1544,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 5,
         'valeur' => "300",
+        'positif' => true,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1391,6 +1553,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 7,
         'valeur' => "absence",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1399,6 +1562,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 8,
         'valeur' => "absence",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1407,6 +1571,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 9,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1418,6 +1583,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 1,
         'valeur' => "550",
+        'positif' => true,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1426,6 +1592,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 2,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1434,6 +1601,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 3,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1442,6 +1610,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 4,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1450,6 +1619,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 5,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1458,6 +1628,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 7,
         'valeur' => "absence",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1466,6 +1637,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 8,
         'valeur' => "absence",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],
@@ -1474,6 +1646,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 9,
         'valeur' => "0",
+        'positif' => false,
         'created_at' => "2019-09-03 00:00:00",
         'updated_at' => "2019-09-04 00:00:00",
       ],

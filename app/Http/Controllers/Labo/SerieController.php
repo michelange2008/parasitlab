@@ -78,7 +78,6 @@ class SerieController extends Controller
           'serie' => $serie,
           'titres' => $serieTableau['titres'],
           'valeurs' => $serieTableau['valeurs'],
-          'nb_prelevements' => $serie->demandes[0]->prelevements->count(),
           'identique' => $identique,
         ]);
     }

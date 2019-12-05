@@ -1,6 +1,6 @@
   <ul class="list-group list-group-horizontal-md">
     <li class="list-group-item">Dans cette série, tous les lots sont identiques</li>
-    <li class="list-group-item">Il y a {{ $nb_prelevements }} lots à chaque fois (
+    <li class="list-group-item">Il y a {{ $serie->demandes[0]->prelevements->count()}} lots à chaque fois (
       @foreach ($serie->demandes[0]->prelevements as $prelevement)
         @if ($loop->first)
            {{ $prelevement->identification }}
