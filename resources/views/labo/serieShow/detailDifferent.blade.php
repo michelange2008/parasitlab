@@ -1,7 +1,7 @@
 @foreach ($serie->demandes as $demande)
   <div class="row">
     <div class="col-md-12 alert alert-bleu-tres-fonce">
-        @include('fragments.colonneDate', ['date' => $demande->date_prelevement]) - {{ ucfirst($demande->prelevements[0]->analyse->nom) }}
+        @include('fragments.dateFr', ['date' => $demande->date_prelevement]) - {{ ucfirst($demande->prelevements[0]->analyse->nom) }}
     </div>
   </div>
   @foreach ($demande->prelevements as $prelevement)
