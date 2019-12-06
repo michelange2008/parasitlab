@@ -9,7 +9,7 @@ use DB;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatTel;
 use App\Http\Traits\FormatEde;
-use App\Http\Traits\infosUser;
+use App\Http\Traits\EleveurInfos;
 
 use App\User;
 use App\Models\Eleveur;
@@ -21,7 +21,7 @@ use App\Models\Productions\Demande;
 
 class DemandeController extends Controller
 {
-    use LitJson, FormatTel, FormatEde, infosUser;
+    use LitJson, FormatTel, FormatEde, EleveurInfos;
 
     protected $menu;
     /**
@@ -149,14 +149,16 @@ class DemandeController extends Controller
     public function show($id)
     {
       $demande = Demande::find($id);
-      $demande->user->eleveur->tel = $this->ajouteEspaceTel($demande->user->eleveur->tel);
-      $demande->user->eleveur->ede = $this->edeAvecEspace($demande->user->eleveur->ede);
+
+      $user = $demande->user;
+
+      $user = $this->formatUser($user);
 
       return view('labo.demandeShow', [
         'menu' => $this->menu,
-        'user' => $demande->user,
         'demande' => $demande,
-        'infosUser' => $this->infosUser($demande->user),
+        'user' => $user,
+        'eleveurInfos' => $this->eleveurInfos($user),
       ]);
 
     }

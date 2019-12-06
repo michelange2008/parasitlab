@@ -12,7 +12,7 @@
 
         @include('fragments.eleveurDetail', [
           'user' => $user,
-          'infosUser' => $infosUser,
+          'eleveurInfos' => $eleveurInfos,
         ])
       </div>
 <!-- INFORMATIONS SUR L'ANALYSE-->

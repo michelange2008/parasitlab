@@ -8,8 +8,13 @@ use App\Models\Productions\Demande;
 /**
  * RENVOI DES INFORMATIONS SUR L'UTILISATEUR: NOMBRE DE DEMANDES, NOMBRE DE FACTURES IMPAYEES
  */
-trait infosUser
+ use App\Http\Traits\FormatTel;
+use App\Http\Traits\FormatEde;
+
+trait EleveurInfos
 {
+
+  use FormatEde, FormatTel;
 
   function nbDemandes($user)
   {
@@ -29,14 +34,23 @@ trait infosUser
   }
 
   // RENVOIE UNE COLLECTION AVEC LES DIFFERENTES INFO
-  public function infosUser($user)
+  public function eleveurInfos($user)
   {
-    $infosUser = Collect();
+    $eleveurInfos = Collect();
 
-    $infosUser->nbDemandes = $this->nbDemandes($user);
-    $infosUser->factureImpayees = $this->factureImpayees($user);
+    $eleveurInfos->nbDemandes = $this->nbDemandes($user);
+    $eleveurInfos->factureImpayees = $this->factureImpayees($user);
 
-    return $infosUser;
+    return $eleveurInfos;
 
+  }
+
+  public function formatUser($user)
+  {
+    $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
+
+    $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);
+
+    return $user;
   }
 }

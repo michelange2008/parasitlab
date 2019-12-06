@@ -40,16 +40,16 @@
         </li>
       @endif
 
-      @isset($infosUser->nbDemandes)
+      @isset($eleveurInfos->nbDemandes)
         <li class="list-group-item">
-          Total des demandes d'analyses <span class="badge badge-success ml-3">{{ $infosUser->nbDemandes }}</span>
+          Total des demandes d'analyses <span class="badge badge-success ml-3">{{ $eleveurInfos->nbDemandes }}</span>
         </li>
       @endisset
 
-      @isset($infosUser->factureImpayees)
-        @if ($infosUser->factureImpayees > 0)
+      @isset($eleveurInfos->factureImpayees)
+        @if ($eleveurInfos->factureImpayees > 0)
           <li class="list-group-item">
-            Nombre de factures impayées <span class="badge badge-danger ml-3">{{ $infosUser->factureImpayees }}</span>
+            Nombre de factures impayées <span class="badge badge-danger ml-3">{{ $eleveurInfos->factureImpayees }}</span>
           </li>
         @endif
       @endisset

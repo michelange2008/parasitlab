@@ -16,7 +16,7 @@
 <table class="my-3 table table-hover table-bordered">
   <thead>
     <tr>
-      @foreach ($titres as $titre)
+      @foreach ($serieInfos->serieTableau->titres as $titre)
         @if ($titre == $titre[0])
           <th>{{ $titre }}</th>
         @else
@@ -26,7 +26,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($valeurs as $valeur)
+    @foreach ($serieInfos->serieTableau->valeurs as $valeur)
       <tr>
         @foreach ($valeur as $value)
           @if ($valeur[1] === "")

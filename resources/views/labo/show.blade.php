@@ -13,34 +13,31 @@
         {{-- INFORMATIONS SUR L'ELEVEUR --}}
 
         @include('fragments.eleveurDetail', [
-          'demande' => $demande,
-          'total_demandes' => $total_demandes,
-          'nb_factures_impayees' => $nb_factures_impayees,
+          'user' => $user,
+          'eleveurInfos' => $eleveurInfos,
         ])
+
+      </div>
+
+{{-- RESULTATS D'ANALYSE --}}
+      <div class="col-md-8">
+
+        @isset($serie)
+
+            @include('labo.serieShow', [
+              'serie' => $serie,
+              'serieInfos' => $serieInfos,
+            ])
+
+        @else
+
+          autre chose
+
+        @endisset
 
       </div>
 
     </div>
 
   </div>
-
-
-
-
-{{-- RESULTATS D'ANALYSE --}}
-
-  @if ($type === 'serie')
-
-    @include('labo.serieShow', [
-      'type' => 'serie',
-      'serie' => $serie,
-      'titres' => $serieTableau['titres'],
-      'valeurs' => $serieTableau['valeurs'],
-      'identique' => $identique,
-    ])
-
-  @elseif ($type === 'demande')
-
-  @endif
-
 @endsection
