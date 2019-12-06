@@ -65,6 +65,8 @@ class SerieController extends Controller
     {
         $serie = Serie::find($id);
 
+        $user = $serie->demandes[0]->user->name;
+
         $serieTableau = $this->construitTableauResultats($serie);
 
         $demandes = Demande::where('serie_id', $id)->orderBy('date_reception', 'asc')->get();
@@ -75,6 +77,7 @@ class SerieController extends Controller
 
         return view('labo.serieShow', [
           'menu' => $menu,
+          'type' => 'serie',
           'serie' => $serie,
           'titres' => $serieTableau['titres'],
           'valeurs' => $serieTableau['valeurs'],

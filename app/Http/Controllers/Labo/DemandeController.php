@@ -9,6 +9,8 @@ use DB;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatTel;
 use App\Http\Traits\FormatEde;
+use App\Http\Traits\infosUser;
+
 use App\User;
 use App\Models\Eleveur;
 use App\Models\Espece;
@@ -19,7 +21,7 @@ use App\Models\Productions\Demande;
 
 class DemandeController extends Controller
 {
-    use LitJson, FormatTel, FormatEde;
+    use LitJson, FormatTel, FormatEde, infosUser;
 
     protected $menu;
     /**
@@ -150,22 +152,12 @@ class DemandeController extends Controller
       $demande->user->eleveur->tel = $this->ajouteEspaceTel($demande->user->eleveur->tel);
       $demande->user->eleveur->ede = $this->edeAvecEspace($demande->user->eleveur->ede);
 
-      $total_demandes = Demande::where('user_id', $demande->user->id)->count(); // nombre d'analyses faites par cet éleveur
-
-      // Nombre de factures impayées de cet éleveur
-      $nb_factures_impayees = DB::table('demandes')
-                            ->join('factures', 'demandes.id', '=', 'factures.demande_id')
-                            ->where('factures.payee', 0)
-                            ->where('factures.faite', 1)
-                            ->where('demandes.id', '=', $demande->id)
-                            ->count();
-
-        return view('labo.demandeShow', [
-          'menu' => $this->menu,
-          'demande' => $demande,
-          'total_demandes' => $total_demandes,
-          'nb_factures_impayees' => $nb_factures_impayees,
-        ]);
+      return view('labo.demandeShow', [
+        'menu' => $this->menu,
+        'user' => $demande->user,
+        'demande' => $demande,
+        'infosUser' => $this->infosUser($demande->user),
+      ]);
 
     }
 

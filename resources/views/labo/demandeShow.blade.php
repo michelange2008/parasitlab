@@ -11,9 +11,8 @@
 <!-- FICHE RESUME DE L ELEVEUR-->
 
         @include('fragments.eleveurDetail', [
-          'demande' => $demande,
-          'total_demandes' => $total_demandes,
-          'nb_factures_impayees' => $nb_factures_impayees,
+          'user' => $user,
+          'infosUser' => $infosUser,
         ])
       </div>
 <!-- INFORMATIONS SUR L'ANALYSE-->
