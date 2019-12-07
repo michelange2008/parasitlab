@@ -35,7 +35,7 @@
                 <td>{{ $eleveur->tel }}</td>
                 <td>{{ $eleveur->veto->user->name }}</td>
                 <td>
-                  @include('fragments.supprLigne', ['id' => $eleveur->user->id, 'route' => "user.destroy"])
+                  @supprLigne(['id' => $eleveur->user->id, 'route' => "user.destroy"])
                 </td>
               </tr>
             @endforeach

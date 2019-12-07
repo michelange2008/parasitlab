@@ -15,14 +15,14 @@ VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) -->
         <td>{{ $demande->anapack->nom}} (<strong>{{ $demande->nb_prelevement }} prélèv.</strong>)</td>
 
         <td class="text-center color-rouge-tres-fonce">
-          @if ($demande->serie_id !== null)
-            @include('fragments.nomLien', [
+          @isset($demande->serie_id)
+            @nomLien([
               'route' => 'serie.show',
               'id' => $demande->serie->id,
               'nom' => $demande->serie->id,
               'tooltip' => "Cliquer pour afficher la série complète"
             ])
-          @endif
+          @endisset
         </td>
 
         <td class="text-center">
@@ -33,7 +33,7 @@ VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) -->
 
         <td>
 
-          @include('fragments.nomLien', [
+          @nomLien([
             'id' => $demande->user->id,
             'nom' => $demande->user->name,
             'route' => 'eleveurAdmin.show',
@@ -55,7 +55,7 @@ VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) -->
 
         <td class="text-center">
           @if ($demande->toveto)
-            @include('fragments.nomLien', [
+            @nomLien([
               'id' => $demande->veto->id,
               'nom' => $demande->veto->user->name,
               'route' => 'vetoAdmin.show',
@@ -65,20 +65,20 @@ VARIABLES: intitules (liste des colonnes), demandes (liste des lignes) -->
 
         </td>
         <td class="text-center">
-          @include('fragments.colonneDate', ['date' => $demande->date_reception ])
+          @colonneDate(['date' => $demande->date_reception ])
         </td>
         <td class="text-center">
-          @include('fragments.colonneDate', ['date' => $demande->date_resultat ])
+          @colonneDate(['date' => $demande->date_resultat ])
         </td>
         <td class="text-center">
-          @include('fragments.colonneDate', ['date' => $demande->date_envoi ])
+          @colonneDate(['date' => $demande->date_envoi ])
         </td>
         <td>{{ $demande->informations }}</td>
         <td class="text-center">
           <a href="#" class="btn btn-sm btn-bleu rounded-0">{{ $demande->facture->id }} <i class="material-icons">zoom_in</i></a>
         </td>
         <td class="text-center">
-          @include('fragments.supprLigne', ['id' => $demande->id, 'route' => 'demandes.destroy'])
+          @supprLigne(['id' => $demande->id, 'route' => 'demandes.destroy'])
         </td>
       </tr>
     @endforeach

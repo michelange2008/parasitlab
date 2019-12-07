@@ -1,4 +1,4 @@
-<div class="collapse" id="{{ $collapse }}">
+<div class="collapse @if(!$demande->acheve) show @endif " id="{{ $collapse }}" aria-expanded="true">
   <div class="card card-body">
 
 <!-- AFFICHAGE DES SYNTHESES: ANALYSE ET FACTURE-->
@@ -12,7 +12,7 @@
           <div class="card-body">
               <h5>
                 <small>Cette analyse fait partie de la série </small>
-                @include('fragments.nomLien', [
+                @nomLien([
                   'nom' => $demande->serie_id,
                   'id' => $demande->serie_id,
                   'route' => 'serie.show',

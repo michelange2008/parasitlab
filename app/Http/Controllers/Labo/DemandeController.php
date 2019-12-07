@@ -154,7 +154,7 @@ class DemandeController extends Controller
 
       $user = $this->formatUser($user);
 
-      return view('labo.demandeShow', [
+      return view('labo.show', [
         'menu' => $this->menu,
         'demande' => $demande,
         'user' => $user,

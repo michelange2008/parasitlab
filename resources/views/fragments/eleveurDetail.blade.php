@@ -32,7 +32,7 @@
       @if ($user->eleveur->veto_id !== 1)
         <li class="list-group-item d-inline-flex">
           <i class="material-icons mr-3">local_hospital</i>
-          @include('fragments.nomLien', [
+          @nomLien([
             'route' => 'vetoAdmin.show',
             'id' => $user->eleveur->veto_id,
             'nom' => $user->eleveur->veto->user->name,

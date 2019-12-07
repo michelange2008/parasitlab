@@ -36,6 +36,10 @@ class CreateDemandesTable extends Migration
             $table->unsignedInteger('veto_id')->default(4);
             $table->foreign('veto_id')->references('id')->on('vetos');
 
+
+            $table->boolean('acheve')->default(false);
+
+
             $table->timestamp('date_prelevement')->nullable();
             $table->timestamp('date_reception');
             $table->timestamp('date_resultat')->nullable();
