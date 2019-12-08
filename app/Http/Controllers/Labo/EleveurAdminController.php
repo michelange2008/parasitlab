@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Labo;
 
 use Illuminate\Http\Request;
@@ -12,14 +11,21 @@ use App\Models\Veto;
 use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
-use App\Http\Traits\FormatEde;
-use App\Http\Traits\FormatTel;
+use App\Http\Traits\EleveurInfos;
+
+/**
+ *
+ * CLASSE DE GESTION DES ELEVEURS (CRUD)
+ *
+ */
 
 class EleveurAdminController extends Controller
 {
-    use LitJson, FormatEde, FormatTel;
+    use LitJson, eleveurInfos;
 
     protected $menu;
+    protected $pays;
+    protected $vetos;
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +34,8 @@ class EleveurAdminController extends Controller
     public function __construct()
     {
       $this->menu = $this->litJson("menuLabo");
+      $this->pays = $this->litJson("pays");
+      $this->vetos = Veto::all();
     }
 
     /**
@@ -37,13 +45,13 @@ class EleveurAdminController extends Controller
      */
     public function index()
     {
-      $intitules = $this->litJson("tableauEleveurs");
+      $intitulesEleveurs = $this->litJson("tableauEleveurs");
 
       $eleveurs = Eleveur::all();
 
       return view('admin.eleveurIndex', [
         'menu' => $this->menu,
-        'intitules' => $intitules,
+        'intitulesEleveurs' => $intitulesEleveurs,
         'eleveurs' => $eleveurs,
       ]);
 
@@ -63,7 +71,7 @@ class EleveurAdminController extends Controller
         return view('labo.eleveurCreate', [
           'menu' => $this->menu,
           'user' => User::find($_GET['user_id']),
-          'vetos' => Veto::all(),
+          'vetos' => $this->vetos,
         ]);
     }
 
@@ -105,23 +113,25 @@ class EleveurAdminController extends Controller
     {
         $user = User::find($id);
 
-        $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
-        $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);
+        $user = $this->formatUser($user);
+
+        $eleveurInfos = $this->eleveurInfos($user);
 
         $demandes = Demande::where('user_id', $id)->orderBy('date_reception', 'desc')->get();
 
-        $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
+        $intitulesDemandes = $this->litJson('tableauDemandes');
 
-        $pays = $this->litJson("pays");
-        $intitules = $this->litJson("tableauEleveur");
+
+
+        // $intitulesEleveurs = $this->litJson("tableauEleveur");
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
           'user' => $user,
-          'vetos' => $vetos,
+          'eleveurInfos' => $eleveurInfos,
           'demandes' => $demandes,
-          'intitules' => $intitules,
-          'pays' => $pays,
+          'intitulesDemandes' => $intitulesDemandes,
+          'pays' => $this->pays,
         ]);
     }
 
@@ -133,7 +143,19 @@ class EleveurAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user =User::find($id);
+
+      $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
+
+      return view('admin.eleveurEdit', [
+        'menu' => $this->menu,
+        'user' => $user,
+        'pays' => $this->pays,
+        'vetos' => $vetos
+
+      ]);
+
+
     }
 
     /**

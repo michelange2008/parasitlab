@@ -1,14 +1,47 @@
 {
-  "name" : "Analyse",
-  "serie" : "Série",
-  "voir" : "voir",
-  "eleveur" : "Eleveur",
-  "espece" : "Esp.",
-  "toveto" : "-> vétérinaire",
-  "reception" : "Réception",
-  "resultats" : "Résultats",
-  "resultats_envoyes" : "Envoi",
-  "informations" : "informations",
-  "num_facture" : "N° fact.",
-  "suppr" : "del"
+  "eleveur" : {
+    "id" : "eleveur",
+    "nom" : "Eleveur",
+    "sortable" : true
+  },
+  "name" : {
+    "id" : "name",
+    "nom" : "Analyse",
+    "sortable" : false
+  },
+  "serie" : {
+    "id" : "serie",
+    "nom" : "Série",
+    "sortable" : true
+  },
+  "espece" : {
+    "id" : "espece",
+    "nom" : "Esp.",
+    "sortable" : false
+  },
+  "toveto" : {
+    "id" : "toveto",
+    "nom" : "-> vétérinaire",
+    "sortable" : true
+  },
+  "reception" : {
+    "id" : "reception",
+    "nom" : "Reçue le",
+    "sortable" : true
+  },
+  "acheve" : {
+    "id" : "acheve",
+    "nom" : "Terminée",
+    "sortable" : true
+  },
+  "num_facture" : {
+    "id" : "num_facture",
+    "nom" : "N° fact.",
+    "sortable" : false
+  },
+  "suppr" : {
+    "id" : "suppr",
+    "nom" : "del",
+    "sortable" : false
+  }
 }

@@ -58,7 +58,7 @@
 
     <div class="card-footer">
       @include('fragments.boutonUser', [
-        'route' => 'eleveurAdmin.show',
+        'route' => 'eleveurAdmin.edit',
         'id' => $user->id,
         'intitule' => 'Voir/modifier',
         'couleur' => 'btn-bleu',

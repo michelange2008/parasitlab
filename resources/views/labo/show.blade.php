@@ -1,3 +1,6 @@
+{{-- ISSU DE  demandeController@show et SerieController@show
+AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR: SOIT UNE DEMANDE SIMPLE SOIT UNE SERIE
+ --}}
 @extends('layouts.app')
 
 @extends('labo.laboMenu')
@@ -12,19 +15,21 @@
 
         {{-- INFORMATIONS SUR L'ELEVEUR --}}
 
-        @include('fragments.eleveurDetail')
+        @eleveurDetail()
 
       </div>
 
 {{-- RESULTATS D'ANALYSE --}}
       <div class="col-md-8">
 
+        {{-- SI L'ANALYSE EST UNE SERIE --}}
         @isset($serie)
 
             @serieShow()
 
         @endisset
 
+        {{-- SI L'ANALYSE EST UNE DEMANDE --}}
         @isset($demande)
 
             @demandeShow()
@@ -36,4 +41,5 @@
     </div>
 
   </div>
+
 @endsection

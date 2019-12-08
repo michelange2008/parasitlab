@@ -3,7 +3,7 @@ IL S'AGIT DE LA COMMANDE D'UN AFFICHAGE DE TYPE collapse AFFICHANT UNE card PAR 
 LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPOND À L'id DE LA CARD
 (VOIR LE FRAGMENT eleveurModifier)
 -->
-<div class="mx-3 alert alert-bleu d-flex justify-content-between align-items-middle">
+<div class="alert alert-bleu d-flex justify-content-between align-items-middle">
 
   <div class="d-inline-flex align-items-middle">
 

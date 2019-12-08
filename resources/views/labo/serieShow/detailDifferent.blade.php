@@ -18,7 +18,7 @@
 
       <div class="col-md-12">
 
-        @include('fragments.prelevementResultats')
+        @include('labo.prelevementResultats')
 
       </div>
 

@@ -1,11 +1,42 @@
 {
-  "name" : "nom",
-  "voir" : "voir",
-  "email" : "email",
-  "ede" : "ede",
-  "cp" : "cp",
-  "commune" : "commune",
-  "tel" : "téléphone",
-  "veto" : "vétérinaire",
-  "suppr" : "del"
+  "name" : {
+    "id" : "name",
+    "nom" : "nom",
+    "sortable" : true
+  },
+  "email" : {
+    "id" : "email",
+    "nom" : "adresse mail",
+    "sortable" : false
+  },
+  "ede" : {
+    "id" : "ede",
+    "nom" : "n° ede",
+    "sortable" : true
+  },
+  "cp" : {
+    "id" : "cp",
+    "nom" : "cp",
+    "sortable" : true
+  },
+  "commune" : {
+    "id" : "commune",
+    "nom" : "commune",
+    "sortable" : true
+  },
+  "tel" : {
+    "id" : "tel",
+    "nom" : "téléphone",
+    "sortable" : false
+  },
+  "veto" : {
+    "id" : "veto",
+    "nom" : "vétérinaire",
+    "sortable" : true
+  },
+  "suppr" : {
+    "id" : "suppr",
+    "nom" : "del",
+    "sortable" : false
+  }
 }

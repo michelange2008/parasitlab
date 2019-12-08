@@ -74,14 +74,8 @@ class SerieController extends Controller
 
         $serieInfos = $this->serieInfos($serie);
 
-        // $serieTableau = $this->construitTableauResultats($serie);
-        //
-        // $demandes = Demande::where('serie_id', $id)->orderBy('date_reception', 'asc')->get();
-        //
-        // $identique = $this->identificationsIdentiques($demandes);
-
         $menu = $this->litJson('menuLabo');
-        // dd($serieInfos);
+
         return view('labo.show', [
           'menu' => $menu,
           'user' => $user,

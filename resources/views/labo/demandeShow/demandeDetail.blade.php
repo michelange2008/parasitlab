@@ -1,4 +1,4 @@
-<div class="collapse @if(!$demande->acheve) show @endif " id="{{ $collapse }}" aria-expanded="true">
+<div class="collapse @if(!$demande->acheve) show @endif " id="demande" aria-expanded="true">
   <div class="card card-body">
 
 <!-- AFFICHAGE DES SYNTHESES: ANALYSE ET FACTURE-->
@@ -42,11 +42,13 @@
 
     <!-- TITRE ANALYSE-->
         <div class="row mx-1">
+
           <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-around">
 
             @include('labo.demandeShow.syntheseTitre', ['titre' => 'analyse', 'route' => '#'])
 
           </div>
+
         </div>
     <!-- DETAIL ANALYSE-->
         <div class="row mx-1 border">
