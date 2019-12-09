@@ -5,12 +5,22 @@ namespace App\Http\Controllers\Labo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Veto;
+
+use App\Http\Traits\LitJson;
+
 class VetoAdminController extends Controller
 {
+
+  use LitJson;
+
+  protected $menu;
 
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->menu = $this->litJson('menuLabo');
     }
 
     /**
@@ -20,7 +30,15 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
-        //
+        $vetos = Veto::all();
+
+        $intitulesVetos = $this->litJson('tableauVetos');
+
+        return view('admin.vetosIndex', [
+          'menu' => $this->menu,
+          'vetos' => $vetos,
+          'intitulesVetos' => $intitulesVetos,
+        ]);
     }
 
     /**

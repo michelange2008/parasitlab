@@ -1,0 +1,32 @@
+{
+  "name" : {
+    "id" : "name",
+    "nom" : "nom",
+    "sortable" : true
+  },
+  "email" : {
+    "id" : "email",
+    "nom" : "adresse mail",
+    "sortable" : false
+  },
+  "cro" : {
+    "id" : "cro",
+    "nom" : "n° Ordre",
+    "sortable" : false
+  },
+  "cp" : {
+    "id" : "cp",
+    "nom" : "cp",
+    "sortable" : true
+  },
+  "tel" : {
+    "id" : "tel",
+    "nom" : "téléphone",
+    "sortable" : false
+  },
+  "suppr" : {
+    "id" : "suppr",
+    "nom" : "del",
+    "sortable" : false
+  }
+}

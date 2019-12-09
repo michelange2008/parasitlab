@@ -5,11 +5,15 @@
 @section('content')
 
   <div class="container-fluid">
+
     <div class="row mt-3 justify-content-center">
-      <div class="col-md-11 alert alert-bleu d-inline-flex">
-        <img src="{{ asset('storage/img/icones/eleveur.svg') }}" class="img-50" alt="Eleveur">
-        <h3 class="mx-3 my-auto">Liste des éleveurs</h3>
+
+      <div class="col-md-11">
+
+        @include('admin.userTitre', ['usertype' => $eleveurs[0]->user->userType, 'titre' => 'Liste des éleveurs'])
+
       </div>
+
     </div>
     <div class="row justify-content-center">
       <div class="col-md-11">

@@ -49,6 +49,8 @@ class EleveurAdminController extends Controller
 
       $eleveurs = Eleveur::all();
 
+      // dd($eleveurs[0]->user->userType);
+
       return view('admin.eleveurIndex', [
         'menu' => $this->menu,
         'intitulesEleveurs' => $intitulesEleveurs,
