@@ -68,7 +68,7 @@ class SerieController extends Controller
 
         $user = $serie->demandes[0]->user;
 
-        $user = $this->formatUser($user);
+        $user = $this->eleveurUser($user);
 
         $eleveurInfos = $this->eleveurInfos($user);
 

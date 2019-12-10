@@ -153,7 +153,7 @@ class DemandeController extends Controller
 
       $user = $demande->user;
 
-      $user = $this->formatUser($user);
+      $user = $this->eleveurUser($user);
 
       $demandeInfos = $this->demandeInfos($demande);
 

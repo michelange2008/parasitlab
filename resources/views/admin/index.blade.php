@@ -10,7 +10,7 @@
 
       <div class="col-md-11">
 
-        @include('admin.userTitre', ['usertype' => $userType, 'titre' => 'Liste des éleveurs'])
+        @include('admin.indexTitre', ['usertype' => $users->userType, 'titre' => $users->titre])
 
       </div>
 
@@ -37,15 +37,15 @@
           data-show-search-clear-button="true">
           <thead class="alert-bleu-tres-fonce">
             <tr>
-              @foreach ($intitulesEleveurs as $intitule) <!-- issu de tableauEleveurs.json -->
+              @foreach ($users->intitules as $intitule) <!-- issu de tableauEleveurs.json -->
                 <th class="align-middle" data-field="{{ $intitule->id }}" data-sortable="{{ $intitule->sortable}}">{{ $intitule->nom }}</th>
               @endforeach
             </tr>
           </thead>
           <tbody>
-            @foreach ($listeEleveurs as $eleveur)
+            @foreach ($users->liste as $user)
               <tr>
-                  @foreach ($eleveur as $detail)
+                  @foreach ($user as $detail)
                     @if($detail->action === 'lien')
                       <td>
                         @nomLien([

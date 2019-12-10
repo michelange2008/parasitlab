@@ -7,12 +7,13 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Veto;
 
+use App\Http\Traits\ListeVetosFournisseur;
 use App\Http\Traits\LitJson;
 
 class VetoAdminController extends Controller
 {
 
-  use LitJson;
+  use LitJson, ListeVetosFournisseur;
 
   protected $menu;
 
@@ -30,14 +31,11 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
-        $vetos = Veto::all();
+        $tableau = $this->tableau();
 
-        $intitulesVetos = $this->litJson('tableauVetos');
-
-        return view('admin.vetosIndex', [
+        return view('admin.index', [
           'menu' => $this->menu,
-          'vetos' => $vetos,
-          'intitulesVetos' => $intitulesVetos,
+          'tableau' => $tableau
         ]);
     }
 

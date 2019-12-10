@@ -45,8 +45,9 @@ trait EleveurInfos
 
   }
 
-  public function formatUser($user)
+  public function eleveurUser($user)
   {
+
     $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
 
     $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);

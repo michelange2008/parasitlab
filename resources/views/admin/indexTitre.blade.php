@@ -2,6 +2,6 @@
 
   <img class="img-50" src="{{ asset('storage/img/icones')."/".$usertype->icone->nom }}" alt="{{ $usertype->icone->nom }}">
 
-  <h3 class="ml-3">{{ $titre ?? '' }} <small>{{ $soustitre ?? ''}}</small> </h3>
+  <h3 class="pt-3 ml-3">{{ ucfirst($titre) ?? '' }} <small>{{ $soustitre ?? ''}}</small> </h3>
 
 </div>

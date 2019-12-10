@@ -12,6 +12,7 @@ use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
+use App\Http\Traits\ListeEleveursFournisseur;
 
 /**
  *
@@ -21,11 +22,11 @@ use App\Http\Traits\EleveurInfos;
 
 class EleveurAdminController extends Controller
 {
-    use LitJson, eleveurInfos;
+    use LitJson, EleveurInfos, ListeEleveursFournisseur;
 
     protected $menu;
     protected $pays;
-    protected $vetos;
+    // protected $vetos;
     /**
      * Display a listing of the resource.
      *
@@ -45,16 +46,23 @@ class EleveurAdminController extends Controller
      */
     public function index()
     {
-      $intitulesEleveurs = $this->litJson("tableauEleveurs");
 
-      $eleveurs = Eleveur::all();
+      $tableau = $this->tableau(); // ISSU DU TRAIT ListeEleveursFournisseur
 
-      // dd($eleveurs[0]->user->userType);
+      // $eleveurs = Eleveur::all();
 
-      return view('admin.eleveurIndex', [
+      // $userType = $eleveurs[0]->user->userType;
+
+      // $intitulesEleveurs = $this->litJson("tableauEleveurs");
+
+      // $listeEleveurs = $this->listeEleveurs($eleveurs);
+
+      return view('admin.index', [
         'menu' => $this->menu,
-        'intitulesEleveurs' => $intitulesEleveurs,
-        'eleveurs' => $eleveurs,
+        'users' => $tableau,
+        // 'userType' => $userType,
+        // 'intitulesEleveurs' => $intitulesEleveurs,
+        // 'listeEleveurs' => $listeEleveurs,
       ]);
 
 
@@ -115,7 +123,7 @@ class EleveurAdminController extends Controller
     {
         $user = User::find($id);
 
-        $user = $this->formatUser($user);
+        $user = $this->eleveurUser($user);
 
         $eleveurInfos = $this->eleveurInfos($user);
 
