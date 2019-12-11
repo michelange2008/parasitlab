@@ -1,25 +1,24 @@
 <?php
-namespace App\Http\Traits;
+namespace App\Fournisseurs;
+
+use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Veto;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatTel;
-use App\Http\Traits\ListeItemFactory;
+// use App\Http\Traits\ListeItemFactory;
 
 /**
  * FOURNIT LA LISTE DES VETOS AVEC TOUTES LES INFOS NECESSAIRES FORMATTEES POUR LES AFFICHER DANS INDEX
  */
-trait ListeVetosFournisseur
+class ListeVetosFournisseur extends ListeFournisseur
 {
 
-  use FormatTel, LitJson, ListeItemFactory;
+  use FormatTel, LitJson;
 
-  protected $datas;
 
-  protected $liste;
-
-  function datas()
+  function renvoieDatas()
   {
 
     // $vetos = Veto::where('id', '<>', 1)->get();
@@ -33,13 +32,13 @@ trait ListeVetosFournisseur
 
     $this->datas->intitules = $this->litJson('tableauVetos');
 
-    $this->datas->liste = $this->liste($vetos);
+    $this->datas->liste = $this->creeliste($vetos);
 
     return $this->datas;
 
   }
 
-  public function liste($vetos)
+  public function creeListe($vetos)
   {
     $this->liste = collect();
 

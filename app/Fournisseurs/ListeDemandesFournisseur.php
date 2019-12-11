@@ -1,25 +1,21 @@
 <?php
-namespace App\Http\Traits;
+namespace App\Fournisseurs;
 
-use App\Http\Traits\LitJson;
-use App\Http\Traits\ListeItemFactory;
+use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Productions\Demande;
+
+use App\Http\Traits\LitJson;
 
 /**
  *  FOURNIT LES DATAS POUR L'AFFICHAGE DE LA LISTE DES DEMANDES DANS index.blade.php
  */
-trait ListeDemandeFournisseur
+class ListeDemandesFournisseur extends ListeFournisseur
 {
 
-  use LitJson, ListeItemFactory;
+  use LitJson;
 
-  protected $datas;
-
-  protected $liste;
-
-
-  public function datas()
+  public function renvoieDatas()
   {
     $demandes = Demande::all();
 
@@ -31,12 +27,12 @@ trait ListeDemandeFournisseur
 
     $this->datas->intitules = $this->litJson('tableauDemandes');
 
-    $this->datas->liste = $this->liste($demandes);
+    $this->datas->liste = $this->creeliste($demandes);
 
     return $this->datas;
   }
 
-  public function liste($demandes)
+  public function creeliste($demandes)
   {
     $this->liste = collect();
 
@@ -59,7 +55,7 @@ trait ListeDemandeFournisseur
 
       $espece = $this->itemFactory('icone', $demande->espece->id, $demande->espece->icone, null);
 
-      $toveto = $this->itemFactory('lien', $demande->toveto->user->id, $demande->toveto->user->name, 'vetoAdmin.show');
+      $toveto = $this->itemFactory('lien', $demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show');
 
       $reception = $this->itemFactory(null, null, $demande->reception, null);
 

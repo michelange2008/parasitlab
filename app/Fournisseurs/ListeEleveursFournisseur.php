@@ -1,23 +1,22 @@
 <?php
-namespace App\Http\Traits;
+namespace App\Fournisseurs;
+
+use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Eleveur;
 
-use App\Http\Traits\FormatEde;
-use App\Http\Traits\FormatTel;
 use App\Http\Traits\LitJson;
+use App\Http\Traits\FormatTel;
+use App\Http\Traits\FormatEde;
 /**
  * FOURNIT UNE LISTE DES ELEVEURS POUR LA VUE TABLEAU INDEX
  */
-trait ListeEleveursFournisseur
+class ListeEleveursFournisseur extends ListeFournisseur
 {
 
   use FormatTel, FormatEde, LitJson;
 
-  protected $datas;
-  protected $liste;
-
-    public function datas()
+    public function renvoieDatas()
     {
       $eleveurs = Eleveur::all();
 
@@ -29,13 +28,13 @@ trait ListeEleveursFournisseur
 
       $this->datas->intitules = $this->litJson("tableauEleveurs"); // EN TETE DES COLONNES
 
-      $this->datas->liste = $this->liste($eleveurs); // LIGNES DU TABLEAU
+      $this->datas->liste = $this->creeListe($eleveurs); // LIGNES DU TABLEAU
 
       return $this->datas;
     }
 
 
-    public function liste($eleveurs)
+    public function creeListe($eleveurs)
     {
 
       $this->liste = collect();

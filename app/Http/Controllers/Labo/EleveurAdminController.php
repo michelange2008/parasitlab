@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Labo;
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
+use App\Fournisseurs\ListeEleveursFournisseur;
+
 use Carbon\Carbon;
 use App\User;
 use App\Models\Eleveur;
@@ -12,7 +14,6 @@ use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
-use App\Http\Traits\ListeEleveursFournisseur;
 
 /**
  *
@@ -22,7 +23,7 @@ use App\Http\Traits\ListeEleveursFournisseur;
 
 class EleveurAdminController extends Controller
 {
-    use LitJson, EleveurInfos, ListeEleveursFournisseur;
+    use LitJson, EleveurInfos;
 
     protected $menu;
     protected $pays;
@@ -47,7 +48,9 @@ class EleveurAdminController extends Controller
     public function index()
     {
 
-      $datas = $this->datas(); // ISSU DU TRAIT ListeEleveursFournisseur
+      $fournisseur = new ListeEleveursFournisseur();
+
+      $datas = $fournisseur->renvoieDatas(); // ISSU DU TRAIT ListeEleveursFournisseur
 
       return view('admin.index', [
         'menu' => $this->menu,

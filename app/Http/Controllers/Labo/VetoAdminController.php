@@ -1,19 +1,18 @@
 <?php
-
 namespace App\Http\Controllers\Labo;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Fournisseurs\ListeVetosFournisseur;
 
 use App\Models\Veto;
 
-use App\Http\Traits\ListeVetosFournisseur;
 use App\Http\Traits\LitJson;
 
 class VetoAdminController extends Controller
 {
 
-  use LitJson, ListeVetosFournisseur;
+  use LitJson;
 
   protected $menu;
 
@@ -31,7 +30,9 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
-        $datas = $this->datas();
+        $fournisseur = new ListeVetosFournisseur();
+
+        $datas =$fournisseur->renvoiedatas();
 
         return view('admin.index', [
           'menu' => $this->menu,

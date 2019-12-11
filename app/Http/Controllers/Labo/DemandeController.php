@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Labo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Fournisseurs\ListeDemandesFournisseur;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatTel;
 use App\Http\Traits\FormatEde;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeInfos;
-use App\Http\Traits\ListeDemandeFournisseur;
 
 use App\User;
 use App\Models\Eleveur;
@@ -23,7 +23,7 @@ use App\Models\Productions\Demande;
 
 class DemandeController extends Controller
 {
-    use LitJson, FormatTel, FormatEde, EleveurInfos, DemandeInfos, ListeDemandeFournisseur;
+    use LitJson, FormatTel, FormatEde, EleveurInfos, DemandeInfos;
 
     protected $menu;
     /**
@@ -38,17 +38,12 @@ class DemandeController extends Controller
 
     public function index()
     {
-      // $intitulesDemandes = $this->LitJson("tableauDemandes");
-      //
-      // $demandes = Demande::all();
+      $fournisseur = new ListeDemandesFournisseur();
+      $datas = $fournisseur->renvoieDatas();
 
-      $datas = $this->datas();
-
-      return view('labo.index', [
+      return view('admin.index', [
           "menu" => $this->menu,
           'datas' => $datas,
-          // "intitulesDemandes" => $intitulesDemandes,
-          // "demandes" => $demandes,
         ]);
     }
 
