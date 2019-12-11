@@ -47,22 +47,11 @@ class EleveurAdminController extends Controller
     public function index()
     {
 
-      $tableau = $this->tableau(); // ISSU DU TRAIT ListeEleveursFournisseur
-
-      // $eleveurs = Eleveur::all();
-
-      // $userType = $eleveurs[0]->user->userType;
-
-      // $intitulesEleveurs = $this->litJson("tableauEleveurs");
-
-      // $listeEleveurs = $this->listeEleveurs($eleveurs);
+      $datas = $this->datas(); // ISSU DU TRAIT ListeEleveursFournisseur
 
       return view('admin.index', [
         'menu' => $this->menu,
-        'users' => $tableau,
-        // 'userType' => $userType,
-        // 'intitulesEleveurs' => $intitulesEleveurs,
-        // 'listeEleveurs' => $listeEleveurs,
+        'datas' => $datas,
       ]);
 
 

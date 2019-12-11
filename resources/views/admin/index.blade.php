@@ -10,7 +10,7 @@
 
       <div class="col-md-11">
 
-        @include('admin.indexTitre', ['usertype' => $users->userType, 'titre' => $users->titre])
+        @include('admin.indexTitre', ['icone' => $datas->icone, 'titre' => $datas->titre])
 
       </div>
 
@@ -37,16 +37,24 @@
           data-show-search-clear-button="true">
           <thead class="alert-bleu-tres-fonce">
             <tr>
-              @foreach ($users->intitules as $intitule) <!-- issu de tableauEleveurs.json -->
+              @foreach ($datas->intitules as $intitule) <!-- issu de tableauEleveurs.json -->
                 <th class="align-middle" data-field="{{ $intitule->id }}" data-sortable="{{ $intitule->sortable}}">{{ $intitule->nom }}</th>
               @endforeach
             </tr>
           </thead>
           <tbody>
-            @foreach ($users->liste as $user)
+            @foreach ($datas->liste as $user)
               <tr>
                   @foreach ($user as $detail)
-                    @if($detail->action === 'lien')
+
+                    @empty ($detail->action)
+
+                      <td>
+                        {{ $detail->nom }}
+                      </td>
+
+                    @elseif($detail->action === 'lien')
+
                       <td>
                         @nomLien([
                           'id' => $detail->id,
@@ -54,15 +62,21 @@
                           'route' => $detail->route,
                         ])
                       </td>
+
                     @elseif($detail->action === 'del')
+
                       <td>
                         @supprLigne(['id' => $detail->id, 'route' => $detail->route])
                       </td>
-                    @else
+
+                    @elseif ($detail->action === 'ouinon')
+
                       <td>
-                        {{ $detail->nom }}
+                        @ouinon(['condition', $detail->nom])
                       </td>
-                    @endif
+
+                    @endempty
+
                   @endforeach
               </tr>
             @endforeach

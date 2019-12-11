@@ -11,6 +11,7 @@ use App\Http\Traits\FormatTel;
 use App\Http\Traits\FormatEde;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeInfos;
+use App\Http\Traits\ListeDemandeFournisseur;
 
 use App\User;
 use App\Models\Eleveur;
@@ -22,7 +23,7 @@ use App\Models\Productions\Demande;
 
 class DemandeController extends Controller
 {
-    use LitJson, FormatTel, FormatEde, EleveurInfos, DemandeInfos;
+    use LitJson, FormatTel, FormatEde, EleveurInfos, DemandeInfos, ListeDemandeFournisseur;
 
     protected $menu;
     /**
@@ -37,14 +38,17 @@ class DemandeController extends Controller
 
     public function index()
     {
-      $intitulesDemandes = $this->LitJson("tableauDemandes");
+      // $intitulesDemandes = $this->LitJson("tableauDemandes");
+      //
+      // $demandes = Demande::all();
 
-      $demandes = Demande::all();
+      $datas = $this->datas();
 
-      return view('labo.demandesIndex', [
+      return view('labo.index', [
           "menu" => $this->menu,
-          "intitulesDemandes" => $intitulesDemandes,
-          "demandes" => $demandes,
+          'datas' => $datas,
+          // "intitulesDemandes" => $intitulesDemandes,
+          // "demandes" => $demandes,
         ]);
     }
 

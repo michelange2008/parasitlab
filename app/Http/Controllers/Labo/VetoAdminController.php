@@ -31,11 +31,11 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
-        $tableau = $this->tableau();
+        $datas = $this->datas();
 
         return view('admin.index', [
           'menu' => $this->menu,
-          'tableau' => $tableau
+          'datas' => $datas
         ]);
     }
 

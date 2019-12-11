@@ -14,30 +14,34 @@ trait ListeEleveursFournisseur
 
   use FormatTel, FormatEde, LitJson;
 
-    public function tableau()
+  protected $datas;
+  protected $liste;
+
+    public function datas()
     {
       $eleveurs = Eleveur::all();
 
-      $tableauEleveurs = collect();
+      $this->datas = collect();
 
-      $tableauEleveurs->titre = "liste des éleveurs"; // TITRE DU TABLEAU
+      $this->datas->titre = "liste des éleveurs"; // TITRE DU TABLEAU
 
-      $tableauEleveurs->userType = $eleveurs[0]->user->userType; // TYPE D'UTILISATEUR
+      $this->datas->icone = $eleveurs[0]->user->userType->icone; // ICONE DE L'UTILISATEUR
 
-      $tableauEleveurs->intitules = $this->litJson("tableauEleveurs"); // EN TETE DES COLONNES
+      $this->datas->intitules = $this->litJson("tableauEleveurs"); // EN TETE DES COLONNES
 
-      $tableauEleveurs->liste = $this->liste($eleveurs); // LIGNES DU TABLEAU
+      $this->datas->liste = $this->liste($eleveurs); // LIGNES DU TABLEAU
 
-      return $tableauEleveurs;
+      return $this->datas;
     }
 
 
     public function liste($eleveurs)
     {
 
-      $liste = collect();
+      $this->liste = collect();
 
       foreach ($eleveurs as $eleveur) {
+
         $description = [];
 
         $nom = collect();
@@ -88,12 +92,12 @@ trait ListeEleveursFournisseur
           $suppr,
         ];
 
-        $liste->put($eleveur->id , $description);
+        $this->liste->put($eleveur->id , $description);
 
 
       }
 
-      return $liste;
+      return $this->liste;
 
     }
 

@@ -5,64 +5,59 @@ use App\Models\Veto;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatTel;
+use App\Http\Traits\ListeItemFactory;
 
 /**
  * FOURNIT LA LISTE DES VETOS AVEC TOUTES LES INFOS NECESSAIRES FORMATTEES POUR LES AFFICHER DANS INDEX
  */
 trait ListeVetosFournisseur
 {
-  function tableau()
+
+  use FormatTel, LitJson, ListeItemFactory;
+
+  protected $datas;
+
+  protected $liste;
+
+  function datas()
   {
 
+    // $vetos = Veto::where('id', '<>', 1)->get();
     $vetos = Veto::all();
 
-    $tableau = collect();
+    $this->datas = collect();
 
-    $tableau->titre = 'liste des vétérinaires';
+    $this->datas->titre = 'liste des vétérinaires';
 
-    $tableau->userType = $vetos[0]->user->userType;
+    $this->datas->icone = $vetos[0]->user->userType->icone;
 
-    $tableau->intitules = $this->litJson('tableauVetos');
+    $this->datas->intitules = $this->litJson('tableauVetos');
 
-    $tableau->liste = $this->liste($vetos);
+    $this->datas->liste = $this->liste($vetos);
 
-    return $tableau;
+    return $this->datas;
 
   }
 
   public function liste($vetos)
   {
-    $liste = collect();
+    $this->liste = collect();
 
     foreach ($vetos as $veto) {
+
       $description = [];
+      // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
+      $nom = $this->itemFactory('lien', $veto->user->id, $veto->user->name, 'vetoAdmin.show');
 
-      $nom = collect();
-      $nom->action = 'lien';
-      $nom->id = $veto->user->id;
-      $nom->nom = $veto->user->name;
-      $nom->route = 'eleveurAdmin.show';
+      $email = $this->itemFactory(null, null, $veto->user->email, null);
 
-      $email = collect();
-      $email->action = '';
-      $email->nom = $veto->user->email;
+      $cro = $this->itemFactory(null, null, $veto->cro ,null);
 
-      $cro = collect();
-      $cro->action = '';
-      $cro->nom = $veto->cro;
+      $cp = $this->itemFactory(null, null, $veto->cp, null);
 
-      $cp = collect();
-      $cp->action = '';
-      $cp->nom = $veto->cp;
+      $tel = $this->itemFactory(null, null, $this->ajouteEspaceTel($veto->tel), null);
 
-      $tel = collect();
-      $tel->action = '';
-      $tel->nom =  $this->ajouteEspaceTel($veto->tel);
-
-      $suppr = collect();
-      $suppr->id = $veto->veto->user->id;
-      $suppr->action = 'del';
-      $suppr->route = 'vetoAdmin.destroy';
+      $suppr = $this->itemFactory('del', $veto->user->id, null, 'vetoAdmin.destroy');
 
       $description = [
         $nom,
@@ -73,10 +68,10 @@ trait ListeVetosFournisseur
         $suppr,
       ];
 
-      $liste->put($veto->id , $description);
+      $this->liste->put($veto->id , $description);
 
     }
 
-    return $liste;
+    return $this->liste;
   }
 }
