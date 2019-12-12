@@ -8,8 +8,8 @@ use DB;
 use App\Fournisseurs\ListeDemandesFournisseur;
 
 use App\Http\Traits\LitJson;
-use App\Http\Traits\FormatTel;
-use App\Http\Traits\FormatEde;
+// use App\Http\Traits\FormatTel;
+// use App\Http\Traits\FormatEde;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeInfos;
 
@@ -23,7 +23,7 @@ use App\Models\Productions\Demande;
 
 class DemandeController extends Controller
 {
-    use LitJson, FormatTel, FormatEde, EleveurInfos, DemandeInfos;
+    use LitJson, EleveurInfos, DemandeInfos;
 
     protected $menu;
     /**
@@ -44,7 +44,7 @@ class DemandeController extends Controller
 
       $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandes');
 
-      return view('admin.index', [
+      return view('labo.demandesIndex', [
           "menu" => $this->menu,
           'datas' => $datas,
         ]);
