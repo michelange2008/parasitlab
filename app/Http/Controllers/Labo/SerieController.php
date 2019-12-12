@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
 use App\Http\Traits\LitJson;
-use App\Http\Traits\SerieFactory;
+use App\Http\Traits\SerieInfos;
+use App\Http\Traits\EleveurInfos;
 
 class SerieController extends Controller
 {
 
-    use LitJson, SerieFactory;
+    use LitJson, SerieInfos, EleveurInfos;
     /**
      * Create a new controller instance.
      *
@@ -65,20 +66,22 @@ class SerieController extends Controller
     {
         $serie = Serie::find($id);
 
-        $serieTableau = $this->construitTableauResultats($serie);
+        $user = $serie->demandes[0]->user;
 
-        $demandes = Demande::where('serie_id', $id)->orderBy('date_reception', 'asc')->get();
+        $user = $this->eleveurUser($user);
 
-        $identique = $this->identificationsIdentiques($demandes);
+        $eleveurInfos = $this->eleveurInfos($user);
+
+        $serieInfos = $this->serieInfos($serie);
 
         $menu = $this->litJson('menuLabo');
 
-        return view('labo.serieShow', [
+        return view('labo.show', [
           'menu' => $menu,
+          'user' => $user,
+          'eleveurInfos' => $eleveurInfos,
           'serie' => $serie,
-          'titres' => $serieTableau['titres'],
-          'valeurs' => $serieTableau['valeurs'],
-          'identique' => $identique,
+          'serieInfos' => $serieInfos,
         ]);
     }
 

@@ -1,8 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/jquery.dataTables.min.css": "/css/jquery.dataTables.min.css",
-    "/css/responsive.jquery.dataTables.min.css": "/css/responsive.jquery.dataTables.min.css",
-    "/css/fixedHeader.dataTables.min.css": "/css/fixedHeader.dataTables.min.css",
+    "/js/bootstrap-table-accent-neutralise.min.js": "/js/bootstrap-table-accent-neutralise.min.js",
+    "/css/bootstrap-table.min.css": "/css/bootstrap-table.min.css",
+    "/js/bootstrap-table-sticky-header.min.css": "/js/bootstrap-table-sticky-header.min.css",
     "/css/jquery-confirm.css": "/css/jquery-confirm.css"
 }

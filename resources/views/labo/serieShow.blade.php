@@ -1,44 +1,20 @@
-@extends('layouts.app')
 
-@extends('labo.laboMenu')
+@include('labo.serieShow.titreSerie')
 
-@section('content')
-<div class="container-fluid">
-
-  <div class="row justify-content-center my-3">
-    <div class="col-md-8 d-inline-flex alert alert-bleu rounded-0 @if(!$serie->acheve) alert-rouge-tres-fonce @endif">
-      @include('labo.serieShow.titreSerie', ['serie' => $serie])
-    </div>
-  </div>
 @if ($serie->acheve)
 
-  @if ($identique)
+  @if ($serieInfos->identique)
 
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        @include('labo.serieShow.detailIdentique', [
-          'serie'=> $serie,
-          'titres' => $titres,
-          'valeurs' => $valeurs,
-        ])
-      </div>
-    </div>
+        @include('labo.serieShow.detailIdentique')
 
   @else
 
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        @include('labo.serieShow.detailDifferent', ['serie' => $serie])
-      </div>
-    </div>
+        @include('labo.serieShow.detailDifferent')
 
   @endif
 
 @else
 
-
+  serie inachevée
 
 @endif
-
-</div>
-@endsection

@@ -4,18 +4,12 @@
 
 @section('content')
 
-  <div class="container">
-    <div class="row mt-3 justify-content-center">
-      <div class="col-md-11">
-        @include('fragments.titreCollapse', [
-          "titre" => $user->name,
-          "icone" => $user->usertype->icone->nom,
-          "collapse" => "modifier",
-          'detail' => true,
-        ])
-      </div>
+  <div class="container-fluid">
 
-      <div class="col-md-11">
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-12">
+
         @include('fragments.breadcrumb', [
           "liste" => [
           "Accueil" => "laboratoire",
@@ -23,24 +17,19 @@
          ]
        ])
       </div>
-    </div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-11">
-        @include('fragments.eleveurModifier', [
-          "user" => $user,
-          "vetos" => $vetos,
-          "pays" => $pays,
-          "collapse" => "modifier",
-        ])
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-md-11">
-        @include('labo.demandesTableau', ['demandes' => $demandes, 'intitules' => $intitules])
-      </div>
-    </div>
+      <div class="col-md-4">
 
-  </div>
+        {{-- INFORMATIONS SUR L'ELEVEUR --}}
+
+        @include('admin.eleveurDetail')
+
+      </div>
+
+      <div class="col-md-8">
+
+        @include('admin.index')
+
+      </div>
 
 @endsection

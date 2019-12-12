@@ -18,9 +18,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-table.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-table-sticky-header.min.css')}}">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="{{ asset('css/fixedHeader.dataTables.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.jquery.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.jquery.dataTables.min.css')}}"> --}}
     <link rel="stylesheet" href="{{ asset('css/jquery-confirm.css')}}">
 
 </head>
@@ -33,6 +36,6 @@
         <!-- Scripts -->
 
         <script src="{{ asset('js/app.js') }}" defer></script>
-
+<script type="text/javascript" src="libs/FileSaver/FileSaver.min.js"></script>
 </body>
 </html>

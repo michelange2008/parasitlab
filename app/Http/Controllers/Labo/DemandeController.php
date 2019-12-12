@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Labo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Fournisseurs\ListeDemandesFournisseur;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatTel;
 use App\Http\Traits\FormatEde;
+use App\Http\Traits\EleveurInfos;
+use App\Http\Traits\DemandeInfos;
+
 use App\User;
 use App\Models\Eleveur;
 use App\Models\Espece;
@@ -19,7 +23,7 @@ use App\Models\Productions\Demande;
 
 class DemandeController extends Controller
 {
-    use LitJson, FormatTel, FormatEde;
+    use LitJson, FormatTel, FormatEde, EleveurInfos, DemandeInfos;
 
     protected $menu;
     /**
@@ -34,14 +38,15 @@ class DemandeController extends Controller
 
     public function index()
     {
-      $intitules = $this->LitJson("tableauDemandes");
-
       $demandes = Demande::all();
 
-      return view('labo.laboIndex', [
+      $fournisseur = new ListeDemandesFournisseur();
+
+      $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandes');
+
+      return view('admin.index', [
           "menu" => $this->menu,
-          "intitules" => $intitules,
-          "demandes" => $demandes,
+          'datas' => $datas,
         ]);
     }
 
@@ -147,25 +152,20 @@ class DemandeController extends Controller
     public function show($id)
     {
       $demande = Demande::find($id);
-      $demande->user->eleveur->tel = $this->ajouteEspaceTel($demande->user->eleveur->tel);
-      $demande->user->eleveur->ede = $this->edeAvecEspace($demande->user->eleveur->ede);
 
-      $total_demandes = Demande::where('user_id', $demande->user->id)->count(); // nombre d'analyses faites par cet éleveur
+      $user = $demande->user;
 
-      // Nombre de factures impayées de cet éleveur
-      $nb_factures_impayees = DB::table('demandes')
-                            ->join('factures', 'demandes.id', '=', 'factures.demande_id')
-                            ->where('factures.payee', 0)
-                            ->where('factures.faite', 1)
-                            ->where('demandes.id', '=', $demande->id)
-                            ->count();
+      $user = $this->eleveurUser($user);
 
-        return view('labo.demandeShow', [
-          'menu' => $this->menu,
-          'demande' => $demande,
-          'total_demandes' => $total_demandes,
-          'nb_factures_impayees' => $nb_factures_impayees,
-        ]);
+      $demandeInfos = $this->demandeInfos($demande);
+
+      return view('labo.show', [
+        'menu' => $this->menu,
+        'demande' => $demande,
+        'demandeInfos' => $demandeInfos,
+        'user' => $user,
+        'eleveurInfos' => $this->eleveurInfos($user),
+      ]);
 
     }
 

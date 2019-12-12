@@ -1,48 +1,22 @@
 require('./bootstrap');
 
-require( 'datatables.net-dt' );
-require( 'datatables.net-fixedheader-dt' );
-require( 'datatables.net-responsive-dt' );
+require( './bootstrap-table.min.js');
+require( './bootstrap-table-accent-neutralise.min.js');
+require( './bootstrap-table-locale-all.js');
+
+
 require( 'jquery-confirm' );
+
 
 $(function() {
 
   $('[data-toggle="tooltip"]').tooltip();
 
-  $('#table-users').dataTable({
-    responsive :true,
-    fixedHeader: true,
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
-    }
-  });
 
-  $('#table-eleveurs').dataTable({
-    responsive :true,
-    fixedHeader: true,
-    columnDefs : [
-      {responsivePriority: 1, targets:0},
-      {responsivePriority: 2, targets:-1}
-    ],
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
-    }
-  });
+  $('#table').bootstrapTable({
 
-  $('#table-demandes').dataTable({
-    responsive : true,
-    columnDefs : [
-      {responsivePriority: 1, targets:0},
-      {responsivePriority: 2, targets:-1}
-    ],
-   "order": [[ 6, "desc" ]],
-    scrolling : 500,
-    paging : false,
-    fixedHeader: true,
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/French.json"
-    }
-  });
+  })
+
 
   $('.suppr').on('click', function(event) {
     event.preventDefault();

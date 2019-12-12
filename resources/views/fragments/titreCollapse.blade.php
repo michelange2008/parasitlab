@@ -3,27 +3,25 @@ IL S'AGIT DE LA COMMANDE D'UN AFFICHAGE DE TYPE collapse AFFICHANT UNE card PAR 
 LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPOND À L'id DE LA CARD
 (VOIR LE FRAGMENT eleveurModifier)
 -->
-<div class="mx-auto alert alert-bleu d-flex justify-content-between align-items-middle">
+<div class="alert alert-bleu d-flex justify-content-between align-items-middle">
 
   <div class="d-inline-flex align-items-middle">
 
     <img class="img-40" src="{{ asset('storage/img/icones/')."/".$icone }}" alt="">
 
-    <h3 class="mx-3">{{ ucfirst($titre) }}</h3>
+    <h5 class="mx-3">{{ ucfirst($titre) }}</h5>
 
   </div>
+
 @if ($detail)
 <!-- AFFICHAGE DU BOUTON DETAIL SEULEMENT SI LA VARIABLE COLLAPSE-->
-  <button class="btn btn-bleu rounded-0" type="button"
-  data-toggle="collapse" data-target="#{{ $collapse }}" aria-expanded="false" aria-controls="modifier">
+    <button class="btn btn-sm btn-bleu rounded-0" type="button" data-toggle="collapse"
+        data-target="#{{ $collapse }}" aria-expanded="false" aria-controls="modifier"
+        title="{{ $tooltip  ?? 'infos' }}" >
 
-  Détails
-  <span data-toggle="modal" data-target="#{{ $collapse }}">
-    <a data-toggle="tooltip" data-placement="top" title="Cliquer pour voir les informations sur {{ $titre }} et les modifier">
-      +
-    </a>
-  </span>
-</button>
+        Détails +
+
+    </button>
 
 @endif
 

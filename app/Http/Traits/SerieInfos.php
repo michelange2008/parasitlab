@@ -12,8 +12,21 @@ use Carbon\Carbon;
  * -> identificationsIdentiques : vérifie si un série comporte des demandes identiques: nombre et identification des prélèvement
  * -> construitTableauResultats : met en forme un tableau à partir des résultats des différentes demandes de la série pour un affichage de synthèse
  */
-trait SerieFactory
+trait SerieInfos
 {
+
+  public function serieInfos($serie)
+  {
+    $serieInfos = Collect();
+
+    $serieInfos->identique = $this->identificationsIdentiques($serie); // Booléen pour savoir si tous les prélèvements de la série sont identiques
+
+    $serieInfos->serieTableau = $this->construitTableauResultats($serie); // Tableaux avec la ligne de titre et les valeurs
+
+    return $serieInfos;;
+
+  }
+
   /**
    * METHODE DESTINE A VERIFIER SI LES SERIES (SUITE DE PLUSIEURS LOTS DE PRELEVEMENT DANS LE CAS DES SUIVIS DE CAMPAGNE OU DES TESTS DE RÉSISTANCE)
    *  SONT COMPATIBLES AVEC UN AFFICHAGE SYNTHETIQUE
@@ -29,7 +42,7 @@ trait SerieFactory
     // verifie que le nombre de prélevement est indentique d'une demande à l'autre
     $liste_nb_prelevements = collect();
 
-    foreach ($serie as $demande) {
+    foreach ($serie->demandes as $demande) {
 
       $liste_nb_prelevements->push($demande->nb_prelevement);
 
@@ -47,7 +60,7 @@ trait SerieFactory
       // de prélèvement de la série
       $liste_identifications = collect(); // tableau vide pour y mettre les libellés des identifications
 
-      foreach ($serie as $demande) {
+      foreach ($serie->demandes as $demande) {
 
         foreach($demande->prelevements as $prelevement) {
 
@@ -151,7 +164,9 @@ trait SerieFactory
 
     } // ET VOILA LE TRAVAIL... C EST UN PEU POURRI COMME METHODE MAIS JE N'AI PAS TROUVE MIEUX !!!
 
-    $serieTableau = ["titres" => $serieTitres->toArray(), "valeurs" => $serieValeurs]; // ENSEMBLE DES DEUX RETOURNÉ PAR LA METHODE
+    $serieTableau = Collect(); // ENSEMBLE DES DEUX RETOURNÉ PAR LA METHODE
+    $serieTableau->titres = $serieTitres->toArray();
+    $serieTableau->valeurs = $serieValeurs;
 
     return $serieTableau;
   }

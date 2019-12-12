@@ -1,3 +1,4 @@
+{{-- ISSU DE DemandeController@index --}}
 @extends('layouts.app')
 
 @extends('labo.laboMenu')
@@ -12,7 +13,7 @@
         </div>
       @endif
     </div>
-    <div class="row my-3">
+    <div class="row mt-3">
       <div class="alert alert-bleu col d-inline-flex">
         <img class="img-40" src="{{ asset('storage/img/icones/microscope.svg')}}" alt="microscope">
         <h3 class="mx-3">Liste des analyses</h3>
@@ -20,10 +21,7 @@
     </div>
     <div class="row">
         <div class="col">
-          @include('labo.demandesTableau', [
-            'intitules' => $intitules,
-            'demandes' => $demandes,
-          ])
+          @include('labo.demandesTableau')
         </div>
     </div>
 

@@ -1,10 +1,12 @@
 <?php
-
 namespace App\Http\Controllers\Labo;
 
 use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
+use App\Fournisseurs\ListeEleveursFournisseur;
+use App\Fournisseurs\ListeDemandesFournisseur;
+
 use Carbon\Carbon;
 use App\User;
 use App\Models\Eleveur;
@@ -12,14 +14,21 @@ use App\Models\Veto;
 use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
-use App\Http\Traits\FormatEde;
-use App\Http\Traits\FormatTel;
+use App\Http\Traits\EleveurInfos;
+
+/**
+ *
+ * CLASSE DE GESTION DES ELEVEURS (CRUD)
+ *
+ */
 
 class EleveurAdminController extends Controller
 {
-    use LitJson, FormatEde, FormatTel;
+    use LitJson, EleveurInfos;
 
     protected $menu;
+    protected $pays;
+    // protected $vetos;
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +37,8 @@ class EleveurAdminController extends Controller
     public function __construct()
     {
       $this->menu = $this->litJson("menuLabo");
+      $this->pays = $this->litJson("pays");
+      $this->vetos = Veto::all();
     }
 
     /**
@@ -37,14 +48,18 @@ class EleveurAdminController extends Controller
      */
     public function index()
     {
-      $intitules = $this->litJson("tableauEleveurs");
 
       $eleveurs = Eleveur::all();
 
-      return view('admin.eleveurIndex', [
+      $icone = $eleveurs[0]->user->userType->icone->nom;
+
+      $fournisseur = new ListeEleveursFournisseur(); // voir class ListeFournisseur
+
+      $datas = $fournisseur->renvoieDatas($eleveurs, "liste des éleveurs", $icone, 'tableauEleveurs');
+
+      return view('admin.index', [
         'menu' => $this->menu,
-        'intitules' => $intitules,
-        'eleveurs' => $eleveurs,
+        'datas' => $datas,
       ]);
 
 
@@ -63,7 +78,7 @@ class EleveurAdminController extends Controller
         return view('labo.eleveurCreate', [
           'menu' => $this->menu,
           'user' => User::find($_GET['user_id']),
-          'vetos' => Veto::all(),
+          'vetos' => $this->vetos,
         ]);
     }
 
@@ -105,23 +120,24 @@ class EleveurAdminController extends Controller
     {
         $user = User::find($id);
 
-        $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
-        $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);
+        $user = $this->eleveurUser($user);
+
+        $eleveurInfos = $this->eleveurInfos($user);
 
         $demandes = Demande::where('user_id', $id)->orderBy('date_reception', 'desc')->get();
 
-        $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
+        $icone = 'demandes.svg';
 
-        $pays = $this->litJson("pays");
-        $intitules = $this->litJson("tableauEleveur");
+        $fournisseur = new ListeDemandesFournisseur(); // voir class ListeFournisseur
+
+        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", $icone, 'tableauDemandes');
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
           'user' => $user,
-          'vetos' => $vetos,
-          'demandes' => $demandes,
-          'intitules' => $intitules,
-          'pays' => $pays,
+          'eleveurInfos' => $eleveurInfos,
+          'datas' => $datas,
+          'pays' => $this->pays,
         ]);
     }
 
@@ -133,7 +149,19 @@ class EleveurAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user =User::find($id);
+
+      $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
+
+      return view('admin.eleveurEdit', [
+        'menu' => $this->menu,
+        'user' => $user,
+        'pays' => $this->pays,
+        'vetos' => $vetos
+
+      ]);
+
+
     }
 
     /**

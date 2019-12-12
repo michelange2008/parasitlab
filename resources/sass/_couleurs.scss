@@ -86,3 +86,8 @@ $rouge-tres-fonce: #8F230A;
   background: $bleu-tres-clair !important;
 
 }
+
+.table .thead-bleu th {
+	color: $bleu-tres-fonce;
+	background-color: $bleu-tres-clair;
+}

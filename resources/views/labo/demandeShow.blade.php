@@ -1,58 +1,34 @@
-@extends('layouts.app')
-
-@extends('labo.laboMenu')
-
-@section('content')
-
-  <div class="container-fluid">
-
-    <div class="row my-3 justify-content-center">
-      <div class="col-md-4 col-sm-4">
-<!-- FICHE RESUME DE L ELEVEUR-->
-
-        @include('fragments.eleveurDetail', [
-          'demande' => $demande,
-          'total_demandes' => $total_demandes,
-          'nb_factures_impayees' => $nb_factures_impayees,
-        ])
-      </div>
 <!-- INFORMATIONS SUR L'ANALYSE-->
-      <div class="col-md-7 col-sm-8">
-        <div class="row">
-          <div class="col-md-12">
-    <!-- TITRE INFORMATIONS SUR L ANALYSE-->
-            @include('fragments.titreCollapse', [
-              'titre' => "Informations sur la demande d'analyse",
-              'icone' => 'info_blanc.svg',
-              'collapse' => "demande",
-              'detail' => true,
-            ])
-          </div>
-        </div>
+<div class="card">
+  <div class="card-header">
 
-        <div class="row justify-content-center">
-          <div class="col-md-12">
-    <!-- INFORMATIONS SUR L ANALYSE-->
-            @include('labo.demandeShow.demandeDetail', ['demande' => $demande, "collapse" => 'demande'])
-          </div>
-        </div>
-<!-- S IL N Y A PAS D ANALYSES ON AFFICHE UN SIMPLE BANDEAU-->
-        @if ($demande->date_resultat === null)
-          @include('fragments.titreCollapse', [
-            'titre' => "Les analyses ne sont pas terminées",
-            'icone' => 'pas_fini.svg',
-            'collapse' => '',
-            'detail' => false,
-          ])
-<!-- SINON ON AFFICHE LE DETAIL DE CHAQUE ANALYSE-->
-        @else
-          <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
-          @include('labo.resultatsAnalyse', ['demande' => $demande])
-
-        @endif
-
-      </div>
-    </div>
+    @include('labo.demandeShow.titreDemande')
   </div>
+<div class="card-body">
 
-@endsection
+<!-- TITRE POUR CLIQUER ET EXPANDRE SI L'ANALYSE EST TERMINEE - NE S'AFFICHE PAS SI L'ANALYSE N'EST PAS TERMINÉE-->
+@if ($demande->acheve)
+
+  @include('fragments.titreCollapse', [
+    'titre' => "Informations sur l'analyse",
+    'icone' => 'info_blanc.svg',
+    'tooltip' => "Cliquer pour voir les informations sur la demande d'analyse et la modifier",
+    'collapse' => "demande",
+    'detail' => true,
+  ])
+
+@endif
+
+<!-- INFORMATIONS SUR L ANALYSE: SI TERMINEE NE S'AFFICHE PAS PAR DEFAUT - SINON AFFICHEE-->
+@include('labo.demandeShow.demandeDetail')
+<!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
+@if ($demande->acheve)
+
+  @include('labo.resultatsAnalyse')
+
+@endif
+
+</div>
+
+
+</div>

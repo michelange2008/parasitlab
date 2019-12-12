@@ -1,16 +1,26 @@
 <?php
-
 namespace App\Http\Controllers\Labo;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Fournisseurs\ListeVetosFournisseur;
+
+use App\Models\Veto;
+
+use App\Http\Traits\LitJson;
 
 class VetoAdminController extends Controller
 {
 
+  use LitJson;
+
+  protected $menu;
+
     public function __construct()
     {
         $this->middleware('auth');
+
+        $this->menu = $this->litJson('menuLabo');
     }
 
     /**
@@ -20,7 +30,18 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
-        //
+        $vetos = Veto::all();
+
+        $icone = $vetos[0]->user->userType->icone->nom;
+
+        $fournisseur = new ListeVetosFournisseur();
+
+        $datas =$fournisseur->renvoiedatas($vetos, 'liste des vétérinaires', $icone, 'tableauVetos');
+
+        return view('admin.index', [
+          'menu' => $this->menu,
+          'datas' => $datas
+        ]);
     }
 
     /**

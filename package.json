@@ -28,6 +28,11 @@
         "datatables.net-fixedheader-dt": "^3.1.6",
         "datatables.net-responsive-dt": "^2.2.3",
         "jquery-confirm": "^3.3.4",
+<<<<<<< HEAD
         "npm": "^6.13.2"
+=======
+        "npm": "^6.12.1",
+        "tableexport": "^5.2.0"
+>>>>>>> 1258ba8179a4a4ff02bf50dfa532cc9bb9c413f2
     }
 }

@@ -1,19 +1,28 @@
 @foreach ($demande->prelevements as $prelevement)
-  <div class="row my-3 justify-content-center">
-    <div class="col-md-12">
-<!-- TITRE DETAIL CHAQUE PRELEVEMENT-->
-      @include('fragments.titreCollapse', [
-        'titre' => $prelevement->identification,
-        'icone' => $demande->espece->icone->nom,
-        'collapse' => 'prelevement'.$prelevement->id,
-        'detail' => true,
-      ])
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-md-12">
-<!-- DETAIL CHAQUE PRELEVEMENT-->
-      @include('fragments.analyseDetail', ['prelevement' => $prelevement, "collapse" => 'prelevement'.$prelevement->id])
-    </div>
-  </div>
+
+{{-- BON JE SAIS ! ON NE DOIT PAS FAIRE ÇA DANS UNE VUE... MAIS JE N'AVAIS PAS D'AUTRE SOLUTION POUR
+VERIFIER QUE TOUS LES ITEMS D'UN PRELEVEMENT SONT NÉGATIFS --}}
+
+  @php
+
+    $toutNegatif = true;
+
+  @endphp
+
+  @foreach ($prelevement->resultats as $resultat)
+
+    @if ($resultat->positif)
+
+      @php
+
+        $toutNegatif = false;
+
+      @endphp
+
+    @endif
+
+  @endforeach
+
+  @include('labo.prelevementResultats', ['toutNegatif' => $toutNegatif])
+
 @endforeach
