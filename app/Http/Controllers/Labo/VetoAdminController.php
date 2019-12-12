@@ -30,9 +30,13 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
+        $vetos = Veto::all();
+
+        $icone = $vetos[0]->user->userType->icone->nom;
+
         $fournisseur = new ListeVetosFournisseur();
 
-        $datas =$fournisseur->renvoiedatas();
+        $datas =$fournisseur->renvoiedatas($vetos, 'liste des vétérinaires', $icone, 'tableauVetos');
 
         return view('admin.index', [
           'menu' => $this->menu,

@@ -17,26 +17,23 @@ class ListeVetosFournisseur extends ListeFournisseur
 
   use FormatTel, LitJson;
 
-
-  function renvoieDatas()
-  {
-
-    // $vetos = Veto::where('id', '<>', 1)->get();
-    $vetos = Veto::all();
-
-    $this->datas = collect();
-
-    $this->datas->titre = 'liste des vétérinaires';
-
-    $this->datas->icone = $vetos[0]->user->userType->icone;
-
-    $this->datas->intitules = $this->litJson('tableauVetos');
-
-    $this->datas->liste = $this->creeliste($vetos);
-
-    return $this->datas;
-
-  }
+  // 
+  // function renvoieDatas($vetos, 'liste des vétérinaires', $vetos[0]->user->userType->icone->nom, 'tableauVetos')
+  // {
+  //
+  //   $this->datas = collect();
+  //
+  //   $this->datas->titre = 'liste des vétérinaires';
+  //
+  //   $this->datas->icone = $vetos[0]->user->userType->icone->nom;
+  //
+  //   $this->datas->intitules = $this->litJson('tableauVetos');
+  //
+  //   $this->datas->liste = $this->creeliste($vetos);
+  //
+  //   return $this->datas;
+  //
+  // }
 
   public function creeListe($vetos)
   {

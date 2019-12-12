@@ -5,7 +5,7 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Productions\Demande;
 
-use App\Http\Traits\LitJson;
+use App\Http\Traits\FormatDate;
 
 /**
  *  FOURNIT LES DATAS POUR L'AFFICHAGE DE LA LISTE DES DEMANDES DANS index.blade.php
@@ -13,24 +13,7 @@ use App\Http\Traits\LitJson;
 class ListeDemandesFournisseur extends ListeFournisseur
 {
 
-  use LitJson;
-
-  public function renvoieDatas()
-  {
-    $demandes = Demande::all();
-
-    $this->datas = collect();
-
-    $this->datas->titre = "liste des demandes d'analyse";
-
-    $this->datas->icone = "demandes.svg";
-
-    $this->datas->intitules = $this->litJson('tableauDemandes');
-
-    $this->datas->liste = $this->creeliste($demandes);
-
-    return $this->datas;
-  }
+  use FormatDate;
 
   public function creeliste($demandes)
   {
@@ -46,24 +29,26 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->itemFactory('lien', $demande->serie->id, $demande->serie->id, 'serie.show');
+        $serie = $this->itemFactory('lien', $demande->serie->id, "n°".$demande->serie->id, 'serie.show');
 
       }
       else {
-        $serie = '';
+
+        $serie = $this->itemFactory(null, null, '', null);
+
       }
 
-      $espece = $this->itemFactory('icone', $demande->espece->id, $demande->espece->icone, null);
+      $espece = $this->itemFactory('icone', $demande->espece->id, $demande->espece->icone->nom, null);
 
       $toveto = $this->itemFactory('lien', $demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show');
 
-      $reception = $this->itemFactory(null, null, $demande->reception, null);
+      $reception = $this->itemFactory(null, null, $this->dateSortable($demande->date_reception), null);
 
-      $terminee = $this->itemFactory('ounon', null, $demande->acheve, null);
+      $terminee = $this->itemFactory('ouinon', null, $demande->acheve, null);
 
       $facture = $this->itemFactory('lien', $demande->facture->id, "n°".$demande->facture->id, 'home');
 
-      $suppr = $this->itemFactory('del', $demande->id, null, 'demandes.destroy');
+      $suppr = $this->itemFactory('del', $demande->id, '', 'demandes.destroy');
 
       $description = [
         $eleveur,

@@ -38,7 +38,7 @@
           <thead class="alert-bleu-tres-fonce">
             <tr>
               @foreach ($datas->intitules as $intitule) <!-- issu de tableauEleveurs.json -->
-                <th class="align-middle" data-field="{{ $intitule->id }}" data-sortable="{{ $intitule->sortable}}">{{ $intitule->nom }}</th>
+                <th data-halign="{{ $intitule->align }}" data-align="{{ $intitule->align }}" data-field="{{ $intitule->id }}" data-sortable="{{ $intitule->sortable}}">{{ $intitule->nom }}</th>
               @endforeach
             </tr>
           </thead>
@@ -50,7 +50,10 @@
                     @empty ($detail->action)
 
                       <td>
-                        {{ $detail->nom }}
+                        @isset($detail->nom)
+
+                          {{ $detail->nom }}
+                        @endisset
                       </td>
 
                     @elseif($detail->action === 'lien')
@@ -72,7 +75,17 @@
                     @elseif ($detail->action === 'ouinon')
 
                       <td>
-                        @ouinon(['condition', $detail->nom])
+
+                        @ouinon(['condition' => $detail->nom])
+
+                      </td>
+
+                    @elseif ($detail->action === 'icone')
+
+                      <td>
+
+                        <img class="img-40" src="{{ asset('storage/img/icones').'/'.$detail->nom }}" alt="{{ $detail->nom }}">
+
                       </td>
 
                     @endempty

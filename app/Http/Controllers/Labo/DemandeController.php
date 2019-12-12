@@ -38,8 +38,11 @@ class DemandeController extends Controller
 
     public function index()
     {
+      $demandes = Demande::all();
+
       $fournisseur = new ListeDemandesFournisseur();
-      $datas = $fournisseur->renvoieDatas();
+
+      $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandes');
 
       return view('admin.index', [
           "menu" => $this->menu,

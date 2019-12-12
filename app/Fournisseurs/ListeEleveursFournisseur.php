@@ -5,7 +5,6 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Eleveur;
 
-use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatTel;
 use App\Http\Traits\FormatEde;
 /**
@@ -14,25 +13,7 @@ use App\Http\Traits\FormatEde;
 class ListeEleveursFournisseur extends ListeFournisseur
 {
 
-  use FormatTel, FormatEde, LitJson;
-
-    public function renvoieDatas()
-    {
-      $eleveurs = Eleveur::all();
-
-      $this->datas = collect();
-
-      $this->datas->titre = "liste des éleveurs"; // TITRE DU TABLEAU
-
-      $this->datas->icone = $eleveurs[0]->user->userType->icone; // ICONE DE L'UTILISATEUR
-
-      $this->datas->intitules = $this->litJson("tableauEleveurs"); // EN TETE DES COLONNES
-
-      $this->datas->liste = $this->creeListe($eleveurs); // LIGNES DU TABLEAU
-
-      return $this->datas;
-    }
-
+  use FormatTel, FormatEde;
 
     public function creeListe($eleveurs)
     {

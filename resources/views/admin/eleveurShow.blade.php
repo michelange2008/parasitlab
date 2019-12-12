@@ -28,7 +28,7 @@
 
       <div class="col-md-8">
 
-        @include('labo.demandesTableau')
+        @include('admin.index')
 
       </div>
 

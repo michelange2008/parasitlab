@@ -1,13 +1,15 @@
 <?php
 namespace App\Fournisseurs;
 
+use App\Http\Traits\LitJson;
+
 /**
  * CLASSE ABSTRAITE POUR LES TRAITS LISTE****FOURNISSEUR
  */
-
 abstract class ListeFournisseur
-
 {
+  use LitJson;
+
   private $datas;
 
   private $liste;
@@ -15,7 +17,21 @@ abstract class ListeFournisseur
   * Renvoie une collection avec toutes les infos pour afficher
   * un tableau: titre, icone, intitulés, liste
   */
-  abstract protected function renvoieDatas();
+
+  public function renvoieDatas($liste_origine, $titre, $icone, $fichier_intitules) {
+
+    $this->datas = collect();
+
+    $this->datas->titre = $titre; // TITRE DU TABLEAU
+
+    $this->datas->icone = $icone; // ICONE DE L'UTILISATEUR
+
+    $this->datas->intitules = $this->litJson($fichier_intitules); // EN TETE DES COLONNES
+
+    $this->datas->liste = $this->creeListe($liste_origine); // LIGNES DU TABLEAU
+
+    return $this->datas;
+  }
 
   /*
   * Renvoie un tableau $liste avec toutes les lignes à afficher

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Controllers\Controller;
 use App\Fournisseurs\ListeEleveursFournisseur;
+use App\Fournisseurs\ListeDemandesFournisseur;
 
 use Carbon\Carbon;
 use App\User;
@@ -48,9 +49,13 @@ class EleveurAdminController extends Controller
     public function index()
     {
 
-      $fournisseur = new ListeEleveursFournisseur();
+      $eleveurs = Eleveur::all();
 
-      $datas = $fournisseur->renvoieDatas(); // ISSU DU TRAIT ListeEleveursFournisseur
+      $icone = $eleveurs[0]->user->userType->icone->nom;
+
+      $fournisseur = new ListeEleveursFournisseur(); // voir class ListeFournisseur
+
+      $datas = $fournisseur->renvoieDatas($eleveurs, "liste des éleveurs", $icone, 'tableauEleveurs');
 
       return view('admin.index', [
         'menu' => $this->menu,
@@ -121,18 +126,17 @@ class EleveurAdminController extends Controller
 
         $demandes = Demande::where('user_id', $id)->orderBy('date_reception', 'desc')->get();
 
-        $intitulesDemandes = $this->litJson('tableauDemandes');
+        $icone = 'demandes.svg';
 
+        $fournisseur = new ListeDemandesFournisseur(); // voir class ListeFournisseur
 
-
-        // $intitulesEleveurs = $this->litJson("tableauEleveur");
+        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", $icone, 'tableauDemandes');
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
           'user' => $user,
           'eleveurInfos' => $eleveurInfos,
-          'demandes' => $demandes,
-          'intitulesDemandes' => $intitulesDemandes,
+          'datas' => $datas,
           'pays' => $this->pays,
         ]);
     }

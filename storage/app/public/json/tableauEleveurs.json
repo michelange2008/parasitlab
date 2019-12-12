@@ -2,41 +2,49 @@
   "name" : {
     "id" : "name",
     "nom" : "nom",
+    "align" : "left",
     "sortable" : true
   },
   "email" : {
     "id" : "email",
     "nom" : "adresse mail",
+    "align" : "left",
     "sortable" : false
   },
   "ede" : {
     "id" : "ede",
     "nom" : "n° ede",
+    "align" : "center",
     "sortable" : true
   },
   "cp" : {
     "id" : "cp",
     "nom" : "cp",
+    "align" : "center",
     "sortable" : true
   },
   "commune" : {
     "id" : "commune",
     "nom" : "commune",
+    "align" : "left",
     "sortable" : true
   },
   "tel" : {
     "id" : "tel",
     "nom" : "téléphone",
+    "align" : "center",
     "sortable" : false
   },
   "veto" : {
     "id" : "veto",
     "nom" : "vétérinaire",
+    "align" : "left",
     "sortable" : true
   },
   "suppr" : {
     "id" : "suppr",
     "nom" : "del",
+    "align" : "center",
     "sortable" : false
   }
 }
