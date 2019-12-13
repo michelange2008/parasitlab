@@ -24,42 +24,21 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
         $description = [];
 
-        $nom = collect();
-        $nom->action = 'lien';
-        $nom->id = $eleveur->user->id;
-        $nom->nom = $eleveur->user->name;
-        $nom->route = 'eleveurAdmin.show';
+        $nom = $this->itemFactory('lien', $eleveur->user->id, $eleveur->user->name, 'eleveurAdmin.show');
 
-        $email = collect();
-        $email->action = '';
-        $email->nom = $eleveur->user->email;
+        $email = $this->itemFactory(null, null, $eleveur->user->email, null);
 
-        $ede = collect();
-        $ede->action = '';
-        $ede->nom = $this->edeAvecEspace($eleveur->ede);
+        $ede = $this->itemFactory(null, null, $this->edeAvecEspace($eleveur->ede) ,null);
 
-        $cp = collect();
-        $cp->action = '';
-        $cp->nom = $eleveur->cp;
+        $cp = $this->itemFactory(null, null, $eleveur->cp, null);
 
-        $commune = collect();
-        $commune->action = '';
-        $commune->nom = $eleveur->commune;
+        $commune = $this->itemFactory(null, null, $eleveur->commune, null);
 
-        $tel = collect();
-        $tel->action = '';
-        $tel->nom =  $this->ajouteEspaceTel($eleveur->tel);
+        $tel = $this->itemFactory(null, null, $this->telAvecEspace($eleveur->tel), null);
 
-        $veto = collect();
-        $veto->action = 'lien';
-        $veto->id = $eleveur->veto->user->id;
-        $veto->nom = $eleveur->veto->user->name;
-        $veto->route = 'vetoAdmin.show';
-        // $description->veto = $veto;
-        $suppr = collect();
-        $suppr->id = $eleveur->veto->user->id;
-        $suppr->action = 'del';
-        $suppr->route = 'vetoAdmin.destroy';
+        $veto = $this->itemFactory('lien', $eleveur->veto->user->id, $eleveur->veto->user->name,'vetoAdmin.show');
+
+        $suppr = $this->itemFactory('del', $eleveur->user->id, null, 'eleveurAdmin.destroy');
 
         $description = [
           $nom,

@@ -10,13 +10,7 @@
 
       <div class="col-md-11">
 
-        @include('admin.userTitre', ['usertype' => $vetos[0]->user->userType, 'titre' => 'Liste des vétérinaires'])
-
-      </div>
-
-      <div class="col-md-11">
-
-        @include('admin.usersTableau', ['user' => $vetos, 'intitules' => $intitulesVetos])
+        @include('admin.index')
 
       </div>
 

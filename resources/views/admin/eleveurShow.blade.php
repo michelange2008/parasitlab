@@ -18,15 +18,17 @@
        ])
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 col-lg-3">
 
         {{-- INFORMATIONS SUR L'ELEVEUR --}}
 
-        @include('admin.eleveurDetail')
+
+          @include('admin.eleveurDetail')
+
 
       </div>
 
-      <div class="col-md-8">
+      <div class="col-md-8 col-lg-9">
 
         @include('admin.index')
 

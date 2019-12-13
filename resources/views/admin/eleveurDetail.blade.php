@@ -1,12 +1,12 @@
 @isset($user)
 
   <div class="card">
-    <div class="card-header alert-rouge-tres-fonce">
-      <h5 class="card-title mr-3">{{ $user->name }}
-        <small>( ede n° {{ $user->eleveur->ede }} )</small></h5>
+    <div class="card-header alert-rouge-tres-fonce d-inline-flex">
+      <h5 class="card-title mr-3">{{ $user->name }} </h5>
+      <p class="text-truncate" data-toggle="tooltip" title="{{ $user->eleveur->ede }}">( ede n° {{ $user->eleveur->ede }} )</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex">
+      <li class="list-group-item d-inline-flex text-truncate data-toggle="tooltip" title="{{ $user->email }}">
         <i class="material-icons mr-3">mail</i>
         {{ $user->email }}
       </li>

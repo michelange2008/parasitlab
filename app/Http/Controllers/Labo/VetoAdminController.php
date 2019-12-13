@@ -38,7 +38,7 @@ class VetoAdminController extends Controller
 
         $datas =$fournisseur->renvoiedatas($vetos, 'liste des vétérinaires', $icone, 'tableauVetos');
 
-        return view('admin.index', [
+        return view('admin.vetosIndex', [
           'menu' => $this->menu,
           'datas' => $datas
         ]);

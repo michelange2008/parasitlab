@@ -6,7 +6,7 @@ namespace App\Http\Traits;
  */
 trait FormatTel
 {
-  function ajouteEspaceTel($tel)
+  function telAvecEspace($tel)
   {
     if(preg_match("#^[0-9]{10}#", $tel)) {
       $cars = preg_split('//', $tel, -1, PREG_SPLIT_NO_EMPTY);

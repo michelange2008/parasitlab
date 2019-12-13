@@ -50,7 +50,7 @@ trait EleveurInfos
 
     $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
 
-    $user->eleveur->tel = $this->ajouteEspaceTel($user->eleveur->tel);
+    $user->eleveur->tel = $this->telAvecEspace($user->eleveur->tel);
 
     return $user;
   }
