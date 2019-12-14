@@ -1,0 +1,38 @@
+{
+  "eleveur" : {
+    "id" : "eleveur",
+    "nom" : "Eleveur",
+    "align" : "left",
+    "sortable" : true
+  },
+  "name" : {
+    "id" : "name",
+    "nom" : "Analyse",
+    "align" : "left",
+    "sortable" : false
+  },
+  "serie" : {
+    "id" : "serie",
+    "nom" : "Série",
+    "align" : "center",
+    "sortable" : true
+  },
+  "espece" : {
+    "id" : "espece",
+    "nom" : "Esp.",
+    "align" : "center",
+    "sortable" : false
+  },
+  "reception" : {
+    "id" : "reception",
+    "nom" : "Reçue le",
+    "align" : "center",
+    "sortable" : true
+  },
+  "acheve" : {
+    "id" : "acheve",
+    "nom" : "Terminée",
+    "align" : "center",
+    "sortable" : true
+  }
+}

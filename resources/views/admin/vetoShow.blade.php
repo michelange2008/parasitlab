@@ -5,7 +5,6 @@
 @section('content')
 
   <div class="container-fluid">
-    
     <div class="row my-3">
 
       <div class="col-md-12">
@@ -13,7 +12,7 @@
         @include('fragments.breadcrumb', [
           "liste" => [
             "Accueil" => "laboratoire",
-            "Eleveurs" => "eleveurAdmin.index"
+            "Vétérinaires" => "vetoAdmin.index"
           ]
         ])
       </div>
@@ -25,10 +24,10 @@
 
       <div class="col-md-4 col-lg-3 bd-sidebar">
 
-        {{-- INFORMATIONS SUR L'ELEVEUR --}}
+        {{-- INFORMATIONS SUR LE VETERINAIRE --}}
 
 
-          @include('admin.eleveurDetail')
+          @include('admin.vetoDetail')
 
 
       </div>

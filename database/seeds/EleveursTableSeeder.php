@@ -14,7 +14,7 @@ class EleveursTableSeeder extends Seeder
         DB::table('eleveurs')->insert([
           [
             'user_id' => 3,
-            'ede' =>"26000000",
+            'num' =>"26000000",
             'address_1' => "125 allée des alouettes",
             'address_2' => null,
             'cp' => "26300",
@@ -23,7 +23,7 @@ class EleveursTableSeeder extends Seeder
           ],
           [
             'user_id' => 6,
-            'ede' =>"26111111",
+            'num' =>"26111111",
             'address_1' => "125 allée des alouettes",
             'address_2' => null,
             'cp' => "26300",
@@ -32,7 +32,7 @@ class EleveursTableSeeder extends Seeder
           ],
           [
             'user_id' => 7,
-            'ede' =>"26222222",
+            'num' =>"26222222",
             'address_1' => "125 allée des alouettes",
             'address_2' => "quartier des renards",
             'cp' => "26300",
@@ -41,7 +41,7 @@ class EleveursTableSeeder extends Seeder
           ],
           [
             'user_id' => 8,
-            'ede' =>"26333333",
+            'num' =>"26333333",
             'address_1' => "125 allée des alouettes",
             'address_2' => null,
             'cp' => "26300",

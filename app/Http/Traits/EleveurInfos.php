@@ -8,13 +8,12 @@ use App\Models\Productions\Demande;
 /**
  * RENVOI DES INFORMATIONS SUR L'UTILISATEUR: NOMBRE DE DEMANDES, NOMBRE DE FACTURES IMPAYEES
  */
- use App\Http\Traits\FormatTel;
-use App\Http\Traits\FormatEde;
+use App\Http\Traits\FormatNum;
 
 trait EleveurInfos
 {
 
-  use FormatEde, FormatTel;
+  use FormatNum;
 
   function nbDemandes($user)
   {
@@ -48,10 +47,11 @@ trait EleveurInfos
   public function eleveurUser($user)
   {
 
-    $user->eleveur->ede = $this->edeAvecEspace($user->eleveur->ede);
+    $user->eleveur->num = $this->numAvecEspace($user->eleveur->num);
 
     $user->eleveur->tel = $this->telAvecEspace($user->eleveur->tel);
 
     return $user;
+
   }
 }

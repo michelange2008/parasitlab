@@ -1,0 +1,32 @@
+{
+  "icone" : {
+    "id" : "icone",
+    "nom" : "",
+    "align" : "center",
+    "sortable" : false
+  },
+  "name" : {
+    "id" : "name",
+    "nom" : "nom",
+    "align" : "left",
+    "sortable" : true
+  },
+  "email" : {
+    "id" : "email",
+    "nom" : "adresse mail",
+    "align" : "left",
+    "sortable" : false
+  },
+  "type" : {
+    "id" : "type",
+    "nom" : "Type",
+    "align" : "left",
+    "sortable" : true
+  },
+  "suppr" : {
+    "id" : "suppr",
+    "nom" : "del",
+    "align" : "center",
+    "sortable" : false
+  }
+}

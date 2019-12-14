@@ -96,7 +96,7 @@ class EleveurAdminController extends Controller
         $nouvel_eleveur = new Eleveur();
 
         $nouvel_eleveur->user_id = $datas['user_id']; // Passer en input type hidden
-        $nouvel_eleveur->ede = $datas['ede'];
+        $nouvel_eleveur->num = $datas['ede'];
         $nouvel_eleveur->address_1 = $datas['address_1'];
         $nouvel_eleveur->address_2 = $datas['address_2']; // peut être null
         $nouvel_eleveur->cp = $datas['cp'];
@@ -127,11 +127,9 @@ class EleveurAdminController extends Controller
 
         $demandes = Demande::where('user_id', $id)->orderBy('date_reception', 'desc')->get();
 
-        $icone = 'demandes.svg';
-
         $fournisseur = new ListeDemandesEleveurFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", $icone, 'tableauDemandesEleveur');
+        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveur');
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,

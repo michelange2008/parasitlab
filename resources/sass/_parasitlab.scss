@@ -20,3 +20,18 @@ a {
 .col-form-label {
   font-weight: bold;
 }
+
+.bd-sidebar {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 4rem;
+	z-index: 1000;
+	height: calc(100vh - 44rem);
+	-ms-flex-order: 0;
+	order: 0;
+}
+
+.bd-content {
+	-ms-flex-order: 1;
+	order: 1;
+}

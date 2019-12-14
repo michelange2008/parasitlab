@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Http\Traits\LitJson;
+use App\Fournisseurs\ListeUsersFournisseur;
+
 use App\User;
 use App\Models\Usertype;
+
+use App\Http\Traits\LitJson;
 use App\Http\Traits\QuelUsertype;
 
 class UserController extends Controller
@@ -30,9 +33,16 @@ class UserController extends Controller
      */
     public function index()
     {
+
+      $users = User::where('usertype_id', '<>', 2)->get();
+
+      $fournisseur = new ListeUsersFournisseur();
+
+      $datas = $fournisseur->renvoieDatas($users, "Listes des utilisateurs", "users.svg", 'tableauUsers');
+
         return view('admin.userIndex', [
           'menu' => $this->menu,
-          'users' => User::where('usertype_id', '<>', 2)->get(),
+          'datas' => $datas,
         ]);
     }
 
@@ -94,7 +104,28 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        switch ($user->userType->nom) {
+
+          case 'vétérinaire':
+
+            return redirect()->route('vetoAdmin.show', $id);
+
+            break;
+
+          case 'éleveur':
+
+              return redirect()->route('eleveurAdmin.show', $id);
+
+              break;
+
+          default:
+
+            echo "à faire";
+
+            break;
+        }
     }
 
     /**

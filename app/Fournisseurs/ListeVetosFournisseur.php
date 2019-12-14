@@ -5,8 +5,7 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Veto;
 
-use App\Http\Traits\FormatCro;
-use App\Http\Traits\FormatTel;
+use App\Http\Traits\FormatNum;
 
 /**
  * FOURNIT LA LISTE DES VETOS AVEC TOUTES LES INFOS NECESSAIRES FORMATTEES POUR LES AFFICHER DANS INDEX
@@ -14,7 +13,7 @@ use App\Http\Traits\FormatTel;
 class ListeVetosFournisseur extends ListeFournisseur
 {
 
-  use FormatCro, FormatTel;
+  use FormatNum;
 
   public function creeListe($vetos)
   {
@@ -28,7 +27,7 @@ class ListeVetosFournisseur extends ListeFournisseur
 
       $email = $this->itemFactory(null, null, $veto->user->email, null);
 
-      $cro = $this->itemFactory(null, null, $this->croAvecEspace($veto->cro) ,null);
+      $num = $this->itemFactory(null, null, $this->numAvecEspace($veto->num) ,null);
 
       $cp = $this->itemFactory(null, null, $veto->cp, null);
 
@@ -39,7 +38,7 @@ class ListeVetosFournisseur extends ListeFournisseur
       $description = [
         $nom,
         $email,
-        $cro,
+        $num,
         $cp,
         $tel,
         $suppr,

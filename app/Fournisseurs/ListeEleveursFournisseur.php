@@ -5,15 +5,14 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Eleveur;
 
-use App\Http\Traits\FormatTel;
-use App\Http\Traits\FormatEde;
+use App\Http\Traits\FormatNum;
 /**
  * FOURNIT UNE LISTE DES ELEVEURS POUR LA VUE TABLEAU INDEX
  */
 class ListeEleveursFournisseur extends ListeFournisseur
 {
 
-  use FormatTel, FormatEde;
+  use FormatNum;
 
     public function creeListe($eleveurs)
     {
@@ -28,7 +27,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
         $email = $this->itemFactory(null, null, $eleveur->user->email, null);
 
-        $ede = $this->itemFactory(null, null, $this->edeAvecEspace($eleveur->ede) ,null);
+        $num = $this->itemFactory(null, null, $this->numAvecEspace($eleveur->num) ,null);
 
         $cp = $this->itemFactory(null, null, $eleveur->cp, null);
 
@@ -43,7 +42,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
         $description = [
           $nom,
           $email,
-          $ede,
+          $num,
           $cp,
           $commune,
           $tel,

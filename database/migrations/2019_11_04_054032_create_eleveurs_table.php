@@ -19,7 +19,7 @@ class CreateEleveursTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->string('ede', 191);
+            $table->string('num', 191);
             $table->string('address_1', 191);
             $table->string('address_2', 191)->nullable(true);
             $table->string('cp', 5);

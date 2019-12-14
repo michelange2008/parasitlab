@@ -11241,3 +11241,18 @@ a {
   font-weight: bold;
 }
 
+.bd-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem;
+  z-index: 1000;
+  height: calc(100vh - 44rem);
+  -webkit-box-ordinal-group: 1;
+          order: 0;
+}
+
+.bd-content {
+  -webkit-box-ordinal-group: 2;
+          order: 1;
+}
+

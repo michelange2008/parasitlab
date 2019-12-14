@@ -4,15 +4,19 @@ namespace App\Http\Controllers\Labo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Fournisseurs\ListeVetosFournisseur;
+use App\Fournisseurs\ListeDemandesVetoFournisseur;
 
 use App\Models\Veto;
+use App\Models\Productions\Demande;
+use App\User;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\VetoInfos;
 
 class VetoAdminController extends Controller
 {
 
-  use LitJson;
+  use LitJson, VetoInfos;
 
   protected $menu;
 
@@ -73,7 +77,24 @@ class VetoAdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        $user = $this->vetoUser($user);
+
+        $vetoInfos = $this->vetoInfos($user);
+
+        $demandes = Demande::where('veto_id', $user->veto->id)->orderBy('date_reception', 'desc')->get();
+
+        $fournisseur = new ListeDemandesVetoFournisseur(); // voir class ListeFournisseur
+
+        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesVeto');
+
+        return view('admin.vetoShow', [
+          'menu' => $this->menu,
+          'user' => $user,
+          'vetoInfos' => $vetoInfos,
+          'datas' => $datas,
+        ]);
     }
 
     /**

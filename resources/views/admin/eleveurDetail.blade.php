@@ -3,7 +3,7 @@
   <div class="card">
     <div class="card-header alert-rouge-tres-fonce d-inline-flex">
       <h5 class="card-title mr-3">{{ $user->name }} </h5>
-      <p class="text-truncate" data-toggle="tooltip" title="{{ $user->eleveur->ede }}">( ede n° {{ $user->eleveur->ede }} )</p>
+      <p class="text-truncate" data-toggle="tooltip" title="{{ $user->eleveur->num }}">( ede n° {{ $user->eleveur->num }} )</p>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item d-inline-flex text-truncate data-toggle="tooltip" title="{{ $user->email }}">
