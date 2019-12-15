@@ -23,21 +23,21 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
         $description = [];
 
-        $nom = $this->itemFactory('lien', $eleveur->user->id, $eleveur->user->name, 'eleveurAdmin.show');
+        $nom = $this->lienFactory($eleveur->user->id, $eleveur->user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
 
-        $email = $this->itemFactory(null, null, $eleveur->user->email, null);
+        $email = $this->itemFactory($eleveur->user->email);
 
-        $num = $this->itemFactory(null, null, $this->numAvecEspace($eleveur->num) ,null);
+        $num = $this->itemFactory($this->numAvecEspace($eleveur->num));
 
-        $cp = $this->itemFactory(null, null, $eleveur->cp, null);
+        $cp = $this->itemFactory($eleveur->cp);
 
-        $commune = $this->itemFactory(null, null, $eleveur->commune, null);
+        $commune = $this->itemFactory($eleveur->commune);
 
-        $tel = $this->itemFactory(null, null, $this->telAvecEspace($eleveur->tel), null);
+        $tel = $this->itemFactory($this->telAvecEspace($eleveur->tel));
 
-        $veto = $this->itemFactory('lien', $eleveur->veto->user->id, $eleveur->veto->user->name,'vetoAdmin.show');
+        $veto = $this->lienFactory($eleveur->veto->user->id, $eleveur->veto->user->name,'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
 
-        $suppr = $this->itemFactory('del', $eleveur->user->id, null, 'eleveurAdmin.destroy');
+        $suppr = $this->delFactory($eleveur->user->id, 'eleveurAdmin.destroy');
 
         $description = [
           $nom,

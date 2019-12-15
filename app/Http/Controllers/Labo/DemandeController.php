@@ -44,7 +44,7 @@ class DemandeController extends Controller
 
       $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandes');
 
-      return view('labo.demandesIndex', [
+      return view('admin.index.pageIndex', [
           "menu" => $this->menu,
           'datas' => $datas,
         ]);

@@ -23,4 +23,9 @@ class Analyse extends Model
       return $this->hasMany(\App\Models\Productions\Prelevement::class);
     }
 
+    public function anaacte()
+    {
+      return $this->belongsTo(Anaacte::class);
+    }
+
 }

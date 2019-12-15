@@ -41,10 +41,10 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 4,
-          'code' => "PACK",
+          'code' => "ENVO",
           'nom' => "matériel d'envoi",
           'description' => "pack pour l'envoi des prélèvements avec l'affranchissement",
-          'icone_id' => 16,
+          'icone_id' => 24,
           'pu_ht' => 5,
           'tva_id' => 1,
         ],

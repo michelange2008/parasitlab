@@ -20,7 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/laboratoire', 'Labo\LaboController@index')->name('laboratoire');
+// TODO: Faut-il garder ces routes non protégées ?
+Route::get('/laboratoire', 'Labo\DemandeController@index')->name('laboratoire');
 
 Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
 
@@ -28,9 +29,17 @@ Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
 Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){
 
+  route::resource('analyses', 'Analyses\AnalyseController');
+
+  route::resource('anaactes', 'Analyses\AnaacteController');
+
+  route::resource('anapacks', 'Analyses\AnapackController');
+
   route::resource('demandes', 'Labo\DemandeController');
 
   Route::resource('user', 'UserController');
+
+  Route::resource('laboAdmin', 'Labo\LaboAdminController');
 
   Route::resource('vetoAdmin', 'Labo\VetoAdminController');
 

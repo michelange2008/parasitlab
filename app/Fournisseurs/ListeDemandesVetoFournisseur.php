@@ -23,26 +23,26 @@ class ListeDemandesVetoFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $eleveur = $this->itemFactory('lien', $demande->user_id, $demande->user->name, 'eleveurAdmin.show');
+      $eleveur = $this->lienFactory($demande->user_id, $demande->user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
 
-      $analyse = $this->itemFactory('lien', $demande->id, $demande->anapack->nom, 'demandes.show');
+      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', "CLiquer pour afficher cette demande d'analyse");
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->itemFactory('lien', $demande->serie->id, "n°".$demande->serie->id, 'serie.show');
+        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', "Cliquer pour afficher cette série");
 
       }
       else {
 
-        $serie = $this->itemFactory(null, null, '', null);
+        $serie = $this->itemFactory('');
 
       }
 
-      $espece = $this->itemFactory('icone', $demande->espece->id, $demande->espece->icone->nom, null);
+      $espece = $this->iconeFactory($demande->espece->icone);
 
-      $reception = $this->itemFactory(null, null, $this->dateSortable($demande->date_reception), null);
+      $reception = $this->itemFactory($this->dateSortable($demande->date_reception));
 
-      $terminee = $this->itemFactory('ouinon', null, $demande->acheve, null);
+      $terminee = $this->ouinonFactory($demande->id, $demande->acheve);
 
       $description = [
         $eleveur,

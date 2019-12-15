@@ -15,10 +15,19 @@ class CreateLabosTable extends Migration
     {
         Schema::create('labos', function (Blueprint $table) {
           $table->increments('id');
+
           $table->integer('user_id')->unsigned();
           $table->foreign('user_id')->references('id')->on('users');
-          $table->string('signature', 191);
+
+          $table->string('signature', 50);
+
+          $table->unsignedInteger('icone_id');
+          $table->foreign('icone_id')->references('id')->on('icones');
+
+          $table->string('fonction', 191);
+
           $table->timestamps();
+
           $table->softDeletes();
         });
     }

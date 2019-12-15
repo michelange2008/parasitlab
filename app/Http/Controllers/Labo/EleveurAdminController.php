@@ -58,12 +58,10 @@ class EleveurAdminController extends Controller
 
       $datas = $fournisseur->renvoieDatas($eleveurs, "liste des éleveurs", $icone, 'tableauEleveurs');
 
-      return view('admin.eleveurIndex', [
+      return view('admin.index.pageIndex', [
         'menu' => $this->menu,
         'datas' => $datas,
       ]);
-
-
 
     }
 
@@ -152,7 +150,7 @@ class EleveurAdminController extends Controller
 
       $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
 
-      return view('admin.eleveurEdit', [
+      return view('admin.eleveur.eleveurEdit', [
         'menu' => $this->menu,
         'user' => $user,
         'pays' => $this->pays,

@@ -41,39 +41,75 @@ abstract class ListeFournisseur
   /*
   * Crée les items de la liste à afficher renvoyer par la méthode liste
   */
-  public function itemFactory($action, $id, $nom, $route)
+  public function itemFactory($nom)
   {
     $item = collect();
 
-    if (isset($action)) {
+    $item->action = null;
 
-      $item->action = $action;
+    $item->id = $nom;
 
-    }
-
-
-    if(isset($id))
-    {
-
-      $item->id = $id;
-
-    }
-
-    if(isset($nom))
-    {
-
-      $item->nom = $nom;
-
-    }
-
-    if (isset($route))
-    {
-
-      $item->route = $route;
-
-    }
+    $item->nom = $nom;
 
     return $item;
   }
+
+  public function iconeFactory($icone)
+  {
+    $item = collect();
+
+    $item->action = 'icone';
+
+    $item->id = $icone->nom;
+
+    $item->nom = $icone->nom;
+
+    $item->route = null;
+
+    return $item;
+   }
+
+   public function lienFactory($id, $nom, $route, $tooltip)
+   {
+     $item = collect();
+
+     $item->action = 'lien';
+
+     $item->id = $id;
+
+     $item->nom = $nom;
+
+     $item->route = $route;
+
+     $item->tooltip = $tooltip;
+
+     return $item;
+   }
+
+   public function ouinonFactory($id, $nom)
+   {
+     $item = collect();
+
+     $item->action = 'ouinon';
+
+     $item->id = $id;
+
+     $item->nom = $nom;
+
+     return $item;
+   }
+
+   public function delFactory($id, $route)
+   {
+     $item = collect();
+
+     $item->action = 'del';
+
+     $item->id = $id;
+
+     $item->route = $route;
+
+     return $item;
+   }
 
 }

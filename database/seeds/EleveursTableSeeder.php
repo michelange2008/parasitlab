@@ -20,6 +20,7 @@ class EleveursTableSeeder extends Seeder
             'cp' => "26300",
             'commune' => "Barbières",
             'tel' => '0601234567',
+            'veto_id' => 2,
           ],
           [
             'user_id' => 6,
@@ -29,6 +30,7 @@ class EleveursTableSeeder extends Seeder
             'cp' => "26300",
             'commune' => "Combovin",
             'tel' => '0601234567',
+            'veto_id' => 1,
           ],
           [
             'user_id' => 7,
@@ -38,6 +40,7 @@ class EleveursTableSeeder extends Seeder
             'cp' => "26300",
             'commune' => "Saint Vincent la Commanderie",
             'tel' => '0601234567',
+            'veto_id' => 2,
           ],
           [
             'user_id' => 8,
@@ -47,6 +50,7 @@ class EleveursTableSeeder extends Seeder
             'cp' => "26300",
             'commune' => "Rochefort-Samson",
             'tel' => '0601234567',
+            'veto_id' => 1,
           ],
         ]);
     }

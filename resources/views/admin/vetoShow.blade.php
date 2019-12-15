@@ -27,14 +27,14 @@
         {{-- INFORMATIONS SUR LE VETERINAIRE --}}
 
 
-          @include('admin.vetoDetail')
+          @include('admin.vetoDetail', ['personne' => $user->veto])
 
 
       </div>
 
       <div class="col-md-8 col-lg-9 bd-content">
 
-        @include('admin.index')
+        @include('admin.index.index')
 
       </div>
 

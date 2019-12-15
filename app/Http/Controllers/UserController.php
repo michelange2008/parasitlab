@@ -10,11 +10,11 @@ use App\User;
 use App\Models\Usertype;
 
 use App\Http\Traits\LitJson;
-use App\Http\Traits\QuelUsertype;
+use App\Http\Traits\UserTypeOutil;
 
 class UserController extends Controller
 {
-    use LitJson, QuelUsertype;
+    use LitJson, UserTypeOutil;
 
     protected $menu;
     /**
@@ -34,13 +34,13 @@ class UserController extends Controller
     public function index()
     {
 
-      $users = User::where('usertype_id', '<>', 2)->get();
+      $users = User::all();
 
       $fournisseur = new ListeUsersFournisseur();
 
       $datas = $fournisseur->renvoieDatas($users, "Listes des utilisateurs", "users.svg", 'tableauUsers');
 
-        return view('admin.userIndex', [
+        return view('admin.index.pageIndex', [
           'menu' => $this->menu,
           'datas' => $datas,
         ]);

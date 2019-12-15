@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100px"
+   width="100px"
+   fill="#000000"
+   viewBox="0 0 32 32"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="envo.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Up</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="779"
+     inkscape:window-height="480"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="2.36"
+     inkscape:cx="50"
+     inkscape:cy="50"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:none;}</style>
+  </defs>
+  <title
+     id="title6">Up</title>
+  <circle
+     style="fill:#b3b3b3;fill-opacity:0.94117647;stroke-width:0.31999999"
+     id="path815"
+     cx="16"
+     cy="16"
+     r="16.000816" />
+  <g
+     data-name="Add"
+     id="g16"
+     transform="matrix(0.71525424,0,0,0.71525424,4.5452033,4.5559322)">
+    <polygon
+       class="cls-1"
+       points="4,19.32 10.28,14.3 4,10.01 "
+       id="polygon8"
+       style="fill:none" />
+    <polygon
+       class="cls-1"
+       points="16,15.79 27.39,8 4.61,8 "
+       id="polygon10"
+       style="fill:none" />
+    <path
+       d="M 29.89,7.88 A 2.59,2.59 0 0 0 27.42,6 H 4.58 A 2.58,2.58 0 0 0 2.11,7.88 v 0.1 A 2.35,2.35 0 0 0 2.03,8.58 V 23.42 A 2.59,2.59 0 0 0 4.58,26 h 16.84 a 1,1 0 0 0 0,-2 H 4.58 A 0.58,0.58 0 0 1 4,23.42 v -1.54 l 8,-6.4 3.43,2.35 a 1,1 0 0 0 1.14,0 l 3.43,-2.35 2.88,2.3 A 1,1 0 0 0 23.5,18 1,1 0 0 0 24.28,17.63 1,1 0 0 0 24.13,16.22 L 21.72,14.3 28,10 v 7.81 a 1,1 0 0 0 2,0 V 8.58 A 2.35,2.35 0 0 0 29.92,7.98 0.29,0.29 0 0 0 29.89,7.88 Z M 4,19.32 V 10 l 6.28,4.29 z M 16,15.79 4.61,8 h 22.78 z"
+       id="path12"
+       inkscape:connector-curvature="0" />
+    <path
+       d="m 26,26 a 1,1 0 0 0 1,-1 v -3.59 l 0.29,0.3 a 1,1 0 0 0 1.42,0 1,1 0 0 0 0,-1.42 l -2,-2 v 0 a 1.15,1.15 0 0 0 -0.33,-0.21 1,1 0 0 0 -0.76,0 1.15,1.15 0 0 0 -0.33,0.21 v 0 l -2,2 a 1.0040916,1.0040916 0 0 0 1.42,1.42 L 25,21.41 V 25 a 1,1 0 0 0 1,1 z"
+       id="path14"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

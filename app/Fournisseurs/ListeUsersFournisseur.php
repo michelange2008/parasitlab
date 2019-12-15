@@ -19,15 +19,15 @@ class ListeUsersFournisseur extends ListeFournisseur
 
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
-      $icone = $this->itemFactory('icone', $user->userType->icone->id, $user->userType->icone->nom, null);
+      $icone = $this->iconeFactory($user->userType->icone);
 
-      $nom = $this->itemFactory('lien', $user->id, $user->name, 'user.show');
+      $nom = $this->lienFactory($user->id, ucfirst($user->name), 'user.show', "Cliquer pour voir cet utilisateur");
 
-      $email = $this->itemFactory(null, null, $user->email, null);
+      $email = $this->itemFactory($user->email);
 
-      $userType = $this->itemFactory(null, null, $user->userType->nom, null);
+      $userType = $this->itemFactory($user->userType->nom);
 
-      $suppr = $this->itemFactory('del', $user->id, null, 'user.destroy');
+      $suppr = $this->delFactory($user->id, 'user.destroy');
 
       $description = [
         $icone,

@@ -27,12 +27,14 @@
       "sousmenu_1" :
       {
         "nom" : "Ajouter",
+        "icone" : "ajouter.svg",
         "tooltip" : "Création d'une nouvelle demande d'analyse",
         "route" : "demandes.create"
       },
       "sousmenu_2" :
       {
         "nom" : "Modifier",
+        "icone" : "modifier.svg",
         "tooltip" : "modifier une demande d'analyse en cours",
         "route" : "demandes.index"
       }
@@ -48,20 +50,60 @@
       "sousmenu_1" :
       {
         "nom" : "Eleveurs",
+        "icone" : "eleveur.svg",
         "tooltip" : "Ajouter, modifier, supprimer des éleveurs",
         "route" : "eleveurAdmin.index"
       },
       "sousmenu_2" :
       {
         "nom" : "Vétérinaires",
+        "icone" : "veto.svg",
         "tooltip" : "Ajouter, modifier, supprimer des vétérinaires",
         "route" : "vetoAdmin.index"
       },
       "sousmenu_3" :
       {
+        "nom" : "Laboratoire",
+        "icone" : "labo.svg",
+        "tooltip" : "Ajouter, modifier, supprimer membres du laboratoire",
+        "route" : "laboAdmin.index"
+      },
+      "sousmenu_4" :
+      {
         "nom" : "Tous",
+        "icone" : "users.svg",
         "tooltip" : "Consulter tous les utilisateurs",
         "route" : "user.index"
+      }
+    }
+  },
+  "item_5" :
+  {
+    "nom" : "Analyses et Packs",
+    "tooltip" : "Liste des différentes analyses et packs",
+    "route" : "laboratoire",
+    "sousmenu" :
+    {
+      "sousmenu_1" :
+      {
+        "nom" : "Analyses",
+        "icone" : "analyse.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des analyses",
+        "route" : "analyses.index"
+      },
+      "sousmenu_2" :
+      {
+        "nom" : "Actes",
+        "icone" : "acte.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des actes",
+        "route" : "anaactes.index"
+      },
+      "sousmenu_3" :
+      {
+        "nom" : "Packs",
+        "icone" : "pack.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des packs",
+        "route" : "anapacks.index"
       }
     }
   }

@@ -23,17 +23,17 @@ class ListeVetosFournisseur extends ListeFournisseur
 
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
-      $nom = $this->itemFactory('lien', $veto->user->id, $veto->user->name, 'vetoAdmin.show');
+      $nom = $this->lienFactory($veto->user->id, $veto->user->name, 'vetoAdmin.show', "Cliquer pour afficher ce vétérinaire");
 
-      $email = $this->itemFactory(null, null, $veto->user->email, null);
+      $email = $this->itemFactory($veto->user->email);
 
-      $num = $this->itemFactory(null, null, $this->numAvecEspace($veto->num) ,null);
+      $num = $this->itemFactory($this->numAvecEspace($veto->num));
 
-      $cp = $this->itemFactory(null, null, $veto->cp, null);
+      $cp = $this->itemFactory($veto->cp);
 
-      $tel = $this->itemFactory(null, null, $this->telAvecEspace($veto->tel), null);
+      $tel = $this->itemFactory($this->telAvecEspace($veto->tel));
 
-      $suppr = $this->itemFactory('del', $veto->user->id, null, 'vetoAdmin.destroy');
+      $suppr = $this->delFactory($veto->user->id, 'vetoAdmin.destroy');
 
       $description = [
         $nom,

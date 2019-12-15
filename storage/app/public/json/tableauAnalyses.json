@@ -1,0 +1,42 @@
+{
+  "tri" : {
+
+    "colonne" : "name",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "icone" : {
+      "id" : "icone",
+      "nom" : "",
+      "align" : "center",
+      "sortable" : false
+    },
+    "name" : {
+      "id" : "name",
+      "nom" : "nom",
+      "align" : "left",
+      "sortable" : true
+    },
+    "espece" : {
+      "id" : "espece",
+      "nom" : "espece",
+      "align" : "center",
+      "sortable" : false
+    },
+    "acte" : {
+      "id" : "acte",
+      "nom" : "acte",
+      "align" : "left",
+      "sortable" : true
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}

@@ -68,6 +68,13 @@ class UsersTableSeeder extends Seeder
           'password' => bcrypt('azerty'),
           'usertype_id' => 1,
         ],
+        [
+          'id' => 9,
+          'name' => 'florence Arsonneau',
+          'email' => 'florence.arsonneau@fibl.org',
+          'password' => bcrypt('haemonchus'),
+          'usertype_id' => 2
+        ],
       ]);
     }
 }

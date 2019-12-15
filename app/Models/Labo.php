@@ -11,4 +11,9 @@ class Labo extends Model
   {
     return $this->hasOne(User::class);
   }
+
+  public function icone()
+  {
+    return $this->belongsTo(Icone::class);
+  }
 }

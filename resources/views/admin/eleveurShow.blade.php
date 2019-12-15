@@ -5,7 +5,7 @@
 @section('content')
 
   <div class="container-fluid">
-    
+
     <div class="row my-3">
 
       <div class="col-md-12">
@@ -28,14 +28,14 @@
         {{-- INFORMATIONS SUR L'ELEVEUR --}}
 
 
-          @include('admin.eleveurDetail')
+          @include('admin.eleveurDetail', ['personne' => $user->eleveur])
 
 
       </div>
 
       <div class="col-md-8 col-lg-9 bd-content">
 
-        @include('admin.index')
+        @include('admin.index.index')
 
       </div>
 
