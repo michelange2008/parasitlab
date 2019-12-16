@@ -28,7 +28,7 @@
         {{-- INFORMATIONS SUR L'ELEVEUR --}}
 
 
-          @include('admin.eleveurDetail', ['personne' => $user->eleveur])
+          @eleveurDetail(['personne' => $user->eleveur])
 
 
       </div>

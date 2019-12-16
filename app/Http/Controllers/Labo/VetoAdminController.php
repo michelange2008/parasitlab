@@ -35,13 +35,13 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
-        $vetos = Veto::all();
+        $users = User::where('usertype_id', $this->userTypeVeto()->id)->get();
 
-        $icone = $vetos[0]->user->userType->icone->nom;
+        $icone = $this->userTypeVeto()->icone->nom;
 
         $fournisseur = new ListeVetosFournisseur();
 
-        $datas =$fournisseur->renvoiedatas($vetos, 'liste des vétérinaires', $icone, 'tableauVetos');
+        $datas =$fournisseur->renvoiedatas($users, 'liste des vétérinaires', $icone, 'tableauVetos');
 
         return view('admin.index.pageIndex', [
           'menu' => $this->menu,
@@ -80,9 +80,9 @@ class VetoAdminController extends Controller
     {
         $user = User::find($id);
 
-        $user = $this->vetoUser($user);
+        $user = $this->formatUserVeto($user); // Mise en forme des numéro cro et tel des vétos
 
-        $vetoInfos = $this->vetoInfos($user);
+        $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
 
         $demandes = Demande::where('veto_id', $user->veto->id)->orderBy('date_reception', 'desc')->get();
 

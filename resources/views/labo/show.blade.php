@@ -15,7 +15,7 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR: SOIT UNE DEMANDE SIMPLE SOIT UNE SER
 
         {{-- INFORMATIONS SUR L'ELEVEUR --}}
 
-        @eleveurDetail()
+        @eleveurDetail(['personne' => $user->eleveur])
 
       </div>
 

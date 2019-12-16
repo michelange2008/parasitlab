@@ -159,6 +159,8 @@ class DemandeController extends Controller
 
       $demandeInfos = $this->demandeInfos($demande);
 
+      $this->formatDateDemande($demande);
+
       return view('labo.show', [
         'menu' => $this->menu,
         'demande' => $demande,

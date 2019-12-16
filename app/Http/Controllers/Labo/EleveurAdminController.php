@@ -15,6 +15,7 @@ use App\Models\Veto;
 use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\EleveurInfos;
 
 /**
@@ -25,7 +26,7 @@ use App\Http\Traits\EleveurInfos;
 
 class EleveurAdminController extends Controller
 {
-    use LitJson, EleveurInfos;
+    use LitJson, EleveurInfos, UserTypeOutil;
 
     protected $menu;
     protected $pays;
@@ -50,13 +51,13 @@ class EleveurAdminController extends Controller
     public function index()
     {
 
-      $eleveurs = Eleveur::all();
+      $users = User::where('usertype_id', $this->userTypeEleveur()->id)->get();
 
-      $icone = $eleveurs[0]->user->userType->icone->nom;
+      $icone = $this->userTypeEleveur()->icone->nom;
 
       $fournisseur = new ListeEleveursFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($eleveurs, "liste des éleveurs", $icone, 'tableauEleveurs');
+      $datas = $fournisseur->renvoieDatas($users, "liste des éleveurs", $icone, 'tableauEleveurs');
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,

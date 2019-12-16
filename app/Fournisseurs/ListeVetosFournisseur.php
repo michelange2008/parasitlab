@@ -15,25 +15,25 @@ class ListeVetosFournisseur extends ListeFournisseur
 
   use FormatNum;
 
-  public function creeListe($vetos)
+  public function creeListe($users)
   {
     $this->liste = collect();
 
-    foreach ($vetos as $veto) {
+    foreach ($users as $user) {
 
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
-      $nom = $this->lienFactory($veto->user->id, $veto->user->name, 'vetoAdmin.show', "Cliquer pour afficher ce vétérinaire");
+      $nom = $this->lienFactory($user->id, $user->name, 'vetoAdmin.show', "Cliquer pour afficher ce vétérinaire");
 
-      $email = $this->itemFactory($veto->user->email);
+      $email = $this->itemFactory($user->email);
 
-      $num = $this->itemFactory($this->numAvecEspace($veto->num));
+      $num = $this->itemFactory($this->numAvecEspace($user->veto->num));
 
-      $cp = $this->itemFactory($veto->cp);
+      $cp = $this->itemFactory($user->veto->cp);
 
-      $tel = $this->itemFactory($this->telAvecEspace($veto->tel));
-
-      $suppr = $this->delFactory($veto->user->id, 'vetoAdmin.destroy');
+      $tel = $this->itemFactory($this->telAvecEspace($user->veto->tel));
+// TODO: LA SUPPRESSION SE FAIT PAS LE USER ET PAR LE VETO OU LE LABO OU L'ELEVEUR
+      $suppr = $this->delFactory($user->id, 'vetoAdmin.destroy');
 
       $description = [
         $nom,
@@ -44,7 +44,7 @@ class ListeVetosFournisseur extends ListeFournisseur
         $suppr,
       ];
 
-      $this->liste->put($veto->id , $description);
+      $this->liste->put($user->veto->id , $description);
 
     }
 

@@ -19,7 +19,7 @@
       </td>
       <td>
         @if ($demande->date_prelevement !== null)
-          @include('fragments.colonneDate', ['date' => $demande->date_prelevement])
+          {{ $demande->date_prelevement }}
         @else
           NC
         @endif
@@ -30,7 +30,7 @@
         <small>Date de réception :</small>
       </td>
       <td>
-        @include('fragments.colonneDate', ['date' => $demande->date_reception])
+        {{ $demande->date_reception }}
       </td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@
       </td>
       <td>
         @if ($demande->date_resultat !== null)
-          @include('fragments.colonneDate', ['date' => $demande->date_resultat])
+          {{ $demande->date_resultat }}
         @else
           <span class="color-rouge-tres-fonce">Analyses non terminées</span>
         @endif
@@ -51,7 +51,7 @@
           <small>Date d'envoi : </small>
         </td>
         <td>
-          @include('fragments.colonneDate', ['date' => $demande->date_envoi])
+          {{ $demande->date_envoi }}
         </td>
       </tr>
     @endif

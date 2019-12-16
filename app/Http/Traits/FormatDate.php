@@ -14,4 +14,11 @@ trait FormatDate
 
     return $dateSortable;
   }
+
+  public function dateReadable($date)
+  {
+    $dateReadable = (new Carbon($date))->format('d - m - Y');
+
+    return $dateReadable;
+  }
 }

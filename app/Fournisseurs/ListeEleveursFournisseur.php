@@ -14,30 +14,30 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
   use FormatNum;
 
-    public function creeListe($eleveurs)
+    public function creeListe($users)
     {
 
       $this->liste = collect();
 
-      foreach ($eleveurs as $eleveur) {
+      foreach ($users as $user) {
 
         $description = [];
 
-        $nom = $this->lienFactory($eleveur->user->id, $eleveur->user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
+        $nom = $this->lienFactory($user->id, $user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
 
-        $email = $this->itemFactory($eleveur->user->email);
+        $email = $this->itemFactory($user->email);
 
-        $num = $this->itemFactory($this->numAvecEspace($eleveur->num));
+        $num = $this->itemFactory($this->numAvecEspace($user->eleveur->num));
 
-        $cp = $this->itemFactory($eleveur->cp);
+        $cp = $this->itemFactory($user->eleveur->cp);
 
-        $commune = $this->itemFactory($eleveur->commune);
+        $commune = $this->itemFactory($user->eleveur->commune);
 
-        $tel = $this->itemFactory($this->telAvecEspace($eleveur->tel));
+        $tel = $this->itemFactory($this->telAvecEspace($user->eleveur->tel));
 
-        $veto = $this->lienFactory($eleveur->veto->user->id, $eleveur->veto->user->name,'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
+        $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
 
-        $suppr = $this->delFactory($eleveur->user->id, 'eleveurAdmin.destroy');
+        $suppr = $this->delFactory($user->id, 'eleveurAdmin.destroy');
 
         $description = [
           $nom,
@@ -50,7 +50,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
           $suppr,
         ];
 
-        $this->liste->put($eleveur->id , $description);
+        $this->liste->put($user->eleveur->id , $description);
 
 
       }

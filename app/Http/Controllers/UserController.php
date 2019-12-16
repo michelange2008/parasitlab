@@ -11,10 +11,11 @@ use App\Models\Usertype;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
+use App\Http\Traits\UserUpdateDetail;
 
 class UserController extends Controller
 {
-    use LitJson, UserTypeOutil;
+    use LitJson, UserTypeOutil, UserUpdateDetail;
 
     protected $menu;
     /**
@@ -159,45 +160,12 @@ class UserController extends Controller
                   'password' => $datas['password'],
                   'usertype_id' => $datas['usertype_id'],
                 ]);
-        if($this->estVeto($datas['usertype_id']))
-        {
+        $this->userUpdateDetail($id, $datas);
 
-          DB::table('vetos')->where('user_id', $id)
-                ->Update([
-                  'user_id' => $id,
-                  'num' => $datas['num'],
-                  'address_1' => $datas['address_1'],
-                  'address_2' => $datas['address_2'],
-                  'cp' => $datas['cp'],
-                  'commune' => $datas['commune'],
-                  'pays' => $datas['pays'],
-                  'indicatif' => $datas['indicatif'],
-                  'tel' => $datas['tel'],
-                ]);
-          return redirect()->route('vetoAdmin.show', $id);
+        return redirect()->route('user.show', $id);
 
-        }
 
-        elseif ($this->estEleveur($datas['usertype_id']))
-        {
-
-          DB::table('eleveurs')->where('user_id', $id)
-                ->Update([
-                  'user_id' => $id,
-                  'num' => $datas['num'],
-                  'address_1' => $datas['address_1'],
-                  'address_2' => $datas['address_2'],
-                  'cp' => $datas['cp'],
-                  'commune' => $datas['commune'],
-                  'pays' => $datas['pays'],
-                  'indicatif' => $datas['indicatif'],
-                  'tel' => $datas['tel'],
-                  'veto_id' => $datas['veto_id'],
-                ]);
-          return redirect()->route('eleveurAdmin.show', $id);
-        }
-
-    }
+      }
 
     /**
      * Remove the specified resource from storage.
