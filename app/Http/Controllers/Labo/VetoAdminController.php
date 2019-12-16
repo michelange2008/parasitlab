@@ -12,11 +12,12 @@ use App\User;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\VetoInfos;
+use App\Http\Traits\UserTypeOutil;
 
 class VetoAdminController extends Controller
 {
 
-  use LitJson, VetoInfos;
+  use LitJson, VetoInfos, UserTypeOutil;
 
   protected $menu;
 
@@ -105,7 +106,16 @@ class VetoAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('usertype_id', $this->userTypeVeto()->id)
+                      ->where('id', $id)->first();
+
+        $pays = $this->litJson('pays');
+
+        return view('admin.veto.vetoEdit', [
+          'menu' => $this->menu,
+          'user' => $user,
+          'pays' => $pays,
+        ]);
     }
 
     /**
@@ -117,7 +127,7 @@ class VetoAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return "coucou véto";
+
     }
 
     /**

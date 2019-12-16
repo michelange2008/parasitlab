@@ -170,9 +170,9 @@ class EleveurAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-      return "coucou eleveur";
-    }
+      $datas = $request->all();
 
+}
     /**
      * Remove the specified resource from storage.
      *

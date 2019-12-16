@@ -6,7 +6,7 @@
 
     <span class="input-group-text"><i class="material-icons">language</i></span>
 
-    <input class="form-control" type="text" name="indicatif" value="{{ $user->eleveur->indicatif ?? '' }}" placeholder="indicatif">
+    <input class="form-control" type="text" name="indicatif" value="{{ $personne->indicatif ?? '' }}" placeholder="indicatif">
 
   </div>
 
@@ -14,7 +14,7 @@
 
     <span class="input-group-text" id="inputGroupPrepend"><i class="material-icons">phone</i></span>
 
-    <input class="form-control" type="text" name="tel" value="{{ $user->eleveur->tel ?? '' }}" placeholder="numéro de téléphone">
+    <input class="form-control" type="text" name="tel" value="{{ $personne->tel ?? '' }}" placeholder="numéro de téléphone">
 
   </div>
 

@@ -149,7 +149,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $datas = $request->all();
-// dd($datas['ede']);
+
         DB::table('users')->where('id', $id)
               ->Update(
                 [
@@ -159,16 +159,32 @@ class UserController extends Controller
                   'password' => $datas['password'],
                   'usertype_id' => $datas['usertype_id'],
                 ]);
+        if($this->estVeto($datas['usertype_id']))
+        {
 
-        if($this->estVeto($datas['usertype_id'])) {
-          return redirect()->route('vetoAdmin.update', ['id' => $id, 'request' => $request]);
+          DB::table('vetos')->where('user_id', $id)
+                ->Update([
+                  'user_id' => $id,
+                  'num' => $datas['num'],
+                  'address_1' => $datas['address_1'],
+                  'address_2' => $datas['address_2'],
+                  'cp' => $datas['cp'],
+                  'commune' => $datas['commune'],
+                  'pays' => $datas['pays'],
+                  'indicatif' => $datas['indicatif'],
+                  'tel' => $datas['tel'],
+                ]);
+          return redirect()->route('vetoAdmin.show', $id);
+
         }
-        elseif ($this->estEleveur($datas['usertype_id'])) {
+
+        elseif ($this->estEleveur($datas['usertype_id']))
+        {
 
           DB::table('eleveurs')->where('user_id', $id)
                 ->Update([
                   'user_id' => $id,
-                  'ede' => $datas['ede'],
+                  'num' => $datas['num'],
                   'address_1' => $datas['address_1'],
                   'address_2' => $datas['address_2'],
                   'cp' => $datas['cp'],

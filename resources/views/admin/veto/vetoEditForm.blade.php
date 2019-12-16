@@ -1,5 +1,5 @@
-<!-- FRAGMENT DESTINE A MODIFIER UN ELEVEUR
-NECESSITE 4 VARIABLES: user, vetos, pays -->
+<!-- FRAGMENT DESTINE A MODIFIER UN VETERINAIRE
+NECESSITE 2 VARIABLES: user, pays -->
 
 
   {!! Form::open(['route' => ['user.update', $user->id]], $user->id) !!}
@@ -10,9 +10,9 @@ NECESSITE 4 VARIABLES: user, vetos, pays -->
 
     @include('admin.form.identite')
 
-    @include('admin.form.contact', ['personne' => $user->eleveur])
+    @include('admin.form.contact', ['personne' => $user->veto])
 
-    @include('admin.form.infosEleveur')
+    @include('admin.form.inputCro')
 
     @include('fragments.boutonEnregistre')
 
