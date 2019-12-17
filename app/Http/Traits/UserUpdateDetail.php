@@ -23,12 +23,14 @@ trait UserUpdateDetail
     }
     elseif ($this->estLabo($usertype_id))
     {
-      // $this->laboUpdateDetail($id, $datas);
+      $this->laboUpdateDetail($id, $datas);
     }
   }
 
   public function vetoUpdateDetail($id, $datas)
   {
+    $datas = $request->all();
+
     DB::table('vetos')->where('user_id', $id)
           ->Update([
             'user_id' => $id,
@@ -47,6 +49,8 @@ trait UserUpdateDetail
 
   public function eleveurUpdateDetail($id, $datas)
   {
+    $datas = $request->all();
+
     DB::table('eleveurs')->where('user_id', $id)
           ->Update([
             'user_id' => $id,
@@ -67,14 +71,26 @@ trait UserUpdateDetail
 
   public function laboUpdateDetail($id, $datas)
   {
+    if(isset($datas['icone']))
+    {
+      $this->storeFile($datas['icone'], $datas['iconeNom'], 'public/img/icones');
+    }
+
     DB::table('labos')->where('user_id', $id)
           ->Update([
             'user_id' => $id,
-            'signature' => $datas['signature'],
-            'icone_id' => $datas['icone_id'],
+            // 'signature' => $datas['signature'],
+            // 'icone_id' => $datas['icone_id'],
             'fonction' => $datas['fonction'],
           ]);
 
     return redirect()->route('laboAdmin.index');
+  }
+
+  public function storeFile($icone, $filename, $path)
+  {
+
+    $icone->storeAs($path, $filename);
+
   }
 }
