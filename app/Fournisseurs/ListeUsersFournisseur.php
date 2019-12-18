@@ -27,6 +27,8 @@ class ListeUsersFournisseur extends ListeFournisseur
 
       $userType = $this->itemFactory($user->userType->nom);
 
+      $modifier = $this->modifierFactory($user->id, 'user.edit');
+
       $suppr = $this->delFactory($user->id, 'user.destroy');
 
       $description = [
@@ -34,6 +36,7 @@ class ListeUsersFournisseur extends ListeFournisseur
         $nom,
         $email,
         $userType,
+        $modifier,
         $suppr,
       ];
 

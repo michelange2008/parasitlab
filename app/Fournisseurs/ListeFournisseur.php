@@ -99,6 +99,20 @@ abstract class ListeFournisseur
      return $item;
    }
 
+   public function modifierFactory($id, $route)
+   {
+     $item = collect();
+
+     $item->action = 'modifier';
+
+     $item->id = $id;
+
+     $item->route = $route;
+
+     return $item;
+   }
+
+
    public function delFactory($id, $route)
    {
      $item = collect();

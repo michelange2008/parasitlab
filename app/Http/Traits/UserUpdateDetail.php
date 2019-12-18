@@ -71,26 +71,31 @@ trait UserUpdateDetail
 
   public function laboUpdateDetail($id, $datas)
   {
-    if(isset($datas['icone']))
+
+    if(isset($datas['photo']))
     {
-      $this->storeFile($datas['icone'], $datas['iconeNom'], 'public/img/icones');
+
+      $this->storeFile($datas['photo'], $datas['icone'], 'public/img/icones');
+    }
+
+    if(isset($datas['imageSignature']))
+    {
+      $this->storeFile($datas['imageSignature'], $datas['signature'], 'public/img/labo');
     }
 
     DB::table('labos')->where('user_id', $id)
           ->Update([
             'user_id' => $id,
-            // 'signature' => $datas['signature'],
-            // 'icone_id' => $datas['icone_id'],
             'fonction' => $datas['fonction'],
           ]);
 
     return redirect()->route('laboAdmin.index');
   }
 
-  public function storeFile($icone, $filename, $path)
+  public function storeFile($file, $filename, $path)
   {
 
-    $icone->storeAs($path, $filename);
+    $file->storeAs($path, $filename);
 
   }
 }

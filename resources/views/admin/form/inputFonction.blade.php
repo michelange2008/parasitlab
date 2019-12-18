@@ -1,3 +1,3 @@
-  <label class="col-form-label" for="name">Fonction:</label>
+  <label class="col-form-label" for="fonction">Fonction:</label>
 
-  <input class="form-control" type="text" name="name" value="{{ $user->labo->fonction  ?? '' }}">
+  <input class="form-control" type="text" name="fonction" value="{{ $user->labo->fonction  ?? '' }}">

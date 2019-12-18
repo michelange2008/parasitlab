@@ -8,13 +8,11 @@ NECESSITE 4 VARIABLES: user, -->
 
     @include('admin.form.cache')
 
-    @include('admin.form.cacheFile')
-
     @include('admin.form.identite')
 
-    @include('admin.form.icone')
+    @include('admin.form.images')
 
-    @include('admin.form.inputFonction')
+    @include('admin.form.fonction')
 
     @include('fragments.boutonEnregistre')
 

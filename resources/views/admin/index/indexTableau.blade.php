@@ -55,6 +55,12 @@
                 @supprLigne(['id' => $detail->id, 'route' => $detail->route])
               </td>
 
+            @elseif ($detail->action === 'modifier')
+
+              <td>
+                @modifierLigne(['id' => $detail->id, 'route' => $detail->route])
+              </td>
+
             @elseif ($detail->action === 'ouinon')
 
               <td>

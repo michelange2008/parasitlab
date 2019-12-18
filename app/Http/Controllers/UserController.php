@@ -137,7 +137,28 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::select('usertype_id')->where('id', $id)->first();
+
+        if($this->estVeto($user->usertype_id))
+        {
+
+          return redirect()->route('vetoAdmin.edit', $id);
+
+        }
+
+        elseif ($this->estEleveur($user->usertype_id))
+        {
+
+          return redirect()->route('eleveurAdmin.edit', $id);
+
+        }
+
+        elseif ($this->estLabo($user->usertype_id))
+        {
+
+          return redirect()->route('laboAdmin.edit', $id);
+
+        }
     }
 
     /**
