@@ -5,8 +5,7 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Veto;
 
-use App\Http\Traits\FormatCro;
-use App\Http\Traits\FormatTel;
+use App\Http\Traits\FormatNum;
 
 /**
  * FOURNIT LA LISTE DES VETOS AVEC TOUTES LES INFOS NECESSAIRES FORMATTEES POUR LES AFFICHER DANS INDEX
@@ -14,38 +13,38 @@ use App\Http\Traits\FormatTel;
 class ListeVetosFournisseur extends ListeFournisseur
 {
 
-  use FormatCro, FormatTel;
+  use FormatNum;
 
-  public function creeListe($vetos)
+  public function creeListe($users)
   {
     $this->liste = collect();
 
-    foreach ($vetos as $veto) {
+    foreach ($users as $user) {
 
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
-      $nom = $this->itemFactory('lien', $veto->user->id, $veto->user->name, 'vetoAdmin.show');
+      $nom = $this->lienFactory($user->id, $user->name, 'vetoAdmin.show', "Cliquer pour afficher ce vétérinaire");
 
-      $email = $this->itemFactory(null, null, $veto->user->email, null);
+      $email = $this->itemFactory($user->email);
 
-      $cro = $this->itemFactory(null, null, $this->croAvecEspace($veto->cro) ,null);
+      $num = $this->itemFactory($this->numAvecEspace($user->veto->num));
 
-      $cp = $this->itemFactory(null, null, $veto->cp, null);
+      $cp = $this->itemFactory($user->veto->cp);
 
-      $tel = $this->itemFactory(null, null, $this->telAvecEspace($veto->tel), null);
-
-      $suppr = $this->itemFactory('del', $veto->user->id, null, 'vetoAdmin.destroy');
+      $tel = $this->itemFactory($this->telAvecEspace($user->veto->tel));
+// TODO: LA SUPPRESSION SE FAIT PAS LE USER ET PAR LE VETO OU LE LABO OU L'ELEVEUR
+      $suppr = $this->delFactory($user->id, 'vetoAdmin.destroy');
 
       $description = [
         $nom,
         $email,
-        $cro,
+        $num,
         $cp,
         $tel,
         $suppr,
       ];
 
-      $this->liste->put($veto->id , $description);
+      $this->liste->put($user->veto->id , $description);
 
     }
 

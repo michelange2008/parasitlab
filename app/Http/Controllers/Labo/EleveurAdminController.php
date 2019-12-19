@@ -15,6 +15,7 @@ use App\Models\Veto;
 use App\Models\Productions\Demande;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\EleveurInfos;
 
 /**
@@ -25,7 +26,7 @@ use App\Http\Traits\EleveurInfos;
 
 class EleveurAdminController extends Controller
 {
-    use LitJson, EleveurInfos;
+    use LitJson, EleveurInfos, UserTypeOutil;
 
     protected $menu;
     protected $pays;
@@ -50,20 +51,18 @@ class EleveurAdminController extends Controller
     public function index()
     {
 
-      $eleveurs = Eleveur::all();
+      $users = User::where('usertype_id', $this->userTypeEleveur()->id)->get();
 
-      $icone = $eleveurs[0]->user->userType->icone->nom;
+      $icone = $this->userTypeEleveur()->icone->nom;
 
       $fournisseur = new ListeEleveursFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($eleveurs, "liste des éleveurs", $icone, 'tableauEleveurs');
+      $datas = $fournisseur->renvoieDatas($users, "liste des éleveurs", $icone, 'tableauEleveurs');
 
-      return view('admin.eleveurIndex', [
+      return view('admin.index.pageIndex', [
         'menu' => $this->menu,
         'datas' => $datas,
       ]);
-
-
 
     }
 
@@ -96,7 +95,7 @@ class EleveurAdminController extends Controller
         $nouvel_eleveur = new Eleveur();
 
         $nouvel_eleveur->user_id = $datas['user_id']; // Passer en input type hidden
-        $nouvel_eleveur->ede = $datas['ede'];
+        $nouvel_eleveur->num = $datas['ede'];
         $nouvel_eleveur->address_1 = $datas['address_1'];
         $nouvel_eleveur->address_2 = $datas['address_2']; // peut être null
         $nouvel_eleveur->cp = $datas['cp'];
@@ -127,11 +126,9 @@ class EleveurAdminController extends Controller
 
         $demandes = Demande::where('user_id', $id)->orderBy('date_reception', 'desc')->get();
 
-        $icone = 'demandes.svg';
-
         $fournisseur = new ListeDemandesEleveurFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", $icone, 'tableauDemandesEleveur');
+        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveur');
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
@@ -154,7 +151,7 @@ class EleveurAdminController extends Controller
 
       $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
 
-      return view('admin.eleveurEdit', [
+      return view('admin.eleveur.eleveurEdit', [
         'menu' => $this->menu,
         'user' => $user,
         'pays' => $this->pays,
@@ -174,9 +171,9 @@ class EleveurAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-      return "coucou eleveur";
-    }
+      $datas = $request->all();
 
+}
     /**
      * Remove the specified resource from storage.
      *

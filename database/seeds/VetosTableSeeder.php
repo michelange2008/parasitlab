@@ -15,15 +15,21 @@ class VetosTableSeeder extends Seeder
         [
           'id' => 1,
           'user_id' => 4,
-          'cro' => "0000",
+          'num' => "0000",
+          'address_1' => "nulle part",
           'cp' => '00000',
+          'commune' => 'ailleurs',
+          'indicatif' => '33',
           'tel' => '0000000000',
         ],
         [
           'id' => 2,
           'user_id' => 5,
-          'cro' => "503018",
+          'num' => "503018",
+          'adresse_1' => '605 Grande Rue',
           'cp' => '26300',
+          'commune' => "Barbières",
+          'indicatif' => "33",
           'tel' => '0475472035',
         ],
       ]);

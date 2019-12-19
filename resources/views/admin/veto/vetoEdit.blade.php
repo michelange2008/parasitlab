@@ -10,7 +10,7 @@
 
       <div class="m-auto col-md-8 col-xl-6">
 
-        @include('admin.userTitre', ['titre' => $user->name, 'soustitre' => " : modification des informations"])
+        @include('admin.titre', ['titre' => $user->name, 'soustitre' => " : modification des informations"])
 
       </div>
 
@@ -20,7 +20,7 @@
 
       <div class="m-auto col-md-8 col-xl-6 border">
 
-        @include('admin.eleveurEditForm')
+        @include('admin.veto.vetoEditForm')
 
       </div>
 

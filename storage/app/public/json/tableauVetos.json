@@ -1,38 +1,48 @@
 {
-  "name" : {
-    "id" : "name",
-    "nom" : "nom",
-    "align" : "left",
-    "sortable" : true
+  "tri" : {
+
+    "colonne" : "name",
+
+    "ordre" : "asc"
   },
-  "email" : {
-    "id" : "email",
-    "nom" : "adresse mail",
-    "align" : "left",
-    "sortable" : false
-  },
-  "cro" : {
-    "id" : "cro",
-    "nom" : "n° Ordre",
-    "align" : "center",
-    "sortable" : false
-  },
-  "cp" : {
-    "id" : "cp",
-    "nom" : "cp",
-    "align" : "center",
-    "sortable" : true
-  },
-  "tel" : {
-    "id" : "tel",
-    "nom" : "téléphone",
-    "align" : "center",
-    "sortable" : false
-  },
-  "suppr" : {
-    "id" : "suppr",
-    "nom" : "del",
-    "align" : "center",
-    "sortable" : false
+
+  "liste" : {
+
+    "name" : {
+      "id" : "name",
+      "nom" : "nom",
+      "align" : "left",
+      "sortable" : true
+    },
+    "email" : {
+      "id" : "email",
+      "nom" : "adresse mail",
+      "align" : "left",
+      "sortable" : false
+    },
+    "cro" : {
+      "id" : "cro",
+      "nom" : "n° Ordre",
+      "align" : "center",
+      "sortable" : false
+    },
+    "cp" : {
+      "id" : "cp",
+      "nom" : "cp",
+      "align" : "center",
+      "sortable" : true
+    },
+    "tel" : {
+      "id" : "tel",
+      "nom" : "téléphone",
+      "align" : "center",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
+    }
   }
 }

@@ -6,31 +6,36 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3 justify-content-center">
+    <div class="row my-3">
 
       <div class="col-md-12">
 
         @include('fragments.breadcrumb', [
           "liste" => [
-          "Accueil" => "laboratoire",
-          "Eleveurs" => "eleveurAdmin.index"
-         ]
-       ])
+            "Accueil" => "laboratoire",
+            "Eleveurs" => "eleveurAdmin.index"
+          ]
+        ])
       </div>
 
-      <div class="col-md-4 col-lg-3">
+    </div>
+
+    <div class="row my-3 justify-content-center flex-xl-nowrap">
+
+
+      <div class="col-md-4 col-lg-3 bd-sidebar">
 
         {{-- INFORMATIONS SUR L'ELEVEUR --}}
 
 
-          @include('admin.eleveurDetail')
+          @eleveurDetail(['personne' => $user->eleveur])
 
 
       </div>
 
-      <div class="col-md-8 col-lg-9">
+      <div class="col-md-8 col-lg-9 bd-content">
 
-        @include('admin.index')
+        @include('admin.index.index')
 
       </div>
 

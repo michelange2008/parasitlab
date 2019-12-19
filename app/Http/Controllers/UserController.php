@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Http\Traits\LitJson;
+use App\Fournisseurs\ListeUsersFournisseur;
+
 use App\User;
 use App\Models\Usertype;
-use App\Http\Traits\QuelUsertype;
+
+use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
+use App\Http\Traits\UserUpdateDetail;
 
 class UserController extends Controller
 {
-    use LitJson, QuelUsertype;
+    use LitJson, UserTypeOutil, UserUpdateDetail;
 
     protected $menu;
     /**
@@ -30,9 +34,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.userIndex', [
+
+      $users = User::all();
+
+      $fournisseur = new ListeUsersFournisseur();
+
+      $datas = $fournisseur->renvoieDatas($users, "Listes des utilisateurs", "users.svg", 'tableauUsers');
+
+        return view('admin.index.pageIndex', [
           'menu' => $this->menu,
-          'users' => User::where('usertype_id', '<>', 2)->get(),
+          'datas' => $datas,
         ]);
     }
 
@@ -94,7 +105,28 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        switch ($user->userType->nom) {
+
+          case 'vétérinaire':
+
+            return redirect()->route('vetoAdmin.show', $id);
+
+            break;
+
+          case 'éleveur':
+
+              return redirect()->route('eleveurAdmin.show', $id);
+
+              break;
+
+          default:
+
+            echo "à faire";
+
+            break;
+        }
     }
 
     /**
@@ -105,7 +137,28 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::select('usertype_id')->where('id', $id)->first();
+
+        if($this->estVeto($user->usertype_id))
+        {
+
+          return redirect()->route('vetoAdmin.edit', $id);
+
+        }
+
+        elseif ($this->estEleveur($user->usertype_id))
+        {
+
+          return redirect()->route('eleveurAdmin.edit', $id);
+
+        }
+
+        elseif ($this->estLabo($user->usertype_id))
+        {
+
+          return redirect()->route('laboAdmin.edit', $id);
+
+        }
     }
 
     /**
@@ -118,7 +171,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $datas = $request->all();
-// dd($datas['ede']);
+
         DB::table('users')->where('id', $id)
               ->Update(
                 [
@@ -128,29 +181,12 @@ class UserController extends Controller
                   'password' => $datas['password'],
                   'usertype_id' => $datas['usertype_id'],
                 ]);
+        $this->userUpdateDetail($id, $datas);
 
-        if($this->estVeto($datas['usertype_id'])) {
-          return redirect()->route('vetoAdmin.update', ['id' => $id, 'request' => $request]);
-        }
-        elseif ($this->estEleveur($datas['usertype_id'])) {
+        return redirect()->route('user.show', $id);
 
-          DB::table('eleveurs')->where('user_id', $id)
-                ->Update([
-                  'user_id' => $id,
-                  'ede' => $datas['ede'],
-                  'address_1' => $datas['address_1'],
-                  'address_2' => $datas['address_2'],
-                  'cp' => $datas['cp'],
-                  'commune' => $datas['commune'],
-                  'pays' => $datas['pays'],
-                  'indicatif' => $datas['indicatif'],
-                  'tel' => $datas['tel'],
-                  'veto_id' => $datas['veto_id'],
-                ]);
-          return redirect()->route('eleveurAdmin.show', $id);
-        }
 
-    }
+      }
 
     /**
      * Remove the specified resource from storage.

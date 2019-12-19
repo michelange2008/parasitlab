@@ -1,8 +1,8 @@
 <table   id="table"
   data-toggle = "table"
   data-locale = "fr-FR"
-  data-sort-name = "reception"
-  data-sort-order = "desc"
+  data-sort-name = {{ $datas->intitules->tri->colonne }}
+  data-sort-order = {{ $datas->intitules->tri->ordre }}
   data-toolbar = "#toolbar"
   data-show-button-icon = "true"
   data-show-pagination-switch="true"
@@ -18,7 +18,7 @@
   data-show-search-clear-button="true">
   <thead class="alert-bleu-tres-fonce">
     <tr>
-      @foreach ($datas->intitules as $intitule) <!-- issu de tableauEleveurs.json -->
+      @foreach ($datas->intitules->liste as $intitule) <!-- issu de tableauEleveurs.json -->
         <th data-halign="{{ $intitule->align }}" data-align="{{ $intitule->align }}" data-field="{{ $intitule->id }}" data-sortable="{{ $intitule->sortable}}">{{ $intitule->nom }}</th>
       @endforeach
     </tr>
@@ -34,6 +34,7 @@
                 @isset($detail->nom)
 
                   {{ $detail->nom }}
+
                 @endisset
               </td>
 
@@ -44,6 +45,7 @@
                   'id' => $detail->id,
                   'nom' => $detail->nom,
                   'route' => $detail->route,
+                  'tooltip' => $detail->tooltip,
                 ])
               </td>
 
@@ -51,6 +53,12 @@
 
               <td>
                 @supprLigne(['id' => $detail->id, 'route' => $detail->route])
+              </td>
+
+            @elseif ($detail->action === 'modifier')
+
+              <td>
+                @modifierLigne(['id' => $detail->id, 'route' => $detail->route])
               </td>
 
             @elseif ($detail->action === 'ouinon')
@@ -65,7 +73,7 @@
 
               <td>
 
-                <img class="img-40" src="{{ asset('storage/img/icones').'/'.$detail->nom }}" alt="{{ $detail->nom }}">
+                <img class="img-50" src="{{ asset('storage/img/icones').'/'.$detail->nom }}" alt="{{ $detail->nom }}">
 
               </td>
 

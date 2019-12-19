@@ -23,32 +23,32 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $eleveur = $this->itemFactory('lien', $demande->user->id, $demande->user->name, 'eleveurAdmin.show');
+      $eleveur = $this->lienFactory($demande->user->id, ucfirst($demande->user->name), 'eleveurAdmin.show', "Cliquer pour afficher le détail de cet éleveur");
 
-      $analyse = $this->itemFactory('lien', $demande->id, $demande->anapack->nom, 'demandes.show');
+      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', "Cliquer pour afficher le détail de cette analyse");
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->itemFactory('lien', $demande->serie->id, "n°".$demande->serie->id, 'serie.show');
+        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', "CLiquer pour afficher cette série");
 
       }
       else {
 
-        $serie = $this->itemFactory(null, null, '', null);
+        $serie = $this->itemFactory('');
 
       }
 
-      $espece = $this->itemFactory('icone', $demande->espece->id, $demande->espece->icone->nom, null);
+      $espece = $this->iconeFactory($demande->espece->icone);
 
-      $toveto = $this->itemFactory('lien', $demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show');
+      $toveto = $this->lienFactory($demande->veto->user->id, ucfirst($demande->veto->user->name), 'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
 
-      $reception = $this->itemFactory(null, null, $this->dateSortable($demande->date_reception), null);
+      $reception = $this->itemFactory($this->dateSortable($demande->date_reception));
 
-      $terminee = $this->itemFactory('ouinon', null, $demande->acheve, null);
+      $terminee = $this->ouinonFactory($demande->id, $demande->acheve);
 
-      $facture = $this->itemFactory('lien', $demande->facture->id, "n°".$demande->facture->id, 'home');
+      $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "CLiquer pour afficher cette facture");
 
-      $suppr = $this->itemFactory('del', $demande->id, '', 'demandes.destroy');
+      $suppr = $this->delFactory($demande->id, 'demandes.destroy');
 
       $description = [
         $eleveur,

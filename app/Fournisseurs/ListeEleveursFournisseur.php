@@ -5,45 +5,44 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Eleveur;
 
-use App\Http\Traits\FormatTel;
-use App\Http\Traits\FormatEde;
+use App\Http\Traits\FormatNum;
 /**
  * FOURNIT UNE LISTE DES ELEVEURS POUR LA VUE TABLEAU INDEX
  */
 class ListeEleveursFournisseur extends ListeFournisseur
 {
 
-  use FormatTel, FormatEde;
+  use FormatNum;
 
-    public function creeListe($eleveurs)
+    public function creeListe($users)
     {
 
       $this->liste = collect();
 
-      foreach ($eleveurs as $eleveur) {
+      foreach ($users as $user) {
 
         $description = [];
 
-        $nom = $this->itemFactory('lien', $eleveur->user->id, $eleveur->user->name, 'eleveurAdmin.show');
+        $nom = $this->lienFactory($user->id, $user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
 
-        $email = $this->itemFactory(null, null, $eleveur->user->email, null);
+        $email = $this->itemFactory($user->email);
 
-        $ede = $this->itemFactory(null, null, $this->edeAvecEspace($eleveur->ede) ,null);
+        $num = $this->itemFactory($this->numAvecEspace($user->eleveur->num));
 
-        $cp = $this->itemFactory(null, null, $eleveur->cp, null);
+        $cp = $this->itemFactory($user->eleveur->cp);
 
-        $commune = $this->itemFactory(null, null, $eleveur->commune, null);
+        $commune = $this->itemFactory($user->eleveur->commune);
 
-        $tel = $this->itemFactory(null, null, $this->telAvecEspace($eleveur->tel), null);
+        $tel = $this->itemFactory($this->telAvecEspace($user->eleveur->tel));
 
-        $veto = $this->itemFactory('lien', $eleveur->veto->user->id, $eleveur->veto->user->name,'vetoAdmin.show');
+        $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
 
-        $suppr = $this->itemFactory('del', $eleveur->user->id, null, 'eleveurAdmin.destroy');
+        $suppr = $this->delFactory($user->id, 'eleveurAdmin.destroy');
 
         $description = [
           $nom,
           $email,
-          $ede,
+          $num,
           $cp,
           $commune,
           $tel,
@@ -51,7 +50,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
           $suppr,
         ];
 
-        $this->liste->put($eleveur->id , $description);
+        $this->liste->put($user->eleveur->id , $description);
 
 
       }

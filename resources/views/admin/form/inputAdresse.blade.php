@@ -4,13 +4,13 @@
 
   <div class="col-sm-6">
 
-    <input class="form-control" type="text" name="address_1" value="{{ $user->eleveur->address_1 ?? ''}}"  placeholder="adresse">
+    <input class="form-control" type="text" name="address_1" value="{{ $personne->address_1 ?? ''}}"  placeholder="adresse">
 
   </div>
 
   <div class="col-sm-6">
 
-    <input class="form-control" type="text" name="address_2" value="{{ $user->eleveur->address_2 ?? ''}}" placeholder="complément d'adresse">
+    <input class="form-control" type="text" name="address_2" value="{{ $personne->address_2 ?? ''}}" placeholder="complément d'adresse">
 
   </div>
 
@@ -21,13 +21,13 @@
 
   <div class="col-sm-4">
 
-    <input class="form-control" type="text" name="cp" value="{{ $user->eleveur->cp ?? '' }}" placeholder="code postal">
+    <input class="form-control" type="text" name="cp" value="{{ $personne->cp ?? '' }}" placeholder="code postal">
 
   </div>
 
   <div class="col-sm-8">
 
-    <input class="form-control" type="text" name="commune" value="{{ $user->eleveur->commune ?? '' }}" placeholder="commune">
+    <input class="form-control" type="text" name="commune" value="{{ $personne->commune ?? '' }}" placeholder="commune">
 
   </div>
 
@@ -35,7 +35,7 @@
 
   <select class="form-control" name="pays">
 
-    <option value="France" selected>{{ $user->eleveur->pays  ?? '' }}</option>
+    <option value="France" selected>{{ $personne->pays  ?? '' }}</option>
 
     @foreach ($pays as $etat)
 

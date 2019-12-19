@@ -1,0 +1,42 @@
+{
+  "tri" : {
+
+    "colonne" : "name",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "photo" : {
+      "id" : "photo",
+      "nom" : "",
+      "align" : "center",
+      "sortable" : false
+    },
+    "name" : {
+      "id" : "name",
+      "nom" : "nom",
+      "align" : "left",
+      "sortable" : true
+    },
+    "email" : {
+      "id" : "email",
+      "nom" : "adresse mail",
+      "align" : "left",
+      "sortable" : false
+    },
+    "fonction" : {
+      "id" : "fonction",
+      "nom" : "fonction",
+      "align" : "left",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}

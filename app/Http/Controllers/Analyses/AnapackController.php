@@ -4,9 +4,20 @@ namespace App\Http\Controllers\Analyses;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Fournisseurs\ListeAnapacksFournisseur;
+
+use App\Models\Analyses\Anapack;
+
+use App\Http\Traits\LitJson;
 
 class AnapackController extends Controller
 {
+    use LitJson;
+
+    public function __construct()
+    {
+      $this->menu = $this->litJson('menuLabo');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,17 @@ class AnapackController extends Controller
      */
     public function index()
     {
-        //
+      $anapacks = Anapack::all();
+
+      $fournisseur = new ListeAnapacksFournisseur(); // voir class ListeFournisseur
+
+      $datas = $fournisseur->renvoieDatas($anapacks, "Liste des packs d'analyse", "pack.svg", 'tableauAnapacks');
+
+      return view('admin.index.pageIndex', [
+        'menu' => $this->menu,
+        'datas' => $datas,
+      ]);
+
     }
 
     /**

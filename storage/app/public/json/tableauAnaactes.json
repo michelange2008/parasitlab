@@ -1,0 +1,48 @@
+{
+  "tri" : {
+
+    "colonne" : "name",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "icone" : {
+      "id" : "icone",
+      "nom" : "",
+      "align" : "center",
+      "sortable" : false
+    },
+    "name" : {
+      "id" : "name",
+      "nom" : "nom",
+      "align" : "left",
+      "sortable" : true
+    },
+    "description" : {
+      "id" : "description",
+      "nom" : "description",
+      "align" : "left",
+      "sortable" : false
+    },
+    "pu_ht" : {
+      "id" : "pu_ht",
+      "nom" : "prix (HT)",
+      "align" : "right",
+      "sortable" : false
+    },
+    "tva" : {
+      "id" : "tva",
+      "nom" : "TVA",
+      "align" : "right",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}

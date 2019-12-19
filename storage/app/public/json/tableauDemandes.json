@@ -1,56 +1,66 @@
 {
-  "eleveur" : {
-    "id" : "eleveur",
-    "nom" : "Eleveur",
-    "align" : "left",
-    "sortable" : true
+  "tri" : {
+
+    "colonne" : "reception",
+
+    "ordre" : "desc"
   },
-  "name" : {
-    "id" : "name",
-    "nom" : "Analyse",
-    "align" : "left",
-    "sortable" : false
-  },
-  "serie" : {
-    "id" : "serie",
-    "nom" : "Série",
-    "align" : "center",
-    "sortable" : true
-  },
-  "espece" : {
-    "id" : "espece",
-    "nom" : "Esp.",
-    "align" : "center",
-    "sortable" : false
-  },
-  "toveto" : {
-    "id" : "toveto",
-    "nom" : "-> vétérinaire",
-    "align" : "left",
-    "sortable" : true
-  },
-  "reception" : {
-    "id" : "reception",
-    "nom" : "Reçue le",
-    "align" : "center",
-    "sortable" : true
-  },
-  "acheve" : {
-    "id" : "acheve",
-    "nom" : "Terminée",
-    "align" : "center",
-    "sortable" : true
-  },
-  "num_facture" : {
-    "id" : "num_facture",
-    "nom" : "N° fact.",
-    "align" : "center",
-    "sortable" : false
-  },
-  "suppr" : {
-    "id" : "suppr",
-    "nom" : "del",
-    "align" : "center",
-    "sortable" : false
+
+  "liste" : {
+
+    "eleveur" : {
+      "id" : "eleveur",
+      "nom" : "Eleveur",
+      "align" : "left",
+      "sortable" : true
+    },
+    "name" : {
+      "id" : "name",
+      "nom" : "Analyse",
+      "align" : "left",
+      "sortable" : false
+    },
+    "serie" : {
+      "id" : "serie",
+      "nom" : "Série",
+      "align" : "center",
+      "sortable" : true
+    },
+    "espece" : {
+      "id" : "espece",
+      "nom" : "Esp.",
+      "align" : "center",
+      "sortable" : false
+    },
+    "toveto" : {
+      "id" : "toveto",
+      "nom" : "-> vétérinaire",
+      "align" : "left",
+      "sortable" : true
+    },
+    "reception" : {
+      "id" : "reception",
+      "nom" : "Reçue le",
+      "align" : "center",
+      "sortable" : true
+    },
+    "acheve" : {
+      "id" : "acheve",
+      "nom" : "Terminée",
+      "align" : "center",
+      "sortable" : true
+    },
+    "num_facture" : {
+      "id" : "num_facture",
+      "nom" : "N° fact.",
+      "align" : "center",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
+    }
   }
 }

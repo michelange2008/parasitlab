@@ -1,18 +1,27 @@
 <?php
 namespace App\Http\Controllers\Labo;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Fournisseurs\ListeLabosFournisseur;
+
+use App\User;
+
+
+use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
+
 /**
 * Controller destiné à gérer tout ce qui a trait à l'administration du site
 */
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Traits\LitJson;
 
-class LaboController extends Controller
+class LaboAdminController extends Controller
 {
 
-  use LitJson;
+  use LitJson, UserTypeOutil;
+
+  protected $menu;
   /**
    * Create a new controller instance.
    *
@@ -22,6 +31,8 @@ class LaboController extends Controller
   {
       $this->middleware('auth');
       $this->middleware('labo');
+
+      $this->menu = $this->litJson('menuLabo');
   }
 
   /**
@@ -31,7 +42,19 @@ class LaboController extends Controller
    */
   public function index()
   {
-    return redirect()-> route('demandes.index');
+    $users = User::where('usertype_id', $this->userTypeLabo()->id)->get();
+
+    $icone = $this->userTypeLabo()->icone->nom;
+
+    $fournisseur = new ListeLabosFournisseur(); // voir class ListeFournisseur
+
+    $datas = $fournisseur->renvoieDatas($users, "Membres du laboratoire", $icone, 'tableauLabos');
+
+    return view('admin.index.pageIndex', [
+      'menu' => $this->menu,
+      'datas' => $datas,
+    ]);
+
   }
 
   /**
@@ -74,7 +97,12 @@ class LaboController extends Controller
    */
   public function edit($id)
   {
-      //
+      $user = User::where('id', $id)->first();
+
+      return view('admin.labo.laboEdit', [
+        'menu' => $this->menu,
+        'user' => $user,
+      ]);
   }
 
   /**

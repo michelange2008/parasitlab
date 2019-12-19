@@ -17,9 +17,14 @@ class CreateVetosTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('cro')->nullable();
-            $table->string('cp', 5)->nullable();
-            $table->string('tel')->nullable();
+            $table->string('num')->nullable();
+            $table->string('address_1', 191);
+            $table->string('address_2', 191)->nullable(true);
+            $table->string('cp', 5);
+            $table->string('commune', 191);
+            $table->string('pays', 191)->default('France');
+            $table->string('indicatif', 2)->default('33');
+            $table->string('tel', 10);
         });
     }
 
