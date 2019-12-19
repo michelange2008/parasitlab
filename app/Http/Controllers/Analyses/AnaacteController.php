@@ -39,7 +39,7 @@ class AnaacteController extends Controller
 
       $fournisseur = new ListeAnaactesFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($anaactes, "Liste des actes", "acte.svg", 'tableauAnaactes');
+      $datas = $fournisseur->renvoieDatas($anaactes, "Liste des actes", "acte.svg", 'tableauAnaactes', 'anaactes.create', "Ajouter un nouvel acte");
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,

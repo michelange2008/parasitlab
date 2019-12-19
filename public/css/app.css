@@ -85,6 +85,11 @@
   color: white !important;
 }
 
+.btn-rouge {
+  background: #8F230A !important;
+  color: white !important;
+}
+
 .alert-bleu {
   background: #76A6BB !important;
   color: #0A425A;

@@ -41,7 +41,7 @@ class VetoAdminController extends Controller
 
         $fournisseur = new ListeVetosFournisseur();
 
-        $datas =$fournisseur->renvoiedatas($users, 'liste des vétérinaires', $icone, 'tableauVetos');
+        $datas =$fournisseur->renvoiedatas($users, 'liste des vétérinaires', $icone, 'tableauVetos', 'vetoAdmin.create', "Ajouter un vétérinaire");
 
         return view('admin.index.pageIndex', [
           'menu' => $this->menu,

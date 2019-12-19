@@ -18,7 +18,7 @@ abstract class ListeFournisseur
   * un tableau: titre, icone, intitulés, liste
   */
 
-  public function renvoieDatas($liste_origine, $titre, $icone, $fichier_intitules) {
+  public function renvoieDatas($liste_origine, $titre, $icone, $fichier_intitules, $addRoute, $addTitre) {
 
     $this->datas = collect();
 
@@ -29,6 +29,14 @@ abstract class ListeFournisseur
     $this->datas->intitules = $this->litJson($fichier_intitules); // EN TETE DES COLONNES
 
     $this->datas->liste = $this->creeListe($liste_origine); // LIGNES DU TABLEAU
+
+    $add = collect();
+
+    $add->route = $addRoute;
+
+    $add->titre = $addTitre;
+
+    $this->datas->add = $add;
 
     return $this->datas;
   }

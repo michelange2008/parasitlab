@@ -33,5 +33,6 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('fragments.dateSortable','dateSortable');
       Blade::include('labo.demandeShow', 'demandeShow');
       Blade::include('labo.serieShow', 'serieShow');
+      Blade::include('admin.titre', 'titre');
     }
 }

@@ -48,7 +48,7 @@ class LaboAdminController extends Controller
 
     $fournisseur = new ListeLabosFournisseur(); // voir class ListeFournisseur
 
-    $datas = $fournisseur->renvoieDatas($users, "Membres du laboratoire", $icone, 'tableauLabos');
+    $datas = $fournisseur->renvoieDatas($users, "Membres du laboratoire", $icone, 'tableauLabos', 'laboAdmin.create', "Ajouter");
 
     return view('admin.index.pageIndex', [
       'menu' => $this->menu,

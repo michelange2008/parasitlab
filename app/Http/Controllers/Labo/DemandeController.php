@@ -42,7 +42,7 @@ class DemandeController extends Controller
 
       $fournisseur = new ListeDemandesFournisseur();
 
-      $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandes');
+      $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandes', 'demandes.create', "Ajouter une demande d'analyse");
 
       return view('admin.index.pageIndex', [
           "menu" => $this->menu,

@@ -29,7 +29,7 @@ class AnapackController extends Controller
 
       $fournisseur = new ListeAnapacksFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($anapacks, "Liste des packs d'analyse", "pack.svg", 'tableauAnapacks');
+      $datas = $fournisseur->renvoieDatas($anapacks, "Liste des packs d'analyse", "pack.svg", 'tableauAnapacks', 'anapacks.create', "Ajouter un nouvel pack");
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,

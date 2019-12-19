@@ -31,7 +31,7 @@ class AnalyseController extends Controller
 
         $fournisseur = new ListeAnalysesFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($analyses, "Liste des analyses", "analyse.svg", 'tableauAnalyses');
+        $datas = $fournisseur->renvoieDatas($analyses, "Liste des analyses", "analyse.svg", 'tableauAnalyses', 'analyses.create', "Ajouter une nouvelle analyse");
 
         return view('admin.index.pageIndex', [
           'menu' => $this->menu,

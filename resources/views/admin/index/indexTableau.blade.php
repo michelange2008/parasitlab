@@ -3,7 +3,7 @@
 
 
 
-    <button id="ok" type="submit" class="btn btn-primary bg-rouge-tres-clair"><i class="fas fa-plus-square"></i> Ajouter un utilisateur</button>
+    <a href="{{ route($datas->add->route) }}" type="submit" class="btn btn-rouge"><i class="fas fa-plus-square"></i> {{ $datas->add->titre}}</a>
 
 </div>
 

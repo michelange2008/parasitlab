@@ -39,7 +39,7 @@ class UserController extends Controller
 
       $fournisseur = new ListeUsersFournisseur();
 
-      $datas = $fournisseur->renvoieDatas($users, "Listes des utilisateurs", "users.svg", 'tableauUsers');
+      $datas = $fournisseur->renvoieDatas($users, "Listes des utilisateurs", "users.svg", 'tableauUsers', 'user.create', "Ajouter un nouvel utilisateur");
 
         return view('admin.index.pageIndex', [
           'menu' => $this->menu,
@@ -54,7 +54,7 @@ class UserController extends Controller
      */
     public function create()
     {
-      $usertypes = Usertype::where('nom', '<>', auth()->user()->usertype->nom)->get();
+      $usertypes = Usertype::all();
 
         return view('admin.userCreate', [
           'menu' => $this->menu,
@@ -126,7 +126,7 @@ class UserController extends Controller
 
         return redirect()->route('laboAdmin.show', $id);
 
-      }        }
+      }
     }
 
     /**

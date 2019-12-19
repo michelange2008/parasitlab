@@ -3,14 +3,19 @@
 @extends('labo.laboMenu')
 
 @section('content')
+
   <div class="container-fluid">
-    <div class="row my-3">
-      <div class="col">
-        <div class="alert bg-success">
-          <h1>Création d'un nouvel utilisateur</h1>
-        </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10">
+
+        @titre(['titre' => "Création d'un nouvel utilisateur"])
+
       </div>
+
     </div>
+
     {!! Form::open(['route' => 'user.store']) !!}
     <div class="form-group row my-3">
       <div class="col">
