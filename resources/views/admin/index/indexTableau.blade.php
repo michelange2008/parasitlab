@@ -1,3 +1,12 @@
+
+<div id="toolbar">
+
+
+
+    <button id="ok" type="submit" class="btn btn-primary bg-rouge-tres-clair"><i class="fas fa-plus-square"></i> Ajouter un utilisateur</button>
+
+</div>
+
 <table   id="table"
   data-toggle = "table"
   data-locale = "fr-FR"
