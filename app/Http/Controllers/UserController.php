@@ -105,28 +105,28 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+      $user = User::select('usertype_id')->where('id', $id)->first();
 
-        switch ($user->userType->nom) {
+      if($this->estVeto($user->usertype_id))
+      {
 
-          case 'vétérinaire':
+        return redirect()->route('vetoAdmin.show', $id);
 
-            return redirect()->route('vetoAdmin.show', $id);
+      }
 
-            break;
+      elseif ($this->estEleveur($user->usertype_id))
+      {
 
-          case 'éleveur':
+        return redirect()->route('eleveurAdmin.show', $id);
 
-              return redirect()->route('eleveurAdmin.show', $id);
+      }
 
-              break;
+      elseif ($this->estLabo($user->usertype_id))
+      {
 
-          default:
+        return redirect()->route('laboAdmin.show', $id);
 
-            echo "à faire";
-
-            break;
-        }
+      }        }
     }
 
     /**
