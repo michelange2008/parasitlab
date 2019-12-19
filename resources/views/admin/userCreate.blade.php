@@ -8,7 +8,7 @@
 
     <div class="row my-3 justify-content-center">
 
-      <div class="col-md-10">
+      <div class="col-md-10 col-xl-8">
 
         @titre(['titre' => "Création d'un nouvel utilisateur"])
 
@@ -17,15 +17,34 @@
     </div>
 
     {!! Form::open(['route' => 'user.store']) !!}
-    <div class="form-group row my-3">
-      <div class="col">
-        <input type="text" class="form-control" name="name" value="" required placeholder="Nom de l'utilisateur">
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10 col-xl-8">
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          @foreach ($usertypes as $usertype)
+            <label class="btn btn-rouge active mx-3">
+              <input type="radio" name="{{ $usertype->id }}" id="{{ $usertype->id }}">{{$usertype->nom}}
+            </label>
+          @endforeach
+        </div>
+
       </div>
 
-      <div class="col">
-        <input type="email" class="form-control "name="email" value="" required placeholder="Email">
+  </div>
+
+    <div class="row">
+
+      <div class="m-auto col-md-10 col-xl-8 border">
+
+        @include('admin.form.identite')
+
       </div>
+
     </div>
+
+
     <fieldset class="form-group">
       <div class="row">
           @foreach ($usertypes as $usertype)
