@@ -4,6 +4,7 @@ require( './bootstrap-table.min.js');
 require( './bootstrap-table-accent-neutralise.min.js');
 require( './bootstrap-table-locale-all.js');
 
+require( './create.js');
 
 require( 'jquery-confirm' );
 

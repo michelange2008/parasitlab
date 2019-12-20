@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Fournisseurs\ListeUsersFournisseur;
+use App\Http\Requests\UserRequest;
 
 use App\User;
 use App\Models\Usertype;
@@ -56,10 +57,10 @@ class UserController extends Controller
     {
       $usertypes = Usertype::all();
 
-        return view('admin.userCreate', [
-          'menu' => $this->menu,
-          'usertypes' => $usertypes,
-        ]);
+      return view('admin.userCreate', [
+        'menu' => $this->menu,
+        'usertypes' => $usertypes,
+      ]);
     }
 
     /**
@@ -68,33 +69,39 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
+
       $datas = $request->all();
 
-      $usertype = Usertype::where('nom', $datas['usertype'])->first();
+      $usertype = Usertype::where('id', $datas['usertype'])->first();
+
       $nouvel_user = new User();
+
+      $mdp = str_random(8);
 
       $nouvel_user->name = $datas['name'];
       $nouvel_user->email = $datas['email'];
-      $nouvel_user->password = bcrypt("!".explode('@', $datas['email'])[0]."%");
+      $nouvel_user->password = bcrypt($mdp);
       $nouvel_user->usertype_id = $usertype->id;
 
       $nouvel_user->save();
 
-      if ($this->estEleveur($usertype->id)) {
-        return redirect()->route('eleveurAdmin.create', [
-          'user_id' => $nouvel_user->id,
-        ]);
-      }
-      elseif($this->estVeto($usertype->id)) {
-        return redirect()->route('vetoAdmin.create', [
-          'user_id' => $nouvel_user->id,
-        ]);
-      }
-      else {
-        return "Y a un problème";
-      }
+      return ['user' => $nouvel_user, 'mdp' => $mdp];
+
+    //   if ($this->estEleveur($usertype->id)) {
+    //     return redirect()->route('eleveurAdmin.create', [
+    //       'user_id' => $nouvel_user->id,
+    //     ]);
+    //   }
+    //   elseif($this->estVeto($usertype->id)) {
+    //     return redirect()->route('vetoAdmin.create', [
+    //       'user_id' => $nouvel_user->id,
+    //     ]);
+    //   }
+    //   else {
+    //     return "Y a un problème";
+    //   }
     }
 
     /**

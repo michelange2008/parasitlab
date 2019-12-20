@@ -63,11 +63,25 @@ $rouge-tres-fonce: #8F230A;
   color: white !important;
 }
 
-.btn-rouge::selection {
+.btn-rouge-tres-clair {
+  background: $rouge-tres-clair !important;
+  color: $rouge-tres-fonce !important;
+}
+
+.btn-rouge-tres-clair:hover {
+  background: $rouge-clair important;
+  color: white important;
+}
+
+.btn-rouge:hover {
   background: $rouge-tres-clair !important;
   color:$rouge-tres-fonce !important;
 }
 
+.btn-rouge:active {
+  background: $bleu-tres-fonce !important;
+  color:white !important;
+}
 .alert-bleu {
   background: $bleu-tres-clair !important;
   color: $bleu-tres-fonce;
