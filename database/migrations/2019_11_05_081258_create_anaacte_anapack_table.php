@@ -16,9 +16,9 @@ class CreateAnaacteAnapackTable extends Migration
         Schema::create('anaacte_anapack', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('anapack_id')->unsigned();
-          $table->foreign('anapack_id')->references('id')->on('anapacks');
+          $table->foreign('anapack_id')->references('id')->on('anapacks')->onDelete('cascade');
           $table->integer('anaacte_id')->unsigned();
-          $table->foreign('anaacte_id')->references('id')->on('anaactes');
+          $table->foreign('anaacte_id')->references('id')->on('anaactes')->onDelete('cascade');
         });
     }
 

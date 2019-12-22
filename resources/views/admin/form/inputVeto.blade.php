@@ -8,6 +8,8 @@
 
     <select class="form-control" name="veto_id">
 
+        <option value="0">Nouveau vétérinaire</option>
+
       @isset($user->eleveur->veto->id)
 
         <option value="{{$user->eleveur->veto->id}}">{{ $user->eleveur->  veto->user->name}}</option>

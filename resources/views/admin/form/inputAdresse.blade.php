@@ -4,13 +4,30 @@
 
   <div class="col-sm-6">
 
-    <input class="form-control" type="text" name="address_1" value="{{ $personne->address_1 ?? ''}}"  placeholder="adresse">
+    @isset ($personne->address_1)
+
+      <input class="form-control" type="text" name="address_1" value="{{ $personne->address_1 ?? ''}}">
+
+    @else
+
+      <input class="form-control" type="text" name="address_1"  placeholder="adresse">
+
+    @endisset
 
   </div>
 
   <div class="col-sm-6">
 
-    <input class="form-control" type="text" name="address_2" value="{{ $personne->address_2 ?? ''}}" placeholder="complément d'adresse">
+    @isset ($personne->address_2)
+
+      <input class="form-control" type="text" name="address_2" value="{{ $personne->address_2 ?? ''}}">
+
+    @else
+
+      <input class="form-control" type="text" name="address_2" placeholder="complément d'adresse">
+
+    @endif
+
 
   </div>
 
@@ -21,21 +38,47 @@
 
   <div class="col-sm-4">
 
-    <input class="form-control" type="text" name="cp" value="{{ $personne->cp ?? '' }}" placeholder="code postal">
+    @isset ($personne->cp)
+
+      <input class="form-control" type="text" name="cp" value="{{ $personne->cp ?? '' }}">
+
+    @else
+
+      <input class="form-control" type="text" name="cp" placeholder="code postal">
+
+    @endisset
+
 
   </div>
 
   <div class="col-sm-8">
 
-    <input class="form-control" type="text" name="commune" value="{{ $personne->commune ?? '' }}" placeholder="commune">
+    @isset ($personne->commune)
+
+      <input class="form-control" type="text" name="commune" value="{{ $personne->commune ?? '' }}">
+
+    @else
+
+      <input class="form-control" type="text" name="commune" placeholder="commune">
+
+    @endisset
+
 
   </div>
 
 </div>
 
   <select class="form-control" name="pays">
+    @isset($personne->pays)
 
-    <option value="France" selected>{{ $personne->pays  ?? '' }}</option>
+      <option value="France" selected>{{ $personne->pays  ?? '' }}</option>
+
+    @else
+
+      <option value="France" selected>France</option>
+
+    @endisset
+
 
     @foreach ($pays as $etat)
 

@@ -17,13 +17,13 @@ class CreateSeriesTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedInteger('anapack_id');
-            $table->foreign('anapack_id')->references('id')->on('anapacks');
+            $table->foreign('anapack_id')->references('id')->on('anapacks')->onDelete('restrict');
 
             $table->unsignedInteger('espece_id');
-            $table->foreign('espece_id')->references('id')->on('especes');
+            $table->foreign('espece_id')->references('id')->on('especes')->onDelete('restrict');
 
             $table->boolean('acheve')->default(false);
 

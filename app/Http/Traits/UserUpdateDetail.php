@@ -15,7 +15,7 @@ trait UserUpdateDetail
 
     if($this->estVeto($usertype_id))
     {
-      // $this->vetoUpdateDetail($id, $datas);
+      $this->vetoUpdateDetail($id, $datas);
     }
     elseif ($this->estEleveur($usertype_id))
     {
@@ -29,8 +29,6 @@ trait UserUpdateDetail
 
   public function vetoUpdateDetail($id, $datas)
   {
-    $datas = $request->all();
-
     DB::table('vetos')->where('user_id', $id)
           ->Update([
             'user_id' => $id,
@@ -44,13 +42,11 @@ trait UserUpdateDetail
             'tel' => $datas['tel'],
           ]);
 
-    // return redirect()->route('vetoAdmin.show', $id);
+    return redirect()->route('vetoAdmin.show', $id);
   }
 
   public function eleveurUpdateDetail($id, $datas)
   {
-    $datas = $request->all();
-
     DB::table('eleveurs')->where('user_id', $id)
           ->Update([
             'user_id' => $id,

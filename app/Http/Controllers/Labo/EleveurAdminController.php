@@ -50,6 +50,7 @@ class EleveurAdminController extends Controller
      */
     public function index()
     {
+      session()->forget(['user_id', 'encreation']);
 
       $users = User::where('usertype_id', $this->userTypeEleveur()->id)->get();
 
@@ -73,13 +74,27 @@ class EleveurAdminController extends Controller
      */
     public function create()
     {
-      // RECUPERE L'ID DU USER QUI VIENT D'ETRE ENREGISTREE VIA LE GET
+      // if(session('user_id') !== null)
+      // {
+      //
+      // // SI UN ID DE USER EST STOCKE EN SESSION C'EST QUE
+      // // ON EST EN TRAIN DE CREER UN ELEVEUR
+      // session()->forget('user_id');
+      //
+      //   return view('labo.eleveurCreate', [
+      //     'menu' => $this->menu,
+      //     'user' => User::find(session('user_id')),
+      //     'vetos' => $this->vetos,
+      //   ]);
+      // }
+      // else
+      // {
+        // DANS LE CAS CONTRAIRE IL FAUT RENVOYER VERS LA CREATION DE L USER
+        // AVANT LES DETAILS PROPRES A L ELEVEUR
+        session(['usertype' => $this->userTypeEleveur()]);
 
-        return view('labo.eleveurCreate', [
-          'menu' => $this->menu,
-          'user' => User::find($_GET['user_id']),
-          'vetos' => $this->vetos,
-        ]);
+        return redirect()->route('user.create');
+      // }
     }
 
     /**
@@ -95,7 +110,7 @@ class EleveurAdminController extends Controller
         $nouvel_eleveur = new Eleveur();
 
         $nouvel_eleveur->user_id = $datas['user_id']; // Passer en input type hidden
-        $nouvel_eleveur->num = $datas['ede'];
+        $nouvel_eleveur->num = $datas['num'];
         $nouvel_eleveur->address_1 = $datas['address_1'];
         $nouvel_eleveur->address_2 = $datas['address_2']; // peut être null
         $nouvel_eleveur->cp = $datas['cp'];
@@ -103,11 +118,22 @@ class EleveurAdminController extends Controller
         $nouvel_eleveur->pays = $datas['pays'];
         $nouvel_eleveur->indicatif = $datas['indicatif'];
         $nouvel_eleveur->tel = $datas['tel'];
-        $nouvel_eleveur->veto_id = $datas['veto_id'];
+        $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0) ? 1 : $datas['veto_id'];
 
         $nouvel_eleveur->save();
+        // si le veto_id == 0, c'est qu'il faut créer un nouveau veto
+        if($datas['veto_id'] == 0) {
 
-        return redirect()->route('user.index');
+          session(['user_id' => $nouvel_eleveur->user->id]);
+
+          return redirect()->route('user.create');
+
+        } else {
+
+          return redirect()->route('user.index');
+
+        }
+
     }
 
     /**
@@ -128,7 +154,7 @@ class EleveurAdminController extends Controller
 
         $fournisseur = new ListeDemandesEleveurFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveur');
+        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveur', 'demandes.create', "Ajouter une demande");
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,

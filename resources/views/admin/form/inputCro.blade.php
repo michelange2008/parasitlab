@@ -2,6 +2,15 @@
 
 <div class="input-group col-md-6">
 
-  <input class="my-2 form-control" type="text" name="num" value="{{ $user->veto->num  ?? '' }}">
+  @isset($user->veto->num)
+
+    <input class="my-2 form-control" type="text" name="num" value="{{ $user->veto->num  ?? '' }}">
+
+  @else
+
+    <input class="my-2 form-control" type="text" name="num" placeholder="numéro à l'Ordre Vétérinaire">
+
+  @endisset
+
 
 </div>

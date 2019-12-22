@@ -64,7 +64,9 @@ class LaboAdminController extends Controller
    */
   public function create()
   {
-      //
+      session(['usertype' => $this->userTypeLabo()]);
+
+      return redirect()->route('user.create');
   }
 
   /**
@@ -75,7 +77,7 @@ class LaboAdminController extends Controller
    */
   public function store(Request $request)
   {
-      //
+      dd($request->all());
   }
 
   /**

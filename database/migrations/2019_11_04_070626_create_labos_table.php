@@ -17,12 +17,12 @@ class CreateLabosTable extends Migration
           $table->increments('id');
 
           $table->integer('user_id')->unsigned();
-          $table->foreign('user_id')->references('id')->on('users');
+          $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
           $table->string('signature', 50);
 
           $table->unsignedInteger('icone_id');
-          $table->foreign('icone_id')->references('id')->on('icones');
+          $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
 
           $table->string('fonction', 191);
 

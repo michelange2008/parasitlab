@@ -29,6 +29,7 @@ trait UserTypeOutil {
   public function userTypeEleveur()
   {
     return UserType::where('route', 'eleveur')->first();
+
   }
 
   public function userTypeVeto()

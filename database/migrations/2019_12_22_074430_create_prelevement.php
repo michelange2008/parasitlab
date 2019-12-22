@@ -19,16 +19,16 @@ class CreatePrelevement extends Migration
           $table->string('identification', 191);
           // DEMANDE
           $table->unsignedInteger('demande_id');
-          $table->foreign('demande_id')->references('id')->on('demandes');
+          $table->foreign('demande_id')->references('id')->on('demandes')->onDelete('cascade');
           // ANALYSE
           $table->unsignedInteger('analyse_id');
-          $table->foreign('analyse_id')->references('id')->on('analyses');
+          $table->foreign('analyse_id')->references('id')->on('analyses')->onDelete('restrict');
           // ETAT DU PRELEVEMENT
           $table->unsignedInteger('etat_id')->default(1);
-          $table->foreign('etat_id')->references('id')->on('etats');
+          $table->foreign('etat_id')->references('id')->on('etats')->onDelete('no action');
           // CONSISTANCE
           $table->unsignedInteger('consistance_id');
-          $table->foreign('consistance_id')->references('id')->on('consistances');
+          $table->foreign('consistance_id')->references('id')->on('consistances')->onDelete('no action');
           // DATES
           $table->timestamps();
       });

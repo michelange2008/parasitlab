@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 
 use App\User;
 use App\Models\Usertype;
+use App\Models\Veto;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
@@ -35,6 +36,7 @@ class UserController extends Controller
      */
     public function index()
     {
+      session()->forget('usertype');
 
       $users = User::all();
 
@@ -57,9 +59,14 @@ class UserController extends Controller
     {
       $usertypes = Usertype::all();
 
-      return view('admin.userCreate', [
+      $pays = $this->litJson('pays');
+      $vetos = Veto::all();
+
+      return view('admin.user.userCreate', [
         'menu' => $this->menu,
         'usertypes' => $usertypes,
+        'pays' => $pays,
+        'vetos' => $vetos,
       ]);
     }
 
@@ -73,7 +80,7 @@ class UserController extends Controller
     {
 
       $datas = $request->all();
-
+      dd($datas);
       $usertype = Usertype::where('id', $datas['usertype'])->first();
 
       $nouvel_user = new User();
@@ -87,21 +94,12 @@ class UserController extends Controller
 
       $nouvel_user->save();
 
+      session([
+        'user_id' => $nouvel_user->id,
+      ]);
+
       return ['user' => $nouvel_user, 'mdp' => $mdp];
 
-    //   if ($this->estEleveur($usertype->id)) {
-    //     return redirect()->route('eleveurAdmin.create', [
-    //       'user_id' => $nouvel_user->id,
-    //     ]);
-    //   }
-    //   elseif($this->estVeto($usertype->id)) {
-    //     return redirect()->route('vetoAdmin.create', [
-    //       'user_id' => $nouvel_user->id,
-    //     ]);
-    //   }
-    //   else {
-    //     return "Y a un problème";
-    //   }
     }
 
     /**

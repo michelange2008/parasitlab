@@ -46,4 +46,5 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::resource('eleveurAdmin', 'Labo\EleveurAdminController');
 
   Route::resource('serie', 'Labo\SerieController');
+
 });

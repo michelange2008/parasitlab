@@ -17,7 +17,7 @@ class CreateEleveursTable extends Migration
             $table->increments('id');
 
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('num', 191);
             $table->string('address_1', 191);
@@ -25,11 +25,11 @@ class CreateEleveursTable extends Migration
             $table->string('cp', 5);
             $table->string('commune', 191);
             $table->string('pays', 191)->default('France');
-            $table->string('indicatif', 2)->default('33');
+            $table->string('indicatif', 3)->default('33');
             $table->string('tel', 10);
 
-            $table->integer('veto_id')->unsigned()->default(1);
-            $table->foreign('veto_id')->references('id')->on('vetos');
+            $table->integer('veto_id')->unsigned()->nullable();
+            $table->foreign('veto_id')->references('id')->on('vetos')->onDelete('set null');
 
             $table->timestamps();
             $table->softDeletes();

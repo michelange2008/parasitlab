@@ -17,10 +17,10 @@ class CreateResultatsTable extends Migration
             $table->increments('id');
             // PRLEVEMENT
             $table->unsignedInteger('prelevement_id');
-            $table->foreign('prelevement_id')->references('id')->on('prelevements');
+            $table->foreign('prelevement_id')->references('id')->on('prelevements')->onDelete('cascade');
             // ITEM
             $table->unsignedInteger('anaitem_id');
-            $table->foreign('anaitem_id')->references('id')->on('anaitems');
+            $table->foreign('anaitem_id')->references('id')->on('anaitems')->onDelete('restrict');
             // RESULTAT
             $table->string('valeur', 191)->nullable()->default(null);
             // RESULTAT POSITIF

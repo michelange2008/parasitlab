@@ -16,9 +16,9 @@ class CreateAnaitemAnalyse extends Migration
         Schema::create('anaitem_analyse', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('anaitem_id');
-            $table->foreign('anaitem_id')->references('id')->on('anaitems');
+            $table->foreign('anaitem_id')->references('id')->on('anaitems')->onDelete('cascade');
             $table->unsignedInteger('analyse_id');
-            $table->foreign('analyse_id')->references('id')->on('analyses');
+            $table->foreign('analyse_id')->references('id')->on('analyses')->onDelete('cascade');
         });
     }
 

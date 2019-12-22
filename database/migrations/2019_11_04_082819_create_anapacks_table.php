@@ -20,7 +20,7 @@ class CreateAnapacksTable extends Migration
             $table->longtext("detail");
             $table->boolean('serie');
             $table->unsignedInteger('icone_id')->default('1');
-            $table->foreign('icone_id')->references('id')->on('icones');
+            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
         });
     }
 

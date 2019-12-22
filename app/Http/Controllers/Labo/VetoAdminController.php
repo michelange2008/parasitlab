@@ -20,12 +20,15 @@ class VetoAdminController extends Controller
   use LitJson, VetoInfos, UserTypeOutil;
 
   protected $menu;
+  protected $pays;
 
     public function __construct()
     {
         $this->middleware('auth');
 
         $this->menu = $this->litJson('menuLabo');
+
+        $this->pays = $this->litJson('pays');
     }
 
     /**
@@ -54,9 +57,16 @@ class VetoAdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($user_id)
+    public function create()
     {
-        return "création d'un nouveau véto";
+
+      session(['usertype' => $this->userTypeVeto()]);
+
+      return redirect()->route('user.create');
+      // return view('admin.veto.vetoCreate', [
+      //   'menu' => $this->menu,
+      //   'pays' => $this->pays,
+      //   ]) ;
     }
 
     /**
@@ -114,7 +124,7 @@ class VetoAdminController extends Controller
         return view('admin.veto.vetoEdit', [
           'menu' => $this->menu,
           'user' => $user,
-          'pays' => $pays,
+          'pays' => $this->pays,
         ]);
     }
 
