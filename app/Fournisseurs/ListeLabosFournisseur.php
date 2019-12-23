@@ -16,6 +16,7 @@ class ListeLabosFournisseur extends ListeFournisseur
     foreach ($users as $user) {
 
       $description = [];
+
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
 
       $photo = $this->iconeFactory($user->labo->icone);

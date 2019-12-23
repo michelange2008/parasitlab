@@ -80,8 +80,6 @@ class UserController extends Controller
     {
 
       $datas = $request->all();
-      dd($datas);
-      $usertype = Usertype::where('id', $datas['usertype'])->first();
 
       $nouvel_user = new User();
 
@@ -90,7 +88,16 @@ class UserController extends Controller
       $nouvel_user->name = $datas['name'];
       $nouvel_user->email = $datas['email'];
       $nouvel_user->password = bcrypt($mdp);
-      $nouvel_user->usertype_id = $usertype->id;
+
+      if(isset($datas['usertype'])) { // cas de la création d'un utilisateur indéterminé au départ
+
+        $nouvel_user->usertype_id = $datas['usertype'];
+      }
+      else { // cas de la création d'un uitilisateur paticulier au départ: éleveur, veto ou labo
+
+        $nouvel_user->usertype_id = session('usertype')->id; // on utilise la variable de SESSION
+        session()->forget('usertype');
+      }
 
       $nouvel_user->save();
 

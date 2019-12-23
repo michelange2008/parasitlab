@@ -126,9 +126,13 @@ class EleveurAdminController extends Controller
 
           session(['user_id' => $nouvel_eleveur->user->id]);
 
+          session(['usertype' => $this->userTypeVeto()]);
+
           return redirect()->route('user.create');
 
         } else {
+
+          session()->flush();
 
           return redirect()->route('user.index');
 

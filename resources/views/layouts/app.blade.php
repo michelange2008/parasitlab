@@ -36,6 +36,6 @@
         <!-- Scripts -->
 
         <script src="{{ asset('js/app.js') }}" defer></script>
-<script type="text/javascript" src="libs/FileSaver/FileSaver.min.js"></script>
+{{-- <script type="application/javascript" src="libs/FileSaver/FileSaver.min.js"></script> --}}
 </body>
 </html>
