@@ -77,6 +77,22 @@ abstract class ListeFournisseur
     return $item;
    }
 
+
+   public function photoFactory($photo)
+   {
+     $item = collect();
+
+     $item->action = 'photo';
+
+     $item->id = $photo;
+
+     $item->nom = $photo;
+
+     $item->route = null;
+
+     return $item;
+   }
+
    public function lienFactory($id, $nom, $route, $tooltip)
    {
      $item = collect();

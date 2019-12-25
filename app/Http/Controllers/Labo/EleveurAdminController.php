@@ -107,7 +107,7 @@ class EleveurAdminController extends Controller
     {
         $datas = $request->all();
 
-        $nouvel_eleveur = new Eleveur();
+        $nouvel_eleveur = Eleveur::firstOrNew(['user_id' => $datas['user_id']]);
 
         $nouvel_eleveur->user_id = $datas['user_id']; // Passer en input type hidden
         $nouvel_eleveur->num = $datas['num'];
@@ -116,11 +116,12 @@ class EleveurAdminController extends Controller
         $nouvel_eleveur->cp = $datas['cp'];
         $nouvel_eleveur->commune = $datas['commune'];
         $nouvel_eleveur->pays = $datas['pays'];
-        $nouvel_eleveur->indicatif = $datas['indicatif'];
+        $nouvel_eleveur->indicatif = ($datas['indicatif'] === null) ? 33 : $datas['indicatif']; // on met l'indicatif de la France si non renseigné
         $nouvel_eleveur->tel = $datas['tel'];
-        $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0) ? 1 : $datas['veto_id'];
+        $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0) ? 1 : $datas['veto_id']; // si le veto est à créer (veto_id = 0) on lui met temporairement l'id 1 (aucun vétérinaire) en atendant de créer le véto
 
         $nouvel_eleveur->save();
+
         // si le veto_id == 0, c'est qu'il faut créer un nouveau veto
         if($datas['veto_id'] == 0) {
 
@@ -130,10 +131,11 @@ class EleveurAdminController extends Controller
 
           return redirect()->route('user.create');
 
+        // sinon on peut revenir à la route de retour
         } else {
 
-          session()->flush();
-
+          session()->forget(['usertype', 'user_id']); // après avoir vidé les infos passées en session
+// TODO: route de redirection en fonction d'où on vient
           return redirect()->route('user.index');
 
         }

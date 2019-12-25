@@ -36,8 +36,6 @@ class UserController extends Controller
      */
     public function index()
     {
-      session()->forget('usertype');
-
       $users = User::all();
 
       $fournisseur = new ListeUsersFournisseur();
@@ -104,8 +102,8 @@ class UserController extends Controller
       session([
         'user_id' => $nouvel_user->id,
       ]);
-
-      return ['user' => $nouvel_user, 'mdp' => $mdp];
+      // RENVOI DES INFORMATIONS POUR LA REQUETE ajax cf. create.js
+      return ['user' => $nouvel_user, 'usertype' => $nouvel_user->usertype, 'mdp' => $mdp];
 
     }
 
@@ -184,6 +182,8 @@ class UserController extends Controller
     {
         $datas = $request->all();
 
+        $user = User::find($id);
+
         DB::table('users')->where('id', $id)
               ->Update(
                 [
@@ -193,9 +193,9 @@ class UserController extends Controller
                   'password' => $datas['password'],
                   'usertype_id' => $datas['usertype_id'],
                 ]);
-        $this->userUpdateDetail($id, $datas);
+        $this->userUpdateDetail($user, $datas);
 
-        return redirect()->route('user.show', $id);
+        return redirect()->route('user.index');
 
 
       }

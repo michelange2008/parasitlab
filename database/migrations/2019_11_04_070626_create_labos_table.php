@@ -19,12 +19,11 @@ class CreateLabosTable extends Migration
           $table->integer('user_id')->unsigned();
           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-          $table->string('signature', 50);
+          $table->string('signature', 50)->default('signature.jpg');
 
-          $table->unsignedInteger('icone_id');
-          $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
+          $table->string('photo')->nullable();
 
-          $table->string('fonction', 191);
+          $table->string('fonction', 191)->default('travailleur');
 
           $table->timestamps();
 

@@ -3,35 +3,36 @@ namespace App\Http\Traits;
 
 use DB;
 
+use App\Models\Icone;
+
 /**
  * ISSU DE App\Http\Controllers\UserController@update
  * MET A JOUR LES INFORMATIONS SPECIFIQUES DES UTILISATEURS
  */
 trait UserUpdateDetail
 {
-  function userUpdateDetail($id, $datas)
+  function userUpdateDetail($user, $datas)
   {
-    $usertype_id = $datas['usertype_id'];
 
-    if($this->estVeto($usertype_id))
+    if($this->estVeto($user->usertype_id))
     {
-      $this->vetoUpdateDetail($id, $datas);
+      $this->vetoUpdateDetail($user, $datas);
     }
-    elseif ($this->estEleveur($usertype_id))
+    elseif ($this->estEleveur($user->usertype_id))
     {
-      $this->eleveurUpdateDetail($id, $datas);
+      $this->eleveurUpdateDetail($user, $datas);
     }
-    elseif ($this->estLabo($usertype_id))
+    elseif ($this->estLabo($user->usertype_id))
     {
-      $this->laboUpdateDetail($id, $datas);
+      $this->laboUpdateDetail($user, $datas);
     }
   }
 
-  public function vetoUpdateDetail($id, $datas)
+  public function vetoUpdateDetail($user, $datas)
   {
-    DB::table('vetos')->where('user_id', $id)
+    DB::table('vetos')->where('user_id', $user->id)
           ->Update([
-            'user_id' => $id,
+            'user_id' => $user->id,
             'num' => $datas['num'],
             'address_1' => $datas['address_1'],
             'address_2' => $datas['address_2'],
@@ -42,14 +43,14 @@ trait UserUpdateDetail
             'tel' => $datas['tel'],
           ]);
 
-    return redirect()->route('vetoAdmin.show', $id);
+    return redirect()->route('vetoAdmin.show', $user->id);
   }
 
-  public function eleveurUpdateDetail($id, $datas)
+  public function eleveurUpdateDetail($user, $datas)
   {
-    DB::table('eleveurs')->where('user_id', $id)
+    DB::table('eleveurs')->where('user_id', $user->id)
           ->Update([
-            'user_id' => $id,
+            'user_id' => $user->id,
             'num' => $datas['num'],
             'address_1' => $datas['address_1'],
             'address_2' => $datas['address_2'],
@@ -61,37 +62,47 @@ trait UserUpdateDetail
             'veto_id' => $datas['veto_id'],
           ]);
 
-    return redirect()->route('eleveurAdmin.show', $id);
+    return redirect()->route('eleveurAdmin.show', $user->id);
 
   }
 
-  public function laboUpdateDetail($id, $datas)
+  public function laboUpdateDetail($user, $datas)
   {
 
     if(isset($datas['photo']))
     {
+      $datas['photo']->store('public/img/labo/photos');
 
-      $this->storeFile($datas['photo'], $datas['icone'], 'public/img/icones');
+      DB::table('labos')->where('user_id', $user->id)
+      ->Update([
+        'user_id' => $user->id,
+        'photo' => $datas['photo']->hashName(),
+      ]);
     }
 
     if(isset($datas['imageSignature']))
     {
-      $this->storeFile($datas['imageSignature'], $datas['signature'], 'public/img/labo');
+      $datas['imageSignature']->store('public/img/labo/signatures');
+
+      DB::table('labos')->where('user_id', $user->id)
+      ->Update([
+        'user_id' => $user->id,
+        'signature' => $datas['imageSignature']->hashName(),
+      ]);
+
     }
 
-    DB::table('labos')->where('user_id', $id)
-          ->Update([
-            'user_id' => $id,
-            'fonction' => $datas['fonction'],
-          ]);
+    if (isset($datas['fonction'])) {
+
+      DB::table('labos')->where('user_id', $user->id)
+      ->Update([
+        'user_id' => $user->id,
+        'fonction' => $datas['fonction'],
+      ]);
+
+    }
 
     return redirect()->route('laboAdmin.index');
   }
 
-  public function storeFile($file, $filename, $path)
-  {
-
-    $file->storeAs($path, $filename);
-
-  }
 }

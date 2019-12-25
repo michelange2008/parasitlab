@@ -7,13 +7,11 @@ use App\User;
 
 class Labo extends Model
 {
+  protected $fillable = ['user_id'];
+
   public function user()
   {
     return $this->hasOne(User::class);
   }
 
-  public function icone()
-  {
-    return $this->belongsTo(Icone::class);
-  }
 }

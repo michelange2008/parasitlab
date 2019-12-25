@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Fournisseurs\ListeLabosFournisseur;
 
 use App\User;
+use App\Models\Labo;
 
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
+use App\Http\Traits\UserUpdateDetail;
 
 /**
 * Controller destiné à gérer tout ce qui a trait à l'administration du site
@@ -19,7 +21,7 @@ use App\Http\Traits\UserTypeOutil;
 class LaboAdminController extends Controller
 {
 
-  use LitJson, UserTypeOutil;
+  use LitJson, UserTypeOutil, UserUpdateDetail;
 
   protected $menu;
   /**
@@ -77,9 +79,15 @@ class LaboAdminController extends Controller
    */
   public function store(Request $request)
   {
-      dd($request->all());
-  }
+    $datas = $request->all();
+    // dd($datas);
+    $user = User::find($datas['user_id']);
 
+    $nouveau_labo = Labo::firstOrCreate(['user_id' => $datas['user_id']]);
+
+    $this->laboUpdateDetail($user, $datas);
+
+  }
   /**
    * Display the specified resource.
    *
@@ -88,7 +96,10 @@ class LaboAdminController extends Controller
    */
   public function show($id)
   {
-      //
+      return view('admin.labo.laboShow', [
+        'menu' => $this->menu,
+        'user' => User::find($id),
+      ]);
   }
 
   /**

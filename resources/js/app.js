@@ -1,3 +1,4 @@
+// require( './usertypes.js');
 require('./bootstrap');
 
 require( './bootstrap-table.min.js');
@@ -12,7 +13,6 @@ require( 'jquery-confirm' );
 $(function() {
 
   $('[data-toggle="tooltip"]').tooltip();
-
 
   $('#table').bootstrapTable({
 

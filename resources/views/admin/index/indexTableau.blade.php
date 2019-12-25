@@ -86,6 +86,13 @@
 
               </td>
 
+            @elseif ($detail->action === 'photo')
+
+              <td>
+
+                <img class="img-50" src="{{ asset('storage/img/labo/photos').'/'.$detail->nom }}" alt="{{ $detail->nom }}">
+
+              </td>
             @endempty
 
           @endforeach

@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// TODO: Faut-il garder ces routes non protégées ?
+// QUESTION: : Faut-il garder ces routes non protégées ?
 Route::get('/laboratoire', 'Labo\DemandeController@index')->name('laboratoire');
 
 Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
@@ -46,5 +46,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::resource('eleveurAdmin', 'Labo\EleveurAdminController');
 
   Route::resource('serie', 'Labo\SerieController');
+
+  Route::get('usertypes', 'UsertypeController@liste')->name('usertypeJson');
 
 });

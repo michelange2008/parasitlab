@@ -33,8 +33,4 @@ class Icone extends Model
     return $this->hasOne(Analyses\Anaacte::class);
   }
 
-  public function labo()
-  {
-    return $this->hasOne(Labo::class);
-  }
 }
