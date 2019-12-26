@@ -132,7 +132,9 @@ class LaboAdminController extends Controller
    */
   public function update(Request $request, $id)
   {
-      //
+
+    // NON IMPLEMENTEE CAR UTILISATION DE user.update + le trait UserUpdateDetail
+
   }
 
   /**

@@ -63,10 +63,7 @@ class VetoAdminController extends Controller
       session(['usertype' => $this->userTypeVeto()]);
 
       return redirect()->route('user.create');
-      // return view('admin.veto.vetoCreate', [
-      //   'menu' => $this->menu,
-      //   'pays' => $this->pays,
-      //   ]) ;
+
     }
 
     /**
@@ -121,6 +118,8 @@ class VetoAdminController extends Controller
 
         $pays = $this->litJson('pays');
 
+        session(['route_retour' => 'vetoAdmin.show']);
+
         return view('admin.veto.vetoEdit', [
           'menu' => $this->menu,
           'user' => $user,
@@ -137,6 +136,8 @@ class VetoAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+      
+      // NON IMPLEMENTEE CAR UTILISATION DE user.update + le trait UserUpdateDetail
 
     }
 

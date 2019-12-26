@@ -60,6 +60,8 @@ class UserController extends Controller
       $pays = $this->litJson('pays');
       $vetos = Veto::all();
 
+      session(['route_retour' => 'usershow']);
+
       return view('admin.user.userCreate', [
         'menu' => $this->menu,
         'usertypes' => $usertypes,
@@ -193,6 +195,7 @@ class UserController extends Controller
                   'password' => $datas['password'],
                   'usertype_id' => $datas['usertype_id'],
                 ]);
+
         $this->userUpdateDetail($user, $datas);
 
         if(session()->has('route_retour') !== null) {

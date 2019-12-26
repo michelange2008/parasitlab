@@ -74,27 +74,14 @@ class EleveurAdminController extends Controller
      */
     public function create()
     {
-      // if(session('user_id') !== null)
-      // {
-      //
-      // // SI UN ID DE USER EST STOCKE EN SESSION C'EST QUE
-      // // ON EST EN TRAIN DE CREER UN ELEVEUR
-      // session()->forget('user_id');
-      //
-      //   return view('labo.eleveurCreate', [
-      //     'menu' => $this->menu,
-      //     'user' => User::find(session('user_id')),
-      //     'vetos' => $this->vetos,
-      //   ]);
-      // }
-      // else
-      // {
-        // DANS LE CAS CONTRAIRE IL FAUT RENVOYER VERS LA CREATION DE L USER
-        // AVANT LES DETAILS PROPRES A L ELEVEUR
-        session(['usertype' => $this->userTypeEleveur()]);
+
+        session([
+          'usertype' => $this->userTypeEleveur(),
+          'route_retour' => 'eleveurAdmin.show',
+        ]);
 
         return redirect()->route('user.create');
-      // }
+
     }
 
     /**
@@ -135,8 +122,8 @@ class EleveurAdminController extends Controller
         } else {
 
           session()->forget(['usertype', 'user_id']); // après avoir vidé les infos passées en session
-// TODO: route de redirection en fonction d'où on vient
-          return redirect()->route('user.index');
+
+          return redirect()->route('eleveurAdmin.show', $nouvel_eleveur->user->id);
 
         }
 
@@ -150,6 +137,8 @@ class EleveurAdminController extends Controller
      */
     public function show($id)
     {
+        session()->forget('route_retour'); // si route_retour est définie, on l'oublie
+
         $user = User::find($id);
 
         $user = $this->eleveurUser($user);
@@ -183,6 +172,8 @@ class EleveurAdminController extends Controller
 
       $vetos = Veto::where('id', '<>', $user->eleveur->veto_id)->get();
 
+      session(['route_retour' => 'eleveurAdmin.show']);
+
       return view('admin.eleveur.eleveurEdit', [
         'menu' => $this->menu,
         'user' => $user,
@@ -203,9 +194,9 @@ class EleveurAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $datas = $request->all();
+      // NON IMPLEMENTEE CAR UTILISATION DE user.update + le trait UserUpdateDetail
 
-}
+    }
     /**
      * Remove the specified resource from storage.
      *

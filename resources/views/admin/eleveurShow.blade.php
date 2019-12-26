@@ -12,7 +12,7 @@
 
         @include('fragments.breadcrumb', [
           "liste" => [
-            "Accueil" => "laboratoire",
+            "Tous les utilisateurs" => "user.index",
             "Eleveurs" => "eleveurAdmin.index"
           ]
         ])

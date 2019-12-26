@@ -59,7 +59,8 @@ trait UserUpdateDetail
             'pays' => $datas['pays'],
             'indicatif' => $datas['indicatif'],
             'tel' => $datas['tel'],
-            'veto_id' => $datas['veto_id'],
+            'veto_id' => ($datas['veto_id'] == 0) ? 1 : $datas['veto_id'] // si le veto est à créer (veto_id = 0) on lui met temporairement l'id 1 (aucun vétérinaire) en atendant de créer le véto
+
           ]);
 
     return redirect()->route('eleveurAdmin.show', $user->id);
