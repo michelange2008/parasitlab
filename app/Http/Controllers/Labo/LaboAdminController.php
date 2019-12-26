@@ -87,6 +87,8 @@ class LaboAdminController extends Controller
 
     $this->laboUpdateDetail($user, $datas);
 
+    return redirect()->route('laboAdmin.show', $nouveau_labo->id);
+
   }
   /**
    * Display the specified resource.
@@ -111,6 +113,9 @@ class LaboAdminController extends Controller
   public function edit($id)
   {
       $user = User::where('id', $id)->first();
+
+      //STOCKE EN SESSION L'ADRESSE DE RETOUR APRÈS LA MODIFICATION DE L'UTILISATEUR
+      session(['route_retour' => 'laboAdmin.show']);
 
       return view('admin.labo.laboEdit', [
         'menu' => $this->menu,

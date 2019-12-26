@@ -195,8 +195,16 @@ class UserController extends Controller
                 ]);
         $this->userUpdateDetail($user, $datas);
 
-        return redirect()->route('user.index');
+        if(session()->has('route_retour') !== null) {
 
+          return redirect()->route(session('route_retour'), $id);
+        }
+
+        else {
+
+          return redirect()->route('user.index');
+
+        }
 
       }
 

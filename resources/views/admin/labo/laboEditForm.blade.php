@@ -1,4 +1,4 @@
-<!-- FRAGMENT DESTINE A MODIFIER UN ELEVEUR
+<!-- FRAGMENT DESTINE A MODIFIER UN MEMBRE DU LABORATOIRE
 NECESSITE 4 VARIABLES: user, -->
 
 
@@ -15,5 +15,7 @@ NECESSITE 4 VARIABLES: user, -->
     @include('admin.form.fonction')
 
     @include('fragments.boutonEnregistre')
+
+    @include('fragments.boutonAnnule')
 
   {!! Form::close() !!}

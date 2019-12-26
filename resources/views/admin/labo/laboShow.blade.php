@@ -5,21 +5,25 @@
 @section('content')
 
   <div class="container-fluid">
+    <div class="row my-3 ">
+
+      <div class="col-md-8 col-xl-6">
+
+        @include('fragments.breadcrumb', ['liste' => [
+          'Utilisateurs' => 'user.index',
+          'Laboratoire' => 'laboAdmin.index'
+        ]
+      ])
+
+      </div>
+
+    </div>
 
     <div class="row my-3 justify-content-center">
 
-      <div class="col-md-4">
+      <div class="col-md-3">
 
-        <div class="card" >
-
-          <img class="img-100" src="{{ asset('storage/img/labo/photos')."/".$user->labo->photo}}" alt="">
-          <div class="card-body">
-            <h5 class="card-title">{{ $user->name }}</h5>
-            <p class="card-text">{{ $user->email }}</p>
-            <p class="card-text">{{ $user->fonction }}</p>
-            <img src="{{ asset('storage/img/labo/signatures')."/".$user->labo->signature }}" alt="">
-          </div>
-        </div>
+        @include('admin.labo.laboCard')
 
       </div>
 
