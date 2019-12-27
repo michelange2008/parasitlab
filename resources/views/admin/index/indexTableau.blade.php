@@ -1,11 +1,24 @@
 
+
 <div id="toolbar">
-
-
 
     <a href="{{ route($datas->add->route) }}" type="submit" class="btn btn-rouge"><i class="fas fa-plus-square"></i> {{ $datas->add->titre}}</a>
 
 </div>
+
+@if (count($datas->liste) === 0 && isset($zeroAnalyses))
+
+<div class="row my-3">
+
+  <div class="col-md-12">
+
+    <h4 class="text-secondary">{{ $zeroAnalyses }}</h4>
+
+  </div>
+
+</div>
+
+@else
 
 <table   id="table"
   data-toggle = "table"
@@ -100,3 +113,5 @@
     @endforeach
   </tbody>
 </table>
+
+@endif

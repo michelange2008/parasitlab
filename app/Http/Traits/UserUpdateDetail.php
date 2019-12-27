@@ -63,7 +63,7 @@ trait UserUpdateDetail
 
           ]);
 
-    return redirect()->route('eleveurAdmin.show', $user->id);
+      // return redirect()->route('eleveurAdmin.show', $user->id);
 
   }
 

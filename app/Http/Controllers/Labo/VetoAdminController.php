@@ -74,7 +74,18 @@ class VetoAdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datas = $request->all();
+
+        dd($datas);
+
+        $nouveau_veto = Veto::firstOrNew(['user_id' => $datas['user_id']]);
+
+        $nouveau_veto->address_1 = $datas['address_1'];
+
+        $nouveau_veto->address_2 = $datas['address_2'];
+
+        $nouveau_veto->address_1 = $datas['address_1'];
+
     }
 
     /**
@@ -136,7 +147,7 @@ class VetoAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+
       // NON IMPLEMENTEE CAR UTILISATION DE user.update + le trait UserUpdateDetail
 
     }

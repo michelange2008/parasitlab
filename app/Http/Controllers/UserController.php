@@ -198,6 +198,14 @@ class UserController extends Controller
 
         $this->userUpdateDetail($user, $datas);
 
+        if($datas['veto_id'] === "0") // s'il faut créer un nouveau veto
+        {
+
+          session(['eleveur' => $user]);
+
+          return redirect()->route('vetoAdmin.create');
+        }
+
         if(session()->has('route_retour') !== null) {
 
           return redirect()->route(session('route_retour'), $id);
