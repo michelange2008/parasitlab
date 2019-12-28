@@ -21,13 +21,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // QUESTION: : Faut-il garder ces routes non protégées ?
-Route::get('/laboratoire', 'Labo\DemandeController@index')->name('laboratoire');
 
 Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
 
 Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
 Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){
+
+  Route::get('/', 'Labo\DemandeController@index')->name('laboratoire');
 
   route::resource('analyses', 'Analyses\AnalyseController');
 

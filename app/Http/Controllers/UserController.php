@@ -36,6 +36,8 @@ class UserController extends Controller
      */
     public function index()
     {
+      session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype']);
+      
       $users = User::all();
 
       $fournisseur = new ListeUsersFournisseur();
@@ -93,10 +95,12 @@ class UserController extends Controller
 
         $nouvel_user->usertype_id = $datas['usertype'];
       }
-      else { // cas de la création d'un uitilisateur paticulier au départ: éleveur, veto ou labo
+      else { // cas de la création d'un utilisateur paticulier au départ: éleveur, veto ou labo
 
         $nouvel_user->usertype_id = session('usertype')->id; // on utilise la variable de SESSION
+
         session()->forget('usertype');
+
       }
 
       $nouvel_user->save();
@@ -201,7 +205,7 @@ class UserController extends Controller
         if($datas['veto_id'] === "0") // s'il faut créer un nouveau veto
         {
 
-          session(['eleveur' => $user]);
+          session(['vetoDeleveur' => true]);
 
           return redirect()->route('vetoAdmin.create');
         }

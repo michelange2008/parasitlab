@@ -31,9 +31,9 @@
         <div class="col-md-10 col-xl-8">
 
           @foreach ($usertypes as $usertype) {{--  BOUCLE POUR AFFICHER LES TROIS FORMULAIRES DE DETAIL DES USERS--}}
-{{--AU DEPART LES FORMULAIRES NE SONT PAS AFFICHER (c'est le js create.js qui va les afficher en fonction du type d'user créé) --}}
+{{--AU DEPART LES FORMULAIRES NE SONT PAS AFFICHÉS (c'est le js create.js qui va les afficher en fonction du type d'user créé) --}}
             <div id="{{$usertype->code}}CreateForm" class="d-none">
-{{--le code de l'usertype sert à définir le fichier blade inclu et sa localisation ex: admin.labo.baoCreateUser --}}
+{{--le code de l'usertype sert à définir le fichier blade inclu et sa localisation ex: admin.labo.laboCreateUser --}}
               @include('admin.'.$usertype->code.'.'.$usertype->code.'CreateForm')
 
             </div>

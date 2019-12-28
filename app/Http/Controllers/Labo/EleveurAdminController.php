@@ -50,7 +50,7 @@ class EleveurAdminController extends Controller
      */
     public function index()
     {
-      session()->forget(['user_id', 'encreation']);
+      session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype']);
 
       $users = User::where('usertype_id', $this->userTypeEleveur()->id)->get();
 
@@ -112,7 +112,9 @@ class EleveurAdminController extends Controller
         // si le veto_id == 0, c'est qu'il faut créer un nouveau veto
         if($datas['veto_id'] == 0) {
 
-          session(['user_id' => $nouvel_eleveur->user->id]);
+          session(['user' => $nouvel_eleveur->user]);
+
+          session(['vetoDeleveur' => true]);
 
           session(['usertype' => $this->userTypeVeto()]);
 

@@ -27,6 +27,7 @@ class CreateVetosTable extends Migration
             $table->string('pays', 191)->default('France');
             $table->string('indicatif', 3)->default('33');
             $table->string('tel', 10);
+            $table->timestamps();
         });
     }
 
