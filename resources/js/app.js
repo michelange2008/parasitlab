@@ -19,29 +19,29 @@ $(function() {
   })
 
 
-  $('.suppr').on('click', function(event) {
-    event.preventDefault();
-    var form_id = "#"+$('form.suppr').attr('id');
-    $.confirm({
-      theme : 'dark',
-      type : 'red',
-      typeAnimated: 'true',
-      title: "Suppression",
-      content : "Faut-il vraiment effectuer cette suppression ?",
-      buttons : {
-        oui: {
-          text : 'oui',
-          btnClass : 'btn-red',
-          action : function() {
-            $(form_id).submit();
+    $('.suppr').on('click', function(event) {
+      event.preventDefault();
+      var form_id = "#"+$(this).attr('id');
+      $.confirm({
+        theme : 'dark',
+        type : 'red',
+        typeAnimated: 'true',
+        title: "Suppression",
+        content : "Faut-il vraiment effectuer cette suppression ?",
+        buttons : {
+          oui: {
+            text : 'oui',
+            btnClass : 'btn-red',
+            action : function() {
+              $(form_id).submit();
+            },
           },
-        },
-        non: function() {
+          non: function() {
 
+          }
         }
-      }
-    })
-  });
+      })
+    });
 
   $('#list-tab-eleveur a').on('click', function (e) {
   e.preventDefault()

@@ -37045,7 +37045,7 @@ $(function () {
   $('#table').bootstrapTable({});
   $('.suppr').on('click', function (event) {
     event.preventDefault();
-    var form_id = "#" + $('form.suppr').attr('id');
+    var form_id = "#" + $(this).attr('id');
     $.confirm({
       theme: 'dark',
       type: 'red',

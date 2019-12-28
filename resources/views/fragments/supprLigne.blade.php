@@ -2,8 +2,8 @@
 ET UN ROUTAGE VERS LA METHODE destroy
 VARIABLES: id ET route
 -->
-<form id="form_{{ $id }}" class="suppr"
 
+<form id="form_{{ $id }}" class="suppr"
   action="{{ route($route, $id) }}" method="POST">
 
   {{  csrf_field() }}

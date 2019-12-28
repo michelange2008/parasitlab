@@ -37,7 +37,7 @@ class UserController extends Controller
     public function index()
     {
       session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype']);
-      
+
       $users = User::all();
 
       $fournisseur = new ListeUsersFournisseur();
@@ -231,6 +231,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        return "kill the user !";
+
+        User::destroy($id);
+
+        return redirect()->route('user.index')->with('status', 'Cet utilisateur a été supprimé');
+
     }
 }
