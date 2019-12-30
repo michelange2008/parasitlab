@@ -45,7 +45,7 @@ class LaboAdminController extends Controller
   public function index()
   {
     session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype']);
-    
+
     $users = User::where('usertype_id', $this->userTypeLabo()->id)->get();
 
     $icone = $this->userTypeLabo()->icone->nom;
@@ -57,6 +57,7 @@ class LaboAdminController extends Controller
     return view('admin.index.pageIndex', [
       'menu' => $this->menu,
       'datas' => $datas,
+      'userType_nom' => $this->userTypeLabo()->nom,
     ]);
 
   }

@@ -13,7 +13,8 @@
           "liste" => [
             "Accueil" => "laboratoire",
             "Vétérinaires" => "vetoAdmin.index"
-          ]
+          ],
+          'nom' => $user->name,
         ])
       </div>
 

@@ -14,7 +14,8 @@
           "liste" => [
           "Accueil" => "laboratoire",
           "Eleveurs" => "eleveurAdmin.index"
-         ]
+        ],
+        'nom' => $user->name,
        ])
       </div>
 

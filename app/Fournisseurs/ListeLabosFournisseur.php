@@ -27,6 +27,8 @@ class ListeLabosFournisseur extends ListeFournisseur
 
       $fonction = $this->itemFactory($user->labo->fonction);
 
+      $modifier = $this->modifierFactory($user->id, 'user.edit');
+
       $suppr = $this->delFactory($user->id, 'laboAdmin.destroy');
 
       $description = [
@@ -34,6 +36,7 @@ class ListeLabosFournisseur extends ListeFournisseur
         $nom,
         $email,
         $fonction,
+        $modifier,
         $suppr,
       ];
 

@@ -18,8 +18,8 @@ class CreateAnaactesTable extends Migration
           $table->string('code');
           $table->string('nom');
           $table->string('description');
-          $table->unsignedInteger('icone_id')->default(1);
-          $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
+          $table->unsignedInteger('icone_id')->default(1)->nullable();
+          $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');
           $table->decimal('pu_ht', 8, 2);
           $table->unsignedInteger('tva_id')->default(1);
           $table->foreign('tva_id')->references('id')->on('tvas')->onDelete('restrict');

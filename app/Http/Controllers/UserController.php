@@ -202,7 +202,7 @@ class UserController extends Controller
 
         $this->userUpdateDetail($user, $datas);
 
-        if($datas['veto_id'] === "0") // s'il faut créer un nouveau veto
+        if($this->estEleveur($datas['usertype_id']) && $datas['veto_id'] === "0") // s'il faut créer un nouveau veto
         {
 
           session(['vetoDeleveur' => true]);

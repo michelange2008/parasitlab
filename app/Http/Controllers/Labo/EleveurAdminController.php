@@ -63,6 +63,7 @@ class EleveurAdminController extends Controller
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,
         'datas' => $datas,
+        'userType_nom' => $this->userTypeEleveur()->nom,
       ]);
 
     }
@@ -105,7 +106,7 @@ class EleveurAdminController extends Controller
         $nouvel_eleveur->pays = $datas['pays'];
         $nouvel_eleveur->indicatif = ($datas['indicatif'] === null) ? 33 : $datas['indicatif']; // on met l'indicatif de la France si non renseigné
         $nouvel_eleveur->tel = $datas['tel'];
-        $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0) ? 1 : $datas['veto_id']; // si le veto est à créer (veto_id = 0) on lui met temporairement l'id 1 (aucun vétérinaire) en atendant de créer le véto
+        $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0) ? null : $datas['veto_id']; // si le veto est à créer (veto_id = 0) on lui met temporairement une valeur nulle (aucun vétérinaire) en atendant de créer le véto
 
         $nouvel_eleveur->save();
 
@@ -210,6 +211,6 @@ class EleveurAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // NON IMPLEMENTE CAR PRIS EN CHARGE PAR user.destroy QUI PAR CASCADE DETRUIT L'UTILISATEUR ELEVEUR
     }
 }

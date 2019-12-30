@@ -51,7 +51,8 @@ class VetoAdminController extends Controller
 
         return view('admin.index.pageIndex', [
           'menu' => $this->menu,
-          'datas' => $datas
+          'datas' => $datas,
+          'userType_nom' => $this->userTypeveto()->nom,
         ]);
     }
 

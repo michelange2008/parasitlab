@@ -17,8 +17,8 @@ class CreateEspecesTable extends Migration
             $table->increments('id');
             $table->string('nom', 191);
             $table->string('type', 100)->default('simple');
-            $table->integer('icone_id')->unsigned();
-            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
+            $table->integer('icone_id')->unsigned()->nullable();
+            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');
         });
     }
 

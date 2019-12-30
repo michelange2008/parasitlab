@@ -24,11 +24,11 @@ class CreatePrelevement extends Migration
           $table->unsignedInteger('analyse_id');
           $table->foreign('analyse_id')->references('id')->on('analyses')->onDelete('restrict');
           // ETAT DU PRELEVEMENT
-          $table->unsignedInteger('etat_id')->default(1);
-          $table->foreign('etat_id')->references('id')->on('etats')->onDelete('no action');
+          $table->unsignedInteger('etat_id')->default(1)->nullable();
+          $table->foreign('etat_id')->references('id')->on('etats')->onDelete('set null');
           // CONSISTANCE
-          $table->unsignedInteger('consistance_id');
-          $table->foreign('consistance_id')->references('id')->on('consistances')->onDelete('no action');
+          $table->unsignedInteger('consistance_id')->nullable();
+          $table->foreign('consistance_id')->references('id')->on('consistances')->onDelete('set null');
           // DATES
           $table->timestamps();
       });

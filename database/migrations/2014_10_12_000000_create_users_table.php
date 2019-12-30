@@ -20,7 +20,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('usertype_id')->unsigned();
-            $table->foreign('usertype_id')->references('id')->on('usertypes')->onDelete('restrict');
+            $table->foreign('usertype_id')->references('id')->on('usertypes');
+
             $table->rememberToken();
             $table->timestamps();
         });

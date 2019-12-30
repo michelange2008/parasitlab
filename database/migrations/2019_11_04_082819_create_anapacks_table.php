@@ -19,8 +19,8 @@ class CreateAnapacksTable extends Migration
             $table->text("description");
             $table->longtext("detail");
             $table->boolean('serie');
-            $table->unsignedInteger('icone_id')->default('1');
-            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
+            $table->unsignedInteger('icone_id')->default('1')->nullable();
+            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');
         });
     }
 

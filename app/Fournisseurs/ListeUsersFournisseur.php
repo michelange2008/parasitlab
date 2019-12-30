@@ -25,7 +25,7 @@ class ListeUsersFournisseur extends ListeFournisseur
 
       $email = $this->itemFactory($user->email);
 
-      $userType = $this->itemFactory($user->userType->nom);
+      $userType = $this->lienFactory($user->userType->id, $user->userType->nom, $user->usertype->code.'Admin.index', "Cliquer pour voir tous les utilisateurs de ce type");
 
       $modifier = $this->modifierFactory($user->id, 'user.edit');
 

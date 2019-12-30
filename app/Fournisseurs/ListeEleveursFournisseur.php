@@ -35,7 +35,16 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
         $tel = $this->itemFactory($this->telAvecEspace($user->eleveur->tel));
 
-        $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
+        if ($user->eleveur->veto_id === null) {
+
+          $veto =$this->itemFactory("-");
+
+        }
+        else {
+
+          $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
+
+        }
 
         $suppr = $this->delFactory($user->id, 'eleveurAdmin.destroy');
 

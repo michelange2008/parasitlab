@@ -32,7 +32,7 @@ class ListeVetosFournisseur extends ListeFournisseur
       $cp = $this->itemFactory($user->veto->cp);
 
       $tel = $this->itemFactory($this->telAvecEspace($user->veto->tel));
-// TODO: LA SUPPRESSION SE FAIT PAS LE USER ET PAR LE VETO OU LE LABO OU L'ELEVEUR
+
       $suppr = $this->delFactory($user->id, 'vetoAdmin.destroy');
 
       $description = [

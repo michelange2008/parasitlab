@@ -24,8 +24,8 @@ class CreateAnalysesTable extends Migration
             $table->integer('espece_id')->unsigned();
             $table->foreign('espece_id')->references('id')->on('especes')->onDelete('restrict');
 
-            $table->integer('icone_id')->unsigned()->default(1);
-            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
+            $table->integer('icone_id')->unsigned()->default(1)->nullable();
+            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');
         });
     }
 

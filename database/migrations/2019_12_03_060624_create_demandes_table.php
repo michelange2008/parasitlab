@@ -15,27 +15,31 @@ class CreateDemandesTable extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
+              ->onDelete('set null')->onUpdate('cascade');
 
             $table->unsignedInteger('nb_prelevement');
 
-            $table->unsignedInteger('espece_id');
-            $table->foreign('espece_id')->references('id')->on('especes')->onDelete('restrict');
+            $table->unsignedInteger('espece_id')->nullable();
+            $table->foreign('espece_id')->references('id')->on('especes')
+              ->onDelete('set null')->onUpdate('cascade');
 
             $table->unsignedInteger('anapack_id');
-            $table->foreign('anapack_id')->references('id')->on('anapacks')->onDelete('restrict');
+            $table->foreign('anapack_id')->references('id')->on('anapacks')
+              ->onDelete('restrict')->onUpdate('cascade');
 
             $table->unsignedInteger('serie_id')->nullable();
-            $table->foreign('serie_id')->references('id')->on('series')->onDelete('restrict');
+            $table->foreign('serie_id')->references('id')->on('series')
+              ->onDelete('cascade')->onUpdate('cascade');
 
             $table->mediumText('informations')->nullable();
 
             $table->boolean('toveto');
 
-            $table->unsignedInteger('veto_id')->default(4);
-            $table->foreign('veto_id')->references('id')->on('vetos');
-
+            $table->unsignedInteger('veto_id')->default(4)->nullable();
+            $table->foreign('veto_id')->references('id')->on('vetos')
+            ->onDelete('set null')->onUpdate('cascade');
 
             $table->boolean('acheve')->default(false);
 
@@ -46,7 +50,9 @@ class CreateDemandesTable extends Migration
             $table->timestamp('date_envoi')->nullable();
 
             $table->unsignedInteger('facture_id')->nullable();
-            $table->foreign('facture_id')->references('id')->on('factures');
+            $table->foreign('facture_id')->references('id')->on('factures')
+            ->onDelete('set null')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

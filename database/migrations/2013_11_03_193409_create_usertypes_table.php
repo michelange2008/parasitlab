@@ -17,8 +17,9 @@ class CreateUsertypesTable extends Migration
             $table->increments('id');
             $table->string('nom', 50);
             $table->string('code', 50);
-            $table->unsignedInteger('icone_id')->default(1);
-            $table->foreign('icone_id')->references('id')->on('icones')->onDelete('no action');
+            $table->unsignedInteger('icone_id')->default(1)->nullable();
+            $table->foreign('icone_id')->references('id')->on('icones')
+              ->onDelete('set null')->onUpdate('cascade');
             $table->string('route', 50);
         });
     }

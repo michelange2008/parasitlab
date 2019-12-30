@@ -6,6 +6,16 @@
 
   <div class="row">
 
+    @include('fragments.breadcrumb', ['liste' => [
+        "Tous les utilisateurs" => 'user.index' ,
+      ],
+      'nom' => $userType_nom ?? '',
+    ])
+
+  </div>
+
+  <div class="row">
+
     @include('fragments.flash')
 
   </div>

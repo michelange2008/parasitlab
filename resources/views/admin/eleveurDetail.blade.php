@@ -16,7 +16,7 @@
 
     </ul>
 
-    <div class="card-footer">
+    <div class="card-footer d-inline-flex">
 
       @include('fragments.boutonUser', [
         'route' => 'eleveurAdmin.edit',
@@ -24,6 +24,8 @@
         'intitule' => 'Voir/modifier',
         'couleur' => 'btn-bleu',
         ])
+
+        @include('fragments.boutonSupprimer', ['id' => $user->id])
 
     </div>
 

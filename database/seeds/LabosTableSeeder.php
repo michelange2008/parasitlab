@@ -25,7 +25,7 @@ class LabosTableSeeder extends Seeder
             "fonction" => "parasitologiste",
           ],
           [
-            "user_id" => 9,
+            "user_id" => 8,
             "signature" => "farsonneau.svg",
             "photo" => "farsonneau.jpg",
             "fonction" => "directrice",

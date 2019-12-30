@@ -38,9 +38,18 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       $espece = $this->iconeFactory($demande->espece->icone);
 
-      $toveto = $this->lienFactory($demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show', "Cliquer pour afficher le vétérinaire");
+      if ($demande->toveto) {
 
-      $reception = $this->itemFactory(null, $this->dateSortable($demande->date_reception));
+        $toveto = $this->lienFactory($demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show', "Cliquer pour afficher le vétérinaire");
+
+      }
+      else {
+
+        $toveto =$this->itemFactory("");
+
+      }
+
+      $reception = $this->itemFactory($this->dateSortable($demande->date_reception));
 
       $terminee = $this->ouinonFactory(null, $demande->acheve);
 

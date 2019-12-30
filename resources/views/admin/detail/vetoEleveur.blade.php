@@ -1,4 +1,4 @@
-@if ($personne->veto_id !== 1)
+@if ($personne->veto_id !== null)
 
   <li class="list-group-item d-inline-flex">
 
@@ -11,5 +11,5 @@
     ])
 
   </li>
-  
+
 @endif

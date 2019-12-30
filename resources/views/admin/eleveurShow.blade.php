@@ -13,8 +13,9 @@
         @include('fragments.breadcrumb', [
           "liste" => [
             "Tous les utilisateurs" => "user.index",
-            "Eleveurs" => "eleveurAdmin.index"
-          ]
+            "Eleveurs" => "eleveurAdmin.index",
+          ],
+          "nom" => $user->name;
         ])
       </div>
 
