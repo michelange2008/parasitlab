@@ -11,6 +11,7 @@ use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeInfos;
 use App\Http\Traits\UserTypeOutil;
+use App\Http\Traits\DestinataireFacture;
 
 use App\User;
 use App\Models\Eleveur;
@@ -24,7 +25,7 @@ use App\Models\Productions\Consistance;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeInfos, UserTypeOutil;
+    use LitJson, EleveurInfos, DemandeInfos, UserTypeOutil, DestinataireFacture;
 
     protected $menu;
     /**
@@ -94,65 +95,45 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-
       dd($datas);
-
       // On recherche les _id des différentes variables de la demande
-      $user = User::where('name', $datas['user'])->first();
+      $user = User::where('name', $datas['userDemande'])->first();
       $espece = Espece::select('id')->where('nom', $datas['espece'])->first();
       $anapack = Anapack::select('id')->where('nom', $datas['anapack'])->first();
+
+      // TODO: Il faut traiter la gestion des séries
+      // TODO: Il faut créer les prélèvements
+      // TODO: Il faut créer la facture
+       $this->destinataireFacture($user, $datas)->id;
+      // TODO: Il faut créer les résultats
 
       // Si la case à cocher "envoi au véto" es cochée, on recherche l'id du véto choisi
       if(isset($datas['toveto']))
       {
-        $user_veto = DB::table('users')
-        ->join('vetos', 'user_id', '=', 'users.id')
-        ->where('users.name', $datas['veto'])
-        ->first();
-        $user_veto_id = $user_veto->id;
+        $toveto = true;
+        $user_veto_id = $datas['veto_id'];
       }
       // Sinon le "veto_id" est passé à null
       else {
+        $toveto = false;
         $user_veto_id = null;
-      }
-      // Envoi de la facture
-      $facture_usertype = Usertype::select('id')->where('nom', $datas['facture'])->first();
-      // dd($user->usertype_id);
-
-      if(isset($datas['toveto']))
-      {
-        if($facture_usertype->id === $user_veto->usertype_id)
-        {
-          $destinataire_facture = $user_veto;
-        }
-        elseif($facture_usertype->id === $user->usertype_id)
-        {
-          $destinataire_facture = $user;
-        }
-        else {
-          $destinataire_facture = auth()->user();
-        }
-      }
-      else if($facture_usertype->id === $user->usertype_id)
-      {
-        $destinataire_facture = $user;
-      }
-      else {
-        $destinataire_facture = auth()->user();
       }
 
       $nouvelle_demande = new Demande();
       $nouvelle_demande->user_id = $user->id;
+      $nouvelle_demande->nb_prelevement = $datas['nbPrelevements'];
       $nouvelle_demande->espece_id = $espece->id;
       $nouvelle_demande->anapack_id = $anapack->id;
-      $nouvelle_demande->toveto = isset($datas['toveto']);
+      $nouvelle_demande->serie_id = "";
+      $nouvelle_demande->information = $datas['informations'];
+      $nouvelle_demande->toveto = $toveto;
       $nouvelle_demande->veto_id = $user_veto_id;
-      $nouvelle_demande->facture = $destinataire_facture->id;
-      $nouvelle_demande->prelevement = $datas['prelevement'];
-      $nouvelle_demande->reception = $datas['reception'];
+      $nouvelle_demande->date_prelevement = $datas['prelevement'];
+      $nouvelle_demande->date_reception = $datas['reception'];
+      $nouvelle_demande->facture_id = null;
 
-      $nouvelle_demande->save();
-
+      // $nouvelle_demande->save();
+      dd('fin');
       return redirect('laboratoire')->with('status', "La nouvelle demande d'analyse est enregistrée");
 
     }

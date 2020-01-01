@@ -8,7 +8,7 @@
 
       @foreach ($anapacks as $anapack)
 
-        <option required>{{mb_convert_case($anapack->nom, MB_CASE_TITLE)}}</option>
+        <option id="{{ $anapack->id }}" required>{{mb_convert_case($anapack->nom, MB_CASE_TITLE)}}</option>
 
       @endforeach
 

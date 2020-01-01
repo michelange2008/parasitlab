@@ -20,11 +20,13 @@
 
   @include('labo.demandeForm.demandePrincipal')
 
+  @include('labo.demandeForm.demandeInformations')
+
   @include('labo.demandeForm.demandePrelevement')
 
   @include('labo.demandeForm.demandeEnvois')
 
-  <div class="row justify-content-center">
+  <div class="row my-3 justify-content-center">
 
     <div class="col-md-10">
 

@@ -58,6 +58,12 @@
 
   </div>
 
+  <div id="estSerie" class="col-md-10 d-none">
+
+    @include('labo.demandeForm.inputEstSerie')
+
+  </div>
+
   <div class="col-md-10 my-3 border-bottom">
 
   </div>

@@ -39,6 +39,17 @@ class AnapackController extends Controller
     }
 
     /**
+    *
+    * Méthode qui renvoie un booleen : true si l'anapack correspond à une serie, false dans le cas contraire
+    *
+    */
+    public function estSerie($anapack_id)
+    {
+      $anapack = Anapack::find($anapack_id);
+
+      return $anapack->serie;
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

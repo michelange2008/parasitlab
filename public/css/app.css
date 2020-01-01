@@ -90,6 +90,11 @@
   color: white !important;
 }
 
+.btn-rouge-clair {
+  background: #D35E42 !important;
+  color: white !important;
+}
+
 .btn-rouge-tres-clair {
   background: #FFAF9C !important;
   color: #8F230A !important;
@@ -101,6 +106,11 @@
 }
 
 .btn-rouge:hover {
+  background: #FFAF9C !important;
+  color: #8F230A !important;
+}
+
+.btn-rouge-clair:hover {
   background: #FFAF9C !important;
   color: #8F230A !important;
 }
@@ -11248,6 +11258,10 @@ a.text-dark:focus {
   width: 100%;
 }
 
+.img-90 {
+  height: 90px;
+}
+
 .img-50 {
   height: 50px;
 }
@@ -11287,5 +11301,10 @@ a {
 .bd-content {
   -webkit-box-ordinal-group: 2;
           order: 1;
+}
+
+#radioBtn .notActive {
+  color: #3276b1 !important;
+  background-color: #fff !important;
 }
 

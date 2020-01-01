@@ -1,23 +1,30 @@
+<div class="form-group">
+   <label for="facture" class="control-label text-right">Destinataire de la facture ?</label>
+ <div class="">
+   <div class="input-group">
+     <div id="radioBtn" class="btn-group">
+       @foreach ($usertypes as $usertype)
 
-  <div class="form-group">
+         @if ($usertype->route === 'eleveur')
 
-    <p for="">Destinataire de la facture</p>
+           <a class="btn btn-rouge border active" data-toggle="facture" data-title="{{ $usertype->code }}">
+             <img class="img-25 mr-3" src="{{ asset('storage/img/icones').'/'.$usertype->icone->nom }}" alt="">
+             {{ $usertype->nom }}
+           </a>
 
-    @foreach ($usertypes as $type)
+         @else
 
-      <div class="custom-control custom-radio custom-control-inline">
+           <a class="btn btn-rouge border notActive" data-toggle="facture" data-title="{{ $usertype->code }}">
+             <img class="img-25 mr-3" src="{{ asset('storage/img/icones').'/'.$usertype->icone->nom }}" alt="">
+             {{ $usertype->nom}}
+           </a>
 
-        <input type="radio" id="{{ $type->route }}" name="facture" value="{{ $type->route }}" class="custom-control-input"
+         @endif
 
-        @php
-          if($type->route === 'eleveur') echo 'checked';
-        @endphp
-        >
+       @endforeach
 
-        <label class="custom-control-label" for="{{ $type->route}}">{{ mb_convert_case($type->nom, MB_CASE_TITLE)}}</label>
-
-      </div>
-
-    @endforeach
-    
-  </div>
+     </div>
+     <input type="hidden" name="facture" id="facture">
+   </div>
+ </div>
+</div>

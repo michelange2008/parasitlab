@@ -15,30 +15,15 @@
     <!-- DOIT ON ENVOYER LES RESULTATS AU VETO -->
     @include('labo.demandeForm.inputEnvoiVeto')
 
-  </div>
+    @include('labo.demandeForm.inputChoixVeto')
+    
+</div>
 
   <div class="col-md-5">
 
-    <!-- CHOIX DU VETO -->
-    @include('admin.form.inputveto')
-
-  </div>
-
-  <div class="col-md-10">
-
+    <!-- CHOIX DU DESTINATAIRE DE LA FACTURE -->
     @include('labo.demandeForm.inputEnvoiFacture')
 
   </div>
 
 </div>
-
-  {{-- <div class="form-group">
-    <label for="vetoSelect">Vétérinaire</label>
-    <select multiple class="form-control" id="vetoSelect" name="veto">
-      @foreach ($vetos as $veto)
-        <option>{{mb_convert_case($veto->user->name, MB_CASE_TITLE)}}</option>
-      @endforeach
-    </select>
-  </div> --}}
-
-  <!-- CHOIX DU DESTINATAIRE DE LA FACTURE -->
