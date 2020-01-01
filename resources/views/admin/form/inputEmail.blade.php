@@ -4,6 +4,6 @@
 
   <span class="input-group-text" id="inputGroupPrepend">@</span>
 
-  <input class="form-control" type="email" name="email" value="{{ $user->email ?? '' }}" placeholder="email">
+  <input class="form-control" type="email" name="email" value="{{ $user->email ?? '' }}" placeholder="email" required>
 
 </div>

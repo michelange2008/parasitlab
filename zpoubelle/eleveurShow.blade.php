@@ -11,11 +11,11 @@
       <div class="col-md-12">
 
         @include('fragments.breadcrumb', [
-          "liste" => [
-          "Accueil" => "laboratoire",
-          "Eleveurs" => "eleveurAdmin.index"
-        ],
-        'nom' => $user->name,
+          'liste' => [
+            "Accueil" => 'laboratoire',
+            "Eleveurs" => 'eleveurAdmin.index'
+          ],
+          'nom' => $user->name
        ])
       </div>
 

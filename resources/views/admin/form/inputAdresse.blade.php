@@ -4,13 +4,13 @@
 
   <div class="col-sm-6">
 
-    @isset ($personne->address_1)
+    @isset ($personne->address_1) {{-- Cas où c'est une modification --}}
 
       <input class="form-control" type="text" name="address_1" value="{{ $personne->address_1 ?? ''}}">
 
-    @else
+    @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control" type="text" name="address_1"  placeholder="adresse">
+      <input class="form-control" type="text" name="address_1"  placeholder="adresse" required>
 
     @endisset
 
@@ -18,11 +18,11 @@
 
   <div class="col-sm-6">
 
-    @isset ($personne->address_2)
+    @isset ($personne->address_2) {{-- Cas où c'est une modification --}}
 
       <input class="form-control" type="text" name="address_2" value="{{ $personne->address_2 ?? ''}}">
 
-    @else
+    @else {{-- Cas où c'est une création --}}
 
       <input class="form-control" type="text" name="address_2" placeholder="complément d'adresse">
 
@@ -38,13 +38,13 @@
 
   <div class="col-sm-4">
 
-    @isset ($personne->cp)
+    @isset ($personne->cp) {{-- Cas où c'est une modification --}}
 
       <input class="form-control" type="text" name="cp" value="{{ $personne->cp ?? '' }}">
 
-    @else
+    @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control" type="text" name="cp" placeholder="code postal">
+      <input class="form-control" type="text" name="cp" placeholder="code postal" required>
 
     @endisset
 
@@ -53,13 +53,13 @@
 
   <div class="col-sm-8">
 
-    @isset ($personne->commune)
+    @isset ($personne->commune) {{-- Cas où c'est une modification --}}
 
       <input class="form-control" type="text" name="commune" value="{{ $personne->commune ?? '' }}">
 
-    @else
+    @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control" type="text" name="commune" placeholder="commune">
+      <input class="form-control" type="text" name="commune" placeholder="commune" required>
 
     @endisset
 
@@ -69,11 +69,12 @@
 </div>
 
   <select class="form-control" name="pays">
-    @isset($personne->pays)
+
+    @isset($personne->pays) {{-- Cas où c'est une modification --}}
 
       <option value="France" selected>{{ $personne->pays  ?? '' }}</option>
 
-    @else
+    @else {{-- Cas où c'est une création --}}
 
       <option value="France" selected>France</option>
 

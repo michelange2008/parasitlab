@@ -9,6 +9,7 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -56,6 +57,10 @@
 
             <div class="message" style="padding: 10px;">
                 @yield('message')
+            </div>
+
+            <div class="">
+              @yield('bouton')
             </div>
         </div>
     </body>

@@ -8,9 +8,9 @@
 
     <select class="form-control" name="veto_id">
 
-      <option value="0">Nouveau vétérinaire</option>
-
       <option value=null>Aucun vétérinaire</option>
+
+      <option value="0">Nouveau vétérinaire</option>
 
       @isset($user->eleveur->veto->id)
 

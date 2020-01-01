@@ -49,26 +49,33 @@
     {
       "sousmenu_1" :
       {
+        "nom" : "Nouveau",
+        "icone" : "nouveau.svg",
+        "tooltip" : "Ajouter un nouvel utilisateur",
+        "route" : "user.create"
+      },
+      "sousmenu_2" :
+      {
         "nom" : "Eleveurs",
         "icone" : "eleveur.svg",
         "tooltip" : "Ajouter, modifier, supprimer des éleveurs",
         "route" : "eleveurAdmin.index"
       },
-      "sousmenu_2" :
+      "sousmenu_3" :
       {
         "nom" : "Vétérinaires",
         "icone" : "veto.svg",
         "tooltip" : "Ajouter, modifier, supprimer des vétérinaires",
         "route" : "vetoAdmin.index"
       },
-      "sousmenu_3" :
+      "sousmenu_4" :
       {
         "nom" : "Laboratoire",
         "icone" : "labo.svg",
         "tooltip" : "Ajouter, modifier, supprimer membres du laboratoire",
         "route" : "laboAdmin.index"
       },
-      "sousmenu_4" :
+      "sousmenu_5" :
       {
         "nom" : "Tous",
         "icone" : "users.svg",

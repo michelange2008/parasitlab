@@ -17,6 +17,7 @@ use App\Models\Productions\Demande;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\EleveurInfos;
+use App\Http\Traits\UserCreateDetail;
 
 /**
  *
@@ -26,7 +27,7 @@ use App\Http\Traits\EleveurInfos;
 
 class EleveurAdminController extends Controller
 {
-    use LitJson, EleveurInfos, UserTypeOutil;
+    use LitJson, EleveurInfos, UserTypeOutil, UserCreateDetail;
 
     protected $menu;
     protected $pays;
@@ -95,31 +96,36 @@ class EleveurAdminController extends Controller
     {
         $datas = $request->all();
 
-        $nouvel_eleveur = Eleveur::firstOrNew(['user_id' => $datas['user_id']]);
+        // Le nouvel utilisateur créer n'est pas encore enregistré
+        // (méthode pour éviter de créer un user sans les users spécifiques (labo, veto, éleveur)
+        // si le formulaire n'est pas rempli juqu'au bout)
+        // On le récupère par la variable de session.
+        $nouvel_user = session('nouvel_user');
 
-        $nouvel_eleveur->user_id = $datas['user_id']; // Passer en input type hidden
-        $nouvel_eleveur->num = $datas['num'];
-        $nouvel_eleveur->address_1 = $datas['address_1'];
-        $nouvel_eleveur->address_2 = $datas['address_2']; // peut être null
-        $nouvel_eleveur->cp = $datas['cp'];
-        $nouvel_eleveur->commune = $datas['commune'];
-        $nouvel_eleveur->pays = $datas['pays'];
-        $nouvel_eleveur->indicatif = ($datas['indicatif'] === null) ? 33 : $datas['indicatif']; // on met l'indicatif de la France si non renseigné
-        $nouvel_eleveur->tel = $datas['tel'];
-        $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0) ? null : $datas['veto_id']; // si le veto est à créer (veto_id = 0) on lui met temporairement une valeur nulle (aucun vétérinaire) en atendant de créer le véto
+        session()->forget('nouvel_user', 'usertype');
+        // Et on l'enregistre
+        $nouvel_user->save();
 
-        $nouvel_eleveur->save();
+        // TODO: Envoyer au nouvel utilisateur ses identifants de connexion
 
+        //Puis on fait appel au trait UserCreateDetail pour vérifier et enregistrer le labo correspondant
+        $this->eleveurCreateDetail($datas, $nouvel_user->id);
+
+        session(['user' => $nouvel_user]);
         // si le veto_id == 0, c'est qu'il faut créer un nouveau veto
         if($datas['veto_id'] == 0) {
 
-          session(['user' => $nouvel_eleveur->user]);
 
           session(['vetoDeleveur' => true]);
 
           session(['usertype' => $this->userTypeVeto()]);
 
-          return redirect()->route('user.create');
+          return redirect()->route('user.create')->with('status', 'Il faut créer un vétérinaire pour '.$nouvel_user->name);
+
+        // Cas où la création de l'éleveur se fait dans le cadre d'une demande d'analyse
+        } elseif (session('eleveurDemande')) {
+
+          return redirect()->route('demandes.create');
 
         // sinon on peut revenir à la route de retour
         } else {
@@ -129,7 +135,7 @@ class EleveurAdminController extends Controller
           return redirect()->route('eleveurAdmin.show', $nouvel_eleveur->user->id);
 
         }
-
+// TODO: Quel intêret de la valeur en session route_retour ?
     }
 
     /**
@@ -144,7 +150,7 @@ class EleveurAdminController extends Controller
 
         $user = User::find($id);
 
-        $user = $this->eleveurUser($user);
+        $user = $this->eleveurFormatNumber($user);
 
         $eleveurInfos = $this->eleveurInfos($user);
 

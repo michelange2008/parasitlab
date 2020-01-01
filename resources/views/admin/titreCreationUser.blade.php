@@ -1,4 +1,4 @@
-<div class="d-flex alert alert-bleu rounded-0">
+<div id="titreCreationUser" class="d-flex alert alert-bleu rounded-0 my-3">
 
   @if(session('usertype') !== null)
 

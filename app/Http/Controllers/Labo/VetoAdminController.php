@@ -14,11 +14,12 @@ use App\User;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\VetoInfos;
 use App\Http\Traits\UserTypeOutil;
+use App\Http\Traits\UserCreateDetail;
 
 class VetoAdminController extends Controller
 {
 
-  use LitJson, VetoInfos, UserTypeOutil;
+  use LitJson, VetoInfos, UserTypeOutil, UserCreateDetail;
 
   protected $menu;
   protected $pays;
@@ -80,25 +81,18 @@ class VetoAdminController extends Controller
     {
         $datas = $request->all();
 
-        $nouveau_veto = Veto::firstOrNew(['user_id' => $datas['user_id']]);
+        // Le nouvel utilisateur créer n'est pas encore enregistré
+        // (méthode pour éviter de créer un user sans les users spécifiques (labo, veto, éleveur)
+        // si le formulaire n'est pas rempli juqu'au bout)
+        // On le récupère par la variable de session.
+        $nouvel_user = session('nouvel_user');
+        // Et on l'enregistre
+        $nouvel_user->save();
 
-        $nouveau_veto->address_1 = $datas['address_1'];
+        // TODO: Envoyer au nouvel utilisateur ses identifants de connexion
 
-        $nouveau_veto->address_2 = $datas['address_2'];
-
-        $nouveau_veto->cp = $datas['cp'];
-
-        $nouveau_veto->commune = $datas['commune'];
-
-        $nouveau_veto->pays = $datas['pays'];
-
-        $nouveau_veto->indicatif = ($datas['indicatif'] === null) ? 33 : $datas['indicatif'];
-
-        $nouveau_veto->tel = $datas['tel'];
-
-        $nouveau_veto->num = ($datas['num'] === null) ? "" : $datas['num'];
-
-        $nouveau_veto->save();
+        //Puis on fait appel au trait UserCreateDetail pour vérifier et enregistrer le labo correspondant
+        $nouveau_veto = $this->vetoCreateDetail($datas, $nouvel_user->id);
 
         // CAS OU LA CREATION D'UN VETO SE FAIT À LA SUITE DE LA CREATION D'UN ELEVEUR
         if (session('vetoDeleveur')) {
@@ -106,10 +100,23 @@ class VetoAdminController extends Controller
           // On met à jour l'éleveur dont on vient de créer le véto
           $modif = DB::table('eleveurs')->where('user_id', session('user')->id)->update(['veto_id' => $nouveau_veto->id]);
 
-          return redirect()->route('eleveurAdmin.show', session('user')->id);
+          // Cas où la création du véto s'est faite dans la cadre de la création d'un éleveur elle-meme dans la cadre d'une nouvelle demande
+          if (session('eleveurDemande')) {
+
+            return redirect()->route('demandes.create');
+
+          } else {
+
+            return redirect()->route('eleveurAdmin.show', session('user')->id);
+
+          }
+
+        // CAS OU LA CREATION D'UN VETO EST PARTIE DE LA LISTE DES VETOS OU DES UTILISATEURS EN GÉNÉRAL
+        } else {
+
+          return redirect()->route('vetoAdmin.show', $nouvel_user->id);
 
         }
-        // CAS OU LA CREATION D'UN VETO EST PARTIE DE LA LISTE DES VETOS OU DES UTILISATEURS EN GÉNÉRAL
 
     }
 

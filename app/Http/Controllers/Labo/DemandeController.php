@@ -8,10 +8,9 @@ use DB;
 use App\Fournisseurs\ListeDemandesFournisseur;
 
 use App\Http\Traits\LitJson;
-// use App\Http\Traits\FormatTel;
-// use App\Http\Traits\FormatEde;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeInfos;
+use App\Http\Traits\UserTypeOutil;
 
 use App\User;
 use App\Models\Eleveur;
@@ -20,10 +19,12 @@ use App\Models\Analyses\Anapack;
 use App\Models\Veto;
 use App\Models\Usertype;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Etat;
+use App\Models\Productions\Consistance;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeInfos;
+    use LitJson, EleveurInfos, DemandeInfos, UserTypeOutil;
 
     protected $menu;
     /**
@@ -39,6 +40,8 @@ class DemandeController extends Controller
     public function index()
     {
       $demandes = Demande::all();
+
+      session()->forget('user');
 
       $fournisseur = new ListeDemandesFournisseur();
 
@@ -62,7 +65,14 @@ class DemandeController extends Controller
         $anapacks = Anapack::all();
         $user_vetos = Veto::all();
         $usertypes = Usertype::all();
+        $etats = Etat::all();
+        $consistances = Consistance::all();
 
+        session([
+          'eleveurDemande' => true,
+          'usertype' => $this->userTypeEleveur(),
+        ]);
+// TODO: Ne pas oublier de vider les valeurs de session
         return view('labo.demandeCreate', [
           'menu' => $this->menu,
           'eleveurs' => $eleveurs,
@@ -70,6 +80,8 @@ class DemandeController extends Controller
           'anapacks' => $anapacks,
           'vetos' => $user_vetos,
           'usertypes' => $usertypes,
+          'etats' => $etats,
+          'consistances' => $consistances,
         ]);
     }
 
@@ -82,6 +94,8 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
+
+      dd($datas);
 
       // On recherche les _id des différentes variables de la demande
       $user = User::where('name', $datas['user'])->first();
@@ -155,7 +169,7 @@ class DemandeController extends Controller
 
       $user = $demande->user;
 
-      $user = $this->eleveurUser($user);
+      $user = $this->eleveurFormatNumber($user);
 
       $demandeInfos = $this->demandeInfos($demande);
 

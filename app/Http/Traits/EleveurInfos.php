@@ -44,7 +44,7 @@ trait EleveurInfos
 
   }
 
-  public function eleveurUser($user)
+  public function eleveurFormatNumber($user)
   {
 
     $user->eleveur->num = $this->numAvecEspace($user->eleveur->num);

@@ -12,6 +12,7 @@ use App\Models\Labo;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\UserUpdateDetail;
+use App\Http\Traits\UserCreateDetail;
 
 /**
 * Controller destiné à gérer tout ce qui a trait à l'administration du site
@@ -21,7 +22,7 @@ use App\Http\Traits\UserUpdateDetail;
 class LaboAdminController extends Controller
 {
 
-  use LitJson, UserTypeOutil, UserUpdateDetail;
+  use LitJson, UserTypeOutil, UserUpdateDetail, UserCreateDetail;
 
   protected $menu;
   /**
@@ -83,14 +84,21 @@ class LaboAdminController extends Controller
   public function store(Request $request)
   {
     $datas = $request->all();
-    // dd($datas);
-    $user = User::find($datas['user_id']);
 
-    $nouveau_labo = Labo::firstOrCreate(['user_id' => $datas['user_id']]);
+    // Le nouvel utilisateur créer n'est pas encore enregistré
+    // (méthode pour éviter de créer un user sans les users spécifiques (labo, veto, éleveur)
+    // si le formulaire n'est pas rempli juqu'au bout)
+    // On le récupère par la variable de session.
+    $nouvel_user = session('nouvel_user');
+    // Et on l'enregistre
+    $nouvel_user->save();
 
-    $this->laboUpdateDetail($user, $datas);
+    // TODO: Envoyer au nouvel utilisateur ses identifants de connexion
 
-    return redirect()->route('laboAdmin.show', $nouveau_labo->id);
+    //Puis on fait appel au trait UserCreateDetail pour vérifier et enregistrer le labo correspondant
+    $this->laboCreateDetail($datas, $nouvel_user->id);
+
+    return redirect()->route('laboAdmin.show', $nouvel_user->id);
 
   }
   /**

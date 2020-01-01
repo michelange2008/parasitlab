@@ -5,6 +5,7 @@ $('#userCreateForm').on('submit', function(e) {
 
   e.preventDefault(); // évite d'envoyer le formulaire
 
+
   var saisie = $(this).serialize(); // serialize les données du formulaire
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
@@ -18,19 +19,30 @@ $('#userCreateForm').on('submit', function(e) {
     data: saisie,
   })
     .done(function(data){
+
       var donnees = JSON.parse(data); // on récupère trois type d'infos: le nouvel user, son mot de passe et son usertype
 
+  //######################################
+      // ON RECUPERE L'usertype POUR POUVOIR AFFICHER LE FORMULAIRE CORRESPONDANT
       var usertype_code = donnees.usertype.code; // code de l'usertype du nouvel user
 
       var form = '#'+usertype_code+"CreateForm"; // création des variables pour modifier userCreate.blade.php
-      var user = '#user'+usertype_code+"_id";
 
       $(form).removeClass('d-none'); // On fait afficher le formulaire correspondant au type d'utilisateur
+  //#####################################
 
-      $(user).append('<input type="hidden" name="user_id" value="'+donnees.user.id+'">'); // on y ajoute un champs caché avec le user_id
+  //####################################
+      // ON MASQUES LES ELEMENTS DU FORMULAIRE INITIAL ET ON DONNE LE FOCUS AU CHAMP address_1 SI IL EXISTE
+      $('#enregistreAnnule').addClass('d-none'); // Masque les bouton poursuivre et annuler
 
-      $(user).append('<input type="hidden" name="mdp" value="'+donnees.mdp+'">'); // et un champs caché avec le mot de passe (pour pouvoir lui envoyer)
+      $('#titreCreationUser').removeClass('d-flex').addClass('d-none'); // Masque le titre
 
+      $('#inputUsertype').addClass('d-none'); // Masque le choix du type d'éleveur
+
+      $('#identite').addClass('d-none'); // Masque les champs nom et email
+
+      $('input[name = "address_1"]').focus()
+  //####################################
       })
       .fail(function(data) { // et si ça merde ...
 

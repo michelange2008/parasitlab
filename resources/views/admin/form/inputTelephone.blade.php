@@ -14,7 +14,7 @@
 
     <span class="input-group-text" id="inputGroupPrepend"><i class="material-icons">phone</i></span>
 
-    <input class="form-control" type="text" name="tel" value="{{ $personne->tel ?? '' }}" placeholder="numéro de téléphone">
+    <input class="form-control" type="text" name="tel" value="{{ $personne->tel ?? '' }}" placeholder="numéro de téléphone" required>
 
   </div>
 

@@ -15,7 +15,7 @@
             "Tous les utilisateurs" => "user.index",
             "Eleveurs" => "eleveurAdmin.index",
           ],
-          "nom" => $user->name;
+          "nom" => $user->name,
         ])
       </div>
 

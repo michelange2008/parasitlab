@@ -9,7 +9,7 @@
 
     <p class="card-text">{{ HTML::mailto($user->email) }}</p>
 
-    <p class="card-text">{{ $user->fonction }}</p>
+    <p class="card-text">{{ $user->labo->fonction }}</p>
 
     <img class="img-50" src="{{ asset('storage/img/labo/signatures')."/".$user->labo->signature }}" alt="">
 

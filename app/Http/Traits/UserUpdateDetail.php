@@ -79,6 +79,14 @@ trait UserUpdateDetail
         'user_id' => $user->id,
         'photo' => $datas['photo']->hashName(),
       ]);
+    } else {
+
+      DB::table('labos')->where('user_id', $user->id)
+      ->Update([
+        'user_id' => $user->id,
+        'photo' => 'default.jpg',
+      ]);
+
     }
 
     if(isset($datas['imageSignature']))

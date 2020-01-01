@@ -6,17 +6,24 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3 justify-content-center">
+
+    <div class="row">
+
+      @include('fragments.flash')
+
+    </div>
+
+    <div class="row justify-content-center">
 
       <div class="col-md-10 col-xl-8">
 
-        @include('admin.titreCreation')
+        @include('admin.titreCreationUser')
 
       </div>
 
     </div>
 
-      <div class="row my-3 justify-content-center">
+      <div class="row justify-content-center">
 
         <div class="col-md-10 col-xl-8">
 
@@ -26,7 +33,7 @@
 
       </div>
 
-      <div class="row my-3 justify-content-center">
+      <div class="row justify-content-center">
 
         <div class="col-md-10 col-xl-8">
 

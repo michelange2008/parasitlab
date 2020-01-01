@@ -102,14 +102,15 @@ class UserController extends Controller
         session()->forget('usertype');
 
       }
-
-      $nouvel_user->save();
+      // TODO: ENREGISTRER LE NOUVEL USER SEULEMENT JUSTE AVANT L ENREGISTREMENT DE VETO LABO OU ELEVEUR
+      // $nouvel_user->save();
 
       session([
-        'user_id' => $nouvel_user->id,
+        'nouvel_user' => $nouvel_user,
+        'user_token' => $mdp,
       ]);
       // RENVOI DES INFORMATIONS POUR LA REQUETE ajax cf. create.js
-      return ['user' => $nouvel_user, 'usertype' => $nouvel_user->usertype, 'mdp' => $mdp];
+      return ['usertype' => $nouvel_user->usertype];
 
     }
 

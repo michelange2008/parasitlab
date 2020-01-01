@@ -10,7 +10,7 @@
 
       <div class="col-md-10 col-xl-8">
 
-        @titreCreation()
+        @titreCreationUser()
 
       </div>
 

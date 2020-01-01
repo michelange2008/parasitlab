@@ -36950,7 +36950,9 @@ __webpack_require__(/*! ./bootstrap-table-accent-neutralise.min.js */ "./resourc
 
 __webpack_require__(/*! ./bootstrap-table-locale-all.js */ "./resources/js/bootstrap-table-locale-all.js");
 
-__webpack_require__(/*! ./create.js */ "./resources/js/create.js");
+__webpack_require__(/*! ./createUser.js */ "./resources/js/createUser.js");
+
+__webpack_require__(/*! ./createDemande.js */ "./resources/js/createDemande.js");
 
 __webpack_require__(/*! jquery-confirm */ "./node_modules/jquery-confirm/dist/jquery-confirm.min.js");
 
@@ -47831,10 +47833,62 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/create.js":
-/*!********************************!*\
-  !*** ./resources/js/create.js ***!
-  \********************************/
+/***/ "./resources/js/createDemande.js":
+/*!***************************************!*\
+  !*** ./resources/js/createDemande.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Fonction destinée a renvoyer vers la page de création d'un utilisateur si la ligne"nouveau" est choisie
+$("select[name='userDemande']").change(function () {
+  console.log($("select[name='userDemande'] > option:selected").val());
+
+  if ($("select[name='userDemande'] > option:selected").val() == "Nouveau") {
+    var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
+    var url_nouvelle = url_actuelle.replace('demandes', 'user');
+    $.confirm({
+      theme: 'dark',
+      type: 'red',
+      typeAnimated: 'true',
+      title: "Nouvel éleveur",
+      content: "Faut-il créer un nouvel éleveur ?",
+      buttons: {
+        oui: {
+          text: 'oui',
+          btnClass: 'btn-red',
+          action: function action() {
+            window.location = url_nouvelle;
+          }
+        },
+        non: function non() {}
+      }
+    });
+  }
+});
+var nbPrelevements = $("input[name='nbPrelevements']").val();
+$('.lignePrelevement').each(function (index) {
+  if (index < nbPrelevements) {
+    $('#lignePrelevement_' + (index + 1)).removeClass('d-none').addClass('d-flex');
+  }
+});
+$("input[name='nbPrelevements']").on('change', function (e) {
+  nbPrelevements = $("input[name='nbPrelevements']").val();
+  $(".lignePrelevement").removeClass('d-flex').addClass('d-none');
+  $('.lignePrelevement').each(function (index) {
+    if (index < nbPrelevements) {
+      $('#lignePrelevement_' + (index + 1)).removeClass('d-none').addClass('d-flex');
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/createUser.js":
+/*!************************************!*\
+  !*** ./resources/js/createUser.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -47857,17 +47911,27 @@ $('#userCreateForm').on('submit', function (e) {
     data: saisie
   }).done(function (data) {
     var donnees = JSON.parse(data); // on récupère trois type d'infos: le nouvel user, son mot de passe et son usertype
+    //######################################
+    // ON RECUPERE L'usertype POUR POUVOIR AFFICHER LE FORMULAIRE CORRESPONDANT
 
     var usertype_code = donnees.usertype.code; // code de l'usertype du nouvel user
 
     var form = '#' + usertype_code + "CreateForm"; // création des variables pour modifier userCreate.blade.php
 
-    var user = '#user' + usertype_code + "_id";
     $(form).removeClass('d-none'); // On fait afficher le formulaire correspondant au type d'utilisateur
+    //#####################################
+    //####################################
+    // ON MASQUES LES ELEMENTS DU FORMULAIRE INITIAL ET ON DONNE LE FOCUS AU CHAMP address_1 SI IL EXISTE
 
-    $(user).append('<input type="hidden" name="user_id" value="' + donnees.user.id + '">'); // on y ajoute un champs caché avec le user_id
+    $('#enregistreAnnule').addClass('d-none'); // Masque les bouton poursuivre et annuler
 
-    $(user).append('<input type="hidden" name="mdp" value="' + donnees.mdp + '">'); // et un champs caché avec le mot de passe (pour pouvoir lui envoyer)
+    $('#titreCreationUser').removeClass('d-flex').addClass('d-none'); // Masque le titre
+
+    $('#inputUsertype').addClass('d-none'); // Masque le choix du type d'éleveur
+
+    $('#identite').addClass('d-none'); // Masque les champs nom et email
+
+    $('input[name = "address_1"]').focus(); //####################################
   }).fail(function (data) {
     // et si ça merde ...
     alert("Désolée, un problème est arrivé à l'enregistrement du nouvel utilisateur. \n\nAppelez Bouiboui !");
