@@ -93,16 +93,6 @@ class PrelevementsTableSeeder extends Seeder
             'updated_at' => "2019-08-05 00:00:00",
           ],
           [
-            'id' => 8,
-            'identification' => "Lot 1",
-            'demande_id' => 5,
-            'analyse_id' => 2,
-            'etat_id' => 1,
-            'consistance_id' => 3,
-            'created_at' => "2019-11-03 00:00:00",
-            'updated_at' => "2019-11-06 00:00:00",
-          ],
-          [
             'id' => 9,
             'identification' => "Lot 2",
             'demande_id' => 5,
@@ -155,16 +145,16 @@ class PrelevementsTableSeeder extends Seeder
             'created_at' => "2019-11-08 00:00:00",
             'updated_at' => null,
           ],
-          [
-            'id' => 14,
-            'identification' => "brebis",
-            'demande_id' => 8,
-            'analyse_id' => 1,
-            'etat_id' => 1,
-            'consistance_id' => 1,
-            'created_at' => "2019-11-18 00:00:00",
-            'updated_at' => null,
-          ],
+          // [
+          //   'id' => 14,
+          //   'identification' => "brebis",
+          //   'demande_id' => 8,
+          //   'analyse_id' => 1,
+          //   'etat_id' => 1,
+          //   'consistance_id' => 1,
+          //   'created_at' => "2019-11-18 00:00:00",
+          //   'updated_at' => null,
+          // ],
 /*
 // SUIVI DE CAMPAGNE 3 DEMANDES AVEC 3 PRELEVEMENTS
 */

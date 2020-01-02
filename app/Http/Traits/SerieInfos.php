@@ -108,6 +108,7 @@ trait SerieInfos
 * PROCEDURE UN PEU COMPLEXE POUR OBTENIR LA TABLE DE DONNEE:
 * IL FAUT CONSTRUIRE UNE LIGNE AVEC L'IDENTIFIANT DU LOT ET
 */
+  $donnees_en_ligne = [];
     foreach($serie->demandes as $demande) { // ON CREE D'ABORD UN TABLEAU DE TABLEAUX QUI CONTIENNENT TOUTES LES INFORMATIONS
       foreach ($demande->prelevements as $prelevement) {
         foreach($prelevement->resultats as $resultat)

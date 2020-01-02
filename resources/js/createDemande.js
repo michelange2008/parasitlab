@@ -38,20 +38,30 @@ function ajouterEstSerie() {
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   // l'adresse pour consulter la méthode estSerie de AnapackController est estserie/n°Anapack
-  var url_nouvelle = url_actuelle.replace('demandes/create', 'estserie/'+anapack);
+  var user_name = $("select[name='userDemande'] > option:selected").attr('id');
+
+  var url_nouvelle = url_actuelle.replace('demandes/create', 'estserie/'+anapack+'/'+user_name);
 
   $.get({
 
     url : url_nouvelle,
+    data_type : 'json',
+
 
   })
   .done(function(data) {
-    if(data == true) {
+    var liste = JSON.parse(data);
+    console.log(liste.estSerie);
+    if(liste.estSerie == 1) {
       $('#estSerie').removeClass('d-none');
     }
     else {
       $('#estSerie').addClass('d-none');
     }
+  })
+  .fail(function(data) {
+
+    console.log("ça merde !");
   })
 
 }

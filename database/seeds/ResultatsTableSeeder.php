@@ -444,81 +444,81 @@ class ResultatsTableSeeder extends Seeder
           /*
           // DEMANDE 5 PRELEVEMENT 1/2
           */
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 1,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 2,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 3,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 4,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 5,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 7,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 8,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          [
-            'prelevement_id' => 8,
-
-            'anaitem_id' => 9,
-            'valeur' => null,
-            'positif' => false,
-            'created_at' => "2019-11-08 00:00:00",
-            'updated_at' => null,
-          ],
-          /*
-          // DEMANDE 5 PRELEVEMENT 2/2
-          */
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 1,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 2,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 3,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 4,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 5,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 7,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 8,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // [
+          //   'prelevement_id' => 8,
+          //
+          //   'anaitem_id' => 9,
+          //   'valeur' => null,
+          //   'positif' => false,
+          //   'created_at' => "2019-11-08 00:00:00",
+          //   'updated_at' => null,
+          // ],
+          // /*
+          // // DEMANDE 5 PRELEVEMENT 2/2
+          // */
           [
             'prelevement_id' => 9,
 
@@ -892,80 +892,80 @@ class ResultatsTableSeeder extends Seeder
           'updated_at' => "2019-11-08 00:00:00"
         ],
         /*
-        // DEMANDE 8 PRELEVEMENT 14 1/1
-        */
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 1,
-          'valeur' => "50",
-          'positif' => true,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 2,
-          'valeur' => "0",
-          'positif' => false,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 3,
-          'valeur' => "0",
-          'positif' => false,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 4,
-          'valeur' => "0",
-          'positif' => false,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 5,
-          'valeur' => "0",
-          'positif' => false,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 7,
-          'valeur' => "absence",
-          'positif' => false,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 8,
-          'valeur' => "absence",
-          'positif' => false,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
-        [
-          'prelevement_id' => 14,
-
-          'anaitem_id' => 9,
-          'valeur' => "0",
-          'positif' => false,
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
-        ],
+        // // DEMANDE 8 PRELEVEMENT 14 1/1
+        // */
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 1,
+        //   'valeur' => "50",
+        //   'positif' => true,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 2,
+        //   'valeur' => "0",
+        //   'positif' => false,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 3,
+        //   'valeur' => "0",
+        //   'positif' => false,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 4,
+        //   'valeur' => "0",
+        //   'positif' => false,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 5,
+        //   'valeur' => "0",
+        //   'positif' => false,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 7,
+        //   'valeur' => "absence",
+        //   'positif' => false,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 8,
+        //   'valeur' => "absence",
+        //   'positif' => false,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
+        // [
+        //   'prelevement_id' => 14,
+        //
+        //   'anaitem_id' => 9,
+        //   'valeur' => "0",
+        //   'positif' => false,
+        //   'created_at' => "2019-11-06 00:00:00",
+        //   'updated_at' => "2019-11-08 00:00:00"
+        // ],
 //######################################################################################
 //                    SUIVI DE CAMPAGNE                                                #
 //######################################################################################

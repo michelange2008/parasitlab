@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Fournisseurs\ListeAnapacksFournisseur;
 
 use App\Models\Analyses\Anapack;
+use App\Models\Productions\Demande;
+use App\Models\Productions\Serie;
 
 use App\Http\Traits\LitJson;
 
@@ -39,15 +41,34 @@ class AnapackController extends Controller
     }
 
     /**
-    *
+    * METHODES POUR AIDER A LA SAISIE D'UNE NOUVELLE DEMANDE ET VERIFIANT SI CETTE DEMANDE RENVOIE A UNE serie
+    * VOIRE UNE SERIE DEJA EXISTANTE
     * Méthode qui renvoie un booleen : true si l'anapack correspond à une serie, false dans le cas contraire
     *
     */
-    public function estSerie($anapack_id)
+    public function estSerie($anapack_id, $user_id)
     {
       $anapack = Anapack::find($anapack_id);
+      $listeDemandeSerieNonAcheve = [];
+      if($anapack->serie) {
 
-      return $anapack->serie;
+        $demandes = Demande::where('user_id', $user_id)
+                      ->where('anapack_id', $anapack_id)
+                      ->get();
+
+        foreach ($demandes as $demande) {
+          $serie = Serie::find($demande->serie_id);
+          if(!$serie->acheve) {
+            $listeDemandeSerieNonAcheve["demande".$demande->id] = json_encode($demande);
+          }
+        }
+      }
+
+      $liste["demandes"] =$listeDemandeSerieNonAcheve;
+
+      $liste["estSerie"] = $anapack->serie;
+
+      return json_encode($liste);
     }
     /**
      * Show the form for creating a new resource.

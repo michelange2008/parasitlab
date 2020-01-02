@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   route::resource('anapacks', 'Analyses\AnapackController');
 
-  route::get('estserie/{id}', 'Analyses\AnapackController@estSerie')->name('estserie');
+  route::get('estserie/{anapack_id}/{user_id}', 'Analyses\AnapackController@estSerie')->name('estserie');
 
   route::resource('demandes', 'Labo\DemandeController');
 
