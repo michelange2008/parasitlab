@@ -12,6 +12,7 @@ use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeInfos;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\DestinataireFacture;
+use App\Http\Traits\SerieManager;
 
 use App\User;
 use App\Models\Eleveur;
@@ -20,12 +21,13 @@ use App\Models\Analyses\Anapack;
 use App\Models\Veto;
 use App\Models\Usertype;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Serie;
 use App\Models\Productions\Etat;
 use App\Models\Productions\Consistance;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeInfos, UserTypeOutil, DestinataireFacture;
+    use LitJson, EleveurInfos, DemandeInfos, UserTypeOutil, DestinataireFacture, SerieManager;
 
     protected $menu;
     /**
@@ -95,17 +97,27 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-      dd($datas);
+      // dd($datas);
       // On recherche les _id des différentes variables de la demande
       $user = User::where('name', $datas['userDemande'])->first();
       $espece = Espece::select('id')->where('nom', $datas['espece'])->first();
       $anapack = Anapack::select('id')->where('nom', $datas['anapack'])->first();
 
-      // TODO: Il faut traiter la gestion des séries
-      // TODO: Il faut créer les prélèvements
-      // TODO: Il faut créer la facture
-       $this->destinataireFacture($user, $datas)->id;
-      // TODO: Il faut créer les résultats
+      // GESTION DE LA SERIE
+      if ($datas['serie'] === null) { // Si l'anapack ne correspond pas à une série
+
+        $serie_id = null; // $serie_id est null
+
+      } elseif ($datas['serie'] === 'premier') { // Si c'est le premier prélèvement d'une série
+
+        $serie_id = $this->serieStore($user->id, $espece->id, $anapack->id)->id; // On crée la série et on retourne l'id
+
+      } else {
+
+        $serie_id = intVal($datas['serie']); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
+
+      }
+
 
       // Si la case à cocher "envoi au véto" es cochée, on recherche l'id du véto choisi
       if(isset($datas['toveto']))
@@ -124,8 +136,8 @@ class DemandeController extends Controller
       $nouvelle_demande->nb_prelevement = $datas['nbPrelevements'];
       $nouvelle_demande->espece_id = $espece->id;
       $nouvelle_demande->anapack_id = $anapack->id;
-      $nouvelle_demande->serie_id = "";
-      $nouvelle_demande->information = $datas['informations'];
+      $nouvelle_demande->serie_id = $serie_id;
+      $nouvelle_demande->informations = $datas['informations'];
       $nouvelle_demande->toveto = $toveto;
       $nouvelle_demande->veto_id = $user_veto_id;
       $nouvelle_demande->date_prelevement = $datas['prelevement'];
@@ -133,9 +145,13 @@ class DemandeController extends Controller
       $nouvelle_demande->facture_id = null;
 
       // $nouvelle_demande->save();
+      // TODO: Il faut créer les prélèvements
+      // TODO: Il faut créer la facture
+      $this->destinataireFacture($user, $datas)->id;
       dd('fin');
-      return redirect('laboratoire')->with('status', "La nouvelle demande d'analyse est enregistrée");
+      // TODO: Il faut créer les résultats
 
+      return redirect('laboratoire')->with('status', "La nouvelle demande d'analyse est enregistrée");
     }
 
     /**

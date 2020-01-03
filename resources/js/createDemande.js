@@ -1,6 +1,7 @@
 // Fonction destinée a renvoyer vers la page de création d'un utilisateur si la ligne"nouveau" est choisie
 $("select[name='userDemande']").change(function() {
-  console.log($("select[name='userDemande'] > option:selected").val());
+
+  $('.listeSerie').remove();
 
   if($("select[name='userDemande'] > option:selected").val() == "Nouveau") {
 
@@ -26,37 +27,67 @@ $("select[name='userDemande']").change(function() {
         }
       }
     });
+  } else { // Si c'est pas un nouvel éleveur et qu'il y a déjà eu un choix de l'anapack, on appelle la fonction ajouterEstSerie
+
+    var anapack_id = $("select[name='anapack'] > option:selected").attr('id');
+
+    var user_id = $("select[name='userDemande'] > option:selected").attr('id');
+
+    ajouterEstSerie(anapack_id, user_id);
+
   }
+
+
 });
 //################################################################################################
 
 //################################################################################################
-// Requête pour vérifier si l'anapack correspond à une série
-function ajouterEstSerie() {
-
-  var anapack = $("select[name='anapack'] > option:selected").attr('id');
+// Fonction pour vérifier si l'anapack correspond à une série
+function ajouterEstSerie(anapack_id, user_id) {
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
-  // l'adresse pour consulter la méthode estSerie de AnapackController est estserie/n°Anapack
-  var user_name = $("select[name='userDemande'] > option:selected").attr('id');
+  // l'adresse pour consulter la méthode estSerie de AnapackController est estserie/anapack_id/user_id
 
-  var url_nouvelle = url_actuelle.replace('demandes/create', 'estserie/'+anapack+'/'+user_name);
+  var url_nouvelle = url_actuelle.replace('demandes/create', 'estserie/'+anapack_id+'/'+user_id);
 
   $.get({
 
     url : url_nouvelle,
-    data_type : 'json',
-
+    data_type : 'json', // renvoie un json: estSerie (bouleen), nbDemande (integer), numero d'ordre (objet Demande)
 
   })
   .done(function(data) {
-    var liste = JSON.parse(data);
-    console.log(liste.estSerie);
-    if(liste.estSerie == 1) {
-      $('#estSerie').removeClass('d-none');
+    var liste = JSON.parse(data); // on récupère le json
+
+    if(liste.estSerie == 1) { // Si c'est une série
+
+      $('#estSerie').removeClass('d-none'); // on affiche le bloc correspondant
+
+      $('#premierPrelevementSerie').val('premier');
+
+      if(liste.nbDemandes != 0) { // si l'user à déjà des séries inachevées du meme anapack on affiche l'info avec du dernier prélèvement
+
+        for (var i = 0; i < liste.nbDemandes; i++) { // On passe en revue les différentes demandes dans ce cas (série identique inachevée)
+
+          $("#premier").after(
+            '<div class="form-check listeSerie">'+
+
+            '<input type="radio" class="form-check-input" id="serie_'+liste[i].id+'" name="serie" value="'+liste[i].id+'">'+
+
+            '<label for="demande_id">Nouvel envoi de la même série que la demande du '+liste[i].date_reception+'</label>'+
+
+            '</div>'
+          )
+
+        }
+
+      }
     }
-    else {
+    else { // Sinon on efface tout le bloc
+      $('#premierPrelevementSerie').val(null);
       $('#estSerie').addClass('d-none');
+      $('.listeSerie').remove();
+
     }
   })
   .fail(function(data) {
@@ -66,11 +97,16 @@ function ajouterEstSerie() {
 
 }
 
-ajouterEstSerie();
-
+// Au changement d'anapack on appelle la fonction ajouterEstSerie
 $("select[name='anapack'] ").on('change', function() {
 
-  ajouterEstSerie();
+  $('.listeSerie').remove(); // après avoir éliminer d'éventuelles lignes résiduelles
+
+  var anapack_id = $("select[name='anapack'] > option:selected").attr('id');
+
+  var user_id = $("select[name='userDemande'] > option:selected").attr('id');
+
+  ajouterEstSerie(anapack_id, user_id);
 
 })
 

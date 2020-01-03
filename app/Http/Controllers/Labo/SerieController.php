@@ -4,8 +4,13 @@ namespace App\Http\Controllers\Labo;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
+use App\User;
+use App\Models\Espece;
+use App\Models\Analyses\Anapack;
+
 use App\Http\Traits\LitJson;
 use App\Http\Traits\SerieInfos;
 use App\Http\Traits\EleveurInfos;
@@ -53,7 +58,9 @@ class SerieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      // GERE PAR LE TRAIT SerieManager
+
     }
 
     /**

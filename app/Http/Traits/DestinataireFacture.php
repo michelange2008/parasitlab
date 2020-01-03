@@ -11,8 +11,7 @@ trait DestinataireFacture
 
   function destinataireFacture($user, $datas)
   {
-
-    $facture_usertype = Usertype::where('code', $datas['facture'])->first();
+    $facture_usertype_id = (isset($datas['facture']) ? $datas['facture'] : 1); // si le destinataire de facture n'est pas précisé on met 1 (pour éleveur)
 
     if(isset($datas['toveto'])) // si on envoie les résultats au véto
     {
@@ -29,7 +28,7 @@ trait DestinataireFacture
       }
     }
     else {
-      if($facture_usertype->id === $user->usertype_id)
+      if($facture_usertype_id === $user->usertype_id)
       {
         $destinataire_facture = $user;
       }

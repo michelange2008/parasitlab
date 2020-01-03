@@ -10,7 +10,7 @@
 
     <div class="col-md-4 border-right">
 
-      <!-- CHOIX DE L'UTILISATEUR -->
+      {{-- CHOIX DE L'UTILISATEUR --}}
       @include('labo.demandeForm.inputDemandeur')
 
     </div>
@@ -23,7 +23,7 @@
 
     <div class="col-md-4">
 
-      <!-- CHOIX DE L'ESPECE -->
+      {{-- CHOIX DE L'ESPECE --}}
       @include('labo.demandeForm.inputEspece')
     </div>
 
@@ -40,7 +40,7 @@
 
   <div class="col-md-4 border-right">
 
-    <!-- CHOIX DE L'ANALYSE -->
+    {{-- CHOIX DE L'ANALYSE --}}
     @include('labo.demandeForm.inputPack')
 
   </div>
@@ -53,11 +53,17 @@
 
   <div class="col-md-4">
 
-    <!-- SAISIE DES DATES DE PRELEVEMENT (NON REQUIS) OU DE RECEPTION (REQUIS) -->
+    {{-- SAISIE DES DATES DE PRELEVEMENT (NON REQUIS) OU DE RECEPTION (REQUIS) --}}
     @include('labo.demandeForm.inputDates')
 
   </div>
 
+{{-- BLOC QUI N EST PAS AFFICHE AU DEPARTS'affiche seulement si on choisit un anapack
+qui crée une série (test de résistance par ex).
+Dans ce cas, s'affiche un bloc permettant de préciser que c'est le premier de la série.
+En plus, si un éleveur à une (ou plusieurs) série non terminée avec un anapack identique, ça affiche une nouvelle
+ligne qui permet d'associer la nouvelle demande à cette série
+--}}
   <div id="estSerie" class="col-md-10 d-none">
 
     @include('labo.demandeForm.inputEstSerie')
