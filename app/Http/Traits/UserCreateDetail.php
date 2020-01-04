@@ -15,15 +15,13 @@ trait UserCreateDetail
   function laboCreateDetail($datas, $user_id)
   {
 
+    $nouveau_labo = Labo::firstOrNew(['user_id' => $user_id]);
+
     $photo = (isset($datas['photo'])) ? $datas['photo'] : 'default.jpg';
 
     $signature = (isset($datas['imageSignature'])) ? $datas['imageSignature'] : 'zeroSignature.png';
 
     $fonction = (isset($datas['fonction'])) ? $datas['fonction'] : "";
-
-    $nouveau_labo = new Labo;
-
-    $nouveau_labo->user_id = $user_id;
 
     $nouveau_labo->photo = $photo;
 

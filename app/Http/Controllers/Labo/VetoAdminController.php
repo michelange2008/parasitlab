@@ -130,7 +130,7 @@ class VetoAdminController extends Controller
     {
         $user = User::find($id);
 
-        $user = $this->formatUserVeto($user); // Mise en forme des numéro cro et tel des vétos
+        $user = $this->formatNumTelVeto($user); // Mise en forme des numéro cro et tel des vétos
 
         $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
 

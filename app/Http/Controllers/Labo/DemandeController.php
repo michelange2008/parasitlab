@@ -11,23 +11,27 @@ use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeInfos;
 use App\Http\Traits\UserTypeOutil;
-use App\Http\Traits\DestinataireFacture;
+use App\Http\Traits\FactureManager;
 use App\Http\Traits\SerieManager;
 
 use App\User;
 use App\Models\Eleveur;
 use App\Models\Espece;
 use App\Models\Analyses\Anapack;
+use App\Models\Analyses\Analyse;
+use App\Models\Analyses\Anaitem;
 use App\Models\Veto;
 use App\Models\Usertype;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
+use App\Models\Productions\Prelevement;
 use App\Models\Productions\Etat;
 use App\Models\Productions\Consistance;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeInfos, UserTypeOutil, DestinataireFacture, SerieManager;
+    use LitJson, EleveurInfos, DemandeInfos, FactureManager, SerieManager;
+    use UserTypeOutil ;
 
     protected $menu;
     /**
@@ -100,11 +104,11 @@ class DemandeController extends Controller
       // dd($datas);
       // On recherche les _id des différentes variables de la demande
       $user = User::where('name', $datas['userDemande'])->first();
-      $espece = Espece::select('id')->where('nom', $datas['espece'])->first();
-      $anapack = Anapack::select('id')->where('nom', $datas['anapack'])->first();
+      $espece = Espece::where('nom', $datas['espece'])->first();
+      $anapack = Anapack::where('nom', $datas['anapack'])->first();
 
       // GESTION DE LA SERIE
-      if ($datas['serie'] === null) { // Si l'anapack ne correspond pas à une série
+      if ($datas['serie'] == "null" || $datas['serie'] == 0) { // Si l'anapack ne correspond pas à une série
 
         $serie_id = null; // $serie_id est null
 
@@ -118,19 +122,24 @@ class DemandeController extends Controller
 
       }
 
-
       // Si la case à cocher "envoi au véto" es cochée, on recherche l'id du véto choisi
       if(isset($datas['toveto']))
       {
         $toveto = true;
         $user_veto_id = $datas['veto_id'];
+        $user_veto = Veto::find($user_veto_id);
       }
       // Sinon le "veto_id" est passé à null
       else {
         $toveto = false;
         $user_veto_id = null;
+        $user_veto = null;
       }
+      // Il faut créer la facture
+      $facture_usertype_id = (isset($datas['destinataireFacture']) ? $datas['destinataireFacture'] : $this->userTypeEleveur()->id); // si le destinataire de facture n'est pas précisé on met 1 (pour éleveur)
+      $nouvelle_facture = $this->factureStore($anapack, $user, $facture_usertype_id, $toveto, $user_veto);
 
+      // Puis créer la demande
       $nouvelle_demande = new Demande();
       $nouvelle_demande->user_id = $user->id;
       $nouvelle_demande->nb_prelevement = $datas['nbPrelevements'];
@@ -142,16 +151,40 @@ class DemandeController extends Controller
       $nouvelle_demande->veto_id = $user_veto_id;
       $nouvelle_demande->date_prelevement = $datas['prelevement'];
       $nouvelle_demande->date_reception = $datas['reception'];
-      $nouvelle_demande->facture_id = null;
+      $nouvelle_demande->facture_id = $nouvelle_facture->id;
 
-      // $nouvelle_demande->save();
-      // TODO: Il faut créer les prélèvements
-      // TODO: Il faut créer la facture
-      $this->destinataireFacture($user, $datas)->id;
-      dd('fin');
-      // TODO: Il faut créer les résultats
+      $nouvelle_demande->save();
 
-      return redirect('laboratoire')->with('status', "La nouvelle demande d'analyse est enregistrée");
+      // CREATION DES PRELEVEMENTS
+      foreach ($anapack->anaactes as $anaacte) {
+        // on cherche d'abord toutes les analyses correspondant aux actes du pack (anapack->anaactes)
+        // certains anapacks correspondent à plusieurs analyses: ex: copro + identification haemonchus
+        $analyse = DB::table('analyses')
+                    ->join('anaactes', 'anaactes.id', '=', 'analyses.anaacte_id')
+                    ->where('analyses.anaacte_id', $anaacte->id)
+                    ->where('analyses.espece_id', $espece->id)
+                    ->where('anaactes.estAnalyse', true)->first();
+        // Puis pour chaque analyse
+        // Il faut créer les prélèvements
+        if ($analyse !== null) {
+          for ($i=1; $i <= $datas['nbPrelevements'] ; $i++) {
+            $etat = Etat::where('nom', $datas['etatPrelevement_'.$i])->first();
+            $consistance = Consistance::where('nom', $datas['consistancePrelevement_'.$i])->first();
+
+            $nouveau_prelevement = new Prelevement;
+
+            $nouveau_prelevement->demande_id = $nouvelle_demande->id;
+            $nouveau_prelevement->analyse_id = $analyse->id;
+            $nouveau_prelevement->intitule = $datas['intitule_'.$i];
+            $nouveau_prelevement->etat = $etat->id;
+            $nouveau_prelevement->consistance = $consistance->id;
+
+            $nouveau_prelevement->save();
+            }
+          }
+        }
+
+      return view('demandes.index')->with('status', "La nouvelle demande d'analyse est enregistrée");
     }
 
     /**

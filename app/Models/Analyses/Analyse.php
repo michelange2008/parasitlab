@@ -28,4 +28,9 @@ class Analyse extends Model
       return $this->belongsTo(Anaacte::class);
     }
 
+    public function anaitems()
+    {
+      return $this->belongsToMany(Anaitem::class);
+    }
+
 }

@@ -13,13 +13,6 @@ class AnalysesTableSeeder extends Seeder
     {
         DB::table('analyses')->insert([
           [
-            'id' => 1,
-            'nom' => "coproscopie (petits ruminants)",
-            'anaacte_id' => 1,
-            'espece_id' => 1,
-            'icone_id' => 9,
-          ],
-          [
             'id' => 2,
             'nom' => "coproscopie (bovins)",
             'anaacte_id' => 1,
@@ -34,13 +27,6 @@ class AnalysesTableSeeder extends Seeder
             'icone_id' => 9,
           ],
           [
-            'id' => 4,
-            'nom' => "test de baermann (petits ruminants)",
-            'anaacte_id' => 2,
-            'espece_id' => 1,
-            'icone_id' => 10,
-          ],
-          [
             'id' => 5,
             'nom' => "test de baermann (bovins)",
             'anaacte_id' => 2,
@@ -48,10 +34,45 @@ class AnalysesTableSeeder extends Seeder
             'icone_id' => 10,
           ],
           [
+            'id' => 1,
+            'nom' => "coproscopie (ovins)",
+            'anaacte_id' => 1,
+            'espece_id' => 2,
+            'icone_id' => 9,
+          ],
+          [
+            'id' => 4,
+            'nom' => "test de baermann (ovins)",
+            'anaacte_id' => 2,
+            'espece_id' => 2,
+            'icone_id' => 10,
+          ],
+          [
             'id' => 6,
-            'nom' => "pourcentage d'Haemonchus (petits ruminants)",
+            'nom' => "pourcentage d'Haemonchus (ovins)",
             'anaacte_id' => 3,
-            'espece_id' => 1,
+            'espece_id' => 2,
+            'icone_id' => 15,
+          ],
+          [
+            'id' => 7,
+            'nom' => "coproscopie (caprins)",
+            'anaacte_id' => 1,
+            'espece_id' => 3,
+            'icone_id' => 9,
+          ],
+          [
+            'id' => 8,
+            'nom' => "test de baermann (caprins)",
+            'anaacte_id' => 2,
+            'espece_id' => 3,
+            'icone_id' => 10,
+          ],
+          [
+            'id' => 9,
+            'nom' => "pourcentage d'Haemonchus (caprins)",
+            'anaacte_id' => 3,
+            'espece_id' => 3,
             'icone_id' => 15,
           ],
         ]);

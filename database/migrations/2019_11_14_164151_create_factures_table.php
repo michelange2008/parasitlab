@@ -15,9 +15,10 @@ class CreateFacturesTable extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('demande_id');
-            $table->integer('facture_dest')->unsigned();
-            $table->foreign('facture_dest')->references('id')->on('users')->onDelete('cascade');
+            // $table->unsignedInteger('demande_id');
+            // $table->foreign('demande_id')->references('id')->on('demandes')->onDelete('cascade');
+            $table->integer('destinataire_facture')->unsigned();
+            $table->foreign('destinataire_facture')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('faite')->default(0);
             $table->decimal('total_ht', 8, 2)->default(0);
             $table->decimal('total_ttc', 8, 2)->default(0);

@@ -18,6 +18,7 @@ class CreateAnaactesTable extends Migration
           $table->string('code');
           $table->string('nom');
           $table->string('description');
+          $table->boolean('estAnalyse');
           $table->unsignedInteger('icone_id')->default(1)->nullable();
           $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');
           $table->decimal('pu_ht', 8, 2);

@@ -24,7 +24,7 @@
        @endforeach
 
      </div>
-     <input type="hidden" name="facture" id="facture">
+     <input type="hidden" name="destinataireFacture" id="facture">
    </div>
  </div>
 </div>

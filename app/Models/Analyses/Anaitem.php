@@ -24,4 +24,9 @@ class Anaitem extends Model
       return $this->hasMany(\App\Models\Productions\Resultat::class);
     }
 
+    public function analyses()
+    {
+      return $this->belongsToMany(Analyse::class);
+    }
+
 }

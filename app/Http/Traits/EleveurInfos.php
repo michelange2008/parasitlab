@@ -15,6 +15,18 @@ trait EleveurInfos
 
   use FormatNum;
 
+  // RENVOIE UNE COLLECTION AVEC LES DIFFERENTES INFO
+  public function eleveurInfos($user)
+  {
+    $eleveurInfos = Collect();
+
+    $eleveurInfos->nbDemandes = $this->nbDemandes($user);
+    $eleveurInfos->factureImpayees = $this->factureImpayees($user);
+
+    return $eleveurInfos;
+
+  }
+
   function nbDemandes($user)
   {
     return Demande::where('user_id', $user->id)->count();
@@ -32,17 +44,6 @@ trait EleveurInfos
     return $facturesImpayees;
   }
 
-  // RENVOIE UNE COLLECTION AVEC LES DIFFERENTES INFO
-  public function eleveurInfos($user)
-  {
-    $eleveurInfos = Collect();
-
-    $eleveurInfos->nbDemandes = $this->nbDemandes($user);
-    $eleveurInfos->factureImpayees = $this->factureImpayees($user);
-
-    return $eleveurInfos;
-
-  }
 
   public function eleveurFormatNumber($user)
   {

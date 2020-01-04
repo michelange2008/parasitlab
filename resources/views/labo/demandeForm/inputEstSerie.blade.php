@@ -14,7 +14,7 @@
 
   <div id="premier" class="form-check">
 
-    <input type="radio" class="form-check-input"  id="premierPrelevementSerie" name="serie" value=null checked>
+    <input type="radio" class="form-check-input"  id="premierPrelevementSerie" name="serie" value='null' checked>
 
     <label class="form-check-label" for="premierPrelevementSerie">1<sup>er</sup> envoi d'une nouvelle série ?</label>
 

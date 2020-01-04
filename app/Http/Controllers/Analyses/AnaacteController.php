@@ -9,11 +9,11 @@ use App\Fournisseurs\ListeAnaactesFournisseur;
 use App\Models\Analyses\Anaacte;
 
 use App\Http\Traits\LitJson;
-use App\Http\Traits\FormatPrix;
+use App\Http\Traits\AnaacteOutil;
 
 class AnaacteController extends Controller
 {
-    use LitJson, FormatPrix;
+    use LitJson, AnaacteOutil;
 
     protected $menu;
 

@@ -24,7 +24,7 @@ trait VetoInfos
     return $vetoInfos;
   }
 
-  public function formatUserVeto($user)
+  public function formatNumTelVeto($user)
   {
 
     $user->veto->num = $this->numAvecEspace($user->veto->num);

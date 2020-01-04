@@ -14,8 +14,8 @@ class FacturesTableSeeder extends Seeder
         DB::table('factures')->insert([
           [
             'id' => 1,
-            'demande_id' => 3,
-            'facture_dest' => "3",
+            
+            'destinataire_facture' => "3",
             'faite' => 1,
             'total_ht' => 35.20,
             'total_ttc' => 42.24,
@@ -27,8 +27,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 2,
-            'demande_id' => 4,
-            'facture_dest' => "3",
+
+            'destinataire_facture' => "3",
             'faite' => 1,
             'total_ht' => 46.30,
             'total_ttc' => 55.56,
@@ -40,8 +40,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 3,
-            'demande_id' => 5,
-            'facture_dest' => 3,
+
+            'destinataire_facture' => 3,
             'faite' => 1,
             'total_ht' => 135.20,
             'total_ttc' => 162.24,
@@ -53,8 +53,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 4,
-            'demande_id' => 1,
-            'facture_dest' => "3",
+
+            'destinataire_facture' => "3",
             'faite' => 0,
             'total_ht' => 0,
             'total_ttc' => 0,
@@ -66,8 +66,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 5,
-            'demande_id' => 2,
-            'facture_dest' => "3",
+
+            'destinataire_facture' => "3",
             'faite' => 0,
             'total_ht' => 0,
             'total_ttc' => 0,
@@ -79,8 +79,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 6,
-            'demande_id' => 6,
-            'facture_dest' => "3",
+
+            'destinataire_facture' => "3",
             'faite' => 0,
             'total_ht' => 0,
             'total_ttc' => 0,
@@ -92,8 +92,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 7,
-            'demande_id' => 7,
-            'facture_dest' => 6,
+
+            'destinataire_facture' => 6,
             'faite' => 0,
             'total_ht' => 0,
             'total_ttc' => 0,
@@ -103,23 +103,23 @@ class FacturesTableSeeder extends Seeder
             'payee' => 0,
             'payee_date' => null,
           ],
-          [
-            'id' => 8,
-            'demande_id' => 8,
-            'facture_dest' => 6,
-            'faite' => 0,
-            'total_ht' => 0,
-            'total_ttc' => 0,
-            'faite_date' => null,
-            'envoyee' => 0,
-            'envoyee_date' => null,
-            'payee' => 0,
-            'payee_date' => null,
-          ],
+          // [
+          //   'id' => 8,
+          //
+          //   'destinataire_facture' => 6,
+          //   'faite' => 0,
+          //   'total_ht' => 0,
+          //   'total_ttc' => 0,
+          //   'faite_date' => null,
+          //   'envoyee' => 0,
+          //   'envoyee_date' => null,
+          //   'payee' => 0,
+          //   'payee_date' => null,
+          // ],
           [
             'id' => 9,
-            'demande_id' => 9,
-            'facture_dest' => 6,
+
+            'destinataire_facture' => 6,
             'faite' => 0,
             'total_ht' => 0,
             'total_ttc' => 0,
@@ -131,8 +131,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 10,
-            'demande_id' => 10,
-            'facture_dest' => 6,
+
+            'destinataire_facture' => 6,
             'faite' => 0,
             'total_ht' => 0,
             'total_ttc' => 0,
@@ -144,8 +144,8 @@ class FacturesTableSeeder extends Seeder
           ],
           [
             'id' => 11,
-            'demande_id' => 11,
-            'facture_dest' => 6,
+
+            'destinataire_facture' => 6,
             'faite' => 0,
             'total_ht' => 0,
             'total_ttc' => 0,
