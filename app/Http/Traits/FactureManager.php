@@ -18,7 +18,7 @@ trait FactureManager
 
     $nouvelle_facture = new Facture;
 
-    $nouvelle_facture->destinataire_facture = $destinataire_facture->id;
+    $nouvelle_facture->user_id = $destinataire_facture->id;
     $nouvelle_facture->faite = true;
     $nouvelle_facture->total_ht = $this->calcul_facture($anapack)->get('ht');
     $nouvelle_facture->total_ttc = $this->calcul_facture($anapack)->get('ttc');

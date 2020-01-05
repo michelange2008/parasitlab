@@ -9,6 +9,18 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR: SOIT UNE DEMANDE SIMPLE SOIT UNE SER
 
   <div class="container-fluid">
 
+    <div class="row">
+
+      @include('fragments.breadcrumb', [
+        'liste' => [
+          "Accueil" => 'laboratoire',
+          "Demandes" => 'demandes.index'
+        ],
+        'nom' => $demande->anapack->nom
+      ])
+
+    </div>
+
     <div class="row my-3 justify-content-center">
 
       <div class="col-md-4">

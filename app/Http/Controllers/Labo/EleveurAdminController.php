@@ -162,6 +162,8 @@ class EleveurAdminController extends Controller
 
         $zeroAnalyses = "Cet éleveur n'a pour l'instant fait aucune demande d'analyse";
 
+        session(['user' => $user]);
+
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
           'user' => $user,

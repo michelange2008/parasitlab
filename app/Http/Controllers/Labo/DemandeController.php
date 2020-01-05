@@ -101,7 +101,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-      // dd($datas);
+      session()->forget('eleveurDemande'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
       $user = User::where('name', $datas['userDemande'])->first();
       $espece = Espece::where('nom', $datas['espece'])->first();
@@ -135,7 +135,7 @@ class DemandeController extends Controller
         $user_veto_id = null;
         $user_veto = null;
       }
-      // Il faut créer la facture
+      // Il faut créer la facture avec le trait FactureManager
       $facture_usertype_id = (isset($datas['destinataireFacture']) ? $datas['destinataireFacture'] : $this->userTypeEleveur()->id); // si le destinataire de facture n'est pas précisé on met 1 (pour éleveur)
       $nouvelle_facture = $this->factureStore($anapack, $user, $facture_usertype_id, $toveto, $user_veto);
 
@@ -175,16 +175,16 @@ class DemandeController extends Controller
 
             $nouveau_prelevement->demande_id = $nouvelle_demande->id;
             $nouveau_prelevement->analyse_id = $analyse->id;
-            $nouveau_prelevement->intitule = $datas['intitule_'.$i];
-            $nouveau_prelevement->etat = $etat->id;
-            $nouveau_prelevement->consistance = $consistance->id;
+            $nouveau_prelevement->identification = $datas['identification_'.$i];
+            $nouveau_prelevement->etat_id = $etat->id;
+            $nouveau_prelevement->consistance_id = $consistance->id;
 
             $nouveau_prelevement->save();
             }
           }
         }
 
-      return view('demandes.index')->with('status', "La nouvelle demande d'analyse est enregistrée");
+      return redirect()->route('demandes.index');
     }
 
     /**

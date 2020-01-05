@@ -27,4 +27,4 @@
      <input type="hidden" name="destinataireFacture" id="facture">
    </div>
  </div>
-</div>
+</div><?php // TODO: marquer si la facture est payée (chèque joint) ?>
