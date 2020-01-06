@@ -96,7 +96,7 @@ class EleveurAdminController extends Controller
     {
         $datas = $request->all();
 
-        // Le nouvel utilisateur créer n'est pas encore enregistré
+        // Le nouvel utilisateur créé n'est pas encore enregistré
         // (méthode pour éviter de créer un user sans les users spécifiques (labo, veto, éleveur)
         // si le formulaire n'est pas rempli juqu'au bout)
         // On le récupère par la variable de session.
@@ -125,7 +125,9 @@ class EleveurAdminController extends Controller
         // Cas où la création de l'éleveur se fait dans le cadre d'une demande d'analyse
         } elseif (session('eleveurDemande')) {
 
-          return redirect()->route('demandes.create');
+          session(['user' => $nouvel_user]); // On rajoute le nouvel user en session pour qu'il soit choisi par défaut dans la liste déroulante
+
+          return redirect()->route('demandes.create'); // Et on renvoie au forulaire de création d'une nouvelle demande
 
         // sinon on peut revenir à la route de retour
         } else {

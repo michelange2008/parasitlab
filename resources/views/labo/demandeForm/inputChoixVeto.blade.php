@@ -5,18 +5,21 @@
   <div class="my-2 form-row">
 
     <div class="input-group">
-
       <span class="input-group-text"><i class="material-icons">local_hospital</i></span>
 
       <select class="form-control" name="veto_id">
 
+        @if (Session::has('user'))
+
+          @isset(session('user')->eleveur->veto->id)
+
+            <option value="{{session('user')->eleveur->veto->id}}">{{ session('user')->eleveur->veto->user->name}}</option>
+
+          @endisset
+
+        @endif
+
         <option value="0">Nouveau vétérinaire</option>
-
-        @isset($user->eleveur->veto->id)
-
-          <option value="{{$user->eleveur->veto->id}}">{{ $user->eleveur->  veto->user->name}}</option>
-
-        @endisset
 
         @foreach ($vetos as $veto)
 
