@@ -101,7 +101,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-      session()->forget('eleveurDemande'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
+      session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
       $user = User::where('name', $datas['userDemande'])->first();
       $espece = Espece::where('nom', $datas['espece'])->first();
@@ -216,14 +216,21 @@ class DemandeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Saisie des résulats d'une analyse
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($demande_id)
     {
-        //
+      $demande = Demande::find($demande_id);
+
+      $prelevements = Prelevement::where('demande_id', $demande_id)->get();
+
+      return view('labo.resultats.resultatsSaisie', [
+        'menu' => $this->menu,
+        'prelevements' => $prelevements,
+      ]);
     }
 
     /**
