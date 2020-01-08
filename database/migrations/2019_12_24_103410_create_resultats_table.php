@@ -23,8 +23,6 @@ class CreateResultatsTable extends Migration
             $table->foreign('anaitem_id')->references('id')->on('anaitems')->onDelete('restrict');
             // RESULTAT
             $table->string('valeur', 191)->nullable()->default(null);
-            // RESULTAT POSITIF
-            $table->boolean('positif')->default(false);
             // DATES
             $table->timestamps();
         });

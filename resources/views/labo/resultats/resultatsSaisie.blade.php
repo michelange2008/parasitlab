@@ -16,8 +16,10 @@
 
     </div>
 
-    <form action="{{ route('demandes.update', $prelevements[0]->demande->id)}}" method="post">
+    <form action="{{ route('resultats.store')}}" method="post">
       @csrf
+
+      <input type="hidden" name="demande_id" value="{{ $prelevements[0]->demande->id }}">
 
       @foreach ($prelevements as $prelevement)
 
@@ -49,12 +51,25 @@
                       <tr>
                         <td>
                           {{$anaitem->nom}}
-
                         </td>
-                        <td>
 
-                        </td>
                         <td>
+                          @if ($anaitem->unite->type == "quantitatif")
+
+                            <input class="form-control" type="number" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}" value="" placeholder="résultat">
+
+                          @else
+
+                            <select class="form-control" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}">
+
+                              <option value="absence">Absence</option>
+
+                              <option value="presence">Présence</option>
+
+                            </select>
+                          @endif
+                        </td>
+                        <td class="text-right">
                           {{ $anaitem->unite->nom }}
                         </td>
                       </tr>
@@ -65,6 +80,7 @@
 
 
               </div>
+
             </div>
 
           </div>
@@ -74,6 +90,15 @@
 
         @endforeach
 
+        <div class="row justify-content-center">
+
+          <div class="col-md-10 col-lg-8">
+
+            @include('fragments.blocEnregistreAnnule', ['id' => $prelevement->demande->id ])
+
+          </div>
+
+        </div>
 
 
   </form>

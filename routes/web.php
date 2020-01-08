@@ -52,4 +52,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   Route::get('usertypes', 'UsertypeController@liste')->name('usertypeJson');
 
+  Route::resource('resultats', 'Labo\ResultatController');
+
+
 });
