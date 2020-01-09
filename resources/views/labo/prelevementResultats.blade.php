@@ -9,23 +9,21 @@
   </thead>
   <tbody>
     @foreach ($prelevement->resultats as $resultat)
-      @if ($resultat->positif)
         <tr>
           <td>{{ $resultat->anaitem->nom }}</td>
           <td class="text-right">{{ $resultat->valeur }} {{ $resultat->anaitem->unite->nom }}</td>
         </tr>
-      @endif
     @endforeach
   </tbody>
 </table>
 
-@if ($toutNegatif)
+@if ($resultat == null  )
 
   <p class="ml-3 lead color-bleu-tres-fonce"><i class="material-icons">sentiment_very_satisfied</i> Aucun parasite recherché n'a été identifié</p>
 
 @else
 
-  <p class="small">
+  {{-- <p class="small">
     <span class="font-italic">Parasites recherchés mais non retrouvés (en-dessous du seuil de détection) :</span>
     @foreach ($prelevement->resultats as $resultat)
       @if (!$resultat->positif)
@@ -38,6 +36,6 @@
         @endif
       @endif
     @endforeach
-  </p>
+  </p> --}}
 
 @endif

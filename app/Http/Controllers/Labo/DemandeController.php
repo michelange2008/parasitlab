@@ -27,6 +27,7 @@ use App\Models\Productions\Serie;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Etat;
 use App\Models\Productions\Consistance;
+use App\Models\Productions\Resultat;
 
 class DemandeController extends Controller
 {

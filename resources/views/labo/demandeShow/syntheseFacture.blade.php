@@ -29,7 +29,7 @@
           <small>Facture envoyée le </small>
         </td>
         <td>
-          @include('fragments.colonneDate', ['date' => $demande->facture->envoyee_date])
+          @include('fragments.dateFr', ['date' => $demande->facture->envoyee_date])
         </td>
       </tr>
     @elseif ($demande->facture->faite)
@@ -46,7 +46,7 @@
         <small>Facture payée le </small>
         </td>
         <td>
-          @include('fragments.colonneDate', ['date' => $demande->facture->payee_date])
+          @include('fragments.dateFr', ['date' => $demande->facture->payee_date])
         </td>
       </tr>
     @elseif ($demande->facture->envoyee)

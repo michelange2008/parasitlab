@@ -56,10 +56,10 @@
                         <td>
                           @if ($anaitem->unite->type == "quantitatif")
 
-                            <input class="form-control" type="number" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}" value="" placeholder="résultat">
+                            @include('labo.resultats.inputResultatQuantitatif')
 
                           @else
-
+                            
                             <select class="form-control" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}">
 
                               <option value="absence">Absence</option>

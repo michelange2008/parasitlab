@@ -44,6 +44,8 @@ class ResultatController extends Controller
 
       $datas = $request->all();
 
+      dd($datas);
+
       foreach ($datas as $intitule => $valeur) {
 
         $tableau_valeur = explode('_', $intitule);
