@@ -17,11 +17,11 @@
   </tbody>
 </table>
 
-@if ($resultat == null  )
+{{-- @if ($resultat == null  )
 
   <p class="ml-3 lead color-bleu-tres-fonce"><i class="material-icons">sentiment_very_satisfied</i> Aucun parasite recherché n'a été identifié</p>
 
-@else
+@else --}}
 
   {{-- <p class="small">
     <span class="font-italic">Parasites recherchés mais non retrouvés (en-dessous du seuil de détection) :</span>
@@ -38,4 +38,4 @@
     @endforeach
   </p> --}}
 
-@endif
+{{-- @endif --}}

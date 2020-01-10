@@ -4,8 +4,7 @@
 
     @include('labo.demandeShow.titreDemande')
 
-    <a class="btn btn-lg btn-bleu rounded-0" href="{{ route('resultats.edit', $demande->id )}}">Saisie des résultats</a>
-    <a class="btn btn-lg btn-rouge rounded-0" href="#">Modification des résultats</a>
+    <a class="btn btn-lg btn-bleu rounded-0" href="{{ route('resultats.edit', $demande->id )}}">Saisie/Modification des résultats</a>
 
   </div>
 <div class="card-body">
@@ -25,6 +24,7 @@
 
 <!-- INFORMATIONS SUR L ANALYSE: SI TERMINEE NE S'AFFICHE PAS PAR DEFAUT - SINON AFFICHEE-->
 @include('labo.demandeShow.demandeDetail')
+
 <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
 @if ($demande->acheve)
 

@@ -24,7 +24,7 @@ class ResultatController extends Controller
     }
 
     /*
-    * SAISIE DES RESULTATS
+    * SAISIE OU MODIFICATION DES RESULTATS
     */
 
     public function edit($demande_id)
@@ -39,12 +39,14 @@ class ResultatController extends Controller
       ]);
     }
 
+    /*
+    * STOCKAGE DES RESULTATS
+    */
+
     public function store(Request $request)
     {
 
       $datas = $request->all();
-
-      dd($datas);
 
       foreach ($datas as $intitule => $valeur) {
 
@@ -58,21 +60,35 @@ class ResultatController extends Controller
 
         if (isset($tableau_valeur[0]) && $tableau_valeur[0] == "resultat") {
 
+          $prelevement_id = $tableau_valeur[1];
+
+          $anaitem_id = $tableau_valeur[2];
+
           if ($valeur === "presence" || intVal($valeur) > 0) {
 
             $resultat = new Resultat;
 
-            $resultat->prelevement_id = $tableau_valeur[1];
-            $resultat->anaitem_id = $tableau_valeur[2];
+            $resultat->prelevement_id = $prelevement_id;
+            $resultat->anaitem_id = $anaitem_id;
             $resultat->valeur = $valeur;
 
             $resultat->save();
 
           }
+          /* Comme c'est un formulaire pour saisir ET modifier, si une valeur est null ou égale à 0
+          * il faut vérifier si elle n'existe pas déjà dans le tableau des résultats
+          */
+          else {
+
+            Resultat::where('prelevement_id', $prelevement_id)->where('anaitem_id', $anaitem_id)->delete();
+
+          }
 
         }
+
       }
 
+      return redirect()->route('demandes.show', $demande_id);
 
     }
 }

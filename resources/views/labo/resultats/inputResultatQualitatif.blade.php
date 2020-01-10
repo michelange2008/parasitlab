@@ -7,20 +7,19 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
  --}}
 @php
 
-  $valeur = ""; // création de variable sans contenu
+  $valeur = null;
   $class = "";
 
 @endphp
 
-@foreach ($prelevement->resultats as $resultat) {{-- On passe en revu les résultats déjà existants de ce prélèvement--}}
+@foreach ($prelevement->resultats as $resultat)
 
-  @if ($resultat->anaitem->id === $anaitem->id) {{-- Si l'anaitem est le même , c'est à dire si une valeur à déjà été saisie
-    pour ce prélèvement et ce parasite --}}
+  @if ($resultat->anaitem->id === $anaitem->id)
 
     @php
 
-      $valeur = $resultat->valeur; // on associe cette valeur à la variable $valeur
-      $class = "resultatExiste"; // on utilise la classe resultatExiste pour mettre en évidence cette ligne
+      $valeur = $resultat->valeur;
+      $class = "resultatExiste";
 
     @endphp
 
@@ -38,8 +37,25 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
 
   <td>
 
-    <input class="{{ $class }} form-control" type="number" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}"
-            value="{{ $valeur }}" placeholder="résultat">
+    <select class="form-control" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}">
+
+      @if ($valeur === null)
+
+        <option value="absence">Absence</option>
+
+        <option value="presence">Présence</option>
+
+
+      @else
+
+        <option value="presence">Présence</option>
+
+        <option value="absence">Absence</option>
+
+      @endif
+
+    </select>
+
   </td>
 
   <td class="text-right">

@@ -28,8 +28,8 @@
           <div class="col-md-10 col-lg-8">
 
             <div class="card">
-              <div class="card-header">
-                <h6>{{ $prelevement->identification }}</h6>
+              <div class="card-header alert-bleu-tres-fonce">
+                <h5>{{ ucfirst($prelevement->identification) }}</h5>
               </div>
               <div class="card-body">
 
@@ -48,31 +48,16 @@
 
                     @foreach ($prelevement->analyse->anaitems as $anaitem)
 
-                      <tr>
-                        <td>
-                          {{$anaitem->nom}}
-                        </td>
+                      @if ($anaitem->unite->type == "quantitatif") {{-- SI la résultats sont des valeurs ou des pourcentages --}}
 
-                        <td>
-                          @if ($anaitem->unite->type == "quantitatif")
+                        @include('labo.resultats.inputResultatQuantitatif')
 
-                            @include('labo.resultats.inputResultatQuantitatif')
+                      @else  {{-- Si les résulats sont qualitatifs "absence"/"présence" --}}
 
-                          @else
-                            
-                            <select class="form-control" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}">
+                        @include('labo.resultats.inputResultatQualitatif')
 
-                              <option value="absence">Absence</option>
+                      @endif
 
-                              <option value="presence">Présence</option>
-
-                            </select>
-                          @endif
-                        </td>
-                        <td class="text-right">
-                          {{ $anaitem->unite->nom }}
-                        </td>
-                      </tr>
                     @endforeach
 
                   </tbody>
