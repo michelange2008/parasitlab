@@ -19,7 +19,21 @@ trait DemandeInfos
 
     $demandeInfos->toutNegatif = $this->toutNegatif($demande);
 
+    $demande = $this->resultatsNegatifs($demande);
+
     return $demandeInfos;
+  }
+
+  public function resultatsNegatifs($demande)
+  {
+    foreach ($demande->prelevements as $prelevement) {
+
+      $estNegatif = ($prelevement->resultats->count() == 0) ? true : false;
+
+      $prelevement->estNegatif = $estNegatif;
+
+    }
+
   }
 
   public function toutNegatif($demande)
