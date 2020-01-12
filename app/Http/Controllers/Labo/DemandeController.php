@@ -9,7 +9,7 @@ use App\Fournisseurs\ListeDemandesFournisseur;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
-use App\Http\Traits\DemandeInfos;
+use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\FactureManager;
 use App\Http\Traits\SerieManager;
@@ -31,7 +31,7 @@ use App\Models\Productions\Resultat;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeInfos, FactureManager, SerieManager;
+    use LitJson, EleveurInfos, DemandeFactory, FactureManager, SerieManager;
     use UserTypeOutil ;
 
     protected $menu;
@@ -200,16 +200,15 @@ class DemandeController extends Controller
 
       $user = $demande->user;
 
-      $user = $this->eleveurFormatNumber($user);
+      $user = $this->eleveurFormatNumber($user); // Formate les nombres de l'utilisateur: ede, téléphone, etc.
 
-      $demandeInfos = $this->demandeInfos($demande);
+      $demande = $this->configResultatsPrelevement($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements
 
-      $this->formatDateDemande($demande);
+      $this->formatDateDemande($demande); // Met les dates à un format lisible
 
       return view('labo.show', [
         'menu' => $this->menu,
         'demande' => $demande,
-        'demandeInfos' => $demandeInfos,
         'user' => $user,
         'eleveurInfos' => $this->eleveurInfos($user),
       ]);

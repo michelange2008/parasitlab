@@ -21,6 +21,25 @@
 
       <input type="hidden" name="demande_id" value="{{ $prelevements[0]->demande->id }}">
 
+      <div class="row justify-content-center my-3">
+
+        <div class="col-md-10 col-lg-8">
+
+          <div class="form-check">
+
+            <h4 class="color-bleu-tres-fonce">L'analyse est-elle terminée ?</h4>
+            <label class="switch">
+              <input type="checkbox" name="acheve" checked>
+              <span class="slider round"></span>
+              <span class="absolute-no">NON</span>
+            </label>
+          </div>
+
+        </div>
+
+      </div>
+
+
       @foreach ($prelevements as $prelevement)
 
         <div class="row justify-content-center my-3">

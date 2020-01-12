@@ -42,7 +42,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
         }
         else {
 
-          $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
+          $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', "Cliquer pour afficher ce vétérinaire");
 
         }
 

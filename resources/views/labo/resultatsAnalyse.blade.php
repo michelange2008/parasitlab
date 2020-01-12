@@ -1,5 +1,13 @@
 @foreach ($demande->prelevements as $prelevement)
 
-  @include('labo.prelevementResultats')
+  @if ($prelevement->toutNegatif)
+
+    @include('labo.resultats.resultatsNegatifs')
+
+  @else
+
+    @include('labo.resultats.resultatsPositifs')
+
+  @endif
 
 @endforeach

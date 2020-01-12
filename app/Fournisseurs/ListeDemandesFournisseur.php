@@ -42,7 +42,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       if ($demande->toveto) {
 
-        $toveto = $this->lienFactory($demande->veto->user->id, ucfirst($demande->veto->user->name), 'vetoAdmin.show', "CLiquer pour afficher ce vétérinaire");
+        $toveto = $this->lienFactory($demande->veto->user->id, ucfirst($demande->veto->user->name), 'vetoAdmin.show', "Cliquer pour afficher ce vétérinaire");
 
       }
       else {
@@ -55,7 +55,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $terminee = $this->ouinonFactory($demande->id, $demande->acheve);
 
-      $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "CLiquer pour afficher cette facture");
+      $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher cette facture");
 
       $suppr = $this->delFactory($demande->id, 'demandes.destroy');
 

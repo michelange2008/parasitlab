@@ -88,22 +88,33 @@ trait SerieInfos
 /*
 * CREATION DE LA LIGNE TITRE: ON MET "lots" PUIS ON AJOUTE LES DATES DES DIFFÉRENTES ANALYSES
 */
-    $serieTitres->push('Lots / Parasites');
+    $serieTitres->push([
+      "intitule" => 'Lots / Parasites',
+      "demande_id" => null,
+    ]);
 
     foreach ($serie->demandes as $demande) {
       if ($demande->date_prelevement !== null) {
 
-        $serieTitres->push(Carbon::createFromFormat('Y-m-d H:i:s', $demande->date_prelevement)->formatLocalized('%d %B %Y'));
+
+        $serieTitres->push([
+          "intitule" => Carbon::createFromFormat('Y-m-d H:i:s', $demande->date_prelevement)->formatLocalized('%d %B %Y'),
+          "demande_id" => $demande->id,
+        ]);
 
       }
       else {
 
-        $serieTitres->push(Carbon::createFromFormat('Y-m-d H:i:s', $demande->date_reception)->formatLocalized('%d %B %Y'));
+
+        $serieTitres->push([
+          "intitule" => Carbon::createFromFormat('Y-m-d H:i:s', $demande->date_reception)->formatLocalized('%d %B %Y'),
+          "demande_id" => $demande->id,
+        ]);
       }
     }
 
     $nb_prelevements = $serie->demandes[0]->prelevements->count();
-
+// dd($serieTitres);
 /*
 * PROCEDURE UN PEU COMPLEXE POUR OBTENIR LA TABLE DE DONNEE:
 * IL FAUT CONSTRUIRE UNE LIGNE AVEC L'IDENTIFIANT DU LOT ET
@@ -111,8 +122,7 @@ trait SerieInfos
   $donnees_en_ligne = [];
     foreach($serie->demandes as $demande) { // ON CREE D'ABORD UN TABLEAU DE TABLEAUX QUI CONTIENNENT TOUTES LES INFORMATIONS
       foreach ($demande->prelevements as $prelevement) {
-        foreach($prelevement->resultats as $resultat)
-          if($resultat->valeur >0 && $resultat->valeur !== "absence" && $resultat->valeur !== null ) {
+        foreach($prelevement->resultats as $resultat) {
 
             $result['ident'] = $prelevement->identification; // NOM DU LOT
             $result['nom'] = $resultat->anaitem->nom; // NOM DU PARASITE
@@ -120,8 +130,10 @@ trait SerieInfos
 
             $donnees_en_ligne[] = $result; // ON EMPILE TOUT ÇA DANS UN TABLEAU
           }
+
         }
     }
+    // dd('');
 
     $donnees_en_collection=collect($donnees_en_ligne); // ON TRANSFORME LE TABLEAU EN COLLECTION
 

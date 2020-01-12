@@ -25,7 +25,7 @@ class ListeDemandesVetoFournisseur extends ListeFournisseur
 
       $eleveur = $this->lienFactory($demande->user_id, $demande->user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
 
-      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', "CLiquer pour afficher cette demande d'analyse");
+      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', "Cliquer pour afficher cette demande d'analyse");
 
       if(isset($demande->serie_id)) {
 
