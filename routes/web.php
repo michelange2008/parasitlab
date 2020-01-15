@@ -10,13 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
 Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
 
-Auth::routes();
+//##############################################################################
+Route::get('/parasitisme', ['uses' => 'ExtranetController@parasitisme', 'as' => 'parasitisme']);
+
+Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as' => 'quisommesnous']);
+
+Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']);
+
+Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'enpratique']);
+
+Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
+
+//##############################################################################
+
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -53,6 +64,5 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::get('usertypes', 'UsertypeController@liste')->name('usertypeJson');
 
   Route::resource('resultats', 'Labo\ResultatController');
-
 
 });

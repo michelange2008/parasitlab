@@ -31,7 +31,10 @@ $rouge-tres-fonce: #8F230A;
 // http://paletton.com */
 .bg-bleu { background: $bleu;}
 .bg-bleu-clair { background: $bleu-clair;}
-.bg-bleu-tres-clair { background: $bleu-tres-clair;}
+.bg-bleu-tres-clair {
+  background: $bleu-tres-clair;
+  color: $bleu-tres-fonce;
+}
 .bg-bleu-fonce { background: $bleu-fonce;}
 .bg-bleu-tres-fonce { background: $bleu-tres-fonce;}
 

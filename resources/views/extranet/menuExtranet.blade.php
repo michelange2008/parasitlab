@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg bg-bleu-tres-clair sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('storage/logo.svg') }}" alt="Parasit'Lab" height="30">
@@ -7,11 +7,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- Left Side Of Navbar -->
+
+        @include('fragments.templateMenu')
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-              <li>menu à faire</li>
-            </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

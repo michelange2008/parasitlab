@@ -25,6 +25,8 @@ class CreateLabosTable extends Migration
 
           $table->string('fonction', 191)->default('travailleur');
 
+          $table->boolean('est_signataire')->default(false);
+
           $table->timestamps();
 
           $table->softDeletes();
