@@ -93,7 +93,8 @@ class AnapackController extends Controller
      */
     public function create()
     {
-        //
+      return view('errors.entravaux');
+
     }
 
     /**
@@ -115,7 +116,8 @@ class AnapackController extends Controller
      */
     public function show($id)
     {
-        //
+      return view('errors.entravaux');
+
     }
 
     /**

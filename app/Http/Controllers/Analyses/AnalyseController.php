@@ -47,7 +47,8 @@ class AnalyseController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('errors.entravaux');
     }
 
     /**
@@ -80,7 +81,8 @@ class AnalyseController extends Controller
      */
     public function edit($id)
     {
-        //
+      return view('errors.entravaux');
+
     }
 
     /**

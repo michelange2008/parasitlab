@@ -258,6 +258,16 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
+.entravaux {
+  background: darkgrey;
+  height: 98vh;
+}
+
+.entravaux-text {
+  position: fixed;
+  top: 40vh;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

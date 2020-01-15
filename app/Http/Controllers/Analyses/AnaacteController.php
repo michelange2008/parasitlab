@@ -55,7 +55,8 @@ class AnaacteController extends Controller
      */
     public function create()
     {
-        //
+      return view('errors.entravaux');
+
     }
 
     /**
@@ -77,7 +78,8 @@ class AnaacteController extends Controller
      */
     public function show($id)
     {
-        //
+      return view('errors.entravaux');
+
     }
 
     /**
@@ -88,7 +90,8 @@ class AnaacteController extends Controller
      */
     public function edit($id)
     {
-        //
+      return view('errors.entravaux');
+
     }
 
     /**
