@@ -20,6 +20,7 @@ trait FormatDate
 
       return ($date == null) ? null : (new Carbon($date))->format('d M Y');
 
+
   }
 
 }
