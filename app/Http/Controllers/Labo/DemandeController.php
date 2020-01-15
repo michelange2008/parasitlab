@@ -202,9 +202,7 @@ class DemandeController extends Controller
 
       $user = $this->eleveurFormatNumber($user); // Formate les nombres de l'utilisateur: ede, téléphone, etc.
 
-      $demande = $this->configResultatsPrelevement($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements
-
-      $this->formatDateDemande($demande); // Met les dates à un format lisible
+      $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
       return view('labo.show', [
         'menu' => $this->menu,

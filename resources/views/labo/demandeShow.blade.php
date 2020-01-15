@@ -7,32 +7,32 @@
     <a class="btn btn-lg btn-bleu rounded-0" href="{{ route('resultats.edit', $demande->id )}}">Saisie/Modification des résultats</a>
 
   </div>
-<div class="card-body">
 
-<!-- TITRE POUR CLIQUER ET EXPANDRE SI L'ANALYSE EST TERMINEE - NE S'AFFICHE PAS SI L'ANALYSE N'EST PAS TERMINÉE-->
-@if ($demande->acheve)
+  <div class="card-body">
 
-  @include('fragments.titreCollapse', [
-    'titre' => "Informations sur l'analyse",
-    'icone' => 'info_blanc.svg',
-    'tooltip' => "Cliquer pour voir les informations sur la demande d'analyse et la modifier",
-    'collapse' => "demande",
-    'detail' => true,
-  ])
+  <!-- TITRE POUR CLIQUER ET EXPANDRE SI L'ANALYSE EST TERMINEE - NE S'AFFICHE PAS SI L'ANALYSE N'EST PAS TERMINÉE-->
+  @if ($demande->acheve)
 
-@endif
+    @include('fragments.titreCollapse', [
+      'titre' => "Informations sur l'analyse",
+      'icone' => 'info_blanc.svg',
+      'tooltip' => "Cliquer pour voir les informations sur la demande d'analyse et la modifier",
+      'collapse' => "demande",
+      'detail' => true,
+    ])
 
-<!-- INFORMATIONS SUR L ANALYSE: SI TERMINEE NE S'AFFICHE PAS PAR DEFAUT - SINON AFFICHEE-->
-@include('labo.demandeShow.demandeDetail')
+  @endif
 
-<!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
-@if ($demande->acheve)
+  <!-- INFORMATIONS SUR L ANALYSE: SI TERMINEE NE S'AFFICHE PAS PAR DEFAUT - SINON AFFICHEE-->
+  @include('labo.demandeShow.demandeDetail')
 
-  @include('labo.resultatsAnalyse')
+  <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
+  @if ($demande->acheve)
 
-@endif
+    @include('labo.resultatsAnalyse')
 
-</div>
+  @endif
 
+  </div>
 
 </div>

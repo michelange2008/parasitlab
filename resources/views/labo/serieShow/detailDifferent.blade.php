@@ -2,7 +2,6 @@
 
   <div class="row">
 
-    {{-- <div class="col-md-12 alert alert-bleu-tres-fonce"> --}}
     <div class="card card-body mb-3">
 
       <div class="card-title alert alert-bleu-tres-fonce">
@@ -18,7 +17,7 @@
 
       <div class="col-md-12">
 
-        @include('labo.prelevementResultats')
+        @include('labo.resultats.resultatsPositifs')
 
       </div>
 

@@ -17,8 +17,9 @@ trait FormatDate
 
   public function dateReadable($date)
   {
-    $dateReadable = (new Carbon($date))->format('d - M - Y');
 
-    return $dateReadable;
+      return ($date == null) ? null : (new Carbon($date))->format('d M Y');
+
   }
+
 }

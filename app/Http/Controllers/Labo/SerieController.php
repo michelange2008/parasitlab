@@ -14,11 +14,12 @@ use App\Models\Analyses\Anapack;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\SerieInfos;
 use App\Http\Traits\EleveurInfos;
+use App\Http\Traits\DemandeFactory;
 
 class SerieController extends Controller
 {
 
-    use LitJson, SerieInfos, EleveurInfos;
+    use LitJson, SerieInfos, EleveurInfos, DemandeFactory;
     /**
      * Create a new controller instance.
      *
@@ -72,6 +73,13 @@ class SerieController extends Controller
     public function show($id)
     {
         $serie = Serie::find($id);
+
+        foreach ($serie->demandes as $demande) {
+
+          $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
+
+        }
+
 
         $user = $serie->demandes[0]->user;
 

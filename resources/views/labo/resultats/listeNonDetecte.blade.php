@@ -7,7 +7,7 @@
 
         @if ($loop->first)
 
-          {{ ucfirst($nonDetecte) }}
+          {{ ucfirst($nonDetecte) }},
 
         @elseif ($loop->last)
 
@@ -22,5 +22,5 @@
       @endforeach
 
   </td>
-  
+
 </tr>

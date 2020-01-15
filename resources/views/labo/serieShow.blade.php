@@ -15,6 +15,6 @@
 
 @else
 
-  serie inachevée
+  @include('labo.serieShow.serieInacheve')
 
 @endif

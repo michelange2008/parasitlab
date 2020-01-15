@@ -21,6 +21,15 @@ trait DemandeFactory
   * AJOUTE L'ATTRIBUT estNegatif AUX PRELEVEMENTS: TRUE SI AUCUN PARASITE DETECTE, FALSE DANS LE CAS CONTRAIRE
   * AJOUTE UN TABLEAU AUX PRELEVEMENTS QUI CONTIENT LE NOM DE TOUS LES PARASITES NON DETECTES
   */
+  public function demandeFactory($demande)
+  {
+    $this->configResultatsPrelevement($demande);
+
+    $this->formatDateDemande($demande);
+
+    return $demande;
+  }
+
   public function configResultatsPrelevement($demande)
   {
 
@@ -37,7 +46,7 @@ trait DemandeFactory
       $detecte = [];
 
       foreach ($prelevement->resultats as $resultat) {
-        
+
         $detecte[] = $resultat->anaitem->nom;
       }
 

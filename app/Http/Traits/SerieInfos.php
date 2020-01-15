@@ -6,6 +6,8 @@ use App\Models\Analyses\Analyse;
 use App\Models\Analyses\Anaitem_analyse;
 use Carbon\Carbon;
 
+use App\Http\Traits\FormatDate;
+
 /**
  * TRAIT DESTINE A MANIPULER LES DONNES EN LIEN AVEC DES SERIES (EX TEST DE RESISTANCE OU SUIVI DE CAMPAGNE)
  * MÉTHODES
@@ -14,6 +16,7 @@ use Carbon\Carbon;
  */
 trait SerieInfos
 {
+  use FormatDate;
 
   public function serieInfos($serie)
   {
@@ -98,7 +101,7 @@ trait SerieInfos
 
 
         $serieTitres->push([
-          "intitule" => Carbon::createFromFormat('Y-m-d H:i:s', $demande->date_prelevement)->formatLocalized('%d %B %Y'),
+          "intitule" => $this->dateReadable($demande->date_prelevement),
           "demande_id" => $demande->id,
         ]);
 
@@ -107,7 +110,7 @@ trait SerieInfos
 
 
         $serieTitres->push([
-          "intitule" => Carbon::createFromFormat('Y-m-d H:i:s', $demande->date_reception)->formatLocalized('%d %B %Y'),
+          "intitule" => $this->dateReadable($demande->date_reception),
           "demande_id" => $demande->id,
         ]);
       }
