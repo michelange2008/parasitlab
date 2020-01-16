@@ -12,7 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+   .options({
+      processCssUrls: false
+   });
 
 mix.copy('node_modules/bootstrap-table/dist/extensions/accent-neutralise/bootstrap-table-accent-neutralise.min.js', 'public/js/bootstrap-table-accent-neutralise.min.js');
 mix.copy('node_modules/bootstrap-table/dist/bootstrap-table.min.css', 'public/css/bootstrap-table.min.css');

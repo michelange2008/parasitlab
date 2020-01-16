@@ -38,6 +38,11 @@ class ExtranetController extends Controller
       ]);
     }
 
+    public function analyses()
+    {
+      return "analyses";
+    }
+
     public function quisommesnous()
     {
       return "qui sommes-nous ?";
