@@ -55,4 +55,8 @@ $(function() {
     return local.toJSON().slice(0,10);
   });
 $('#reception').val(new Date().toDateInputValue());
+
+$('.carousel').carousel();
+
+
 });

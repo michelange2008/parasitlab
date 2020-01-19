@@ -17,6 +17,8 @@ Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
 //##############################################################################
 Route::get('/parasitisme', ['uses' => 'ExtranetController@parasitisme', 'as' => 'parasitisme']);
 
+Route::get('/resistances', ['uses' => 'ExtranetController@resistances', 'as' => 'resistances']);
+
 Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as' => 'quisommesnous']);
 
 Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']);

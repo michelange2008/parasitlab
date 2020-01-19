@@ -6,33 +6,19 @@
 
   <main>
 
-    <div class="jumbotron alert-bleu-tres-fonce d-flex flex-row">
+    @include('extranet.accueil_carousel')
 
-      <img src="{{ asset('storage/img/brebis.png') }}" alt="brebis">
+    <div class="container accueil">
 
-      <div class="container">
+      @include('extranet.accueil_entetes')
 
-        <h1 class="display-1">Maîtrisez le parasitisme de votre troupeau !</h1>
+      @include('extranet.accueil_labopresentation')
 
-        <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
-
-        <a class="btn btn-rouge rounded-0" href="{{ route('analyses') }}">En savoir plus sur les analyses</a>
-
-      </div>
+      <hr class="labo-divider">
 
     </div>
 
-    <div class="row ">
 
-      <div class="col-md-12">
-
-
-
-      </div>
-
-    </div>
 
   </main>
 

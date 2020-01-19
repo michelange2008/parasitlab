@@ -13,6 +13,7 @@ $bleu-tres-tres-clair: #76a6bb5d;
 $bleu-clair: #488199;
 $bleu-fonce: #1A5772;
 $bleu-tres-fonce: #0A425A;
+$bleu-tres-fonce-transparent: #0A425A99;
 
 $orange: #D3AA42;	// Main Secondary color (1) */
 $orange-tres-clair: #FFE39C;
@@ -128,4 +129,11 @@ $rouge-tres-fonce: #8F230A;
 .table .thead-bleu th {
 	color: $bleu-tres-fonce;
 	background-color: $bleu-tres-clair;
+}
+
+.bandeau-bleu-tres-fonce {
+  background: $bleu-tres-fonce-transparent !important;
+  color: $bleu-tres-clair;
+  padding: 5px 10px;
+  box-shadow: 5px 5px 15px black;
 }

@@ -157,6 +157,13 @@
   background-color: #76A6BB;
 }
 
+.bandeau-bleu-tres-fonce {
+  background: #0A425A99 !important;
+  color: #76A6BB;
+  padding: 5px 10px;
+  box-shadow: 5px 5px 15px black;
+}
+
 .ques {
   color: #0A425A;
 }
@@ -10751,4 +10758,16 @@ footer {
   bottom: 0;
   background: black;
   color: #76A6BB;
+}
+
+.accueil {
+  text-align: center;
+}
+
+.labo-divider {
+  margin: 5rem 0;
+}
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }

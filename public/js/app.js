@@ -37150,6 +37150,7 @@ $(function () {
   };
 
   $('#reception').val(new Date().toDateInputValue());
+  $('.carousel').carousel();
 });
 
 /***/ }),

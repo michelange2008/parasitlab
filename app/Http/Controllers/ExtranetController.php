@@ -38,6 +38,11 @@ class ExtranetController extends Controller
       ]);
     }
 
+    public function resistances()
+    {
+      return "resistances";
+    }
+
     public function analyses()
     {
       return "analyses";
