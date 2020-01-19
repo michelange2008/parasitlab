@@ -19,7 +19,12 @@ use App\Http\Traits\DemandeFactory;
 class SerieController extends Controller
 {
 
-    use LitJson, SerieInfos, EleveurInfos, DemandeFactory;
+    use LitJson, SerieInfos, EleveurInfos, DemandeFactory {
+        SerieInfos::dateSortable insteadof DemandeFactory;
+        SerieInfos::dateReadable insteadof DemandeFactory;
+        DemandeFactory::dateSortable insteadof SerieInfos;
+        DemandeFactory::dateReadable insteadof SerieInfos;
+    }
     /**
      * Create a new controller instance.
      *

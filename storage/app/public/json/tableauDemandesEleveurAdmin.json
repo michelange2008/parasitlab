@@ -49,6 +49,12 @@
       "nom" : "N° fact.",
       "align" : "center",
       "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
     }
   }
 }

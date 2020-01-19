@@ -6,7 +6,7 @@ use DB;
 use App\Http\Controllers\Controller;
 use App\Fournisseurs\ListeEleveursFournisseur;
 use App\Fournisseurs\ListeDemandesFournisseur;
-use App\Fournisseurs\ListeDemandesEleveurFournisseur;
+use App\Fournisseurs\ListeDemandesEleveurAdminFournisseur;
 
 use Carbon\Carbon;
 use App\User;
@@ -59,7 +59,7 @@ class EleveurAdminController extends Controller
 
       $fournisseur = new ListeEleveursFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($users, "liste des éleveurs", $icone, 'tableauEleveurs', 'eleveurAdmin.create', "Ajouter un éleveur");
+      $datas = $fournisseur->renvoieDatas($users, "liste des éleveurs", $icone, 'tableauEleveursAdmin', 'eleveurAdmin.create', "Ajouter un éleveur");
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,
@@ -158,7 +158,7 @@ class EleveurAdminController extends Controller
 
         $demandes = Demande::where('user_id', $id)->orderBy('date_reception', 'desc')->get();
 
-        $fournisseur = new ListeDemandesEleveurFournisseur(); // voir class ListeFournisseur
+        $fournisseur = new ListeDemandesEleveurAdminFournisseur(); // voir class ListeFournisseur
 
         $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveur', 'demandes.create', "Ajouter une demande");
 

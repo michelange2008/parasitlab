@@ -11,10 +11,30 @@
 
         @include('fragments.templateMenu')
 
+
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+
+              @if (isset(Auth::user()->usertype) && Auth::user()->usertype->route === "laboratoire" )
+
+                <li class="nav-item">
+
+                  <a class="nav-link" href="{{ route('demandes.index')}}" title="Accès réservé !">Laboratoire</a>
+
+                </li>
+
+              @elseif (isset(Auth::user()->usertype) && Auth::user()->usertype->route === "eleveur" )
+
+                <li class="nav-item">
+
+                  <a class="nav-link" href="{{ route('eleveur')}}" title="Accès à vos analyses">Mes analyses</a>
+
+                </li>
+
+              @endif
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">

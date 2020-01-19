@@ -10,7 +10,7 @@ use App\Http\Traits\FormatDate;
 /**
  *  FOURNIT LES DATAS POUR L'AFFICHAGE DE LA LISTE DES DEMANDES D'UN ELEVEUR DANS index.blade.php
  */
-class ListeDemandesEleveurFournisseur extends ListeFournisseur
+class ListeDemandesEleveurAdminFournisseur extends ListeFournisseur
 {
 
   use FormatDate;
@@ -55,6 +55,8 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher la facture");
 
+      $suppr = $this->delFactory($demande->id, 'demandes.destroy');
+
       $description = [
         $analyse,
         $serie,
@@ -63,6 +65,7 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
         $reception,
         $terminee,
         $facture,
+        $suppr,
       ];
 
       $this->liste->put($demande->id, $description);

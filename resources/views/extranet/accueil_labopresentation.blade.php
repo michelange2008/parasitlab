@@ -11,7 +11,7 @@
       <span class="text-muted">{{ __('accueil.situeDansLaDrome') }}</span>
     </h2>
 
-    <p>
+    <p class="texte-plus-grand">
     {{ __('accueil.creeEtGere') }}<img style="vertical-align:baseline" src="{!! asset('storage/fibl-logo.svg') !!}" alt="Logo du FiBL">{{ __('accueil.ceLaboratoire') }}
     </p>
 

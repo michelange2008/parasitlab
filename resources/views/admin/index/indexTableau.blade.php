@@ -1,11 +1,14 @@
+{{-- LE BOUTON AJOUTER UNE DEMANDE D ANALYSE NE S AFFICHE QUI SI L UTILISATEUR CONNECTE EST DU LABO --}}
+@if (auth()->user()->usertype->code === "labo")
 
-
-<div id="toolbar">
+  <div id="toolbar">
 
     <a href="{{ route($datas->add->route) }}" type="submit" class="btn btn-rouge"><i class="fas fa-plus-square"></i> {{ $datas->add->titre}}</a>
 
-</div>
+  </div>
 
+@endif
+{{-- SI IL N Y A AUCUNE DEMANDE D ANALYSE POUR CET ELEVEUR --}}
 @if (count($datas->liste) === 0 && isset($zeroAnalyses))
 
 <div class="row my-3">
