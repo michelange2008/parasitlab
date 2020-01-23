@@ -8,29 +8,17 @@
 
   "liste" : {
 
-    "name" : {
-      "id" : "name",
-      "nom" : "Analyse",
-      "align" : "left",
-      "sortable" : false
-    },
-    "serie" : {
-      "id" : "serie",
-      "nom" : "Série",
-      "align" : "center",
-      "sortable" : true
-    },
     "espece" : {
       "id" : "espece",
       "nom" : "Esp.",
       "align" : "center",
       "sortable" : false
     },
-    "toveto" : {
-      "id" : "toveto",
-      "nom" : "-> vétérinaire",
+    "name" : {
+      "id" : "name",
+      "nom" : "Analyse",
       "align" : "left",
-      "sortable" : true
+      "sortable" : false
     },
     "reception" : {
       "id" : "reception",

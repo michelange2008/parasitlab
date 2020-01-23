@@ -41,6 +41,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
 
+Route::get('/eleveur/{demande_id}', 'EleveurController@demandeShow')->name('eleveur.demandeShow');
+
+Route::get('/eleveur/{serie_id}', 'EleveurController@serieShow')->name('eleveur.serieShow');
+
 Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
 Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){

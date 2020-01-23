@@ -89,3 +89,15 @@ hr {
   flex-direction: column;
   justify-content: center;
 }
+
+@media screen and (max-width: 576px) {
+  .img-50 {
+    height: 40px;
+  }
+  .alert, .card-header {
+    padding: 0.5rem 0.25rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+}

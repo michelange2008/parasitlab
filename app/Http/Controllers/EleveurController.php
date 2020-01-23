@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Models\Productions\Demande;
 use App\Fournisseurs\ListeDemandesEleveurFournisseur;
+use App\Http\Traits\DemandeFactory;
 
 use App\Http\Traits\LitJson;
 
 class EleveurController extends Controller
 {
 
-  use LitJson;
+  use LitJson, DemandeFactory;
 
   protected $menu;
 
@@ -42,5 +43,22 @@ class EleveurController extends Controller
         'datas' => $datas,
         'zeroAnalyses' => $zeroAnalyses,
       ]);
+    }
+
+    public function demandeShow($demande_id)
+    {
+      $demande = Demande::find($demande_id);
+
+      $demande = $this->demandeFactory($demande);
+
+      return view('utilisateurs.eleveurs.eleveurDemandeShow', [
+        'menu' => $this->menu,
+        'demande' => $demande,
+      ]);
+    }
+
+    public function serieShow($serie_id)
+    {
+      return "coucou";
     }
 }

@@ -23,11 +23,11 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', 'Cliquer pour voir le détail de la demande');
+      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'eleveur.demandeShow', 'Cliquer pour voir le détail de la demande');
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', 'Cliquer pour voir la série');
+        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'eleveur.serieShow', 'Cliquer pour voir la série');
 
       }
       else {
@@ -56,10 +56,10 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
       $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher la facture");
 
       $description = [
-        $analyse,
-        $serie,
         $espece,
-        $toveto,
+        $analyse,
+        // $serie,
+        // $toveto,
         $reception,
         $terminee,
         $facture,
