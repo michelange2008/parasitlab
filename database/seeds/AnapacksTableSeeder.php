@@ -30,7 +30,7 @@ class AnapacksTableSeeder extends Seeder
           ],
           [
             'id' => 3,
-            "nom" => "suivi de campagne",
+            "nom" => "suivi parasitologique de campagne",
             "description" => "3 coproscopie sur 3 prélèvement + 3 interprétations",
             "detail" => "Il s'agit de vous accompagner dans le suivi de votre troupeau au cours de la saison de pâturage. Nous effectuerons trois séries de coproscopies avec à chaque fois trois échantillons et une interprétation à chaque analyse plus une interprétation globale",
             "serie" => true,

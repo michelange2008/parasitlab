@@ -62,4 +62,11 @@ class ExtranetController extends Controller
     {
       return "aide";
     }
+
+    public function contact()
+    {
+      return view('extranet.contact', [
+        "menu" => $this->menu,
+      ]);
+    }
 }

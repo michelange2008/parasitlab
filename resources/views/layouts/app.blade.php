@@ -9,7 +9,7 @@
 
     <link rel="icon" href="{{asset('storage/oeuf.svg')}}" />
 
-    <title>{{ config('app.name', "Parasit'Lab") }}</title>
+    <title>Parasit'Lab</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

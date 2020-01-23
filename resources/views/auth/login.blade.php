@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+  <img style="position:absolute; width:100vw" src="{!! asset('storage/img/paysage.jpg') !!}" alt="">
+<div class="container fond">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header d-flex justify-content-between">
+                  {{ __('Login') }}
+
+                  <a class="btn btn-secondary" href="{{ route('accueil')}}">{{ __('Cancel') }}</a>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

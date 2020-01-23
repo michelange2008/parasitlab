@@ -27,6 +27,10 @@ Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'e
 
 Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
+Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
+
+Route::get('/resultatPdf/{demande}', ['uses' => 'PdfController@resultatPdf', 'as' => 'resultatPdf']);
+
 //##############################################################################
 
 Auth::routes(['register' => false]);

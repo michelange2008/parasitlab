@@ -100,5 +100,10 @@
         "route" : "accueil"
       }
     }
+  },
+  "item_6" : {
+    "nom" : "Nous contacter",
+    "tooltip" : "un problème, une question ...",
+    "route" : "contact"
   }
 }

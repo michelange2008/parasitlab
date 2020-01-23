@@ -82,3 +82,10 @@ hr {
 .texte-plus-grand {
   font-size: 1.4rem;
 }
+
+.fond {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

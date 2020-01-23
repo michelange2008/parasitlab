@@ -40,7 +40,7 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       if ($demande->toveto) {
 
-        $toveto = $this->lienFactory($demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show', "Cliquer pour afficher le vétérinaire");
+        $toveto = $this->itemFactory($demande->veto->user->name);
 
       }
       else {
