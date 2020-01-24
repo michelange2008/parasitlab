@@ -10821,6 +10821,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.btn {
+  border-radius: 0 !important;
+}
+
 .img-100 {
   height: 100%;
   width: 100%;
@@ -10926,5 +10930,9 @@ hr {
 
   h5 {
     font-size: 1rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
   }
 }

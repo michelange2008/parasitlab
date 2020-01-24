@@ -14,7 +14,7 @@
 
   <div id="toolbar">
 
-    <a href="{{ route('contact') }}" type="submit" class="btn btn-rouge"><i class="fas fa-mail-bulk"></i> Une question, un problème... contactez-nous</a>
+    @include('fragments.boutonContact')
 
   </div>
 

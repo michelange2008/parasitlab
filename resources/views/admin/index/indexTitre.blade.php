@@ -1,4 +1,4 @@
-<div class="d-flex alert alert-bleu rounded-0">
+<div class="d-flex alert alert-bleu">
 
   <img class="img-50" src="{{ asset('storage/img/icones')."/".$datas->icone }}" alt="{{ $datas->icone }}">
 

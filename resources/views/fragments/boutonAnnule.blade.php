@@ -1,3 +1,3 @@
 <a href="{{ url()->previous() }}">
-  <button type="button" class="btn btn-secondary rounded-0" name="reset">Annuler</button>
+  <button type="button" class="btn btn-secondary" name="reset">Retour</button>
 </a>

@@ -12,7 +12,7 @@
 
     <p>Cela se fait par l'observation des animaux et aussi par le recours à des analyses de laboratoire.</p>
 
-    <a class="btn btn-rouge rounded-0" href="{{ route('analyses') }}">En savoir plus</a>
+    <a class="btn btn-rouge" href="{{ route('analyses') }}">En savoir plus</a>
 
   </div>
 
@@ -30,7 +30,7 @@
       En réponse à l'infestation parasitaire, les animaux développent une immunité variable et plus ou moins durable.
     </p>
 
-    <a class="btn btn-rouge rounded-0" href="{{ route('parasitisme') }}">En savoir plus</a>
+    <a class="btn btn-rouge" href="{{ route('parasitisme') }}">En savoir plus</a>
 
   </div>
 
@@ -49,7 +49,7 @@
       Il est indispensable de mettre en oeuvre des pratiques de gestion du parasitisme pour limiter l'extension de ces résistances.
     </p>
 
-    <a class="btn btn-rouge rounded-0" href="{{ route('resistances') }}">En savoir plus</a>
+    <a class="btn btn-rouge" href="{{ route('resistances') }}">En savoir plus</a>
   </div>
 
 </div>
