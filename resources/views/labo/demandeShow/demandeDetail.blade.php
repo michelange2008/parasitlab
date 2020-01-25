@@ -1,41 +1,6 @@
 <div class="collapse @if(!$demande->acheve) show @endif " id="demande" aria-expanded="true">
   <div class="card card-body">
 
-<!-- AFFICHAGE DES SYNTHESES: ANALYSE ET FACTURE-->
-    <div class="row my-1">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h5>{{ ucfirst($demande->anapack->nom) }}</h5>
-          </div>
-          @if ($demande->anapack->serie)
-          <div class="card-body">
-              <h5>
-                <small>Cette analyse fait partie de la série </small>
-                @nomLien([
-                  'nom' => $demande->serie_id,
-                  'id' => $demande->serie_id,
-                  'route' => 'serie.show',
-                  'tooltip' => "Cliquer pour afficher la série",
-                ])
-              </h5>
-          </div>
-        @endif
-        </div>
-
-      </div>
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h6>Informations</h6>
-          </div>
-          <div class="card-body">
-            <strong>{{ $demande->informations }}</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="row my-3">
 
 <!-- AFFICHAGE DES DONNEES ANALYSE -->

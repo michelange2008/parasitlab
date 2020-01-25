@@ -6,11 +6,7 @@
 
   @else
 
-    @if ($demande->serie_id !== null)
-
-      Cette demande fait partie d'une série de X prélèvement achevée
-
-    @endif
+    @include('labo.demandeShow.demandeSerie')
 
     @include('labo.resultats.resultatsPositifs')
 

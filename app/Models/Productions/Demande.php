@@ -43,4 +43,9 @@ class Demande extends Model
     {
       return $this->belongsTo(Serie::class);
     }
+
+    public function labo()
+    {
+      return $this->belongsTo(\App\Models\Labo::class);
+    }
 }

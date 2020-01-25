@@ -52,6 +52,8 @@ class CreateDemandesTable extends Migration
             $table->timestamp('date_signature')->nullable();
             $table->boolean('signe')->default(false);
             $table->unsignedInteger('labo_id')->nullable();
+            $table->foreign('labo_id')->references('id')->on('labos')
+            ->onDelete('set null')->onUpdate('cascade');
 
             $table->unsignedInteger('facture_id')->nullable();
             $table->foreign('facture_id')->references('id')->on('factures')

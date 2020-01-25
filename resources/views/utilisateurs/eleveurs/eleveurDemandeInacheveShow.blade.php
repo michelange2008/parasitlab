@@ -4,6 +4,6 @@
     et nous sommes en train de nous en occuper.
   </p>
 
-  <p class="lead">Vous allez recevoir les résultats par e-mail 4 jours après la date de réception.</p>
+  <p class="lead">Vous allez bientôt recevoir les résultats par e-mail.</p>
 
   <p class="lead">L'équipe de Parasit'Lab</p>

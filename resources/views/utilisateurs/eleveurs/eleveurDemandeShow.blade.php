@@ -16,23 +16,13 @@
 
     </div>
 
-    <div class="row my-3 justify-content-center">
-
-      <div class="col-md-8 col-lg-6 lead">
-
-        Demande d'analyse reçue le {{ $demande->date_reception }}
-
-      </div>
-
-
-    </div>
 
     <div class="row justify-content-center">
 
       <div class="col-md-8 col-lg-6">
 
 
-        @if (!$demande->acheve)
+        @if (!$demande->signe)
 
           @include('utilisateurs.eleveurs.eleveurDemandeInacheveShow')
 
@@ -50,7 +40,11 @@
 
       <div class="col-md-8 col-lg-6">
 
-        @include('fragments.boutonResultatPdf')
+        @if ($demande->signe)
+
+          @include('fragments.boutonResultatPdf')
+
+        @endif
 
         @include('fragments.boutonAnnule')
 
@@ -67,7 +61,9 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-8 col-lg-6 d-flex justify-content-between">
+      <div class="col-md-8 col-lg-6 border-top pt-4 lead">
+
+        <img class="img-40" src="{!! asset('storage/img/icones/question2.svg') !!}" alt="question">
 
         Une question ? Un problème ? N'hésitez-pas
 
