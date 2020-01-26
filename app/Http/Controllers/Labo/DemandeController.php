@@ -259,4 +259,30 @@ class DemandeController extends Controller
         return redirect()->route('demandes.index')->with('status', "La demande d'analyse a été supprimée");
 
     }
+
+    public function signer($demande_id)
+    {
+
+      $demande = Demande::find($demande_id);
+
+      DB::table('demandes')->where('id', $demande_id)->update([
+        'signe' => true,
+        'date_signature' => \Carbon\Carbon::now(),
+        'labo_id' => auth()->user()->id,
+      ]);
+
+      return "c'est signé";
+    }
+
+    public function envoyer($demande_id)
+    {
+
+      $demande = Demande::find($demande_id);
+
+      DB::table('demandes')->where('id', $demande_id)->update([
+        'date_envoi' => \Carbon\Carbon::now(),
+      ]);
+
+      return "c'est envoyé";      // code...
+    }
 }

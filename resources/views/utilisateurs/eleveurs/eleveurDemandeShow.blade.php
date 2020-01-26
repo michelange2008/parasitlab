@@ -46,7 +46,12 @@
 
         @endif
 
-        @include('fragments.boutonAnnule')
+        @include('fragments.boutonUser', [
+          'route' => 'eleveur',
+          'id' => '',
+          'couleur' => 'btn-secondary',
+          'intitule' => 'Retour',
+        ])
 
       </div>
 

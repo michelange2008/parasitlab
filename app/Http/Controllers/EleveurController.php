@@ -5,23 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Serie;
 use App\Fournisseurs\ListeDemandesEleveurFournisseur;
 use App\Http\Traits\DemandeFactory;
+use App\Http\Traits\SerieInfos;
 
 use App\Http\Traits\LitJson;
 
 class EleveurController extends Controller
 {
 
-  use LitJson, DemandeFactory;
+  use LitJson, DemandeFactory, SerieInfos;
 
   protected $menu;
 
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('eleveur');
-
         $this->menu = $this->litJson('menuExtranet');
     }
 
@@ -59,6 +58,20 @@ class EleveurController extends Controller
 
     public function serieShow($serie_id)
     {
-      return "coucou";
+      $serie = Serie::find($serie_id);
+
+      foreach ($serie->demandes as $demande) {
+
+        $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
+
+      }
+
+      $serieInfos = $this->serieInfos($serie);
+
+      return view('utilisateurs.eleveurs.eleveurSerieShow', [
+        'menu' => $this->menu,
+        'serie' => $serie,
+        'serieInfos' => $serieInfos,
+      ]);
     }
 }

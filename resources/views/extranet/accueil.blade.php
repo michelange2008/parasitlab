@@ -16,6 +16,10 @@
 
       <hr class="labo-divider">
 
+      @include('extranet.accueil_pastilles')
+
+      <hr class="labo-divider">
+      
     </div>
 
 

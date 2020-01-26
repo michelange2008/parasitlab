@@ -31,7 +31,7 @@
               @nomLien([
                 'nom' => $titre['intitule'],
                 'id' => $titre['demande_id'],
-                'route' => 'demandes.show',
+                'route' => 'routeurDemande', // route qui sert à trier le type d'utilisateur
                 'tooltip' => "Cliquer pour afficher la demande",
               ])
             @endif

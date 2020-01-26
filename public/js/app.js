@@ -37112,6 +37112,8 @@ __webpack_require__(/*! ./createUser.js */ "./resources/js/createUser.js");
 
 __webpack_require__(/*! ./createDemande.js */ "./resources/js/createDemande.js");
 
+__webpack_require__(/*! ./signe.js */ "./resources/js/signe.js");
+
 __webpack_require__(/*! jquery-confirm */ "./node_modules/jquery-confirm/dist/jquery-confirm.min.js");
 
 $(function () {
@@ -48190,6 +48192,47 @@ $('#userCreateForm').on('submit', function (e) {
   }).fail(function (data) {
     // et si ça merde ...
     alert("Désolée, un problème est arrivé à l'enregistrement du nouvel utilisateur. \n\nAppelez Bouiboui !");
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/signe.js":
+/*!*******************************!*\
+  !*** ./resources/js/signe.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#asigner').on('click', function (e) {
+  e.preventDefault();
+  var demande_id = $(this).attr('attribut');
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
+  var url_nouvelle = url_actuelle.replace('demandes', 'signer');
+  $.confirm({
+    theme: 'dark',
+    type: 'red',
+    typeAnimated: 'true',
+    title: "Signer une analyse",
+    content: "Veux-tu vraiment signer ces résultats ?",
+    buttons: {
+      oui: {
+        text: 'oui',
+        btnClass: 'btn-red',
+        action: function action() {
+          $.get({
+            url: url_nouvelle
+          }).done(function (data) {
+            $('#asigner').fadeOut();
+            $('#signe').fadeIn(3000);
+          }).fail(function (data) {
+            console.log(data);
+          });
+        }
+      },
+      non: function non() {}
+    }
   });
 });
 

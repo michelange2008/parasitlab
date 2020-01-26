@@ -15,13 +15,22 @@
 Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
 
 //##############################################################################
+
+Route::get('/vétérinaires', ['uses' => 'ExtranetController@veterinaires', 'as' => 'veterinaires.accueil']);
+
+Route::get('/éleveurs', ['uses' => 'ExtranetController@eleveurs', 'as' => 'eleveurs.accueil']);
+
+Route::get('/cavaliers', ['uses' => 'ExtranetController@cavaliers', 'as' => 'cavaliers.accueil']);
+
+
+Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']);
+
 Route::get('/parasitisme', ['uses' => 'ExtranetController@parasitisme', 'as' => 'parasitisme']);
 
-Route::get('/resistances', ['uses' => 'ExtranetController@resistances', 'as' => 'resistances']);
+Route::get('/résistances', ['uses' => 'ExtranetController@resistances', 'as' => 'resistances']);
 
 Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as' => 'quisommesnous']);
 
-Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']);
 
 Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'enpratique']);
 
@@ -37,16 +46,30 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// QUESTION: : Faut-il garder ces routes non protégées ?
 
-Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
+Route::group(['middleware' => 'auth', 'middleware' => 'eleveur'], function() {
 
-Route::get('/eleveur/{demande_id}', 'EleveurController@demandeShow')->name('eleveur.demandeShow');
+  Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
 
-Route::get('/eleveur/{serie_id}', 'EleveurController@serieShow')->name('eleveur.serieShow');
+  Route::get('/eleveur/demande/{demande_id}', 'EleveurController@demandeShow')->name('eleveur.demandeShow');
+
+  Route::get('/eleveur/serie/{serie_id}', 'EleveurController@serieShow')->name('eleveur.serieShow');
+
+});
+
 
 Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
+// routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
+Route::group(['middleware' => 'auth'], function(){
+
+  Route::get('/routeur/serie/{serie_id}', 'RouteurController@routeurSerie')->name('routeurSerie');
+
+  Route::get('/routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
+
+});
+
+// ROUTES INTERNES AU LABORATOIRE
 Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){
 
   Route::get('/', 'Labo\DemandeController@index')->name('laboratoire');
@@ -60,6 +83,10 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   route::get('estserie/{anapack_id}/{user_id}', 'Analyses\AnapackController@estSerie')->name('estserie');
 
   route::resource('demandes', 'Labo\DemandeController');
+
+  route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
+
+  route::get('envoyer/{demande_id}', 'Labo\DemandeController@envoyer')->name('demande.envoyer');
 
   Route::resource('user', 'UserController');
 

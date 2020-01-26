@@ -31,6 +31,27 @@ class ExtranetController extends Controller
       ]);
     }
 
+    public function veterinaires()
+    {
+      return view('extranet.accueil', [
+        "menu" => $this->menu,
+      ]);
+    }
+
+    public function eleveurs()
+    {
+      return view('extranet.accueil', [
+        "menu" => $this->menu,
+      ]);
+    }
+
+    public function cavaliers()
+    {
+      return view('extranet.accueil', [
+        "menu" => $this->menu,
+      ]);
+    }
+
     public function parasitisme()
     {
       return view('extranet.parasitisme.parasitisme', [

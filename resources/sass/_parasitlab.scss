@@ -93,6 +93,15 @@ hr {
   justify-content: center;
 }
 
+.icone-cadre {
+  width: 120px;
+  border: solid 1px lightgray;
+}
+
+.icone-cadre > img {
+  margin: auto;
+}
+
 @media screen and (max-width: 576px) {
   .img-50 {
     height: 40px;

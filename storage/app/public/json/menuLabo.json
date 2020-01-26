@@ -11,12 +11,7 @@
     "tooltip" : "Retour à l'accueil général (extranet)",
     "route" : "laboratoire"
   },
-  "item_2" :
-  {
-    "nom" : "Nouveau",
-    "tooltip" : "Création d'une nouvelle demande d'analyse",
-    "route" : "demandes.create"
-  },
+
   "item_3" :
   {
     "nom" : "Demandes",
@@ -33,10 +28,10 @@
       },
       "sousmenu_2" :
       {
-        "nom" : "Modifier",
-        "icone" : "modifier.svg",
-        "tooltip" : "modifier une demande d'analyse en cours",
-        "route" : "demandes.index"
+        "nom" : "Séries",
+        "icone" : "serie.svg",
+        "tooltip" : "Afficher les séries",
+        "route" : "serie.index"
       }
     }
   },
