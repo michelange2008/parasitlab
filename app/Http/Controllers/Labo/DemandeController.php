@@ -271,7 +271,7 @@ class DemandeController extends Controller
         'labo_id' => auth()->user()->id,
       ]);
 
-      return "c'est signé";
+
     }
 
     public function envoyer($demande_id)
@@ -283,6 +283,6 @@ class DemandeController extends Controller
         'date_envoi' => \Carbon\Carbon::now(),
       ]);
 
-      return "c'est envoyé";      // code...
+
     }
 }

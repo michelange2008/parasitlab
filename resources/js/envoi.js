@@ -1,4 +1,4 @@
-$('#a-signer').on('click', function(e) {
+$('.a-envoyer').on('click', function(e) {
 
   e.preventDefault();
 
@@ -6,14 +6,14 @@ $('#a-signer').on('click', function(e) {
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-  var url_nouvelle = url_actuelle.replace('demandes', 'signer');
+  var url_nouvelle = url_actuelle.replace('demandes', 'envoyer');
 
   $.confirm({
     theme : 'dark',
     type : 'red',
     typeAnimated: 'true',
-    title: "Signer une analyse",
-    content : "Veux-tu vraiment signer ces résultats ?",
+    title: "Envoyer une analyse",
+    content : "Veux-tu vraiment envoyer ces résultats aux destinataires ?",
     buttons : {
       oui: {
         text : 'oui',
@@ -26,9 +26,8 @@ $('#a-signer').on('click', function(e) {
 
           })
           .done(function(data) {
-            $('#a-signer').fadeOut();
-            $('#signe-jq').fadeIn(2000);
-            $('#a-envoyer-jq').fadeIn(3000);
+            $('.a-envoyer').fadeOut();
+            $('#envoye-jq').fadeIn(4000);
           })
           .fail(function(data) {
             console.log(data);

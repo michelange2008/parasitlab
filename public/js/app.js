@@ -37114,6 +37114,8 @@ __webpack_require__(/*! ./createDemande.js */ "./resources/js/createDemande.js")
 
 __webpack_require__(/*! ./signe.js */ "./resources/js/signe.js");
 
+__webpack_require__(/*! ./envoi.js */ "./resources/js/envoi.js");
+
 __webpack_require__(/*! jquery-confirm */ "./node_modules/jquery-confirm/dist/jquery-confirm.min.js");
 
 $(function () {
@@ -48197,6 +48199,47 @@ $('#userCreateForm').on('submit', function (e) {
 
 /***/ }),
 
+/***/ "./resources/js/envoi.js":
+/*!*******************************!*\
+  !*** ./resources/js/envoi.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.a-envoyer').on('click', function (e) {
+  e.preventDefault();
+  var demande_id = $(this).attr('attribut');
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
+  var url_nouvelle = url_actuelle.replace('demandes', 'envoyer');
+  $.confirm({
+    theme: 'dark',
+    type: 'red',
+    typeAnimated: 'true',
+    title: "Envoyer une analyse",
+    content: "Veux-tu vraiment envoyer ces résultats aux destinataires ?",
+    buttons: {
+      oui: {
+        text: 'oui',
+        btnClass: 'btn-red',
+        action: function action() {
+          $.get({
+            url: url_nouvelle
+          }).done(function (data) {
+            $('.a-envoyer').fadeOut();
+            $('#envoye-jq').fadeIn(4000);
+          }).fail(function (data) {
+            console.log(data);
+          });
+        }
+      },
+      non: function non() {}
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/signe.js":
 /*!*******************************!*\
   !*** ./resources/js/signe.js ***!
@@ -48204,7 +48247,7 @@ $('#userCreateForm').on('submit', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('#asigner').on('click', function (e) {
+$('#a-signer').on('click', function (e) {
   e.preventDefault();
   var demande_id = $(this).attr('attribut');
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
@@ -48224,8 +48267,9 @@ $('#asigner').on('click', function (e) {
           $.get({
             url: url_nouvelle
           }).done(function (data) {
-            $('#asigner').fadeOut();
-            $('#signe').fadeIn(3000);
+            $('#a-signer').fadeOut();
+            $('#signe-jq').fadeIn(2000);
+            $('#a-envoyer-jq').fadeIn(3000);
           }).fail(function (data) {
             console.log(data);
           });
