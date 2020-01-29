@@ -7,33 +7,16 @@
   },
   "item_1b" :
   {
-    "nom" : "Accueil laboratoire",
+    "nom" : "Demandes",
     "tooltip" : "Retour à l'accueil général (extranet)",
     "route" : "laboratoire"
   },
 
   "item_3" :
   {
-    "nom" : "Demandes",
-    "tooltip" : "Tout ce qui concerne les demandes d'analyse: nouvelles, en cours, résultats, etc.",
-    "route" : "laboratoire",
-    "sousmenu" :
-    {
-      "sousmenu_1" :
-      {
-        "nom" : "Ajouter",
-        "icone" : "ajouter.svg",
-        "tooltip" : "Création d'une nouvelle demande d'analyse",
-        "route" : "demandes.create"
-      },
-      "sousmenu_2" :
-      {
-        "nom" : "Séries",
-        "icone" : "serie.svg",
-        "tooltip" : "Afficher les séries",
-        "route" : "serie.index"
-      }
-    }
+    "nom" : "Séries",
+    "tooltip" : "Afficher les séries",
+    "route" : "serie.index"
   },
   "item_4" :
   {

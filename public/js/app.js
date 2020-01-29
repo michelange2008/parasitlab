@@ -48206,30 +48206,30 @@ $('#userCreateForm').on('submit', function (e) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('.a-envoyer').on('click', function (e) {
-  e.preventDefault();
-  var demande_id = $(this).attr('attribut');
+$('.a-envoyer').on('click', function () {
+  var destinataire_id = $(this).attr('destinataire');
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-  var url_nouvelle = url_actuelle.replace('demandes', 'envoyer');
+  var url_nouvelle = url_actuelle.replace('demandes', 'envoyer/' + destinataire_id);
   $.confirm({
     theme: 'dark',
-    type: 'red',
+    type: 'green',
     typeAnimated: 'true',
     title: "Envoyer une analyse",
     content: "Veux-tu vraiment envoyer ces résultats aux destinataires ?",
     buttons: {
       oui: {
         text: 'oui',
-        btnClass: 'btn-red',
+        btnClass: 'btn-success',
         action: function action() {
           $.get({
             url: url_nouvelle
           }).done(function (data) {
-            $('.a-envoyer').fadeOut();
-            $('#envoye-jq').fadeIn(4000);
+            $('#envoye').fadeOut();
+            $('#a-envoyer-jq').fadeOut();
+            $('#envoye-jq').fadeIn();
           }).fail(function (data) {
-            console.log(data);
+            console.log("ERREUR !");
           });
         }
       },
@@ -48255,14 +48255,13 @@ $('#a-signer').on('click', function (e) {
   var url_nouvelle = url_actuelle.replace('demandes', 'signer');
   $.confirm({
     theme: 'dark',
-    type: 'red',
-    typeAnimated: 'true',
+    type: 'green',
     title: "Signer une analyse",
     content: "Veux-tu vraiment signer ces résultats ?",
     buttons: {
       oui: {
         text: 'oui',
-        btnClass: 'btn-red',
+        btnClass: 'btn-success',
         action: function action() {
           $.get({
             url: url_nouvelle

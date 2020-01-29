@@ -8,9 +8,13 @@
 
       <a class="btn btn-lg btn-bleu" href="{{ route('resultats.edit', $demande->id )}}">Saisie/Modification des résultats</a>
 
-      @include('labo.demandeShow.signature')
+      @if ($demande->acheve)
 
-      @include('labo.demandeShow.envoi')
+        @include('labo.demandeShow.signature')
+
+        @include('labo.demandeShow.envoi')
+
+      @endif
 
     </div>
 

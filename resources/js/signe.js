@@ -10,14 +10,13 @@ $('#a-signer').on('click', function(e) {
 
   $.confirm({
     theme : 'dark',
-    type : 'red',
-    typeAnimated: 'true',
+    type : 'green',
     title: "Signer une analyse",
     content : "Veux-tu vraiment signer ces résultats ?",
     buttons : {
       oui: {
         text : 'oui',
-        btnClass : 'btn-red',
+        btnClass : 'btn-success',
         action : function() {
 
           $.get({

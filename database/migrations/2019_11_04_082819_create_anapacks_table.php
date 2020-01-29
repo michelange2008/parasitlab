@@ -15,6 +15,7 @@ class CreateAnapacksTable extends Migration
     {
         Schema::create('anapacks', function (Blueprint $table) {
             $table->increments('id');
+            $table->string("article", 20);
             $table->string("nom",191);
             $table->text("description");
             $table->longtext("detail");

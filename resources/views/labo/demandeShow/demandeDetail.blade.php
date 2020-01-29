@@ -59,13 +59,13 @@
 
       <div class="col-md-6">
 
-        @include('labo.demandeShow.syntheseRenvoiAnalyse', ['demande' => $demande, 'route' => "#"])
+        @include('labo.demandeShow.syntheseRenvoiAnalyse')
 
       </div>
 
       <div class="col-md-6">
 
-        @include('labo.demandeShow.syntheseRenvoiFacture', ['demande' => $demande, 'route' => "#"])
+        @include('labo.demandeShow.syntheseRenvoiFacture', ['route' => "#"])
 
       </div>
 

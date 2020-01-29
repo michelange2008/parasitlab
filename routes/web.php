@@ -86,7 +86,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
 
-  route::get('envoyer/{demande_id}', 'Labo\DemandeController@envoyer')->name('demande.envoyer');
+  route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');
 
   Route::resource('user', 'UserController');
 

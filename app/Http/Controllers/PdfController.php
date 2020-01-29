@@ -11,9 +11,9 @@ class PdfController extends Controller
 {
   use DemandeFactory;
 
-  public function resultatPdf($id_demande)
+  public function resultatPdf($demande_id)
   {
-    $demande = Demande::find($id_demande);
+    $demande = Demande::find($demande_id);
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
@@ -27,6 +27,17 @@ class PdfController extends Controller
     //   "demande" => $demande,
     // ]);
 
+  }
+
+  public function attachPdf($demande_id)
+  {
+    $demande = Demande::find($demande_id);
+
+    $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
+
+    $pdf = PDF::loadview('labo.resultats.pdf', compact('demande'));
+
+    return $pdf;
   }
 
 }

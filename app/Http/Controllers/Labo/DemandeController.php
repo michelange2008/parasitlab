@@ -274,15 +274,4 @@ class DemandeController extends Controller
 
     }
 
-    public function envoyer($demande_id)
-    {
-
-      $demande = Demande::find($demande_id);
-
-      DB::table('demandes')->where('id', $demande_id)->update([
-        'date_envoi' => \Carbon\Carbon::now(),
-      ]);
-
-
-    }
 }

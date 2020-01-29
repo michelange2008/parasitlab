@@ -1,5 +1,5 @@
-<a href="{{ $route }}" title="{{ $tooltip }}">
+<div title="{{ $tooltip }}" class="btn">
 
   <i class="material-icons">play_arrow</i> <i class="material-icons">email</i>
 
-</a>
+</div>
