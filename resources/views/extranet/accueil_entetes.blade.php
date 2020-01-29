@@ -3,53 +3,51 @@
 
   <div class="col-lg-4">
 
-    <img src="{{ asset('storage/img/icones/copr.svg') }}" alt="analyse">
+    <img src="{{ asset('storage/img/icones/veto_rond.svg') }}" alt="vétérinaire">
 
-    <h2>Analyses</h2>
+    <h2>Vétérinaires</h2>
     <p>
-      Si l'on souhaite gérer le parasitisme de son troupeau avec peu (ou pas) de traitements, il est indispensable de suivre les niveaux d'infestation.
+      Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d'éviter les traitements inutiles.
     </p>
 
-    <p>Cela se fait par l'observation des animaux et aussi par le recours à des analyses de laboratoire.</p>
+    <p>Vous voulez évaluer les risques pathogènes et l'existence éventuelles de résistance aux anthelmintiques.</p>
 
-    <a class="btn btn-rouge rounded-0" href="{{ route('analyses') }}">En savoir plus</a>
+    <a class="btn btn-rouge" href="{{ route('veterinaires.accueil') }}">En savoir plus</a>
 
   </div>
 
   <div class="col-lg-4">
 
-    <img src="{{ asset('storage/img/icones/parasitisme.svg') }}" alt="Parasitisme">
+    <img src="{{ asset('storage/img/icones/eleveur_rond.svg') }}" alt="eleveur">
 
-    <h2>Parasites</h2>
+    <h2>Eleveurs (euses)</h2>
     <p>
-      Les différents parasites des animaux d'élevage ont tous des cycles bien définis,
-      des localisations précises aux sein de l'organisme et des modes de survie variables selon les espèces.
+      Vous souhaitez faire un suivi régulier et raisonné de l'infestation de votre troupeau pour ne plus traiter en aveugle.
     </p>
 
     <p>
-      En réponse à l'infestation parasitaire, les animaux développent une immunité variable et plus ou moins durable.
+      Vous êtes à la recherche d'un laboratoire vous fournissant des réponses rapides à vos questions sur le parasitisme d'un animal ou de votre troupeau
     </p>
 
-    <a class="btn btn-rouge rounded-0" href="{{ route('parasitisme') }}">En savoir plus</a>
+    <a class="btn btn-rouge" href="{{ route('eleveurs.accueil') }}">En savoir plus</a>
 
   </div>
 
   <div class="col-lg-4">
 
-    <img src="{{ asset('storage/img/icones/resi.svg') }}" alt="résistances">
+    <img src="{{ asset('storage/img/icones/cv_rond.svg') }}" alt="propriétaires de chevaux">
 
-    <h2>Résistances</h2>
+    <h2>Propriétaires de chevaux</h2>
 
     <p>
-      Le développement de résistances aux traitements antiparasitaires est un processus naturel inévitable.
-      Les élevages caprins sont les premiers concernés.
+      Vous avez toujours traité sytématiquement, parce que c'est "<em>ce qui se fait</em>". Et pourtant, votre cheval n'est peut-être pas parasité.
     </p>
 
     <p>
-      Il est indispensable de mettre en oeuvre des pratiques de gestion du parasitisme pour limiter l'extension de ces résistances.
+      De plus, les résistances des parasites aux traitements vont devenir un réel problème.
     </p>
 
-    <a class="btn btn-rouge rounded-0" href="{{ route('resistances') }}">En savoir plus</a>
+    <a class="btn btn-rouge" href="{{ route('cavaliers.accueil') }}">En savoir plus</a>
   </div>
 
 </div>

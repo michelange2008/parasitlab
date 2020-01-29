@@ -7,6 +7,9 @@ require( './bootstrap-table-locale-all.js');
 
 require( './createUser.js');
 require( './createDemande.js');
+require( './signe.js');
+require( './envoi.js');
+
 
 require( 'jquery-confirm' );
 

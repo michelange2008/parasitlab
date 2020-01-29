@@ -77,6 +77,8 @@ trait DemandeFactory
 
     $demande->date_envoi = $this->dateReadable($demande->date_envoi);
 
+    $demande->date_signature = $this->dateReadable($demande->date_signature);
+
   }
 
 }

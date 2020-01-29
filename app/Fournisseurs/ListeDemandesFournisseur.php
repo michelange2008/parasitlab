@@ -55,6 +55,8 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $terminee = $this->ouinonFactory($demande->id, $demande->acheve);
 
+      $signe = $this->ouinonFactory($demande->id, $demande->signe);
+
       $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher cette facture");
 
       $suppr = $this->delFactory($demande->id, 'demandes.destroy');
@@ -67,6 +69,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
         $toveto,
         $reception,
         $terminee,
+        $signe,
         $facture,
         $suppr,
       ];

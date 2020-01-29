@@ -20,8 +20,8 @@ class SerieController extends Controller
 {
 
     use LitJson, SerieInfos, EleveurInfos, DemandeFactory {
-        SerieInfos::dateSortable insteadof DemandeFactory;
-        SerieInfos::dateReadable insteadof DemandeFactory;
+        // SerieInfos::dateSortable insteadof DemandeFactory;
+        // SerieInfos::dateReadable insteadof DemandeFactory;
         DemandeFactory::dateSortable insteadof SerieInfos;
         DemandeFactory::dateReadable insteadof SerieInfos;
     }

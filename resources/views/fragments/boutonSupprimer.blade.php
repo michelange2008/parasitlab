@@ -6,7 +6,7 @@
 
   {{ method_field('DELETE') }}
 
-  <button class="btn btn-rouge rounded-0 mx-1" type="submit" name="ok"
+  <button class="btn btn-rouge mx-1" type="submit" name="ok"
 
     data-toggle="tooltip" data-placement="top"
 

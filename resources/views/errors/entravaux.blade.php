@@ -13,7 +13,7 @@
 
         <p>
 
-          <a class="btn btn-bleu btn-lg rounded-0" href="{{ URL::previous()}}">retour</a>
+          <a class="btn btn-bleu btn-lg" href="{{ URL::previous()}}">retour</a>
 
         </p>
 

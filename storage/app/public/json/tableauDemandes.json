@@ -50,6 +50,12 @@
       "align" : "center",
       "sortable" : true
     },
+    "signe" : {
+      "id" : "signe",
+      "nom" : "Signée",
+      "align" : "center",
+      "sortable" : true
+    },
     "num_facture" : {
       "id" : "num_facture",
       "nom" : "N° fact.",

@@ -10527,6 +10527,10 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.btn {
+  border-radius: 0 !important;
+}
+
 .img-100 {
   height: 100%;
   width: 100%;
@@ -10621,6 +10625,15 @@ hr {
           justify-content: center;
 }
 
+.icone-cadre {
+  width: 120px;
+  border: solid 1px lightgray;
+}
+
+.icone-cadre > img {
+  margin: auto;
+}
+
 @media screen and (max-width: 576px) {
   .img-50 {
     height: 40px;
@@ -10632,5 +10645,9 @@ hr {
 
   h5 {
     font-size: 1rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
   }
 }

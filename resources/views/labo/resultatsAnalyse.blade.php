@@ -1,3 +1,5 @@
+@include('labo.demandeShow.demandeSerie')
+
 @foreach ($demande->prelevements as $prelevement)
 
   @if ($prelevement->toutNegatif)

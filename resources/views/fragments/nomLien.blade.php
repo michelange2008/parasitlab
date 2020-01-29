@@ -5,5 +5,7 @@ VARIABLES: id, route, nom -->
   data-toggle="tooltip" data-placement="top"
   title="{{ $tooltip ?? "cliquer pour afficher les informations" }}"
   class="">
-  {{ $nom }} <i class="color-bleu-tres-tres-clair fas fa-eye"></i>
+  {{ $before ?? ''}}
+  {{ $nom }} {!! $icone ?? '<i class="color-bleu-tres-tres-clair fas fa-eye"></i>' !!}
+  {{ $after ?? '' }}
 </a>

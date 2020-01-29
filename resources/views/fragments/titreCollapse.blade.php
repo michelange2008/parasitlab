@@ -15,7 +15,7 @@ LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPO
 
 @if ($detail)
 <!-- AFFICHAGE DU BOUTON DETAIL SEULEMENT SI LA VARIABLE COLLAPSE-->
-    <button class="btn btn-sm btn-bleu rounded-0" type="button" data-toggle="collapse"
+    <button class="btn btn-sm btn-bleu" type="button" data-toggle="collapse"
         data-target="#{{ $collapse }}" aria-expanded="false" aria-controls="modifier"
         title="{{ $tooltip  ?? 'infos' }}" >
 

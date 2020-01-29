@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -11,19 +10,29 @@
    height="100px"
    width="100px"
    fill="#000000"
-   version="1.1"
+   data-name="Layer 1"
+   viewBox="0 0 98 98"
    x="0px"
    y="0px"
-   viewBox="0 0 100 100"
-   style="enable-background:new 0 0 100 100;"
-   xml:space="preserve"
-   id="svg18"
+   version="1.1"
+   id="svg10"
    sodipodi:docname="ajouter.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
-     id="metadata24"><rdf:RDF><cc:Work
-         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
-     id="defs22" /><sodipodi:namedview
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata16">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>16</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1"
@@ -32,21 +41,29 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1600"
-     inkscape:window-height="836"
-     id="namedview20"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview12"
      showgrid="false"
-     inkscape:zoom="4.72"
-     inkscape:cx="96.595164"
-     inkscape:cy="40.470612"
+     inkscape:zoom="2.36"
+     inkscape:cx="50"
+     inkscape:cy="50"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g14" /><g
-     id="g14"
-     i:extraneous="self"><g
-       id="g10" /><path
-       inkscape:connector-curvature="0"
-       id="path12"
-       d="M 50,2.5 C 23.8,2.5 2.5,23.8 2.5,50 2.5,76.2 23.8,97.5 50,97.5 76.2,97.5 97.5,76.2 97.5,50 97.5,23.8 76.2,2.5 50,2.5 Z M 69.6,55.2 H 55.2 v 14.3 c 0,2.9 -2.3,5.2 -5.2,5.2 -2.9,0 -5.2,-2.3 -5.2,-5.2 V 55.2 H 30.4 c -2.9,0 -5.2,-2.3 -5.2,-5.2 0,-2.9 2.3,-5.2 5.2,-5.2 H 44.7 V 30.4 c 0,-2.9 2.3,-5.2 5.2,-5.2 2.9,0 5.2,2.3 5.2,5.2 v 14.3 h 14.3 c 2.9,0 5.2,2.3 5.2,5.2 0,2.9 -2.1,5.3 -5,5.3 z"
-       style="fill:#0a425a;fill-opacity:1" /></g></svg>
+     inkscape:current-layer="svg10" />
+  <title
+     id="title2">16</title>
+  <g
+     id="g8"
+     style="fill:#0a425a;fill-opacity:1">
+    <path
+       d="M64.1,92.7A22.9,22.9,0,0,0,70.9,48V24.3L50.6,5.3H11v78H45.6A22.9,22.9,0,0,0,64.1,92.7ZM81,69.8A16.9,16.9,0,1,1,64.1,52.9,16.9,16.9,0,0,1,81,69.8ZM52.4,15.2l7.9,7.4H52.4ZM17,77.3v-66H46.4V28.6H64.9V47h-.8A22.8,22.8,0,0,0,42.5,77.3Z"
+       id="path4"
+       style="fill:#0a425a;fill-opacity:1" />
+    <polygon
+       points="61.1 59 61.1 66.8 53.2 66.8 53.2 72.8 61.1 72.8 61.1 80.6 67.1 80.6 67.1 72.8 74.9 72.8 74.9 66.8 67.1 66.8 67.1 59 61.1 59"
+       id="polygon6"
+       style="fill:#0a425a;fill-opacity:1" />
+  </g>
+</svg>

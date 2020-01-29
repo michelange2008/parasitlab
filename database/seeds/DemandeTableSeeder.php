@@ -27,6 +27,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-11-06 00:00:00",
             'date_resultat' => null,
             'date_envoi' => null,
+            'date_signature' => null,
+            'signe' => false,
+            'labo_id' =>null,
             "facture_id" => 4,
           ],
           [
@@ -44,6 +47,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-11-08 00:00:00",
             'date_resultat' => null,
             'date_envoi' => null,
+            'date_signature' => null,
+            'signe' => false,
+            'labo_id' =>null,
             "facture_id" => 5,
           ],
           [
@@ -61,6 +67,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-11-02 00:00:00",
             'date_resultat' => "2019-11-06 00:00:00",
             'date_envoi' => "2019-11-06 00:00:00",
+            'date_signature' => "2019-11-06 00:00:00",
+            'signe' => true,
+            'labo_id' => 1,
             "facture_id" => 1,
           ],
           [
@@ -78,6 +87,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-11-02 00:00:00",
             'date_resultat' => "2019-11-05 00:00:00",
             'date_envoi' => "2019-11-05 00:00:00",
+            'date_signature' => "2019-11-05 00:00:00",
+            'signe' => true,
+            'labo_id' => 2,
             "facture_id" => 2,
           ],
           [
@@ -95,6 +107,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-11-03 00:00:00",
             'date_resultat' => "2019-11-06 00:00:00",
             'date_envoi' => "2019-11-09 00:00:00",
+            'date_signature' => "2019-11-06 00:00:00",
+            'signe' => true,
+            'labo_id' => 1,
             "facture_id" => 3,
           ],
           [
@@ -112,6 +127,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-11-06 00:00:00",
             'date_resultat' => "2019-11-08 00:00:00",
             'date_envoi' => null,
+            'date_signature' => null,
+            'signe' => false,
+            'labo_id' =>null,
             "facture_id" => 6,
           ],
 /*
@@ -132,6 +150,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-11-06 00:00:00",
             'date_resultat' => "2019-11-08 00:00:00",
             'date_envoi' => "2019-11-09 00:00:00",
+            'date_signature' => "2019-11-08 00:00:00",
+            'signe' => true,
+            'labo_id' => 1,
             "facture_id" => 7,
           ],
           // [
@@ -169,7 +190,10 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-06-15 00:00:00",
             'date_resultat' => "2019-06-17 00:00:00",
             'date_envoi' => "2019-06-18 00:00:00",
-            "facture_id" => 9,
+            'date_signature' => "2019-06-17 00:00:00",
+            'signe' => true,
+            'labo_id' => 1,
+          "facture_id" => 9,
           ],
           [
             'id' => 10,
@@ -186,6 +210,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-07-20 00:00:00",
             'date_resultat' => "2019-07-20 00:00:00",
             'date_envoi' => "2019-07-18 22:00:00",
+            'date_signature' => "2019-07-20 00:00:00",
+            'signe' => true,
+            'labo_id' => 1,
             "facture_id" => 10,
           ],
           [
@@ -203,6 +230,9 @@ class DemandeTableSeeder extends Seeder
             'date_reception' => "2019-09-03 00:00:00",
             'date_resultat' => "2019-09-04 00:00:00",
             'date_envoi' => "2019-09-04 00:00:00",
+            'date_signature' => "2019-09-04 00:00:00",
+            'signe' => true,
+            'labo_id' => 1,
             "facture_id" => 11,
           ],
         ]);

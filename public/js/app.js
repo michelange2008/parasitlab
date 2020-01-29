@@ -37112,6 +37112,10 @@ __webpack_require__(/*! ./createUser.js */ "./resources/js/createUser.js");
 
 __webpack_require__(/*! ./createDemande.js */ "./resources/js/createDemande.js");
 
+__webpack_require__(/*! ./signe.js */ "./resources/js/signe.js");
+
+__webpack_require__(/*! ./envoi.js */ "./resources/js/envoi.js");
+
 __webpack_require__(/*! jquery-confirm */ "./node_modules/jquery-confirm/dist/jquery-confirm.min.js");
 
 $(function () {
@@ -48190,6 +48194,88 @@ $('#userCreateForm').on('submit', function (e) {
   }).fail(function (data) {
     // et si ça merde ...
     alert("Désolée, un problème est arrivé à l'enregistrement du nouvel utilisateur. \n\nAppelez Bouiboui !");
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/envoi.js":
+/*!*******************************!*\
+  !*** ./resources/js/envoi.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.a-envoyer').on('click', function () {
+  var destinataire_id = $(this).attr('destinataire');
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
+  var url_nouvelle = url_actuelle.replace('demandes', 'envoyer/' + destinataire_id);
+  $.confirm({
+    theme: 'dark',
+    type: 'green',
+    typeAnimated: 'true',
+    title: "Envoyer une analyse",
+    content: "Veux-tu vraiment envoyer ces résultats aux destinataires ?",
+    buttons: {
+      oui: {
+        text: 'oui',
+        btnClass: 'btn-success',
+        action: function action() {
+          $.get({
+            url: url_nouvelle
+          }).done(function (data) {
+            $('#envoye').fadeOut();
+            $('#a-envoyer-jq').fadeOut();
+            $('#envoye-jq').fadeIn();
+          }).fail(function (data) {
+            console.log("ERREUR !");
+          });
+        }
+      },
+      non: function non() {}
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/signe.js":
+/*!*******************************!*\
+  !*** ./resources/js/signe.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#a-signer').on('click', function (e) {
+  e.preventDefault();
+  var demande_id = $(this).attr('attribut');
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
+  var url_nouvelle = url_actuelle.replace('demandes', 'signer');
+  $.confirm({
+    theme: 'dark',
+    type: 'green',
+    title: "Signer une analyse",
+    content: "Veux-tu vraiment signer ces résultats ?",
+    buttons: {
+      oui: {
+        text: 'oui',
+        btnClass: 'btn-success',
+        action: function action() {
+          $.get({
+            url: url_nouvelle
+          }).done(function (data) {
+            $('#a-signer').fadeOut();
+            $('#signe-jq').fadeIn(2000);
+            $('#a-envoyer-jq').fadeIn(3000);
+          }).fail(function (data) {
+            console.log(data);
+          });
+        }
+      },
+      non: function non() {}
+    }
   });
 });
 

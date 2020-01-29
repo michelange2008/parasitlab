@@ -10,16 +10,15 @@
     <tbody>
       <tr>
         <td><small>{{ $demande->user->name }}</small></td>
-        <td>
-          @include('labo.demandeShow.syntheseRenvoi', ['route' => $route, 'tooltip' => "Renvoyer les résultats à l'éleveur"])
+        <td class="a-envoyer" destinataire="{{ $demande->user_id }}">
+          @include('labo.demandeShow.syntheseRenvoi', ['tooltip' => "Renvoyer les résultats à l'éleveur"])
         </td>
       </tr>
       @if ($demande->toveto)
         <tr>
           <td>{{ $demande->veto->user->name }}</td>
-          <td>
-            @include('labo.demandeShow.syntheseRenvoi', ['route' => $route, 'tooltip' => "Renvoyer les résultats au vétérinaire"])
-            </a>
+          <td class="a-envoyer" destinataire="{{ $demande->veto->user->id }}">
+            @include('labo.demandeShow.syntheseRenvoi', ['tooltip' => "Renvoyer les résultats au vétérinaire"])
           </td>
         </tr>
       @endif

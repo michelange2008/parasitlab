@@ -4,7 +4,19 @@
 
     @include('labo.demandeShow.titreDemande')
 
-    <a class="btn btn-lg btn-bleu rounded-0" href="{{ route('resultats.edit', $demande->id )}}">Saisie/Modification des résultats</a>
+    <div class="btn-group" role="group" aria-label="modif-signature-envoi">
+
+      <a class="btn btn-lg btn-bleu" href="{{ route('resultats.edit', $demande->id )}}">Saisie/Modification des résultats</a>
+
+      @if ($demande->acheve)
+
+        @include('labo.demandeShow.signature')
+
+        @include('labo.demandeShow.envoi')
+
+      @endif
+
+    </div>
 
   </div>
 
