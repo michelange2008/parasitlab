@@ -10,7 +10,7 @@
 
       <div class="col-md-10 col-lg-8">
 
-        @titre(['titre' => "Saisie des résultats", 'soustitre' => "(".$prelevements[0]->demande->user->name." - ".$prelevements[0]->demande->anapack->nom.")"])
+        @titre(['titre' => "Saisie des résultats", 'soustitre' => "(".$demande->user->name." - ".$prelevements[0]->demande->anapack->nom.")"])
 
       </div>
 
@@ -19,7 +19,7 @@
     <form action="{{ route('resultats.store')}}" method="post">
       @csrf
 
-      <input type="hidden" name="demande_id" value="{{ $prelevements[0]->demande->id }}">
+      <input type="hidden" name="demande_id" value="{{ $demande->id }}">
 
       <div class="row justify-content-center my-3">
 
@@ -98,14 +98,23 @@
 
           <div class="col-md-10 col-lg-8">
 
+            @include('labo.resultats.inputCommentaire')
+
+          </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+          <div class="col-md-10 col-lg-8">
+
             @include('fragments.blocEnregistreAnnule', ['id' => $prelevement->demande->id ])
 
           </div>
 
         </div>
 
-
-  </form>
+      </form>
 
   </div>
 

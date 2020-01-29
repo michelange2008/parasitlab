@@ -19,4 +19,9 @@ class Labo extends Model
     return $this->hasMany(\App\Models\Productions\Demande::class);
   }
 
+  public function commentaire()
+  {
+    return $this->hasMany(\App\Models\Productions::class);
+  }
+
 }

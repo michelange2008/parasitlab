@@ -2,6 +2,7 @@
 namespace App\Http\Traits;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Commentaire;
 
 use App\Http\Traits\FormatDate;
 use App\Http\Traits\ListeNomParasites;
@@ -26,6 +27,8 @@ trait DemandeFactory
     $this->configResultatsPrelevement($demande);
 
     $this->formatDateDemande($demande);
+
+    $this->ajouteCommentaire($demande);
 
     return $demande;
   }
@@ -78,6 +81,30 @@ trait DemandeFactory
     $demande->date_envoi = $this->dateReadable($demande->date_envoi);
 
     $demande->date_signature = $this->dateReadable($demande->date_signature);
+
+  }
+
+  public function ajouteCommentaire($demande)
+  {
+    $commentaire = Commentaire::where('demande_id', $demande->id)->first();
+
+    // S'il n'y a pas de commentaire, on en crée un avec des attributs à null (pour éviter les errreurs)
+    if ($commentaire === null) {
+
+      $commentaire = new Commentaire();
+      $commentaire->commentaire = null;
+      $commentaire->date_commentaire = null;
+      $commentaire->labo = null;
+    }
+    else {
+
+      if ($commentaire->date_commentaire !== null) {
+
+        $commentaire->date_commentaire = $this->dateReadable($commentaire->date_commentaire);
+
+      }
+    }
+    $demande->commentaire = $commentaire;
 
   }
 

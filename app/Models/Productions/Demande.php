@@ -8,6 +8,7 @@ class Demande extends Model
 {
 
     protected $guarded = [];
+    public $timestamps = false;
 
     public function user()
     {
@@ -47,5 +48,10 @@ class Demande extends Model
     public function labo()
     {
       return $this->belongsTo(\App\Models\Labo::class);
+    }
+
+    public function commentaire()
+    {
+      return $this->belongsTo(Commentaire::class);
     }
 }

@@ -95,3 +95,9 @@
 
   </table>
 @endforeach
+
+@if ($commentaire !== null)
+
+  {!! nl2br($commentaire->commentaire) !!}
+  
+@endif

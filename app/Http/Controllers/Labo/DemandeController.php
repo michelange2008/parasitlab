@@ -28,6 +28,7 @@ use App\Models\Productions\Prelevement;
 use App\Models\Productions\Etat;
 use App\Models\Productions\Consistance;
 use App\Models\Productions\Resultat;
+use App\Models\Productions\Commentaire;
 
 class DemandeController extends Controller
 {
@@ -102,6 +103,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
+
       session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
       $user = User::where('name', $datas['userDemande'])->first();
@@ -196,6 +198,7 @@ class DemandeController extends Controller
      */
     public function show($id)
     {
+
       $demande = Demande::find($id);
 
       $user = $demande->user;

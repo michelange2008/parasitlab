@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
+use App\Models\Productions\Commentaire;
 use App\Fournisseurs\ListeDemandesEleveurFournisseur;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\SerieInfos;
@@ -50,9 +51,12 @@ class EleveurController extends Controller
 
       $demande = $this->demandeFactory($demande);
 
+      $commentaire = Commentaire::where('demande_id', $demande_id)->first();
+
       return view('utilisateurs.eleveurs.eleveurDemandeShow', [
         'menu' => $this->menu,
         'demande' => $demande,
+        'commentaire' => $commentaire,
       ]);
     }
 

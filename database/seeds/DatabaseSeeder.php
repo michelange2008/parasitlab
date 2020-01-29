@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
       $this->call(FacturesTableSeeder::class);
       $this->call(SeriesTableSeeder::class);
       $this->call(DemandeTableSeeder::class);
+      $this->call(CommentairesTableSeeder::class);
       $this->call(Anaacte_anapackTableSeeder::class);
       $this->call(Anaitem_analyseTableSeeder::class);
       $this->call(PrelevementsTableSeeder::class);

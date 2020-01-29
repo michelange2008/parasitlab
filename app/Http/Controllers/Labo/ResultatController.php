@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Labo;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Labo\CommentaireController;
 use Illuminate\Http\Request;
 use DB;
 
@@ -11,6 +12,7 @@ use App\Http\Traits\LitJson;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Resultat;
+use App\Models\Productions\Commentaire;
 
 class ResultatController extends Controller
 {
@@ -32,11 +34,15 @@ class ResultatController extends Controller
     {
       $demande = Demande::find($demande_id);
 
+      $commentaire = Commentaire::where('demande_id', $demande_id)->first();
+
       $prelevements = Prelevement::where('demande_id', $demande_id)->get();
 
       return view('labo.resultats.resultatsSaisie', [
         'menu' => $this->menu,
         'prelevements' => $prelevements,
+        'demande' => $demande,
+        'commentaire' => $commentaire,
       ]);
     }
 
@@ -48,6 +54,7 @@ class ResultatController extends Controller
     {
 
       $datas = $request->all();
+
       // ON RECUPERE L'ID DE LA DEMANDE POUR LA MARQUER ACHEVE OU NON
       if (isset($datas['demande_id'])) {
 
@@ -94,6 +101,14 @@ class ResultatController extends Controller
           }
 
         }
+
+      }
+      // On stocke le commentaire dans la table correspondante
+      if(isset($datas['commentaire'])) {
+
+        $commentaire = new CommentaireController($demande_id);
+
+        $commentaire->store($datas['commentaire']);
 
       }
 

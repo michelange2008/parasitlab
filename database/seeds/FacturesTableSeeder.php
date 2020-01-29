@@ -103,19 +103,19 @@ class FacturesTableSeeder extends Seeder
             'payee' => 0,
             'payee_date' => null,
           ],
-          // [
-          //   'id' => 8,
-          //
-          //   'user_id' => 6,
-          //   'faite' => 0,
-          //   'total_ht' => 0,
-          //   'total_ttc' => 0,
-          //   'faite_date' => null,
-          //   'envoyee' => 0,
-          //   'envoyee_date' => null,
-          //   'payee' => 0,
-          //   'payee_date' => null,
-          // ],
+          [
+            'id' => 8,
+
+            'user_id' => 6,
+            'faite' => 0,
+            'total_ht' => 0,
+            'total_ttc' => 0,
+            'faite_date' => null,
+            'envoyee' => 0,
+            'envoyee_date' => null,
+            'payee' => 0,
+            'payee_date' => null,
+          ],
           [
             'id' => 9,
 
