@@ -49,6 +49,8 @@ class CreateDemandesTable extends Migration
             $table->timestamp('date_resultat')->nullable();
             $table->timestamp('date_envoi')->nullable();
 
+            $table->
+
             $table->timestamp('date_signature')->nullable();
             $table->boolean('signe')->default(false);
             $table->unsignedInteger('labo_id')->nullable();
@@ -59,7 +61,6 @@ class CreateDemandesTable extends Migration
             $table->foreign('facture_id')->references('id')->on('factures')
             ->onDelete('set null')->onUpdate('cascade');
 
-            $table->timestamps();
         });
     }
 
