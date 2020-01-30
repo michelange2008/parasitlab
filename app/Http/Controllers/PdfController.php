@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use PDF;
 use App\Models\Productions\Demande;
 use App\Http\Traits\DemandeFactory;
+use App\Http\Traits\LitJson;
 
 class PdfController extends Controller
 {
-  use DemandeFactory;
+  use DemandeFactory, LitJson;
 
   public function resultatPdf($demande_id)
   {

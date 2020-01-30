@@ -12,9 +12,9 @@
 #footer {
   position: fixed;
   left: 0px;
-  bottom: -80px;
+  bottom: -90px;
   right: 0px;
-  height: 50px;
+  height: 40px;
   background-color: lightblue;
   padding-left: 20px
 }
@@ -35,7 +35,7 @@
 }
 
 .adresseNom {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .pdf-entete  {
@@ -44,6 +44,7 @@
 
 .pdf-table {
   width: 100%;
+  font-size: 0.8rem;
 }
 
 .pdf-table-titre {
@@ -51,16 +52,21 @@
   color: white;
 }
 
+table, thead, tbody, tr, td {
+  page-break-inside: avoid;
+}
+
 .pdf-titre {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .ligne1 {
-  padding: 0.3rem 0.75rem !important;
+  padding: 0.2rem 0.5rem !important;
   width: 350px;
 }
 
-.lignes {
+.lignes, .lignes > span {
   margin:0;
-  padding: 0.3rem 0.75rem !important;
+  padding: 0.2rem 0.5rem !important;
+  font-size: 0.8rem;
 }

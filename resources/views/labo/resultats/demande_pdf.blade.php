@@ -14,7 +14,7 @@
 
 </div>
 
-<table class="table table-bordered">
+<table class="table table-bordered pdf-table">
   <tr>
     <td>Espèce : <strong>{{ mb_strtoupper($demande->espece->nom) }}</strong></td>
     <td>Date de réception: <strong>{{ $demande->date_reception}}</strong></td>
@@ -31,7 +31,7 @@
 
 @foreach ($demande->prelevements as $prelevement)
 
-  <table class="table table-bordered" style="font-size:0.9rem">
+  <table class="table table-bordered pdf-table">
     <tr class="pdf-table-titre">
       <td colspan="3" class="ligne1"><strong>{{ mb_strtoupper($prelevement->identification)}}</strong> (prelevement n°{{ $loop->index + 1}} -
         <span class="lignes">
@@ -44,7 +44,7 @@
 @if ($prelevement->toutNegatif)
 
   <tr>
-    <td colspan="3" class="adresseNom">Aucun parasite recherché n'a été détecté</td>
+    <td colspan="3">Aucun parasite recherché n'a été détecté</td>
   </tr>
 
 @else
@@ -96,8 +96,19 @@
   </table>
 @endforeach
 
-@if ($commentaire !== null)
+@if ($demande->commentaire !== null)
 
-  {!! nl2br($commentaire->commentaire) !!}
-  
+  <p class="lignes">
+    {!! nl2br($demande->commentaire->commentaire) !!}
+  </p>
+
 @endif
+<hr>
+<div class="text-right">
+
+  <p class="lignes">
+    Signée le {{ $demande->date_signature }} par {{ $demande->labo->user->name }}
+  </p>
+  <img width="250px" src="{!! asset('storage/img/labo/signatures')."/".$demande->labo->signature !!}" alt="">
+
+</div>
