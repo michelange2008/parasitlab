@@ -57,8 +57,16 @@ Route::group(['middleware' => 'auth', 'middleware' => 'eleveur'], function() {
 
 });
 
+Route::group(['middleware' => 'auth', 'middleware' => 'veto'], function() {
 
-Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
+  Route::get('/veterinaire', 'VeterinaireController@index')->name('veto');
+
+  Route::get('/veterinaire/demande/{demande_id}', 'VeterinaireController@demandeShow')->name('veto.demandeShow');
+
+  Route::get('/veterinaire/serie/{serie_id}', 'VeterinaireController@serieShow')->name('veto.serieShow');
+
+});
+
 
 // routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
 Route::group(['middleware' => 'auth'], function(){

@@ -37,7 +37,7 @@ class EleveurController extends Controller
 
       $zeroAnalyses = "Vous n'avez pour l'instant aucune demande d'analyse";
 
-      return view('utilisateurs.eleveurs.index', [
+      return view('utilisateurs.index', [
         "menu" => $this->menu,
         'user' => $user,
         'datas' => $datas,

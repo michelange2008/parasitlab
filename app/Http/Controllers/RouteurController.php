@@ -30,7 +30,8 @@ class RouteurController extends Controller
     }
     elseif ($this->estVeto(auth()->user()->usertype_id)) {
 
-      return "coucou véto";
+      return redirect()->route('veto.demandeShow', ['demande_id' => $demande_id]);
+
     }
 
     elseif ($this->estEleveur(auth()->user()->usertype_id)) {

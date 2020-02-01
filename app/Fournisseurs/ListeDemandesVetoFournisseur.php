@@ -23,9 +23,9 @@ class ListeDemandesVetoFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $eleveur = $this->lienFactory($demande->user_id, $demande->user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
+      $eleveur = $this->itemFactory($demande->user->name);
 
-      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', "Cliquer pour afficher cette demande d'analyse");
+      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'routeurDemande', "Cliquer pour afficher cette demande d'analyse");
 
       if(isset($demande->serie_id)) {
 
@@ -42,7 +42,7 @@ class ListeDemandesVetoFournisseur extends ListeFournisseur
 
       $reception = $this->itemFactory($this->dateSortable($demande->date_reception));
 
-      $terminee = $this->ouinonFactory($demande->id, $demande->acheve);
+      $terminee = $this->ouinonFactory($demande->id, $demande->signe);
 
       $description = [
         $eleveur,
