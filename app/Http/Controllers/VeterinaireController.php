@@ -6,15 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\DemandeFactory;
+use App\Http\Traits\SerieInfos;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Serie;
 
 use App\Fournisseurs\ListeDemandesVetoFournisseur;
+
+
 
 class VeterinaireController extends Controller
 {
 
-  use LitJson, DemandeFactory;
+  use LitJson, DemandeFactory, SerieInfos;
 
   protected $menu;
 
@@ -55,19 +59,31 @@ class VeterinaireController extends Controller
 
       $demande = $this->demandeFactory($demande);
 
-      $commentaire = Commentaire::where('demande_id', $demande_id)->first();
-
       return view('utilisateurs.utilisateurDemandeShow', [
         'menu' => $this->menu,
         'demande' => $demande,
-        'commentaire' => $commentaire,
-
       ]);
     }
 
-    public function serieShow($demande_id)
+    public function serieShow($serie_id)
     {
 
+      $serie = Serie::find($serie_id);
+
+      foreach ($serie->demandes as $demande) {
+
+        $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
+
+      }
+
+      $serieInfos = $this->serieInfos($serie);
+
+      return view('utilisateurs.utilisateurSerieShow', [
+        'menu' => $this->menu,
+        'serie' => $serie,
+        'serieInfos' => $serieInfos,
+      ]);
     }
+
 }
 // TODO: Comment faire avec le "aucun vétérinaire"

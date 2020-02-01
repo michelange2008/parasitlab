@@ -53,7 +53,7 @@ class EleveurController extends Controller
 
       $commentaire = Commentaire::where('demande_id', $demande_id)->first();
 
-      return view('utilisateurs.eleveurs.eleveurDemandeShow', [
+      return view('utilisateurs.utilisateurDemandeShow', [
         'menu' => $this->menu,
         'demande' => $demande,
         'commentaire' => $commentaire,
@@ -72,7 +72,7 @@ class EleveurController extends Controller
 
       $serieInfos = $this->serieInfos($serie);
 
-      return view('utilisateurs.eleveurs.eleveurSerieShow', [
+      return view('utilisateurs.utilisateurSerieShow', [
         'menu' => $this->menu,
         'serie' => $serie,
         'serieInfos' => $serieInfos,

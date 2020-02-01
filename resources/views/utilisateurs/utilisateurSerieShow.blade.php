@@ -10,7 +10,7 @@
 
       <div class="col-md-8 col-lg-6">
 
-        @include('utilisateurs.eleveurs.titreEleveurSerie')
+        @include('utilisateurs.utilisateurTitreSerie')
 
       </div>
 
@@ -46,12 +46,7 @@
 
       <div class="col-md-8 col-lg-6">
 
-        @include('fragments.boutonUser', [
-          'route' => 'eleveur',
-          'id' => '',
-          'couleur' => 'btn-secondary',
-          'intitule' => 'Retour',
-        ])
+        @retour()
 
       </div>
 

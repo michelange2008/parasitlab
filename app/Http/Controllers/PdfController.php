@@ -7,10 +7,11 @@ use PDF;
 use App\Models\Productions\Demande;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
 
 class PdfController extends Controller
 {
-  use DemandeFactory, LitJson;
+  use DemandeFactory, LitJson, UserTypeOutil;
 
   public function resultatPdf($demande_id)
   {
@@ -18,7 +19,29 @@ class PdfController extends Controller
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
-    $pdf = PDF::loadview('labo.resultats.pdf', compact('demande'));
+    if ($this->estEleveur(auth()->user()->usertype->id)) {
+
+      $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande'));
+
+    }
+    elseif ($this->estVeto(auth()->user()->usertype->id)) {
+
+      $pdf = PDF::loadview('labo.resultats.pdf.vetoPdf', compact('demande'));
+
+    }
+
+    elseif ($this->estLabo(auth()->user()->usertype->id)) {
+
+      $pdf = PDF::loadview('labo.resultats.pdf.laboPdf', compact('demande'));
+
+    }
+
+    else {
+
+      return route('accueil');
+
+    }
+
 
     $name = $demande->user->name."_".$demande->anapack->nom."_".$demande->date_resultat.".pdf";
 

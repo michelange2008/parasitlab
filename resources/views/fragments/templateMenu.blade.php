@@ -11,7 +11,11 @@
           @foreach ($item->sousmenu as $sousmenu)
               <a class="dropdown-item d-inline-flex justify-content-between" href="{{ route($sousmenu->route) }}">
                 {{ $sousmenu->nom }}
-                <img class="img-25" src="{{ asset('storage/img/icones')."/".$sousmenu->icone }}" alt="{{ $sousmenu->icone }}">
+                @isset($sousmenu->icone)
+
+                  <img class="img-25" src="{{ asset('storage/img/icones')."/".$sousmenu->icone }}" alt="{{ $sousmenu->icone }}">
+                  
+                @endisset
               </a>
 
           @endforeach

@@ -78,7 +78,7 @@ class DemandeTableSeeder extends Seeder
             'nb_prelevement' => 1,
             'espece_id' => 4,
             'anapack_id' => 3,
-            'serie_id' => null,
+            'serie_id' => 1,
             'informations' => null,
             'toveto' => 1,
             'veto_id' => 1,

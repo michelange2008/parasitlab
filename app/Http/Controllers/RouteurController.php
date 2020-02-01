@@ -16,6 +16,34 @@ class RouteurController extends Controller
 {
   use UserTypeOutil;
 
+  public function routeurPersonnel()
+  {
+
+    if($this->estLabo(auth()->user()->usertype_id)) {
+
+
+      return redirect()->route('laboratoire');
+
+    }
+    elseif ($this->estVeto(auth()->user()->usertype_id)) {
+
+      return redirect()->route('veterinaire');
+
+    }
+
+    elseif ($this->estEleveur(auth()->user()->usertype_id)) {
+
+      return redirect()->route('eleveur');
+    }
+    else {
+
+      return redirect($to = null, $status = 418, $headers = [], $secure = null );
+
+    }
+  }
+
+
+
 // METHODE QUI EST APPELLEE PAR LES LIENS DATE DE DEMANDE SUR LA VUE labo.serieShow.detailIdentique
   public function routeurDemande($demande_id)
   {
@@ -61,7 +89,8 @@ class RouteurController extends Controller
     }
     elseif ($this->estVeto(auth()->user()->usertype_id)) {
 
-      return "coucou véto";
+      return redirect()->route('veto.serieShow', ['serie_id' => $serie_id]);
+
     }
 
     elseif ($this->estEleveur(auth()->user()->usertype_id)) {

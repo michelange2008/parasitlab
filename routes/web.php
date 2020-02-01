@@ -38,7 +38,6 @@ Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
 
-Route::get('/resultatPdf/{demande}', ['uses' => 'PdfController@resultatPdf', 'as' => 'resultatPdf']);
 
 //##############################################################################
 
@@ -59,7 +58,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'eleveur'], function() {
 
 Route::group(['middleware' => 'auth', 'middleware' => 'veto'], function() {
 
-  Route::get('/veterinaire', 'VeterinaireController@index')->name('veto');
+  Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
   Route::get('/veterinaire/demande/{demande_id}', 'VeterinaireController@demandeShow')->name('veto.demandeShow');
 
@@ -71,9 +70,13 @@ Route::group(['middleware' => 'auth', 'middleware' => 'veto'], function() {
 // routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
 Route::group(['middleware' => 'auth'], function(){
 
+  Route::get('/personnel', 'RouteurController@routeurPersonnel')->name('routeurPersonnel');
+
   Route::get('/routeur/serie/{serie_id}', 'RouteurController@routeurSerie')->name('routeurSerie');
 
   Route::get('/routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
+
+  Route::get('/resultatPdf/{demande}', ['uses' => 'PdfController@resultatPdf', 'as' => 'resultatPdf']);
 
 });
 

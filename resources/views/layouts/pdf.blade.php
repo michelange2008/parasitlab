@@ -22,10 +22,10 @@
   <body>
 
     <div id="header">
-      @include('labo.resultats.enteteResultats')
+      @include('labo.resultats.pdf.enteteResultats')
     </div>
 
-    @include('labo.resultats.demande_pdf')
+    @yield('content')
 
     <div id="footer">
       <span class="page">Page </span>

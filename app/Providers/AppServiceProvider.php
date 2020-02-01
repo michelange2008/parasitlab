@@ -35,5 +35,7 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('labo.serieShow', 'serieShow');
       Blade::include('admin.titre', 'titre');
       Blade::include('admin.titreCreationUser', 'titreCreationUser');
+
+      Blade::include('fragments.boutonRetour', 'retour');
     }
 }

@@ -11,29 +11,6 @@
     "tooltip" : "Tout ce que vous avez toujours voulu savoir",
     "route" : "parasitisme"
   },
-  "item_3" :
-  {
-    "nom" : "Qui sommes-nous ?",
-    "tooltip" : "Un laboratoire de recherche sur le terrain",
-    "route" : "quisommesnous",
-    "sousmenu" :
-    {
-      "sousmenu_1" :
-      {
-        "nom" : "Item 1",
-        "icone" : "inconnu.svg",
-        "tooltip" : "...",
-        "route" : "accueil"
-      },
-      "sousmenu_2" :
-      {
-        "nom" : "Item 2",
-        "icone" : "inconnu.svg",
-        "tooltip" : "...",
-        "route" : "accueil"
-      }
-    }
-  },
   "item_4" :
   {
     "nom" : "Analyses",
@@ -44,35 +21,35 @@
       "sousmenu_1" :
       {
         "nom" : "Coproscopies simples",
-        "icone" : "inconnu.svg",
+
         "tooltip" : "...",
         "route" : "accueil"
       },
       "sousmenu_2" :
       {
         "nom" : "Identification haemonchus",
-        "icone" : "inconnu.svg",
+
         "tooltip" : "...",
         "route" : "accueil"
       },
       "sousmenu_3" :
       {
         "nom" : "Test de baerman",
-        "icone" : "inconnu.svg",
+
         "tooltip" : "...",
         "route" : "accueil"
       },
       "sousmenu_4" :
       {
         "nom" : "Test de résistance",
-        "icone" : "inconnu.svg",
+
         "tooltip" : "...",
         "route" : "accueil"
       },
       "sousmenu_5" :
       {
         "nom" : "Suivi de campagne",
-        "icone" : "inconnu.svg",
+
         "tooltip" : "...",
         "route" : "accueil"
       }
@@ -88,14 +65,14 @@
       "sousmenu_1" :
       {
         "nom" : "Prélever",
-        "icone" : "inconnu.svg",
+
         "tooltip" : "Toutes les informations pour un bon prélèvement",
         "route" : "accueil"
       },
       "sousmenu_2" :
       {
         "nom" : "Envoyer",
-        "icone" : "inconnu.svg",
+
         "tooltip" : "Envoyer vos prélèvements",
         "route" : "accueil"
       }
@@ -105,5 +82,28 @@
     "nom" : "Nous contacter",
     "tooltip" : "un problème, une question ...",
     "route" : "contact"
+  },
+  "item_3" :
+  {
+    "nom" : "Qui sommes-nous ?",
+    "tooltip" : "Un laboratoire de recherche sur le terrain",
+    "route" : "quisommesnous",
+    "sousmenu" :
+    {
+      "sousmenu_1" :
+      {
+        "nom" : "Item 1",
+
+        "tooltip" : "...",
+        "route" : "accueil"
+      },
+      "sousmenu_2" :
+      {
+        "nom" : "Item 2",
+
+        "tooltip" : "...",
+        "route" : "accueil"
+      }
+    }
   }
 }

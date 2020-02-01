@@ -10,7 +10,7 @@
 
       <div class="col-md-8 col-lg-6">
 
-        @include('utilisateurs.eleveurs.titreEleveurDemande')
+        @include('utilisateurs.UtilisateurTitreDemande')
 
       </div>
 
@@ -24,11 +24,11 @@
 
         @if (!$demande->signe)
 
-          @include('utilisateurs.eleveurs.eleveurDemandeInacheveShow')
+          @include('utilisateurs.utilisateurDemandeInacheveShow')
 
         @else
 
-          @include('utilisateurs.eleveurs.eleveurDemandeAcheveShow')
+          @include('utilisateurs.utilisateurDemandeAcheveShow')
 
         @endif
 
@@ -46,12 +46,7 @@
 
         @endif
 
-        @include('fragments.boutonUser', [
-          'route' => 'eleveur',
-          'id' => '',
-          'couleur' => 'btn-secondary',
-          'intitule' => 'Retour',
-        ])
+        @retour(['url' => url('/personnel')])
 
       </div>
 
@@ -79,5 +74,6 @@
     </div>
 
   </div>
+
 
 @endsection
