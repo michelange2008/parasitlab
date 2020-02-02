@@ -29,4 +29,5 @@ class CommentairesTableSeeder extends Seeder
       DB::table('commentaires')->insert($datas);
 
     }
+    
 }
