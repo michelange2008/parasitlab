@@ -10852,6 +10852,11 @@ h3 {
   height: 25px;
 }
 
+.img-claire {
+  -webkit-filter: invert(100%) grayscale(100%);
+          filter: invert(100%) grayscale(100%);
+}
+
 a {
   color: inherit;
 }
@@ -10949,5 +10954,11 @@ hr {
 
   .lead {
     font-size: 1.1rem;
+  }
+
+  .bd-sidebar {
+    position: -webkit-relative;
+    position: relative;
+    height: auto;
   }
 }
