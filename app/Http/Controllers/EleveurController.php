@@ -16,7 +16,10 @@ use App\Http\Traits\LitJson;
 class EleveurController extends Controller
 {
 
-  use LitJson, DemandeFactory, SerieInfos;
+  use LitJson, SerieInfos, DemandeFactory {
+      DemandeFactory::dateSortable insteadof SerieInfos;
+      DemandeFactory::dateReadable insteadof SerieInfos;
+  }
 
   protected $menu;
 
