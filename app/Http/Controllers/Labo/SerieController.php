@@ -16,12 +16,14 @@ use App\Http\Traits\SerieInfos;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeFactory;
 
+use App\Fournisseurs\ListeSeriesFournisseur;
+
 class SerieController extends Controller
 {
 
+    protected $menu;
+
     use LitJson, SerieInfos, EleveurInfos, DemandeFactory {
-        // SerieInfos::dateSortable insteadof DemandeFactory;
-        // SerieInfos::dateReadable insteadof DemandeFactory;
         DemandeFactory::dateSortable insteadof SerieInfos;
         DemandeFactory::dateReadable insteadof SerieInfos;
     }
@@ -34,6 +36,8 @@ class SerieController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('labo');
+
+        $this->menu = $this->litJson('menuLabo');
     }
 
     /**
@@ -43,7 +47,17 @@ class SerieController extends Controller
      */
     public function index()
     {
-        //
+        $series = Serie::all();
+
+        $fournisseur = new ListeSeriesFournisseur();
+
+        $datas = $fournisseur->renvoieDatas($series, "liste des séries d'analyse", 'serie.svg', 'tableauSeries', 'demandes.create', "Ajouter une demande d'analyse");
+
+        return view('admin.index.pageIndex', [
+            "menu" => $this->menu,
+            'datas' => $datas,
+          ]);
+
     }
 
     /**

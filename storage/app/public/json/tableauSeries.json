@@ -1,0 +1,36 @@
+{
+  "tri" : {
+
+    "colonne" : "serie",
+
+    "ordre" : "desc"
+  },
+
+  "liste" : {
+
+    "name" : {
+      "id" : "name",
+      "nom" : "Analyse",
+      "align" : "left",
+      "sortable" : false
+    },
+    "eleveur" : {
+      "id" : "eleveur",
+      "nom" : "Eleveur",
+      "align" : "left",
+      "sortable" : true
+    },
+    "espece" : {
+      "id" : "espece",
+      "nom" : "Esp.",
+      "align" : "center",
+      "sortable" : false
+    },
+    "acheve" : {
+      "id" : "acheve",
+      "nom" : "Terminée",
+      "align" : "center",
+      "sortable" : true
+    }
+  }
+}

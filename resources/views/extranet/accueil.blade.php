@@ -6,6 +6,8 @@
 
   <main>
 
+    @include('cookieConsent::index')
+
     @include('extranet.accueil_carousel')
 
     <div class="container accueil">
@@ -19,10 +21,8 @@
       @include('extranet.accueil_pastilles')
 
       <hr class="labo-divider">
-      
+
     </div>
-
-
 
   </main>
 

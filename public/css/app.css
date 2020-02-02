@@ -10939,9 +10939,13 @@ hr {
   margin: auto;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 992px) {
   .img-50 {
     height: 40px;
+  }
+
+  .img-100 {
+    height: 50px;
   }
 
   .alert, .card-header {
@@ -10960,5 +10964,8 @@ hr {
     position: -webkit-relative;
     position: relative;
     height: auto;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 0.5rem;
   }
 }

@@ -29,7 +29,7 @@ class ListeDemandesVetoFournisseur extends ListeFournisseur
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', "Cliquer pour afficher cette série");
+        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'routeurSerie', "Cliquer pour afficher cette série");
 
       }
       else {
