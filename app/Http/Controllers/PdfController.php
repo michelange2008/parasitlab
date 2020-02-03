@@ -64,4 +64,9 @@ class PdfController extends Controller
     return $pdf;
   }
 
+  public function presentation()
+  {
+    // code...
+  }
+
 }

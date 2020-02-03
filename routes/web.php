@@ -38,6 +38,8 @@ Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
 
+Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
+
 
 //##############################################################################
 
