@@ -1,11 +1,26 @@
-<iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+<div class="d-flex flex-row">
 
-  src="https://www.openstreetmap.org/export/embed.html?bbox=4.971506595611573%2C44.735325134754305%2C4.97858762741089%2C44.738808008198184&amp;layer=mapnik&amp;marker=44.73706659769891%2C4.9750471115112305"
-  style="border: 1px solid black">
+  <div style="width:25vw" class="border mr-1">
 
-</iframe>
+    <img class="img-100" src="{!! asset('storage/img/map_finale.svg') !!}" alt="plan">
 
-<br/>
+  </div>
+
+  <div style="width:75vw">
+
+    <iframe width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+
+    src="https://www.openstreetmap.org/export/embed.html?bbox=4.971506595611573%2C44.735325134754305%2C4.97858762741089%2C44.738808008198184&amp;layer=mapnik&amp;marker=44.73706659769891%2C4.9750471115112305"
+    style="border: 1px solid black">
+
+  </iframe>
+
+  <br/>
+
+  </div>
+
+</div>
+
 <div class="d-flex flex-row justify-content-between">
 
   <a href="https://www.openstreetmap.org/?mlat=44.73707&amp;mlon=4.97505#map=18/44.73707/4.97505">

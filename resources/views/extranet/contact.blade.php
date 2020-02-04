@@ -24,7 +24,7 @@
 
           @include('fragments.carte', [
             'icone' => 'email.svg',
-            'titre' => 'Par courriel',
+            'titre' => 'Ecrivez-nous',
             'texte_1' => "Vous avez un question un peu complexe, nécessitant des explications détaillées...",
             'texte_2' => "N'hésitez pas ! le courrier électronique est fait pour ça.",
             'type' => 'mail',
@@ -34,7 +34,7 @@
 
           @include('fragments.carte', [
             'icone' => 'telephone.svg',
-            'titre' => 'Par téléphone',
+            'titre' => 'Appelez-nous',
             'texte_1' => "Vous souhaitez juste une information sur une analyse en cours, un prélèvement à envoyer, une facture...",
             'texte_2' => "Le téléphone est un bon moyen pour avoir une réponse rapide.",
             'type' => 'phone',
@@ -48,19 +48,20 @@
             'texte_2' => "Pôle Bio - Ecosite du Val de Drôme - 150 Av. de Judée - 26400 Eurre ",
             'type' => 'link',
             'fa' => 'fas fa-map-marked-alt',
-            'lien' => 'https://www.openstreetmap.org/way/485088058',
+            'lien' => 'https://www.openstreetmap.org/#map=19/44.73704/4.97555',
             'intitule' => 'Voir sur la carte',
           ])
 
           @include('fragments.carte', [
             'icone' => 'horaires.svg',
-            'titre' => "Horaires et jour d'ouverture",
+            'titre' => "Nous sommes là ...",
             'texte_1' => "Du lundi au vendredi",
             'texte_2' => "de 8h30 à 11h30",
-            'type' => 'link',
+            'type' => 'route',
             'fa' => 'fas fa-file-pdf',
-            'lien' => url()->route('presentation'),
+            'route' => 'presentation',
             'intitule' => 'Toutes les infos',
+            'couleur' => 'btn-rouge'
           ])
 
         </div>
