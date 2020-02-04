@@ -48,7 +48,7 @@
             'texte_2' => "Pôle Bio - Ecosite du Val de Drôme - 150 Av. de Judée - 26400 Eurre ",
             'type' => 'link',
             'fa' => 'fas fa-map-marked-alt',
-            'lien' => 'https://www.openstreetmap.org/#map=17/44.73689/4.97671',
+            'lien' => 'https://www.openstreetmap.org/way/485088058',
             'intitule' => 'Voir sur la carte',
           ])
 
@@ -63,13 +63,21 @@
             'intitule' => 'Toutes les infos',
           ])
 
-      </div>
+        </div>
 
       </div>
 
     </div>
-    
 
+    <div class="row justify-content-center">
+
+      <div class="col-md-10">
+
+        @include('extranet.map')
+
+      </div>
+
+    </div>
   </div>
 
 @endsection
