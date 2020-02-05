@@ -4,7 +4,7 @@
 
   <div class="card-body">
 
-    <h5 class="card-title">{{ $titre }}</h5>
+    <h3 class="card-header">{{ $titre }}</h3>
 
     <p>{{ $texte_1 ?? '' }}</p>
 

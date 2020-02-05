@@ -16,7 +16,7 @@
     </div>
 
     <div class="carousel-item">
-      <img class="w-100" src="{{ asset('storage/img/tete_haemonchus.png') }}" alt="brebis">
+      <img class="w-100" src="{{ asset('storage/img/vache.png') }}" alt="brebis">
       <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce">
         <h2>Evaluez la situation de vos animaux !</h2>
       </div>

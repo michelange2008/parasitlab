@@ -1,32 +1,33 @@
-@if (isset($type) && $type == 'mail')
+@if (isset($type) && $type == 'mail') {{-- mailto --}}
 
   @include('fragments.boutonMailTo')
 
-@elseif (isset($type) && $type == 'link')
+
+@elseif (isset($type) && $type == 'link') {{-- lien externe --}}
 
   <a class="btn {{$couleur ?? 'btn-bleu'}}" href="{{ $lien }}" target="_blank" >
 
-    <i class="{{ $fa }}"></i>
+    <i class="{{ $fa ?? '' }}"></i>
 
     {{ $intitule }}
 
   </a>
 
-@elseif (isset($type) && $type == 'route')
+@elseif (isset($type) && $type == 'route') {{-- lien interne --}}
 
-  <a class="btn {{$couleur ?? 'btn-bleu'}}" href="{{ route( $route ) }}" target="_blank" >
+  <a class="btn {{$couleur ?? 'btn-bleu'}}" href="{{ route( $route ) }}">
 
-    <i class="{{ $fa }}"></i>
+    <i class="{{ $fa ?? '' }}"></i>
 
     {{ $intitule }}
 
   </a>
 
-@elseif (isset($type) && $type == 'phone')
+@elseif (isset($type) && $type == 'phone') {{-- faux bouton --}}
 
   <div class="btn {{$couleur ?? 'btn-bleu'}}">
 
-    <i class="fas fa-phone"></i>
+    <i class="{{ $fa ?? ''}}"></i>
 
     {{ $intitule }}
 
