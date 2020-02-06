@@ -33,7 +33,7 @@ class ExtranetController extends Controller
 
     public function veterinaires()
     {
-      return view('extranet.accueil', [
+      return view('extranet.veterinaires', [
         "menu" => $this->menu,
       ]);
     }
