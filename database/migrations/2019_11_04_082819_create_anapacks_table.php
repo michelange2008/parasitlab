@@ -22,6 +22,7 @@ class CreateAnapacksTable extends Migration
             $table->boolean('serie');
             $table->unsignedInteger('icone_id')->default('1')->nullable();
             $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');
+            $table->boolean('veto');
         });
     }
 

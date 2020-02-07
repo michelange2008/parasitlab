@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Analyses\Anapack;
+
 use App\Http\Traits\LitJson;
 
 class ExtranetController extends Controller
@@ -33,8 +35,11 @@ class ExtranetController extends Controller
 
     public function veterinaires()
     {
+      $anapacks = Anapack::where('veto', true)->get();
+
       return view('extranet.veterinaires', [
         "menu" => $this->menu,
+        "anapacks" => $anapacks,
       ]);
     }
 

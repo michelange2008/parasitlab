@@ -21,7 +21,7 @@ class ListeLabosFournisseur extends ListeFournisseur
 
       $photo = $this->photoFactory($user->labo->photo);
 
-      $nom = $this->lienFactory($user->id, ucfirst($user->name), 'routeurDemande, "Cliquer pour voir cet utilisateur");
+      $nom = $this->lienFactory($user->id, ucfirst($user->name), 'laboAdmin.show', "Cliquer pour voir cet utilisateur");
 
       $email = $this->itemFactory($user->email);
 

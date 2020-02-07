@@ -3,7 +3,7 @@
 
   <div class="card-deck">
 
-    @include('fragments.carte', [
+    @include('fragments.carteBoutonRond', [
       'icone' => 'veto_rond.svg',
       'titre' => 'Vétérinaires',
       'texte_1' => "Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d'éviter les traitements inutiles.",
@@ -14,7 +14,7 @@
       'intitule' => 'En savoir plus',
     ])
 
-    @include('fragments.carte', [
+    @include('fragments.carteBoutonRond', [
       'icone' => 'eleveur_rond.svg',
       'titre' => 'Eleveurs (-euses)',
       'texte_1' => "Vous souhaitez faire un suivi régulier et raisonné de l'infestation de votre troupeau pour ne plus traiter en aveugle.",
@@ -25,7 +25,7 @@
       'intitule' => 'En savoir plus',
     ])
 
-    @include('fragments.carte', [
+    @include('fragments.carteBoutonRond', [
       'icone' => 'cv_rond.svg',
       'titre' => 'Cavalières (-iers)',
       'texte_1' => "Vous avez toujours traité sytématiquement, parce que c'est \"ce qui se fait\". Et pourtant, votre cheval n'est peut-être pas parasité.",
