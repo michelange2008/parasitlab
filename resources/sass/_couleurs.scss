@@ -72,6 +72,11 @@ $rouge-tres-fonce: #8F230A;
   color: white !important;
 }
 
+.btn-bleu:hover {
+  background: $bleu-tres-tres-clair !important;
+  color: $bleu-tres-fonce !important;
+}
+
 .btn-rouge {
   background: $rouge-tres-fonce !important;
   color: white !important;
