@@ -8,17 +8,17 @@
 
     @include('cookieConsent::index')
 
-    @include('extranet.accueil_carousel')
+    @include('extranet.accueil.accueil_carousel')
 
     <div class="container accueil">
 
-      @include('extranet.accueil_entetes')
+      @include('extranet.accueil.accueil_entetes')
 
-      @include('extranet.accueil_labopresentation')
+      @include('extranet.accueil.accueil_labopresentation')
 
       <hr class="labo-divider">
 
-      @include('extranet.accueil_pastilles')
+      @include('extranet.accueil.accueil_pastilles')
 
       <hr class="labo-divider">
 

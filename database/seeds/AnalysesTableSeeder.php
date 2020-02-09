@@ -75,6 +75,13 @@ class AnalysesTableSeeder extends Seeder
             'espece_id' => 3,
             'icone_id' => 15,
           ],
+          [
+            'id' => 10,
+            'nom' => "coproscopie (ânes)",
+            'anaacte_id' => 1,
+            'espece_id' => 8,
+            'icone_id' => 9,
+          ],
         ]);
     }
 }

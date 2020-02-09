@@ -34,6 +34,8 @@ Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as'
 
 Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'enpratique']);
 
+Route::get('/choisir', ['uses' => 'ExtranetController@choisir', 'as' => 'choisir']);
+
 Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);

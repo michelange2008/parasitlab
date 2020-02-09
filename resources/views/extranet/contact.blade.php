@@ -10,7 +10,7 @@
 
       <div class="col-md-10">
 
-        @include('admin.titre', ['titre' => 'Nous contacter', 'icone' => 'contact.svg'])
+        @titre(['titre' => 'Nous contacter', 'icone' => 'contact.svg'])
 
       </div>
 
@@ -63,7 +63,7 @@
 
       <div class="col-md-10">
 
-        @include('extranet.map')
+        @include('extranet.contact.map')
 
       </div>
 

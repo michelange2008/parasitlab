@@ -20,5 +20,6 @@ return [
   "resist" => "test de resistance",
   "kit_envoi" => "D’un point de vue pratique, Nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.",
   "repondre_questions" => "Nous sommes aussi là pour répondre à toutes vos questions concernant les services que nous proposons, mais aussi l’interprétation de résultats d’analyses.",
-
+  "comment_faire" => "Comment faire ?",
+  "question_remarque" => "Une question, une remarque ?",
 ];

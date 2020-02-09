@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="83.762131"
-   height="86.382553"
-   viewBox="0 0 22.162063 22.855384"
+   width="100"
+   height="100"
+   viewBox="0 0 26.458332 26.458334"
    version="1.1"
    id="svg826"
-   inkscape:version="0.92.1 r15371"
-   sodipodi:docname="ovins.svg">
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="ov.svg">
   <defs
      id="defs820" />
   <sodipodi:namedview
@@ -25,24 +25,25 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="4.3204617"
-     inkscape:cy="26.295524"
+     inkscape:zoom="2.8"
+     inkscape:cx="-53.324419"
+     inkscape:cy="19.676456"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1046"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0">
+     fit-margin-bottom="0"
+     inkscape:snap-global="false">
     <sodipodi:guide
        position="2.8033533,21.963774"
        orientation="1,0"
@@ -70,16 +71,16 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-0.31495026,-268.79959)">
+     transform="translate(-0.31495026,-265.19664)">
     <rect
-       style="opacity:0.57399998;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.53435868;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:0.57399998;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.64760357;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4491"
-       width="22.162064"
-       height="22.855385"
+       width="26.858797"
+       height="27.699053"
        x="0.31495026"
-       y="268.79959" />
+       y="263.95593" />
     <g
-       transform="translate(0.08664075,-0.56844502)"
+       transform="matrix(1.2119268,0,0,1.2119268,0.03825585,-62.498413)"
        id="g830">
       <path
          sodipodi:nodetypes="ccsscccsccccccccscccccccsccccscccccccsccsccccccccccccccscccccccscccsccccc"

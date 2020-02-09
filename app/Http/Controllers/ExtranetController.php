@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Analyses\Anapack;
+use App\Models\Espece;
 
 use App\Http\Traits\LitJson;
 
@@ -82,6 +83,16 @@ class ExtranetController extends Controller
     public function enpratique()
     {
       return "en pratique";
+    }
+
+    public function choisir()
+    {
+      $especes = Espece::where('type', 'simple')->get();
+
+      return view('extranet.choisir', [
+        'menu' => $this->menu,
+        'especes' => $especes,
+      ]);
     }
 
     public function aide()

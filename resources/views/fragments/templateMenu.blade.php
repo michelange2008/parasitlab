@@ -3,7 +3,7 @@
 
     @foreach ($menu as $item)
       @if(@isset($item->sousmenu))
-      <li class="nav-item dropdown">
+      <li class="nav-item nav-item-bleu-tres-clair dropdown">
         <a class="nav-link dropdown-toggle" href="{{ route($item->route) }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ $item->nom }}
         </a>
@@ -14,7 +14,7 @@
                 @isset($sousmenu->icone)
 
                   <img class="img-25" src="{{ asset('storage/img/icones')."/".$sousmenu->icone }}" alt="{{ $sousmenu->icone }}">
-                  
+
                 @endisset
               </a>
 
@@ -22,7 +22,7 @@
         </div>
       </li>
         @else
-      <li class="nav-item">
+      <li class="nav-item nav-item-bleu-tres-clair ">
           <a class="nav-link" href="{{ route($item->route) }}">{{ $item->nom }}</a>
       </li>
         @endif

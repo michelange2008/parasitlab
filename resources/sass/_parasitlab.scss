@@ -88,6 +88,24 @@ hr {
   box-shadow: 1px 1px 5px gray;
 }
 
+.presentation_cadre {
+  background: $bleu-tres-tres-clair;
+  padding: 2.5rem;
+  padding-bottom: 0rem;
+}
+
+.p-c-dernier {
+  padding-bottom: 2.5rem;
+}
+
+.custom-lead {
+  font-size: 1.25rem;
+}
+
+// .opg {
+//   background-image: url('/images/ostertagia_2.jpg');
+// }
+
 @media screen and (max-width: 992px) {
 
   .alert, .card-header {

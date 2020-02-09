@@ -10,7 +10,7 @@
 
       <div class="m-auto col-md-8 col-xl-6">
 
-        @include('admin.titre', ['titre' => $user->name, 'soustitre' => " : modification des informations"])
+        @titre(['titre' => $user->name, 'soustitre' => " : modification des informations"])
 
       </div>
 

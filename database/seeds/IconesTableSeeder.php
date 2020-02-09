@@ -37,6 +37,8 @@ class IconesTableSeeder extends Seeder
           ['id' => 23, "nom" => "resi.svg"],
           ['id' => 24, "nom" => "envo.svg"],
           ['id' => 25, "nom" => "espece.svg"],
+          ['id' => 26, "nom" => "ane.svg"],
+          ['id' => 27, "nom" => "equides.svg"],
 
         ]);
     }
