@@ -14,19 +14,28 @@
 
       </div>
 
-      <div class="col-md-10 m-auto">
+      <div class="col-md-10 mx-auto my-3">
 
-        <h2>Quel type d'animal est concerné ?</h2>
+        <h2>Quel type d'animal est concerné ? <small>(cliquez sur l'icone correspondante)</small> </h2>
 
       </div>
 
-      <div class="col-md-10 m-auto d-flex justify-content-around">
+      <div class="col-md-12 mx-auto my-3 d-flex justify-content-around">
 
         @foreach ($especes as $espece)
 
-          <img src="{!! asset('storage/img/icones').'/'.$espece->icone->nom !!}" alt="{{$espece->icone->nom}}" data-toggle="tooltip" title="{{ ucfirst($espece->nom) }}">
+          <a id="espece_{{ $espece->id }}" class="espece" href="#">
+
+            <img class="img-zoom" src="{!! asset('storage/img/icones').'/'.$espece->icone->nom !!}" alt="{{$espece->icone->nom}}" data-toggle="tooltip" title="{{ ucfirst($espece->nom) }}">
+
+          </a>
 
         @endforeach
+
+      </div>
+
+      </div class="col-md-12 m-auto">
+
 
       </div>
 

@@ -36,6 +36,8 @@ Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'e
 
 Route::get('/choisir', ['uses' => 'ExtranetController@choisir', 'as' => 'choisir']);
 
+Route::get('/choisir/{espece_id}', ['uses' => 'ExtranetController@listeAnapack', 'as' => 'listeAnapack']);
+
 Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);

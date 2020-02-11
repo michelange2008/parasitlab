@@ -9,6 +9,7 @@ require( './createUser.js');
 require( './createDemande.js');
 require( './signe.js');
 require( './envoi.js');
+require( './choisir.js');
 
 
 require( 'jquery-confirm' );

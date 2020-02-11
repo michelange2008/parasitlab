@@ -37116,6 +37116,8 @@ __webpack_require__(/*! ./signe.js */ "./resources/js/signe.js");
 
 __webpack_require__(/*! ./envoi.js */ "./resources/js/envoi.js");
 
+__webpack_require__(/*! ./choisir.js */ "./resources/js/choisir.js");
+
 __webpack_require__(/*! jquery-confirm */ "./node_modules/jquery-confirm/dist/jquery-confirm.min.js");
 
 $(function () {
@@ -47993,6 +47995,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/choisir.js":
+/*!*********************************!*\
+  !*** ./resources/js/choisir.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.espece').on('click', function () {
+  var espece_id = $(this).attr('id').split('_')[1];
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
+  var url_nouvelle = url_actuelle + '/' + espece_id;
+  $.get({
+    url: url_nouvelle
+  }).done(function (datas) {
+    console.log(datas);
+  }).fail(function (error) {
+    console.log(error);
+  });
+});
 
 /***/ }),
 
