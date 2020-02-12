@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
       $this->call(CommentairesTableSeeder::class);
       $this->call(Anaacte_anapackTableSeeder::class);
       $this->call(Anaitem_analyseTableSeeder::class);
+      $this->call(Anapack_especeTableSeeder::class);
       $this->call(PrelevementsTableSeeder::class);
       $this->call(ResultatsTableSeeder::class);
 

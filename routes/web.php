@@ -38,12 +38,13 @@ Route::get('/choisir', ['uses' => 'ExtranetController@choisir', 'as' => 'choisir
 
 Route::get('/choisir/{espece_id}', ['uses' => 'ExtranetController@listeAnapack', 'as' => 'listeAnapack']);
 
+Route::get('/choisir/{espece}/{anapack}', ['uses' => 'PdfController@formulaireDemande', 'as' => 'formulaireDemande']);
+
 Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
 
 Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
-
 
 //##############################################################################
 

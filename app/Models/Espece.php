@@ -27,4 +27,9 @@ class Espece extends Model
     {
       return $this->hasOne(Labo\Serie::class);
     }
+
+    public function Anapacks()
+    {
+      return $this->belongsToMany(Analyses\Anapack::class);
+    }
 }

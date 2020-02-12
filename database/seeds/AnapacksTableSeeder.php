@@ -14,6 +14,7 @@ class AnapacksTableSeeder extends Seeder
         DB::table('anapacks')->insert([
           [
             'id' => 1,
+            'abbreviation' => "coprosimple",
             "article" => "une",
             "nom" => "coproscopie simple",
             "description" => "coproscopie sans interprétation",
@@ -24,6 +25,7 @@ class AnapacksTableSeeder extends Seeder
           ],
           [
             'id' => 2,
+            'abbreviation' => "coprointerpr",
             "article" => "une",
             "nom" => "coproscopie avec interprétation",
             "description" => "coproscopie + interprétation",
@@ -34,6 +36,7 @@ class AnapacksTableSeeder extends Seeder
           ],
           [
             'id' => 5,
+            'abbreviation' => "suivi",
             "article" => "un",
             "nom" => "suivi parasitologique de campagne",
             "description" => "3 coproscopie sur 3 prélèvement + 3 interprétations",
@@ -44,6 +47,7 @@ class AnapacksTableSeeder extends Seeder
           ],
           [
             'id' => 6,
+            'abbreviation' => "resistance",
             "article" => "un",
             "nom" => "test de résistance",
             "description" => "deux coproscopies sur deux prélèvements + 1 interprétation",
@@ -54,6 +58,7 @@ class AnapacksTableSeeder extends Seeder
           ],
           [
             'id' => 4,
+            'abbreviation' => "haemonchus",
             "article" => "une",
             "nom" => "coproscopie + identification Haemonchus",
             "description" => "coproscopie + comptage Haemonchus",
@@ -64,6 +69,7 @@ class AnapacksTableSeeder extends Seeder
           ],
           [
             'id' => 7,
+            'abbreviation' => "visite",
             "article" => "une",
             "nom" => "visite d'élevage",
             "description" => "visite d'élevage + déplacement",
@@ -75,6 +81,7 @@ class AnapacksTableSeeder extends Seeder
           [
             'id' => 3,
             "article" => "un",
+            'abbreviation' => "baermann",
             "nom" => "test de Baermann",
             "description" => "Recherche de larves de strongles respiratoires",
             "detail" => "il s'agit d'une technique particulière permettant de mettre en évidence les larves de strongles respiratoires",

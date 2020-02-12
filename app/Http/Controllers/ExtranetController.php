@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Analyses\Anapack;
 use App\Models\Analyses\Analyse;
+use App\Models\Analyses\Anaacte;
 use App\Models\Espece;
 
 use App\Http\Traits\LitJson;
@@ -91,14 +92,35 @@ class ExtranetController extends Controller
     {
       $especes = Espece::where('type', 'simple')->get();
 
+      $liste = Collect();
+
       $anapacks = Anapack::all();
 
-      $analyses = Analyse::all();
+      foreach ($especes as $espece) {
 
+        $liste_anapack = Collect();
+
+        foreach ($anapacks as $anapack) {
+
+          foreach($anapack->especes as $anapack_espece) {
+
+            if($espece->id == $anapack_espece->id) {
+
+              $liste_anapack->push($anapack);
+            }
+
+          }
+
+          $liste->put($espece->id, $liste_anapack);
+
+          }
+
+        }
 
       return view('extranet.choisir', [
         'menu' => $this->menu,
         'especes' => $especes,
+        'liste' => $liste,
       ]);
     }
     // Fontion ajax pour récupérer les analyses d'une espece
@@ -106,15 +128,22 @@ class ExtranetController extends Controller
     {
       $liste = Collect();
 
-      $analyses = Analyse::where('espece_id', $espece_id)->get();
+      $anapacks = Anapack::all();
 
-      foreach ($analyses as $analyse) {
+      foreach ($anapacks as $anapack) {
 
-        // dump($analyse->anaactes);
+        foreach($anapack->especes as $espece) {
 
-        $liste->push(10);
+          if($espece->id == $espece_id) {
+
+            $liste->push($anapack);
+
+          }
+
+        }
+
       }
-      $liste->push($analyses);
+
       return $liste->all();
     }
 

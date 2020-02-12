@@ -13,6 +13,11 @@ class Anapack extends Model
       return $this->belongsToMany(Anaacte::class);
     }
 
+    public function especes()
+    {
+      return $this->belongsToMany(\App\Models\Espece::class);
+    }
+
     public function icone()
     {
       return $this->belongsTo(\App\Models\Icone::class);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PDF;
 use App\Models\Productions\Demande;
+use App\Models\Analyses\Anapack;
+use App\Models\Espece;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
@@ -67,6 +69,21 @@ class PdfController extends Controller
   public function presentation()
   {
     // code...
+  }
+
+  public function formulaireDemande($espece_id, $anapack_id)
+  {
+    $espece = Espece::find($espece_id);
+
+    $anapack = Anapack::find($anapack_id);
+
+    $data = "bonjour";
+
+    $pdf = PDF::loadview('extranet.choisir.formulaireDemande', compact('espece', 'anapack'));
+
+    // dd($pdf);
+
+    return $pdf->stream('demande.pdf');
   }
 
 }
