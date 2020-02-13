@@ -58,18 +58,14 @@ $rouge-tres-fonce: #8F230A;
 .color-rouge-fonce { color: $rouge-fonce !important;}
 .color-rouge-tres-fonce { color: $rouge-tres-fonce !important;}
 
-.navbar-bleu-tres-clair {
-  background: $bleu-tres-clair;
-}
-
-.navbar-bleu-tres-clair .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-
 .btn-bleu {
   background: $bleu-tres-fonce !important;
   color: white !important;
+}
+
+.btn-bleu:hover {
+  background: $bleu-tres-tres-clair !important;
+  color: $bleu-tres-fonce !important;
 }
 
 .btn-rouge {
@@ -144,4 +140,8 @@ $rouge-tres-fonce: #8F230A;
   color: $bleu-tres-clair;
   padding: 5px 10px;
   box-shadow: 5px 5px 15px black;
+}
+
+mark {
+	background-color: #ccf4ca !important;
 }

@@ -6,9 +6,15 @@ namespace App\Http\Controllers;
 * Controller destiné à gérer tout ce qui est public
 */
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use App\Models\Analyses\Anapack;
+use App\Models\Analyses\Analyse;
+use App\Models\Analyses\Anaacte;
+use App\Models\Espece;
 
 use App\Http\Traits\LitJson;
 
@@ -33,8 +39,11 @@ class ExtranetController extends Controller
 
     public function veterinaires()
     {
+      $anapacks = Anapack::where('veto', true)->get();
+
       return view('extranet.veterinaires', [
         "menu" => $this->menu,
+        "anapacks" => $anapacks,
       ]);
     }
 
@@ -77,6 +86,65 @@ class ExtranetController extends Controller
     public function enpratique()
     {
       return "en pratique";
+    }
+
+    public function choisir()
+    {
+      $especes = Espece::where('type', 'simple')->get();
+
+      $liste = Collect();
+
+      $anapacks = Anapack::all();
+
+      foreach ($especes as $espece) {
+
+        $liste_anapack = Collect();
+
+        foreach ($anapacks as $anapack) {
+
+          foreach($anapack->especes as $anapack_espece) {
+
+            if($espece->id == $anapack_espece->id) {
+
+              $liste_anapack->push($anapack);
+            }
+
+          }
+
+          $liste->put($espece->id, $liste_anapack);
+
+          }
+
+        }
+
+      return view('extranet.choisir', [
+        'menu' => $this->menu,
+        'especes' => $especes,
+        'liste' => $liste,
+      ]);
+    }
+    // Fontion ajax pour récupérer les analyses d'une espece
+    public function listeAnapack($espece_id)
+    {
+      $liste = Collect();
+
+      $anapacks = Anapack::all();
+
+      foreach ($anapacks as $anapack) {
+
+        foreach($anapack->especes as $espece) {
+
+          if($espece->id == $espece_id) {
+
+            $liste->push($anapack);
+
+          }
+
+        }
+
+      }
+
+      return $liste->all();
     }
 
     public function aide()

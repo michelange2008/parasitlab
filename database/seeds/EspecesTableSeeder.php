@@ -31,12 +31,6 @@ class EspecesTableSeeder extends Seeder
             "icone_id" => 3,
           ],
           [
-            'id' => 4,
-            "nom" => "équins",
-            "type" => "groupe",
-            "icone_id" => 4,
-          ],
-          [
             'id' => 5,
             "nom" => "bovins",
             "type" => "simple",
@@ -58,8 +52,15 @@ class EspecesTableSeeder extends Seeder
             'id' => 8,
             "nom" => "ânes",
             "type" => "simple",
-            "icone_id" => 4,
+            "icone_id" => 26,
           ],
+          [
+            'id' => 9,
+            "nom" => "équidés",
+            "type" => "groupe",
+            "icone_id" => 27,
+          ],
+
 
         ]);
     }

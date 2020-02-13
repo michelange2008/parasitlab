@@ -23,7 +23,7 @@ class AnalysesTableSeeder extends Seeder
             'id' => 3,
             'nom' => "coproscopie (équins)",
             'anaacte_id' => 1,
-            'espece_id' => 4,
+            'espece_id' => 9,
             'icone_id' => 9,
           ],
           [
@@ -74,6 +74,20 @@ class AnalysesTableSeeder extends Seeder
             'anaacte_id' => 3,
             'espece_id' => 3,
             'icone_id' => 15,
+          ],
+          [
+            'id' => 10,
+            'nom' => "coproscopie (ânes)",
+            'anaacte_id' => 1,
+            'espece_id' => 8,
+            'icone_id' => 9,
+          ],
+          [
+            'id' => 11,
+            'nom' => "coproscopie (porcs)",
+            'anaacte_id' => 1,
+            'espece_id' => 6,
+            'icone_id' => 9,
           ],
         ]);
     }

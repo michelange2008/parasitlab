@@ -1,19 +1,25 @@
 {
 	"accueil": {
-		"nom": "|-  Accueil",
+		"nom": "Accueil",
 		"tooltip": "Retour à l'accueil",
 		"route": "accueil"
 	},
 	"analyses": {
-		"nom": "|- Analyses",
+		"nom": "Analyses",
 		"tooltip": "Toutes les analyses que nous proposons",
 		"route": "analyses",
 		"sousmenu": {
+			"commencer": {
+				"nom": "Pour commencer...",
+
+				"tooltip": "Commençons par le commencement",
+				"route": "analyses"
+			},
 			"choisir": {
 				"nom": "Choisir une analyse",
 
 				"tooltip": "Quel analyse, pour quel objectif ?",
-				"route": "accueil"
+				"route": "choisir"
 			},
 			"pratique": {
 				"nom": "En pratique",
@@ -24,12 +30,12 @@
 		}
 	},
 	"parasite": {
-		"nom": "|- Parasitisme ",
+		"nom": "Parasitisme ",
 		"tooltip": "Tout ce que vous avez toujours voulu savoir",
 		"route": "parasitisme"
 	},
 	"infoaide": {
-		"nom": "|- Infos et aide",
+		"nom": "Infos et aide",
 		"tooltip": "Une questions, un problème, cliquez ici!",
 		"route": "accueil",
     "sousmenu" :

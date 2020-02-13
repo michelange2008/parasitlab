@@ -13,12 +13,13 @@ return [
   "pl_propose" => " vous propose non seulement les analyses parasitologiques classiques",
   "copro_f" => "coproscopie par flottaison",
   "baermann" => "test de Baermann",
-  "innov" => "mais aussi des tecniques innovantes",
-  "compte_haem" => "comptage d'oeufs d'Haemonchus contortus",
+  "innov" => "mais aussi des techniques innovantes comme ",
+  "compte_haem" => "le comptage d'oeufs d'Haemonchus contortus",
   "analyse_series" => "Et des démarches visant à la compréhension des dynamiques à l’œuvre",
   "suivi" => "suivi de campagne",
   "resist" => "test de resistance",
   "kit_envoi" => "D’un point de vue pratique, Nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.",
   "repondre_questions" => "Nous sommes aussi là pour répondre à toutes vos questions concernant les services que nous proposons, mais aussi l’interprétation de résultats d’analyses.",
-
+  "comment_faire" => "Comment faire ?",
+  "question_remarque" => "Une question, une remarque ?",
 ];

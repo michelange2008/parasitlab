@@ -1,7 +1,7 @@
 {{-- AFFICHE LE DÉTAIL DES MEMBRES DU LABORATOIRE --}}
 <div class="card" >
 
-  <img class="img-100" src="{{ asset('storage/img/labo/photos')."/".$user->labo->photo}}" alt="">
+  <img class="img-100-100" src="{{ asset('storage/img/labo/photos')."/".$user->labo->photo}}" alt="">
 
   <div class="card-body">
 

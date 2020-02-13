@@ -19,7 +19,7 @@
               {{-- AFFICHAGE D'UN LIEN DIFFERENT SI L'UTILISATEUR CONNECTE EST UN LABO, ELEVEUR OU VETO --}}
               @if (isset(Auth::user()->usertype) )
 
-                <li class="nav-item">
+                <li class="nav-item nav-item-bleu-tres-clair">
 
                   <a class="nav-link" href="{{ route(Auth::user()->usertype->route)}}" title="Accès réservé !"><strong>Accès personnel</strong></a>
 
@@ -28,7 +28,7 @@
               @endif
                 <!-- Authentication Links -->
                 @guest
-                    <li class="nav-item">
+                    <li class="nav-item nav-item-bleu-tres-clair">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
@@ -37,7 +37,7 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
+                    <li class="nav-item nav-item-bleu-tres-clair dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>

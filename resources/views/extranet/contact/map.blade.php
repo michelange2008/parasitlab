@@ -2,7 +2,7 @@
 
   <div style="width:25vw" class="border mr-1">
 
-    <img class="img-100" src="{!! asset('storage/img/map_finale.svg') !!}" alt="plan">
+    <img class="img-100-100" src="{!! asset('storage/img/map_finale.svg') !!}" alt="plan">
 
   </div>
 

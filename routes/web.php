@@ -1,5 +1,5 @@
-<?php
 
+<?php
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,12 +34,19 @@ Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as'
 
 Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'enpratique']);
 
+Route::get('/choisir', ['uses' => 'ExtranetController@choisir', 'as' => 'choisir']);
+
+Route::get('/choisir/{espece}/{anapack}', ['uses' => 'ExtranetController@formulaireDemande', 'as' => 'formulaireDemande']);
+
+Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetController@formulaireStore', 'as' => 'formulaireStore']);
+
+Route::get('/choisir/formulaire_vierge', ['uses' => 'PdfController@formulaireVierge', 'as' => 'formulaireVierge']);
+
 Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
 
 Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
-
 
 //##############################################################################
 
