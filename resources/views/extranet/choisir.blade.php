@@ -10,27 +10,19 @@
 
       <div class="col-md-10 m-auto">
 
-        @titre(['titre' => "Choisir une analyse", 'icone' => 'question.svg'])
+        @titre(['titre' => __('accueil.choisir_analyse'), 'icone' => 'question.svg'])
 
       </div>
 
       <div class="col-md-10 mx-auto my-3">
 
-        <h2>Quel type d'animal est concerné ? <small>(cliquez sur l'icone correspondante)</small> </h2>
+        @include('extranet.choisir.titre', ['titre' =>  __('accueil.queltype'), 'soustitre' => __('accueil.cliquerespece')])
 
       </div>
 
       <div class="col-md-10 mx-auto my-3 d-flex justify-content-around">
 
-        @foreach ($especes as $espece)
-
-          <a id="espece_{{ $espece->id }}" class="espece" name="{{ $espece->nom }}" href="#">
-
-            <img class="img-zoom" src="{!! asset('storage/img/icones').'/'.$espece->icone->nom !!}" alt="{{$espece->icone->nom}}" data-toggle="tooltip" title="{{ ucfirst($espece->nom) }}">
-
-          </a>
-
-        @endforeach
+        @include('extranet.choisir.listeEspeces')
 
       </div>
 
@@ -40,7 +32,7 @@
 
       <div class="col-md-10 m-auto">
 
-        <h2 id='titre'>Voici les analyses proposées pour les </h2>
+        @include('extranet.choisir.titre', ['titre' => __('analyseproposees '), 'id' => 'titre'])
 
       </div>
 
@@ -58,28 +50,7 @@
 
               @foreach ($anapacks as $anapack)
 
-                <div id='card_{{$espece_id}}' class="anapack_{{$espece_id}} anapack my-3 card" style="min-width:25vw; max-width:25vw; display:none">
-
-                  <img class="m-3" src="{!! asset('storage/img/icones')."/".$anapack->icone->nom !!}" alt="{{$anapack->icone->nom}}">
-
-                  <div class="card-body">
-
-                    <h4 class="card-title">{{ $anapack->nom }}</h4>
-
-                    <p class="card-text">{{ $anapack->detail }}</p>
-
-                  </div>
-
-                  <div class="card-footer">
-
-                    <p>Prix de l'analyse:</p>
-
-                    @include('fragments.bouton', ['type' => 'link', 'lien' => asset('/choisir/'.$espece_id.'/'.$anapack->id), 'intitule' => "Télécharger le formulaire"])
-
-                  </div>
-
-                </div>
-
+                @include('extranet.choisir.listeAnalysesProposees')
 
               @endforeach
 

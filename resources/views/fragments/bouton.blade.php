@@ -5,7 +5,7 @@
 
 @elseif (isset($type) && $type == 'link') {{-- lien externe --}}
 
-  <a class="btn {{$couleur ?? 'btn-bleu'}}" href="{{ $lien }}" target="_blank" >
+  <a class="btn {{$couleur ?? 'btn-bleu'}}" href="{{ $lien }}" target="{{$target ?? '_blank'}}" >
 
     <i class="{{ $fa ?? '' }}"></i>
 

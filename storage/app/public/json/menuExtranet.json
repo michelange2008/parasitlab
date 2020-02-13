@@ -9,6 +9,12 @@
 		"tooltip": "Toutes les analyses que nous proposons",
 		"route": "analyses",
 		"sousmenu": {
+			"commencer": {
+				"nom": "Pour commencer...",
+
+				"tooltip": "Commençons par le commencement",
+				"route": "analyses"
+			},
 			"choisir": {
 				"nom": "Choisir une analyse",
 
