@@ -1,13 +1,10 @@
 <?php
-/*
-// Empêche l'accès à la route laboratoire à tous ce qui n'est pas identifié comme usertype laboratoire
-*/
 
 namespace App\Http\Middleware;
 
 use Closure;
 
-class LaboAcces
+class AuthUsers
 {
     /**
      * Handle an incoming request.
@@ -18,11 +15,10 @@ class LaboAcces
      */
     public function handle($request, Closure $next)
     {
-
-      if(null === auth()->user() || !auth()->user()->estLabo())
-      {
-        return redirect()->action('ExtranetController@accueil');
+      if (false == Auth::check()) {
+          return redirect()->route('view.login); //redirect User to login page
       }
+
         return $next($request);
     }
 }

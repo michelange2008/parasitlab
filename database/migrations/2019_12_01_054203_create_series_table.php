@@ -16,8 +16,8 @@ class CreateSeriesTable extends Migration
         Schema::create('series', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('eleveur_id');
+            $table->foreign('eleveur_id')->references('id')->on('eleveurs')->onDelete('cascade');
 
             $table->unsignedInteger('anapack_id');
             $table->foreign('anapack_id')->references('id')->on('anapacks')->onDelete('restrict');

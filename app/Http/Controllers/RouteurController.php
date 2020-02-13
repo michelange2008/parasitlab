@@ -19,22 +19,24 @@ class RouteurController extends Controller
   public function routeurPersonnel()
   {
 
-    if($this->estLabo(auth()->user()->usertype_id)) {
-
-
+    if(Auth()->user()->estLabo())
+    {
+    // if($this->estLabo(auth()->user()->usertype_id)) {
+    //
+    //
       return redirect()->route('laboratoire');
 
     }
-    elseif ($this->estVeto(auth()->user()->usertype_id)) {
-
-      return redirect()->route('veterinaire');
-
-    }
-
-    elseif ($this->estEleveur(auth()->user()->usertype_id)) {
-
-      return redirect()->route('eleveur');
-    }
+    // elseif ($this->estVeto(auth()->user()->usertype_id)) {
+    //
+    //   return redirect()->route('veterinaire');
+    //
+    // }
+    //
+    // elseif ($this->estEleveur(auth()->user()->usertype_id)) {
+    //
+    //   return redirect()->route('eleveur');
+    // }
     else {
 
       return redirect($to = null, $status = 418, $headers = [], $secure = null );

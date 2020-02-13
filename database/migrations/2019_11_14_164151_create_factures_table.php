@@ -17,8 +17,8 @@ class CreateFacturesTable extends Migration
             $table->increments('id');
             // $table->unsignedInteger('demande_id');
             // $table->foreign('demande_id')->references('id')->on('demandes')->onDelete('cascade');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('eleveur_id')->unsigned();
+            $table->foreign('eleveur_id')->references('id')->on('eleveurs')->onDelete('cascade');
             $table->boolean('faite')->default(0);
             $table->decimal('total_ht', 8, 2)->default(0);
             $table->decimal('total_ttc', 8, 2)->default(0);

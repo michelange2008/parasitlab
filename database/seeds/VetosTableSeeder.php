@@ -14,7 +14,9 @@ class VetosTableSeeder extends Seeder
         DB::table('vetos')->insert([
         [
           'id' => 1,
-          'user_id' => 4,
+          'name' => 'antikor',
+          'email' => 'antikor@orange.fr',
+          'password' => bcrypt('enerlite+1'),
           'num' => "503018",
           'address_1' => '605 Grande Rue',
           'cp' => '26300',

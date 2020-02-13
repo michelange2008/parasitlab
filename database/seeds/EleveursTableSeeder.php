@@ -13,7 +13,10 @@ class EleveursTableSeeder extends Seeder
     {
         DB::table('eleveurs')->insert([
           [
-            'user_id' => 3,
+            'id' => 3,
+            'name' => 'Eleveur',
+            'email' => 'eleveur@vache.com',
+            'password' => bcrypt('azerty'),
             'num' =>"26000000",
             'address_1' => "125 allée des alouettes",
             'address_2' => null,
@@ -23,7 +26,10 @@ class EleveursTableSeeder extends Seeder
             'veto_id' => 1,
           ],
           [
-            'user_id' => 5,
+            'id' => 5,
+            'name' => 'GAEC de la lune',
+            'email' => 'gaeclune@vache.com',
+            'password' => bcrypt('azerty'),
             'num' =>"26111111",
             'address_1' => "125 allée des alouettes",
             'address_2' => null,
@@ -33,7 +39,10 @@ class EleveursTableSeeder extends Seeder
             'veto_id' => null,
           ],
           [
-            'user_id' => 6,
+            'id' => 6,
+            'name' => 'EARL des étoiles',
+            'email' => 'earletoiles@vache.com',
+            'password' => bcrypt('azerty'),
             'num' =>"26222222",
             'address_1' => "125 allée des alouettes",
             'address_2' => "quartier des renards",
@@ -43,7 +52,10 @@ class EleveursTableSeeder extends Seeder
             'veto_id' => 1,
           ],
           [
-            'user_id' => 7,
+            'id' => 7,
+            'name' => 'SCEA des galaxies',
+            'email' => 'scea@vache.com',
+            'password' => bcrypt('azerty'),
             'num' =>"26333333",
             'address_1' => "125 allée des alouettes",
             'address_2' => null,

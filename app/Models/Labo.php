@@ -2,26 +2,57 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use App\User;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Labo extends Model
+
+class Labo extends Authenticatable
 {
-  protected $fillable = ['user_id'];
+    use Notifiable;
 
-  public function user()
-  {
-    return $this->belongsTo(User::class);
-  }
+    protected $guard = 'labo';
 
-  public function demandes()
-  {
-    return $this->hasMany(\App\Models\Productions\Demande::class);
-  }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
 
-  public function commentaire()
-  {
-    return $this->hasMany(\App\Models\Productions::class);
-  }
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function estLabo()
+    {
+      return true;
+    }
+
+    public function demandes()
+    {
+      return $this->hasMany(\App\Models\Productions\Demande::class);
+    }
+
+    public function commentaire()
+    {
+      return $this->hasMany(\App\Models\Productions::class);
+    }
 
 }

@@ -15,8 +15,8 @@ class CreateDemandesTable extends Migration
     {
         Schema::create('demandes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->unsignedInteger('eleveur_id')->nullable();
+            $table->foreign('eleveur_id')->references('id')->on('eleveurs')
               ->onDelete('set null')->onUpdate('cascade');
 
             $table->unsignedInteger('nb_prelevement');

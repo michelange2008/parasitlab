@@ -15,9 +15,12 @@ class CreateVetosTable extends Migration
     {
         Schema::create('vetos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
 
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->rememberToken();
 
             $table->string('num')->nullable();
             $table->string('address_1', 191);

@@ -14,14 +14,12 @@ class DatabaseSeeder extends Seeder
       $this->call(IconesTableSeeder::class);
       $this->call(ConsistancesTableSeeder::class);
       $this->call(EtatsTableSeeder::class);
-      $this->call(UsertypesTableSeeder::class);
-      $this->call(UsersTableSeeder::class);
-      $this->call(QttsTableSeeder::class);
       $this->call(VetosTableSeeder::class);
+      $this->call(EleveursTableSeeder::class);
+      $this->call(QttsTableSeeder::class);
       $this->call(UnitesTableSeeder::class);
       $this->call(EspecesTableSeeder::class);
       $this->call(TvasTableSeeder::class);
-      $this->call(EleveursTableSeeder::class);
       $this->call(LabosTableSeeder::class);
       $this->call(AnaitemsTableSeeder::class);
       $this->call(AnaactesTableSeeder::class);

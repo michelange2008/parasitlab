@@ -2,7 +2,7 @@
 
 
 {{-- LE BOUTON AJOUTER UNE DEMANDE D ANALYSE NE S AFFICHE QUI SI L UTILISATEUR CONNECTE EST DU LABO --}}
-@if (auth()->user()->usertype->code === "labo")
+@if (auth()->user()->isAdmin())
 
   <div id="toolbar">
 

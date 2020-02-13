@@ -40,6 +40,19 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'labo' => [
+          'driver' => 'session',
+          'provider' => 'labos',
+        ],
+        'veto' => [
+            'driver' => 'session',
+            'provider' => 'vetos',
+        ],
+        'eleveur' => [
+          'driver' => 'session',
+          'provider' => 'eleveurs',
+        ],
+
 
         'api' => [
             'driver' => 'token',
@@ -70,6 +83,19 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'vetos' => [
+          'driver' => 'eloquent',
+          'model' => App\Models\Veto::class,
+        ],
+        'labos' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Labo::class,
+        ],
+        'eleveurs' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Eleveur::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',

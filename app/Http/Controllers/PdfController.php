@@ -70,8 +70,13 @@ class PdfController extends Controller
   {
     // code...
   }
+// A REVOIR
+  public function formulaireVierge()
+  {
+    return 'formulaire';
+  }
 
-  public function formulaireDemande($espece_id, $anapack_id)
+  public function formulaireDemandePdf($espece_id, $anapack_id)
   {
     $espece = Espece::find($espece_id);
 

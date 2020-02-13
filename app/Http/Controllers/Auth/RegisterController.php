@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Models\Labo;
+use App\Models\Veto;
+use App\Models\Eleveur;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -37,7 +40,10 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+      $this->middleware('guest');
+      $this->middleware('guest:labo');
+      $this->middleware('guest:veto');
+      $this->middleware('guest:eleveur');
     }
 
     /**
@@ -68,5 +74,21 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $admin = Admin::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/admin');
     }
 }

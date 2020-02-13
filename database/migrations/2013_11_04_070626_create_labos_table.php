@@ -16,8 +16,15 @@ class CreateLabosTable extends Migration
         Schema::create('labos', function (Blueprint $table) {
           $table->increments('id');
 
-          $table->integer('user_id')->unsigned();
-          $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+          $table->string('name');
+
+          $table->string('email')->unique();
+
+          $table->timestamp('email_verified_at')->nullable();
+
+          $table->string('password');
+
+          $table->rememberToken();
 
           $table->string('signature', 50)->default('signature.jpg');
 

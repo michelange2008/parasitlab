@@ -13,25 +13,34 @@ class LabosTableSeeder extends Seeder
     {
         DB::table('labos')->insert([
           [
-            "user_id" => 1,
+            "id" => 1,
+            'name' => 'Michel BOUY',
+            'email' => 'michel.bouy@fibl.org',
+            'password' => bcrypt('17891789Mm'),
             "signature" => "mbouy.svg",
             "photo" => "mbouy.jpg",
             "fonction" => "vétérinaire",
             "est_signataire" => true,
           ],
           [
-            "user_id" => 2,
+            'id' => 2,
+            'name' => 'Amélie LEBRE',
+            'email' => 'amelie.lebre@fibl.org',
+            'password' => bcrypt('haemonchus'),
             "signature" => "alebre.svg",
             "photo" => "alebre.jpg",
             "fonction" => "parasitologiste",
             "est_signataire" => true,
           ],
           [
-            "user_id" => 8,
+            'id' => 3,
+            'name' => 'Florence Arsonneau',
+            'email' => 'farsonneau@fibl.org',
+            'password' => bcrypt('azerty'),
             "signature" => "farsonneau.svg",
             "photo" => "farsonneau.jpg",
             "fonction" => "directrice",
-            "est_signataire" => false, 
+            "est_signataire" => false,
           ],
         ]);
     }

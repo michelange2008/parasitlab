@@ -14,14 +14,14 @@ class SeriesTableSeeder extends Seeder
         DB::table('series')->insert([
           [
             'id' => 1,
-            'user_id' => 6,
+            'eleveur_id' => 6,
             'anapack_id' => 4,
             'espece_id' => 2,
             'acheve' => false,
           ],
           [
             'id' => 2,
-            'user_id' => 3,
+            'eleveur_id' => 3,
             'anapack_id' => 3,
             'espece_id' => 3,
             'acheve' => true,

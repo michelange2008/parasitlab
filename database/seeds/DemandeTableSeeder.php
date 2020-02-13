@@ -14,7 +14,7 @@ class DemandeTableSeeder extends Seeder
         DB::table('demandes')->insert([
           [
             'id' => 1,
-            'user_id' => 3,
+            'eleveur_id' => 3,
             'espece_id' => 2,
             'nb_prelevement' => 3,
             'anapack_id' => 1,
@@ -34,7 +34,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 2,
-            'user_id' => 3,
+            'eleveur_id' => 3,
             'nb_prelevement' => 2,
             'espece_id' => 3,
             'anapack_id' => 5,
@@ -54,7 +54,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 3,
-            'user_id' => 3,
+            'eleveur_id' => 3,
             'nb_prelevement' => 1,
             'espece_id' => 7,
             'anapack_id' => 1,
@@ -74,7 +74,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 4,
-            'user_id' => 6,
+            'eleveur_id' => 6,
             'nb_prelevement' => 1,
             'espece_id' => 7,
             'anapack_id' => 3,
@@ -94,7 +94,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 5,
-            'user_id' => 7,
+            'eleveur_id' => 7,
             'nb_prelevement' => 2,
             'espece_id' => 5,
             'anapack_id' => 1,
@@ -114,7 +114,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 6,
-            'user_id' => 7,
+            'eleveur_id' => 7,
             'nb_prelevement' => 3,
             'espece_id' => 3,
             'anapack_id' => 2,
@@ -137,7 +137,7 @@ class DemandeTableSeeder extends Seeder
 */
           [
             'id' => 7,
-            'user_id' => 6,
+            'eleveur_id' => 6,
             'nb_prelevement' => 1,
             'espece_id' => 2,
             'anapack_id' => 4,
@@ -157,7 +157,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 8,
-            'user_id' => 6,
+            'eleveur_id' => 6,
             'nb_prelevement' => 1,
             'espece_id' => 2,
             'anapack_id' => 4,
@@ -180,7 +180,7 @@ class DemandeTableSeeder extends Seeder
 */
           [
             'id' => 9,
-            'user_id' => 3,
+            'eleveur_id' => 3,
             'nb_prelevement' => 3,
             'espece_id' => 3,
             'anapack_id' => 3,
@@ -200,7 +200,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 10,
-            'user_id' => 3,
+            'eleveur_id' => 3,
             'nb_prelevement' => 3,
             'espece_id' => 3,
             'anapack_id' => 3,
@@ -220,7 +220,7 @@ class DemandeTableSeeder extends Seeder
           ],
           [
             'id' => 11,
-            'user_id' => 3,
+            'eleveur_id' => 3,
             'nb_prelevement' => 3,
             'espece_id' => 3,
             'anapack_id' => 3,
