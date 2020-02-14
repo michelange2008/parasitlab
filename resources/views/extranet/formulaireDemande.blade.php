@@ -6,7 +6,7 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3">
+    <div class="row mt-3">
 
       <div class="mx-auto col-md-10 col-lg-8">
 
@@ -37,7 +37,23 @@
 
           @csrf
 
-            @include('extranet.formulaireDemande.inputIdentite')
+            {{-- @include('extranet.formulaireDemande.inputIdentite') --}}
+            @include('admin.form.identite')
+
+            @isset($user->eleveur)
+
+              @include('admin.form.contact', ['personne' => $user->eleveur])
+
+              @include('admin.form.infosEleveur', ['personne' => $user->eleveur])
+
+            @else
+
+              @include('admin.form.contact')
+
+              @include('admin.form.infosEleveur')
+
+
+            @endisset
 
 
           @include('fragments.blocEnregistreAnnule', ['nomBouton' => 'afficher le PDF'])

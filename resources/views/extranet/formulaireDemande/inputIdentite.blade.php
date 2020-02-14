@@ -14,6 +14,16 @@
 
   @include('extranet.formulaireDemande.input', ['for' => 'address-2', 'label' => "Complément d'adresse", 'type' => 'text', 'value' => Auth()->user()->eleveur->address_2, 'placeholder' => "Complément d'adresse"])
 
+</div>
+
+<div class="row my-3">
+
+  @include('extranet.formulaireDemande.input', ['for' => 'cp', 'label' => "Code postal", 'type' => 'text', 'value' => Auth()->user()->eleveur->cp, 'placeholder' => "Code postal"])
+
+  @include('extranet.formulaireDemande.input', ['for' => 'commune', 'label' => "Commune", 'type' => 'text', 'value' => Auth()->user()->eleveur->commune, 'placeholder' => "Commune"])
+
+  @include('extranet.formulaireDemande.input', ['for' => 'address-2', 'label' => "Complément d'adresse", 'type' => 'text', 'value' => Auth()->user()->eleveur->address_2, 'placeholder' => "Complément d'adresse"])
+
 
 </div>
 

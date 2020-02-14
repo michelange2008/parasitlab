@@ -15,6 +15,8 @@ use App\Models\Analyses\Anapack;
 use App\Models\Analyses\Analyse;
 use App\Models\Analyses\Anaacte;
 use App\Models\Espece;
+use App\Models\Eleveur;
+use App\Models\Veto;
 
 use App\Http\Traits\LitJson;
 
@@ -123,28 +125,36 @@ class ExtranetController extends Controller
         'liste' => $liste,
       ]);
     }
-    // Fontion ajax pour récupérer les analyses d'une espece
-    public function listeAnapack($espece_id)
+
+    public function formulaireDemande($espece_id, $anapack_id)
     {
-      $liste = Collect();
+      $espece = Espece::find($espece_id);
 
-      $anapacks = Anapack::all();
+      $anapack = Anapack::find($anapack_id);
 
-      foreach ($anapacks as $anapack) {
+      $eleveurs = Eleveur::all();
 
-        foreach($anapack->especes as $espece) {
+      $vetos = Veto::all();
 
-          if($espece->id == $espece_id) {
+      $pays = $this->litJson("pays");
 
-            $liste->push($anapack);
 
-          }
+      $user = (auth()->user()) ? auth()->user() : "";
 
-        }
+      return view('extranet.formulaireDemande', [
+        'menu' => $this->menu,
+        'eleveurs' => $eleveurs,
+        'espece' => $espece,
+        'anapack' => $anapack,
+        'user' => $user,
+        'vetos' => $vetos,
+        'pays' => $pays,
+      ]);
+    }
 
-      }
-
-      return $liste->all();
+    public function formulaireStore(Request $request)
+    {
+      dd($request->all());
     }
 
     public function aide()
