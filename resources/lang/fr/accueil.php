@@ -22,4 +22,5 @@ return [
   "repondre_questions" => "Nous sommes aussi là pour répondre à toutes vos questions concernant les services que nous proposons, mais aussi l’interprétation de résultats d’analyses.",
   "comment_faire" => "Comment faire ?",
   "question_remarque" => "Une question, une remarque ?",
+  
 ];
