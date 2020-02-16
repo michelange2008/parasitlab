@@ -22,5 +22,9 @@ return [
   "repondre_questions" => "Nous sommes aussi là pour répondre à toutes vos questions concernant les services que nous proposons, mais aussi l’interprétation de résultats d’analyses.",
   "comment_faire" => "Comment faire ?",
   "question_remarque" => "Une question, une remarque ?",
-  
+
+    "choisir_analyse" => "Choisir une analyse",
+    "queltype" => "Quel type d'animal est concerné ?",
+    "cliquerespece" => "(cliquez sur l'icone correspondante)",
+    "analyseproposees" => "Voici les analyses proposées pour les ",
 ];
