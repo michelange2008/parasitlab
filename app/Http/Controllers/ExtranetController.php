@@ -77,7 +77,9 @@ class ExtranetController extends Controller
 
     public function analyses()
     {
-      return "analyses";
+      return view('extranet.analyses', [
+        'menu' => $this->menu,
+      ]);
     }
 
     public function quisommesnous()
