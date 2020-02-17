@@ -7,7 +7,7 @@
 	"analyses": {
 		"nom": "Analyses",
 		"tooltip": "Toutes les analyses que nous proposons",
-		"route": "analyses",
+		"route": "accueil",
 		"sousmenu": {
 			"commencer": {
 				"nom": "Pour commencer...",

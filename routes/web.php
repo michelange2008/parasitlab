@@ -15,6 +15,7 @@
 Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
 
 //##############################################################################
+// PAGE D ACCUEIL PAR TYPE D UTILISATEUR
 
 Route::get('/vétérinaires', ['uses' => 'ExtranetController@veterinaires', 'as' => 'veterinaires.accueil']);
 
@@ -22,31 +23,39 @@ Route::get('/éleveurs', ['uses' => 'ExtranetController@eleveurs', 'as' => 'elev
 
 Route::get('/cavaliers', ['uses' => 'ExtranetController@cavaliers', 'as' => 'cavaliers.accueil']);
 
-
-Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']);
+//##############################################################################
+// PAGES TECHNIQUES
 
 Route::get('/parasitisme', ['uses' => 'ExtranetController@parasitisme', 'as' => 'parasitisme']);
 
 Route::get('/résistances', ['uses' => 'ExtranetController@resistances', 'as' => 'resistances']);
 
+//##############################################################################
+// PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES
+
 Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as' => 'quisommesnous']);
-
-
-Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'enpratique']);
-
-Route::get('/choisir', ['uses' => 'ExtranetController@choisir', 'as' => 'choisir']);
-
-Route::get('/choisir/{espece}/{anapack}', ['uses' => 'ExtranetController@formulaireDemande', 'as' => 'formulaireDemande']);
-
-Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetController@formulaireStore', 'as' => 'formulaireStore']);
-
-Route::get('/choisir/formulaire_vierge', ['uses' => 'PdfController@formulaireVierge', 'as' => 'formulaireVierge']);
-
-Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
 
+Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
+
 Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
+
+//##############################################################################
+// PAGES POUR LE CHOIX DES ANALYSES LE REMPLISSAGE DU FORMULAIRE LES ASPECTS PRATIQUES
+
+Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']); // correspond au menu "pour commencer"
+
+Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'enpratique']);
+
+Route::get('/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'choisir']);
+
+Route::get('/choisir/{espece}/{anapack}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'formulaireDemande']);
+
+Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'formulaireStore']);
+
+Route::get('/choisir/formulaire_vierge', ['uses' => 'PdfController@formulaireVierge', 'as' => 'formulaireVierge']);
+
 
 //##############################################################################
 

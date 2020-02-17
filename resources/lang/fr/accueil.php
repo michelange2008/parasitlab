@@ -23,8 +23,12 @@ return [
   "comment_faire" => "Comment faire ?",
   "question_remarque" => "Une question, une remarque ?",
 
-    "choisir_analyse" => "Choisir une analyse",
-    "queltype" => "Quel type d'animal est concerné ?",
-    "cliquerespece" => "(cliquez sur l'icone correspondante)",
-    "analyseproposees" => "Voici les analyses proposées pour les ",
+  "choisir_analyse" => "Choisir une analyse",
+  "queltype" => "Quel type d'animal est concerné ?",
+  "cliquerespece" => "(cliquez sur l'icone correspondante)",
+  "analyseproposees" => "Voici les analyses proposées pour les ",
+
+  "remplirFormulaire" => "Vous pouvez remplir ce formulaire de demande d'analyse et imprimer ensuite le fichier pdf créé pour le joindre à votre demande.",
+  "signerDemande" => "N'oubliez pas de signer la demande avant de la joindre au prélèvement.",
+  "remplirMain" => "Vous pouvez aussi remplir le formulaire à la main en imprimant un modèle vierge en cliquant sur ce lien",
 ];
