@@ -29,7 +29,7 @@
 
     </div>
 
-    <form class="form" action="{{ route('formulaireStore') }}" method="post">
+    <form class="form" novalidate action="{{ route('formulaireStore') }}" method="post">
 
       <div class="row">
 

@@ -92,4 +92,10 @@ class ExtranetController extends Controller
         "menu" => $this->menu,
       ]);
     }
+
+    public function aide()
+    {
+      return "aide";
+    }
+
 }

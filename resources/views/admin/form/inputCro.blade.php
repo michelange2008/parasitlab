@@ -4,7 +4,7 @@
 
   @isset($user->veto->num)
 
-    <input class="my-2 form-control" type="text" name="num" value="{{ $user->veto->num  ?? '' }}">
+    <input class="my-2 form-control" type="text" name="num" value="{{ $user->veto->num  ?? old('num') }}">
 
   @else
 

@@ -15,9 +15,9 @@
 
         <div class="form-group-row">
 
-          <label class="col-sm-12 col-form-label" for="anapackChoisi">Espece</label>
+          <label class="col-sm-12 col-form-label" for="espece_id">Espece</label>
 
-          <select class="form-control" name="anapackChoisi">
+          <select class="form-control" name="espece_id">
 
             @foreach ($especes as $espece)
 
@@ -36,9 +36,9 @@
 
         <div class="form-group row">
 
-          <label class="col-sm-12 col-form-label" for="anapack">Analyse demandée</label>
+          <label class="col-sm-12 col-form-label" for="anapack_id">Analyse demandée</label>
 
-          <select class="form-control" name="anapack">
+          <select class="form-control" name="anapack_id">
 
             @foreach ($anapacks as $anapack)
 
@@ -60,7 +60,7 @@
 
       <div class="col-sm-6">
 
-        <input class="form-control" type="date" name="prelevement" value="{{ Carbon\Carbon::now()->toDateString() }}">
+        <input class="form-control" type="date" name="date_prelevement" value="{{ Carbon\Carbon::now()->toDateString() }}">
 
       </div>
 
@@ -68,11 +68,20 @@
 
     <div class="form-group row">
 
-      <label class="col-sm-8 col-form-label" for="NbPrlvt">Nombre de prélèvements (de 1 à 10)</label>
+      <label for="informations" class="col-sm-8 col-form-label">Informations (motifs de l'analyse, état des animaux, etc.)</label>
+
+      <textarea class="form-control" id="informations" name="informations" rows="3" placeholder="Si vous souhaitez nous transmettre des informations: motifs de l'analyse (suivi, problèmes, etc.), état des animaux, mortalité, etc.">
+      </textarea>
+
+    </div>
+
+    <div class="form-group row">
+
+      <label class="col-sm-8 col-form-label" for="nb_prelev ement">Nombre de prélèvements (de 1 à 10)</label>
 
       <div class="col-sm-2">
 
-        <input id="nbPrelevement" class="form-control" type="number" min="1" max="10" step="1" name="NbPrlvt" value="1">
+        <input id="nbPrelevement" class="form-control" type="number" min="1" max="10" step="1" name="nb_prelevement" value="{{ old('NbPrlvt') ?? 1 }}">
 
       </div>
 
@@ -87,7 +96,7 @@
 
           <div class="col-sm-8">
 
-            <input class="form-control" type="text" name="p_{{ $i }}" value="" placeholder="nom du prélèvement">
+            <input class="form-control" type="text" name="p_{{ $i }}" value="{{ old('p_'.$i) }}" placeholder="nom du prélèvement">
 
           </div>
 

@@ -2,13 +2,15 @@
 
   <div class="col-sm-8">
 
-    @include('extranet.formulaireDemande.input', [
-      'for' => 'veto',
-      'label' => 'Vétérinaire',
-      'type' => 'text',
-      'value' => $personne->veto->user->name ?? "",
-      'placeholder' => "Nom du vétérinaire",
-    ])
+    <label class="col-form-label" for="veto">Vétérinaire</label>
+
+    <div class="input-group my-2">
+
+      <span class="input-group-text"><i class="material-icons">local_hospital</i></span>
+
+      <input type="text" class="form-control" name="veto" value="{{ $personne->veto->user->name ?? old('veto') }}" placeholder="Nom du vétérinaire">
+
+    </div>
 
   </div>
 
