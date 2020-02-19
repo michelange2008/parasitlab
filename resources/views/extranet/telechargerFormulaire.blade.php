@@ -41,13 +41,13 @@
 
       <div id="imprimer" class="col-md-10 col-lg-8 mx-auto">
 
-        @include('fragments.blocAgitAnnule', ['route' => 'formulaire', 'id' => 1, 'intitule' => 'Imprimer'])
+        @include('fragments.blocAgitAnnule', ['route' => 'formulaire', 'intitule' => 'Imprimer'])
 
       </div>
 
       <div id="imprimerEnvoyer" class="col-md-10 col-lg-8 mx-auto" style="display:none">
 
-        @include('fragments.blocAgitAnnule', ['route' => 'formulaireMail', 'id' => 1, 'intitule' => 'Imprimer + mail'])
+        @include('fragments.blocAgitAnnule', ['route' => 'formulaireMail', 'intitule' => 'Imprimer + mail'])
 
       </div>
 
