@@ -71,19 +71,24 @@ class PdfController extends Controller
     // code...
   }
 
-  public function formulaireDemande($espece_id, $anapack_id)
+  public function formulaire()
   {
-    $espece = Espece::find($espece_id);
-
-    $anapack = Anapack::find($anapack_id);
-
     $data = "bonjour";
 
-    $pdf = PDF::loadview('extranet.choisir.formulaireDemande', compact('espece', 'anapack'));
+    $pdf = PDF::loadview('extranet.choisir.formulaireDemande', compact('data'));
 
     // dd($pdf);
 
     return $pdf->stream('demande.pdf');
+  }
+  public function formulaireMail()
+  {
+    return "mail";
+  }
+
+  public function formulaireVierge()
+  {
+    return "vierge";
   }
 
 }

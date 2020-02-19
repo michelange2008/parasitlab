@@ -39,9 +39,15 @@
 
     <div class="row my-3">
 
-      <div class="col-md-10 col-lg-8 mx-auto">
+      <div id="imprimer" class="col-md-10 col-lg-8 mx-auto">
 
-        @include('fragments.blocAgitAnnule', ['route' => 'accueil', 'id' => 1, 'intitule' => 'Envoyer'])
+        @include('fragments.blocAgitAnnule', ['route' => 'formulaire', 'id' => 1, 'intitule' => 'Imprimer'])
+
+      </div>
+
+      <div id="imprimerEnvoyer" class="col-md-10 col-lg-8 mx-auto" style="display:none">
+
+        @include('fragments.blocAgitAnnule', ['route' => 'formulaireMail', 'id' => 1, 'intitule' => 'Imprimer + mail'])
 
       </div>
 

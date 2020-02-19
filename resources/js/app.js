@@ -63,5 +63,22 @@ $('#reception').val(new Date().toDateInputValue());
 
 $('.carousel').carousel();
 
+envoiMail($('#envoiMail').is(':checked'));
+
+$('#envoiMail').on('change', function() {
+
+  envoiMail($('#envoiMail').is(':checked'));
+})
+
+function envoiMail(etat) {
+  if(etat) {
+    $('#imprimer').hide();
+    $('#imprimerEnvoyer').show();
+  }
+  else {
+    $('#imprimer').show();
+    $('#imprimerEnvoyer').hide();
+  }
+}
 
 });
