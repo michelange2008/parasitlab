@@ -20,7 +20,7 @@
         <p><i class="fas fa-exclamation-circle text-danger"></i> {{ __('accueil.signerDemande') }}</p>
         <p>
           {{ __('accueil.remplirMain') }}
-          <a href="{{ route('formulaireVierge') }}"><i class="fas fa-file-pdf text-danger"></i></a>
+          <a href="{!! asset('storage/pdf/formulaire_vierge.pdf') !!}" download="Demande analyse.pdf"><i class="fas fa-file-pdf text-danger"></i></a>
         </p>
 
         <hr class="divider">
