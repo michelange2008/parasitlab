@@ -73,13 +73,15 @@ class PdfController extends Controller
 
   public function formulaire()
   {
-    $data = "bonjour";
+    $demande = session('demande');
 
-    // $pdf = PDF::loadview('extranet.choisir.formulaireDemande', compact('data'));
+    // dd($datas);
+
+    $pdf = PDF::loadview('extranet.formulairePDF.formulairePDF', compact('demande'));
 
     // dd($pdf);
 
-    // return $pdf->stream('demande.pdf');
+    return $pdf->stream('demande.pdf');
   }
   public function formulaireMail()
   {

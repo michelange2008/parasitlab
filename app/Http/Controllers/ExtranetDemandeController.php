@@ -99,10 +99,12 @@ class ExtranetDemandeController extends Controller
 
         if($user == null) {
             $user = new User();
+            $user->id = 10000;
             $user->name = $datas['name'];
             $user->email = $datas['email'];
             $user->usertype = $this->userTypeEleveur()->id;
             $eleveur = new Eleveur();
+            $eleveur->user_id = $user->id;
             $eleveur->address_1 = $datas['address_1'];
             $eleveur->address_2 = $datas['address_2'];
             $eleveur->cp = $datas['cp'];
@@ -115,13 +117,15 @@ class ExtranetDemandeController extends Controller
         }
 
         $demande = new Demande();
+        $demande->id = 10000;
+        $demande->user_id = $user->id;
+        $demande->nb_prelevement = intVal($datas['nb_prelevement']);
         $demande->espece_id = $datas['espece_id'];
         $demande->anapack_id = $datas['anapack_id'];
-        $demande->date_prelevement = $datas['date_prelevement'];
         $demande->informations = $datas['informations'];
+        $demande->date_prelevement = $datas['date_prelevement'];
         $demande->toveto = ($datas['veto'] == null) ? false : true;
         $demande->veto = $datas['veto'];
-        $demande->nb_prelevement = intVal($datas['nb_prelevement']);
 
         $prelevements = Collect();
 
@@ -132,13 +136,9 @@ class ExtranetDemandeController extends Controller
               $prelevements->push($prelevement);
         }
 
-        $formulaireDemande = Collect();
-        $formulaireDemande->push($user);
-        $formulaireDemande->push($eleveur);
-        $formulaireDemande->push($demande);
-        $formulaireDemande->push($prelevements);
+        $demande->prelevements = $prelevements;
 
-        session(['formulaire' =>$formulaireDemande]);
+        session(['demande' =>$demande]);
 
         return view('extranet.telechargerFormulaire', [
           'menu' => $this->menu,
