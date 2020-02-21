@@ -5,7 +5,7 @@
         <img width="150px" src="images/logo.svg" alt="Logo du labo">
       </td>
       <td class="text-right">
-        <h4 class="pdf-titre">Demande d'analyse coproscopique</h4>
+        <p class="pdf-titre">Demande d'analyse coproscopique</p>
       </td>
     </tr>
   </table>

@@ -4,4 +4,6 @@
 
   @include('extranet.formulairePDF.enteteDemandePdfEleveur')
 
+  @include('extranet.formulairePDF.demandePdfAnapack')
+
 @endsection

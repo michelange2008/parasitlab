@@ -1,4 +1,4 @@
-@page { margin: 180px 50px 200px 50px; }
+@page { margin: 180px 50px 100px 50px; }
 
 #header {
   position: fixed;
@@ -69,4 +69,11 @@ table, thead, tbody, tr, td {
   margin:0;
   padding: 0.2rem 0.5rem !important;
   font-size: 0.8rem;
+}
+.demande-titre {
+  text-align:center;
+  font-size:1.2rem;
+  font-weight:bold;
+  background: $bleu-tres-fonce;
+  color: white;
 }

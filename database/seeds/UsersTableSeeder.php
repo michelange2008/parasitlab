@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         ],
         [
           'id' => 3,
-          'name' => 'Eleveur',
+          'name' => 'GAEC des Grands Goulets',
           'email' => 'eleveur@vache.com',
           'password' => bcrypt('azerty'),
           'usertype_id' => 1,

@@ -24,12 +24,12 @@ class FormulaireDemande extends FormRequest
     public function rules()
     {
         return [
-          'name' => 'alpha_num|bail|required|max:191',
+          'name' => 'string|bail|required|max:191',
           'email' => 'bail|required|email',
           'address_1' => 'string|required|max:191',
           'address_2' => 'string|nullable|max:191',
           'cp' => 'alpha_num|required|max:5',
-          'commune' => 'alpha|required|max:191',
+          'commune' => 'string|required|max:191',
           'indicatif' => 'string|required|max:3',
           'tel' => 'string|required|max:10',
           'veto' => 'string|nullable|max:191',

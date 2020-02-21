@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FormulaireDemande;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
+use App\Http\Traits\FormatDate;
 
 use App\User;
 use App\Models\Analyses\Anapack;
@@ -20,7 +21,7 @@ use App\Models\Veto;
 class ExtranetDemandeController extends Controller
 {
 
-      use LitJson, UserTypeOutil;
+      use LitJson, UserTypeOutil, FormatDate;
 
       protected $menu;
 
@@ -123,7 +124,7 @@ class ExtranetDemandeController extends Controller
         $demande->espece_id = $datas['espece_id'];
         $demande->anapack_id = $datas['anapack_id'];
         $demande->informations = $datas['informations'];
-        $demande->date_prelevement = $datas['date_prelevement'];
+        $demande->date_prelevement = $this->dateReadable($datas['date_prelevement']);
         $demande->toveto = ($datas['veto'] == null) ? false : true;
         $demande->veto = $datas['veto'];
 

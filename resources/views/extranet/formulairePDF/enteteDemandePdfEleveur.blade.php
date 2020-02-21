@@ -3,24 +3,26 @@
   <table>
     <tbody>
       <tr>
-        <td style="width:500px">
-          <p class="adresse">{{ $demande->user->name }}</p>
+        <td style="width:500px; font-weight:bold">
+          {{ $demande->user->name }}
         </td>
         <td>
-          <p> ede: {{ $demande->user->eleveur->num }}</p>
+          ede: {{ $demande->user->eleveur->num }}
         </td>
       </tr>
       <tr>
         <td>
-          <p class="adresse">{{ $demande->user->eleveur->address_1 }} - {{ $demande->user->eleveur->address_2 }}</p>
+          {{ $demande->user->eleveur->address_1 }}
+          {{ ($demande->user->eleveur->address_2 == null) ? "" : " - "}}
+          {{ $demande->user->eleveur->address_2}}
         </td>
       </tr>
       <tr>
         <td style="width:250px">
-          <p class="adresse">{{ $demande->user->eleveur->cp }} {{ $demande->user->eleveur->commune }}</p>
+          {{ $demande->user->eleveur->cp }} {{ $demande->user->eleveur->commune }}
         </td>
         <td>
-          <p class="adresse">{{ $demande->user->email }}</p>
+          {{ $demande->user->email }}
         </td>
       </tr>
     </tbody>
