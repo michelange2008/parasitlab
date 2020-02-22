@@ -133,7 +133,7 @@ class ExtranetDemandeController extends Controller
         for ($i=1; $i < $datas['nb_prelevement'] + 1 ; $i++) {
 
               $prelevement = new Prelevement();
-              $prelevement->identification = $datas['p_'.$i];
+              $prelevement->identification = ($datas['p_'.$i]== null) ? "lot n°".$i : $datas['p_'.$i];
               $prelevements->push($prelevement);
         }
 

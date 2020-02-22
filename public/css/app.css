@@ -430,7 +430,7 @@ input:checked + .slider:before {
   left: 0px;
   top: -160px;
   right: 0px;
-  height: 150px;
+  height: 100px;
   text-align: left;
 }
 
