@@ -56,11 +56,6 @@ Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@
 
 Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
 
-Route::get('/formulaire_mail', ['uses' => 'PdfController@formulaireMail', 'as' => 'formulaireMail']);
-
-Route::get('/choisir/formulaire_vierge', ['uses' => 'PdfController@formulaireVierge', 'as' => 'formulaireVierge']);
-
-
 //##############################################################################
 
 Auth::routes(['register' => false]);

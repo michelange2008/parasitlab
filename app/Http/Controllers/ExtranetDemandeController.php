@@ -141,14 +141,8 @@ class ExtranetDemandeController extends Controller
 
         session(['demande' =>$demande]);
 
-        return view('extranet.telechargerFormulaire', [
-          'menu' => $this->menu,
-        ]);
-       }
+        return redirect()->route('formulaire');
 
-       public function telechargerFormulaire($formulaireDemande)
-       {
-         // code...
        }
 
 }

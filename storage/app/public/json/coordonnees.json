@@ -1,0 +1,12 @@
+{
+  "parasitlab" : {
+    "nom" : "Parasit'Lab",
+    "address_1" : "Pôle Bio",
+    "address_2" : "150 avenue de Judée",
+    "cp" : "26400",
+    "commune" : "Eurre",
+    "tel" : "0475202020",
+    "email" : "contact@parasitlab.fr",
+    "web" : "www.parasitlab.fr"
+  }
+}

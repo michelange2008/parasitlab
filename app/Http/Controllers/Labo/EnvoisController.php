@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Labo;
 
 use DB;
+use PDF;
 use Illuminate\Support\Facades\Mail;
 
 use App\Mail\Resultats;
+use App\Mail\EmailDemande;
 
 use App\Http\Traits\DemandeFactory;
+use App\Http\Traits\LitJson;
 
 use App\Models\Productions\Demande;
 use App\User;
@@ -15,7 +18,8 @@ use App\User;
 class EnvoisController
 {
 
-    use DemandeFactory;
+    use DemandeFactory, LitJson;
+
 
     public function envoyerResultats($destinataire_id, $demande_id)
     {
@@ -33,5 +37,4 @@ class EnvoisController
       ]);
 
     }
-
 }

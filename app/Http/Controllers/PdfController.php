@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PDF;
+use App\Http\Controllers\Labo\EnvoisController;
+
 use App\Models\Productions\Demande;
 use App\Models\Analyses\Anapack;
 use App\Models\Espece;
+
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
@@ -75,22 +78,9 @@ class PdfController extends Controller
   {
     $demande = session('demande');
 
-    // dd($datas);
-
     $pdf = PDF::loadview('extranet.formulairePDF.formulairePDF', compact('demande'));
 
-    // dd($pdf);
-
     return $pdf->stream('demande.pdf');
-  }
-  public function formulaireMail()
-  {
-    return "mail";
-  }
-
-  public function formulaireVierge()
-  {
-    return "vierge";
   }
 
 }
