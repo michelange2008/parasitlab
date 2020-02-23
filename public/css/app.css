@@ -198,6 +198,10 @@ mark {
   border-right: solid 1px #0A425A;
 }
 
+.img-200 {
+  width: 200px;
+}
+
 .img-100-100 {
   height: 100%;
   width: 100%;
@@ -10980,6 +10984,21 @@ h3 {
   margin-top: 0.25rem;
   font-size: 80%;
   color: #e3342f;
+}
+
+.titre-fond {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: absolute;
+  line-height: 0.5;
+  font-size: 10rem;
+  color: #f2f2f2ff;
+  font-weight: bolder;
+  z-index: -10000;
+}
+
+ul:hover > .titre-fond {
+  color: #488199;
 }
 
 .btn {

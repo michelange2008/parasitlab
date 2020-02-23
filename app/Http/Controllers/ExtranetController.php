@@ -83,7 +83,10 @@ class ExtranetController extends Controller
 
     public function enpratique()
     {
-      return "en pratique";
+      return view('extranet.enpratique', [
+        'menu' => $this->menu,
+        'texte' => $this->litJson('enpratique'),
+      ]);
     }
 
     public function contact()

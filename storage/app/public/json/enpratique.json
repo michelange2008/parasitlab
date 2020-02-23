@@ -1,0 +1,55 @@
+{
+  "pourquoi" :
+  {
+    "icone" : "pourquoi.svg",
+    "fond" : "pourquoi ?",
+    "titre" : "Une analyse coproscopique peut-être réalisée pour deux raisons différentes:",
+    "items" :
+    {
+      "item1" :
+      {
+        "important" : "Confirmer un diagnostic face à un problème:",
+        "autre" : "mauvais état, amaigrissement, perte de production, etc."
+        },
+      "item2" :
+      {
+        "important" : "Faire un bilan ou un suivi",
+        "autre" : "de l'infestation parasitaire des animaux."
+      },
+      "item3" :
+      {
+        "important" : "Vérifier l'efficacité des anthelminthiques ",
+        "autre" : "(test de résistance)"
+      }
+    }
+  },
+  "quand" :
+  {
+    "icone" : "quand.svg",
+    "fond" : "quand ?",
+    "titre" : "Le moment du prélèvement dépend de l'objectif de l'analyse:",
+    "items" :
+    {
+      "item1" :
+      {
+        "important" : "Confirmer un diagnostic:",
+        "autre" : "prélevement au moment où l'on constate le problème."
+        },
+      "item2" :
+      {
+        "important" : "Faire un bilan:",
+        "autre" : "prélèvement en fin de saison de pâturage, au début de l'automne."
+      },
+      "item3" :
+      {
+        "important" : "Suivi de pâturage:",
+        "autre" : "nécessitera plusieurs prélèvements en cours de saison de pâture. Les moments les plus indiqués dépendent de chaque situation."
+      },
+      "item4" :
+      {
+        "important" : "Test de résistance",
+        "autre" : "un prélèvement juste avant de faire le traitement et un deuxième prélèvement 14 jours après"
+      }
+    }
+  }
+}
