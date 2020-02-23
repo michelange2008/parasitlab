@@ -63,22 +63,10 @@ $('#reception').val(new Date().toDateInputValue());
 
 $('.carousel').carousel();
 
-envoiMail($('#envoiMail').is(':checked'));
-
-$('#envoiMail').on('change', function() {
-
-  envoiMail($('#envoiMail').is(':checked'));
+$('#enpratiqueTab a').on('click', function (e) {
+  e.preventDefault()
+  $(this).tab('show')
 })
 
-function envoiMail(etat) {
-  if(etat) {
-    $('#imprimer').hide();
-    $('#imprimerEnvoyer').show();
-  }
-  else {
-    $('#imprimer').show();
-    $('#imprimerEnvoyer').hide();
-  }
-}
 
 });
