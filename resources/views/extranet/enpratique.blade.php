@@ -19,20 +19,32 @@
     <div class="row my-3">
 
       <div class="col-md-10 mx-auto">
-
-        <ul class="nav nav-tabs lead" id="enpratiqueTab" role="tablist">
+{{-- ONGLETS DE CHOIX --}}
+        <ul class="nav nav-tabs" id="enpratiqueTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="preleverTab" role="tab" aria-controls="prelever" aria-selected="true" href="#prelever"><i class="fab fa-stack-overflow"></i> Comment prélever ?</a>
+            <a class="nav-link active h2" id="preleverTab" role="tab" aria-controls="prelever" aria-selected="true" href="#prelever"><i class="fab fa-stack-overflow"></i> Comment prélever ?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="envoyerTab" role="tab" aria-controls="envoyer" aria-selected="false" href="#envoyer"><i class="far fa-paper-plane"></i> Comment envoyer ?</a>
+            <a class="nav-link h2" id="envoyerTab" role="tab" aria-controls="envoyer" aria-selected="false" href="#envoyer"><i class="far fa-paper-plane"></i> Comment envoyer ?</a>
           </li>
         </ul>
-
+{{-- PANNEAU DES DEUX ONGLETS --}}
         <div class="tab-content" id="enpratiqueContent">
-          <div class="tab-pane fade show active" id="prelever" role="tabpanel" aria-labelledby="preleverTab">Prélever</div>
-          <div class="tab-pane fade" id="envoyer" role="tabpanel" aria-labelledby="envoyerTab">Envoyer</div>
+
+          <div class="tab-pane fade show active" id="prelever" role="tabpanel" aria-labelledby="preleverTab">
+
+            @include('extranet.enpratique.prelever')
+
+          </div>
+
+          <div class="tab-pane fade" id="envoyer" role="tabpanel" aria-labelledby="envoyerTab">
+
+            @include('extranet.enpratique.envoyer')
+
+          </div>
+
         </div>
+
       </div>
 
     </div>
