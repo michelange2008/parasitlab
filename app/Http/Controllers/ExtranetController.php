@@ -85,7 +85,8 @@ class ExtranetController extends Controller
     {
       return view('extranet.enpratique', [
         'menu' => $this->menu,
-        'texte' => $this->litJson('enpratique'),
+        'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
+        'enpratiqueEnvoi' => $this->litJson('enpratiqueEnvoi'),
       ]);
     }
 

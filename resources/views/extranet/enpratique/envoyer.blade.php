@@ -2,65 +2,39 @@
 
   <ul class="list-unstyled">
 
-    <li class="media my-3">
+    @foreach ($enpratiqueConserve as $element)
 
-      <img class="d-none d-sm-block img-thumbnail" src="{!! asset('storage/img/icones/oeuf.jpg') !!}" alt="oeuf">
+      <li class="media my-3">
 
-      <div class="media-body ml-3 pt-2">
-        <p class="h4">Conservez correctement votre prélèvement</p>
-        <ul class="lead">
-          <p class="titre-fond ">Conserver</p>
+        <img class="d-none d-sm-block img-thumbnail" src="{!! asset('storage/img/icones').'/'.$element->image !!}" alt="{{ $element->image }}">
 
-          <li>
-            <span class="font-weight-bold color-bleu-tres-fonce">
-              Une coproscopie consiste à compter le nombre d'oeufs de parasites présents dans les crottes.
-            </span>
-              Si on laisse le prélèvement à température ambiante plusieurs jours, ces oeufs éclosent et ne peuvent plus être conmptés.
-            </li>
+        <div class="media-body ml-3 pt-2">
 
-          <li>
-          <span class="font-weight-bold color-bleu-tres-fonce">
-            Il est donc préférable de réaliser le prélèvement le jour-même de l'envoi.
-          </span>
-            Si ce n'est pas possible, le prélèvement doit être conservé au réfrigérateur.
-          </li>
+          <h4>{{ $element->h4 }}</h4>
 
-        </ul>
-      </div>
-    </li>
+          <ul class="lead">
 
-    <li class="media my-3">
+            <p class="titre-fond">{{ $element->titre_fond }}</p>
 
-      <img class="d-none d-sm-block img-thumbnail align-self-center" src="{!! asset('storage/img/icones/pack-envoi.svg') !!}" alt="envoi">
+            @foreach ($element->p as $p)
 
-      <div class="media-body ml-3 pt-2">
-        <p class="h4">Utilisez notre pack d'envoi pré-affranchi</p>
-        <ul class="lead">
-          <p class="titre-fond ">Envoyer</p>
+              <li>
+                <span class="font-weight-bold color-bleu-tres-fonce">
+                    {{ $p->gras }}
+                </span>
+                  {{ $p->normal }}
+              </li>
 
-          <li>
-            <span class="font-weight-bold color-bleu-tres-fonce">
-              Ce pack
-            </span>
-            contient trois sachets plastiques, un formulaire de demande d'analyse et une enveloppe pré-affranchie.
-            </li>
+            @endforeach
 
-          <li>
-            <span class="font-weight-bold color-bleu-tres-fonce">
-              Vous réalisez vos prélèvements,
-            </span>
-            inscrivez le nom des lots sur les sachets, remplissez le formulaire, et hop! vous donnez tout ça à votre facteur.
-          </li>
+          </ul>
 
-          <li>
-            <span class="font-weight-bold color-bleu-tres-fonce">
-              N'hésitez pas à nous demander un pack d'envoi !
-            </span>
-          </li>
+        </div>
 
-        </ul>
-      </div>
-    </li>
+      </li>
+
+    @endforeach
+
   </ul>
 
 </div>
@@ -71,32 +45,34 @@
 
   <div class="card-deck">
 
-    <div class="card">
-      <img src="{!! asset('storage/img/icones/envoye.svg') !!}" alt="Pack-envoi">
-      <div class="card-body">
-        <a class="btn btn-bleu" href="mailto()">
-           <h5>Demandez un pack pré-affranchi</h5>
-        </a>
-      </div>
-    </div>
+    @foreach ($enpratiqueEnvoi as $element)
 
-    <div class="card">
-      <img src="{!! asset('storage/img/icones/signature.svg') !!}" alt="Pack-envoi">
-      <div class="card-body">
-        <a class="btn btn-bleu" href="mailto()">
-           <h5>Téléchargez un formulaire vierge</h5>
-        </a>
-      </div>
-    </div>
+        <div class="card">
+          <img src="{!! asset('storage/img/icones').'/'.$element->icone !!}" alt="">
+          <div class="card-body">
+            <h4>{{ $element->h4 }}</h4>
+            <p>{{ $element->p1 }}</p>
+            <p>{{ $element->p2 }}</p>
+            <p>{{ $element->p3 }}</p>
+          </div>
+          <div class="card-footer">
+            @if ($element->type == 'route')
 
-    <div class="card">
-      <img src="{!! asset('storage/img/icones/labo.svg') !!}" alt="Pack-envoi">
-      <div class="card-body">
-        <a class="btn btn-bleu" href="mailto()">
-           <h5>Remplissez en ligne le formulaire</h5>
-        </a>
-      </div>
-    </div>
+              {!! link_to_route($element->route, $element->libelle, '' ,['class' => 'btn btn-bleu'])!!}
+
+
+            @elseif ($element->type == 'mail')
+
+              {!! HTML::mailto($element->mail, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+
+            @else
+
+              {!! link_to_asset('storage/'.$element->file, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+
+            @endif
+          </div>
+        </div>
+    @endforeach
 
   </div>
 
