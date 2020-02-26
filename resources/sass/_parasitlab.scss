@@ -6,6 +6,7 @@
 	color: #e3342f;
 }
 
+
 .titre-fond {
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -147,4 +148,8 @@ hr {
     z-index: 1000;
     margin-bottom: 0.5rem;
   }
+
+	.titre-fond {
+		display: none;
+	}
 }

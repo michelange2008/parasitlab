@@ -1,3 +1,9 @@
+<div class="col-md-12 p-3">
+
+  <h4 class="p-3 alert-rouge-tres-fonce">Toutes les questions sur la conservation et l'envoi des prélèvements</h4>
+
+</div>
+
 <div class="col-md-12 mx-3 py-3">
 
   <ul class="list-unstyled">
@@ -43,36 +49,43 @@
 
   <p class="h3">A vous de jouer !</p>
 
-  <div class="card-deck">
+  <div class="row ">
 
-    @foreach ($enpratiqueEnvoi as $element)
+    <div class="card-deck">
 
-        <div class="card">
-          <img src="{!! asset('storage/img/icones').'/'.$element->icone !!}" alt="">
-          <div class="card-body">
-            <h4>{{ $element->h4 }}</h4>
-            <p>{{ $element->p1 }}</p>
-            <p>{{ $element->p2 }}</p>
-            <p>{{ $element->p3 }}</p>
-          </div>
-          <div class="card-footer">
-            @if ($element->type == 'route')
-
-              {!! link_to_route($element->route, $element->libelle, '' ,['class' => 'btn btn-bleu'])!!}
+      @foreach ($enpratiqueEnvoi as $element)
 
 
-            @elseif ($element->type == 'mail')
+          <div class="card bg-rouge-tres-clair mb-3" style="min-width:300px">
+            <img src="{!! asset('storage/img/icones').'/'.$element->icone !!}" alt="">
+            <div class="card-body">
+              <h4>{{ $element->h4 }}</h4>
+              <p>{{ $element->p1 }}</p>
+              <p>{{ $element->p2 }}</p>
+              <p>{{ $element->p3 }}</p>
+            </div>
+            <div class="card-footer">
+              @if ($element->type == 'route')
 
-              {!! HTML::mailto($element->mail, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+                {!! link_to_route($element->route, $element->libelle, '' ,['class' => 'btn btn-bleu'])!!}
 
-            @else
 
-              {!! link_to_asset('storage/'.$element->file, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+              @elseif ($element->type == 'mail')
 
-            @endif
+                {!! HTML::mailto($element->mail, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+
+              @else
+
+                {!! link_to_asset('storage/'.$element->file, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+
+              @endif
+
           </div>
         </div>
-    @endforeach
+
+      @endforeach
+    </div>
+
 
   </div>
 

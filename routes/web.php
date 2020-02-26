@@ -26,9 +26,11 @@ Route::get('/cavaliers', ['uses' => 'ExtranetController@cavaliers', 'as' => 'cav
 //##############################################################################
 // PAGES TECHNIQUES
 
-Route::get('/parasitisme', ['uses' => 'ExtranetController@parasitisme', 'as' => 'parasitisme']);
+Route::get('/parasitisme', ['uses' => 'Technique\ParasitismeController@accueil', 'as' => 'parasitisme']);
 
-Route::get('/résistances', ['uses' => 'ExtranetController@resistances', 'as' => 'resistances']);
+Route::get('/parasitisme/surdispersion', ['uses' => 'Technique\ParasitismeController@surdispersion', 'as' => 'parasitisme.surdispersion']);
+
+Route::get('/parasitisme/résistances', ['uses' => 'Technique\ParasitismeController@resistances', 'as' => 'parasitisme.resistances']);
 
 //##############################################################################
 // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES

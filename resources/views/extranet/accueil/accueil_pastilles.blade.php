@@ -49,7 +49,7 @@
       Il est indispensable de mettre en oeuvre des pratiques de gestion du parasitisme pour limiter l'extension de ces résistances.
     </p>
 
-    <a class="btn btn-rouge" href="{{ route('resistances') }}">En savoir plus</a>
+    <a class="btn btn-rouge" href="{{ route('parasitisme.resistances') }}">En savoir plus</a>
   </div>
 
 </div>

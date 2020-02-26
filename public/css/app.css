@@ -8,8 +8,8 @@
 }
 
 .bg-bleu-tres-clair {
-  background: #76A6BB;
-  color: #0A425A;
+  background: #76a6bb5d !important;
+  color: #0A425A !important;
 }
 
 .bg-bleu-fonce {
@@ -53,7 +53,12 @@
 }
 
 .bg-rouge-tres-clair {
-  background: #FFAF9C;
+  background: #FFAF9C !important;
+}
+
+.bg-rouge-tres-tres-clair {
+  background: #8F230A99 !important;
+  color: #8F230A !important;
 }
 
 .bg-rouge-fonce {
@@ -62,6 +67,26 @@
 
 .bg-rouge-tres-fonce {
   background: #8F230A;
+}
+
+.bg-orange {
+  background: #D3AA42;
+}
+
+.bg-orange-clair {
+  background: #F3CD6C;
+}
+
+.bg-orange-tres-clair {
+  background: #FFE39C;
+}
+
+.bg-orange-fonce {
+  background: #B48B23;
+}
+
+.bg-orange-tres-fonce {
+  background: #8F690A;
 }
 
 .color-rouge {
@@ -11131,5 +11156,9 @@ hr {
     top: 0;
     z-index: 1000;
     margin-bottom: 0.5rem;
+  }
+
+  .titre-fond {
+    display: none;
   }
 }

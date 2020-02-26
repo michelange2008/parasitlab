@@ -8,7 +8,7 @@
 
     <div class="row my-3">
 
-      <div class="col-md-10 mx-auto">
+      <div class="col-md-11 col-xl-9 mx-auto">
 
         @titre(['icone' => 'enpratique.svg', 'titre' => 'En pratique', 'soustitre' => '(comment prélever & envoyer dans les meilleures conditions)'])
 
@@ -18,69 +18,32 @@
 
     <div class="row my-3">
 
-      <div class="col-md-10 mx-auto">
-{{-- ONGLETS DE CHOIX --}}
-        <ul class="nav nav-tabs" id="enpratiqueTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active h2" id="preleverTab" role="tab" aria-controls="prelever" aria-selected="true" href="#prelever"><i class="fab fa-stack-overflow"></i> Comment prélever ?</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link h2" id="envoyerTab" role="tab" aria-controls="envoyer" aria-selected="false" href="#envoyer"><i class="far fa-paper-plane"></i> Comment envoyer ?</a>
-          </li>
-        </ul>
+      <div class="col-md-11 col-xl-9 mx-auto">
+
+        <a id="btn_prelever" class="btn btn-lg btn-bleu lead btn_enpratique my-1" href="#"><i class="fab fa-stack-overflow"></i> Comment prélever ?</a>
+
+        <a id="btn_envoyer" class="btn btn-sm btn-rouge lead btn_enpratique my-1" href="#"><i class="far fa-paper-plane"></i> Comment envoyer ?</a>
+
 {{-- PANNEAU DES DEUX ONGLETS --}}
-        <div class="tab-content" id="enpratiqueContent">
+      </div>
 
-          <div class="tab-pane fade show active" id="prelever" role="tabpanel" aria-labelledby="preleverTab">
+      <div class="col-md-11 col-xl-9 mx-auto">
 
-            @include('extranet.enpratique.prelever')
+        <div class="panneau" id="prelever">
 
-          </div>
+          @include('extranet.enpratique.prelever')
 
-          <div class="tab-pane fade" id="envoyer" role="tabpanel" aria-labelledby="envoyerTab">
+        </div>
 
-            @include('extranet.enpratique.envoyer')
+        <div class="panneau" id="envoyer" style="display:none">
 
-          </div>
+          @include('extranet.enpratique.envoyer')
 
         </div>
 
       </div>
 
     </div>
-{{-- @foreach ($texte as $element)
-
-<div class="row my-3">
-
-      <div class="col-md-10 mx-auto border py-3">
-
-        <ul class="list-unstyled">
-
-          <li class="media">
-
-            <img class="d-none d-sm-block" src="{!! asset('storage/img/icones').'/'.$element->icone !!}" alt="{{$element->fond}}">
-
-            <div class="media-body">
-              <p class="h4">{{$element->titre}}</p>
-              <ul class="lead">
-                <p class="titre-fond ">{{ $element->fond }}</p>
-                @foreach ($element->items as $item)
-
-                  <li><span class="font-weight-bold color-bleu-tres-fonce">{{ $item->important }}</span> {{ $item->autre }}</li>
-
-                @endforeach
-              </ul>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-
-    </div>
-
-  @endforeach --}}
-
-
 
   </div>
 

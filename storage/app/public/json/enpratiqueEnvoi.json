@@ -21,11 +21,11 @@
   },
   "ligne" : {
     "icone" : "formulaire_ligne.svg",
-    "h4" : "Un moyen simple pour envoyer vos prélèvements",
-    "p1" : "Vous préférez la saisie en ligne",
-    "p2" : "Ce formulaire est fait pour vous. Si en plus, vous avez compte personnel (c'est-à-dire que vous nous avez déjà envoyé une analyse), connectez-vous avec votre adresse mail.",
+    "h4" : "Vous préférez une saisie en ligne ?",
+    "p1" : "Ce formulaire est fait pour vous.",
+    "p2" : "Si en plus, vous avez compte personnel (c'est-à-dire que vous nous avez déjà envoyé une analyse), connectez-vous avec votre adresse mail.",
     "p3" : "Le formulaire sera prérempli.",
-    "libelle" : "Remplissez en ligne le formulaire",
+    "libelle" : "Remplissez le formulaire en ligne",
     "type" : "route",
     "route" : "choisir"
   }

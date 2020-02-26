@@ -57,17 +57,6 @@ class ExtranetController extends Controller
       ]);
     }
 
-    public function parasitisme()
-    {
-      return view('extranet.parasitisme.parasitisme', [
-        "menu" => $this->menu,
-      ]);
-    }
-
-    public function resistances()
-    {
-      return "resistances";
-    }
 
     public function analyses()
     {
