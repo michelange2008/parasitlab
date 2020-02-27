@@ -5,7 +5,7 @@
 
 @elseif (isset($type) && $type == 'link') {{-- lien externe --}}
 
-  <a class="btn {{$couleur ?? 'btn-bleu'}}" href="{{ $lien }}" target="{{$target ?? '_blank'}}" >
+  <a class="btn {{$couleur ?? 'btn-bleu'}} {{ $taille ?? "" }}" href="{{ $lien }}" target="{{$target ?? '_blank'}}" >
 
     <i class="{{ $fa ?? '' }}"></i>
 
@@ -15,7 +15,7 @@
 
 @elseif (isset($type) && $type == 'route') {{-- lien interne --}}
 
-  <a class="btn {{$couleur ?? 'btn-bleu'}}" href="{{ route( $route ) }}">
+  <a class="btn {{$couleur ?? 'btn-bleu'}} {{ $taille ?? "" }}" href="{{ route( $route ) }}">
 
     <i class="{{ $fa ?? '' }}"></i>
 
@@ -25,7 +25,7 @@
 
 @elseif (isset($type) && $type == 'phone') {{-- faux bouton --}}
 
-  <div class="btn {{$couleur ?? 'btn-bleu'}}">
+  <div class="btn {{$couleur ?? 'btn-bleu'}} {{ $taille ?? "" }}">
 
     <i class="{{ $fa ?? ''}}"></i>
 

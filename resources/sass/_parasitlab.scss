@@ -6,7 +6,7 @@
 	color: #e3342f;
 }
 
-
+// Affichage d'un mot en gros en arrière plan du texte
 .titre-fond {
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -21,6 +21,8 @@
 ul:hover > .titre-fond {
 	color: $bleu-tres-tres-clair;
 }
+
+// redéfinition de quelques éléments
 .btn {
   border-radius: 0 !important;
 }
@@ -28,6 +30,7 @@ ul:hover > .titre-fond {
 a {
   color: inherit;
 }
+
 
 .ajuste_hauteur {
   height: max-content;
@@ -37,6 +40,7 @@ a {
   font-weight: bold;
 }
 
+// pour avoir une barre latérale fixe meme quand on scrolle
 .bd-sidebar {
 	position: -webkit-sticky;
 	position: sticky;
@@ -52,6 +56,7 @@ a {
 	order: 1;
 }
 
+// gros bouton analyse terminée
 #radioBtn .notActive{
     color: #3276b1 !important ;
     background-color: #fff !important;
@@ -125,9 +130,6 @@ hr {
   font-size: 1.25rem;
 }
 
-// .opg {
-//   background-image: url('/images/ostertagia_2.jpg');
-// }
 
 @media screen and (max-width: 992px) {
 

@@ -1,6 +1,6 @@
 <div class="card">
 
-  <img class="img-100" src="{!! asset('storage/img').'/'.$image !!}" alt="{{ $image }}">
+  <img class="card-img-top" src="{!! asset('storage/img').'/'.$image !!}" alt="{{ $image }}">
 
   <div class="card-body">
 
@@ -14,7 +14,7 @@
 
   <div class="card-footer">
 
-    @include('fragments.bouton', ['type' => 'route', 'route' => $route, 'intitule' => $intitule ?? "En savoir plus"])
+    @include('fragments.bouton', ['type' => 'route', 'route' => $route, 'intitule' => $intitule ?? "En savoir plus", 'taille' => 'btn-lg'])
 
   </div>
 

@@ -8,7 +8,7 @@
 
     <div class="row my-3">
 
-      <div class="m-auto col-md-10 col-lg-8 col-xl-6">
+      <div class="m-auto col-md-10 col-lg-9">
 
         <div class="card-deck">
 

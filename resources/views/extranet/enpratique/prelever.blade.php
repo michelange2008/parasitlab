@@ -6,50 +6,58 @@
 
 <div class="col-md-12 py-3">
 
-  <div class="card-deck">
+  @include('extranet.enpratique.prelever.terre_lot')
 
-    <div class="card">
+</div>
 
-      <img class="card-img-top" src="{!! asset('storage/img/crottin.jpg') !!}" alt="Crottin">
+<div class="col-md-12 py-3">
+  <hr class="divider">
+  <h4 class="color-bleu-tres-fonce">
+    Ensuite tout depend du motif de votre analyse:
+  </h4>
 
-      <div class="card-body">
+</div>
 
-        <h4>Par terre ?</h4>
-        <p>Quelque soit l'analyse demandée, il faut prélever des crottes, crottin ou bouse.</p>
-        <p>Il est possible de ramasser au sol quand on voit l'animal en train de faire: dans ce cas on est sûr de l'identité et de la fraîcheur.</p>
-        <p>Il ne faut en aucun cas ramasser des fécès par-terre si l'on ne sait pas quel animal les a fait et quand&nbsp!</p>
-        <p>Avec les ruminants et les porcs, il est préférable de faire le prélèvement directement dans le rectum.</p>
+<div class="col-md-12 py-3">
+
+  @foreach ($enpratiquePrelever as $element)
+
+    <div class="media border p-3 mb-2  bg-bleu-tres-clair">
+      <img class="mr-3" src="{!! asset('storage/img/icones').'/'.$element->icone !!}" alt="Problème">
+      <div class="media-body">
+        <h3 class="mt-0">
+          {{ $element->titre }}
+        </h3>
+        <p class="lead">{{ $element->soustitre }}</p>
+        <div class="d-flex flex-row">
+
+          <div class="col-6 border-left">
+
+            <p class="lead"><i class="far fa-hand-point-right"></i> Qui prélever&nbsp? </p>
+
+            @foreach ($element->qui as $qui)
+
+              <p>{{ $qui }}</p>
+
+            @endforeach
+
+          </div>
+
+          <div class="col-6 border-left">
+
+            <p class="lead"><i class="far fa-calendar-alt"></i> Quand prélever&nbsp? </p>
+
+            @foreach ($element->quand as $quand)
+
+              <p>{{ $quand }}</p>
+
+            @endforeach
+
+          </div>
+        </div>
       </div>
-
-      <div class="card-footer">
-        <p><i class="fas fa-exclamation-circle text-danger"></i> Une coproscopie se fait avec 4 grammes de crottes. Il n'est donc pas utile de nous envoyer de quantités importantes.</p>
-
-      </div>
-
     </div>
 
-    <div class="card">
-
-      <img class="card-img-top"  src="{!! asset('storage/img/lot.jpg') !!}" alt="Brebis">
-
-      <div class="card-body">
-        <h4>Par lots ?</h4>
-        <p>Dans un troupeau, les animaux ne sont pas tous parasités de la même façon.
-          Quelques uns le sont beaucoup, d'autres pas du tout. C'est ce que l'on appelle <span class="lead">la surdispersion du parasitisme</span>
-          (<a href="{{ route('parasitisme.surdispersion') }}" data-toggle="tooltip" title="La surdispersion du parasitisme"><abbr class="initialism"><i class="fas fa-book-reader"></i>&nbspen savoir plus</abbr></a>).
-        </p>
-        <p>Pour cette raison, il sera souvent plus pertinent de faire plusieurs analyses sur des mélanges de crottes de petits lots d'animaux (environ 5)
-        représentatifs de la diversité du troupeau.</p>
-        <p>Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fécès de chaque animal</p>
-
-      </div>
-
-      <div class="card-footer">
-        <p><i class="far fa-smile text-success"></i> Vous n'avez pas besoin d'homogénéiser le mélange de fécès, le laboratoire s'en charge.</p>
-      </div>
-
-    </div>
-
-  </div>
+  @endforeach
 
 </div>
