@@ -10,22 +10,18 @@
 
     <h3 class="card-header">{{ $titre }}</h3>
 
-    <p>{{ $texte_1 ?? '' }}</p>
+    <p class="text-left mt-2">{{ $texte_1 ?? '' }}</p>
 
-    <p>{{ $texte_2 ?? ''}}</p>
+    <p class="text-left">{{ $texte_2 ?? ''}}</p>
 
-    <p>{{ $texte_3 ?? ''}}</p>
+    <p class="text-left">{{ $texte_3 ?? ''}}</p>
 
   </div>
 
-  @isset($type)
+  <div class="text-left mb-2 ml-2">
 
-    <div class="card-footer text-left">
+    @include('fragments.bouton')
 
-      @include('fragments.bouton')
-
-    </div>
-
-  @endisset
+  </div>
 
 </div>
