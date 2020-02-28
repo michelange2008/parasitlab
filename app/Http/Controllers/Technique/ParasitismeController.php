@@ -22,7 +22,7 @@ class ParasitismeController extends Controller
 
       public function accueil()
       {
-        return view('extranet.parasitisme.parasitisme', [
+        return view('extranet.technique.parasitisme.parasitisme', [
           "menu" => $this->menu,
         ]);
       }
@@ -36,4 +36,10 @@ class ParasitismeController extends Controller
       {
         return view('errors.entravaux');
       }
+
+      public function entomofaune()
+      {
+        return view('errors.entravaux');
+      }
+
 }

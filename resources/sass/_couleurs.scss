@@ -40,12 +40,12 @@ $rouge-tres-fonce-transparent: #8F230A99;
 .bg-bleu-fonce { background: $bleu-fonce;}
 .bg-bleu-tres-fonce { background: $bleu-tres-fonce;}
 
-.color-bleu { color: $bleu;}
-.color-bleu-clair { color: $bleu-clair;}
-.color-bleu-tres-clair { color: $bleu-tres-clair;}
-.color-bleu-tres-tres-clair { color: $bleu-tres-tres-clair;}
-.color-bleu-fonce { color: $bleu-fonce;}
-.color-bleu-tres-fonce { color: $bleu-tres-fonce;}
+.color-bleu { color: $bleu !important;}
+.color-bleu-clair { color: $bleu-clair !important;}
+.color-bleu-tres-clair { color: $bleu-tres-clair !important;}
+.color-bleu-tres-tres-clair { color: $bleu-tres-tres-clair !important;}
+.color-bleu-fonce { color: $bleu-fonce !important;}
+.color-bleu-tres-fonce { color: $bleu-tres-fonce !important;}
 
 .bg-rouge { background: $rouge;}
 .bg-rouge-clair { background: $rouge-clair;}

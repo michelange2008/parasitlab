@@ -2,24 +2,28 @@
 
 <div class="row">
 
-  <div class="col-md-7 text-left">
+  <div class="col-md-12 col-lg-10 col-xl-8 mx-auto d-md-flex flex-row">
 
-    <img class="img-50" src="{!! asset('storage/logo.svg') !!}" alt="Pôle Bio">
+    <div class="col-md-7 text-left">
 
-    <h2>
-      {{ __('accueil.LaboParasito') }}
-      <span class="text-muted">{{ __('accueil.situeDansLaDrome') }}</span>
-    </h2>
+      <img class="img-50" src="{!! asset('storage/logo.svg') !!}" alt="Pôle Bio">
 
-    <p class="texte-plus-grand">
-    {{ __('accueil.creeEtGere') }}<img style="vertical-align:baseline" src="{!! asset('storage/fibl-logo.svg') !!}" alt="Logo du FiBL">{{ __('accueil.ceLaboratoire') }}
-    </p>
+      <h2>
+        {{ __('accueil.LaboParasito') }}
+        <span class="text-muted">{{ __('accueil.situeDansLaDrome') }}</span>
+      </h2>
 
-  </div>
+      <p class="texte-plus-grand">
+        {{ __('accueil.creeEtGere') }}<img style="vertical-align:baseline" src="{!! asset('storage/fibl-logo.svg') !!}" alt="Logo du FiBL">{{ __('accueil.ceLaboratoire') }}
+      </p>
 
-  <div class="col-md-5">
+    </div>
 
-    <img src="{{ asset('storage/img/polebio.jpg') }}" alt="">
+    <div class="col-md-5">
+
+      <img src="{{ asset('storage/img/polebio.jpg') }}" alt="">
+
+    </div>
 
   </div>
 

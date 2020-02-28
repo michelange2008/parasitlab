@@ -18,4 +18,14 @@
 
   </div>
 
+  @isset($type)
+
+    <div class="card-footer text-left">
+
+      @include('fragments.bouton')
+
+    </div>
+
+  @endisset
+
 </div>

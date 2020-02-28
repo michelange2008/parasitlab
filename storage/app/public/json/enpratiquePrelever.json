@@ -78,7 +78,7 @@
     {
       "p1" : "Le nombre de lots dépend du nombre de produits que vous voulez évaluer.",
       "p2" : "Il faut au minimum un lot témoin qui ne recevra aucun traitement.",
-      "p3" : "Et autant de lots traités qu'il y a de produits que vous voulez tester."
+      "p3" : "Et autant de lots traités qu'il y a de produits à tester."
     },
     "quand" :
     {
@@ -86,5 +86,17 @@
       "p2" : "Une seconde analyse est réalisée 10 jours après le traitement.",
       "p3" : "Un calcul permet de connaitre le taux de réduction d'excrétion fécale et donc la présence éventuelle d'une résistance."
     }
+  },
+  "chevaux" :
+  {
+    "icone" : "cas_equides.svg",
+    "titre" : "Cas particulier des chevaux et des ânes",
+    "soustitre" : "Dans le cas des équidés, il est souvent intéressant de privilégier des analyses individuelles."
+  },
+  "vetos" :
+  {
+    "icone" : "veto.svg",
+    "titre" : "Dans tous les cas, n'hésitez pas à en discuter avec votre vétérinaire.",
+    "soustitre" : "Cela vous permettra d'adapter ces préconisations à votre élevage. Vous pouvez aussi nous contacter."
   }
 }

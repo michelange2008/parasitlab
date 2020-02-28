@@ -32,6 +32,10 @@ Route::get('/parasitisme/surdispersion', ['uses' => 'Technique\ParasitismeContro
 
 Route::get('/parasitisme/résistances', ['uses' => 'Technique\ParasitismeController@resistances', 'as' => 'parasitisme.resistances']);
 
+Route::get('/parasitisme/entomofaune', ['uses' => 'Technique\ParasitismeController@entomofaune', 'as' => 'parasitisme.entomofaune']);
+
+Route::get('/coproscopies', ['uses' => 'Technique\CoproscopiesController@accueil', 'as' => 'coproscopies']);
+
 //##############################################################################
 // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES
 

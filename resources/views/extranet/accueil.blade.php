@@ -10,7 +10,7 @@
 
     @include('extranet.accueil.accueil_carousel')
 
-    <div class="container accueil">
+    <div class="container-fluid text-center">
 
       @include('extranet.accueil.accueil_entetes')
 

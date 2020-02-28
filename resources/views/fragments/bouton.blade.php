@@ -11,6 +11,8 @@
 
     {{ $intitule }}
 
+    &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
+
   </a>
 
 @elseif (isset($type) && $type == 'route') {{-- lien interne --}}
@@ -21,6 +23,9 @@
 
     {{ $intitule }}
 
+    &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
+
+
   </a>
 
 @elseif (isset($type) && $type == 'phone') {{-- faux bouton --}}
@@ -30,6 +35,8 @@
     <i class="{{ $fa ?? ''}}"></i>
 
     {{ $intitule }}
+
+    &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
 
   </div>
 

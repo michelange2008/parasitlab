@@ -27,17 +27,18 @@
     <link rel="stylesheet" href="{{ asset('css/jquery-confirm.css')}}">
 
 </head>
-<body>
+  <body>
 
-        @yield('menu')
+      @yield('menu')
 
-        @yield('content')
+      @yield('content')
 
-        @yield('footer')
+      @yield('footer')
 
-        <!-- Scripts -->
+      <!-- Scripts -->
 
-        <script src="{{ asset('js/app.js') }}" defer></script>
-{{-- <script type="application/javascript" src="libs/FileSaver/FileSaver.min.js"></script> --}}
-</body>
+      <script src="{{ asset('js/app.js') }}" defer></script>
+
+  </body>
+
 </html>

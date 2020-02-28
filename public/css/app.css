@@ -21,27 +21,27 @@
 }
 
 .color-bleu {
-  color: #2E6B85;
+  color: #2E6B85 !important;
 }
 
 .color-bleu-clair {
-  color: #488199;
+  color: #488199 !important;
 }
 
 .color-bleu-tres-clair {
-  color: #76A6BB;
+  color: #76A6BB !important;
 }
 
 .color-bleu-tres-tres-clair {
-  color: #76a6bb5d;
+  color: #76a6bb5d !important;
 }
 
 .color-bleu-fonce {
-  color: #1A5772;
+  color: #1A5772 !important;
 }
 
 .color-bleu-tres-fonce {
-  color: #0A425A;
+  color: #0A425A !important;
 }
 
 .bg-rouge {
@@ -11074,10 +11074,6 @@ footer {
   bottom: 0;
   background: black;
   color: #76A6BB;
-}
-
-.accueil {
-  text-align: center;
 }
 
 .labo-divider {
