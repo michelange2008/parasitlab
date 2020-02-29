@@ -8,30 +8,38 @@
 
     <div class="row my-3">
 
-      <div class="col-md-10 col-lg-8 mx-auto">
+      <div class="col-md-12 col-lg-10 mx-auto">
 
         @titre(['icone' => 'analyse.svg', 'titre' => "Les examens coproscopiques"])
 
       </div>
 
-      <div class="col-md-10 col-lg-8 d-flex flex-row mx-auto">
+      @foreach ($coproscopies as $element)
 
-        <div class="media">
+        <div class="col-md-12 col-lg-10 d-flex flex-row mx-auto my-3">
 
-          <img class="mr-3" src="{!! asset('storage/img/image_test.jpg') !!}" alt="image">
+          <div class="media">
 
-          <div class="media-body">
+            <img class="mr-3" src="{!! asset('storage/img').'/'.$element->image !!}" alt="{!! $element->titre !!}">
 
-          <h3 class="text-secondary">Qu'est-ce qu'une coproscopie ?</h3>
+            <div class="media-body">
 
-          <p class="lead">C'est un examen de laboratoire qui vise à compter les oeufs ou les larves de parasite présents dans les fécès.</p>
+              <h3 class="mt-0 text-secondary">{{ $element->titre }}</h3>
 
-          <p class="lead"></p>
+              @foreach ($element->texte as $texte)
+
+                <p style="font-size:1.15rem" class="mb-1">{{ $texte }}</p>
+
+              @endforeach
+
+            </div>
+
+          </div>
+
         </div>
 
-      </div>
-
-    </div>
+      @endforeach
 
   </div>
+
 @endsection

@@ -22,7 +22,8 @@ class CoproscopiesController extends Controller
         public function accueil()
         {
           return view('extranet.technique.coproscopies.coproscopies', [
-            "menu" => $this->menu,
+            'menu' => $this->menu,
+            'coproscopies' => $this->litJson('coproscopies'),
           ]);
         }
 
