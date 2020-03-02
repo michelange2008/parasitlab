@@ -1,0 +1,32 @@
+{
+  "unites" :
+  {
+    "titre" : "Quelles unités&nbsp;?",
+    "texte" :
+    {
+      "p1" : "Pour certains parasites, commes les <span class=\"color-bleu-tres-fonce font-weight-bold\">strongles gastro-intestinaux</span> et <span class=\"color-bleu-tres-fonce font-weight-bold\">le paramphistomes</span>, il est possible de compter les oeufs. Le rendu se fait donc en <span class=\"color-bleu-tres-fonce font-weight-bold\">opg</span> qui signifie \"oeufs par gramme\". Il s'agit donc du nombre d'oeufs présents dans 1 gramme de fécès des animaux.",
+      "p2" : "Pour les larves de strongles respiratoire ou les ookystes coccidiens, le rendu est semi-quantitatif et souvent indiqué de la manière suivante :<span class=\"color-bleu-tres-fonce font-weight-bold\">\"+\", \"++\" et \"+++\"</span>.",
+      "p3" : "Concernant les <span class=\"color-bleu-tres-fonce font-weight-bold\">douves</span> et le <span class=\"color-bleu-tres-fonce font-weight-bold\">ténia de l'agneau</span> (Moniezia expansa), le comptage n'a pas beaucoup de sens et le résultat indique seulement <span class=\"color-bleu-tres-fonce font-weight-bold\">PRESENCE</span> ou <span class=\"color-bleu-tres-fonce font-weight-bold\">ABSENCE</span>."
+    }
+  },
+  "seuil" :
+  {
+    "titre" : "Seuil de détection... c'est quoi&nbsp;?",
+    "texte" :
+    {
+      "p1" : "La notion de seuil de détection provient du fait que l'on ne compte pas les nombres d'oeufs dans la totalité d'1 gramme de fécès.",
+      "p2" : "On compte les oeufs dans 1/40<sup>ème</sup> (ou 1/50<sup>ème</sup>) de gramme. Donc s'il l'on n'observe qu'un seul oeuf, c'est qu'il y en a 40 (ou 50) par gramme.",
+      "p3" : "Il est donc impossible de compter 5, 10 ou 20 oeufs par gramme. Le seuil de détection est donc à 40 (ou 50) oeufs par gramme."
+    }
+  },
+  "niveau" :
+  {
+    "titre" : "A partir de quel niveau, c'est inquiétant&nbsp;?",
+    "texte" :
+    {
+      "p1" : "",
+      "p2" : "",
+      "p3" : ""
+    }
+  }
+}

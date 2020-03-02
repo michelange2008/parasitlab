@@ -13,17 +13,19 @@ class CoproscopiesController extends Controller
     use LitJson;
 
     protected $menu;
+    protected $sousmenuAnalyses;
 
     public function __construct()
     {
       $this->menu = $this->litJson('menuExtranet');
+      $this->sousmenuAnalyses = $this->litJson('sousmenuAnalyses');
     }
 
     public function accueil()
     {
       return view('extranet.technique.coproscopies.coproscopies', [
         'menu' => $this->menu,
-        'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
+        'sousmenuAnalyses' => $this->sousmenuAnalyses,
         'coproscopies' => $this->litJson('coproscopies'),
       ]);
     }
@@ -31,7 +33,7 @@ class CoproscopiesController extends Controller
     {
       return view('extranet.analyses.enpratique', [
         'menu' => $this->menu,
-        'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
+        'sousmenuAnalyses' => $this->sousmenuAnalyses,
         'enpratiquePrelever' => $this->litJson('enpratiquePrelever'),
         'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
         'enpratiqueEnvoi' => $this->litJson('enpratiqueEnvoi'),
@@ -40,7 +42,11 @@ class CoproscopiesController extends Controller
 
     public function interpreter()
     {
-      // code...
+      return view('extranet.technique.coproscopies.interpreter', [
+        'menu' => $this->menu,
+        'sousmenuAnalyses' => $this->sousmenuAnalyses,
+        'interpreter' => $this->litJson('interpreter'),
+      ]);
     }
 
 }

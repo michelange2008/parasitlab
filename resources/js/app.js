@@ -1,5 +1,5 @@
 // require( './usertypes.js');
-require('./bootstrap');
+require('./bootstrap.js');
 
 require( './bootstrap-table.min.js');
 require( './bootstrap-table-accent-neutralise.min.js');
