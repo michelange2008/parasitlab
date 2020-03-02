@@ -78,7 +78,7 @@ class PdfController extends Controller
   {
     $demande = session('demande');
 
-    $pdf = PDF::loadview('extranet.formulairePDF.formulairePDF', compact('demande'));
+    $pdf = PDF::loadview('extranet.analyses.formulairePDF.formulairePDF', compact('demande'));
 
     return $pdf->stream('demande.pdf');
   }

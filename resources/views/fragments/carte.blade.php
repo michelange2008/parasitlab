@@ -4,13 +4,13 @@
 
   <div class="card-body">
 
-    <h3 class="card-header">{{ $titre }}</h3>
+    <h3 class="card-header">{!! $titre !!}</h3>
 
-    <p>{{ $texte_1 ?? '' }}</p>
+    <p>{!! $texte_1 ?? '' !!}</p>
 
-    <p>{{ $texte_2 ?? ''}}</p>
+    <p>{!! $texte_2 ?? ''!!}</p>
 
-    <p>{{ $texte_3 ?? ''}}</p>
+    <p>{!! $texte_3 ?? ''!!}</p>
 
   </div>
 

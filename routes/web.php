@@ -36,6 +36,24 @@ Route::get('/parasitisme/entomofaune', ['uses' => 'Technique\ParasitismeControll
 
 Route::get('/coproscopies', ['uses' => 'Technique\CoproscopiesController@accueil', 'as' => 'coproscopies']);
 
+Route::get('/coproscopies/interpreter', ['uses' => 'Technique\CoproscopiesController@interpreter', 'as' => 'interpreter']);
+
+
+//##############################################################################
+// PAGES POUR LE CHOIX DES ANALYSES LE REMPLISSAGE DU FORMULAIRE LES ASPECTS PRATIQUES
+
+Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']); // correspond au menu "pour commencer"
+
+Route::get('/enpratique', ['uses' => 'Technique\CoproscopiesController@enpratique', 'as' => 'enpratique']);
+
+Route::get('/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'choisir']);
+
+Route::get('/choisir/{espece}/{anapack}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'formulaireDemande']);
+
+Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'formulaireStore']);
+
+Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
+
 //##############################################################################
 // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES
 
@@ -46,22 +64,6 @@ Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact
 Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
-
-//##############################################################################
-// PAGES POUR LE CHOIX DES ANALYSES LE REMPLISSAGE DU FORMULAIRE LES ASPECTS PRATIQUES
-
-Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']); // correspond au menu "pour commencer"
-
-Route::get('/enpratique', ['uses' => 'ExtranetController@enpratique', 'as' => 'enpratique']);
-
-Route::get('/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'choisir']);
-
-Route::get('/choisir/{espece}/{anapack}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'formulaireDemande']);
-
-Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'formulaireStore']);
-
-Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
-
 //##############################################################################
 
 Auth::routes(['register' => false]);

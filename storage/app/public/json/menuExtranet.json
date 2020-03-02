@@ -15,6 +15,12 @@
 				"tooltip": "Commençons par le commencement",
 				"route": "analyses"
 			},
+			"connaître": {
+				"nom": "Pourquoi des coproscopies ?",
+
+				"tooltip": "Qu'est-ce qu'une coproscopie ?",
+				"route": "coproscopies"
+			},
 			"choisir": {
 				"nom": "Choisir une analyse",
 
@@ -22,10 +28,16 @@
 				"route": "choisir"
 			},
 			"pratique": {
-				"nom": "En pratique",
+				"nom": "Prélever, envoyer",
 
 				"tooltip": "Comment faire pour ...",
 				"route": "enpratique"
+			},
+			"interpreter": {
+				"nom": "Comment interpréter ?",
+
+				"tooltip": "Comment faire pour ...",
+				"route": "interpreter"
 			}
 		}
 	},

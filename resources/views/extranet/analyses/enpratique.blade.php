@@ -31,13 +31,13 @@
 
         <div class="panneau" id="prelever">
 
-          @include('extranet.enpratique.prelever')
+          @include('extranet.analyses.enpratique.prelever')
 
         </div>
 
         <div class="panneau" id="envoyer" style="display:none">
 
-          @include('extranet.enpratique.envoyer')
+          @include('extranet.analyses.enpratique.envoyer')
 
         </div>
 

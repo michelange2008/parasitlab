@@ -37,11 +37,11 @@
 
           @csrf
 
-          @include('extranet.formulaireDemande.infosGenerales')
+          @include('extranet.analyses.formulaireDemande.infosGenerales')
 
           <br>
 
-          @include('extranet.formulaireDemande.infosAnapack')
+          @include('extranet.analyses.formulaireDemande.infosAnapack')
 
         </div>
 

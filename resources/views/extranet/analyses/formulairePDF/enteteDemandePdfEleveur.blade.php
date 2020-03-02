@@ -7,19 +7,19 @@
           {{ $demande->user->name }}
         </td>
         <td>
-          ede: {{ $demande->user->eleveur->num }}
+          ede: {{ $demande->eleveur->num }}
         </td>
       </tr>
       <tr>
         <td>
-          {{ $demande->user->eleveur->address_1 }}
-          {{ ($demande->user->eleveur->address_2 == null) ? "" : " - "}}
-          {{ $demande->user->eleveur->address_2}}
+          {{ $demande->eleveur->address_1 }}
+          {{ ($demande->eleveur->address_2 == null) ? "" : " - "}}
+          {{ $demande->eleveur->address_2}}
         </td>
       </tr>
       <tr>
         <td style="width:250px">
-          {{ $demande->user->eleveur->cp }} {{ $demande->user->eleveur->commune }}
+          {{ $demande->eleveur->cp }} {{ $demande->eleveur->commune }}
         </td>
         <td>
           {{ $demande->user->email }}

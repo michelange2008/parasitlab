@@ -6,7 +6,7 @@
 
 <div class="col-md-12 py-3">
 
-  @include('extranet.enpratique.prelever.terre_lot')
+  @include('extranet.analyses.enpratique.prelever.terre_lot')
 
 </div>
 
@@ -20,6 +20,6 @@
 
 <div class="col-md-12 py-3">
 
-  @include('extranet.enpratique.prelever.qui_quand')
+  @include('extranet.analyses.enpratique.prelever.qui_quand')
 
 </div>

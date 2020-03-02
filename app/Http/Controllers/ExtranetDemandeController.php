@@ -60,7 +60,7 @@ class ExtranetDemandeController extends Controller
 
           }
 
-        return view('extranet.choisir', [
+        return view('extranet.analyses.choisir', [
           'menu' => $this->menu,
           'especes' => $especes,
           'liste' => $liste,
@@ -69,6 +69,8 @@ class ExtranetDemandeController extends Controller
 
       public function formulaireDemande($espece_id, $anapack_id)
       {
+        session()->forget('demande');
+
         $especes = Espece::where('type', 'simple')->get();
 
         $anapacks = Anapack::all();
@@ -77,7 +79,7 @@ class ExtranetDemandeController extends Controller
 
         $user = (auth()->user()) ? auth()->user() : "";
 
-        return view('extranet.formulaireDemande', [
+        return view('extranet.analyses.formulaireDemande', [
           'menu' => $this->menu,
           'espece_id' => $espece_id,
           'anapack_id' => $anapack_id,
@@ -90,6 +92,7 @@ class ExtranetDemandeController extends Controller
 
       public function formulaireStore(FormulaireDemande $request)
       {
+
         $datas = $request->validated();
 
         foreach ($datas as $key => $data) {
@@ -97,7 +100,6 @@ class ExtranetDemandeController extends Controller
         }
 
         $user = User::select('id', 'name', 'email')->where('email', $datas['email'])->first();
-
         if($user == null) {
             $user = new User();
             $user->id = 10000;
@@ -138,6 +140,8 @@ class ExtranetDemandeController extends Controller
         }
 
         $demande->prelevements = $prelevements;
+        $demande->user = $user;
+        $demande->eleveur = $eleveur;
 
         session(['demande' =>$demande]);
 

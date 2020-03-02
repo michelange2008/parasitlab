@@ -16,13 +16,13 @@
 
       <div class="col-md-10 mx-auto my-3">
 
-        @include('extranet.choisir.titre', ['titre' =>  __('accueil.queltype'), 'soustitre' => __('accueil.cliquerespece')])
+        @include('extranet.analyses.choisir.titre', ['titre' =>  __('accueil.queltype'), 'soustitre' => __('accueil.cliquerespece')])
 
       </div>
 
       <div class="col-md-10 mx-auto my-3 d-flex justify-content-around">
 
-        @include('extranet.choisir.listeEspeces')
+        @include('extranet.analyses.choisir.listeEspeces')
 
       </div>
 
@@ -32,7 +32,7 @@
 
       <div class="col-md-10 m-auto">
 
-        @include('extranet.choisir.titre', ['titre' => __('analyseproposees '), 'id' => 'titre'])
+        @include('extranet.analyses.choisir.titre', ['titre' => __('analyseproposees '), 'id' => 'titre'])
 
       </div>
 
@@ -50,7 +50,7 @@
 
               @foreach ($anapacks as $anapack)
 
-                @include('extranet.choisir.listeAnalysesProposees')
+                @include('extranet.analyses.choisir.listeAnalysesProposees')
 
               @endforeach
 

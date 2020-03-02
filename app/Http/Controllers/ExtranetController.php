@@ -72,16 +72,6 @@ class ExtranetController extends Controller
       return "qui sommes-nous ?";
     }
 
-    public function enpratique()
-    {
-      return view('extranet.enpratique', [
-        'menu' => $this->menu,
-        'enpratiquePrelever' => $this->litJson('enpratiquePrelever'),
-        'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
-        'enpratiqueEnvoi' => $this->litJson('enpratiqueEnvoi'),
-      ]);
-    }
-
     public function contact()
     {
       return view('extranet.contact', [

@@ -4,11 +4,11 @@
 
   <div class="card-body">
 
-    <h2 class="card-title">{{ $titre }}</h2>
+    <h2 class="card-title">{!! $titre !!}</h2>
 
-    <p class="card-text">{{ $texte_1 }}</p>
+    <p class="card-text">{!! $texte_1 !!}</p>
 
-    <p class="card-text">{{ $texte_2 ?? "" }}</p>
+    <p class="card-text">{!! $texte_2 ?? "" !!}</p>
 
   </div>
 

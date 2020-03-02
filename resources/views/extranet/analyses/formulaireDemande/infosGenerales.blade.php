@@ -16,7 +16,7 @@
 
       <p>Si vous souhaitez que nous communiquions les résulat à votre vétérinaire, veuillez indiquer son nom</p>
 
-      @include('extranet.formulaireDemande.infosEleveur', ['personne' => $user->eleveur])
+      @include('extranet.analyses.formulaireDemande.infosEleveur', ['personne' => $user->eleveur])
 
     @else
 
@@ -24,7 +24,7 @@
 
       <p>Si vous souhaitez que nous communiquions les résulat à votre vétérinaire, veuillez indiquer son nom</p>
 
-      @include('extranet.formulaireDemande.infosEleveur')
+      @include('extranet.analyses.formulaireDemande.infosEleveur')
 
 
     @endisset

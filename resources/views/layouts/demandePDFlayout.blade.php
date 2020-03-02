@@ -22,7 +22,7 @@
   <body>
 
     <div id="header">
-      @include('extranet.formulairePDF.enteteDemande')
+      @include('extranet.analyses.formulairePDF.enteteDemande')
     </div>
 
     @yield('content')
