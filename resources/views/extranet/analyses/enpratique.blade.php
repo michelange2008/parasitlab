@@ -6,9 +6,11 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3">
+    @include('extranet.analyses.sousmenuAnalyses')
 
-      <div class="col-md-11 col-xl-9 mx-auto">
+    <div class="row my-3 justify-content-end">
+
+      <div class="col-md-10">
 
         @titre(['icone' => 'enpratique.svg', 'titre' => 'En pratique', 'soustitre' => '(comment prélever & envoyer dans les meilleures conditions)'])
 
@@ -16,9 +18,9 @@
 
     </div>
 
-    <div class="row my-3">
+    <div class="row my-3 justify-content-end">
 
-      <div class="col-md-11 col-xl-9 mx-auto">
+      <div class="col-md-10">
 
         <a id="btn_prelever" class="btn btn-lg btn-bleu lead btn_enpratique my-1" href="#"><i class="fab fa-stack-overflow"></i> Comment prélever ?</a>
 
@@ -27,7 +29,7 @@
 {{-- PANNEAU DES DEUX ONGLETS --}}
       </div>
 
-      <div class="col-md-11 col-xl-9 mx-auto">
+      <div class="col-md-10">
 
         <div class="panneau" id="prelever">
 

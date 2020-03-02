@@ -62,6 +62,7 @@ class ExtranetDemandeController extends Controller
 
         return view('extranet.analyses.choisir', [
           'menu' => $this->menu,
+          'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
           'especes' => $especes,
           'liste' => $liste,
         ]);

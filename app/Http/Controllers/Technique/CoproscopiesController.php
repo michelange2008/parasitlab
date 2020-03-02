@@ -23,6 +23,7 @@ class CoproscopiesController extends Controller
     {
       return view('extranet.technique.coproscopies.coproscopies', [
         'menu' => $this->menu,
+        'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
         'coproscopies' => $this->litJson('coproscopies'),
       ]);
     }
@@ -30,6 +31,7 @@ class CoproscopiesController extends Controller
     {
       return view('extranet.analyses.enpratique', [
         'menu' => $this->menu,
+        'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
         'enpratiquePrelever' => $this->litJson('enpratiquePrelever'),
         'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
         'enpratiqueEnvoi' => $this->litJson('enpratiqueEnvoi'),

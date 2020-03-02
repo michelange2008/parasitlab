@@ -1,0 +1,65 @@
+{
+  "analyses" :
+  {
+    "titre" : "Analyses",
+    "contenu" :
+    {
+      "connaitre" :
+      {
+        "type" : "route",
+        "route" : "coproscopies",
+        "icone" : "analyse.svg",
+        "intitule" : "Connaître"
+      },
+      "choisir" :
+      {
+        "type" : "route",
+        "route" : "choisir",
+        "icone" : "choisir.svg",
+        "intitule" : "Choisir"
+      },
+      "enpratique" :
+      {
+        "type" : "route",
+        "route" : "enpratique",
+        "icone" : "enpratique.svg",
+        "intitule" : "Prélever/Envoyer"
+      },
+      "interpreter" :
+      {
+        "type" : "route",
+        "route" : "interpreter",
+        "icone" : "interpreter.svg",
+        "intitule" : "Interpréter"
+      }
+    }
+  },
+  "telecharger" :
+  {
+    "titre" : "Télécharger",
+    "contenu" :
+    {
+      "formulaire" :
+      {
+        "type" : "file",
+        "file" : "/pdf/formulaire_vierge.pdf",
+        "icone" : "formulaire_vierge.svg",
+        "intitule" : "Formulaire"
+      }
+    }
+  },
+  "demander" :
+  {
+    "titre" : "Demander",
+    "contenu" :
+    {
+      "pack" :
+      {
+        "type" : "mail",
+        "mail" : "contact@parasitlab.fr",
+        "icone" : "pack-envoi-vide.svg",
+        "intitule" : "Pack envoi"
+      }
+    }
+  }
+}

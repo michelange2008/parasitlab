@@ -1,6 +1,6 @@
 <div class="card">
 
-  <img class="card-img-top" src="{!! asset('storage/img').'/'.$image !!}" alt="{{ $image }}">
+  <img class="img-90" src="{!! asset('storage/img/icones').'/'.$image !!}" alt="{{ $image }}">
 
   <div class="card-body">
 

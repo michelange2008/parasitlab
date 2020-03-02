@@ -6,21 +6,23 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3">
+    @include('extranet.analyses.sousmenuAnalyses')
 
-      <div class="col-md-10 m-auto">
+    <div class="row my-3 justify-content-end">
 
-        @titre(['titre' => __('accueil.choisir_analyse'), 'icone' => 'question.svg'])
+      <div class="col-md-10">
+
+        @titre(['titre' => __('accueil.choisir_analyse'), 'icone' => 'choisir.svg'])
 
       </div>
 
-      <div class="col-md-10 mx-auto my-3">
+      <div class="col-md-10 my-3">
 
         @include('extranet.analyses.choisir.titre', ['titre' =>  __('accueil.queltype'), 'soustitre' => __('accueil.cliquerespece')])
 
       </div>
 
-      <div class="col-md-10 mx-auto my-3 d-flex justify-content-around">
+      <div class="col-md-10 my-3 d-md-flex justify-content-around">
 
         @include('extranet.analyses.choisir.listeEspeces')
 
@@ -28,9 +30,9 @@
 
     </div>
 
-    <div id='liste_anapacks' class="row my-3" style="display:none">
+    <div id='liste_anapacks' class="row my-3 justify-content-end" style="display:none">
 
-      <div class="col-md-10 m-auto">
+      <div class="col-md-10">
 
         @include('extranet.analyses.choisir.titre', ['titre' => __('analyseproposees '), 'id' => 'titre'])
 
@@ -39,28 +41,28 @@
     </div>
 
 
-      <div class="row my-3">
+    <div class="row my-3 justify-content-end">
 
-        @foreach ($liste as $espece_id => $anapacks)
+      @foreach ($liste as $espece_id => $anapacks)
 
-        <div class="col-md-10 mx-auto">
+      <div class="col-md-10">
 
-          <div class="card-deck d-flex justify-content-center">
+        <div class="card-deck d-md-flex justify-content-center">
 
 
-              @foreach ($anapacks as $anapack)
+            @foreach ($anapacks as $anapack)
 
-                @include('extranet.analyses.choisir.listeAnalysesProposees')
+              @include('extranet.analyses.choisir.listeAnalysesProposees')
 
-              @endforeach
-
-            </div>
+            @endforeach
 
           </div>
 
-        @endforeach
+        </div>
 
-      </div>
+      @endforeach
+
+    </div>
 
 
   </div>

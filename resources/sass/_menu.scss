@@ -24,3 +24,14 @@
   border-right: solid 1px $bleu-tres-fonce;
 
 }
+
+.nav-item-sousmenu:hover {
+  background: $bleu;
+  a {
+    text-decoration: none !important;
+    color: white;
+  }
+  img {
+    filter: invert(100%);
+  }
+}

@@ -1,4 +1,4 @@
-<div id='card_{{$espece_id}}' class="anapack_{{$espece_id}} anapack my-3 card" style="min-width:25vw; max-width:25vw; display:none">
+<div id='card_{{$espece_id}}' class="anapack_{{$espece_id}} anapack my-3 card card-3" style="display:none">
 
   <img class="m-3" src="{!! asset('storage/img/icones')."/".$anapack->icone->nom !!}" alt="{{$anapack->icone->nom}}">
 

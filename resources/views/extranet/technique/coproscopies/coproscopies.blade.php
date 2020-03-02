@@ -6,9 +6,11 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3">
+    @include('extranet.analyses.sousmenuAnalyses')
 
-      <div class="col-md-12 col-lg-10 mx-auto">
+    <div class="row my-3 justify-content-end">
+
+      <div class="col-md-10">
 
         @titre(['icone' => 'analyse.svg', 'titre' => "Les examens coproscopiques"])
 
@@ -16,11 +18,11 @@
 
       @foreach ($coproscopies as $element)
 
-        <div class="col-md-12 col-lg-10 d-flex flex-row mx-auto my-3">
+        <div class="col-md-10 d-flex flex-row my-3">
 
           <div class="media">
 
-            <img class="mr-3" src="{!! asset('storage/img').'/'.$element->image !!}" alt="{!! $element->titre !!}">
+            <img class="mr-3 d-none d-md-block" src="{!! asset('storage/img').'/'.$element->image !!}" alt="{!! $element->titre !!}">
 
             <div class="media-body">
 

@@ -22,6 +22,8 @@ ul:hover > .titre-fond {
 	color: $bleu-tres-tres-clair;
 }
 
+
+
 // redéfinition de quelques éléments
 .btn {
   border-radius: 0 !important;
@@ -54,6 +56,11 @@ a {
 .bd-content {
 	-ms-flex-order: 1;
 	order: 1;
+}
+// affficher les analyses proposées
+.card-3 {
+	min-width: 25vw;
+	max-width: 30vw;
 }
 
 // gros bouton analyse terminée
@@ -149,5 +156,10 @@ hr {
 
 	.titre-fond {
 		display: none;
+	}
+
+	.card-3 {
+		min-width: 50vw;
+		max-width: 100vw;
 	}
 }
