@@ -9,13 +9,18 @@ class Facture extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-    public function demande()
-    {
-      return $this->hasOne(Demande::class);
-    }
+    // public function demandes()
+    // {
+    //   return $this->hasMany(Demande::class);
+    // }
 
     public function user()
     {
       return $this->belongsTo(\App\User::class);
+    }
+
+    public function anaactes()
+    {
+      return $this->belongsToMany(Anaactes::class);
     }
 }

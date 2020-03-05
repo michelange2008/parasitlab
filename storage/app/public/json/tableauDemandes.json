@@ -56,6 +56,12 @@
       "align" : "center",
       "sortable" : true
     },
+    "facturee" : {
+      "id" : "facturee",
+      "nom" : "Facturée",
+      "align" : "center",
+      "sortable" : true
+    },
     "num_facture" : {
       "id" : "num_facture",
       "nom" : "N° fact.",

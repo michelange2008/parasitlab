@@ -84,6 +84,17 @@ trait DemandeFactory
 
   }
 
+  public function formatDateDemandes($demandes)
+  {
+    foreach ($demandes as $demande) {
+
+      $this->formatDateDemande($demande);
+
+    }
+
+    return $demandes;
+  }
+
   public function ajouteCommentaire($demande)
   {
     $commentaire = Commentaire::where('demande_id', $demande->id)->first();

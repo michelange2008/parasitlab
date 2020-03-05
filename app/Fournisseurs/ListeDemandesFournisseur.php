@@ -57,7 +57,19 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $signe = $this->ouinonFactory($demande->id, $demande->signe);
 
-      $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher cette facture");
+      $facturee = $this->ouinonFactory($demande->id, $demande->facturee);
+
+      if ($demande->facturee) {
+
+        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher cette facture");
+
+      }
+
+      else {
+
+        $facture_id = $this->itemFactory(" - ");
+
+      }
 
       $suppr = $this->delFactory($demande->id, 'demandes.destroy');
 
@@ -70,7 +82,8 @@ class ListeDemandesFournisseur extends ListeFournisseur
         $reception,
         $terminee,
         $signe,
-        $facture,
+        $facturee,
+        $facture_id,
         $suppr,
       ];
 

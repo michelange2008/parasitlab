@@ -16,7 +16,7 @@ VARIABLES: id ET route
 
     title="Suppression de la ligne">
 
-      <i class="text-center text-danger material-icons">delete_outlined</i>
+      <i class="text-center text-danger fas fa-trash-alt"></i>
 
   </button>
 

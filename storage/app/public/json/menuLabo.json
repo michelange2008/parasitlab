@@ -1,22 +1,48 @@
 {
   "item_1" :
   {
-    "nom" : "Accueil général",
+    "nom" : "Extranet",
     "tooltip" : "Retour à l'accueil général (extranet)",
     "route" : "accueil"
   },
   "item_1b" :
   {
-    "nom" : "Demandes",
-    "tooltip" : "Retour à l'accueil général (extranet)",
+    "nom" : "Laboratoire",
+    "tooltip" : "Liste de toutes les analyses",
     "route" : "laboratoire"
   },
-
-  "item_3" :
+  "item_2" :
   {
-    "nom" : "Séries",
-    "tooltip" : "Afficher les séries",
-    "route" : "serie.index"
+    "nom" : "Productions",
+    "tooltip" : "Retour à l'accueil général (extranet)",
+    "route" : "laboratoire",
+    "sousmenu" :
+    {
+      "sousmenu_1" :
+      {
+        "nom" : "Demandes",
+        "tooltip" : "Liste de toutes les analyses",
+        "route" : "laboratoire"
+      },
+      "sousmenu_2" :
+      {
+        "nom" : "Séries",
+        "tooltip" : "Afficher les séries",
+        "route" : "serie.index"
+      },
+      "sousmenu_3" :
+      {
+        "nom" : "Actes",
+        "tooltip" : "Afficher les actes",
+        "route" : "acte.index"
+      }
+    }
+  },
+  "item_6" :
+  {
+    "nom" : "Factures",
+    "tooltip" : "Liste de factures",
+    "route" : "factures.index"
   },
   "item_4" :
   {

@@ -37,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('admin.titreCreationUser', 'titreCreationUser');
 
       Blade::include('fragments.boutonRetour', 'retour');
+      Blade::include('fragments.blocEnregistreAnnule', 'enregistreAnnule');
 
       Blade::include('extranet.analyses.sousmenuAnalyses', 'sousmenuAnalyses');
     }

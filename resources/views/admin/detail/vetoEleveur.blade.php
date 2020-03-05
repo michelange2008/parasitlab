@@ -2,7 +2,7 @@
 
   <li class="list-group-item d-inline-flex">
 
-    <i class="material-icons mr-3">local_hospital</i>
+    <i class="fas fa-user-md mr-3"></i>
 
     @nomLien([
       'route' => 'vetoAdmin.show',

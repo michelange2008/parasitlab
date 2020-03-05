@@ -1,0 +1,68 @@
+{
+  "tri" : {
+
+    "colonne" : "envoyee_date",
+
+    "ordre": "desc"
+  },
+
+  "liste" : {
+
+    "num_facture" :
+    {
+      "id" : "num_facture",
+      "nom" : "N° de facture",
+      "align" : "center",
+      "sortable" : true
+    },
+    "eleveur" :
+    {
+      "id" : "eleveur",
+      "nom" : "Eleveur",
+      "align" : "left",
+      "sortable" : true
+    },
+    "anapack" :
+    {
+      "id" : "anapack",
+      "nom" : "Analyse",
+      "align" : "left",
+      "sortable" : true
+    },
+    "total_ht" :
+    {
+      "id" : "total_ht",
+      "nom" : "Total HT",
+      "align" : "right",
+      "sortable" : false
+    },
+    "total_ttc" :
+    {
+      "id" : "total_ttc",
+      "nom" : "Total TTC",
+      "align" : "right",
+      "sortable" : false
+    },
+    "envoyee_date" :
+    {
+      "id" : "envoyee_date",
+      "nom" : "Date d'envoi",
+      "align" : "left",
+      "sortable" : true
+    },
+    "payee" :
+    {
+      "id" : "payee",
+      "nom" : "Payée",
+      "align" : "center",
+      "sortable" : false
+    },
+    "payee_date" :
+    {
+      "id" : "payee_date",
+      "nom" : "Date paiement",
+      "align" : "left",
+      "sortable" : true
+    }
+  }
+}

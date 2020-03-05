@@ -27,4 +27,9 @@ class Anaacte extends Model
     {
       return $this->belongsTo(Tva::class);
     }
+
+    public function factures()
+    {
+      return $this->belongsToMany(Factures::class);
+    }
 }

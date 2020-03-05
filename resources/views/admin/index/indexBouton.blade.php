@@ -2,20 +2,24 @@
 
 
 {{-- LE BOUTON AJOUTER UNE DEMANDE D ANALYSE NE S AFFICHE QUI SI L UTILISATEUR CONNECTE EST DU LABO --}}
-@if (auth()->user()->usertype->code === "labo")
+@if($datas->add->route !== "")
 
-  <div id="toolbar">
+  @if (auth()->user()->usertype->code === "labo")
 
-    <a href="{{ route($datas->add->route) }}" type="submit" class="btn btn-rouge"><i class="fas fa-plus-square"></i> {{ $datas->add->titre}}</a>
+    <div id="toolbar">
 
-  </div>
+      <a href="{{ route($datas->add->route) }}" type="submit" class="btn btn-rouge"><i class="fas fa-plus-square"></i> {{ $datas->add->titre}}</a>
 
-@else
+    </div>
 
-  <div id="toolbar">
+  @else
 
-    @include('fragments.boutonContact')
+    <div id="toolbar">
 
-  </div>
+      @include('fragments.boutonContact')
+
+    </div>
+
+  @endif
 
 @endif

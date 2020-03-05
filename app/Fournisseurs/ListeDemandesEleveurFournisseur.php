@@ -25,44 +25,57 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'eleveur.demandeShow', 'Cliquer pour voir le détail de la demande');
 
-      if(isset($demande->serie_id)) {
-
-        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'eleveur.serieShow', 'Cliquer pour voir la série');
-
-      }
-      else {
-
-        $serie = $this->itemFactory('','');
-
-      }
-
       $espece = $this->iconeFactory($demande->espece->icone);
 
-      if ($demande->toveto) {
-
-        $toveto = $this->itemFactory($demande->veto->user->name);
-
-      }
-      else {
-
-        $toveto =$this->itemFactory("");
-
-      }
+      // if(isset($demande->serie_id)) {
+      //
+      //   $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'eleveur.serieShow', 'Cliquer pour voir la série');
+      //
+      // }
+      // else {
+      //
+      //   $serie = $this->itemFactory('','');
+      //
+      // }
+      //
+      // if ($demande->toveto) {
+      //
+      //   $toveto = $this->itemFactory($demande->veto->user->name);
+      //
+      // }
+      // else {
+      //
+      //   $toveto =$this->itemFactory("");
+      //
+      // }
 
       $reception = $this->itemFactory($this->dateSortable($demande->date_reception));
 
       $terminee = $this->ouinonFactory(null, $demande->acheve);
 
-      $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher la facture");
+      $facturee = $this->ouinonFactory($demande->id, $demande->facturee);
+
+      if ($demande->facturee) {
+
+        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher cette facture");
+
+      }
+
+      else {
+
+        $facture_id = $this->itemFactory(" - ");
+
+      }
 
       $description = [
-        $espece,
         $analyse,
+        $espece,
         // $serie,
         // $toveto,
         $reception,
         $terminee,
-        $facture,
+        $facturee,
+        $facture_id,
       ];
 
       $this->liste->put($demande->id, $description);

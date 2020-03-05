@@ -1,46 +1,52 @@
 {
   "tri" : {
 
-    "colonne" : "reception",
+    "colonne" : "creation",
 
     "ordre" : "desc"
   },
 
   "liste" : {
 
+    "eleveur" : {
+      "id" : "eleveur",
+      "nom" : "Eleveur",
+      "align" : "left",
+      "sortable" : true
+    },
     "name" : {
       "id" : "name",
-      "nom" : "Analyse",
+      "nom" : "Acte",
       "align" : "left",
       "sortable" : false
     },
-    "espece" : {
-      "id" : "espece",
-      "nom" : "Esp.",
+    "nombre" : {
+      "id" : "nombre",
+      "nom" : "Nombre",
       "align" : "center",
       "sortable" : false
     },
-    "reception" : {
-      "id" : "reception",
-      "nom" : "Reçue le",
-      "align" : "center",
-      "sortable" : true
-    },
-    "acheve" : {
-      "id" : "acheve",
-      "nom" : "Terminée",
+    "creation" : {
+      "id" : "creation",
+      "nom" : "Créé le",
       "align" : "center",
       "sortable" : true
     },
     "facturee" : {
       "id" : "facturee",
-      "nom" : "Facturée",
+      "nom" : "Facturé",
       "align" : "center",
       "sortable" : true
     },
     "num_facture" : {
       "id" : "num_facture",
       "nom" : "N° fact.",
+      "align" : "center",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
       "align" : "center",
       "sortable" : false
     }

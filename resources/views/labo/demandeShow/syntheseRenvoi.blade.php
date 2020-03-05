@@ -1,5 +1,5 @@
-<div title="{{ $tooltip }}" class="btn">
+<div title="{{ $tooltip }}" class="btn color-bleu-tres-fonce">
 
-  <i class="material-icons">play_arrow</i> <i class="material-icons">email</i>
+  <i class="fas fa-play"></i> <i class="fas fa-envelope"></i>
 
 </div>

@@ -29,8 +29,9 @@ class DemandeTableSeeder extends Seeder
             'date_envoi' => null,
             'date_signature' => null,
             'signe' => false,
-            'labo_id' =>null,
-            "facture_id" => 4,
+            'labo_id' => null,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 2,
@@ -50,7 +51,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => null,
             'signe' => false,
             'labo_id' =>null,
-            "facture_id" => 5,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 3,
@@ -70,7 +72,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => "2019-11-06 00:00:00",
             'signe' => true,
             'labo_id' => 1,
-            "facture_id" => 1,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 4,
@@ -90,7 +93,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => "2019-11-05 00:00:00",
             'signe' => true,
             'labo_id' => 2,
-            "facture_id" => 2,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 5,
@@ -110,7 +114,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => "2019-11-06 00:00:00",
             'signe' => true,
             'labo_id' => 1,
-            "facture_id" => 3,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 6,
@@ -130,7 +135,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => null,
             'signe' => false,
             'labo_id' =>null,
-            "facture_id" => 6,
+            "facture_id" => null,
+            "facturee" => false,
           ],
 /*
 // TEST DES RESISTANCE OVINS 1 PRELEVEMENTS
@@ -153,7 +159,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => "2019-11-08 00:00:00",
             'signe' => true,
             'labo_id' => 1,
-            "facture_id" => 7,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 8,
@@ -173,7 +180,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => null,
             'signe' => false,
             'labo_id' => null,
-            "facture_id" => 8,
+            "facture_id" => null,
+            "facturee" => false,
           ],
 /*
 // SUIVI DE CAMPAGNE CAPRINS
@@ -196,7 +204,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => "2019-06-17 00:00:00",
             'signe' => true,
             'labo_id' => 1,
-          "facture_id" => 9,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 10,
@@ -216,7 +225,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => "2019-07-20 00:00:00",
             'signe' => true,
             'labo_id' => 1,
-            "facture_id" => 10,
+            "facture_id" => null,
+            "facturee" => false,
           ],
           [
             'id' => 11,
@@ -236,7 +246,8 @@ class DemandeTableSeeder extends Seeder
             'date_signature' => "2019-09-04 00:00:00",
             'signe' => true,
             'labo_id' => 1,
-            "facture_id" => 11,
+            "facture_id" => null,
+            "facturee" => false,
           ],
         ]);
     }

@@ -1,7 +1,11 @@
-<h5 class="card-title">{{ mb_strtoupper($titre) }}</h5>
+<h5 class="card-title mx-3">{{ mb_strtoupper($titre) }}</h5>
 
-<a href="{{ $route }}" title="voir">
+@if ($id !== "")
 
-  <i class="color-rouge-tres-clair material-icons">visibility</i>
+  <a href="{{ route($route, $id) }}" title="voir">
 
-</a>
+    <i class="color-rouge-tres-clair fas fa-eye"></i>
+
+  </a>
+
+@endif

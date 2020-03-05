@@ -9,9 +9,9 @@
     <!-- TITRE ANALYSE-->
         <div class="row mx-1">
 
-          <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-around">
+          <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-start">
 
-            @include('labo.demandeShow.syntheseTitre', ['titre' => 'analyse', 'route' => '#'])
+            <h5 class="card-title mx-3">Analyse</h5>
 
           </div>
 
@@ -31,9 +31,9 @@
     <!-- TITRE FACTURE-->
         <div class="row mx-1">
 
-          <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-around">
+          <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-start">
 
-            @include('labo.demandeShow.syntheseTitre', ['titre' => 'facture', 'route' => '#'])
+            <h5 class="card-title mx-3">Facture</h5>
 
           </div>
 
@@ -63,11 +63,11 @@
 
       </div>
 
-      <div class="col-md-6">
+      {{-- <div class="col-md-6">
 
         @include('labo.demandeShow.syntheseRenvoiFacture', ['route' => "#"])
 
-      </div>
+      </div> --}}
 
     </div>
 

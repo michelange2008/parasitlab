@@ -5,11 +5,11 @@
         <small>Destinataire : </small>
       </td>
       <td>
-        {{ $demande->facture->user->name}}
+        {{ ($demande->user_dest_fact) ? $demande->user->name : $demande->veto->user->name}}
       </td>
     </tr>
     <tr>
-      @if ($demande->facture->faite)
+      @if ($demande->facturee)
         <td>
           <small>Montant TTC : </small>
         </td>
@@ -17,13 +17,14 @@
           <strong>{{ $demande->facture->total_ttc}} € TTC</strong>
         </td>
       @else
-        <td class="color-rouge-tres-fonce"><i class="material-icons">warning</i></td>
-        <td class="color-rouge-tres-fonce">
-          facture non établie
+        <td class="color-rouge-tres-fonce text-center" colspan="2">
+          <a class="btn btn-bleu btn-sm" href="{{ route('factures.preCreate', ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id) }}">
+            Etablir la facture
+          </a>
         </td>
       @endif
     </tr>
-    @if ($demande->facture->envoyee)
+    @if ($demande->facturee && $demande->facture->envoyee)
       <tr>
         <td>
           <small>Facture envoyée le </small>
@@ -32,15 +33,15 @@
           @include('fragments.dateFr', ['date' => $demande->facture->envoyee_date])
         </td>
       </tr>
-    @elseif ($demande->facture->faite)
+    @elseif ($demande->facturee && $demande->facture->faite)
       <tr>
-        <td class="color-rouge-tres-fonce"><i class="material-icons">warning</i></td>
+        <td class="color-rouge-tres-fonce"><i class="fas fa-exclamation-triangle"></i></td>
         <td class="color-rouge-tres-fonce">
           facture non envoyée
         </td>
       </tr>
     @endif
-    @if ($demande->facture->payee)
+    @if ($demande->facturee && $demande->facture->payee)
       <tr class="alert-success">
         <td>
         <small>Facture payée le </small>
@@ -49,9 +50,9 @@
           @include('fragments.dateFr', ['date' => $demande->facture->payee_date])
         </td>
       </tr>
-    @elseif ($demande->facture->envoyee)
+    @elseif ($demande->facturee && $demande->facture->envoyee)
       <tr>
-        <td class="color-rouge-tres-fonce"><i class="material-icons">warning</i></td>
+        <td class="color-rouge-tres-fonce"><i class="fas fa-exclamation-triangle"></i></td>
         <td class="color-rouge-tres-fonce">
           facture non payée
         </td>

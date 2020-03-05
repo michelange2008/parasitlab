@@ -1,5 +1,5 @@
 {{-- BLOC VALABLE AUSSI BIEN POUR UNE VETERINAIRE QUE POUR UN ELEVEUR D'OU L'EMPLOI DE $personne --}}
-<i class="material-icons mr-3">home</i>
+<i class="fas fa-home mr-3"></i>
 <p class="ml-1">{{ $personne->address_1 }}</p>
 <p class="ml-1">{{ $personne->address_2 }}</p>
 <p class="ml-1">{{ $personne->cp }} {{ $personne->commune }}</p>

@@ -138,9 +138,6 @@ class DemandeController extends Controller
         $user_veto_id = null;
         $user_veto = null;
       }
-      // Il faut créer la facture avec le trait FactureManager
-      $facture_usertype_id = (isset($datas['destinataireFacture']) ? $datas['destinataireFacture'] : $this->userTypeEleveur()->id); // si le destinataire de facture n'est pas précisé on met 1 (pour éleveur)
-      $nouvelle_facture = $this->factureStore($anapack, $user, $facture_usertype_id, $toveto, $user_veto);
 
       // Puis créer la demande
       $nouvelle_demande = new Demande();
