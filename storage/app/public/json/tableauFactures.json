@@ -11,21 +11,21 @@
     "num_facture" :
     {
       "id" : "num_facture",
-      "nom" : "N° de facture",
+      "nom" : "N° fact.",
       "align" : "center",
       "sortable" : true
     },
     "eleveur" :
     {
       "id" : "eleveur",
-      "nom" : "Eleveur",
+      "nom" : "Nom du destinataire",
       "align" : "left",
       "sortable" : true
     },
-    "anapack" :
+    "faite_date" :
     {
-      "id" : "anapack",
-      "nom" : "Analyse",
+      "id" : "faite_date",
+      "nom" : "Date",
       "align" : "left",
       "sortable" : true
     },

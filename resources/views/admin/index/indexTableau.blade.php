@@ -68,6 +68,12 @@
                 ])
               </td>
 
+            @elseif ($detail->action == "tableau")
+
+              <td>
+                {!! $detail !!}
+              </td>
+
             @elseif($detail->action === 'del')
 
               <td>

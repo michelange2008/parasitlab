@@ -10,9 +10,9 @@ trait FormatDate
 {
   function dateSortable($date)
   {
-    $dateSortable = (new Carbon($date))->format('Y/m/d');
 
-    return $dateSortable;
+    return ($date == null ) ? " - " : (new Carbon($date))->format('Y/m/d');
+
   }
 
   public function dateReadable($date)

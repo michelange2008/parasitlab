@@ -17,6 +17,12 @@ class CreateAnaacteFactureTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('anaacte_id');
             $table->unsignedInteger('facture_id');
+            $table->unsignedInteger('nombre')->default(1);
+            $table->decimal('pu_ht', 8, 2);
+            $table->unsignedInteger('tva_id')->default(1);
+            $table->foreign('tva_id')->references('id')->on('tvas')->onDelete('restrict');
+
+            $table->timestamp('date');
             $table->timestamps();
         });
     }

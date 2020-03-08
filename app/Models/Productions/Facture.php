@@ -21,6 +21,6 @@ class Facture extends Model
 
     public function anaactes()
     {
-      return $this->belongsToMany(Anaactes::class);
+      return $this->belongsToMany(\App\Models\Analyses\Anaacte::class);
     }
 }

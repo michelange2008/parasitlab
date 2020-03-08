@@ -138,9 +138,11 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   Route::resource('resultats', 'Labo\ResultatController');
 
-  Route::resource('factures', 'Labo\FactureController');
+  Route::get('factures/create/{destinataire_id}', 'Labo\FactureController@preCreate')->name('factures.preCreate');
 
-  Route::post('factures/create/{destinataire_id}', 'Labo\FactureController@preCreate')->name('factures.postCreate');
+  Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
+
+  Route::resource('factures', 'Labo\FactureController');
 
   Route::resource('acte', 'Labo\ActeController');
 

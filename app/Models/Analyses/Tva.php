@@ -10,4 +10,9 @@ class Tva extends Model
     {
       return $this->hasMany(Anaactes::class);
     }
+
+    public function anaactes_factures()
+    {
+      return $this->hasMany(\App\Models\Productions\Anaacte_Facture::class);
+    }
 }
