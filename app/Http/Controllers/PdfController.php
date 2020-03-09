@@ -7,16 +7,18 @@ use PDF;
 use App\Http\Controllers\Labo\EnvoisController;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Facture;
 use App\Models\Analyses\Anapack;
 use App\Models\Espece;
 
 use App\Http\Traits\DemandeFactory;
+use App\Http\Traits\FactureFactory;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 
 class PdfController extends Controller
 {
-  use DemandeFactory, LitJson, UserTypeOutil;
+  use DemandeFactory, LitJson, UserTypeOutil, FactureFactory;
 
   public function resultatPdf($demande_id)
   {
@@ -52,10 +54,6 @@ class PdfController extends Controller
 
     return $pdf->stream($name);
 
-    // return view('demande_pdf', [
-    //   "demande" => $demande,
-    // ]);
-
   }
 
   public function attachPdf($demande_id)
@@ -81,6 +79,19 @@ class PdfController extends Controller
     $pdf = PDF::loadview('extranet.analyses.formulairePDF.formulairePDF', compact('demande'));
 
     return $pdf->stream('demande.pdf');
+  }
+
+  public function facture($facture_id)
+  {
+    $facture_completee = session()->get('facture_completee');
+
+    $demandes = session()->get('demandes');
+
+    $anaactes_factures = session()->get('anaactes_factures');
+
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('facture_completee', 'demandes', 'anaactes_factures'));
+
+    return $pdf->stream('facture.pdf');
   }
 
 }

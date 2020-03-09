@@ -50,7 +50,7 @@ class AnaactesTableSeeder extends Seeder
           'estAnalyse' => false,
           'icone_id' => 24,
           'pu_ht' => 5,
-          'tva_id' => 1,
+          'tva_id' => 2,
         ],
         [
           'id' => 5,

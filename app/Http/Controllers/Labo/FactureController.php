@@ -223,17 +223,25 @@ class FactureController extends Controller
     public function show($id)
     {
         $facture = Facture::find($id);
-        $somme_facture = $this->calculSommeFacture($facture);
+
+        $facture->faite_date = $this->dateReadable($facture->faite_date);
+
+        $facture_completee = $this->ajouteSommeEtTvas($facture);
+
         $anaactes_factures = Anaacte_Facture::where('facture_id', $id)->get();
+
         $demandes = Demande::where('facture_id', $id)->get();
+
         foreach ($demandes as $demande) {
+
           $demande->date_reception = $this->dateReadable($demande->date_reception);
+
         }
+        session(['facture_completee'=> $facture_completee, 'demandes'=> $demandes, 'anaactes_factures' => $anaactes_factures]);
 
         return view('labo.factures.facture', [
           'menu'=> $this->menu,
-          'facture' => $facture,
-          'somme_facture' => $somme_facture,
+          'facture_completee' => $facture_completee,
           'demandes' => $demandes,
           'anaactes_factures' => $anaactes_factures,
         ]);

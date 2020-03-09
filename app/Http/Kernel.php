@@ -64,6 +64,8 @@ class Kernel extends HttpKernel
         'labo' => \App\Http\Middleware\LaboAcces::class,
         'veto' => \App\Http\Middleware\VetoAcces::class,
         'eleveur' => \App\Http\Middleware\EleveurAcces::class,
+        'acces_facture' => \App\Http\Middleware\AccesFacture::class,
+
     ];
 
     /**

@@ -105,6 +105,8 @@ Route::group(['middleware' => 'auth'], function(){
 
 });
 
+
+
 // ROUTES INTERNES AU LABORATOIRE
 Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){
 
@@ -143,6 +145,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
   Route::resource('factures', 'Labo\FactureController');
+
+  Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf'); 
 
   Route::resource('acte', 'Labo\ActeController');
 

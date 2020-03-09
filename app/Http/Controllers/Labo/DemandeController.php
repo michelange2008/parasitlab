@@ -11,7 +11,6 @@ use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\UserTypeOutil;
-use App\Http\Traits\FactureManager;
 use App\Http\Traits\SerieManager;
 
 use App\User;
@@ -32,7 +31,7 @@ use App\Models\Productions\Commentaire;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeFactory, FactureManager, SerieManager;
+    use LitJson, EleveurInfos, DemandeFactory, SerieManager;
     use UserTypeOutil ;
 
     protected $menu;

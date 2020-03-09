@@ -4,6 +4,7 @@ namespace App\Http\Traits;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Acte;
 use App\Models\Veto;
+use App\Models\Analyses\Tva;
 use App\Models\Productions\Anaacte_Facture;
 
 /**
@@ -67,6 +68,19 @@ trait FactureFactory
     return $users_anf;
   }
 
+  public function ajouteSommeEtTvas($facture)
+  {
+    $somme_facture = $this->calculSommeFacture($facture);
+
+    $liste_tvas = $this->calculTvas($facture);
+
+    $facture->somme_facture = $somme_facture;
+
+    $facture->liste_tvas = $liste_tvas;
+
+    return $facture;
+  }
+
   public function calculSommeFacture($facture)
   {
     $somme_facture = Collect();
@@ -86,8 +100,70 @@ trait FactureFactory
     }
 
     $somme_facture->total_ht = number_format($total_ht, 2, ",", " ")." €";
+
     $somme_facture->total_ttc = number_format($total_ttc, 2, ",", " ")." €";
 
     return $somme_facture;
+  }
+
+  public function calculTvas($facture)
+  {
+    $anaactes_factures = Anaacte_Facture::where('facture_id', $facture->id)->get();
+
+    $tvas = Tva::all();
+
+    $liste_tvas = [];
+
+    foreach ($tvas as $tva) {
+
+      $tvaReadable = strval($tva->taux * 100)." %";
+
+      $liste_tvas[$tvaReadable] = 0;
+
+      foreach ($anaactes_factures as $anaacte_facture) {
+
+        if($anaacte_facture->tva_id == $tva->id) {
+
+          $liste_tvas[$tvaReadable] += ($anaacte_facture->pu_ht * $anaacte_facture->nombre * $tva->taux);
+
+        }
+
+      }
+
+      $liste_tvas[$tvaReadable] = number_format($liste_tvas[$tvaReadable], 2, ",", " ")." €";
+
+    }
+    return $liste_tvas;
+  }
+
+  // Renvoi le destinataire de la facture dans la création d'une demande d'analyse
+  function destinataireFacture($user, $facture_usertype_id, $toveto, $user_veto)
+  {
+
+    if($toveto) // si on envoie les résultats au véto
+    {
+      if($facture_usertype_id == $user_veto->user->usertype_id) // et si le destinaire est vétérinaire
+      {
+        $destinataire_facture = $user_veto->user; // le destinataire de la facture est donc le vétérinaire choisi
+      }
+      elseif($facture_usertype_id == $user->usertype_id) // mais si le destinataire est l'éleveur demandeur
+      {
+        $destinataire_facture = $user; // le destinataire de la facture est donc le demandeur
+      }
+      else {
+        $destinataire_facture = auth()->user(); // sinon c'est le laboratoire... donc la personne authentifiée
+      }
+    }
+    else {
+
+      if($facture_usertype_id == $user->usertype_id)
+      {
+        $destinataire_facture = $user;
+      }
+      else {
+        $destinataire_facture = auth()->user();
+      }
+    }
+    return $destinataire_facture;
   }
 }
