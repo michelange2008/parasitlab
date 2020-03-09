@@ -156,3 +156,13 @@ $rouge-tres-fonce-transparent: #8F230A99;
 mark {
 	background-color: #ccf4ca !important;
 }
+
+.thead-bleu-tres-fonce {
+  background: $bleu-tres-fonce;
+  color: white;
+}
+
+.table-bleu-tres-tres-clair {
+  background: $bleu-tres-tres-clair;
+  color: $bleu-tres-fonce;
+}

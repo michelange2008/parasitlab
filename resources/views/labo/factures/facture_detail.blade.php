@@ -1,8 +1,8 @@
 <div class="table-sm-responsive">
 
-  <table class="table table-bordered">
+  <table class="table table-sm table-bordered">
 
-    <thead class="thead-dark">
+    <thead class="thead-bleu-tres-fonce">
       <tr class="text-center">
         <th>Acte</th>
         <th>P.U. HT</th>
@@ -17,10 +17,10 @@
 
         <tr>
           <td>{{ ucfirst($anaacte_facture->anaacte->nom) }}</td>
-          <td class="text-right">{{ number_format($anaacte_facture->pu_ht, 2, ",", " ")." €" }}</td>
+          <td class="text-right">{{ number_format($anaacte_facture->pu_ht, 2, ",", " ")}} &euro;</td>
           <td class="text-center">{{ ($anaacte_facture->tva->taux  * 100)." %"}}</td>
           <td class="text-center">{{ $anaacte_facture->nombre }}</td>
-          <td class="text-right">{{ number_format($anaacte_facture->pu_ht * $anaacte_facture->nombre, 2, ",", " "). " €" }}</td>
+          <td class="text-right">{{ number_format($anaacte_facture->pu_ht * $anaacte_facture->nombre, 2, ",", " ")}} &euro;</td>
         </tr>
 
       @endforeach
@@ -29,7 +29,7 @@
         <td colspan="5"></td>
       </tr>
 
-      <tr class="table-secondary font-weight-bolder">
+      <tr class="table-bleu-tres-tres-clair font-weight-bolder">
         <td colspan="4">Totalt HT</td>
         <td class="text-right">{{ $facture_completee->somme_facture->total_ht }}</td>
       </tr>
@@ -39,13 +39,13 @@
 
           <tr class="text-right">
             <td colspan="4">TVA à {{ $taux }}</td>
-            <td>{{ $valeur }}</td>
+            <td>{{ $valeur }} &euro;</td>
           </tr>
 
         @endif
 
       @endforeach
-      <tr class="table-secondary font-weight-bolder">
+      <tr class="table-bleu-tres-tres-clair font-weight-bolder">
         <td colspan="4">Total TTC</td>
         <td class="text-right">{{ $facture_completee->somme_facture->total_ttc }}</td>
       </tr>

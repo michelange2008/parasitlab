@@ -130,7 +130,7 @@ trait FactureFactory
 
       }
 
-      $liste_tvas[$tvaReadable] = number_format($liste_tvas[$tvaReadable], 2, ",", " ")." €";
+      $liste_tvas[$tvaReadable] = number_format($liste_tvas[$tvaReadable], 2, ",", " ");
 
     }
     return $liste_tvas;

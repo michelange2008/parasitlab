@@ -198,6 +198,16 @@ mark {
   background-color: #ccf4ca !important;
 }
 
+.thead-bleu-tres-fonce {
+  background: #0A425A;
+  color: white;
+}
+
+.table-bleu-tres-tres-clair {
+  background: #76a6bb5d;
+  color: #0A425A;
+}
+
 .navbar-bleu-tres-clair {
   background: #76A6BB;
 }
