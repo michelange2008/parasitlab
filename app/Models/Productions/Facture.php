@@ -23,4 +23,9 @@ class Facture extends Model
     {
       return $this->belongsToMany(\App\Models\Analyses\Anaacte::class);
     }
+
+    public function Reglement()
+    {
+      return $this->belongsTo(Reglement::class);
+    }
 }

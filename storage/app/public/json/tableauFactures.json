@@ -57,6 +57,13 @@
       "align" : "center",
       "sortable" : false
     },
+    "reglement" :
+    {
+      "id" : "reglement",
+      "nom" : "Règlement",
+      "align" : "center",
+      "sortable" : false
+    },
     "payee_date" :
     {
       "id" : "payee_date",

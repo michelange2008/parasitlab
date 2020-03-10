@@ -144,9 +144,11 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
+  Route::post('facture/paiement', 'Labo\FactureController@paiement')->name('facture.paiement');
+
   Route::resource('factures', 'Labo\FactureController');
 
-  Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf'); 
+  Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf');
 
   Route::resource('acte', 'Labo\ActeController');
 

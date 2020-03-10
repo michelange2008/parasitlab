@@ -34,6 +34,10 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       $payee = $this->ouinonFactory($facture->facture_id, $facture->payee);
 
+
+
+      $reglement = ($facture->reglement != null) ? $this->iconeFactory($facture->reglement->icone) : " - ";
+
       $payee_date = $this->itemFactory($this->dateSortable($facture->payee_date));
 
       $description = [
@@ -44,6 +48,7 @@ class ListeFacturesFournisseur extends ListeFournisseur
         $total_ttc,
         $envoyee_date,
         $payee,
+        $reglement,
         $payee_date,
       ];
 

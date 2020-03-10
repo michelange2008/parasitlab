@@ -13,6 +13,7 @@ use App\Models\Productions\Facture;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Acte;
 use App\Models\Productions\Anaacte_Facture;
+use App\Models\Productions\Reglement;
 
 use App\Fournisseurs\ListeFacturesFournisseur;
 
@@ -222,6 +223,8 @@ class FactureController extends Controller
      */
     public function show($id)
     {
+        $reglements = Reglement::all();
+
         $facture = Facture::find($id);
 
         $facture->faite_date = $this->dateReadable($facture->faite_date);
@@ -241,6 +244,7 @@ class FactureController extends Controller
 
         return view('labo.factures.facture', [
           'menu'=> $this->menu,
+          'reglements' => $reglements,
           'facture_completee' => $facture_completee,
           'demandes' => $demandes,
           'anaactes_factures' => $anaactes_factures,
@@ -280,5 +284,12 @@ class FactureController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function paiement(Request $request)
+    {
+      $facture = Facture::find($id);
+
+      $facture;
     }
 }
