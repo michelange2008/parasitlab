@@ -6,15 +6,9 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3 justify-content-end">
+    <div class="row my-3 justify-content-center">
 
-      <div id="facture" class="col-md-4">
-
-        {{-- @include('labo.factures.facture') --}}
-
-      </div>
-
-      <div class="col-md-8">
+      <div class="col-md-11">
 
           @include('admin.index.index')
 

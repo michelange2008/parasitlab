@@ -34,11 +34,11 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       $payee = $this->ouinonFactory($facture->facture_id, $facture->payee);
 
-
-
       $reglement = ($facture->reglement != null) ? $this->iconeFactory($facture->reglement->icone) : " - ";
 
       $payee_date = $this->itemFactory($this->dateSortable($facture->payee_date));
+
+      $suppr = ($facture->payee) ? "" : $this->delFactory($facture->id, 'factures.destroy');
 
       $description = [
         $num_facture,
@@ -50,6 +50,7 @@ class ListeFacturesFournisseur extends ListeFournisseur
         $payee,
         $reglement,
         $payee_date,
+        $suppr,
       ];
 
       $this->liste->put($facture->facture_id, $description);

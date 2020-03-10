@@ -54,7 +54,7 @@
 
   <div class="row justify-content-center my-3">
 
-    <div class="col-md-10 border">
+    <div class="col-md-10 p-3 border">
 
       <h4>Paiement de la facture</h4>
 
@@ -62,21 +62,37 @@
 
         @csrf
 
-        <div class=" col-md-4 form-group">
+        <input type="hidden" name="facture_id" value="{{ $facture_completee->id }}">
 
-          <label for="reglement">Mode de réglement</label>
+        <div class="row flex-row">
 
-          <select class="form-control" name="reglement">
+          <div class=" col form-group">
 
-            @foreach ($reglements as $reglement)
+            <label for="reglement">Mode de règlement</label>
 
-              <option value="{{ $reglement->id }}">{{ $reglement->nom }}</option>
+            <select class="form-control" name="reglement_id">
 
-            @endforeach
+              @foreach ($reglements as $reglement)
 
-          </select>
+                <option value="{{ $reglement->id }}">{{ $reglement->nom }}</option>
+
+              @endforeach
+
+            </select>
+
+          </div>
+
+          <div class="col form-group">
+
+            <label for="payee_date">Date de paiement</label>
+
+            <input class="form-control" type="date" name="payee_date" value="{{ Carbon\Carbon::now()->toDateString() }}">
+
+          </div>
 
         </div>
+
+        @enregistreAnnule()
 
       </form>
 

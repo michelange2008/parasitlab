@@ -10,7 +10,7 @@ class Reglement extends Model
 
     public function icone()
     {
-      return $this->belongsTo(App\Models\Icone::class);
+      return $this->belongsTo(\App\Models\Icone::class);
     }
 
     public function facture()

@@ -225,8 +225,8 @@ class FactureController extends Controller
     {
         $reglements = Reglement::all();
 
-        $facture = Facture::find($id);
-
+        $facture = Facture::findOrFail($id);
+        // dd($facture);
         $facture->faite_date = $this->dateReadable($facture->faite_date);
 
         $facture_completee = $this->ajouteSommeEtTvas($facture);
@@ -288,8 +288,17 @@ class FactureController extends Controller
 
     public function paiement(Request $request)
     {
-      $facture = Facture::find($id);
+      $datas = $request->all();
 
-      $facture;
+      // dd($datas);
+      $facture = Facture::find($datas['facture_id']);
+
+      $facture->payee = true;
+      $facture->reglement_id = $datas['reglement_id'];
+      $facture->payee_date = $datas['payee_date'];
+
+      $facture->save();
+
+      return redirect()->route('factures.show', $datas['facture_id']);
     }
 }

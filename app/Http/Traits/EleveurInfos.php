@@ -36,7 +36,7 @@ trait EleveurInfos
   {
     $facturesImpayees = DB::table('demandes')
               ->join('factures', 'factures.id', '=', 'demandes.facture_id')
-              ->where('factures.faite', 1)
+              ->where('factures.faite_date', 1)
               ->where('factures.payee', 0)
               ->where('demandes.user_id', $user->id)
               ->count();

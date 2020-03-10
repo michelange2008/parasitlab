@@ -53,7 +53,7 @@ class ListeDemandesEleveurAdminFournisseur extends ListeFournisseur
 
       $terminee = $this->ouinonFactory(null, $demande->acheve);
 
-      $facture = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher la facture");
+      $facture = ($demande->facture != null) ? $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'factures.show', "Cliquer pour afficher la facture") : "-";
 
       $suppr = $this->delFactory($demande->id, 'demandes.destroy');
 

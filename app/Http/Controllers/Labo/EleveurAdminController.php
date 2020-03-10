@@ -160,7 +160,7 @@ class EleveurAdminController extends Controller
 
         $fournisseur = new ListeDemandesEleveurAdminFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveur', 'demandes.create', "Ajouter une demande");
+        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveurAdmin', 'demandes.create', "Ajouter une demande");
 
         $zeroAnalyses = "Cet éleveur n'a pour l'instant fait aucune demande d'analyse";
 

@@ -13,7 +13,7 @@ class ReglementsTableSeeder extends Seeder
     {
         DB::table('reglements')->insert([
           [
-            "id" => 1,
+            "id" => 3,
             "nom" => "Espèces",
             'icone_id' =>28,
           ],
@@ -23,7 +23,7 @@ class ReglementsTableSeeder extends Seeder
             'icone_id' =>29,
           ],
           [
-            "id" => 3,
+            "id" => 1,
             "nom" => "Chèque",
             'icone_id' =>30,
           ],

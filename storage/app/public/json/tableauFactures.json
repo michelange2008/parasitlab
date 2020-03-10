@@ -70,6 +70,12 @@
       "nom" : "Date paiement",
       "align" : "left",
       "sortable" : true
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
     }
   }
 }
