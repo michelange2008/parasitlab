@@ -12,10 +12,17 @@ trait LitJson {
               )
           )
       );
+<<<<<<< HEAD
 //dd(asset('storage'));
       if(file_exists('storage/json/'.$json.'.json')) {
 
         return $datas = json_decode(file_get_contents('storage/json/'.$json.'.json'));
+=======
+
+      if(file_exists('storage/json/'.$json.'.json')) {
+
+        return $datas = json_decode(file_get_contents('storage/json/'.$json.'.json', false, $context));
+>>>>>>> b07639bb9359bf980b39758409a874a92efa8d8e
 
       }
 
