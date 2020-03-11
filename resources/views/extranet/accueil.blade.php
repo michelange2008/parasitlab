@@ -12,13 +12,13 @@
 
     <div class="container-fluid text-center">
 
-      @include('extranet.accueil.accueil_entetes')
+      {{-- @include('extranet.accueil.accueil_entetes') --}}
 
-      @include('extranet.accueil.accueil_labopresentation')
+      {{-- @include('extranet.accueil.accueil_labopresentation') --}}
 
       <hr class="labo-divider">
 
-      @include('extranet.accueil.accueil_pastilles')
+      {{-- @include('extranet.accueil.accueil_pastilles') --}}
 
       <hr class="labo-divider">
 
