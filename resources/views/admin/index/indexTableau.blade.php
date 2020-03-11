@@ -98,7 +98,7 @@
 
               <td>
 
-                <img class="img-50" src="{{ '/public/storage/img/icones/'.$detail->nom }}" alt="{{ $detail->nom }}">
+                <img class="img-50" src="{{ url('storage/img/icones/'.$detail->nom) }}" alt="{{ $detail->nom }}">
 
               </td>
 
@@ -106,7 +106,7 @@
 
               <td>
 
-                <img class="img-50" src="{{ '/public/storage/img/labo/photos/'.$detail->nom }}" alt="{{ $detail->nom }}">
+                <img class="img-50" src="{{ url('storage/img/labo/photos/'.$detail->nom) }}" alt="{{ $detail->nom }}">
 
               </td>
             @endempty
