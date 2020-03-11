@@ -1,7 +1,7 @@
 <div class="bg-bleu-tres-fonce p-3 align-items-middle color-bleu-tres-clair">
 
 
-  <img class="img-90 d-none ck d-lg-block img-claire" src="{!! asset('storage/img/icones').'/'.auth()->user()->usertype->icone->nom !!}" alt="">
+  <img class="img-90 d-none ck d-lg-block img-claire" src="{!! 'storage/img/icones/'.auth()->user()->usertype->icone->nom !!}" alt="">
 
   <h4 class="d-lg-block">Page personnelle</h4>
 

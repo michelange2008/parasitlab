@@ -2,7 +2,7 @@
 
   <a href="{{ route($route) }}" data-toggle="tooltip" data-placement="top" title="En savoir plus">
 
-    <img class="m-3 img-change" src="{!! asset('storage/img/icones').'/'.$icone !!}" alt="email">
+    <img class="m-3 img-change" src="{!! 'storage/img/icones/'.$icone !!}" alt="email">
 
   </a>
 

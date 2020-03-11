@@ -100,6 +100,6 @@
   <p class="lignes">
     Signée le {{ $demande->date_signature }} par {{ $demande->labo->user->name }}
   </p>
-  <img width="250px" src="{!! asset('storage/img/labo/signatures')."/".$demande->labo->signature !!}" alt="">
+  <img width="250px" src="{!! 'storage/img/labo/signatures/'.$demande->labo->signature !!}" alt="">
 
 </div>

@@ -6,7 +6,7 @@
 
 <div id="envoye-jq" class="icone-cadre" title="Cette demande a été envoyée le {{ $demande->date_envoi }}" style="display:none" >
 
-  <img class="img-40 d-block" src="{!! asset('storage/img/icones/envoye.svg') !!}" alt="envoyé">
+  <img class="img-40 d-block" src="storage/img/icones/envoye.svg" alt="envoyé">
 
 </div>
 
@@ -20,7 +20,7 @@
 
   <div id="envoye" class="icone-cadre" title="Cette demande a été envoyée le {{ $demande->date_envoi }}">
 
-    <img class="img-40 d-block" src="{!! asset('storage/img/icones/envoye.svg') !!}" alt="envoyé">
+    <img class="img-40 d-block" src="storage/img/icones/envoye.svg" alt="envoyé">
 
   </div>
 

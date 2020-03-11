@@ -14,7 +14,7 @@
 
         <div class="col-md-10 alert-bleu-tres-fonce m-auto py-3">
 
-          <img class="img-claire" src="{!! asset('storage/img/icones/serie.svg') !!}" alt="Série">
+          <img class="img-claire" src="storage/img/icones/serie.svg" alt="Série">
 
           <h4>
             Série
@@ -29,7 +29,7 @@
           </p>
           <hr>
 
-          <img src="{!! asset('storage/img/icones')."/".$serie->anapack->icone->nom !!}" alt="{{ $serie->anapack->nom }}">
+          <img src="{!! 'storage/img/icones/'.$serie->anapack->icone->nom !!}" alt="{{ $serie->anapack->nom }}">
 
           <p class="lead">{{ ucfirst($serie->anapack->nom) }}</p>
 

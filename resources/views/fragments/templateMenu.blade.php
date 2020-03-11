@@ -13,7 +13,7 @@
                 {{ $sousmenu->nom }}
                 @isset($sousmenu->icone)
 
-                  <img class="img-25" src="{{ asset('storage/img/icones')."/".$sousmenu->icone }}" alt="{{ $sousmenu->icone }}">
+                  <img class="img-25" src="{{ 'storage/img/icones/'.$sousmenu->icone }}" alt="{{ $sousmenu->icone }}">
 
                 @endisset
               </a>

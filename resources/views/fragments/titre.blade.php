@@ -2,7 +2,7 @@
 
   @if (isset($icone))
 
-    <img class="img-50" src="{!! asset('storage/img/icones').'/'.$icone !!}" alt="{{ $icone }}">
+    <img class="img-50" src="{!! 'storage/img/icones/'.$icone !!}" alt="{{ $icone }}">
 
   @endif
 

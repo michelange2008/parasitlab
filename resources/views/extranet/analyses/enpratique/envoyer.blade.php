@@ -12,7 +12,7 @@
 
       <li class="media my-3">
 
-        <img class="d-none d-sm-block img-thumbnail" src="{!! asset('storage/img/icones').'/'.$element->image !!}" alt="{{ $element->image }}">
+        <img class="d-none d-sm-block img-thumbnail" src="{!! 'storage/img/icones/'.$element->image !!}" alt="{{ $element->image }}">
 
         <div class="media-body ml-3 pt-2">
 
@@ -57,7 +57,7 @@
 
 
           <div class="card bg-rouge-tres-clair mb-3" style="min-width:300px">
-            <img src="{!! asset('storage/img/icones').'/'.$element->icone !!}" alt="">
+            <img src="{!! 'storage/img/icones/'.$element->icone !!}" alt="">
             <div class="card-body">
               <h4>{{ $element->h4 }}</h4>
               <p>{{ $element->p1 }}</p>

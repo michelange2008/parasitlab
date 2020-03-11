@@ -10,7 +10,7 @@
 
       <div class="col-md-3">
 
-        <img class="img-100 img-change" src="{!! asset('storage/img/ostertagia_2.jpg') !!}" alt="coproscopie">
+        <img class="img-100 img-change" src="'storage/img/ostertagia_2.jpg" alt="coproscopie">
 
       </div>
 
@@ -32,7 +32,7 @@
       <div class="col-md-8 custom-lead presentation_cadre">
 
         <p>
-          <img class="img-40" src="{!! asset('storage/logo.svg') !!}" alt="Parasit'Lab">
+          <img class="img-40" src="storage/logo.svg" alt="Parasit'Lab">
           {{ __('accueil.pl_propose') }}: <span class="font-weight-bolder">{{ __('accueil.copro_f') }}</span>, <span class="font-weight-bolder">{{ __('accueil.baermann') }}</span>, ...
         </p>
 
@@ -49,7 +49,7 @@
           <div data-toggle="tooltip" data-placement="top" title="{{ ucfirst($anapack->nom) }}">
 
             <img class="btn img-zoom"
-            src="{!! asset('storage/img/icones').'/'.$anapack->icone->nom !!}" alt="coproscopie"
+            src="{!! 'storage/img/icones/'.$anapack->icone->nom !!}" alt="coproscopie"
             data-toggle="modal" data-target="#anapack_{{ $anapack->id }}" >
           </div>
 

@@ -23,7 +23,7 @@
           @foreach ($interpreter as $element)
             <li class="media mb-4">
 
-              <img class="mr-3" src="{!! asset('storage/img/image_test.jpg') !!}" alt="image">
+              <img class="mr-3" src="storage/img/image_test.jpg" alt="image">
 
               <div class="media-body">
 

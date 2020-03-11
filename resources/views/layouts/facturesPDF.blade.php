@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="{{asset('storage/oeuf.svg')}}" />
+    <link rel="icon" href="storage/oeuf.svg" />
 
     <title>Parasit'Lab</title>
 
@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
 
 </head>
   <body>

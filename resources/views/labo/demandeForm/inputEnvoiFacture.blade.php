@@ -8,14 +8,14 @@
          @if ($usertype->route === 'eleveur')
 
            <a class="btn btn-rouge border active" data-toggle="facture" data-title="{{ $usertype->id }}">
-             <img class="img-25 mr-3" src="{{ asset('storage/img/icones').'/'.$usertype->icone->nom }}" alt="">
+             <img class="img-25 mr-3" src="{{ 'storage/img/icones/'.$usertype->icone->nom }}" alt="">
              {{ $usertype->nom }}
            </a>
 
          @else
 
            <a class="btn btn-rouge border notActive" data-toggle="facture" data-title="{{ $usertype->id }}">
-             <img class="img-25 mr-3" src="{{ asset('storage/img/icones').'/'.$usertype->icone->nom }}" alt="">
+             <img class="img-25 mr-3" src="{{ 'storage/img/icones/'.$usertype->icone->nom }}" alt="">
              {{ $usertype->nom}}
            </a>
 
