@@ -30,8 +30,8 @@ class ExtranetController extends Controller
     {
       return view('extranet.accueil', [
         // 'menu' => $this->menu,
-        'accueilEntetes' => $this->litJson('accueilEntetes'),
-        'accueilPastilles' => $this->litJson('accueilPastilles'),
+        // 'accueilEntetes' => $this->litJson('accueilEntetes'),
+        // 'accueilPastilles' => $this->litJson('accueilPastilles'),
       ]);
     }
 
