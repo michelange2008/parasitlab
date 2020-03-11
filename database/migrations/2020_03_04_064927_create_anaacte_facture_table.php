@@ -22,7 +22,7 @@ class CreateAnaacteFactureTable extends Migration
             $table->unsignedInteger('tva_id')->default(1);
             $table->foreign('tva_id')->references('id')->on('tvas')->onDelete('restrict');
 
-            $table->timestamp('date');
+            $table->timestamp('date')->nullable();
             $table->timestamps();
         });
     }
