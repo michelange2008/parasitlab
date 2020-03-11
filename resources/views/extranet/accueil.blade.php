@@ -1,6 +1,6 @@
 @extends("layouts.app")
 
-@extends("extranet.menuExtranet")
+{{-- @extends("extranet.menuExtranet") --}}
 
 @section('content')
 
