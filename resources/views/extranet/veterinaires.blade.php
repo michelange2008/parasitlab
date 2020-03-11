@@ -10,7 +10,7 @@
 
       <div class="col-md-3">
 
-        <img class="img-100 img-change" src="'storage/img/ostertagia_2.jpg" alt="coproscopie">
+        <img class="img-100 img-change" src="{{url('storage/img/ostertagia_2.jpg)}}" alt="coproscopie">
 
       </div>
 
