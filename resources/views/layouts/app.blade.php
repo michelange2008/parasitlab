@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="{{'storage/oeuf.svg'}}" />
+    <link rel="icon" href="{{url('storage/oeuf.svg')}}" />
 
     <title>Parasit'Lab</title>
 
@@ -24,7 +24,7 @@
     {{-- <link rel="stylesheet" href="{{ 'css/jquery.dataTables.min.css'}}">
     <link rel="stylesheet" href="{{ 'css/fixedHeader.dataTables.min.css'}}">
     <link rel="stylesheet" href="{{ 'css/responsive.jquery.dataTables.min.css'}}"> --}}
-    <link rel="stylesheet" href="css/jquery-confirm.css">
+    <link rel="stylesheet" href="{{url('css/jquery-confirm.css')}}">
 
 </head>
   <body>
@@ -37,7 +37,7 @@
 
       <!-- Scripts -->
 
-      <script src="js/app.js" defer></script>
+      <script src="{{url('js/app.js')}}" defer></script>
 
   </body>
 
