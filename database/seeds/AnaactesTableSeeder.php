@@ -14,8 +14,8 @@ class AnaactesTableSeeder extends Seeder
       DB::table('anaactes')->insert([
         [
           'id' => 1,
-          'code' => "COPR",
-          'nom' => "coproscopie",
+          'code' => "SGI",
+          'nom' => "strongles gastro-intestinaux",
           'description' => "coproscopie simple",
           'estAnalyse' => true,
           'icone_id' => 9,
@@ -90,6 +90,26 @@ class AnaactesTableSeeder extends Seeder
           'estAnalyse' => false,
           'icone_id' => 20,
           'pu_ht' => 5,
+          'tva_id' => 1,
+        ],
+        [
+          'id' => 9,
+          'code' => "FASC",
+          'nom' => "Analyse grande douve et paramphistome",
+          'description' => "Analyse coprologique spécifique permettant de compter les oeufs de grande douve et de paramphistome en plus de ceux des strongles gastro-intestinaux",
+          'estAnalyse' => true,
+          'icone_id' => 31,
+          'pu_ht' => 19.5,
+          'tva_id' => 1,
+        ],
+        [
+          'id' => 10,
+          'code' => "DICR",
+          'nom' => "Analyse strongles gastro-intestinaux et petit douve",
+          'description' => "Analyse coprologique spécifique permettant de compter les oeufs de petite douve en plus de ceux des strongles gastro-intestinaux",
+          'estAnalyse' => true,
+          'icone_id' => 32,
+          'pu_ht' => 15.5,
           'tva_id' => 1,
         ],
       ]);

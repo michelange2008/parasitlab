@@ -85,7 +85,14 @@ class AnaitemsTableSeeder extends Seeder
           [
             'id' => 11,
             "abbreviation" => "MONI",
-            "nom" => "moniezia expansa (ténia)",
+            "nom" => " ténia (moniezia expansa)",
+            "unite_id" => "5",
+            "qtt_id" => "3",
+          ],
+          [
+            'id' => 12,
+            "abbreviation" => "ASCA",
+            "nom" => "ascaris",
             "unite_id" => "5",
             "qtt_id" => "3",
           ],

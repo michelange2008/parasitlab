@@ -4,15 +4,15 @@
 
   <div class="card-body">
 
-    <h4 class="card-title">{{ $anapack->nom }}</h4>
+    <h4 class="card-title">{{ ucfirst($anapack->nom) }}</h4>
 
-    <p class="card-text">{{ $anapack->detail }}</p>
+    <p class="card-text">{{ ucfirst($anapack->detail) }}</p>
 
   </div>
 
   <div class="card-footer">
 
-    <p>Prix de l'analyse:</p>
+    <p>Coût:</p>
 
     @include('fragments.bouton', [
       'type' => 'link',

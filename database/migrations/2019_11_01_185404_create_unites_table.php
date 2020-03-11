@@ -15,7 +15,7 @@ class CreateUnitesTable extends Migration
     {
         Schema::create('unites', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('type');
+            $table->string('type', 50);
             $table->string('nom', 20);
         });
     }

@@ -52,7 +52,11 @@
 
             @foreach ($anapacks as $anapack)
 
-              @include('extranet.analyses.choisir.listeAnalysesProposees')
+              @if ($anapack->visible)
+
+                @include('extranet.analyses.choisir.listeAnalysesProposees')
+
+              @endif
 
             @endforeach
 

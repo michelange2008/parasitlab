@@ -15,9 +15,9 @@ class CreateAnaactesTable extends Migration
     {
         Schema::create('anaactes', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('code');
-          $table->string('nom');
-          $table->string('description');
+          $table->string('code', 10);
+          $table->string('nom', 191);
+          $table->string('description', 191);
           $table->boolean('estAnalyse');
           $table->unsignedInteger('icone_id')->default(1)->nullable();
           $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');

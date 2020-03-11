@@ -15,8 +15,7 @@ class CreateAnapacksTable extends Migration
     {
         Schema::create('anapacks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('abbreviation');
-            $table->string("article", 20);
+            $table->string('abbreviation', 50);
             $table->string("nom",191);
             $table->text("description");
             $table->longtext("detail");
@@ -24,6 +23,7 @@ class CreateAnapacksTable extends Migration
             $table->unsignedInteger('icone_id')->default('1')->nullable();
             $table->foreign('icone_id')->references('id')->on('icones')->onDelete('set null');
             $table->boolean('veto');
+            $table->boolean('visible')->default(true);
         });
     }
 
