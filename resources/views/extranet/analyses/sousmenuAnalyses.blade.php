@@ -13,19 +13,19 @@
           @if ($element->type == 'route')
 
             <a href="{{ route($element->route) }}" data-toggle="tooltip" title="{{ $element->intitule }}">
-              <img class="img-40" src="{!! 'storage/img/icones/'.$element->icone !!}">
+              <img class="img-40" src="{!! url('storage/img/icones/'.$element->icone) !!}">
               <span class="d-none d-lg-inline">{{ $element->intitule }}</span>
             </a>
 
           @elseif ($element->type == 'mail')
 
-            <img class="img-40" src="{!! 'storage/img/icones/'.$element->icone !!}" alt="{{ $element->intitule }}">
+            <img class="img-40" src="{!! url('storage/img/icones/'.$element->icone) !!}" alt="{{ $element->intitule }}">
             {!! HTML::mailto($element->mail, $element->intitule, ['class' => 'd-none d-lg-inline']) !!}
 
           @else
 
             <a href="{!! asset('storage').'/'.$element->file !!}">
-              <img class="img-40" src="{!! 'storage/img/icones/'.$element->icone !!}" alt="{{ $element->intitule }}">
+              <img class="img-40" src="{!! url('storage/img/icones/'.$element->icone) !!}" alt="{{ $element->intitule }}">
               <span class="d-none d-lg-inline">Formulaire</span>
             </a>
 
