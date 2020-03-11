@@ -45,7 +45,7 @@ class CreateDemandesTable extends Migration
 
 
             $table->timestamp('date_prelevement')->nullable();
-            $table->timestamp('date_reception');
+            $table->timestamp('date_reception')->nullable();
             $table->timestamp('date_resultat')->nullable();
             $table->timestamp('date_envoi')->nullable();
 
