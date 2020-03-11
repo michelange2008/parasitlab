@@ -2,7 +2,7 @@
 
   @if(session('usertype') !== null)
 
-    <img class="img-50" src="{{ 'storage/img/icones/'.session('usertype')->icone->nom}}" alt="{{session('usertype')->icone->nom}}">
+    <img class="img-50" src="{{ url('storage/img/icones/'.session('usertype')->icone->nom)}}" alt="{{session('usertype')->icone->nom}}">
 
     <h3 class="pt-3 ml-3">{{ ucfirst(session('usertype')->nom)}}: ajout d'un utilisateur
 

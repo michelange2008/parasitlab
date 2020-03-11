@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="{{asset('storage/oeuf.svg')}}" />
+    <link rel="icon" href="{{url('storage/oeuf.svg')}}" />
 
     <title>Parasit'Lab</title>
 

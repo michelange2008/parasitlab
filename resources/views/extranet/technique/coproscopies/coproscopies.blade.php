@@ -22,7 +22,7 @@
 
           <div class="media">
 
-            <img class="mr-3 d-none d-md-block" src="{!! 'storage/img/'.$element->image !!}" alt="{!! $element->titre !!}">
+            <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/'.$element->image) !!}" alt="{!! $element->titre !!}">
 
             <div class="media-body">
 
