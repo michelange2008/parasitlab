@@ -9,28 +9,28 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="w-100" src="{{ 'storage/img/brebis.png' }}" alt="brebis">
+      <img class="w-100" src="{{ asset('storage/img/brebis.png') }}" alt="brebis">
       <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-left">
         <h2 class="">Maîtrisez le parasitisme de votre troupeau !</h2>
       </div>
     </div>
 
     <div class="carousel-item">
-      <img class="w-100" src="{{ 'storage/img/vache.png' }}" alt="brebis">
+      <img class="w-100" src="{{ asset('storage/img/vache.png') }}" alt="brebis">
       <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce">
         <h2>Evaluez la situation de vos animaux !</h2>
       </div>
     </div>
 
     <div class="carousel-item">
-      <img class="w-100" src="{{ 'storage/img/cheval.png' }}" alt="brebis">
+      <img class="w-100" src="{{ asset('storage/img/cheval.png') }}" alt="brebis">
       <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-center">
         <h2>Limitez les résistances !</h2>
       </div>
     </div>
 
     <div class="carousel-item">
-      <img class="w-100" src="{{ 'storage/img/entomofaune.png' }}" alt="entomofaune">
+      <img class="w-100" src="{{ asset('storage/img/entomofaune.png') }}" alt="entomofaune">
       <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-right">
         <h2>Respectez la biodiversité</h2>
       </div>
