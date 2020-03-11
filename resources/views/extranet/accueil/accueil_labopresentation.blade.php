@@ -6,7 +6,7 @@
 
     <div class="col-md-7 text-left">
 
-      <img class="img-50" src="{!! asset('storage/logo.svg') !!}" alt="Pôle Bio">
+      <img class="img-50" src="{!! 'storage/logo.svg' !!}" alt="Pôle Bio">
 
       <h2>
         {{ __('accueil.LaboParasito') }}
@@ -14,14 +14,14 @@
       </h2>
 
       <p class="texte-plus-grand">
-        {{ __('accueil.creeEtGere') }}<img style="vertical-align:baseline" src="{!! asset('storage/fibl-logo.svg') !!}" alt="Logo du FiBL">{{ __('accueil.ceLaboratoire') }}
+        {{ __('accueil.creeEtGere') }}<img style="vertical-align:baseline" src="{!! 'storage/fibl-logo.svg' !!}" alt="Logo du FiBL">{{ __('accueil.ceLaboratoire') }}
       </p>
 
     </div>
 
     <div class="col-md-5">
 
-      <img src="{{ asset('storage/img/polebio.jpg') }}" alt="">
+      <img src="{{ 'storage/img/polebio.jpg' }}" alt="">
 
     </div>
 

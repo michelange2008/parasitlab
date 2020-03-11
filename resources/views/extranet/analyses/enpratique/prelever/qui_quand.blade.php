@@ -1,7 +1,7 @@
 @foreach ($enpratiquePrelever as $element)
 
   <div class="media border p-3 mb-2  bg-bleu-tres-clair">
-    <img class="mr-3 d-none d-md-block" src="{!! asset('storage/img/icones').'/'.$element->icone !!}" alt="Problème">
+    <img class="mr-3 d-none d-md-block" src="{!! 'storage/img/icones/'.$element->icone !!}" alt="Problème">
     <div class="media-body">
       <h3 class="mt-0">
         {{ $element->titre }}

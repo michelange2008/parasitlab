@@ -2,7 +2,7 @@
 
   <div class="card">
 
-    <img class="card-img-top" src="{!! asset('storage/img/crottin.jpg') !!}" alt="Crottin">
+    <img class="card-img-top" src="storage/img/crottin.jpg" alt="Crottin">
 
     <div class="card-body">
 
@@ -22,7 +22,7 @@
 
   <div class="card">
 
-    <img class="card-img-top"  src="{!! asset('storage/img/lot.jpg') !!}" alt="Brebis">
+    <img class="card-img-top"  src="storage/img/lot.jpg" alt="Brebis">
 
     <div class="card-body">
       <h4>Par lots ?</h4>

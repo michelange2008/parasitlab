@@ -1,6 +1,6 @@
 @isset ($user->labo->photo)
 
-  <img class="img-50 col-form-label" src="{{ asset('storage/img/labo/photos')."/".$user->labo->photo }}" alt="">
+  <img class="img-50 col-form-label" src="{{ 'storage/img/labo/photos/'.$user->labo->photo }}" alt="">
 
   {{-- Un champs caché du nom du fichier de signature de façon à pouvoir renommer l'image téléchargée avec le nom d'origine --}}
   <input type="hidden" name="icone" value="{{ $user->labo->photo }}">

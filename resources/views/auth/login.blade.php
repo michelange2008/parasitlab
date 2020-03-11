@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <img style="position:absolute; width:100vw" src="{!! asset('storage/img/paysage.jpg') !!}" alt="">
+  <img style="position:absolute; width:100vw" src="{!! 'storage/img/paysage.jpg' !!}" alt="Paysage">
 <div class="container fond">
     <div class="row justify-content-center">
         <div class="col-md-8">

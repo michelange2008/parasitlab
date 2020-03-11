@@ -23,7 +23,7 @@
 
     <br><br>
 
-    <img width="250px" src="{!! asset('storage/logo.svg') !!}" alt="Parasit'Lab">
+    <img width="250px" src="{!! 'storage/logo.svg' !!}" alt="Parasit'Lab">
     <div style="color:gray">
 
       <p>Pôle Bio – Ecosite du Val de Drôme</p>

@@ -9,7 +9,7 @@
 
         <p class="lead">Désolé, cette page n'est pas finie!</p>
 
-        <img src="{{ asset('storage/img/icones/entravaux.svg') }}" alt="En travaux">
+        <img src="{{ 'storage/img/icones/entravaux.svg' }}" alt="En travaux">
 
         <p>
 
