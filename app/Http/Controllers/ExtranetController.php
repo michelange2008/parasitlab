@@ -23,13 +23,13 @@ class ExtranetController extends Controller
 
     public function __construct()
     {
-      $this->menu = $this->litJson('menuExtranet');
+      // $this->menu = $this->litJson('menuExtranet');
     }
 
     public function accueil()
     {
       return view('extranet.accueil', [
-        'menu' => $this->menu,
+        // 'menu' => $this->menu,
         'accueilEntetes' => $this->litJson('accueilEntetes'),
         'accueilPastilles' => $this->litJson('accueilPastilles'),
       ]);
