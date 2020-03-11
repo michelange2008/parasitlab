@@ -16,15 +16,15 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ '/public/css/app.css' }}" rel="stylesheet">
+    <link href="{{ 'public/css/app.css' }}" rel="stylesheet">
     {{-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ '/public/css/bootstrap-table.min.css'}}">
-    <link rel="stylesheet" href="{{ '/public/css/bootstrap-table-sticky-header.min.css'}}">
+    <link rel="stylesheet" href="{{ 'public/css/bootstrap-table.min.css'}}">
+    <link rel="stylesheet" href="{{ 'public/css/bootstrap-table-sticky-header.min.css'}}">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     {{-- <link rel="stylesheet" href="{{ 'css/jquery.dataTables.min.css'}}">
     <link rel="stylesheet" href="{{ 'css/fixedHeader.dataTables.min.css'}}">
     <link rel="stylesheet" href="{{ 'css/responsive.jquery.dataTables.min.css'}}"> --}}
-    <link rel="stylesheet" href="{{ '/public/css/jquery-confirm.css'}}">
+    <link rel="stylesheet" href="{{ 'public/css/jquery-confirm.css'}}">
 
 </head>
   <body>
@@ -37,7 +37,7 @@
 
       <!-- Scripts -->
 
-      <script src="{{ '/public/js/app.js' }}" defer></script>
+      <script src="{{ 'public/js/app.js' }}" defer></script>
 
   </body>
 
