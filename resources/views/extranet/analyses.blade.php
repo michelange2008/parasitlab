@@ -24,7 +24,7 @@
             'image' => 'choisir.svg',
             'titre' => 'Quelle analyse choisir&nbsp?',
             'texte_1' => "Différentes analyses parasitologiques sont possibles en fonction de vos objectifs et de vos animaux",
-            'texte_2' =>  "Il peut s'agit d'une simple coproscopie, d'un suivi, d'un test de résistance, etc.",
+            'texte_2' =>  "Il peut s'agir d'une simple coproscopie, d'un suivi, d'un test de résistance, etc.",
             'route' => 'choisir',
           ])
 
@@ -32,14 +32,14 @@
             'image' => 'enpratique.svg',
             'titre' => 'Comment faire en pratique&nbsp?',
             'texte_1' => "Qui prélever, quand, comment&nbsp;?",
-            'texte_2' =>  "Peut-on envoyer les prélèvement ou faut-il les porter au labo&nbsp;?",
+            'texte_2' =>  "Peut-on envoyer les prélèvements ou faut-il les porter au labo&nbsp;?",
             'route' => 'enpratique',
           ])
 
           @include('extranet.analyses.carte', [
             'image' => 'interpreter.svg',
             'titre' => 'Quelle interprétation&nbsp?',
-            'texte_1' => "Vous avez reçu votre résultats... comment interpréter&nbsp;?",
+            'texte_1' => "Vous avez reçu vos résultats... comment interpréter&nbsp;?",
             'texte_2' =>  "Quelques éléments pour vous permettre de replacer ces résultats dans le contexte de votre élevage.",
             'route' => 'interpreter',
           ])

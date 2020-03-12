@@ -7,9 +7,9 @@
     <div class="card-body">
 
       <h4>Par terre ?</h4>
-      <p>Quelque soit l'analyse demandée, il faut prélever des crottes, crottin ou bouse.</p>
+      <p>Quelque soit l'analyse demandée, il faut prélever des crottes, crottins ou bouses.</p>
       <p>Il est possible de ramasser au sol quand on voit l'animal en train de faire: dans ce cas on est sûr de l'identité et de la fraîcheur.</p>
-      <p>Il ne faut en aucun cas ramasser des fécès par-terre si l'on ne sait pas quel animal les a fait et quand&nbsp!</p>
+      <p>Il ne faut en aucun cas ramasser des fèces par-terre si l'on ne sait pas quel animal les a fait et quand&nbsp!</p>
       <p>Avec les ruminants et les porcs, il est préférable de faire le prélèvement directement dans le rectum.</p>
     </div>
 
@@ -32,12 +32,12 @@
       </p>
       <p>Pour cette raison, il sera souvent plus pertinent de faire plusieurs analyses sur des mélanges de crottes de petits lots d'animaux (environ 5)
       représentatifs de la diversité du troupeau.</p>
-      <p>Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fécès de chaque animal</p>
+      <p>Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fèces de chaque animal</p>
 
     </div>
 
     <div class="card-footer">
-      <p><i class="far fa-smile text-success"></i> Vous n'avez pas besoin d'homogénéiser le mélange de fécès, le laboratoire s'en charge.</p>
+      <p><i class="far fa-smile text-success"></i> Vous n'avez pas besoin d'homogénéiser le mélange de fèces, le laboratoire s'en charge.</p>
     </div>
 
   </div>

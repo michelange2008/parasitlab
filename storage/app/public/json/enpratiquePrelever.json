@@ -25,7 +25,7 @@
     "qui" :
     {
       "p1" : "Il est indispensable de faire au moins trois lots de 5 animaux sur la base suivante:",
-      "p2" : "Les animaux maigres ou en mauvais état, les animaux bien portants, les primipares (agnelles, anthenaises, génisses d'un an ou de deux ans)",
+      "p2" : "Les animaux maigres ou en mauvais état, les animaux bien portants, les primipares (agnelles, antenaises, génisses d'un an ou de deux ans)",
       "p3" : "D'autres lots sont envisageables en fonction des pratiques de pâturage."
     },
     "quand" :
@@ -77,13 +77,12 @@
     "qui" :
     {
       "p1" : "Le nombre de lots dépend du nombre de produits que vous voulez évaluer.",
-      "p2" : "Il faut au minimum un lot témoin qui ne recevra aucun traitement.",
-      "p3" : "Et autant de lots traités qu'il y a de produits à tester."
+      "p2" : "Il faut prélever 5 animaux pour faire une analyse de mélange, deux fois de suite (à chaque fois les mêmes animaux)."
     },
     "quand" :
     {
       "p1" : "Une première analyse est faite le jour du traitement.",
-      "p2" : "Une seconde analyse est réalisée 10 jours après le traitement.",
+      "p2" : "Une seconde analyse est réalisée 7 à 14 jours jours après le traitement, selon le produit utilisés (contactez-nous pour plus d'informations).",
       "p3" : "Un calcul permet de connaitre le taux de réduction d'excrétion fécale et donc la présence éventuelle d'une résistance."
     }
   },

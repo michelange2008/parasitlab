@@ -25,10 +25,10 @@
           @include('fragments.carte', [
             'icone' => 'email.svg',
             'titre' => 'Ecrivez-nous',
-            'texte_1' => "Vous avez un question un peu complexe, nécessitant des explications détaillées...",
+            'texte_1' => "Vous avez une question un peu complexe, nécessitant des explications détaillées...",
             'texte_2' => "N'hésitez pas ! le courrier électronique est fait pour ça.",
             'type' => 'mail',
-            'adresse' => 'contact@parasitlab.fr',
+            'adresse' => 'contact@parasitlab.org',
             'intitule' => 'cliquez pour écrire',
           ])
 
