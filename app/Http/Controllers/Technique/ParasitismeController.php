@@ -39,7 +39,9 @@ class ParasitismeController extends Controller
 
       public function entomofaune()
       {
-        return view('errors.entravaux');
+        return view('extranet.technique.parasitisme.entomofaune', [
+          'menu' => $this->menu,
+        ]);
       }
 
 }
