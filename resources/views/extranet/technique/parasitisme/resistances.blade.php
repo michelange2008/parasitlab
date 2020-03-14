@@ -23,7 +23,7 @@
 
         <div class="embed-responsive embed-responsive-16by9">
 
-          <iframe class="embed-responsive-item" src="{{ url('storage/img/resist/resistancesHD.mp4') }}" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" src="{{ url('storage/img/resist/resistances.mp4') }}" allowfullscreen></iframe>
 
         </div>
 
