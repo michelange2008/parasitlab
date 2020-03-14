@@ -71,7 +71,11 @@
       </ul>
 
       <p class="lead">Pour toutes ces raisons, l’usage des ivermectines devrait être évité durant les périodes de pâturage.
-         En dehors de ces périodes, le recours aux ivermectines devrait se limiter aux animaux trop infestés.</p>
+         En dehors de ces périodes, le recours aux <i></i>vermectines devrait se limiter aux animaux trop infestés.</p>
+
+      <hr class="divider">
+      En savoir plus :
+      LUMARET (JP)
 
     </div>
 
