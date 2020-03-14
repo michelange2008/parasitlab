@@ -29,7 +29,9 @@ class ParasitismeController extends Controller
 
       public function resistances()
       {
-        return view('errors.entravaux');
+        return view('extranet.technique.parasitisme.resistances', [
+          'menu' => $this->menu,
+        ]);
       }
 
       public function surdispersion()

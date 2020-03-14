@@ -10,7 +10,7 @@
     <small>
       @isset($soustitre)
 
-        {{ $soustitre ?? ''}}
+        {!! $soustitre ?? ''!!}
 
       @endisset
   </small>
