@@ -47,14 +47,14 @@ class ExtranetController extends Controller
 
     public function eleveurs()
     {
-      return view('extranet.accueil', [
+      return view('extranet.eleveurs', [
         "menu" => $this->menu,
       ]);
     }
 
     public function cavaliers()
     {
-      return view('extranet.accueil', [
+      return view('extranet.cavaliers', [
         "menu" => $this->menu,
       ]);
     }
