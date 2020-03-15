@@ -9,7 +9,7 @@
 
     <link rel="icon" href="{{url('storage/oeuf.svg')}}" />
 
-    <title>Parasit'Lab</title>
+    <title>Parasit'Lab - Appréhender la complexité du vivant</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
