@@ -71,7 +71,7 @@
               <p>Pour cela, il suffit de ne traiter que les chevaux pour lesquels le parasitisme dépasse un certain seuil.
                  C'est en réalisant des examens coproscopiques que l'on peut vérifier les niveaux d'infestation par les strongles digestifs.
                </p>
-               <p>La réduction du nombre de traitements a aussi un effet positif, en diminuant les rejets d'anthelminthiques dans l'environnement (cf. <a href="{{ route('parasitisme.entomofaune') }}">article entomofaune</a>)</p>
+               <p>La réduction du nombre de traitements a aussi un effet positif, en diminuant les rejets d'anthelminthiques dans l'environnement (cf. <a href="{{ route('parasitisme.entomofaune') }}"><i class="fas fa-book-reader"></i> article entomofaune</a>)</p>
             </div>
 
           </li>
