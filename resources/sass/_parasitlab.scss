@@ -47,8 +47,8 @@ a {
 
 // pour avoir une barre latérale fixe meme quand on scrolle
 .bd-sidebar {
-	position: -webkit-sticky;
-	position: sticky;
+	position: -webkit-fixed;
+	position: fixed;
 	top: 4rem;
 	z-index: 1000;
 	height: calc(100vh - 44rem);
