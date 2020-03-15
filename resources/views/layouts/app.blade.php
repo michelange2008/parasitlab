@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name=”description”
-      content=”Situé dans la drôme, Parasit'lab est un service du FiBL France et propose des analyses parasitologiques pour les ruminants, les équidés et les porc”>
+    <meta name=”description” content=”Situé dans la drôme, Parasit'lab est un service du FiBL France et propose des analyses parasitologiques pour les ruminants, les équidés et les porc”>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
