@@ -1,0 +1,30 @@
+{
+  "titre" : "eleveurs_titre",
+
+  "texte" :
+  {
+    "element_1" :
+    {
+      "titre" : "eleveurs_1_titre",
+      "texte_1" : "",
+      "image" : "eleveurs_1.jpg",
+      "image_gauche" : true
+    },
+    "element_2" :
+    {
+      "titre" : "eleveurs_2_titre",
+      "texte_1" : "",
+      "image" : "eleveurs_2.jpg",
+      "image_gauche" : true
+    },
+    "element_3" :
+    {
+      "titre" : "eleveurs_3_titre",
+      "texte_1" : "",
+      "image" : "eleveurs_4.jpg",
+      "image_gauche" : true
+    }
+
+  }
+
+}

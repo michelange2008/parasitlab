@@ -88,41 +88,10 @@
 
         <div class="card-deck">
 
-          <div class="card">
+          @include('extranet.commentfaireveto')
 
-            <div class="card-body">
 
-              <h4>{{ __('accueil.comment_faire') }}</h4>
-
-              <p>{{ __('accueil.kit_envoi') }}.</p>
-
-            </div>
-
-            <div class="card-footer">
-
-              @include('fragments.bouton', ['type' => 'route', 'route' => 'enpratique', 'intitule' => 'En pratique', 'fa' => 'fas fa-sign-language'])
-
-            </div>
-
-          </div>
-
-          <div class="card">
-
-            <div class="card-body">
-
-              <h4>{{ __('accueil.question_remarque') }}</h4>
-
-              <p>{{ __('accueil.repondre_questions') }}</p>
-
-            </div>
-
-            <div class="card-footer">
-
-              @include('fragments.boutonContact')
-
-            </div>
-
-          </div>
+          @include('extranet.contacteznous')
 
         </div>
 
