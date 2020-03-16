@@ -99,11 +99,20 @@
 
       <div class="col-md-10 col-xl-8">
 
-        @retour()
+        <hr class="divider">
+
+        <div class="card-deck">
+
+          @include('extranet.commentfaireautre')
+
+          @include('extranet.contacteznous')
+
+        </div>
 
       </div>
 
     </div>
+
 
   </div>
 

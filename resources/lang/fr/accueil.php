@@ -19,6 +19,7 @@ return [
   "suivi" => "suivi de campagne",
   "resist" => "test de résistance",
   "kit_envoi" => "D’un point de vue pratique, Nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.",
+  "en_pratique_resume" => "Pour toutes les questions que vous vous posez pour le choix des analyses, la réalisation des prélèvement et leur envoi, lisez nos pages dédiées à ces sujets.",
   "repondre_questions" => "Nous sommes aussi là pour répondre à toutes vos questions concernant les services que nous proposons, mais aussi l’interprétation de résultats d’analyses.",
   "comment_faire" => "Comment faire ?",
   "question_remarque" => "Une question, une remarque ?",
