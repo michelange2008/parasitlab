@@ -24,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+      Blade::directive('date', function ($expression) {
+          return "<?php echo ($expression)->format('d M Y'); ?>";
+      });
+
       Blade::include('admin.eleveurDetail','eleveurDetail');
       Blade::include('fragments.nomLien','nomLien');
       Blade::include('fragments.voir','voir');

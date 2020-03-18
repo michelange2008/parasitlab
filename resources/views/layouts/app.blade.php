@@ -13,7 +13,6 @@
     <title>Parasit'Lab - Appréhender la complexité du vivant</title>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    {{-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> --}}
 
     <!-- Styles -->
     <link href="{{url('css/app.css')}}" rel="stylesheet">
@@ -33,6 +32,7 @@
       <!-- Scripts -->
 
       <script src="{{url('js/app.js')}}" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 
   </body>
 

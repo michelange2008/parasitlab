@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
       $this->call(Anapack_especeTableSeeder::class);
       $this->call(PrelevementsTableSeeder::class);
       $this->call(ResultatsTableSeeder::class);
+      $this->call(BlogsTableSeeder::class);
 
     }
 }

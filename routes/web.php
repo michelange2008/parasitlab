@@ -28,6 +28,8 @@ Route::get('/cavaliers', ['uses' => 'ExtranetController@cavaliers', 'as' => 'cav
 
 Route::get('/parasitisme', ['uses' => 'Technique\ParasitismeController@accueil', 'as' => 'parasitisme']);
 
+Route::get('/parasitisme/fondamentaux/{id}', ['uses' => 'Technique\ParasitismeController@fondamentaux', 'as' => 'parasitisme.fondamentaux']);
+
 Route::get('/parasitisme/surdispersion', ['uses' => 'Technique\ParasitismeController@surdispersion', 'as' => 'parasitisme.surdispersion']);
 
 Route::get('/parasitisme/résistances', ['uses' => 'Technique\ParasitismeController@resistances', 'as' => 'parasitisme.resistances']);
@@ -38,6 +40,7 @@ Route::get('/coproscopies', ['uses' => 'Technique\CoproscopiesController@accueil
 
 Route::get('/coproscopies/interpreter', ['uses' => 'Technique\CoproscopiesController@interpreter', 'as' => 'interpreter']);
 
+Route::resource('blog', 'Technique\BlogController')->except('store', 'edit', 'create', 'destroy', 'update');
 
 //##############################################################################
 // PAGES POUR LE CHOIX DES ANALYSES LE REMPLISSAGE DU FORMULAIRE LES ASPECTS PRATIQUES
@@ -151,5 +154,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf');
 
   Route::resource('acte', 'Labo\ActeController');
+
+  Route::resource('blog', 'Technique\BlogController')->except('show');
 
 });

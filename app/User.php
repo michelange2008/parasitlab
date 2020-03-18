@@ -67,4 +67,9 @@ class User extends Authenticatable
       return $this->hasOne(App\Models\Productions\Serie::class);
     }
 
+    public function blogs()
+    {
+      return $this->hasMany(Models\Parasitisme\Blog::class);
+    }
+
 }

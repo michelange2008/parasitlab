@@ -26,7 +26,8 @@
       "titre" : "Résistances",
       "texte_1" : "Le développement de résistances aux traitements antiparasitaires est un processus naturel inévitable. Les élevages caprins sont les premiers concernés.",
       "texte_2" : "En réponse à l'infestation parasitaire, les animaux développent une immunité variable et plus ou moins durable.",
-      "route" : "parasitisme.resistances"
+      "route" : "parasitisme.fondamentaux",
+      "id" : 2
     },
     "biodiversite" :
     {
@@ -34,7 +35,8 @@
       "titre" : "Biodiversité",
       "texte_1" : "Certains traitements anthelmintiques ont des propriétés insecticides et son rejetés avec les fécès des animaux.",
       "texte_2" : "Du fait de leur persistance dans la pature, ils détruisent les insectes coprophages qui dégradent les bouses, crottes et crottins.",
-      "route" : "parasitisme.entomofaune"
+      "route" : "parasitisme.fondamentaux",
+      "id" : 1
     }
   }
 }

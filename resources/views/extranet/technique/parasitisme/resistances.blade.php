@@ -1,36 +1,9 @@
-@extends('layouts.app')
+<div class="col-md-6">
 
-@extends('extranet.menuExtranet')
+  <div class="embed-responsive embed-responsive-16by9">
 
-
-@section('content')
-
-  <div class="container-fluid">
-
-    <div class="row my-3 justify-content-center">
-
-      <div class="col-md-10">
-
-        @titre(['titre' => 'La résistance aux anthelmintiques&nbsp;:', 'soustitre' => "un sujet d'avenir", 'icone' => 'test_resistance.svg'])
-
-      </div>
-
-    </div>
-
-    <div class="row justify-content-center">
-
-      <div class="col-md-6">
-
-        <div class="embed-responsive embed-responsive-16by9">
-
-          <iframe class="embed-responsive-item" src="{{ url('storage/img/resist/resistances.mp4') }}" allowfullscreen></iframe>
-
-        </div>
-
-      </div>
-
-    </div>
+    <iframe class="embed-responsive-item" src="{{ url('storage/img/resist/resistances.mp4') }}" allowfullscreen></iframe>
 
   </div>
 
-@endsection
+</div>

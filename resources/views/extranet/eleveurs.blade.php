@@ -22,27 +22,32 @@
 
           <ul class="list-unstyled">
 
-            @foreach ($elements->texte as $element)
+            @foreach ($elements->contenu as $contenu)
 
               <li class="media my-3">
 
-                @if ($element->image_gauche)
+                @if ($contenu->image_gauche)
 
-                  <img src="{{ url('storage/img').'/'.$element->image }}" alt="Troupeaux">
+                  <img src="{{ url('storage/img').'/'.$contenu->image }}" alt="Troupeaux">
 
                 @endif
 
                 <div class="media-body ml-3">
 
-                  <h4>{{ __('presentation.'.$element->titre) }}</h4>
+                  <h4>{{ __('presentation.'.$contenu->titre) }}</h4>
 
-                  <p>{{ $element->texte_1 }}</p>
+                  @foreach ($contenu->texte as $texte)
+
+                    <p>{{ $texte }}</p>
+
+                  @endforeach
+
 
                 </div>
 
-                @if (!$element->image_gauche)
+                @if (!$contenu->image_gauche)
 
-                  <img src="{{ url('storage/img').'/'.$element->image }}" alt="Troupeaux">
+                  <img src="{{ url('storage/img').'/'.$contenu->image }}" alt="Troupeaux">
 
                 @endif
 
@@ -51,6 +56,24 @@
             @endforeach
 
           </ul>
+
+          <hr class="divider">
+
+      </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-10 col-xl-8">
+
+        <div class="card-deck">
+
+          @include('extranet.commentfaireautre')
+
+          @include('extranet.contacteznous')
+
+        </div>
 
       </div>
 
