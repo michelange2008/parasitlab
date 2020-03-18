@@ -17,7 +17,7 @@
     @include('fragments.bouton', [
       'type' => 'link',
       'target' => '_self',
-      'lien' => asset('/choisir/'.$espece_id.'/'.$anapack->id),
+      'lien' => url('/choisir/'.$espece_id.'/'.$anapack->id),
       'intitule' => "Remplir le formulaire",
       'fa' => 'fas fa-pen',
       'couleur' => 'btn-secondary'])
