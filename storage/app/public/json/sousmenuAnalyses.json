@@ -42,7 +42,7 @@
       "formulaire" :
       {
         "type" : "file",
-        "file" : "/pdf/formulaire_vierge.pdf",
+        "file" : "pdf/formulaire_vierge.pdf",
         "icone" : "formulaire_vierge.svg",
         "intitule" : "Formulaire"
       }
