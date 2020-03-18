@@ -16,6 +16,11 @@ require( './enpratique.js');
 
 require( 'jquery-confirm' );
 
+$(document).ready(function () {
+
+	  bsCustomFileInput.init()
+
+	})
 
 $(function() {
 
@@ -68,6 +73,5 @@ $('#enpratiqueTab a').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show')
 })
-
 
 });

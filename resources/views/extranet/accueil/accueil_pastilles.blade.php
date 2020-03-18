@@ -16,6 +16,7 @@
               'texte_2' => $element->texte_2,
               'type' => 'route',
               'route' => $element->route,
+              'id' => $element->id ?? null,
               'couleur' => 'color-bleu-tres-fonce',
               'intitule' => 'En savoir plus',
               'fa2' => 'fas fa-chevron-right',

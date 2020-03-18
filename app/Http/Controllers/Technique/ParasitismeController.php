@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Traits\LitJson;
 
+use App\Models\Parasitisme\Blog;
+
 class ParasitismeController extends Controller
 {
 
@@ -22,8 +24,17 @@ class ParasitismeController extends Controller
 
       public function accueil()
       {
+        $fondamentaux = $this->litJson('fondamentaux');
+
+        $articles = Blog::orderBy('updated_at', 'desc')->get();
+
+        $derniers_articles = Blog::orderBy('updated_at', 'desc')->limit(5)->get();
+
         return view('extranet.technique.parasitisme.parasitisme', [
           "menu" => $this->menu,
+          "fondamentaux" => $fondamentaux,
+          'articles' => $articles,
+          'derniers_articles' => $derniers_articles,
         ]);
       }
 
@@ -43,6 +54,18 @@ class ParasitismeController extends Controller
       {
         return view('extranet.technique.parasitisme.entomofaune', [
           'menu' => $this->menu,
+        ]);
+      }
+
+      public function fondamentaux($id)
+      {
+        $fondamentaux = $this->litJson('fondamentaux');
+
+        $article = $fondamentaux->$id;
+
+        return view('extranet.technique.parasitisme.fondamentaux', [
+          'menu' => $this->menu,
+          'article' => $article,
         ]);
       }
 
