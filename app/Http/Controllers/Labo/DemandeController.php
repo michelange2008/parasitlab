@@ -150,7 +150,7 @@ class DemandeController extends Controller
       $nouvelle_demande->veto_id = $user_veto_id;
       $nouvelle_demande->date_prelevement = $datas['prelevement'];
       $nouvelle_demande->date_reception = $datas['reception'];
-      $nouvelle_demande->facture_id = $nouvelle_facture->id;
+      // $nouvelle_demande->facture_id = $nouvelle_facture->id;
 
       $nouvelle_demande->save();
 
