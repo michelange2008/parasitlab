@@ -4,7 +4,7 @@
 
   <div class="input-group col-sm-4">
 
-    <span class="input-group-text"><i class="material-icons">language</i></span>
+    <span class="input-group-text"><i class="fas fa-globe-europe"></i></span>
 
     <input class="form-control @error ('indicatif') is-invalid  @enderror" type="text" name="indicatif" value="{{ $personne->indicatif ?? '33' }}" placeholder="indicatif">
 
@@ -16,7 +16,7 @@
 
   <div class="input-group col-sm-8">
 
-    <span class="input-group-text" id="inputGroupPrepend"><i class="material-icons">phone</i></span>
+    <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-alt"></i></span>
 
     <input class="form-control @error ('tel') is-invalid  @enderror" type="text" name="tel" value="{{ $personne->tel ?? old('tel') }}" placeholder="numéro de téléphone (10 chiffres si vous êtes en France)" required>
 

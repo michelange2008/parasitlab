@@ -22,9 +22,9 @@
 
       <div class="col-md-10">
 
-        <a id="btn_prelever" class="btn btn-lg btn-bleu lead btn_enpratique my-1" href="#"><i class="fab fa-stack-overflow"></i> Comment prélever ?</a>
+        <a id="btn_prelever" class="btn btn-lg btn-bleu lead btn_enpratique my-1" href="#"><i class="fas fa-cookie-bite"></i> Comment prélever ?</a>
 
-        <a id="btn_envoyer" class="btn btn-sm btn-rouge lead btn_enpratique my-1" href="#"><i class="far fa-paper-plane"></i> Comment envoyer ?</a>
+        <a id="btn_envoyer" class="btn btn-sm btn-rouge lead btn_enpratique my-1" href="#"><i class="fas fa-paper-plane"></i> Comment envoyer ?</a>
 
 {{-- PANNEAU DES DEUX ONGLETS --}}
       </div>

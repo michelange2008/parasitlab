@@ -2,14 +2,10 @@
 
   @isset($user)
 
-    <input class="my-2 form-control @error ('ede') is-invalid  @enderror" type="text" name="num" value="{{ $user->eleveur->num  ?? old('num') }}" required>
+    <input class="my-2 form-control" type="text" name="num" value="{{ $user->eleveur->num  ?? old('num') }}">
 
   @else
 
-    <input class="my-2 form-control @error ('ede') is-invalid  @enderror" type="text" name="num" placeholder="numéro de cheptel" required>
+    <input class="my-2 form-control" type="text" name="num" placeholder="numéro de cheptel">
 
   @endisset
-
-@error ('ede')
-  <div class="invalid">Ce champs est obligatoire</div>
-@enderror

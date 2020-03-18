@@ -23,6 +23,7 @@ class FormulaireDemande extends FormRequest
      */
     public function rules()
     {
+
         return [
           'name' => 'string|bail|required|max:191',
           'email' => 'bail|required|email',
@@ -33,7 +34,7 @@ class FormulaireDemande extends FormRequest
           'indicatif' => 'string|required|max:3',
           'tel' => 'string|required|max:10',
           'veto' => 'string|nullable|max:191',
-          'num' => 'string|required|max:191',
+          'num' => 'string|max:191|nullable',
           'espece_id' => 'string|required|max:2',
           'anapack_id' => 'string|required|max:2',
           'date_prelevement' => 'date|required',

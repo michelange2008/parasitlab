@@ -37,7 +37,7 @@
     </div>
 
     <div class="card-footer">
-      <p><i class="far fa-smile text-success"></i> Vous n'avez pas besoin d'homogénéiser le mélange de fèces, le laboratoire s'en charge.</p>
+      <p><i class="fas fa-smile text-success"></i> Vous n'avez pas besoin d'homogénéiser le mélange de fèces, le laboratoire s'en charge.</p>
     </div>
 
   </div>

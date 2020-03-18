@@ -99,7 +99,6 @@ class ExtranetDemandeController extends Controller
         foreach ($datas as $key => $data) {
           $datas[$key] = trim(strip_tags($data));
         }
-
         $user = User::select('id', 'name', 'email')->where('email', $datas['email'])->first();
         if($user == null) {
             $user = new User();

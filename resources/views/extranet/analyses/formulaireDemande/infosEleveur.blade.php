@@ -6,7 +6,7 @@
 
     <div class="input-group my-2">
 
-      <span class="input-group-text"><i class="material-icons">local_hospital</i></span>
+      <span class="input-group-text"><i class="fas fa-user-md"></i></span>
 
       <input type="text" class="form-control" name="veto" value="{{ $personne->veto->user->name ?? old('veto') }}" placeholder="Nom du vétérinaire">
 
