@@ -5,7 +5,7 @@
   <div class="my-2 form-row">
 
     <div class="input-group">
-      <span class="input-group-text"><i class="material-icons">local_hospital</i></span>
+      <span class="input-group-text"><i class="fas fa-user-md"></i></span>
 
       <select class="form-control" name="veto_id">
 

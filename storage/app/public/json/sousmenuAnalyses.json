@@ -56,7 +56,7 @@
       "pack" :
       {
         "type" : "mail",
-        "mail" : "contact@parasitlab.fr",
+        "mail" : "contact@parasitlab.org",
         "icone" : "pack-envoi-vide.svg",
         "intitule" : "Pack envoi"
       }

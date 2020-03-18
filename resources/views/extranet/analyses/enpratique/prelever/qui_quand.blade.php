@@ -14,7 +14,7 @@
 
           <div class="col-md-6 border-left">
 
-            <p class="lead"><i class="far fa-hand-point-right"></i> Qui prélever&nbsp? </p>
+            <p class="lead"><i class="fas fa-hand-point-right"></i> Qui prélever&nbsp? </p>
 
             @foreach ($element->qui as $qui)
 
@@ -30,7 +30,7 @@
 
           <div class="col-md-6 border-left">
 
-            <p class="lead"><i class="far fa-calendar-alt"></i> Quand prélever&nbsp? </p>
+            <p class="lead"><i class="fas fa-calendar-alt"></i> Quand prélever&nbsp? </p>
 
             @foreach ($element->quand as $quand)
 

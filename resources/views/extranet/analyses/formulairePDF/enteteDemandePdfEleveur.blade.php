@@ -3,23 +3,22 @@
   <table>
     <tbody>
       <tr>
-        <td style="width:500px; font-weight:bold">
+        <td style="width:450px; font-weight:bold">
           {{ $demande->user->name }}
         </td>
         <td>
-          ede: {{ $demande->eleveur->num }}
+          ede: {{ $demande->eleveur->num ?? '' }}
         </td>
       </tr>
       <tr>
         <td>
-          {{ $demande->eleveur->address_1 }}
-          {{ ($demande->eleveur->address_2 == null) ? "" : " - "}}
-          {{ $demande->eleveur->address_2}}
+          {{ $demande->eleveur->address_1 ?? '' }}
+          {{ $demande->eleveur->address_2 ?? '' }}
         </td>
       </tr>
       <tr>
         <td style="width:250px">
-          {{ $demande->eleveur->cp }} {{ $demande->eleveur->commune }}
+          {{ $demande->eleveur->cp ?? '' }} {{ $demande->eleveur->commune ?? '' }}
         </td>
         <td>
           {{ $demande->user->email }}
