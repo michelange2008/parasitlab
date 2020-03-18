@@ -59,7 +59,7 @@ class EleveurAdminController extends Controller
 
       $fournisseur = new ListeEleveursFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($users, "liste des éleveurs", $icone, 'tableauEleveursAdmin', 'eleveurAdmin.create', "Ajouter un éleveur");
+      $datas = $fournisseur->renvoieDatas($users, "liste des éleveurs", $icone, 'tableauEleveurs', 'eleveurAdmin.create', "Ajouter un éleveur");
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,
