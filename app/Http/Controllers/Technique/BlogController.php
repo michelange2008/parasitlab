@@ -58,11 +58,12 @@ class BlogController extends Controller
           'titre' => 'required|unique:blogs|max:191',
           'contenu' => 'required',
           'auteur' => 'required',
-          'image' => 'file|image',
+          'image' => 'file|image|required',
           'motclefs' => '',
         ]);
 
         $image = $request->file('image');
+
         $illustration = $image->store('img/blog', 'public');
 
         $nouveau_blog = new Blog;

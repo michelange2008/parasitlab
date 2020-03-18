@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\FormatDate;
 
 use App\Models\Parasitisme\Blog;
 
 class ParasitismeController extends Controller
 {
 
-      use LitJson;
+      use LitJson, FormatDate;
 
       protected $menu;
 
@@ -27,6 +28,11 @@ class ParasitismeController extends Controller
         $fondamentaux = $this->litJson('fondamentaux');
 
         $articles = Blog::orderBy('updated_at', 'desc')->get();
+
+        foreach ($articles as $article) {
+          $article->date = $article->updated_at->format('d M Y');
+        }
+
 
         $derniers_articles = Blog::orderBy('updated_at', 'desc')->limit(5)->get();
 

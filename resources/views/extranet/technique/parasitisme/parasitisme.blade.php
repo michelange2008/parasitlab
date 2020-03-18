@@ -47,6 +47,38 @@
 
     </div>
 
+    <div class="row justify-content-end">
+
+      <div class="col-md-9">
+
+        <ul class="list-unstyled">
+
+          @foreach ($derniers_articles as $article)
+
+              <li class="media my-3">
+
+                <img width="250px" src="{{ url('storage/img/blog').'/'.$article->image }}" alt="">
+
+                <div class="media-body ml-3">
+
+                  <h5 class="mt-0 mb-1">{{ ucfirst($article->titre) }} <span class="text-muted" >(@date($article->updated_at))</span> </h5>
+
+                  {!! $article->contenu !!}
+
+                  <p class="blockquote-footer">{{ $article->user->name }}</p>
+
+                </div>
+
+              </li>
+
+          @endforeach
+
+        </ul>
+
+      </div>
+
+    </div>
+
   </div>
 
 @endsection

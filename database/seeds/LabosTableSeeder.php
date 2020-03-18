@@ -31,7 +31,14 @@ class LabosTableSeeder extends Seeder
             "signature" => "farsonneau.svg",
             "photo" => "farsonneau.jpg",
             "fonction" => "directrice",
-            "est_signataire" => false, 
+            "est_signataire" => false,
+          ],
+          [
+            "user_id" => 9,
+            "signature" => "fheckendorn.svg",
+            "photo" => "fheckendorn.jpg",
+            "fonction" => "parasitologue",
+            "est_signataire" => true, 
           ],
         ]);
     }
