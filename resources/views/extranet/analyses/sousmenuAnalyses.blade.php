@@ -24,7 +24,7 @@
 
           @else
 
-            <a href="{!! asset('storage').'/'.$element->file !!}">
+            <a href="{!! url('storage').'/'.$element->file !!}">
               <img class="img-40" src="{!! url('storage/img/icones/'.$element->icone) !!}" alt="{{ $element->intitule }}">
               <span class="d-none d-lg-inline">Formulaire</span>
             </a>
