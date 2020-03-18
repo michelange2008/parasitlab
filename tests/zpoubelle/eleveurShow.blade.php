@@ -6,7 +6,15 @@
 
   <div class="container-fluid">
 
-    <div class="row my-3 justify-content-center">
+<div class="col-md-4 bd-sidebar my-3 d-none d-md-block" style="left:0px">
+
+      {{-- INFORMATIONS SUR L'ELEVEUR --}}
+
+      @include('admin.eleveurDetail')
+
+    </div>
+
+    <div class="row my-3 justify-content-end">
 
       <div class="col-md-12">
 
@@ -19,13 +27,10 @@
        ])
       </div>
 
-      <div class="col-md-4">
+    </div>
 
-        {{-- INFORMATIONS SUR L'ELEVEUR --}}
+    <div class="row justify-content-end">
 
-        @include('admin.eleveurDetail')
-
-      </div>
 
       <div class="col-md-8">
 
