@@ -5,9 +5,19 @@
 @section('content')
 
   <div class="container-fluid">
-    <div class="row my-3">
 
-      <div class="col-md-12">
+    <div class="col-md-3 bd-sidebar my-3 d-none d-md-block">
+
+      {{-- INFORMATIONS SUR L'ELEVEUR --}}
+
+      @include('admin.vetoDetail', ['personne' => $user->veto])
+
+
+    </div>
+
+    <div class="row my-3 justify-content-end">
+
+      <div class="col-md-8 col-lg-9">
 
         @include('fragments.breadcrumb', [
           'liste' => [
@@ -20,18 +30,8 @@
 
     </div>
 
-    <div class="row my-3 justify-content-center flex-xl-nowrap">
+    <div class="row my-3 justify-content-end flex-xl-nowrap">
 
-
-      <div class="col-md-4 col-lg-3 bd-sidebar">
-
-        {{-- INFORMATIONS SUR LE VETERINAIRE --}}
-
-
-          @include('admin.vetoDetail', ['personne' => $user->veto])
-
-
-      </div>
 
       <div class="col-md-8 col-lg-9 bd-content">
 
