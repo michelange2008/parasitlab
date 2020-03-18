@@ -8,14 +8,14 @@
          @if ($usertype->route === 'eleveur')
 
            <a class="btn btn-rouge border active" data-toggle="facture" data-title="{{ $usertype->id }}">
-             <img class="img-25 mr-3" src="{{ 'storage/img/icones/'.$usertype->icone->nom }}" alt="">
+             <img class="img-25 mr-3" src="{{ url('storage/img/icones/'.$usertype->icone->nom) }}" alt="">
              {{ $usertype->nom }}
            </a>
 
          @else
 
            <a class="btn btn-rouge border notActive" data-toggle="facture" data-title="{{ $usertype->id }}">
-             <img class="img-25 mr-3" src="{{ 'storage/img/icones/'.$usertype->icone->nom }}" alt="">
+             <img class="img-25 mr-3" src="{{ url('storage/img/icones/'.$usertype->icone->nom) }}" alt="">
              {{ $usertype->nom}}
            </a>
 
@@ -27,4 +27,4 @@
      <input type="hidden" name="destinataireFacture" id="facture">
    </div>
  </div>
-</div><?php // TODO: marquer si la facture est payée (chèque joint) ?>
+</div>
