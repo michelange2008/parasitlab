@@ -91,6 +91,11 @@ class ExtranetDemandeController extends Controller
         ]);
       }
 
+      /*
+      * Il ne s'agit pas réellement de stocker la demande d'analyse mais de metttre
+      * en forme les données pour écrire le pdf téléchargeable
+      */
+
       public function formulaireStore(FormulaireDemande $request)
       {
 
