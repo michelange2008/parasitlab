@@ -15,7 +15,7 @@ class SeriesTableSeeder extends Seeder
           [
             'id' => 1,
             'user_id' => 6,
-            'anapack_id' => 4,
+            'anapack_id' => 6,
             'espece_id' => 2,
             'acheve' => true,
           ],
