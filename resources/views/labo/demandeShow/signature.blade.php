@@ -4,7 +4,7 @@
 
     <div id="signe-jq" style="display:none" class="icone-cadre mx-3">
 
-      <img class="img-40 d-block" src="storage/img/icones/signature.svg" alt="signé" title="Cette demande a été signée le {{ $demande->date_signature }}">
+      <img class="img-40 d-block" src="{{ url('storage/img/icones/signature.svg')}}" alt="signé" title="Cette demande a été signée le {{ $demande->date_signature }}">
 
     </div>
 
@@ -15,7 +15,7 @@
 
   <div class="icone-cadre mx-3" title="Cette demande a été signée le {{ $demande->date_signature }}">
 
-    <img class="img-40 d-block" src="storage/img/icones/signature.svg" alt="signé">
+    <img class="img-40 d-block" src="{{ url('storage/img/icones/signature.svg') }}" alt="signé">
 
   </div>
 
