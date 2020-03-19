@@ -1,6 +1,6 @@
 <div class="col-md-12 d-inline-flex alert alert-bleu @if(!$serie->acheve) alert-rouge-tres-fonce @endif">
 
-  <img class="img-40 mx-3" src="{{'storage/img/icones/'.$serie->espece->icone->nom}}" alt="{{ $serie->espece->nom }}">
+  <img class="img-40 mx-3" src="{{ url('storage/img/icones/'.$serie->espece->icone->nom)}}" alt="{{ $serie->espece->nom }}">
 
   <h3>{{ucfirst($serie->user->name)}} - {{ucfirst($serie->anapack->nom)}}
 
