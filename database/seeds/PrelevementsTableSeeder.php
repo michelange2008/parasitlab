@@ -72,16 +72,6 @@ class PrelevementsTableSeeder extends Seeder
             'created_at' => "2019-11-02 00:00:00",
             'updated_at' => "2019-11-06 00:00:00",
           ],
-          // [
-          //   'id' => 7,
-          //   'identification' => "brebis",
-          //   'demande_id' => 4,
-          //   'analyse_id' => 3,
-          //   'etat_id' => 1,
-          //   'consistance_id' => 3,
-          //   'created_at' => "2019-06-02 00:00:00",
-          //   'updated_at' => "2019-06-05 00:00:00",
-          // ],
           [
             'id' => 13,
             'identification' => "Brebis",
