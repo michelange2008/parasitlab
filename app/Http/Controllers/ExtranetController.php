@@ -70,6 +70,13 @@ class ExtranetController extends Controller
       ]);
     }
 
+    public function contact()
+    {
+      return view('extranet.contact', [
+        "menu" => $this->menu,
+      ]);
+    }
+
     public function quisommesnous()
     {
       $quisommesnous = $this->litJson('quisommesnous');
@@ -80,10 +87,11 @@ class ExtranetController extends Controller
       ]);
     }
 
-    public function contact()
+    public function infoslegales()
     {
-      return view('extranet.contact', [
-        "menu" => $this->menu,
+
+      return view('extranet.infoslegales', [
+        'menu' => $this->menu,
       ]);
     }
 

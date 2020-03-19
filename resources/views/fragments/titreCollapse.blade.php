@@ -7,7 +7,7 @@ LES VARIABLES À PASSER SONT UN OBJET user ET UNE VARIABLE collapse QUI CORRESPO
 
   <div class="d-inline-flex align-items-middle">
 
-    <img class="img-40" src="{{ 'storage/img/icones/'.$icone }}" alt="">
+    <img class="img-40" src="{{ url('storage/img/icones/'.$icone) }}" alt="">
 
     <h5 class="mx-3">{{ ucfirst($titre) }}</h5>
 

@@ -8,7 +8,7 @@
 
       <td class="ml-3 lead color-bleu-tres-fonce">
 
-        <i class="material-icons">sentiment_very_satisfied</i> Aucun parasite recherché n'a été identifié
+        <i class="fas fa-smile"></i> Aucun parasite recherché n'a été identifié
 
       </td>
 
