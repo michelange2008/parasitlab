@@ -64,6 +64,8 @@ Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as'
 
 Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
 
+Route::get('/infos-legales', ['uses' => 'ExtranetController@infoslegales', 'as' => 'infoslegales']);
+
 Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
 
 Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);

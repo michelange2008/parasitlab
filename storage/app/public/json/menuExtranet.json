@@ -65,7 +65,7 @@
       "legal": {
         "nom": "Informations légales",
         "tooltip": "Crédits photo et vie privée",
-        "route": "accueil"
+        "route": "infoslegales"
       }
 
     }

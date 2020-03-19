@@ -90,8 +90,11 @@ class ExtranetController extends Controller
     public function infoslegales()
     {
 
+      $infoslegales = $this->litJson('infoslegales');
+
       return view('extranet.infoslegales', [
         'menu' => $this->menu,
+        'infoslegales' => $infoslegales,
       ]);
     }
 

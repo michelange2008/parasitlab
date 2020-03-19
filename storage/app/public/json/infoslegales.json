@@ -1,0 +1,78 @@
+{
+  "titre" : "titre",
+
+  "icone" : "infoslegales.svg",
+
+  "soustitre" : "soustitre",
+
+  "blocs" :
+  {
+    "editeur" :
+    {
+      "titre" : "bloc_1.titre",
+      "contenu" :
+      {
+        "p1" : "bloc_1.contenu.p1",
+        "p2" : "bloc_1.contenu.p2",
+        "p3" : "bloc_1.contenu.p3",
+        "p4" : "bloc_1.contenu.p4",
+        "p5" : "bloc_1.contenu.p5"
+
+      }
+    },
+    "hebergement" :
+    {
+      "titre" : "bloc_2.titre",
+      "contenu" :
+      {
+        "p1" : "bloc_2.contenu.p1",
+        "p2" : "bloc_2.contenu.p2",
+        "p3" : "bloc_2.contenu.p3"
+      }
+    },
+    "credits" :
+    {
+      "titre" : "bloc_3.titre",
+      "contenu" :
+      {
+        "p1" : "bloc_3.contenu.p1",
+        "p2" : "bloc_3.contenu.p2",
+        "p3" : "bloc_3.contenu.p3"
+      }
+    },
+    "reutilisation" :
+    {
+      "titre" : "bloc_4.titre",
+      "image" : "ccbynd.svg",
+      "contenu" :
+      {
+        "p1" : "bloc_4.contenu.p1",
+        "p2" : "bloc_4.contenu.p2"
+      }
+    },
+    "cookies" :
+    {
+      "titre" : "bloc_5.titre",
+      "contenu" :
+      {
+        "p1" : "bloc_5.contenu.p1",
+        "p2" : "bloc_5.contenu.p2",
+        "p3" : "bloc_5.contenu.p3"
+      }
+    },
+    "rgpd" :
+    {
+      "titre" : "bloc_6.titre",
+      "contenu" :
+      {
+        "p1" : "bloc_6.contenu.p1",
+        "p2" : "bloc_6.contenu.p2",
+        "p3" : "bloc_6.contenu.p3",
+        "p4" : "bloc_6.contenu.p4",
+        "p5" : "bloc_6.contenu.p5",
+        "p6" : "bloc_6.contenu.p6"
+      }
+    }
+
+  }
+}
