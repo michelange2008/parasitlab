@@ -72,7 +72,12 @@ class ExtranetController extends Controller
 
     public function quisommesnous()
     {
-      return "qui sommes-nous ?";
+      $quisommesnous = $this->litJson('quisommesnous');
+
+      return view('extranet.quisommesnous', [
+        'menu' => $this->menu,
+        'quisommesnous' => $quisommesnous,
+      ]);
     }
 
     public function contact()
