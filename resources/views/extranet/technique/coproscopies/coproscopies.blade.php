@@ -26,7 +26,7 @@
 
             <div class="media-body">
 
-              <h3 class="mt-1 text-secondary">{{ $element->titre }}</h3>
+              <h3 class="mt-2 text-secondary">{{ $element->titre }}</h3>
 
               @foreach ($element->texte as $texte)
 
