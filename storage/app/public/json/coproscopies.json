@@ -1,7 +1,7 @@
 {
   "questcequecest" :
   {
-    "image" :"image_test.jpg",
+    "image" :"examens_0.jpg",
     "titre" : "Une évaluation de l'infestation",
     "texte" :
     {
@@ -12,7 +12,7 @@
   },
   "fiable" :
   {
-    "image" :"image_test.jpg",
+    "image" :"examens_1.jpg",
     "titre" : "Un outil de gestion raisonnée du parasitisme",
     "texte" :
     {
@@ -23,7 +23,7 @@
   },
   "nonvalide" :
   {
-    "image" :"image_test.jpg",
+    "image" :"examens_2.jpg",
     "titre" : "Valable pour certains parasites",
     "texte" :
     {
@@ -34,7 +34,7 @@
   },
   "interpretation" :
   {
-    "image" :"image_test.jpg",
+    "image" :"examens_3.jpg",
     "titre" : "A replacer dans le contexte de l'élevage",
     "texte" :
     {

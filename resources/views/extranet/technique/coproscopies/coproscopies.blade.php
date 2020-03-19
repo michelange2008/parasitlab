@@ -22,11 +22,11 @@
 
           <div class="media">
 
-            <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/'.$element->image) !!}" alt="{!! $element->titre !!}">
+            <img class="mr-3 d-none d-md-block shadow-lg " src="{!! url('storage/img/extranet/'.$element->image) !!}" alt="{!! $element->titre !!}">
 
             <div class="media-body">
 
-              <h3 class="mt-0 text-secondary">{{ $element->titre }}</h3>
+              <h3 class="mt-1 text-secondary">{{ $element->titre }}</h3>
 
               @foreach ($element->texte as $texte)
 
