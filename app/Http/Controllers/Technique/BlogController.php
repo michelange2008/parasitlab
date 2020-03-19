@@ -69,7 +69,7 @@ class BlogController extends Controller
         $nouveau_blog = new Blog;
 
         $nouveau_blog->titre = $validateData['titre'];
-        $nouveau_blog->contenu = $validateData['contenu'];
+        $nouveau_blog->contenu = nl2br($validateData['contenu']);
         $nouveau_blog->user_id = $validateData['auteur'];
         $nouveau_blog->image = explode('/', $illustration)[2];
 
