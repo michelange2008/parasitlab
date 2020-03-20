@@ -29,7 +29,7 @@
 
     <div id="footer">
       {{-- <span class="page">Page </span> --}}
-      <span class="adresseFibl">FiBL France - Pôle BIO - 150 avenue de Judée - 26400 Eurre - www.parasitlab.fr - 0475202020</span>
+      <span class="adresseFibl">FiBL France - Pôle BIO - 150 avenue de Judée - 26400 Eurre - www.parasitlab.org - 0475202020</span>
     </div>
 
 

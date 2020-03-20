@@ -29,7 +29,7 @@
 
     <div id="footer">
       <span class="page">Page </span>
-      <span class="adresseFibl"> ----> Une question, un problème... contactez-nous: www.parasitlab.fr ou 0475202020</span>
+      <span class="adresseFibl"> ----> Une question, un problème... contactez-nous: www.parasitlab.org ou 0475202020</span>
     </div>
 
 

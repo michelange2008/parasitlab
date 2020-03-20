@@ -14,7 +14,7 @@
 
   </h3>
 
-  <p>Vous pouvez aussi consulter ces résultats en vous connectant sur votre espace personnel sur le site <a href="www.parasitlab.fr">Parasit'Lab</a>
+  <p>Vous pouvez aussi consulter ces résultats en vous connectant sur votre espace personnel sur le site <a href="www.parasitlab.org">Parasit'Lab</a>
     et en utilisant votre adresse mail comme login ainsi que le mot de passe qui vous a été envoyé précédemment.</p>
 
     <p>Pour toute question n'hésitez pas à nous contacter.</p>
