@@ -29,7 +29,16 @@ class ListeLabosFournisseur extends ListeFournisseur
 
       $modifier = $this->modifierFactory($user->id, 'user.edit');
 
-      $suppr = $this->delFactory($user->id, 'laboAdmin.destroy');
+      if(auth()->user()->id == $user->id) {
+
+        $suppr = $this->itemFactory('-');
+
+      } else {
+
+        $suppr = $this->delFactory($user->id, 'laboAdmin.destroy');
+
+      }
+
 
       $description = [
         $photo,
