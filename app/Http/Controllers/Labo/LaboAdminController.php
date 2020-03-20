@@ -156,6 +156,8 @@ class LaboAdminController extends Controller
    */
   public function destroy($id)
   {
-      //
+      User::destroy($id);
+
+      return redirect()->route('laboAdmin.index')->with('message', 'user_suppr' );
   }
 }

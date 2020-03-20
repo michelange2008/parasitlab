@@ -1,9 +1,9 @@
-@if (session('status'))
+@if (session('message'))
 
     <div class="alert alert-success">
 
-        {{ session('status') }}
+        {!! __('messages.'.session('message')) !!}
 
     </div>
-    
+
 @endif
