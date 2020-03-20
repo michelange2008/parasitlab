@@ -1,5 +1,6 @@
 
-<form id="form_{{ $id }}" class="suppr" action="{{ route('blog.destroy', $id) }}" method="POST">
+<form id="form_{{ $id }}" class="suppr"
+  action="{{ route('user.destroy', $id) }}" method="POST">
 
   {{  csrf_field() }}
 
@@ -9,11 +10,9 @@
 
     data-toggle="tooltip" data-placement="top"
 
-    title="Suppression">
+    title="Suppression de l'utilisateur">
 
       Supprimer
-
+      
 
   </button>
-
-</form>

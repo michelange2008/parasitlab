@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Technique;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
+
+
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 
@@ -40,6 +43,7 @@ class BlogController extends Controller
     public function create()
     {
       $laboratoires = User::where('usertype_id', $this->userTypeLabo()->id)->get();
+
         return view('extranet.technique.blog.create', [
           'menu' => $this->menu,
           'laboratoires' => $laboratoires,
@@ -107,7 +111,28 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+      $laboratoires = User::where('usertype_id', $this->userTypeLabo()->id)->get();
+
+      $article = Blog::find($id);
+
+      $motclefs = $article->motclefs;
+
+      $liste_motclefs = "";
+
+      foreach ($motclefs as $motclef) {
+
+        $liste_motclefs .= $motclef->motclef.'; ';
+      }
+
+      $route = ['blog.update', $id];
+
+      return view('extranet.technique.blog.createEdit', [
+        'menu' => $this->menu,
+        'article' => $article,
+        'liste_motclefs' => $liste_motclefs,
+        'route' => $route,
+        'laboratoires' => $laboratoires
+      ]);
     }
 
     /**
@@ -130,6 +155,6 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return('destroy');
     }
 }

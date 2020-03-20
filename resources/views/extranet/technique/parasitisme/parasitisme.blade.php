@@ -71,14 +71,17 @@
 
               </li>
 
-          @endforeach
+              @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $article->id])
 
-        </ul>
+
+            @endforeach
+
+          </ul>
+
+        </div>
 
       </div>
 
     </div>
 
-  </div>
-
-@endsection
+  @endsection

@@ -25,7 +25,7 @@
         'couleur' => 'btn-bleu',
         ])
 
-        @include('fragments.boutonSupprimer', ['id' => $user->id])
+        @include('fragments.boutonSupprimerUser', ['id' => $user->id])
 
     </div>
 
