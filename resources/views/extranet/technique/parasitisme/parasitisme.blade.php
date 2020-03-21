@@ -22,6 +22,12 @@
 
       <div class="col-md-9">
 
+        @flash()
+
+      </div>
+
+      <div class="col-md-9">
+
           @if (auth()->user())
 
             <div class="mb-3">
@@ -71,8 +77,29 @@
 
               </li>
 
-              @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $article->id])
+              <div class="row">
 
+                <div class="col-md-8">
+
+                  <span class="small"><i>Mots-clefs: </i></span>
+
+                  @foreach ($article->motclefs as $motclef)
+
+                    <span class="small">{{ $motclef->motclef }} ,</span>
+
+                  @endforeach
+
+                </div>
+
+                <div class="col-md-4">
+
+                  @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $article->id])
+
+                </div>
+
+              </div>
+
+              <hr class="divider-court">
 
             @endforeach
 

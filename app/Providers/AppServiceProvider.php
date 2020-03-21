@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('fragments.supprLigne','supprLigne');
       Blade::include('fragments.modifierLigne','modifierLigne');
       Blade::include('fragments.dateSortable','dateSortable');
+      Blade::include('fragments.flash','flash');
       Blade::include('labo.demandeShow', 'demandeShow');
       Blade::include('labo.serieShow', 'serieShow');
       Blade::include('fragments.titre', 'titre');

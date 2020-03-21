@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@extends('labo.laboMenu')
+@extends('extranet.menuExtranet')
 
 @section('content')
 
@@ -20,9 +20,9 @@
 
       <div class="col-md-10">
 
-        {{ Form::model($article, ['route' => $route]) }}
+        {{ Form::model($blog, ['route' => $route, 'enctype' => 'multipart/form-data']) }}
 
-        @method('put')
+        @method($method)
 
         <div class="form-row">
 
@@ -30,7 +30,7 @@
 
             <label for="titre">Titre de l'article</label>
 
-            <input class="form-control" type="text" name="titre" id="titre" value="{{ $article->titre }}" required>
+            <input class="form-control" type="text" name="titre" id="titre" value="{{ $blog->titre ?? '' }}" required>
 
             @error('titre')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -71,7 +71,7 @@
           <label for="contenu">Contenu de l'article</label>
 
           <textarea class="form-control" name="contenu" id="contenu" rows="8" cols="80" placeholder="tapez votre texte ici" required>
-            {{ $article->contenu }}
+            {{ $blog->contenu ?? '' }}
           </textarea>
 
         </div>
@@ -95,7 +95,7 @@
 
           <label for="motclefs">Mots-clefs</label>
 
-          <input class="form-control" type="text" id="motclefs" name="motclefs" placeholder="Tapez ici les mots clefs séparés par un ;" value="{{ $liste_motclefs }}">
+          <input class="form-control" type="text" id="motclefs" name="motclefs" placeholder="Tapez ici les mots clefs séparés par un ;" value="{{ $liste_motclefs ?? '' }}">
 
         </div>
 
