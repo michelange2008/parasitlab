@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Technique;
 
 use Illuminate\Http\Request;
+use DB;
 
 use App\Http\Controllers\Controller;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatDate;
+use App\Http\Traits\BlogManager;
 
 use App\Models\Parasitisme\Blog;
 
 class ParasitismeController extends Controller
 {
 
-      use LitJson, FormatDate;
+      use LitJson, FormatDate, BlogManager;
 
       protected $menu;
 
@@ -33,13 +35,19 @@ class ParasitismeController extends Controller
           $article->date = $article->updated_at->format('d M Y');
         }
 
-
         $derniers_articles = Blog::orderBy('updated_at', 'desc')->limit(5)->get();
+
+        $article = Blog::orderBy('updated_at', 'desc')->first();
+
+        $article->date = $this->dateLisible($article->updated_at);
+
+        $article->liste_motclefs = $this->listeMotclefs($article);
 
         return view('extranet.technique.parasitisme.parasitisme', [
           "menu" => $this->menu,
           "fondamentaux" => $fondamentaux,
           'articles' => $articles,
+          'article' => $article,
           'derniers_articles' => $derniers_articles,
         ]);
       }

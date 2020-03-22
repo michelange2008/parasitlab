@@ -95,7 +95,7 @@
 
           <label for="motclefs">Mots-clefs</label>
 
-          <input class="form-control" type="text" id="motclefs" name="motclefs" placeholder="Tapez ici les mots clefs séparés par un ;" value="{{ $liste_motclefs ?? '' }}">
+          <input class="form-control" type="text" id="motclefs" name="motclefs" placeholder="Tapez ici les mots clefs séparés par un ;" value="{{ $blog->liste_motclefs ?? '' }}">
 
         </div>
 

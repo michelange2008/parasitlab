@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\URL;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\BlogManager;
+use App\Http\Traits\FormatDate;
 
 use App\User;
 use App\Models\Parasitisme\Blog;
@@ -17,7 +18,7 @@ use App\Models\Parasitisme\Motclef;
 
 class BlogController extends Controller
 {
-    use LitJson, UserTypeOutil, BlogManager;
+    use LitJson, UserTypeOutil, BlogManager, FormatDate;
 
     protected $menu;
 
@@ -88,14 +89,23 @@ class BlogController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Utilisation de cette fonction pour afficher les articles avec du javascript
+     * d'où le rajout d'attributs: date, auteur, motsclefs
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $blog = Blog::find($id);
+
+        $blog->date = $this->dateLisible($blog->updated_at);
+
+        $blog->auteur = $blog->user->name;
+
+        $blog->liste_motclefs =$this->listeMotclefs($blog);
+
+        return json_encode($blog);
     }
 
     /**
@@ -110,14 +120,7 @@ class BlogController extends Controller
 
       $blog = Blog::find($id);
 
-      $motclefs = $blog->motclefs;
-
-      $liste_motclefs = "";
-
-      foreach ($motclefs as $motclef) {
-
-        $liste_motclefs .= $motclef->motclef.'; ';
-      }
+      $blog->liste_motclefs = $this->listeMotclefs($blog);
 
       $route = ['blog.update', $id];
 
@@ -126,7 +129,6 @@ class BlogController extends Controller
       return view('extranet.technique.blog.createEdit', [
         'menu' => $this->menu,
         'blog' => $blog,
-        'liste_motclefs' => $liste_motclefs,
         'route' => $route,
         'method' => $method,
         'laboratoires' => $laboratoires

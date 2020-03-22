@@ -2,7 +2,7 @@
 
   <div class="col-12 d-flex flex-row justify-content-end">
 
-    <form action="{{ route($class.'.edit', $id) }}" method="get">
+    <form id="edit_{{ $article->id }}" class="edit" action="{{ route($class.'.edit', $id) }}" method="get">
 
       @csrf
 

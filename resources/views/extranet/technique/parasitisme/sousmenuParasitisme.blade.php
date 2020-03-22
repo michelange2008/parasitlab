@@ -7,7 +7,7 @@
     <button class="form-control btn btn-bleu my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
   </form>
 
-  <h4>Derniers sujets</h4>
+  <h4 class="mt-3">Derniers sujets</h4>
 
   <ul class="list-group list-group-flush">
 
@@ -15,13 +15,13 @@
 
         <li class="list-group-item">
 
-          <a href="{{ route('blog.show', $article->id) }}">{{ $article->titre }}</a>
+          <button id="blog_{{ $article->id }}" class="blog btn text-left" >{{ $article->titre }}</button>
 
         </li>
 
     @endforeach
 
-  <h4>Sujets permanents</h4>
+  <h4 class="mt-3">Sujets permanents</h4>
 
   <ul class="list-group list-group-flush">
 

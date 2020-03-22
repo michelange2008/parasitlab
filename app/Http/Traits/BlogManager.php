@@ -38,4 +38,19 @@ trait BlogManager
     }
 
   }
+
+  public function listeMotclefs($blog)
+  {
+
+    $motclefs = $blog->motclefs;
+
+    $liste_motclefs = "";
+
+    foreach ($motclefs as $motclef) {
+
+      $liste_motclefs .= $motclef->motclef.', ';
+    }
+
+    return $liste_motclefs;
+  }
 }

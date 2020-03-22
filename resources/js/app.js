@@ -12,6 +12,7 @@ require( './envoi.js');
 require( './choisir.js');
 require( './nbPrelevement.js');
 require( './enpratique.js');
+require( './blog.js');
 
 
 require( 'jquery-confirm' );
