@@ -207,7 +207,7 @@ class BlogController extends Controller
 
       // STOCKAGE OU UPDATE DU BLOG
       $blog->titre = $validateData['titre'];
-      $blog->contenu = nl2br($validateData['contenu']);
+      $blog->contenu = $validateData['contenu'];
       $blog->user_id = $validateData['auteur'];
       $blog->image = ($nouvelle_image) ? explode('/', $nouvelle_image)[2] : $blog->image;
 

@@ -12,6 +12,7 @@ use App\Http\Traits\FormatDate;
 use App\Http\Traits\BlogManager;
 
 use App\Models\Parasitisme\Blog;
+use App\Models\Parasitisme\Motclef;
 
 class ParasitismeController extends Controller
 {
@@ -27,28 +28,30 @@ class ParasitismeController extends Controller
 
       public function accueil()
       {
-        $fondamentaux = $this->litJson('fondamentaux');
+        $fondamentaux = $this->litJson('fondamentaux'); // articles de fond plus longs qu'un blog et listés dans le menu latéral
 
-        $articles = Blog::orderBy('updated_at', 'desc')->get();
+        // $blogs = Blog::orderBy('updated_at', 'desc')->get();
 
-        foreach ($articles as $article) {
-          $article->date = $article->updated_at->format('d M Y');
-        }
+        // foreach ($blogs as $blog) {
+        //   $blog->date = $blog->updated_at->format('d M Y');
+        // }
+        $motclefs = Motclef::all();
 
-        $derniers_articles = Blog::orderBy('updated_at', 'desc')->limit(5)->get();
+        $derniers_blogs = Blog::orderBy('updated_at', 'desc')->limit(5)->get(); // pour afficher les 5 derniers blogs dans le menu latéral
 
-        $article = Blog::orderBy('updated_at', 'desc')->first();
+        $blog = Blog::orderBy('updated_at', 'desc')->first(); // dernier blog
 
-        $article->date = $this->dateLisible($article->updated_at);
+        $blog->date = $this->dateLisible($blog->updated_at); // à qui on met une date lisible (nécessaire pour apès modifier le blog affiché en js)
 
-        $article->liste_motclefs = $this->listeMotclefs($article);
+        $blog->liste_motclefs = $this->listeMotclefs($blog); // et on lui ajoute la liste des motclefs affichable en une ligne séparé par des virgules
 
         return view('extranet.technique.parasitisme.parasitisme', [
           "menu" => $this->menu,
           "fondamentaux" => $fondamentaux,
-          'articles' => $articles,
-          'article' => $article,
-          'derniers_articles' => $derniers_articles,
+          "motclefs" => $motclefs,
+          // 'blogs' => $blogs,
+          'blog' => $blog,
+          'derniers_blogs' => $derniers_blogs,
         ]);
       }
 

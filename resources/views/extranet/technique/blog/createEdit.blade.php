@@ -70,9 +70,7 @@
 
           <label for="contenu">Contenu de l'article</label>
 
-          <textarea class="form-control" name="contenu" id="contenu" rows="8" cols="80" placeholder="tapez votre texte ici" required>
-            {{ $blog->contenu ?? '' }}
-          </textarea>
+          <textarea class="form-control" name="contenu" id="contenu" rows="8" cols="80" placeholder="tapez votre texte ici" required>{{ $blog->contenu ?? '' }}</textarea>
 
         </div>
 

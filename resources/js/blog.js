@@ -1,16 +1,16 @@
-$('.blog').on('click', function(e) {
+// Affichage d'un blog en cliquant sur son titre
+function afficheBlog(nouvel_id) {
 
-  var ancien_id = $('.suppr').attr('id');
+  var ancien_id = $('.suppr').attr('id'); // id du blog affiché avant d'avoir cliqué
 
-  var blog_id = $(this).attr('id').split("_")[1];
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-  var url = url_actuelle.replace('parasitisme', 'blog/' + blog_id);
+  var url = url_actuelle.replace('parasitisme', 'blog/' + nouvel_id); // modifie d'adresse pour accéder à la méthode show de BlogController
 
-  var image_avec_chemin = $('#image').attr('src');
+  var image_avec_chemin = $('#image').attr('src'); // chemin de l'image actuelle pour pouvoir connaître son nom
 
-  var image = image_avec_chemin.split("/")[(image_avec_chemin.split("/").length -1)];
+  var image = image_avec_chemin.split("/")[(image_avec_chemin.split("/").length -1)]; // nom de l'image après éclatement de l'adresse
 
   $.get({
 
@@ -38,5 +38,67 @@ $('.blog').on('click', function(e) {
     var suppr = $('.suppr').attr('action');
     var nouveau_suppr = suppr.replace(ancien_id, elements.id);
     $('.suppr').attr('action', nouveau_suppr);
+  })
+
+}
+
+$('.blog').on('click', function(e) {
+
+  var nouvel_id = $(this).attr('id').split("_")[1]; // id du blog que l'on veut afficher
+
+  afficheBlog(nouvel_id)
+
+})
+
+$('#liste_blogs').on('click', '.blogmotclef', function(e) {
+
+  var nouvel_id = $(this).attr('id').split("_")[1]; // id du blog que l'on veut afficher
+
+  afficheBlog(nouvel_id)
+
+})
+
+
+
+// affichage de la liste de blogs correspondant à un motclef_
+$('.motclef').on('click', function(e) {
+
+  $('a').removeClass('alert-bleu-tres-fonce');
+
+  $(this).addClass('alert-bleu-tres-fonce');
+
+  $('#liste_blogs').empty();
+
+  e.preventDefault();
+
+  var id = $(this).attr('id').split('_')[1];
+
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
+  var url = url_actuelle.replace('parasitisme', 'laboratoire/motclef/' + id); // modifie d'adresse pour accéder à la méthode show de BlogController
+
+  $.get({
+
+    url : url,
+
+  })
+  .done(function(data) {
+
+    var elements = JSON.parse(data);
+
+    $.each(elements, function(key, value) {
+
+      $('#liste_blogs').append(
+
+        '<li class="blogmotclef list-group-item" id="blogmotclef_'+
+        value.id+
+        '"><button class="blog btn text-left" >'+
+        value.titre+
+        '</button></li>'
+
+
+
+      );
+    })
   })
 })

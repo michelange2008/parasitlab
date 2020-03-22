@@ -159,4 +159,6 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   Route::resource('blog', 'Technique\BlogController')->except('show');
 
+  Route::get('motclef/{motclef_id}', 'Technique\MotclefController@listeBlogs')->name('motclef.listeblogs');
+
 });
