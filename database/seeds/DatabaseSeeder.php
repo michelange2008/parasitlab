@@ -25,9 +25,11 @@ class DatabaseSeeder extends Seeder
       $this->call(EleveursTableSeeder::class);
       $this->call(LabosTableSeeder::class);
       $this->call(AnaitemsTableSeeder::class);
+      $this->call(AnatypesTableSeeder::class);
       $this->call(AnaactesTableSeeder::class);
       $this->call(AnalysesTableSeeder::class);
       $this->call(AnapacksTableSeeder::class);
+      $this->call(Anatype_especeTableSeeder::class);
       // $this->call(FacturesTableSeeder::class);
       $this->call(SeriesTableSeeder::class);
       $this->call(DemandeTableSeeder::class);
@@ -38,7 +40,7 @@ class DatabaseSeeder extends Seeder
       $this->call(Anapack_especeTableSeeder::class);
       $this->call(PrelevementsTableSeeder::class);
       $this->call(ResultatsTableSeeder::class);
-      $this->call(BlogsTableSeeder::class);
+      // $this->call(BlogsTableSeeder::class);
 
     }
 }

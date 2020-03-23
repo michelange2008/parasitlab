@@ -41,7 +41,7 @@
 
           <br>
 
-          @include('extranet.analyses.formulaireDemande.infosAnapack')
+          @include('extranet.analyses.formulaireDemande.infosAnalyseDemandee')
 
         </div>
 

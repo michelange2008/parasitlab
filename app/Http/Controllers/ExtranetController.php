@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Analyses\Anapack;
+use App\Models\Analyses\Anatype;
 
 use App\Http\Traits\LitJson;
 
@@ -37,11 +38,11 @@ class ExtranetController extends Controller
 
     public function veterinaires()
     {
-      $anapacks = Anapack::where('veto', true)->get();
+      $anatypes = Anatype::all();
 
       return view('extranet.veterinaires', [
         "menu" => $this->menu,
-        "anapacks" => $anapacks,
+        "anatypes" => $anatypes,
       ]);
     }
 
@@ -60,6 +61,11 @@ class ExtranetController extends Controller
       return view('extranet.cavaliers', [
         "menu" => $this->menu,
       ]);
+    }
+
+    public function tarifs()
+    {
+      // $anaactes = Anaacte::where
     }
 
 

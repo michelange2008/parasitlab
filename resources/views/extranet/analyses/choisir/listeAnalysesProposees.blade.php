@@ -1,23 +1,27 @@
-<div id='card_{{$espece_id}}' class="anapack_{{$espece_id}} anapack my-3 card card-3" style="display:none">
+<div id='card_{{$espece->id}}' class="anatype_{{$espece->id}} anatype my-3 card card-3" style="display:none">
 
-  <img class="m-3" src="{!! 'storage/img/icones/'.$anapack->icone->nom !!}" alt="{{$anapack->icone->nom}}">
+  <img class="m-3" src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="{{$anatype->icone->nom}}">
 
   <div class="card-body">
 
-    <h4 class="card-title">{{ ucfirst($anapack->nom) }}</h4>
+    <h4 class="card-title">{{ ucfirst($anatype->nom) }}</h4>
 
-    <p class="card-text">{{ ucfirst($anapack->detail) }}</p>
+    <p class="card-text small font-italic">{{ ucfirst($anatype->technique) }}</p>
+
+    @foreach ($anatype->anaactes as $anaacte)
+
+      <p class="card-text">{{ ucfirst($anaacte->nom) }}&nbsp;: {{ $anaacte->pu_ht }}&nbsp;€</p>
+
+    @endforeach
 
   </div>
 
   <div class="card-footer">
 
-    <p>Coût:</p>
-
     @include('fragments.bouton', [
       'type' => 'link',
       'target' => '_self',
-      'lien' => url('/choisir/'.$espece_id.'/'.$anapack->id),
+      'lien' => url('/choisir/'.$espece->id.'/'.$anatype->id),
       'intitule' => "Remplir le formulaire",
       'fa' => 'fas fa-pen',
       'couleur' => 'btn-secondary'])

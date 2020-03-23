@@ -44,27 +44,27 @@
 
       <div class="col-md-8 d-flex justify-content-around flex-wrap presentation_cadre p-c-dernier">
 
-        @foreach ($anapacks as $anapack)
+        @foreach ($anatypes as $anatype)
 
-          <div data-toggle="tooltip" data-placement="top" title="{{ ucfirst($anapack->nom) }}">
+          <div data-toggle="tooltip" data-placement="top" title="{{ ucfirst($anatype->nom) }}">
 
             <img class="btn img-zoom"
-            src="{!! 'storage/img/icones/'.$anapack->icone->nom !!}" alt="coproscopie"
-            data-toggle="modal" data-target="#anapack_{{ $anapack->id }}" >
+            src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="coproscopie"
+            data-toggle="modal" data-target="#anapack_{{ $anatype->id }}" >
           </div>
 
           <!-- Modal -->
-          <div class="modal fade" id="anapack_{{ $anapack->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="anapack_{{ $anatype->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header alert-bleu-tres-fonce">
-                  <h4 class="modal-title" id="exampleModalLabel">{{ ucfirst($anapack->nom) }}</h4>
+                  <h4 class="modal-title" id="exampleModalLabel">{{ ucfirst($anatype->nom) }}</h4>
                   <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  {{  $anapack->detail }}.
+                  {{  $anatype->technique }}.
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-bleu" data-dismiss="modal">Fermer</button>

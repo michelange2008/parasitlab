@@ -32,4 +32,9 @@ class Espece extends Model
     {
       return $this->belongsToMany(Analyses\Anapack::class);
     }
+
+    public function Anatypes()
+    {
+      return $this->belongsToMany(Analyses\Anatype::class);
+    }
 }

@@ -13,6 +13,11 @@ class Anaacte extends Model
       return $this->belongsToMany(Anapack::class);
     }
 
+    public function anatype()
+    {
+      return $this->belongsTo(Anatype::class);
+    }
+
     public function icone()
     {
       return $this->belongsTo(\App\Models\Icone::class);

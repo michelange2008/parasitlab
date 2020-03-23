@@ -28,6 +28,11 @@ class Icone extends Model
     return $this->hasOne(Analyses\Anapack::class);
   }
 
+  public function anatype()
+  {
+    return $this->hasOne(Analyses\Anatype::class);
+  }
+
   public function anaacte()
   {
     return $this->hasOne(Analyses\Anaacte::class);

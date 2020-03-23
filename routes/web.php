@@ -51,11 +51,15 @@ Route::get('/enpratique', ['uses' => 'Technique\CoproscopiesController@enpratiqu
 
 Route::get('/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'choisir']);
 
-Route::get('/choisir/{espece}/{anapack}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'formulaireDemande']);
+Route::get('/choisir/{espece}/{anatype}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'formulaireDemande']);
 
 Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'formulaireStore']);
 
 Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
+
+Route::get('/choisir/anatypes/{anatypes}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
+
+Route::get('/choisir/anaactes/{anaactes}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
 
 //##############################################################################
 // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\FormulaireDemande;
 use App\Http\Traits\LitJson;
@@ -10,6 +12,7 @@ use App\Http\Traits\FormatDate;
 
 use App\User;
 use App\Models\Analyses\Anapack;
+use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Analyse;
 use App\Models\Analyses\Anaacte;
 use App\Models\Productions\Demande;
@@ -34,47 +37,20 @@ class ExtranetDemandeController extends Controller
       {
         $especes = Espece::where('type', 'simple')->get();
 
-        // Manip destinée à créer une liste d'Anapack par espèce pour toutes les especes simples
-        $liste = Collect();
-
-        $anapacks = Anapack::all();
-
-        foreach ($especes as $espece) {
-
-          $liste_anapack = Collect();
-
-          foreach ($anapacks as $anapack) {
-
-            foreach($anapack->especes as $anapack_espece) {
-
-              if($espece->id == $anapack_espece->id) {
-
-                $liste_anapack->push($anapack);
-              }
-
-            }
-
-            $liste->put($espece->id, $liste_anapack);
-
-            }
-
-          }
-
         return view('extranet.analyses.choisir', [
           'menu' => $this->menu,
           'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
           'especes' => $especes,
-          'liste' => $liste,
         ]);
       }
 
-      public function formulaireDemande($espece_id, $anapack_id)
+      public function formulaireDemande($espece_id, $anatype_id)
       {
-        session()->forget('demande');
+        session()->forget('demande'); // suppression de l'objet mis en session par la méthode formulaireStore
 
         $especes = Espece::where('type', 'simple')->get();
 
-        $anapacks = Anapack::all();
+        $anatypes = Anatype::all();
 
         $pays = $this->litJson("pays");
 
@@ -83,9 +59,9 @@ class ExtranetDemandeController extends Controller
         return view('extranet.analyses.formulaireDemande', [
           'menu' => $this->menu,
           'espece_id' => $espece_id,
-          'anapack_id' => $anapack_id,
+          'anatype_id' => $anatype_id,
           'especes' => $especes,
-          'anapacks' => $anapacks,
+          'anatypes' => $anatypes,
           'user' => $user,
           'pays' => $pays,
         ]);
@@ -152,6 +128,25 @@ class ExtranetDemandeController extends Controller
 
         return redirect()->route('formulaire');
 
+       }
+
+       public function anatypeSelonEspece($espece_id)
+       {
+         $anatypes = DB::table('anatypes')
+                        ->join('anatype_espece', 'anatypes.id', '=', 'anatype_espece.anatype_id')
+                        ->where('anatype_espece.espece_id', $espece_id)
+                        ->get();
+
+         return json_encode($anatypes);
+       }
+
+       public function anaacteSelonAnatype($anatype_id)
+       {
+         $anaactes = Anaacte::where('anatype_id', $anatype_id)->get();
+
+         dd($anaactes);
+
+         return json_encode($anaactes);
        }
 
 }

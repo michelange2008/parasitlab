@@ -30,7 +30,7 @@
 
     </div>
 
-    <div id='liste_anapacks' class="row my-3 justify-content-end" style="display:none">
+    <div id='liste_anatypes' class="row my-3 justify-content-end" style="display:none">
 
       <div class="col-md-10">
 
@@ -40,8 +40,28 @@
 
     </div>
 
-
     <div class="row my-3 justify-content-end">
+
+      <div class="col-md-10">
+
+        <div class="card-deck d-md-flex justify-content-center">
+
+          @foreach ($especes as $espece)
+
+            @foreach ($espece->anatypes as $anatype)
+
+              @include('extranet.analyses.choisir.listeAnalysesProposees')
+
+            @endforeach
+
+          @endforeach
+
+        </div>
+
+      </div>
+
+    </div>
+    {{-- <div class="row my-3 justify-content-end">
 
       @foreach ($liste as $espece_id => $anapacks)
 
@@ -67,7 +87,7 @@
       @endforeach
 
     </div>
-
+ --}}
 
   </div>
 
