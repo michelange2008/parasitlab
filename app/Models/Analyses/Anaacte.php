@@ -8,9 +8,9 @@ class Anaacte extends Model
 {
     public $timestamps = false;
 
-    public function anapacks()
+    public function demandes()
     {
-      return $this->belongsToMany(Anapack::class);
+      return $this->hasMany(\App\Models\Production\Demande::class);
     }
 
     public function anatype()

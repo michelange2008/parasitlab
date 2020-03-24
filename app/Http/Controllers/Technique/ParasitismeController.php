@@ -30,26 +30,26 @@ class ParasitismeController extends Controller
       {
         $fondamentaux = $this->litJson('fondamentaux'); // articles de fond plus longs qu'un blog et listés dans le menu latéral
 
-        // $blogs = Blog::orderBy('updated_at', 'desc')->get();
 
-        // foreach ($blogs as $blog) {
-        //   $blog->date = $blog->updated_at->format('d M Y');
-        // }
         $motclefs = Motclef::all();
 
         $derniers_blogs = Blog::orderBy('updated_at', 'desc')->limit(5)->get(); // pour afficher les 5 derniers blogs dans le menu latéral
 
         $blog = Blog::orderBy('updated_at', 'desc')->first(); // dernier blog
 
-        $blog->date = $this->dateLisible($blog->updated_at); // à qui on met une date lisible (nécessaire pour apès modifier le blog affiché en js)
+        if(isset($blog)) {
 
-        $blog->liste_motclefs = $this->listeMotclefs($blog); // et on lui ajoute la liste des motclefs affichable en une ligne séparé par des virgules
+          $blog->date = $this->dateLisible($blog->updated_at); // à qui on met une date lisible (nécessaire pour apès modifier le blog affiché en js)
+
+          $blog->liste_motclefs = $this->listeMotclefs($blog); // et on lui ajoute la liste des motclefs affichable en une ligne séparé par des virgules
+          
+        }
+
 
         return view('extranet.technique.parasitisme.parasitisme', [
           "menu" => $this->menu,
           "fondamentaux" => $fondamentaux,
           "motclefs" => $motclefs,
-          // 'blogs' => $blogs,
           'blog' => $blog,
           'derniers_blogs' => $derniers_blogs,
         ]);

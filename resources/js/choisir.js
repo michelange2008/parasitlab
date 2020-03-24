@@ -23,15 +23,15 @@ $('.espece').on('click', function() {
 
 });
 
+function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
+
 var option_selected = $('#select_anatype option:selected').attr('value');
 
 var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-var regex = new RegExp('[0-9]\/[0-9]');
+var regex = new RegExp('choisir/[0-9]\/[0-9]');
 
 var url = url_actuelle.replace( regex ,'anaactes/' + option_selected); // modifie d'adresse pour accéder à la méthode show de BlogController
-
-console.log(url);
 
 $.get({
 
@@ -40,9 +40,12 @@ $.get({
 })
 .done(function(data) {
 
-  // $elements = JSON.parse(data);
+  elements = JSON.parse(data);
 
-  console.log(data);
+  $.each(elements, function(key, element) {
+
+    $("#select_anaacte").append('<option value="'+element.id+'">'+strUcFirst(element.nom)+' '+element.pu_ht+'€</option>')
+  })
 });
 
 

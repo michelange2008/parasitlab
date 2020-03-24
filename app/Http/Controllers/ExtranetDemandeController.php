@@ -17,6 +17,7 @@ use App\Models\Analyses\Analyse;
 use App\Models\Analyses\Anaacte;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
+use App\Models\Productions\Signe;
 use App\Models\Espece;
 use App\Models\Eleveur;
 use App\Models\Veto;
@@ -52,6 +53,8 @@ class ExtranetDemandeController extends Controller
 
         $anatypes = Anatype::all();
 
+        $signes = Signe::all();
+
         $pays = $this->litJson("pays");
 
         $user = (auth()->user()) ? auth()->user() : "";
@@ -62,6 +65,7 @@ class ExtranetDemandeController extends Controller
           'anatype_id' => $anatype_id,
           'especes' => $especes,
           'anatypes' => $anatypes,
+          'signes' => $signes,
           'user' => $user,
           'pays' => $pays,
         ]);
@@ -73,9 +77,11 @@ class ExtranetDemandeController extends Controller
       */
 
       public function formulaireStore(FormulaireDemande $request)
+      // public function formulaireStore(Request $request)
       {
-
         $datas = $request->validated();
+        // dd($datas);
+
 
         foreach ($datas as $key => $data) {
           $datas[$key] = trim(strip_tags($data));
@@ -105,7 +111,7 @@ class ExtranetDemandeController extends Controller
         $demande->user_id = $user->id;
         $demande->nb_prelevement = intVal($datas['nb_prelevement']);
         $demande->espece_id = $datas['espece_id'];
-        $demande->anapack_id = $datas['anapack_id'];
+        $demande->anaacte_id = $datas['anaacte_id'];
         $demande->informations = $datas['informations'];
         $demande->date_prelevement = $this->dateReadable($datas['date_prelevement']);
         $demande->toveto = ($datas['veto'] == null) ? false : true;
@@ -115,11 +121,28 @@ class ExtranetDemandeController extends Controller
 
         for ($i=1; $i < $datas['nb_prelevement'] + 1 ; $i++) {
 
-              $prelevement = new Prelevement();
+              $prelevement = Collect();
               $prelevement->identification = ($datas['p_'.$i]== null) ? "lot n°".$i : $datas['p_'.$i];
+              $prelevement->parasite = $datas['parasite_'.$i];
+
+              $liste_signes = Signe::all();
+              $signes = Collect();
+
+              $prelevement->put('signes', $signes);
+
+              foreach ($liste_signes as $signe) {
+
+                if(isset($datas['signe_'.$i.'_'.$signe->id])) {
+
+                  $prelevement['signes']->push($signe->nom);
+
+                }
+
+              }
+              // dd($prelevement);
               $prelevements->push($prelevement);
         }
-
+// dd($prelevements);
         $demande->prelevements = $prelevements;
         $demande->user = $user;
         $demande->eleveur = $eleveur;
@@ -129,7 +152,8 @@ class ExtranetDemandeController extends Controller
         return redirect()->route('formulaire');
 
        }
-
+// DEUX METHODES POUR RECUPERER DES DONNES PAR AJAX (choisir.js)
+// Pour avoir les anatypes qui correspondent à une espece donnee
        public function anatypeSelonEspece($espece_id)
        {
          $anatypes = DB::table('anatypes')
@@ -139,12 +163,10 @@ class ExtranetDemandeController extends Controller
 
          return json_encode($anatypes);
        }
-
+// Pour avoir les anaactes qui correspondent à un anatype donné
        public function anaacteSelonAnatype($anatype_id)
        {
          $anaactes = Anaacte::where('anatype_id', $anatype_id)->get();
-
-         dd($anaactes);
 
          return json_encode($anaactes);
        }

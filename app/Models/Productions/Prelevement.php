@@ -27,8 +27,8 @@ class Prelevement extends Model
       return $this->belongsTo(Etat::class);
     }
 
-    public function Consistance()
+    public function signe()
     {
-      return $this->belongsTo(Consistance::class);
+      return $this->belongsToMany(Signe::class);
     }
 }

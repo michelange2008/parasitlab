@@ -25,8 +25,8 @@ class CreateDemandesTable extends Migration
             $table->foreign('espece_id')->references('id')->on('especes')
               ->onDelete('set null')->onUpdate('cascade');
 
-            $table->unsignedInteger('anapack_id');
-            $table->foreign('anapack_id')->references('id')->on('anapacks')
+            $table->unsignedInteger('anaacte_id');
+            $table->foreign('anaacte_id')->references('id')->on('anaactes')
               ->onDelete('restrict')->onUpdate('cascade');
 
             $table->unsignedInteger('serie_id')->nullable();

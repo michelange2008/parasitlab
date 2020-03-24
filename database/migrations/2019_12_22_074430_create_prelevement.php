@@ -26,9 +26,8 @@ class CreatePrelevement extends Migration
           // ETAT DU PRELEVEMENT
           $table->unsignedInteger('etat_id')->default(1)->nullable();
           $table->foreign('etat_id')->references('id')->on('etats')->onDelete('set null');
-          // CONSISTANCE
-          $table->unsignedInteger('consistance_id')->nullable();
-          $table->foreign('consistance_id')->references('id')->on('consistances')->onDelete('set null');
+          // PARASITE
+          $table->boolean('parasite')->nullable()->default(null);
           // DATES
           $table->timestamps();
       });

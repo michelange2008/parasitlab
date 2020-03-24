@@ -20,9 +20,9 @@ class Demande extends Model
       return $this->belongsTo(\App\Models\Espece::class);
     }
 
-    public function anapack()
+    public function anaacte()
     {
-      return $this->belongsTo(\App\Models\Analyses\Anapack::class);
+      return $this->belongsTo(\App\Models\Analyses\Anaacte::class);
     }
 
     public function facture()

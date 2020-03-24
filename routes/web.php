@@ -57,9 +57,9 @@ Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@
 
 Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
 
-Route::get('/choisir/anatypes/{anatypes}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
+Route::get('/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
 
-Route::get('/choisir/anaactes/{anaactes}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
+Route::get('/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
 
 //##############################################################################
 // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES
