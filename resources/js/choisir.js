@@ -23,31 +23,53 @@ $('.espece').on('click', function() {
 
 });
 
+// Fonction pour mettre le permier mot en majuscule
 function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);}
 
-var option_selected = $('#select_anatype option:selected').attr('value');
+miseAJourAnaacte();
+// Remplissage  Affiche au chargement de la page la listes des actes correspondant à un anatype précis
+function miseAJourAnaacte() {
 
-var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-var regex = new RegExp('choisir/[0-9]\/[0-9]');
+  var regex = new RegExp('choisir/[0-9]\/[0-9]');
 
-var url = url_actuelle.replace( regex ,'anaactes/' + option_selected); // modifie d'adresse pour accéder à la méthode show de BlogController
+  var option_selected = $('#select_anatype option:selected').attr('value');
 
-$.get({
+  if (url_actuelle.search(regex) != -1) {
 
-  url : url,
+    var url = url_actuelle.replace( regex ,'anaactes/' + option_selected); // modifie d'adresse pour accéder à la méthode show de BlogController
 
-})
-.done(function(data) {
+    getAnaactes(url);
 
-  elements = JSON.parse(data);
+  }
+  else if (url_actuelle.search('laboratoire/demandes/create') != -1) {
 
-  $.each(elements, function(key, element) {
+    var url = url_actuelle.replace( 'laboratoire/demandes/create' ,'anaactes/' + option_selected); // modifie d'adresse pour accéder à la méthode show de BlogController
 
-    $("#select_anaacte").append('<option value="'+element.id+'">'+strUcFirst(element.nom)+' '+element.pu_ht+'€</option>')
+    getAnaactes(url);
+
+  }
+
+};
+
+function getAnaactes(url)
+{
+  $.get({
+
+    url : url,
+
   })
-});
+  .done(function(data) {
 
+    elements = JSON.parse(data);
+    $.each(elements, function(key, element) {
+
+      $("#select_anaacte").append('<option value="'+element.id+'">'+strUcFirst(element.nom)+' '+element.pu_ht+'€</option>')
+    })
+  });
+
+}
 
 // EN ATTENTE D'AVOIR FINI LA SELECTION
 // var url = url_actuelle + '/anatypes/' + option_selected; // modifie d'adresse pour accéder à la méthode show de BlogController
@@ -66,6 +88,7 @@ $.get({
 // Affichage de la liste déroulante des anaactes une fois qu'on a sélectionné un anatype
 $('#select_anatype').on('change', function() {
 
-  console.log($(this).attr('class'));
+  $("#select_anaacte").empty();
+  miseAJourAnaacte();
 
 })

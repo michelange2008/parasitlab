@@ -10,7 +10,9 @@
 
       <div class="col-md-10 col-lg-8">
 
-        @titre(['titre' => "Saisie des résultats", 'soustitre' => "(".$demande->user->name." - ".$prelevements[0]->demande->anapack->nom.")"])
+        @titre([
+          'titre' => "Saisie des résultats",
+          'soustitre' => "(".$demande->user->name."&nbsp;: ".$prelevements[0]->demande->anaacte->anatype->abbreviation."- ".$prelevements[0]->demande->anaacte->abbreviation.")"])
 
       </div>
 

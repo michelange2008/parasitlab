@@ -29,11 +29,11 @@ $("select[name='userDemande']").change(function() {
     });
   } else { // Si c'est pas un nouvel éleveur et qu'il y a déjà eu un choix de l'anapack, on appelle la fonction ajouterEstSerie
 
-    var anapack_id = $("select[name='anapack'] > option:selected").attr('id');
+    var anaacte_id = $("select[name='anaacte_id'] > option:selected").attr('id');
 
     var user_id = $("select[name='userDemande'] > option:selected").attr('id');
 
-    ajouterEstSerie(anapack_id, user_id);
+    ajouterEstSerie(anaacte_id, user_id);
 
   }
 
@@ -42,13 +42,14 @@ $("select[name='userDemande']").change(function() {
 //################################################################################################
 
 //################################################################################################
-// Fonction pour vérifier si l'anapack correspond à une série
-function ajouterEstSerie(anapack_id, user_id) {
+// Fonction pour vérifier si l'anaacte correspond à une série
+function ajouterEstSerie(anaacte_id, user_id) {
+
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   // l'adresse pour consulter la méthode estSerie de AnapackController est estserie/anapack_id/user_id
 
-  var url_nouvelle = url_actuelle.replace('demandes/create', 'estserie/'+anapack_id+'/'+user_id);
+  var url_nouvelle = url_actuelle.replace('demandes/create', 'estserie/'+anaacte_id+'/'+user_id);
 
   $.get({
 
@@ -98,15 +99,19 @@ function ajouterEstSerie(anapack_id, user_id) {
 }
 
 // Au changement d'anapack on appelle la fonction ajouterEstSerie
-$("select[name='anapack'] ").on('change', function() {
+$("select[name='anaacte_id'] ").on('change', function() {
 
-  $('.listeSerie').remove(); // après avoir éliminer d'éventuelles lignes résiduelles
+  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+// On vérifie d'abord qu'on est bien sur le forumaire de création d'une nouvelle demande et non sur le formulaire d'impression d'une nouvelle demande
+  if (url_actuelle.search('laboratoire/demandes/create') != -1) {
 
-  var anapack_id = $("select[name='anapack'] > option:selected").attr('id');
+    $('.listeSerie').remove(); // après avoir éliminer d'éventuelles lignes résiduelles
 
-  var user_id = $("select[name='userDemande'] > option:selected").attr('id');
+    var anaacte_id = $("select[name='anaacte_id'] > option:selected").val();
+    var user_id = $("select[name='userDemande'] > option:selected").attr('id');
 
-  ajouterEstSerie(anapack_id, user_id);
+    ajouterEstSerie(anaacte_id, user_id);
+}
 
 })
 

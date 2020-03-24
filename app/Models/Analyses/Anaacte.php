@@ -23,11 +23,6 @@ class Anaacte extends Model
       return $this->belongsTo(\App\Models\Icone::class);
     }
 
-    public function analyses()
-    {
-      return $this->hasMany(Analyse::class);
-    }
-
     public function tva()
     {
       return $this->belongsTo(Tva::class);

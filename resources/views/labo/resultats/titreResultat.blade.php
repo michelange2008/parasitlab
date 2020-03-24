@@ -6,7 +6,7 @@
 
       {{ ucfirst($prelevement->identification) }}
 
-      <small>(état du prélèvement: {{ $prelevement->etat->nom }} - Consistance: {{ $prelevement->consistance->nom }})</small>
+      <small>(état du prélèvement: {{ $prelevement->etat->nom }})</small>
 
     </th>
 

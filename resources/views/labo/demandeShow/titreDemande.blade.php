@@ -3,7 +3,7 @@
 
   <img class="img-40 mx-3" src="{{url('storage/img/icones/'.$demande->espece->icone->nom)}}" alt="{{ $demande->espece->nom }}">
 
-  <h3>{{ucfirst($demande->user->name)}} - {{ucfirst($demande->anapack->nom)}}
+  <h3>{{ucfirst($demande->user->name)}}&nbsp;: {{ucfirst($demande->anaacte->anatype->abbreviation  )}} - {{ ucfirst($demande->anaacte->abbreviation) }}
 
     <small>(analyse @if (!$demande->acheve) non @endif terminée)</small>
 

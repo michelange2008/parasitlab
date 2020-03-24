@@ -1,7 +1,7 @@
 {
   "tri" : {
 
-    "colonne" : "name",
+    "colonne" : "id",
 
     "ordre" : "asc"
   },
@@ -14,15 +14,21 @@
       "align" : "center",
       "sortable" : false
     },
+    "id" : {
+      "id" : "id",
+      "nom" : "Id",
+      "align" : "center",
+      "sortable" : true
+    },
     "name" : {
       "id" : "name",
       "nom" : "nom",
       "align" : "left",
       "sortable" : true
     },
-    "description" : {
-      "id" : "description",
-      "nom" : "description",
+    "technique" : {
+      "id" : "technique",
+      "nom" : "technique",
       "align" : "left",
       "sortable" : false
     },

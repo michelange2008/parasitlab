@@ -90,31 +90,24 @@
   },
   "item_5" :
   {
-    "nom" : "Analyses et Packs",
+    "nom" : "Prestations",
     "tooltip" : "Liste des différentes analyses et packs",
     "route" : "laboratoire",
     "sousmenu" :
     {
       "sousmenu_1" :
       {
-        "nom" : "Analyses",
+        "nom" : "Détail des analyses",
         "icone" : "analyse.svg",
         "tooltip" : "Ajouter, modifier, supprimer des analyses",
-        "route" : "analyses.index"
-      },
-      "sousmenu_2" :
-      {
-        "nom" : "Actes",
-        "icone" : "acte.svg",
-        "tooltip" : "Ajouter, modifier, supprimer des actes",
         "route" : "anaactes.index"
       },
       "sousmenu_3" :
       {
-        "nom" : "Packs",
+        "nom" : "Types d'analyse",
         "icone" : "pack.svg",
         "tooltip" : "Ajouter, modifier, supprimer des packs",
-        "route" : "anapacks.index"
+        "route" : "anatypes.index"
       }
     }
   }

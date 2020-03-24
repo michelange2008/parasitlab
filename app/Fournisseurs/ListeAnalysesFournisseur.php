@@ -11,33 +11,36 @@ use App\User;
 class ListeAnalysesFournisseur extends ListeFournisseur
 {
 
-  public function creeListe($elements)
+  public function creeListe($anaactes)
   {
     $this->liste = collect();
 
-    foreach ($elements as $element) {
+    foreach ($anaactes as $anaacte) {
 
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
-      $icone = $this->iconeFactory($element->icone);
+      $icone = $this->iconeFactory($anaacte->icone);
 
-      $nom = $this->lienFactory($element->id, $element->nom, 'analyses.edit', "Cliquer pour modifier cette analyse");
+      $anatype = $this->itemFactory($anaacte->anatype->nom);
 
-      $espece = $this->iconeFactory($element->espece->icone);
+      $nom = $this->lienFactory($anaacte->id, $anaacte->nom, 'analyses.edit', "Cliquer pour modifier cette analyse");
 
-      $acte = $this->lienFactory($element->anaacte->id, $element->anaacte->nom, 'anaactes.show', "Cliquer pour afficher la liste des actes");
+      $espece = $this->iconeFactory($anaacte->espece->icone);
 
-      $suppr = $this->delFactory($element->id, 'analyses.destroy');
+      $acte = $this->lienFactory($anaacte->anaacte->id, $anaacte->anaacte->nom, 'anaactes.show', "Cliquer pour afficher la liste des actes");
+
+      $suppr = $this->delFactory($anaacte->id, 'analyses.destroy');
 
       $description = [
         $icone,
+        $anatype,
         $nom,
         $espece,
         $acte,
         $suppr,
       ];
 
-      $this->liste->put($element->id , $description);
+      $this->liste->put($anaacte->id , $description);
 
     }
 

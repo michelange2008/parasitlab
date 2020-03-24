@@ -23,7 +23,7 @@ class ListeDemandesEleveurAdminFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', 'Cliquer pour voir le détail de la demande');
+      $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'demandes.show', 'Cliquer pour voir le détail de la demande');
 
       if(isset($demande->serie_id)) {
 

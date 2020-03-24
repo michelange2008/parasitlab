@@ -25,7 +25,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $eleveur = $this->lienFactory($demande->user->id, ucfirst($demande->user->name), 'eleveurAdmin.show', "Cliquer pour afficher le détail de cet éleveur");
 
-      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'demandes.show', "Cliquer pour afficher le détail de cette analyse");
+      $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'demandes.show', "Cliquer pour afficher le détail de cette analyse");
 
       if(isset($demande->serie_id)) {
 

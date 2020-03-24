@@ -27,7 +27,7 @@ class Prelevement extends Model
       return $this->belongsTo(Etat::class);
     }
 
-    public function signe()
+    public function signes()
     {
       return $this->belongsToMany(Signe::class);
     }

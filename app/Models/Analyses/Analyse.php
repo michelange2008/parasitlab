@@ -23,9 +23,9 @@ class Analyse extends Model
       return $this->hasMany(\App\Models\Productions\Prelevement::class);
     }
 
-    public function anaacte()
+    public function anatype()
     {
-      return $this->belongsTo(Anaacte::class);
+      return $this->belongsTo(Anatype::class);
     }
 
     public function anaitems()

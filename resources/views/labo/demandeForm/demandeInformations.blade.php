@@ -15,8 +15,7 @@
     <div class="form-group">
 
       <textarea class="form-control" id="informations" name="informations" rows="3"
-        placeholder="Si vous souhaitez nous transmettre des informations: motifs de l'analyse (suivi, problèmes, etc.), état des animaux, mortalité, etc.">
-      </textarea>
+        placeholder="Si vous souhaitez nous transmettre des informations: motifs de l'analyse (suivi, problèmes, etc.), état des animaux, mortalité, etc."></textarea>
 
     </div>
 

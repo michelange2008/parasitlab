@@ -1,10 +1,11 @@
 {
   "tri" : {
 
-    "colonne" : "name",
+    "colonne" : "id",
 
     "ordre" : "asc"
   },
+
 
   "liste" : {
 
@@ -14,11 +15,17 @@
       "align" : "center",
       "sortable" : false
     },
+    "id" : {
+      "id" : "id",
+      "nom" : "Id",
+      "align" : "center",
+      "sortable" : true
+    },
     "name" : {
       "id" : "name",
       "nom" : "nom",
       "align" : "left",
-      "sortable" : true
+      "sortable" : false
     },
     "description" : {
       "id" : "description",
@@ -32,17 +39,11 @@
       "align" : "right",
       "sortable" : false
     },
-    "tva" : {
-      "id" : "tva",
-      "nom" : "TVA",
-      "align" : "right",
-      "sortable" : false
-    },
     "suppr" : {
       "id" : "suppr",
       "nom" : "del",
       "align" : "center",
       "sortable" : false
-    }
+    },
   }
 }

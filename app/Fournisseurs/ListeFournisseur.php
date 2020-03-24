@@ -47,6 +47,14 @@ abstract class ListeFournisseur
   abstract protected function creeListe($liste);
 
   /*
+  * Concatene les informations actes + type avec mise en forme adaptée
+  */
+  public function acteTypeCourt($anaacte)
+  {
+    return $anaacte->anatype->abbreviation."</br><span class='small'>(".$anaacte->abbreviation.")</span>";
+  }
+
+  /*
   * Crée les items de la liste à afficher renvoyer par la méthode liste
   */
   public function itemFactory($nom)

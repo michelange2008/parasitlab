@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use DB;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\LitCsv;
 
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
@@ -16,7 +17,7 @@ use App\Models\Productions\Commentaire;
 
 class ResultatController extends Controller
 {
-  use LitJson;
+  use LitJson, LitCsv;
 
     protected $menu;
 
@@ -32,6 +33,12 @@ class ResultatController extends Controller
 
     public function edit($demande_id)
     {
+      // $datas = $this->litCsv('LAB_analyses_anaitems');
+      //
+      // DB::table('anaitem_analyse')->insert($datas);
+      //
+      // dd('');
+
       $demande = Demande::find($demande_id);
 
       $commentaire = Commentaire::where('demande_id', $demande_id)->first();

@@ -15,6 +15,7 @@ class CreateAnatypesTable extends Migration
     {
         Schema::create('anatypes', function (Blueprint $table) {
             $table->increments('id')->unsigned;
+            $table->string('abbreviation', 50);
             $table->string('nom', 191);
             $table->string('technique', 191);
             $table->unsignedInteger('icone_id');

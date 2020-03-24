@@ -59,7 +59,7 @@
       <div class="col-md-6">
 
         <label class="col-sm-12 col-form-label" for="anaacte_id">Type d'acte</label>
-
+{{-- Emplacement libre pour que le choisir.js puisse mettre la liste d'anaacte --}}
         <select id="select_anaacte" class="form-control" name="anaacte_id">
 
         </select>
@@ -110,48 +110,7 @@
 
               </div>
 
-              <div class="form-group row px-3 my-3">
-
-                <div class="col-md-12 mb-3">
-
-                  <span class="font-weight-bold">Concernant les animaux de ce prélèvement&nbsp;:</span>
-
-                </div>
-
-                <div class="col-md-4 ml-3">Pensez-vous qu'ils sont parasités ?</div>
-
-                <div class="col-md-7">
-
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="oui_{{ $i }}" name="parasite_{{ $i }}" class="custom-control-input" value="oui">
-                    <label class="custom-control-label" for="oui_{{ $i }}">Oui</label>
-                  </div>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="non_{{ $i }}" name="parasite_{{ $i }}" class="custom-control-input" value="non">
-                    <label class="custom-control-label" for="non_{{ $i }}">Non</label>
-                  </div>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="saispas_{{ $i }}" name="parasite_{{ $i }}" class="custom-control-input" value="saispas" checked>
-                    <label class="custom-control-label" for="saispas_{{ $i }}">Ne sais pas</label>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <div class="col-md-4 ml-3">Avez-vous observé&nbsp;:</div>
-
-              <div class="col-md-7">
-                @foreach ($signes as $signe)
-
-                  <div class="custom-control custom-checkbox custom-control-inline">
-                    <input type="checkbox" class="custom-control-input" id="{{ $signe->id.$i }}" name="signe_{{ $i.'_'.$signe->id }}">
-                    <label class="custom-control-label" for="{{ $signe->id.$i }}">{{ $signe->nom }}</label>
-                  </div>
-
-                @endforeach
-              </div>
-
+              @include('labo.demandeForm.infosPrelevement')
             </div>
 
           </div>

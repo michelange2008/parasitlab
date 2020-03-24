@@ -49,13 +49,9 @@ class ExtranetDemandeController extends Controller
       {
         session()->forget('demande'); // suppression de l'objet mis en session par la méthode formulaireStore
 
-        $especes = Espece::where('type', 'simple')->get();
-
-        $anatypes = Anatype::all();
-
-        $signes = Signe::all();
-
         $pays = $this->litJson("pays");
+
+        $estParasite = $this->litJson('estParasite');
 
         $user = (auth()->user()) ? auth()->user() : "";
 
@@ -63,9 +59,10 @@ class ExtranetDemandeController extends Controller
           'menu' => $this->menu,
           'espece_id' => $espece_id,
           'anatype_id' => $anatype_id,
-          'especes' => $especes,
-          'anatypes' => $anatypes,
-          'signes' => $signes,
+          'especes' => Espece::where('type', 'simple')->get(),
+          'anatypes' => Anatype::all(),
+          'signes' => Signe::all(),
+          'estParasite' => $estParasite,
           'user' => $user,
           'pays' => $pays,
         ]);

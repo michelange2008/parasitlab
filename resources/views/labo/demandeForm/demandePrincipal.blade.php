@@ -34,14 +34,14 @@
 
   <div class="col-md-1 d-sm-none d-md-block">
 
-    @include('fragments.image', ['image' => 'pack.svg'])
+    @include('fragments.image', ['image' => 'analyse.svg'])
 
   </div>
 
   <div class="col-md-4 border-right">
 
     {{-- CHOIX DE L'ANALYSE --}}
-    @include('labo.demandeForm.inputPack')
+    @include('labo.demandeForm.inputTypeActe')
 
   </div>
 

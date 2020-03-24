@@ -18,8 +18,8 @@ class CreateAnalysesTable extends Migration
 
             $table->string('nom', 191);
 
-            $table->integer('anaacte_id')->unsigned();
-            $table->foreign('anaacte_id')->references('id')->on('anaactes')->onDelete('restrict');
+            $table->integer('anatype_id')->unsigned();
+            $table->foreign('anatype_id')->references('id')->on('anatypes')->onDelete('restrict');
 
             $table->integer('espece_id')->unsigned();
             $table->foreign('espece_id')->references('id')->on('especes')->onDelete('restrict');

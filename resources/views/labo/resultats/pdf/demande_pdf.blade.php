@@ -27,7 +27,6 @@
       <td colspan="3" class="ligne1"><strong>{{ mb_strtoupper($prelevement->identification)}}</strong> (prelevement n°{{ $loop->index + 1}} -
         <span class="lignes">
           état du prélèvement: <strong>{{ $prelevement->etat->nom }}</strong>
-         - consistance: <strong>{{ $prelevement->consistance->nom }})</strong>
        </span>
      </td>
     </tr>

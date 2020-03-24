@@ -22,4 +22,10 @@ class Anatype extends Model
     {
       return $this->belongsToMany(\App\Models\Espece::class);
     }
+
+    public function analyses()
+    {
+      return $this->hasMany(Analyse::class);
+    }
+
 }
