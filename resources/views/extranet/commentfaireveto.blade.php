@@ -2,7 +2,7 @@
 
   <div class="card-body">
 
-    <h4>{{ __('accueil.comment_faire') }}</h4>
+    <h4>{{ __('veterinaires.comment_faire') }}</h4>
 
     <p>{{ __('accueil.kit_envoi') }}.</p>
 

@@ -20,8 +20,8 @@
 
           <h3><em>Vétérinaires...</em></h3>
 
-          <p>{{ __('accueil.veterinaires_1') }}</p>
-          <p>{{ __('accueil.veterinaires_2') }}</p>
+          <p>{{ __('veterinaires.veterinaires_1') }}</p>
+          <p>{{ __('veterinaires.veterinaires_2') }}</p>
 
       </div>
 
@@ -33,12 +33,12 @@
 
         <p>
           <img class="img-40" src="storage/logo.svg" alt="Parasit'Lab">
-          {{ __('accueil.pl_propose') }}: <span class="font-weight-bolder">{{ __('accueil.copro_f') }}</span>, <span class="font-weight-bolder">{{ __('accueil.baermann') }}</span>, ...
+          {{ __('veterinaires.pl_propose') }}: <span class="font-weight-bolder">{{ __('veterinaires.copro_f') }}</span>, <span class="font-weight-bolder">{{ __('veterinaires.baermann') }}</span>, ...
         </p>
 
-        <p>{{ ucfirst(__('accueil.innov')) }} <span class="font-weight-bolder">{{ __('accueil.compte_haem') }}</span>.</p>
+        <p>{{ ucfirst(__('veterinaires.innov')) }} <span class="font-weight-bolder">{{ __('veterinaires.compte_haem') }}</span>.</p>
 
-        <p>{{ __('accueil.analyse_series') }}: <span class="font-weight-bolder">{{ __('accueil.suivi') }}</span> {{ __('commun.et') }} <span class="font-weight-bolder">{{ __('accueil.resist') }}</span>.</p>
+        <p>{{ __('veterinaires.analyse_series') }}: <span class="font-weight-bolder">{{ __('veterinaires.suivi') }}</span> {{ __('commun.et') }} <span class="font-weight-bolder">{{ __('veterinaires.resist') }}</span>.</p>
 
       </div>
 
@@ -49,12 +49,11 @@
           <div data-toggle="tooltip" data-placement="top" title="{{ ucfirst($anatype->nom) }}">
 
             <img class="btn img-zoom"
-            src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="coproscopie"
-            data-toggle="modal" data-target="#anapack_{{ $anatype->id }}" >
+            src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="coproscopie">
           </div>
 
           <!-- Modal -->
-          <div class="modal fade" id="anapack_{{ $anatype->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          {{-- <div class="modal fade" id="anapack_{{ $anatype->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header alert-bleu-tres-fonce">
@@ -71,7 +70,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
 
         @endforeach
 
