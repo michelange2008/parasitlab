@@ -1,7 +1,7 @@
 <br>
 <div class="text-center alert-secondary">
 
-  <p class="pdf-titre">{{ ucfirst($demande->anapack->nom) }} (résultats)</p>
+  <p class="pdf-titre">{{ ucfirst($demande->anaacte->anatype->nom) }} (résultats)</p>
 
 </div>
 
@@ -11,7 +11,7 @@
     <td>Date de réception: <strong>{{ $demande->date_reception}}</strong></td>
     <td>Nb de prélèvements: <strong>{{ $demande->nb_prelevement}}</strong></td>
   </tr>
-  @if ($demande->anapack->serie)
+  @if ($demande->anaacte->serie)
     <tr>
       <td colspan="3">
           Cette demande d'analyse fait partie d'un pack qui compte 3 séries de prélèvement

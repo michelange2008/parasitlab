@@ -63,7 +63,7 @@
 
       <div class="col-md-8 col-lg-6 border-top pt-4 lead">
 
-        <img class="img-40" src="{!! asset('storage/img/icones/question2.svg') !!}" alt="question">
+        <img class="img-40" src="{!! url('storage/img/icones/question2.svg') !!}" alt="question">
 
         Une question ? Un problème ? N'hésitez-pas
 

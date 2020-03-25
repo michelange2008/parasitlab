@@ -35,9 +35,9 @@ class UsersTableSeeder extends Seeder
         ],
         [
           'id' => 4,
-          'name' => 'antikor',
-          'email' => 'antikor@orange.fr',
-          'password' => bcrypt('enerlite+1'),
+          'name' => 'Cabinet vétérinaire de la Montagne',
+          'email' => 'veto@orange.fr',
+          'password' => bcrypt('sngtv'),
           'usertype_id' => 3,
         ],
         [
@@ -72,6 +72,20 @@ class UsersTableSeeder extends Seeder
           'id' => 9,
           'name' => 'Félix Heckendorn',
           'email' => 'felix.heckendorn@fibl.org',
+          'password' => bcrypt('haemonchus'),
+          'usertype_id' => 2
+        ],
+        [
+          'id' => 10,
+          'name' => 'Elina Harinck',
+          'email' => 'elina.harinck@fibl.org',
+          'password' => bcrypt('haemonchus'),
+          'usertype_id' => 2
+        ],
+        [
+          'id' => 11,
+          'name' => 'Laurene FITO',
+          'email' => 'lauren.fito@fibl.org',
           'password' => bcrypt('haemonchus'),
           'usertype_id' => 2
         ],

@@ -25,7 +25,7 @@ class ListeSeriesFournisseur extends ListeFournisseur
 
       $eleveur = $this->lienFactory($serie->user->id, ucfirst($serie->user->name), 'eleveurAdmin.show', "Cliquer pour afficher le détail de cet éleveur");
 
-      $analyse = $this->lienFactory($serie->id, $serie->anapack->nom, 'serie.show', "Cliquer pour afficher le détail de cette analyse");
+      $analyse = $this->lienFactory($serie->id, $this->acteTypeCourt($serie->anaacte), 'serie.show', "Cliquer pour afficher le détail de cette analyse");
 
 
       $espece = $this->iconeFactory($serie->espece->icone);

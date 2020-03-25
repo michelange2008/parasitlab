@@ -8,7 +8,7 @@ use App\Http\Controllers\Labo\EnvoisController;
 
 use App\Models\Productions\Demande;
 use App\Models\Productions\Facture;
-use App\Models\Analyses\Anapack;
+use App\Models\Analyses\Anatype;
 use App\Models\Espece;
 
 use App\Http\Traits\DemandeFactory;
@@ -50,7 +50,7 @@ class PdfController extends Controller
     }
 
 
-    $name = $demande->user->name."_".$demande->anapack->nom."_".$demande->date_resultat.".pdf";
+    $name = $demande->user->name."_".$demande->anaacte->anatype->nom."_".$demande->date_resultat.".pdf";
 
     return $pdf->stream($name);
 

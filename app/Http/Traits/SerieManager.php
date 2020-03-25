@@ -10,12 +10,12 @@ use App\Models\Productions\Serie;
  */
 trait SerieManager
 {
-  function serieStore($user_id, $espece_id, $anapack_id)
+  function serieStore($user_id, $espece_id, $anaacte_id)
   {
       $nouvelle_serie = new Serie;
 
       $nouvelle_serie->user_id = $user_id;
-      $nouvelle_serie->anapack_id = $anapack_id;
+      $nouvelle_serie->anaacte_id = $anaacte_id;
       $nouvelle_serie->espece_id = $espece_id;
 
       $nouvelle_serie->save();

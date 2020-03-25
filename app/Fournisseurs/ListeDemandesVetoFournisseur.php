@@ -25,7 +25,7 @@ class ListeDemandesVetoFournisseur extends ListeFournisseur
 
       $eleveur = $this->itemFactory($demande->user->name);
 
-      $analyse = $this->lienFactory($demande->id, $demande->anapack->nom, 'routeurDemande', "Cliquer pour afficher cette demande d'analyse");
+      $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'routeurDemande', "Cliquer pour afficher cette demande d'analyse");
 
       if(isset($demande->serie_id)) {
 

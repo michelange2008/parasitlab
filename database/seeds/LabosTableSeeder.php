@@ -14,7 +14,7 @@ class LabosTableSeeder extends Seeder
         DB::table('labos')->insert([
           [
             "user_id" => 1,
-            "signature" => "mbouy.svg",
+            "signature" => "mbouy_signature.jpg",
             "photo" => "mbouy.jpg",
             "fonction" => "vétérinaire",
             "est_signataire" => true,
@@ -38,7 +38,21 @@ class LabosTableSeeder extends Seeder
             "signature" => "fheckendorn.svg",
             "photo" => "fheckendorn.jpg",
             "fonction" => "parasitologue",
-            "est_signataire" => true, 
+            "est_signataire" => true,
+          ],
+          [
+            "user_id" => 10,
+            "signature" => "eharinck_signature.svg",
+            "photo" => "eharinck.jpg",
+            "fonction" => "administratrice",
+            "est_signataire" => false,
+          ],
+          [
+            "user_id" => 11,
+            "signature" => "lfito_signature.svg",
+            "photo" => "lfito.jpg",
+            "fonction" => "microbiologiste",
+            "est_signataire" => false,
           ],
         ]);
     }

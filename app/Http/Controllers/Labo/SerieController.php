@@ -9,7 +9,6 @@ use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
 use App\User;
 use App\Models\Espece;
-use App\Models\Analyses\Anapack;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\SerieInfos;

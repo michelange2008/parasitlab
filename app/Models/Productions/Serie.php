@@ -15,7 +15,7 @@ class Serie extends Model
 
     public function anapack()
     {
-      return $this->belongsTo(\App\Models\Analyses\Anapack::class);
+      return $this->belongsTo(\App\Models\Analyses\Anaacte::class);
     }
 
     public function espece()

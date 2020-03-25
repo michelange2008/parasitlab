@@ -9,7 +9,7 @@
       <td class="text-right">
         <p class="adresseFibl">Date signature: {{$demande->date_signature}}</p>
         <p class="adresseFibl">Référence dossier {{$demande->id}}</p>
-        <p class="adresseFibl">{{ucfirst($demande->anapack->nom)}}</p>
+        <p class="adresseFibl">{{ucfirst($demande->anaacte->anatype->nom)}}</p>
       </td>
     </tr>
   </table>
