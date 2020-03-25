@@ -35,9 +35,9 @@ class UsersTableSeeder extends Seeder
         ],
         [
           'id' => 4,
-          'name' => 'antikor',
-          'email' => 'antikor@orange.fr',
-          'password' => bcrypt('enerlite+1'),
+          'name' => 'Cabinet vétérinaire de la Montagne',
+          'email' => 'veto@orange.fr',
+          'password' => bcrypt('sngtv'),
           'usertype_id' => 3,
         ],
         [

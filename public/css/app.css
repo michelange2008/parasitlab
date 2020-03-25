@@ -6410,6 +6410,10 @@ input:checked + .slider:before {
   margin-bottom: 0 !important;
 }
 
+.adresse-petit {
+  font-size: 0.75rem;
+}
+
 .adresseNom {
   font-size: 1rem;
 }

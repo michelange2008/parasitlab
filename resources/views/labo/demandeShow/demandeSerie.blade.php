@@ -1,5 +1,5 @@
 
-@if ($demande->anapack->serie)
+@if ($demande->anaacte->serie)
 
   <p class="color-rouge-tres-fonce">
     <i class="fas fa-exclamation-circle"></i> Cette analyse fait partie d'une série de prélèvements

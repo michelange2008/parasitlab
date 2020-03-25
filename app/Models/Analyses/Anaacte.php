@@ -13,6 +13,11 @@ class Anaacte extends Model
       return $this->hasMany(\App\Models\Production\Demande::class);
     }
 
+    public function series()
+    {
+      return $this->hasMany(\App\Models\Production\Serie::class);
+    }
+
     public function anatype()
     {
       return $this->belongsTo(Anatype::class);

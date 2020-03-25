@@ -171,7 +171,7 @@ class AnaactesTableSeeder extends Seeder
         [
           'id' => 13,
           'abbreviation' => "2 anal.",
-          'nom' => "Analyses coprologiques de mélange avant et après vermmifuge",
+          'nom' => "Analyses coprologiques de mélange avant et après vermifuge",
           'description' => "évaluation de l'existence d'une résistance des strongles vis-à-vis des vermifuges",
           'anatype_id' => 6,
           'estSerie' => true,
