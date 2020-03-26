@@ -22,7 +22,7 @@
 
         <div class="col-md-4">
 
-          <img class="img-100 img-change" src="{{url('storage/img').'/'.$bloc->image->file}}" alt="{{ $bloc->image->alt }}" title="{{ $bloc->image->title }}">
+          <img class="img-100" src="{{url('storage/img').'/'.$bloc->image->file}}" alt="{{ $bloc->image->alt }}" title="{{ $bloc->image->title }}">
 
         </div>
 
