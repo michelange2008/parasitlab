@@ -2,6 +2,6 @@
 
   <i class="fas fa-paper-plane"></i>
 
-  {!! HTML::mailto($adresse, ' '.$intitule) !!}
+  <a href="mailto:contact@parasitlab.org?subject={!! $sujet ?? '' !!}&body={!! $contenu ?? '' !!}">{{$intitule}}</a>
 
 </button>
