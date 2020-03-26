@@ -20,7 +20,7 @@
 
           <ul class="lead">
 
-            <p class="titre-fond">{{ $element->titre_fond }}</p>
+            {{-- <p class="titre-fond">{{ $element->titre_fond }}</p> --}}
 
             @foreach ($element->p as $p)
 
