@@ -1,0 +1,36 @@
+{
+  "titre" : "titre",
+  "fichier" : "eleveurs",
+  "prefixe" : "texte_",
+  "soustitre" : "soustitre",
+
+  "contenu" :
+  {
+    "maitrise" :
+    {
+      "bloc" : ".maitrise.",
+      "image" : "eleveurs_3.jpg",
+      "nb_ligne" : 2
+    },
+    "element_2" :
+    {
+      "bloc" : ".immunite.",
+      "image" : "eleveurs_2.jpg",
+      "nb_ligne" : 4
+    },
+    "element_3" :
+    {
+      "bloc" : ".surdispersion.",
+      "image" : "eleveurs_1.jpg",
+      "nb_ligne" : 3
+    },
+    "element_4" :
+    {
+      "bloc" : ".dynamiques.",
+      "image" : "eleveurs_4.jpg",
+      "nb_ligne" : 3
+    }
+
+  }
+
+}

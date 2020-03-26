@@ -48,7 +48,7 @@ class ExtranetController extends Controller
 
     public function eleveurs()
     {
-      $elements = $this->LitJson('presentationEleveurs');
+      $elements = $this->LitJson('eleveurs');
 
       return view('extranet.eleveurs', [
         "menu" => $this->menu,
