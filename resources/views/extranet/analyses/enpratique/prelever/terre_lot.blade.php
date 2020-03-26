@@ -6,11 +6,12 @@
 
     <div class="card-body">
 
-      <h4>Comment prélever ?</h4>
+      <h4>Comment prendre les échantillons ?</h4>
       <p>Quelque soit l'analyse demandée, il faut prélever des crottes, crottins ou bouses.</p>
       <p>Il est possible de ramasser au sol quand on voit l'animal en train de faire: dans ce cas on est sûr de l'identité et de la fraîcheur.</p>
       <p>Dans la mesure du possible, il est préférable de faire le prélèvement directement dans le rectum.</p>
       <p>Il ne faut en aucun cas ramasser des fèces par-terre si l'on ne sait pas quel animal les a fait et quand&nbsp!</p>
+      <p>Pour plus d'informations, consultez la fiche technique correspondante <a href="#"><i class="fas fa-external-link-alt"></i></a> </p>
     </div>
 
     <div class="card-footer">
@@ -30,6 +31,7 @@
         Quelques uns le sont beaucoup, d'autres pas du tout. C'est ce que l'on appelle <span class="lead">la surdispersion du parasitisme</span>
         (<a href="{{ route('parasitisme.surdispersion') }}" data-toggle="tooltip" title="La surdispersion du parasitisme"><abbr class="initialism"><i class="fas fa-book-reader"></i>&nbspen savoir plus</abbr></a>).
       </p>
+      <p>Souvent les animaux les plus parasités sont les jeunes (broutards, génisses, agneaux et agnelles)</p>
       <p>Pour cette raison, il sera souvent plus pertinent de faire plusieurs analyses sur des mélanges de crottes de petits lots d'animaux (environ 5)
       représentatifs de la diversité du troupeau.</p>
       <p>Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fèces de chaque animal</p>
