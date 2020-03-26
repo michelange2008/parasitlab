@@ -79,7 +79,7 @@
 
           <div data-toggle="tooltip" data-placement="top" title="{{ ucfirst($anatype->nom) }}">
 
-            <img class="btn img-zoom"
+            <img class="img-zoom"
             src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="coproscopie">
           </div>
 
