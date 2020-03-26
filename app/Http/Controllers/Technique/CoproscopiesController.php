@@ -35,6 +35,7 @@ class CoproscopiesController extends Controller
         'menu' => $this->menu,
         'sousmenuAnalyses' => $this->sousmenuAnalyses,
         'enpratiquePrelever' => $this->litJson('enpratiquePrelever'),
+        'terre_lot' => $this->litJson('terre_lot'),
         'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
         'enpratiqueEnvoi' => $this->litJson('enpratiqueEnvoi'),
       ]);

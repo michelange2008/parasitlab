@@ -15,7 +15,7 @@ class AnatypesTableSeeder extends Seeder
           [
             'id' => 1,
             'abbreviation' => "SGI",
-            'nom' => "strongles gastro-intestinaux",
+            'nom' => "strongles gastro-intestinaux + coccidies + moniezia",
             'technique' => 'méthode quantitative Mac-Master - NaCl',
             'icone_id' => 9,
           ],
@@ -29,7 +29,7 @@ class AnatypesTableSeeder extends Seeder
           [
             'id' => 3,
             'abbreviation' => "SGResp",
-            'nom' => "détection larves pulmonaires",
+            'nom' => "détection larves pulmonaires (petits et grands strongles)",
             'technique' => 'méthode semi-quantitative de Baermann - NaCl',
             'icone_id' => 10,
           ],
@@ -50,7 +50,7 @@ class AnatypesTableSeeder extends Seeder
           [
             'id' => 6,
             'abbreviation' => "RESIST",
-            'nom' => "test d'efficacité d'un vermifuge",
+            'nom' => "test d'efficacité de produits vermifuges",
             'technique' => 'méthode quantitative Mac-Master - NaCl',
             'icone_id' => 23,
           ],

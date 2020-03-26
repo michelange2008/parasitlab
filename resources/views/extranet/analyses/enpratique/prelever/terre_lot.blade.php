@@ -1,47 +1,34 @@
-<div class="card-deck">
+{{-- Cette page fait partie de extranet/analyses/enpratique/prelever.blade.php
 
-  <div class="card">
+  Elle est contruite à partir du fichier terre_lot.json et des fichiers de traduction terre_lot.php
 
-    <img class="card-img-top" src="storage/img/crottin.jpg" alt="Crottin">
+  Elle est amenée avec ses pages mères par le controller CoproscopiesController
 
-    <div class="card-body">
+ --}}
 
-      <h4>Comment prendre les échantillons ?</h4>
-      <p>Quelque soit l'analyse demandée, il faut prélever des crottes, crottins ou bouses.</p>
-      <p>Il est possible de ramasser au sol quand on voit l'animal en train de faire: dans ce cas on est sûr de l'identité et de la fraîcheur.</p>
-      <p>Dans la mesure du possible, il est préférable de faire le prélèvement directement dans le rectum.</p>
-      <p>Il ne faut en aucun cas ramasser des fèces par-terre si l'on ne sait pas quel animal les a fait et quand&nbsp!</p>
-      <p>Pour plus d'informations, consultez la fiche technique correspondante <a href="#"><i class="fas fa-external-link-alt"></i></a> </p>
-    </div>
+<ul class="list-unstyled">
 
-    <div class="card-footer">
-      <p><i class="fas fa-exclamation-circle text-danger"></i> Une coproscopie se fait avec une petite poignée de crottes. Il n'est donc pas utile de nous envoyer de quantités importantes.</p>
+  @foreach ($terre_lot->items as $item) {{-- On purcours les blocs --}}
 
-    </div>
+    <li class="media">
 
-  </div>
+      <img src="{{ url('storage/img').'/'.$item->image }}" alt="">
+      <div class="media-body ml-3">
+        <h4 class="mt-0 mb-1">{!! __($terre_lot->fichier.$item->bloc.$item->titre) !!}</h4> {{-- fichier est le nom du fichier de traduction
+                                                                                                  bloc est le nom du bloc de texte dans le fichier de traduction --}}
 
-  <div class="card">
+          @for ($i = 1; $i < $item->nb_ligne + 1; $i++) {{-- nb_ligne est le nombre de lignes de texte dans le fichier de traduction --}}
 
-    <img class="card-img-top"  src="storage/img/lot.jpg" alt="Brebis">
+            <p class="mb-1">{!! __($terre_lot->fichier.$item->bloc.$terre_lot->prefixe.$i) !!}</p> {{-- prefixe est le préfixe des lignes de texte --}}
 
-    <div class="card-body">
-      <h4>Prélèvement individuel ou par lot ?</h4>
-      <p>Dans un troupeau, les animaux ne sont pas tous parasités de la même façon.
-        Quelques uns le sont beaucoup, d'autres pas du tout. C'est ce que l'on appelle <span class="lead">la surdispersion du parasitisme</span>
-        (<a href="{{ route('parasitisme.surdispersion') }}" data-toggle="tooltip" title="La surdispersion du parasitisme"><abbr class="initialism"><i class="fas fa-book-reader"></i>&nbspen savoir plus</abbr></a>).
-      </p>
-      <p>Souvent les animaux les plus parasités sont les jeunes (broutards, génisses, agneaux et agnelles)</p>
-      <p>Pour cette raison, il sera souvent plus pertinent de faire plusieurs analyses sur des mélanges de crottes de petits lots d'animaux (environ 5)
-      représentatifs de la diversité du troupeau.</p>
-      <p>Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fèces de chaque animal</p>
+          @endfor
 
-    </div>
+          <p class="small">{!! __($terre_lot->fichier.$item->bloc.$item->remarque) !!}
 
-    <div class="card-footer">
-      <p><i class="fas fa-smile text-success"></i> Vous n'avez pas besoin d'homogénéiser le mélange de fèces, le laboratoire s'en charge.</p>
-    </div>
+      </div>
 
-  </div>
+    </li>
+<hr class="divider-court">
+  @endforeach
 
-</div>
+</ul>
