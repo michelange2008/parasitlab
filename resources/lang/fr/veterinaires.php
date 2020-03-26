@@ -29,6 +29,6 @@ return [
   "kit_envoi_2" => "Chaque kit contient une fiche de procédure de prélèvement, un formulaire de demande d'analyses, des sachets et des gants de prélèvement et une enveloppe préaffranchie.",
   "kit_envoi_3" => "N'hésitez pas à nous les commander pour les proposer aux éleveurs à qui vous conseillez de réaliser des examens coproscopiques. Nous vous les envoyons gratuitement.",
 
-  "repondre_question_1" => "N'hésitez pas à nous contacter si vous avez des question sur les services que nous proposons et leurs modalités de mise en oeuvre.",
+  "repondre_question_1" => "N'hésitez pas à nous contacter si vous avez des questions sur les services que nous proposons et leurs modalités de mise en oeuvre.",
   "repondre_question_2" => "Nous pouvons vous apporter toutes les informations nécessaires sur les techniques utilisées au laboratoire.",
 ];
