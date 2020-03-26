@@ -6,8 +6,8 @@ return [
 
   "soustitre_2" => "Affinez vos prescriptions pour prévenir les résistances...",
 
-  "texte_1_1" => "Comme vous le savez, la coproscopie est un examen complémentaire qui vient en appui à l’observation du troupeau, l’examen des animaux, voire, l’autopsie.",
-  "texte_1_2" => "Ce type d’analyse permet de confirmer un diagnostic, mais elle trouve toute sa raison d’être dans une démarche préventive de maîtrise raisonnée du parasitisme.",
+  "texte_1_1" => "Comme vous le savez, la coproscopie est un examen complémentaire qui vient en appui au diagnostic clinique.",
+  "texte_1_2" => "Ce type d’analyse permet de confirmer un diagnostic, et trouve toute sa raison d’être dans une démarche préventive de maîtrise raisonnée du parasitisme.",
   "texte_1_3" => "Vous pourrez ainsi contrôler l'efficacité des plans de gestions du parasitisme que vous aurez proposés à vos clients, tout en limitant l'impact des traitements sur l'entomofaune.",
 
   "texte_2_1" => "Pendant plus de 40 ans, la gestion du parasitisme a reposé sur un usage systématique d'anthelminthiques appliqués à l'ensemble du troupeau.
@@ -29,4 +29,6 @@ return [
   "kit_envoi_2" => "Ces kits contiennent une fiche de procédure de prélèvement, un formulaire de demande d'analyses, des sachets pour les prélèvements, des gants de prélèvement et une enveloppe pré-affranchie.",
   "kit_envoi_3" => "N'hésitez pas à nous commander pour les proposer aux éleveurs à qui vous conseillez des réaliser des examens coproscopiques. Nous vous les envoyons gratuitement.",
 
+  "repondre_question_1" => "N'hésitez pas à nous contacter si vous avez des question sur les services que nous proposons et leurs modalités de mise en oeuvre.",
+  "repondre_question_2" => "Nous pouvons vous apporter toutes les informations nécessaires sur les techniques utilisées au laboratoire.",
 ];

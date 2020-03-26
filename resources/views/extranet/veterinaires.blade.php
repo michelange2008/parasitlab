@@ -121,7 +121,7 @@
           @include('extranet.commentfaireveto')
 
 
-          @include('extranet.contacteznous')
+          @include('extranet.contact.contacteznousvetos')
 
         </div>
 
