@@ -35,9 +35,7 @@
 
             @endforeach
 
-        </div>
 
-        <div class="col-md-10 mx-auto">
 
           <blockquote class="blockquote" style="font-size:1.1rem !important">
 
