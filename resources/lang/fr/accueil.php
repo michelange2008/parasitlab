@@ -10,7 +10,7 @@ return [
 
   "question_remarque" => "Une question, une remarque ?",
   "repondre_questions" => "Nous sommes aussi là pour répondre à toutes vos questions concernant les services que nous proposons, mais aussi l’interprétation de résultats d’analyses.",
-  "kit_envoi" => "D’un point de vue pratique, Nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.",
+  "kit_envoi" => "D’un point de vue pratique, nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.",
   "en_pratique_resume" => "Pour toutes les questions que vous vous posez pour le choix des analyses, la réalisation des prélèvement et leur envoi, lisez nos pages dédiées à ces sujets.",
 
   "choisir_analyse" => "Choisir une analyse",
@@ -21,5 +21,5 @@ return [
   "remplirFormulaire" => "Vous pouvez remplir ce formulaire de demande d'analyse et imprimer ensuite le fichier pdf créé pour le joindre à votre demande.",
   "signerDemande" => "N'oubliez pas de signer la demande avant de la joindre au prélèvement.",
   "remplirMain" => "Vous pouvez aussi remplir le formulaire à la main en imprimant un modèle vierge en cliquant sur ce lien",
-  
+
 ];

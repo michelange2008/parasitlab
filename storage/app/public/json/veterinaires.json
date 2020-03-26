@@ -1,0 +1,49 @@
+{
+  "titre" : "veterinaires.titre",
+
+  "blocs" :
+  {
+    "bloc_1" :
+    {
+      "soustitre" : "veterinaires.soustitre_1",
+      "image" :
+      {
+        "file" : "ostertagia_2.jpg",
+        "alt" : "ostertagia",
+        "title" : "Oeuf d'Ostertagia"
+      },
+      "texte" :
+      {
+        "texte_1" : "veterinaires.texte_1_1",
+        "texte_2" : "veterinaires.texte_1_2",
+        "texte_3" : "veterinaires.texte_1_3"
+      },
+      "biblio" :
+      {
+        "biblio_1" : "biblio.veterinaires_1_1",
+        "biblio_2" : "biblio.veterinaires_1_2"
+      }
+    },
+    "bloc_2" :
+    {
+      "soustitre" : "veterinaires.soustitre_2",
+      "image" :
+      {
+        "file" :  "cp_herbe.jpg",
+        "alt" : "chèvre",
+        "title" : "Les chèvres, premières concernées par les résistances aux anthelminthiques"
+      },
+      "texte" :
+      {
+        "texte_1" : "veterinaires.texte_2_1",
+        "texte_2" : "veterinaires.texte_2_2",
+        "texte_3" : "veterinaires.texte_2_3"
+      },
+      "biblio" :
+      {
+        "biblio_1" : "biblio.veterinaires_2_1",
+        "biblio_3" : "biblio.veterinaires_2_2"
+      }
+    }
+  }
+}

@@ -41,6 +41,7 @@ class ExtranetController extends Controller
 
       return view('extranet.veterinaires', [
         "menu" => $this->menu,
+        "contenu" => $this->litJson('veterinaires'),
         "anatypes" => $anatypes,
       ]);
     }
