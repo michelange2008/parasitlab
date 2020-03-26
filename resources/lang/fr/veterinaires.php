@@ -16,13 +16,13 @@ return [
   "texte_2_3" => "Le recours à des examens coproscopiques précis, par lots d'animaux, vous permettra de proposer des traitements ciblés qui limiteront l'apparition de résistances.",
 
   "pl_propose" => " vous propose non seulement les analyses parasitologiques classiques",
-  "copro_f" => "coproscopie par flottaison",
+  "copro_f" => "coproscopie par flottation",
   "baermann" => "test de Baermann",
   "innov" => "mais aussi des techniques innovantes comme ",
-  "compte_haem" => "la détection d'Haemonchus contortus dans la population des strongles gastro-intestinaux",
+  "compte_haem" => "la détection d'<i>Haemonchus contortus</i> dans la population des strongles gastro-intestinaux",
   "analyse_series" => "Et des démarches visant à la compréhension des dynamiques à l’œuvre",
   "suivi" => "suivi de campagne",
-  "resist" => "test de résistance",
+  "resist" => "test de résistance vis-à-vis des anthelminthiques",
   "comment_faire" => "Comment faire ?",
 
   "kit_envoi_1" => "Nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.",

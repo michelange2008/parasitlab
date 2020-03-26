@@ -65,7 +65,7 @@
           {{ __('veterinaires.pl_propose') }}: <span class="font-weight-bolder">{{ __('veterinaires.copro_f') }}</span>, <span class="font-weight-bolder">{{ __('veterinaires.baermann') }}</span>, ...
         </p>
 
-        <p>{{ ucfirst(__('veterinaires.innov')) }} <span class="font-weight-bolder">{{ __('veterinaires.compte_haem') }}</span>.</p>
+        <p>{{ ucfirst(__('veterinaires.innov')) }} <span class="font-weight-bolder">{!! __('veterinaires.compte_haem') !!}</span>.</p>
 
         <p>{{ __('veterinaires.analyse_series') }}: <span class="font-weight-bolder">{{ __('veterinaires.suivi') }}</span> {{ __('commun.et') }} <span class="font-weight-bolder">{{ __('veterinaires.resist') }}</span>.</p>
 
