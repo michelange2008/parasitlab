@@ -27,6 +27,6 @@ return [
 
   "kit_envoi_1" => "Nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.",
   "kit_envoi_2" => "Ces kits contiennent une fiche de procédure de prélèvement, un formulaire de demande d'analyses, des sachets pour les prélèvements, des gants de prélèvement et une enveloppe pré-affranchie.",
-  "kit_envoi_3" => "N'hésitez pas à nous commander pour les proposer aux éleveurs à qui vous conseillez des réaliser des examens coproscopiques. Nous vou sles envoyons gratuitement.",
+  "kit_envoi_3" => "N'hésitez pas à nous commander pour les proposer aux éleveurs à qui vous conseillez des réaliser des examens coproscopiques. Nous vous les envoyons gratuitement.",
 
 ];
