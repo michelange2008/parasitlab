@@ -9,7 +9,7 @@
       <h4>Comment prélever ?</h4>
       <p>Quelque soit l'analyse demandée, il faut prélever des crottes, crottins ou bouses.</p>
       <p>Il est possible de ramasser au sol quand on voit l'animal en train de faire: dans ce cas on est sûr de l'identité et de la fraîcheur.</p>
-      <p>Avec les ruminants, il est préférable de faire le prélèvement directement dans le rectum.</p>
+      <p>Dans la mesure du possible, il est préférable de faire le prélèvement directement dans le rectum.</p>
       <p>Il ne faut en aucun cas ramasser des fèces par-terre si l'on ne sait pas quel animal les a fait et quand&nbsp!</p>
     </div>
 
