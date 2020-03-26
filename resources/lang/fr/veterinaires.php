@@ -8,11 +8,11 @@ return [
 
   "texte_1_1" => "Comme vous le savez, la coproscopie est un examen complémentaire qui vient en appui au diagnostic clinique.",
   "texte_1_2" => "Ce type d’analyse permet de confirmer un diagnostic, et trouve toute sa raison d’être dans une démarche préventive de maîtrise raisonnée du parasitisme.",
-  "texte_1_3" => "Vous pourrez ainsi contrôler l'efficacité des plans de gestions du parasitisme que vous aurez proposés à vos clients, tout en limitant l'impact des traitements sur l'entomofaune.",
+  "texte_1_3" => "Vous pourrez ainsi contrôler l'efficacité des plans de gestion du parasitisme que vous aurez proposés à vos clients, tout en limitant l'impact des traitements sur l'entomofaune.",
 
-  "texte_2_1" => "Pendant plus de 40 ans, la gestion du parasitisme a reposé sur un usage systématique d'anthelminthiques appliqués à l'ensemble du troupeau.
+  "texte_2_1" => "Pendant plus de 40 ans, la gestion du parasitisme a reposé sur un usage systématique d'anthelminthiques, souvent appliqués à l'ensemble du troupeau.
     Ces pratiques ont provoqué une pression de sélection intense aboutissant à l'apparition de résistances d'abord vis-à-vis des benzimidazoles.",
-  "texte_2_2" => "Enn France, les premiers exemples de résistances aux lactones macrocycliques ont été mis en évidence récemment.",
+  "texte_2_2" => "En France, les premiers cas de résistances aux lactones macrocycliques ont été mis en évidence récemment.",
   "texte_2_3" => "Le recours à des examens coproscopiques précis, par lots d'animaux, vous permettra de proposer des traitements ciblés qui limiteront l'apparition de résistances.",
 
   "pl_propose" => " vous propose non seulement les analyses parasitologiques classiques",
