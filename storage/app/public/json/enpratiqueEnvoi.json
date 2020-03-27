@@ -3,11 +3,11 @@
     "icone" : "pack-envoi-vide.svg",
     "h4" : "Un moyen simple pour envoyer vos prélèvements",
     "p1" : "Le kit d'envoi est constitué d'une enveloppe préaffranchie, de trois sachets plastiques et d'un formulaire papier.",
-    "p2" : "Il est facturé 4,50€ en plus du coût de l'analyse.",
+    "p2" : "Il est facturé 9,00€ en plus du coût de l'analyse.",
     "p3" : "",
     "libelle" : "Demandez un pack pré-affranchi",
-    "type" : "mail",
-    "mail" : "contact@parasitlab.org"
+    "type" : "route",
+    "route" : "envoiPack"
   },
   "vierge" : {
     "icone" : "formulaire_vierge.svg",

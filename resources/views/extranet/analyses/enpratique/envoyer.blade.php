@@ -8,7 +8,7 @@
 
   <ul class="list-unstyled">
 
-    @foreach ($enpratiqueConserve as $element)
+    @foreach ($enpratiqueConserve as $element) {{-- enpratiqueConserve.json --}}
 
       <li class="media my-3">
 
@@ -53,7 +53,7 @@
 
     <div class="card-deck">
 
-      @foreach ($enpratiqueEnvoi as $element)
+      @foreach ($enpratiqueEnvoi as $element) {{-- enpratiqueEnvoi.json --}}
 
 
           <div class="card bg-rouge-tres-clair mb-3" style="min-width:300px">
