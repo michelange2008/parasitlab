@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
-
+use Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests\FormulaireDemande;
 use App\Http\Requests\FormulaireEnvoiPack;
@@ -156,7 +156,13 @@ class ExtranetDemandeController extends Controller
        */
        public function envoiPack()
        {
-         $personne = (isset(auth()->user()->veto)) ? auth()->user()->veto : auth()->user()->eleveur;
+         $personne = "";
+
+         if(auth()->user()) {
+
+           $personne = (isset(auth()->user()->veto)) ? auth()->user()->veto : auth()->user()->eleveur;
+
+         }
 
          $cout_pack = Anaacte::select('pu_ht')->where('abbreviation', 'kit envoi')->first()->pu_ht;
 
@@ -177,7 +183,9 @@ class ExtranetDemandeController extends Controller
 
          $demande = $request->validated();
 
-         Mail::to(config('mail')['from']['address'])->send(new EnvoiPack($demande));
+         $mail = Mail::to(config('mail')['from']['address'])->send(new EnvoiPack($demande));
+
+         return view('extranet.analyses.enpratique.envoiPackOk');
 
        }
 

@@ -20,7 +20,8 @@ class EnvoiPack extends Mailable
      */
     public function __construct($demande)
     {
-        $this->$demande = $demande;
+        $this->demande = $demande;
+
     }
 
     /**
@@ -30,7 +31,7 @@ class EnvoiPack extends Mailable
      */
     public function build()
     {
-        return $this->from($demande->email)
+        return $this->from($this->demande['email'])
           ->subject("Demande de pack d'envoi")
           ->view('mails.envoiPackMail')
           ->with(['demande' => $this->demande]);
