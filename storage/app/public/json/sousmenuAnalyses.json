@@ -14,7 +14,7 @@
       "choisir" :
       {
         "type" : "route",
-        "route" : "choisir",
+        "route" : "analyses.choisir",
         "icone" : "choisir.svg",
         "intitule" : "Choisir"
       },

@@ -68,6 +68,19 @@ class ExtranetController extends Controller
       // $anaactes = Anaacte::where
     }
 
+    public function formulairePdf()
+    {
+      // Vous voulez afficher un pdf
+      header('Content-type: application/pdf');
+
+      // Il sera nommé demande_analyse_parasito.pdf
+      header('Content-Disposition: attachment; filename="demande_analyse_parasito.pdf"');
+
+      // Le source du PDF original.pdf
+      readfile('storage/pdf/formulaire_vierge.pdf');
+      // return view('extranet.analyses.enpratique.formulairePdf');
+    }
+
 
     public function analyses()
     {

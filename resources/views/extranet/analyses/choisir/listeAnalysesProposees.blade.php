@@ -21,7 +21,7 @@
     @include('fragments.bouton', [
       'type' => 'link',
       'target' => '_self',
-      'lien' => url('/choisir/'.$espece->id.'/'.$anatype->id),
+      'lien' => url('/analyses/choisir/'.$espece->id.'/'.$anatype->id),
       'intitule' => "Remplir le formulaire",
       'fa' => 'fas fa-pen',
       'couleur' => 'btn-secondary'])

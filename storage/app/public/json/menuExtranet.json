@@ -4,6 +4,33 @@
 		"tooltip": "Retour à l'accueil",
 		"route": "accueil"
 	},
+	"express" : {
+		"nom" : "Express",
+		"tooltip" : "Si vous êtes pressés !",
+		"route" : "accueil",
+		"sousmenu" : {
+			"tarifs" : {
+				"nom" : "Analyses et tarifs",
+				"tooltip" : "Liste de analyses proposées et des tarifs",
+				"route" : "analyses.tarifs"
+			},
+			"telFormulaire" : {
+				"nom" : "Télécharger un formulaire vierge",
+				"tooltip" : "Télécharger un formulaire vierge au format pdf",
+				"route" : "analyses.formulairePdf"
+			},
+			"ligneFormulaire" : {
+				"nom" : "Remplir un formulaire en ligne",
+				"tooltip" : "Remplir un formulaire en ligne et l'imprimer ensuite",
+				"route" : "analyses.choisir"
+			},
+			"envoiPack" : {
+				"nom" : "Demander des pack d'envoi",
+				"tooltip" : "Ces packs d'envois sont préafranchis et vous permettront une expédition sûre de vos prélèvements",
+				"route" : "envoiPack"
+			}
+		}
+	},
 	"analyses": {
 		"nom": "Analyses",
 		"tooltip": "Toutes les analyses que nous proposons",
@@ -11,31 +38,26 @@
 		"sousmenu": {
 			"commencer": {
 				"nom": "Pour commencer...",
-
 				"tooltip": "Commençons par le commencement",
 				"route": "analyses"
 			},
 			"connaître": {
 				"nom": "Pourquoi des coproscopies ?",
-
 				"tooltip": "Qu'est-ce qu'une coproscopie ?",
 				"route": "coproscopies"
 			},
 			"choisir": {
 				"nom": "Choisir une analyse",
-
 				"tooltip": "Quel analyse, pour quel objectif ?",
-				"route": "choisir"
+				"route": "analyses.choisir"
 			},
 			"pratique": {
 				"nom": "Prélever, envoyer",
-
 				"tooltip": "Comment faire pour ...",
 				"route": "enpratique"
 			},
 			"interpreter": {
 				"nom": "Comment interpréter ?",
-
 				"tooltip": "Comment faire pour ...",
 				"route": "interpreter"
 			}

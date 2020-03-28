@@ -31,7 +31,7 @@ miseAJourAnaacte();
 function miseAJourAnaacte() {
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
-
+console.log(url_actuelle);
   var regex = new RegExp('choisir/[0-9]\/[0-9]');
 
   var option_selected = $('#select_anatype option:selected').attr('value');

@@ -41,4 +41,32 @@ trait UserTypeOutil {
   {
     return UserType::where('route', 'laboratoire')->first();
   }
+
+  public function personne()
+  {
+
+    if(auth()->user() !== null) {
+
+      switch (auth()->user()->usertype->route) {
+        case 'laboratoire':
+          $personne = auth()->user()->labo;
+          break;
+
+        case 'eleveur':
+          $personne = auth()->user()->eleveur;
+          break;
+
+        case 'veterinaire':
+          $personne = auth()->user()->veto;
+          break;
+
+        default:
+          $personne = '';
+          break;
+      }
+
+      return $personne;
+
+    }
+  }
 }

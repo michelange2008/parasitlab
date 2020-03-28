@@ -47,13 +47,17 @@ Route::resource('blog', 'Technique\BlogController')->except('store', 'edit', 'cr
 
 Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']); // correspond au menu "pour commencer"
 
+Route::get('/analyses/tarifs', ['uses' => 'ExtranetController@tarifs', 'as' => 'analyses.tarifs']);
+
+Route::get('/analyses/formulairePdf', ['uses' => 'ExtranetController@formulairePdf', 'as' => 'analyses.formulairePdf']);
+
 Route::get('/enpratique', ['uses' => 'Technique\CoproscopiesController@enpratique', 'as' => 'enpratique']);
 
-Route::get('/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'choisir']);
+Route::get('/analyses/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'analyses.choisir']);
 
-Route::get('/choisir/{espece}/{anatype}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'formulaireDemande']);
+Route::get('/analyses/choisir/{espece}/{anatype}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'analyses.formulaireDemande']);
 
-Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'formulaireStore']);
+Route::post('/analyses/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'analyses.formulaireStore']);
 
 Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
 
@@ -61,9 +65,9 @@ Route::get('envoiPack', ['uses' => 'ExtranetDemandeController@envoiPack', 'as' =
 
 Route::post('envoiPackStore', ['uses' => 'ExtranetDemandeController@envoiPackStore', 'as' => "envoiPackStore"]);
 
-Route::get('/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
+Route::get('/analyses/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
 
-Route::get('/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
+Route::get('/analyses/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
 
 //##############################################################################
 // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES
