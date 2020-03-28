@@ -57,6 +57,10 @@ Route::post('/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@
 
 Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
 
+Route::get('envoiPack', ['uses' => 'ExtranetDemandeController@envoiPack', 'as' => "envoiPack"]);
+
+Route::post('envoiPackStore', ['uses' => 'ExtranetDemandeController@envoiPackStore', 'as' => "envoiPackStore"]);
+
 Route::get('/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
 
 Route::get('/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);

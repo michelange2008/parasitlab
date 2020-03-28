@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use DB;
-
+use Mail;
 use Illuminate\Http\Request;
 use App\Http\Requests\FormulaireDemande;
+use App\Http\Requests\FormulaireEnvoiPack;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\FormatDate;
+
+use Illuminate\Mail\Mailer;
+use App\Mail\EnvoiPack;
 
 use App\User;
 use App\Models\Analyses\Anapack;
@@ -74,7 +78,6 @@ class ExtranetDemandeController extends Controller
       */
 
       public function formulaireStore(FormulaireDemande $request)
-      // public function formulaireStore(Request $request)
       {
         $datas = $request->validated();
         // dd($datas);
@@ -136,10 +139,8 @@ class ExtranetDemandeController extends Controller
                 }
 
               }
-              // dd($prelevement);
               $prelevements->push($prelevement);
         }
-// dd($prelevements);
         $demande->prelevements = $prelevements;
         $demande->user = $user;
         $demande->eleveur = $eleveur;
@@ -149,6 +150,46 @@ class ExtranetDemandeController extends Controller
         return redirect()->route('formulaire');
 
        }
+
+       /*
+       * Page de formulaire de demande d'envoi d'un pack
+       */
+       public function envoiPack()
+       {
+         $personne = "";
+
+         if(auth()->user()) {
+
+           $personne = (isset(auth()->user()->veto)) ? auth()->user()->veto : auth()->user()->eleveur;
+
+         }
+
+         $cout_pack = Anaacte::select('pu_ht')->where('abbreviation', 'kit envoi')->first()->pu_ht;
+
+         return view('extranet.analyses.enpratique.envoiPack', [
+           'menu' => $this->menu,
+           'pays' => $this->litJson('pays'),
+           'user' => auth()->user(),
+           'personne' => $personne,
+           'cout_pack' => $cout_pack,
+         ]);
+       }
+
+       /*
+       * Récupération des données du formulaire ci-dessus
+       */
+       public function envoiPackStore(FormulaireEnvoiPack $request)
+       {
+
+         $demande = $request->validated();
+
+         $mail = Mail::to(config('mail')['from']['address'])->send(new EnvoiPack($demande));
+
+         return view('extranet.analyses.enpratique.envoiPackOk');
+
+       }
+
+
 // DEUX METHODES POUR RECUPERER DES DONNES PAR AJAX (choisir.js)
 // Pour avoir les anatypes qui correspondent à une espece donnee
        public function anatypeSelonEspece($espece_id)

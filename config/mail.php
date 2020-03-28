@@ -29,7 +29,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'host' => env('MAIL_HOST'),
+=======
+    'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
+>>>>>>> 936fc16edeb4f9e800b6cdba9cc7563c159fcee6
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +75,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', null),
 
     /*
     |--------------------------------------------------------------------------
