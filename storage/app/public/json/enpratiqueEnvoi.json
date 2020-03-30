@@ -27,6 +27,6 @@
     "p3" : "Le formulaire sera prérempli.",
     "libelle" : "Remplissez le formulaire en ligne",
     "type" : "route",
-    "route" : "choisir"
+    "route" : "analyses.choisir"
   }
 }

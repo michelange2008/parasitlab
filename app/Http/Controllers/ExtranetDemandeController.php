@@ -68,6 +68,7 @@ class ExtranetDemandeController extends Controller
           'signes' => Signe::all(),
           'estParasite' => $estParasite,
           'user' => $user,
+          'personne' => $this->personne(),
           'pays' => $pays,
         ]);
       }
@@ -156,13 +157,6 @@ class ExtranetDemandeController extends Controller
        */
        public function envoiPack()
        {
-         $personne = "";
-
-         if(auth()->user()) {
-
-           $personne = (isset(auth()->user()->veto)) ? auth()->user()->veto : auth()->user()->eleveur;
-
-         }
 
          $cout_pack = Anaacte::select('pu_ht')->where('abbreviation', 'kit envoi')->first()->pu_ht;
 
@@ -170,7 +164,7 @@ class ExtranetDemandeController extends Controller
            'menu' => $this->menu,
            'pays' => $this->litJson('pays'),
            'user' => auth()->user(),
-           'personne' => $personne,
+           'personne' => $this->personne(),
            'cout_pack' => $cout_pack,
          ]);
        }

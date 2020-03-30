@@ -17,6 +17,7 @@
         "laravel/helpers": "^1.1",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^6.0",
+        "mcamara/laravel-localization": "^1.5",
         "nesbot/carbon": "^2.28",
         "spatie/laravel-cookie-consent": "^2.11"
     },

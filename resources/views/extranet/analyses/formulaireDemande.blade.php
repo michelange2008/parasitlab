@@ -10,7 +10,7 @@
 
       <div class="mx-auto col-md-10 col-lg-8">
 
-        @include('fragments.titre', ['titre' => "Création d'un formulaire de demande d'analyse", "icone" => "modifier.svg"])
+        @include('fragments.titre', ['titre' => __('titres.formulaireDemande'), "icone" => "modifier.svg"])
 
       </div>
 
@@ -29,7 +29,7 @@
 
     </div>
 
-    <form class="form" novalidate action="{{ route('formulaireStore') }}" method="post">
+    <form class="form" novalidate action="{{ route('analyses.formulaireStore') }}" method="post">
 
       <div class="row">
 

@@ -6,18 +6,21 @@ namespace App\Http\Controllers;
 * Controller destiné à gérer tout ce qui est public
 */
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Analyses\Anatype;
+use App\Models\Analyses\Anaacte;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\TelechargePdf;
 
 class ExtranetController extends Controller
 {
 
-    use LitJson;
+    use LitJson, TelechargePdf;
 
     protected $menu;
 
@@ -65,7 +68,25 @@ class ExtranetController extends Controller
 
     public function tarifs()
     {
-      // $anaactes = Anaacte::where
+
+      return view('extranet.analyses.tarifs', [
+        'menu' => $this->menu,
+        'anaactes' => Anaacte::all(),
+        'anatypes' => Anatype::all(),
+        'date' => Carbon::now()->year,
+      ]);
+    }
+
+    public function tarifsPdf()
+    {
+      $this->telechargePdf('tarifs', 'tarifs_parasitlab');
+    }
+
+    public function formulairePdf()
+    {
+
+      $this->telechargePdf('formulaire_vierge', 'demande_analyse_parasito');
+
     }
 
 

@@ -1,7 +1,7 @@
 {
   "questcequecest" :
   {
-    "image" :"examens_0.jpg",
+    "image" :"examens_2.jpg",
     "titre" : "Une évaluation de l'infestation",
     "texte" :
     {
@@ -23,7 +23,7 @@
   },
   "nonvalide" :
   {
-    "image" :"examens_2.jpg",
+    "image" :"examens_0.jpg",
     "titre" : "Valable pour certains parasites",
     "texte" :
     {

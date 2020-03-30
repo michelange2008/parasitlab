@@ -1,4 +1,4 @@
-<label class="col-form-label" for="address_1">Adresse</label>
+<label class="col-form-label" for="address_1">{!! ucfirst(__('form.address_1'))!!}</label>
 
 <div class="my-2 form-row">
 
@@ -10,7 +10,7 @@
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" name="address_1"  placeholder="adresse" value="{{ old('address_1') }}" required>
+      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" name="address_1"  placeholder="@lang('form.address_1')" value="{{ old('address_1') }}" required>
 
     @endisset
 
@@ -29,14 +29,14 @@
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control" type="text" name="address_2" placeholder="complément d'adresse" value="{{ old('address_2') }}">
+      <input class="form-control" type="text" name="address_2" placeholder="@lang('form.address_2')" value="{{ old('address_2') }}">
 
     @endif
 
   </div>
 
   @error('address_2')
-      <div class="invalid">Ce champs est facultatif mais ne doit contenir que des lettres et de chiffres</div>
+      <div class="invalid">@lang('form.champs_obligatoire_lettres_chiffres')</div>
   @enderror
 
 </div>
@@ -48,36 +48,36 @@
 
     @isset ($personne->cp) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="cp" value="{{ $personne->cp ?? old('cp') }}">
+      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="@lang('form.cp')" value="{{ $personne->cp ?? old('cp') }}">
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="cp" placeholder="code postal" required value="{{ old('cp') }}">
+      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="cp" placeholder="@lang('form.cp')" required value="{{ old('cp') }}">
 
     @endisset
 
   </div>
 
   @error ('cp')
-    <div class="invalid">Ce champs est obligatoire et ne doit contenir que des chiffres</div>
+    <div class="invalid">@lang('form.champs_obligatoire_chiffres')</div>
   @enderror
 
   <div class="col-sm-8">
 
     @isset ($personne->commune) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" name="commune" value="{{ $personne->commune ?? old('commune') }}">
+      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" name="@lang('commune')" value="{{ $personne->commune ?? old('commune') }}">
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" name="commune" placeholder="commune" required value="{{ old('commune') }}">
+      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" name="@lang('commune')" placeholder="commune" required value="{{ old('commune') }}">
 
     @endisset
 
   </div>
 
   @error ('commune')
-    <div class="invalid">Ce chmaps est obligatoire et ne doit comporter que des lettres</div>
+    <div class="invalid">@lang('form.champs_obligatoire_lettres')</div>
   @enderror
 
 </div>

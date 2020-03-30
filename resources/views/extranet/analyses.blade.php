@@ -25,7 +25,7 @@
             'titre' => 'Quelle analyse choisir&nbsp?',
             'texte_1' => "Différentes analyses parasitologiques sont possibles en fonction de vos objectifs et de vos animaux",
             'texte_2' =>  "Il peut s'agir d'une simple coproscopie, d'un suivi, d'un test de résistance, etc.",
-            'route' => 'choisir',
+            'route' => 'analyses.choisir',
           ])
 
           @include('extranet.analyses.carte', [
