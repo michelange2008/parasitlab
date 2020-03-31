@@ -26,6 +26,10 @@
 
         <input class="form-control" type="checkbox" name="signataire" checked>
 
+      @else
+
+        <input class="form-control" type="checkbox" name="signataire">
+
       @endif
 
     @else

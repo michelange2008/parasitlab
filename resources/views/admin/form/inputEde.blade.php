@@ -1,4 +1,4 @@
-  <label class="col-form-label" for="num">N° de cheptel</label>
+  <label class="col-form-label" for="num">{{ ucfirst(__('form.farm_id'))}}</label>
 
   @isset($user)
 

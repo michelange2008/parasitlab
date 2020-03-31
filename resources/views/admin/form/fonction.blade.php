@@ -1,4 +1,1 @@
-
-
-
-      @include('admin.form.inputFonction')
+@include('admin.form.inputFonction')

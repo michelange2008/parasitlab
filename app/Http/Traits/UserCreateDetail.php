@@ -17,9 +17,24 @@ trait UserCreateDetail
 
     $nouveau_labo = Labo::firstOrNew(['user_id' => $user_id]);
 
-    $photo = (isset($datas['photo'])) ? $datas['photo'] : 'default.jpg';
+    $photo = 'default.jpg'; // Par défaut la photo default.jpg
 
-    $signature = (isset($datas['imageSignature'])) ? $datas['imageSignature'] : 'zeroSignature.png';
+    if (isset($datas['photo'])) { // Mais si un fichier a été téléchargé,
+      // code...
+      $datas['photo']->store('public/img/labo/photos'); // On l'enregistre
+
+      $photo = $datas['photo']->hashname(); // et la photo prend le nom du fichier téléchargé
+    }
+
+    $signature = 'default.svg';
+
+    if (isset($datas['imageSignature'])) {
+
+      $datas['imageSignature']->store('public/img/labo/signatures');
+
+      $signature = $datas['imageSignature']->hashname();
+
+    }
 
     $fonction = (isset($datas['fonction'])) ? $datas['fonction'] : "";
 
