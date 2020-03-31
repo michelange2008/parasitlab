@@ -12,7 +12,7 @@ trait TelechargePdf
     header('Content-type: application/pdf');
 
     // Il sera nommé demande_analyse_parasito.pdf
-    header('Content-Disposition: attachment; filename='.$nom);
+    header('Content-Disposition: attachment; filename='.$nom.'.pdf');
 
     // Le source du PDF original.pdf
     readfile('storage/pdf/'.$fichier.'.pdf');
