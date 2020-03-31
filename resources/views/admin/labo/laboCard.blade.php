@@ -24,6 +24,8 @@
       'couleur' => 'btn-bleu',
       ])
 
+      @include('fragments.boutonAnnule')
+
   </div>
 
 </div>

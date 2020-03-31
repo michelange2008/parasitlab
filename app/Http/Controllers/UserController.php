@@ -82,14 +82,11 @@ class UserController extends Controller
     {
 
       $datas = $request->all();
-
       $nouvel_user = new User();
 
-      $mdp = str_random(8);
 
       $nouvel_user->name = $datas['name'];
       $nouvel_user->email = $datas['email'];
-      $nouvel_user->password = bcrypt($mdp);
 
       if(isset($datas['usertype'])) { // cas de la création d'un utilisateur indéterminé au départ
 
@@ -107,7 +104,6 @@ class UserController extends Controller
 
       session([
         'nouvel_user' => $nouvel_user,
-        'user_token' => $mdp,
       ]);
       // RENVOI DES INFORMATIONS POUR LA REQUETE ajax cf. create.js
       return ['usertype' => $nouvel_user->usertype];

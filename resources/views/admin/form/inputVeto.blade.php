@@ -1,4 +1,4 @@
-<label class="col-form-label" for="veto">Vétérinaire</label>
+<label class="col-form-label" for="veto">{!! ucfirst(__('form.vet')) !!}</label>
 
 <div class="my-2 form-row">
 
@@ -15,9 +15,9 @@
 
       @endisset
 
-      <option value=null>Aucun vétérinaire</option>
+      <option value=null>@lang('form.no_vet')</option>
 
-      <option value="0">Nouveau vétérinaire</option>
+      <option value="0">@lang('form.new_vet')</option>
 
       @foreach ($vetos as $veto)
 
