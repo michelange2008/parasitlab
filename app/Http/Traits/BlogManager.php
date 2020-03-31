@@ -9,17 +9,7 @@ use App\Models\Parasitisme\Motclef;
 trait BlogManager
 {
 
-  //Elimine les images quand on modifie une image ou qu'on supprime un article
-  function supprImage($image)
-  {
 
-    if(file_exists('storage/img/blog/'.$image)) {
-
-      unlink('storage/img/blog/'.$image);
-
-    }
-
-  }
 
 // Elimine les mots clefs qui n'ont plus d'article
   public function supprMotclefsOrphelins()

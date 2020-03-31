@@ -197,7 +197,7 @@ class UserController extends Controller
                   'usertype_id' => $datas['usertype_id'],
                 ]);
 
-        $this->userUpdateDetail($user, $datas);
+        $this->userUpdateDetail($user, $datas); // On met à jour les infos spécifiques à l'utilisateur via le trait
 
         if($this->estEleveur($datas['usertype_id']) && $datas['veto_id'] === "0") // s'il faut créer un nouveau veto
         {
@@ -228,7 +228,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
         User::destroy($id);
 
         return redirect()->route('user.index')->with('status', 'Cet utilisateur a été supprimé');

@@ -4,6 +4,7 @@ namespace App\Http\Traits;
 use DB;
 
 use App\Models\Icone;
+use App\Http\Traits\ImagesManager;
 
 /**
  * ISSU DE App\Http\Controllers\UserController@update
@@ -11,6 +12,8 @@ use App\Models\Icone;
  */
 trait UserUpdateDetail
 {
+  use ImagesManager;
+
   function userUpdateDetail($user, $datas)
   {
 
@@ -70,27 +73,31 @@ trait UserUpdateDetail
   public function laboUpdateDetail($user, $datas)
   {
 
-    if(isset($datas['photo']))
-    {
-      $datas['photo']->store('public/img/labo/photos');
 
-      DB::table('labos')->where('user_id', $user->id)
+    if(isset($datas['photo'])) // Si une photo a été choisie
+    {
+
+      if ($user->labo->photo != "default.jpg")  //Et que l'utilisateur a déjà une photo
+      {
+        $this->supprImage('storage/img/labo/photos/'.$user->labo->photo); // On supprime l'ancienne photo
+      }
+
+      $datas['photo']->store('public/img/labo/photos'); // On l'enregistre
+
+      DB::table('labos')->where('user_id', $user->id) // Et on met à jour les infos dans la base de donnee
       ->Update([
         'user_id' => $user->id,
         'photo' => $datas['photo']->hashName(),
       ]);
-    } else {
-
-      DB::table('labos')->where('user_id', $user->id)
-      ->Update([
-        'user_id' => $user->id,
-        'photo' => 'default.jpg',
-      ]);
-
     }
 
     if(isset($datas['imageSignature']))
     {
+      if($user->labo->signature != "default.svg")
+      {
+        $this->supprImage('storage/img/labo/signatures/'.$user->labo->signature);
+      }
+
       $datas['imageSignature']->store('public/img/labo/signatures');
 
       DB::table('labos')->where('user_id', $user->id)
@@ -110,6 +117,25 @@ trait UserUpdateDetail
       ]);
 
     }
+
+    if(isset($datas['signataire'])) {
+
+      DB::table('labos')->where('user_id', $user->id)
+      ->Update([
+        'user_id' => $user->id,
+        'est_signataire' => true,
+      ]);
+
+    } else {
+
+      DB::table('labos')->where('user_id', $user->id)
+      ->Update([
+        'user_id' => $user->id,
+        'est_signataire' => false,
+      ]);
+
+    }
+
 
     return redirect()->route('laboAdmin.index');
   }

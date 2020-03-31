@@ -1,4 +1,4 @@
-<label class="col-form-label" for="ede">N° d'inscription à l'Ordre</label>
+<label class="col-form-label" for="ede">@lang('form.vet_id')</label>
 
 <div class="input-group col-md-6">
 
@@ -8,7 +8,7 @@
 
   @else
 
-    <input class="my-2 form-control" type="text" name="num" placeholder="numéro à l'Ordre Vétérinaire">
+    <input class="my-2 form-control" type="text" name="num" placeholder="@lang('form.vet_id')">
 
   @endisset
 

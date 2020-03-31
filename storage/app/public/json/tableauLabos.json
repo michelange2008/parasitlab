@@ -32,6 +32,12 @@
       "align" : "left",
       "sortable" : false
     },
+    "est_signataire" : {
+      "id" : "est_signataire",
+      "nom" : "signataire",
+      "align" : "center",
+      "sortable" : false
+    },
     "modifier" : {
       "id" : "modifier",
       "nom" : "modifier",

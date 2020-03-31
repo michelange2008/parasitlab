@@ -15,6 +15,7 @@ return [
   "no_vet" => "Aucun vétérinaire",
   "new_vet" => "Nouveau vétérinaire",
   "farm_id" => "numéro de cheptel",
+  "vet_id" => "N° d'inscription à l'Ordre",
 
   "photo" => "photo",
   "sign" => "signature",

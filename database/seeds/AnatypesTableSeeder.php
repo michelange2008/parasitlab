@@ -16,14 +16,14 @@ class AnatypesTableSeeder extends Seeder
             'id' => 1,
             'abbreviation' => "SGI",
             'nom' => "strongles gastro-intestinaux + coccidies + moniezia",
-            'technique' => 'méthode quantitative Mac-Master - NaCl',
+            'technique' => 'méthode quantitative McMaster - NaCl',
             'icone_id' => 9,
           ],
           [
             'id' => 2,
             'abbreviation' => "SGI + DICR",
             'nom' => "strongles gastro-intestinaux + petite douve",
-            'technique' => 'méthode quantitative Mac-Master - ZnCl2',
+            'technique' => 'méthode quantitative McMaster - ZnCl2',
             'icone_id' => 32,
           ],
           [
@@ -51,7 +51,7 @@ class AnatypesTableSeeder extends Seeder
             'id' => 6,
             'abbreviation' => "RESIST",
             'nom' => "test d'efficacité de produits vermifuges",
-            'technique' => 'méthode quantitative Mac-Master - NaCl',
+            'technique' => 'méthode quantitative McMaster - NaCl',
             'icone_id' => 23,
           ],
         ]);

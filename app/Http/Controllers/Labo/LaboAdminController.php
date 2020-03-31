@@ -16,6 +16,7 @@ use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\UserUpdateDetail;
 use App\Http\Traits\UserCreateDetail;
+use App\Http\Traits\ImagesManager;
 
 /**
 * Controller destiné à gérer tout ce qui a trait à l'administration du site
@@ -25,7 +26,7 @@ use App\Http\Traits\UserCreateDetail;
 class LaboAdminController extends Controller
 {
 
-  use LitJson, UserTypeOutil, UserUpdateDetail, UserCreateDetail;
+  use LitJson, UserTypeOutil, UserUpdateDetail, UserCreateDetail, ImagesManager;
 
   protected $menu;
   /**
@@ -138,7 +139,7 @@ class LaboAdminController extends Controller
       $user = User::where('id', $id)->first();
 
       //STOCKE EN SESSION L'ADRESSE DE RETOUR APRÈS LA MODIFICATION DE L'UTILISATEUR
-      session(['route_retour' => 'laboAdmin.show']);
+      session(['route_retour' => 'laboAdmin.index']);
 
       return view('admin.labo.laboEdit', [
         'menu' => $this->menu,
@@ -168,6 +169,24 @@ class LaboAdminController extends Controller
    */
   public function destroy($id)
   {
+      $user = User::find($id);
+
+      // Suppression de la photo et de la signature quand on supprime un utilisateur laboratoire
+      if($user->usertype->id == $this->userTypeLabo()->id)
+      {
+        if($user->labo->photo !== 'default.jpg')
+        {
+          $this->supprImage('storage/img/labo/photos/'.$user->labo->photo); // Trait ImagesManager
+        }
+
+        if($user->labo->signature !== 'default.svg')
+        {
+          $this->supprImage('storage/img/labo/signatures/'.$user->labo->signature);
+
+        }
+
+      }
+
       User::destroy($id);
 
       return redirect()->route('laboAdmin.index')->with('message', 'user_suppr' );

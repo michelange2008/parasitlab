@@ -3,6 +3,9 @@ namespace App\Http\Controllers\Labo;
 
 use DB;
 use Illuminate\Http\Request;
+use Mail;
+use Illuminate\Mail\Mailer;
+use App\Mail\EnvoiInfosConnexion;
 use App\Http\Controllers\Controller;
 use App\Fournisseurs\ListeVetosFournisseur;
 use App\Fournisseurs\ListeDemandesVetoFournisseur;
@@ -84,8 +87,20 @@ class VetoAdminController extends Controller
         // Le nouvel utilisateur créer n'est pas encore enregistré
         // (méthode pour éviter de créer un user sans les users spécifiques (labo, veto, éleveur)
         // si le formulaire n'est pas rempli juqu'au bout)
+
         // On le récupère par la variable de session.
         $nouvel_user = session('nouvel_user');
+
+        // On crée le mot de passe (maintenant et non dans UserController pour ne pas pas avoir à le stoker en session)
+        $mdp = str_random(8);
+        $nouvel_user->password = $mdp; // On stocke d'abord le mdp sous bcrypt pour pouvoir l'envoyer par mail
+
+        //Envoyer au nouvel utilisateur ses identifants de connexion
+        $mail = Mail::to($nouvel_user->email)->send(new EnvoiInfosConnexion($nouvel_user));
+
+        // Puis on crypte le mdp avant de la stocker en base de donnée
+        $nouvel_user->password = bcrypt($mdp);
+
         // Et on l'enregistre
         $nouvel_user->save();
 
@@ -192,6 +207,8 @@ class VetoAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        return redirect()->route('vetoAdmin.index')->with('message', 'user_suppr');
     }
 }

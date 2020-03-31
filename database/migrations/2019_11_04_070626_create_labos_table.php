@@ -21,7 +21,7 @@ class CreateLabosTable extends Migration
 
           $table->string('signature', 50)->default('signature.jpg');
 
-          $table->string('photo')->nullable();
+          $table->string('photo')->default('default.jpg');
 
           $table->string('fonction', 191)->default('travailleur');
 

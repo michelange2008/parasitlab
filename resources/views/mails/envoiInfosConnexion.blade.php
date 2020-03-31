@@ -1,35 +1,41 @@
-<h4>{{ __('Hello!') }}</h4>
+@extends('layouts.mail')
 
-<p>@lang('mails.envoiInfosConnexion.intro')</p>
+@section('content')
 
-<div class="">
+  <h4>{{ __('Hello!') }}</h4>
 
-  <a href="{{ url('login') }}">
+  <p>@lang('mails.envoiInfosConnexion.intro')</p>
 
-    <img class="img-90" src="{{ url('storage/logo.svg') }}" alt="Parasit'Lab">
+  <div class="">
 
-  </a>
+    <a href="{{ url('login') }}">
 
-</div>
-<hr class="divider">
-<h3>Identifiants de connexion</h3>
-<ul>
+      <img class="img-90" src="{{ url('storage/logo.svg') }}" alt="Parasit'Lab">
 
-  <li>Login&nbsp;:&nbsp;{{ $user->email }}</li>
-  <li>{{ __('Password') }}&nbsp;:&nbsp;{{ $user->password }}</li>
-</ul>
-<hr class="divider">
-<p>@lang('mails.envoiInfosConnexion.warning_mdp')</p>
+    </a>
 
-<p>
-  @lang('mails.envoiInfosConnexion.how_reset_mdp')
+  </div>
+  <hr class="divider">
+  <h3>Identifiants de connexion</h3>
+  <ul>
 
-  <a href="{{ url('password/reset') }}">{{ __('Reset Password') }}</a>
+    <li>Login&nbsp;:&nbsp;{{ $user->email }}</li>
+    <li>{{ __('Password') }}&nbsp;:&nbsp;{{ $user->password }}</li>
+  </ul>
+  <hr class="divider">
+  <p>@lang('mails.envoiInfosConnexion.warning_mdp')</p>
 
-</p>
+  <p>
+    @lang('mails.envoiInfosConnexion.how_reset_mdp')
 
-<p>@lang('commun.contact_us'){{ config('laboInfos.email_contact') }}</p>
-<br>
-<p>@lang('commun.cordialement'),</p>
-<br>
-<p class="font-weight-bold">@lang('commun.fibl_team')</p>
+    <a class="btn" href="{{ url('password/reset') }}">{{ __('Reset Password') }}</a>
+
+  </p>
+
+  <p>@lang('commun.contact_us'){{ config('laboInfos.email_contact') }}</p>
+  <br>
+  <p>@lang('commun.cordialement'),</p>
+  <br>
+  <p class="font-weight-bold">@lang('commun.fibl_team')</p>
+
+@endsection

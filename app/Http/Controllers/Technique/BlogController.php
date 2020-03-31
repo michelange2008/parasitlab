@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\URL;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\BlogManager;
+use App\Http\Traits\ImagesManager;
 use App\Http\Traits\FormatDate;
 
 use App\User;
@@ -18,7 +19,7 @@ use App\Models\Parasitisme\Motclef;
 
 class BlogController extends Controller
 {
-    use LitJson, UserTypeOutil, BlogManager, FormatDate;
+    use LitJson, UserTypeOutil, BlogManager, ImagesManager, FormatDate;
 
     protected $menu;
 
@@ -163,7 +164,7 @@ class BlogController extends Controller
       // Suppression du fichier image si celle-ci est changée
       if($nouvelle_image) {
 
-        $this->supprImage($blog->image);
+        $this->supprImage('storage/img/blog/'.$blog->image);
 
       }
 
@@ -184,7 +185,7 @@ class BlogController extends Controller
       $blog = Blog::find($id);
 
       // Supprimer le fichier image TRAIT BLOGMANAGER
-      $this->supprImage($blog->image);
+      $this->supprImage('storage/img/blog/'.$blog->image);
       // supprimer le blog
       Blog::destroy($id);
 

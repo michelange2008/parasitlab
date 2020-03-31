@@ -3,7 +3,7 @@ LA FICHE CORRESPONDANTE
 VARIABLES: id, route, nom -->
 <a href="{{ route($route, $id)}}"
   data-toggle="tooltip" data-placement="top"
-  title="{{ $tooltip ?? "cliquer pour afficher les informations" }}"
+  title="{{ __('tooltips.'.$tooltip) ?? __('tooltips.affiche_infos') }}"
   class="">
   {{ $before ?? ''}}
   {!! $nom !!} {!! $icone ?? '<i class="color-bleu-tres-tres-clair fas fa-eye"></i>' !!}

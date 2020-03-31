@@ -27,6 +27,8 @@ class ListeLabosFournisseur extends ListeFournisseur
 
       $fonction = $this->itemFactory($user->labo->fonction);
 
+      $est_signataire = $this->ouinonFactory($user->id, $user->labo->est_signataire);
+
       $modifier = $this->modifierFactory($user->id, 'user.edit');
 
       if(auth()->user()->id == $user->id) {
@@ -45,6 +47,7 @@ class ListeLabosFournisseur extends ListeFournisseur
         $nom,
         $email,
         $fonction,
+        $est_signataire,
         $modifier,
         $suppr,
       ];
