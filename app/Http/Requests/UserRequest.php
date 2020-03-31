@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|max:191',
-            'email' => 'bail|required|email',
+            'email' => 'bail|required|email|unique:users|max:191',
         ];
     }
 }

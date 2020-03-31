@@ -6,6 +6,6 @@
 
   @else
 
-    <input class="my-2 form-control" type="text" name="num" placeholder="numéro de cheptel">
+    <input class="my-2 form-control" type="text" name="num" placeholder="@lang('form.farm_id')">
 
   @endisset

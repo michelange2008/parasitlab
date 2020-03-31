@@ -3,6 +3,9 @@ namespace App\Http\Controllers\Labo;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Mail;
+use Illuminate\Mail\Mailer;
+use App\Mail\EnvoiInfosConnexion;
 use App\Fournisseurs\ListeLabosFournisseur;
 
 use App\User;
@@ -90,15 +93,24 @@ class LaboAdminController extends Controller
     // si le formulaire n'est pas rempli juqu'au bout)
     // On le récupère par la variable de session.
     $nouvel_user = session('nouvel_user');
+    // On crée le mot de passe (maintenant et non dans UserController pour ne pas pas avoir à le stoker en session)
+    $mdp = str_random(8);
+    $nouvel_user->password = $mdp; // On stocke d'abord le mdp sous bcrypt pour pouvoir l'envoyer par mail
+
+    //Envoyer au nouvel utilisateur ses identifants de connexion
+    $mail = Mail::to($nouvel_user->email)->send(new EnvoiInfosConnexion($nouvel_user));
+
+    // Puis on crypte le mdp avant de la stocker en base de donnée
+    $nouvel_user->password = bcrypt($mdp);
+
     // Et on l'enregistre
     $nouvel_user->save();
 
-    // TODO: Envoyer au nouvel utilisateur ses identifants de connexion
 
     //Puis on fait appel au trait UserCreateDetail pour vérifier et enregistrer le labo correspondant
-    $this->laboCreateDetail($datas, $nouvel_user->id);
+    $this->laboCreateDetail($datas, $nouvel_user->id); // Méthode dans le trait UserCreateDetail
 
-    return redirect()->route('laboAdmin.show', $nouvel_user->id);
+    return redirect()->route('laboAdmin.index');
 
   }
   /**

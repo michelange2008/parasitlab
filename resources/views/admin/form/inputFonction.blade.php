@@ -1,11 +1,39 @@
-  <label class="col-form-label" for="fonction">Fonction:</label>
+<div class="row">
 
-  @isset($user->labo->fonction)
+  <div class="col-md-5">
 
-    <input class="form-control" type="text" name="fonction" value="{{ $user->labo->fonction  ?? old('fonction') }}">
+    <label class="col-form-label" for="fonction">{{ ucfirst(__('form.fonction')) }}&nbsp;:</label>
 
-  @else
+    @isset($user->labo->fonction)
 
-    <input class="form-control" type="text" name="fonction" placeholder="Fonction" value="{{ old('fonction') }}">
+      <input class="form-control" type="text" name="fonction" value="{{ $user->labo->fonction  ?? old('fonction') }}">
 
-  @endisset
+    @else
+
+      <input class="form-control" type="text" name="fonction" placeholder="@lang('form.fonction')" value="{{ old('fonction') }}">
+
+    @endisset
+
+  </div>
+
+  <div class="col-md-5">
+
+    <label class="col-form-label" for="signataire">{{ ucfirst(__('form.signataire')) }}&nbsp;:</label>
+
+    @isset($user->labo->est_signataire)
+
+      @if($user->labo->est_signataire == 1)
+
+        <input class="form-control" type="checkbox" name="signataire" checked>
+
+      @endif
+
+    @else
+
+      <input class="form-control" type="checkbox" name="signataire">
+
+    @endisset
+
+  </div>
+
+</div>

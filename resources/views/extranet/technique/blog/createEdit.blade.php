@@ -76,17 +76,8 @@
 
         <div class="custom-file col-md-8 mb-3">
 
-          <input type="file" class="custom-file-input" name="image" id="image">
-
-          <label class="custom-file-label" for="image">Choisissez une image (type jpg ou png)</label>
-
-
-          @error('image')
-
-            <div class="alert alert-danger">{{ $message }}</div>
-
-          @enderror
-
+          @include('admin.form.inputImage')
+          
         </div>
 
         <div class="form-group">

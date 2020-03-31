@@ -23,11 +23,15 @@ trait UserCreateDetail
 
     $fonction = (isset($datas['fonction'])) ? $datas['fonction'] : "";
 
+    $signataire = (isset($datas['signataire'])) ? true : false;
+
     $nouveau_labo->photo = $photo;
 
     $nouveau_labo->signature = $signature;
 
     $nouveau_labo->fonction = $fonction;
+
+    $nouveau_labo->est_signataire = $signataire;
 
     $nouveau_labo->save();
 

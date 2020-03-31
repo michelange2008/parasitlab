@@ -6,18 +6,18 @@
 
     @isset ($personne->address_1) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" name="address_1" value="{{ $personne->address_1 ?? old('address_1')}}">
+      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1" value="{{ $personne->address_1 ?? old('address_1')}}">
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" name="address_1"  placeholder="@lang('form.address_1')" value="{{ old('address_1') }}" required>
+      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1"  placeholder="@lang('form.address_1')" value="{{ old('address_1') }}" required>
 
     @endisset
 
   </div>
 
   @error('address_1')
-      <div class="invalid">Ce champs est obligatoire et ne doit contenir que des lettres et de chiffres</div>
+      <div class="invalid">@lang('form.champs_obligatoire_lettres_chiffres')/div>
   @enderror
 
 
@@ -25,11 +25,11 @@
 
     @isset ($personne->address_2) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('address_2') is-invalid @enderror" type="text" name="address_2" value="{{ $personne->address_2 ?? old('address_2')}}">
+      <input class="form-control @error ('address_2') is-invalid @enderror" type="text" maxlength="190" name="address_2" value="{{ $personne->address_2 ?? old('address_2')}}">
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control" type="text" name="address_2" placeholder="@lang('form.address_2')" value="{{ old('address_2') }}">
+      <input class="form-control" type="text" maxlength="190" name="address_2" placeholder="@lang('form.address_2')" value="{{ old('address_2') }}">
 
     @endif
 
@@ -48,7 +48,7 @@
 
     @isset ($personne->cp) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="@lang('form.cp')" value="{{ $personne->cp ?? old('cp') }}">
+      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="cp" value="{{ $personne->cp ?? old('cp') }}">
 
     @else {{-- Cas où c'est une création --}}
 
@@ -66,11 +66,11 @@
 
     @isset ($personne->commune) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" name="@lang('commune')" value="{{ $personne->commune ?? old('commune') }}">
+      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" maxlength="190" name="commune" value="{{ $personne->commune ?? old('commune') }}">
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" name="@lang('commune')" placeholder="commune" required value="{{ old('commune') }}">
+      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" maxlength="190" name="commune" placeholder="@lang('commune')" required value="{{ old('commune') }}">
 
     @endisset
 

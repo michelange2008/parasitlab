@@ -6,24 +6,24 @@
 
     <span class="input-group-text"><i class="fas fa-globe-europe"></i></span>
 
-    <input class="form-control @error ('indicatif') is-invalid  @enderror" type="text" name="indicatif" value="{{ $personne->indicatif ?? '33' }}" placeholder="indicatif">
+    <input class="form-control @error ('indicatif') is-invalid  @enderror" type="text" maxlength="3" name="indicatif" value="{{ $personne->indicatif ?? '33' }}" placeholder="@lang('indicatif')">
 
   </div>
 
   @error ('indicatif')
-    <div class="invalid">Ce champs ne doit comporter que des chiffres et pas plus de 3</div>
+    <div class="invalid">@lang('form.champs_chiffres_max_3')</div>
   @enderror
 
   <div class="input-group col-sm-8">
 
     <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-alt"></i></span>
 
-    <input class="form-control @error ('tel') is-invalid  @enderror" type="text" name="tel" value="{{ $personne->tel ?? old('tel') }}" placeholder="numéro de téléphone (10 chiffres si vous êtes en France)" required>
+    <input class="form-control @error ('tel') is-invalid  @enderror" type="text" maxlength="10" name="tel" value="{{ $personne->tel ?? old('tel') }}" placeholder="@lang('form.placeholder_tel')" required>
 
   </div>
 
   @error ('tel')
-    <div class="invalid text-right">Ce champs ne doit comporter que des chiffres (10 au maximum)</div>
+    <div class="invalid text-right">@lang('form.champs_chiffres_max_10')</div>
   @enderror
 
 </div>

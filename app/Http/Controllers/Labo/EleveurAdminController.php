@@ -103,12 +103,17 @@ class EleveurAdminController extends Controller
         $nouvel_user = session('nouvel_user');
 
         session()->forget('nouvel_user', 'usertype');
+
+        // On crée le mot de passe (maintenant et non dans UserController pour ne pas pas avoir à le stoker en session)
+        $mdp = str_random(8);
+        $nouvel_user->password = bcrypt($mdp);
+
         // Et on l'enregistre
         $nouvel_user->save();
 
         // TODO: Envoyer au nouvel utilisateur ses identifants de connexion
 
-        //Puis on fait appel au trait UserCreateDetail pour vérifier et enregistrer le labo correspondant
+        //Puis on fait appel au trait UserCreateDetail pour vérifier et enregistrer l'éleveur correspondant
         $this->eleveurCreateDetail($datas, $nouvel_user->id);
 
         session(['user' => $nouvel_user]);
@@ -120,7 +125,7 @@ class EleveurAdminController extends Controller
 
           session(['usertype' => $this->userTypeVeto()]);
 
-          return redirect()->route('user.create')->with('status', 'Il faut créer un vétérinaire pour '.$nouvel_user->name);
+          return redirect()->route('user.create')->with('status', __('message.create_new_vet').'&nbsp;'.$nouvel_user->name);
 
         // Cas où la création de l'éleveur se fait dans le cadre d'une demande d'analyse
         } elseif (session('eleveurDemande')) {
