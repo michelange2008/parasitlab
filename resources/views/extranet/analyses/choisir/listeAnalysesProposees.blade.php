@@ -1,6 +1,6 @@
 <div id='card_{{$espece->id}}' class="anatype_{{$espece->id}} anatype my-3 card card-3" style="display:none">
 
-  <img class="m-3" src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="{{$anatype->icone->nom}}">
+  <img class="m-3" src="{!! url('storage/img/icones/'.$anatype->icone->nom) !!}" alt="{{$anatype->icone->nom}}">
 
   <div class="card-body">
 
