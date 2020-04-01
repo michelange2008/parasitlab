@@ -39,8 +39,9 @@
       <h5 class="my-1">Et entraînent une dégradation des pâturages</h5>
       Or, le traitement rapide des déjections par les bousiers adultes conduit à améliorer la qualité des sols.
       S’il n’y a plus de bousier, les déjections ne sont pas enfouies et se minéralisent.
-      Elles peuvent subsister plusieurs années  à la surface du sol, réduisant d'autant la surface utile du pâturage
-       et favorisant à terme l'apparition de refus.
+      Elles peuvent rester intactes plusieurs années à la surface du sol, réduisant ainsi la surface utile du pâturage
+      et favorisant à terme l'apparition de refus. En cas de fauche, des morceaux de bouses non dégradés
+      peuvent également se retrouver dans le foin qui devient moins appétant.
     </br>A terme, on observe une dégradation de la qualité des pâturages.
   </div>
 

@@ -1,31 +1,21 @@
 {
-  "fichier" : "terre_lot",
-  "prefixe" : "texte_",
+  "prefixe" : "terre_lot.",
   "items" :
   {
     "comment" :
     {
-      "bloc" : ".comment.",
-      "titre" : "titre",
-      "image" : "crottin.jpg",
-      "nb_ligne" : 5,
-      "remarque" : "remarque"
-    },
-    "lot" :
-    {
-      "bloc" : ".lot.",
-      "titre" : "titre",
-      "image" : "lot.jpg",
-      "nb_ligne" : 4,
-      "remarque" : "remarque"
+      "prefixe" : "comment.",
+      "image" : "crottin.jpg"
     },
     "plusieurs" :
     {
-      "bloc" : ".plusieurs.",
-      "titre" : "titre",
-      "image" : "plusieurs.jpg",
-      "nb_ligne" : 0,
-      "remarque" : "remarque"
+      "prefixe" : "plusieurs.",
+      "image" : "plusieurs.jpg"
+    },
+    "lot" :
+    {
+      "prefixe" : "lot.",
+      "image" : "lot.jpg"
     }
   }
 }
