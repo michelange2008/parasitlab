@@ -15,7 +15,7 @@ return [
 
   "lot" =>
   [
-    "titre" => "Analyse individuelles ou de mélange",
+    "titre" => "Analyses individuelles ou de mélange",
     "texte" => "<p>Pour obtenir une image représentative de l’infestation du troupeau,
                 il est préférable de réaliser des analyses de mélange.</p>
                 <p>Ainsi plusieurs prélèvements de crottes (maximum 5 individus) d’une même catégorie d’animaux
@@ -25,7 +25,7 @@ return [
                 (toux, diarrhée, anémie, maigreur,…).
                 L’analyse coprologique individuelle vous permet dans un premier temps de vérifier votre diagnostic
                 et de traiter de façon ciblée, si cela s’avère nécessaire.</p>",
-    "remarque" => "Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fèces de chaque animal."
+    "remarque" => "<i class='fas fa-exclamation-circle text-danger'></i> Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fèces de chaque animal."
   ],
 
   "plusieurs" =>
