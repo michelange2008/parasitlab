@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Anaacte;
+use App\Models\Espece;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\TelechargePdf;
@@ -82,10 +83,11 @@ class ExtranetController extends Controller
       $this->telechargePdf('tarifs', 'tarifs_parasitlab');
     }
 
-    public function formulairePdf()
+    public function formulairePdf(Request $request)
     {
+      $espece = $request->all()['espece'];
 
-      $this->telechargePdf('formulaire_vierge', 'demande_analyse_parasito');
+      $this->telechargePdf('formulaire_'.$espece, 'demande_analyse_parasito_'.$espece);
 
     }
 

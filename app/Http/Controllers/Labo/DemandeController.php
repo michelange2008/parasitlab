@@ -79,7 +79,7 @@ class DemandeController extends Controller
         return view('labo.demandeCreate', [
           'menu' => $this->menu,
           'eleveurs' => Eleveur::all(),
-          'especes' => Espece::where('type', 'simple')->get(),
+          'especes' => Espece::all(),
           'anatypes' => Anatype::all(),
           'vetos' => Veto::all(),
           'usertypes' => Usertype::all(),

@@ -12,7 +12,7 @@
 
           @if ($element->type == 'route')
 
-            <a href="{{ route($element->route) }}" data-toggle="tooltip" title="{{ $element->intitule }}">
+            <a id="{{ $element->id }}" href="{{ route($element->route) }}" data-toggle="tooltip" title="{{ $element->intitule }}">
               <img class="img-40" src="{!! url('storage/img/icones/'.$element->icone) !!}">
               <span class="d-none d-lg-inline">{{ $element->intitule }}</span>
             </a>
@@ -24,7 +24,7 @@
 
           @else
 
-            <a href="{!! url('storage').'/'.$element->file !!}">
+            <a id="{{ $element->id }}" href="{!! url('storage').'/'.$element->file !!}">
               <img class="img-40" src="{!! url('storage/img/icones/'.$element->icone) !!}" alt="{{ $element->intitule }}">
               <span class="d-none d-lg-inline">Formulaire</span>
             </a>

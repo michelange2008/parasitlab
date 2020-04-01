@@ -6,6 +6,7 @@
     {
       "connaitre" :
       {
+        "id" : "",
         "type" : "route",
         "route" : "coproscopies",
         "icone" : "analyse.svg",
@@ -13,6 +14,7 @@
       },
       "choisir" :
       {
+        "id" : "",
         "type" : "route",
         "route" : "analyses.choisir",
         "icone" : "choisir.svg",
@@ -20,6 +22,7 @@
       },
       "enpratique" :
       {
+        "id" : "",
         "type" : "route",
         "route" : "enpratique",
         "icone" : "enpratique.svg",
@@ -27,6 +30,7 @@
       },
       "interpreter" :
       {
+        "id" : "",
         "type" : "route",
         "route" : "interpreter",
         "icone" : "interpreter.svg",
@@ -41,8 +45,9 @@
     {
       "formulaire" :
       {
-        "type" : "file",
-        "file" : "pdf/formulaire_vierge.pdf",
+        "id" : "downloadFormulaire",
+        "type" : "route",
+        "route" : "especes",
         "icone" : "formulaire_vierge.svg",
         "intitule" : "Formulaire"
       }
@@ -55,6 +60,7 @@
     {
       "pack" :
       {
+        "id" : "",
         "type" : "route",
         "route" : "envoiPack",
         "icone" : "pack-envoi-vide.svg",

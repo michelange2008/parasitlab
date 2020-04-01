@@ -13,6 +13,7 @@ require( './choisir.js');
 require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
+require( './telFormulaire.js');
 
 
 require( 'jquery-confirm' );
@@ -74,5 +75,7 @@ $('#enpratiqueTab a').on('click', function (e) {
   e.preventDefault()
   $(this).tab('show')
 })
+
+$('.toast').toast();
 
 });

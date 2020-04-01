@@ -40,7 +40,7 @@ class ExtranetDemandeController extends Controller
 
       public function choisir()
       {
-        $especes = Espece::where('type', 'simple')->get();
+        $especes = Espece::all();
 
         return view('extranet.analyses.choisir', [
           'menu' => $this->menu,
@@ -63,7 +63,7 @@ class ExtranetDemandeController extends Controller
           'menu' => $this->menu,
           'espece_id' => $espece_id,
           'anatype_id' => $anatype_id,
-          'especes' => Espece::where('type', 'simple')->get(),
+          'especes' => Espece::all(),
           'anatypes' => Anatype::all(),
           'signes' => Signe::all(),
           'estParasite' => $estParasite,
