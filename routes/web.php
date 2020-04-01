@@ -53,7 +53,7 @@
 
   Route::get('/analyses/tarifsPdf', ['uses' => 'ExtranetController@tarifsPdf', 'as' => 'analyses.tarifsPdf']);
 
-  Route::get('/analyses/formulairePdf', ['uses' => 'ExtranetController@formulairePdf', 'as' => 'analyses.formulairePdf']);
+  Route::post('/analyses/formulairePdf', ['uses' => 'ExtranetController@formulairePdf', 'as' => 'analyses.formulairePdf']);
 
   Route::get('/enpratique', ['uses' => 'Technique\CoproscopiesController@enpratique', 'as' => 'enpratique']);
 
@@ -72,6 +72,8 @@
   Route::get('/analyses/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
 
   Route::get('/analyses/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
+
+  Route::get('/especes', ['uses' => 'EspeceController@listeEspeces', 'as' => 'especes']);
 
   //##############################################################################
   // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES
@@ -179,5 +181,5 @@
 
   });
 
-// 
+//
 // });

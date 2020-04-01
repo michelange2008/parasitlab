@@ -8,6 +8,9 @@ trait TelechargePdf
 {
   function telechargePdf($fichier, $nom)
   {
+
+    if (file_exists('storage/pdf/'.$fichier.'.pdf'))
+    {
     // Vous voulez afficher un pdf
     header('Content-type: application/pdf');
 
@@ -16,6 +19,6 @@ trait TelechargePdf
 
     // Le source du PDF original.pdf
     readfile('storage/pdf/'.$fichier.'.pdf');
-
+    }
   }
 }
