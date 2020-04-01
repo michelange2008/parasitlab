@@ -1,32 +1,25 @@
 {
-  "pack" : {
-    "icone" : "pack-envoi-vide.svg",
-    "h4" : "Un moyen simple pour envoyer vos prélèvements",
-    "p1" : "Le kit d'envoi est constitué d'une enveloppe préaffranchie, de trois sachets plastiques et d'un formulaire papier.",
-    "p2" : "Il est facturé 9,00€ en plus du coût de l'analyse.",
-    "p3" : "",
-    "libelle" : "Demandez un pack pré-affranchi",
-    "type" : "route",
-    "route" : "envoiPack"
-  },
-  "vierge" : {
-    "icone" : "formulaire_vierge.svg",
-    "h4" : "Un formulaire à remplir à la main",
-    "p1" : "Ce formulaire vous permettra de nous fournir toutes les données relatives à votre demande d'analyse.",
-    "p2" : "N'hésitez pas à nous préciser toutes les informations intéressantes concernant vos animaux (motif de l'analyse, état des animaux, etc.)",
-    "p3" : "",
-    "libelle" : "Téléchargez un formulaire vierge",
-    "type" : "file",
-    "file" : "/pdf/formulaire_vierge.pdf"
-  },
-  "ligne" : {
-    "icone" : "formulaire_ligne.svg",
-    "h4" : "Vous préférez une saisie en ligne ?",
-    "p1" : "Ce formulaire est fait pour vous.",
-    "p2" : "Si en plus, vous avez compte personnel (c'est-à-dire que vous nous avez déjà envoyé une analyse), connectez-vous avec votre adresse mail.",
-    "p3" : "Le formulaire sera prérempli.",
-    "libelle" : "Remplissez le formulaire en ligne",
-    "type" : "route",
-    "route" : "analyses.choisir"
+  "prefixe" : "enpratiqueEnvoi.",
+  "contenu" :
+  {
+    "pack-envoi-vide" :
+    {
+      "prefixe" : "pack-envoi-vide.",
+      "type" : "route",
+      "route" : "envoiPack"
+    },
+    "formulaire_vierge" :
+    {
+      "prefixe" : "formulaire_vierge.",
+      "type" : "file",
+      "file" : "/pdf/formulaire_vierge.pdf"
+    },
+    "formulaire_ligne" :
+    {
+      "prefixe" : "formulaire_ligne.",
+      "type" : "route",
+      "route" : "analyses.choisir"
+    }
   }
+
 }

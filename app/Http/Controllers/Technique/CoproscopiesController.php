@@ -34,7 +34,7 @@ class CoproscopiesController extends Controller
       return view('extranet.analyses.enpratique', [
         'menu' => $this->menu,
         'sousmenuAnalyses' => $this->sousmenuAnalyses,
-        'enpratiquePrelever' => $this->litJson('enpratiquePrelever'),
+        'qui_quand' => $this->litJson('qui_quand'),
         'terre_lot' => $this->litJson('terre_lot'),
         'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
         'enpratiqueEnvoi' => $this->litJson('enpratiqueEnvoi'),
