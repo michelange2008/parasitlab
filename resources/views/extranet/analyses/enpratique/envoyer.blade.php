@@ -1,6 +1,7 @@
+{{-- issu de enpratique.blade.php --}}
 <div class="col-md-12 p-3">
 
-  <h4 class="p-3 alert-rouge-tres-fonce">Toutes les questions sur la conservation et l'envoi des prélèvements</h4>
+  <h4 class="p-3 alert-rouge-tres-fonce">@lang('enpratique.conservation_envoi')</h4>
 
 </div>
 
@@ -16,19 +17,17 @@
 
         <div class="media-body ml-3 pt-2">
 
-          <h4>{{ $element->h4 }}</h4>
+          <h4>@lang($element->h4)</h4>
 
           <ul class="lead">
-
-            {{-- <p class="titre-fond">{{ $element->titre_fond }}</p> --}}
 
             @foreach ($element->p as $p)
 
               <li>
                 <span class="font-weight-bold color-bleu-tres-fonce">
-                    {{ $p->gras }}
+                    @lang($p->gras)
                 </span>
-                  {{ $p->normal }}
+                  @lang($p->normal)
               </li>
 
             @endforeach
@@ -47,36 +46,34 @@
 
 <div class="col-12 my-3">
 
-  <p class="h3">A vous de jouer !</p>
+  <p class="h3">@lang('enpratique.uptoyou')</p>
 
   <div class="row ">
 
     <div class="card-deck">
 
-      @foreach ($enpratiqueEnvoi as $element) {{-- enpratiqueEnvoi.json --}}
+      @foreach ($enpratiqueEnvoi->contenu as $element) {{-- enpratiqueEnvoi.json --}}
 
 
           <div class="card bg-rouge-tres-clair mb-3" style="min-width:300px">
-            <img src="{!! 'storage/img/icones/'.$element->icone !!}" alt="">
+            <img src="{!! 'storage/img/icones/'.$element->prefixe.'svg' !!}" alt="">
             <div class="card-body">
-              <h4>{{ $element->h4 }}</h4>
-              <p>{{ $element->p1 }}</p>
-              <p>{{ $element->p2 }}</p>
-              <p>{{ $element->p3 }}</p>
+              <h4>@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'h4')</h4>
+              <p>@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'p')</p>
             </div>
             <div class="card-footer">
               @if ($element->type == 'route')
 
-                {!! link_to_route($element->route, $element->libelle, '' ,['class' => 'btn btn-bleu'])!!}
+                {!! link_to_route($element->route, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), '' ,['class' => 'btn btn-bleu'])!!}
 
 
               @elseif ($element->type == 'mail')
 
-                {!! HTML::mailto($element->mail, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+                {!! HTML::mailto($element->mail, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), ['class' => 'btn btn-bleu']) !!}
 
               @else
 
-                {!! link_to_asset('storage/'.$element->file, $element->libelle, ['class' => 'btn btn-bleu']) !!}
+                {!! link_to_asset('storage/'.$element->file, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), ['class' => 'btn btn-bleu']) !!}
 
               @endif
 

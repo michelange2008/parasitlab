@@ -1,0 +1,15 @@
+{
+  "prefixe" : "qui_quand.",
+  "qui_prelever" : "qui_prelever",
+  "quand_prelever" : "quand_prelever",
+  "contenu" :
+  {
+    "diagnostic" : "diagnostic.",
+    "bilan" : "bilan.",
+    "suivi" : "suivi.",
+    "taux_haem" : "taux_haem.",
+    "test_resistance" : "test_resistance.",
+    "introduction" : "introduction.",
+    "cas_equides" : "cas_equides."
+  }
+}

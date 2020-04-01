@@ -1,46 +1,33 @@
-@foreach ($enpratiquePrelever as $element)
+{{-- Issu de prelever.blade.php --}}
+@foreach ($qui_quand->contenu as $element) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
 
   <div class="media border p-3 mb-2  bg-bleu-tres-clair">
-    <img class="mr-3 d-none d-md-block" src="{!! 'storage/img/icones/'.$element->icone !!}" alt="Problème">
+    <img class="mr-3 d-none d-md-block" src="{!! 'storage/img/icones/'.$element.'svg' !!}" alt="{{ $element }}">
     <div class="media-body">
       <h3 class="mt-0">
-        {{ $element->titre }}
+        @lang($qui_quand->prefixe.$element.'titre')
       </h3>
-      <p class="lead">{{ $element->soustitre }}</p>
+      <p class="lead">@lang($qui_quand->prefixe.$element.'soustitre')</p>
 
       <div class="d-md-flex flex-row">
 
-        @isset($element->qui)
 
           <div class="col-md-6 border-left">
 
-            <p class="lead"><i class="fas fa-hand-point-right"></i> Qui prélever&nbsp? </p>
+            <p class="lead"><i class="fas fa-hand-point-right"></i> @lang($qui_quand->prefixe.'qui_prelever')</p>
 
-            @foreach ($element->qui as $qui)
-
-              <p>{{ $qui }}</p>
-
-            @endforeach
+              <p>@lang($qui_quand->prefixe.$element."qui")</p>
 
           </div>
 
-        @endisset
-
-        @isset($element->quand)
 
           <div class="col-md-6 border-left">
 
-            <p class="lead"><i class="fas fa-calendar-alt"></i> Quand prélever&nbsp? </p>
+            <p class="lead"><i class="fas fa-calendar-alt"></i> @lang($qui_quand->prefixe.'quand_prelever')</p>
 
-            @foreach ($element->quand as $quand)
-
-              <p>{{ $quand }}</p>
-
-            @endforeach
+              <p>@lang($qui_quand->prefixe.$element."quand")</p>
 
           </div>
-        @endisset
-
 
       </div>
 
@@ -49,3 +36,15 @@
   </div>
 
 @endforeach
+{{-- dernière ligne qui rappelle de demander au véto --}}
+<div class="media border p-3 mb-2  bg-rouge-clair">
+  <img class="mr-3 d-none d-md-block" src="{!! 'storage/img/icones/veto.svg' !!}" alt="veto.svg">
+  <div class="media-body">
+    <h3 class="mt-0">
+      @lang($qui_quand->prefixe.'veto.titre')
+    </h3>
+    <p class="lead">@lang($qui_quand->prefixe.'veto.soustitre')</p>
+
+  </div>
+
+</div>
