@@ -13,22 +13,21 @@
     <li class="media">
 
       <img src="{{ url('storage/img').'/'.$item->image }}" alt="">
+
       <div class="media-body ml-3">
-        <h4 class="mt-0 mb-1">{!! __($terre_lot->fichier.$item->bloc.$item->titre) !!}</h4> {{-- fichier est le nom du fichier de traduction
+
+        <h4 class="mt-0 mb-1">{!! __($terre_lot->prefixe.$item->prefixe.'titre') !!}</h4> {{-- fichier est le nom du fichier de traduction
                                                                                                   bloc est le nom du bloc de texte dans le fichier de traduction --}}
+        <p class="mb-1">{!! __($terre_lot->prefixe.$item->prefixe.'texte') !!}</p> {{-- prefixe est le préfixe des lignes de texte --}}
 
-          @for ($i = 1; $i < $item->nb_ligne + 1; $i++) {{-- nb_ligne est le nombre de lignes de texte dans le fichier de traduction --}}
-
-            <p class="mb-1">{!! __($terre_lot->fichier.$item->bloc.$terre_lot->prefixe.$i) !!}</p> {{-- prefixe est le préfixe des lignes de texte --}}
-
-          @endfor
-
-          <p class="small">{!! __($terre_lot->fichier.$item->bloc.$item->remarque) !!}
+        <p class="blockquote-footer">{!! __($terre_lot->prefixe.$item->prefixe.'remarque') !!}
 
       </div>
 
     </li>
-<hr class="divider-court">
+
+    <hr class="divider-court">
+
   @endforeach
 
 </ul>
