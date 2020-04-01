@@ -20,7 +20,7 @@
                                                                                                   bloc est le nom du bloc de texte dans le fichier de traduction --}}
         <p class="mb-1">{!! __($terre_lot->prefixe.$item->prefixe.'texte') !!}</p> {{-- prefixe est le préfixe des lignes de texte --}}
 
-        <p class="blockquote-footer">{!! __($terre_lot->prefixe.$item->prefixe.'remarque') !!}
+        <p class="small text-secondary">{!! __($terre_lot->prefixe.$item->prefixe.'remarque') !!}
 
       </div>
 
