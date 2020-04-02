@@ -14,7 +14,7 @@ return [
 
   "veterinaires_2_2" => "Paraud, C., Pors, I., Marcotty, T., Lespine, A., Sutra, J.F., Devos, J.,
     Cross-resistance to moxidectin and ivermectin on a meat sheep farm in France,
-    Vet. Parasitol., 2016 Aug 15, 226:88-92."
+    Vet. Parasitol., 2016 Aug 15, 226:88-92.",
 
   "fondamentaux_1_1" => "Lumaret, J.P., Kadiri, N., 2018.
   Les médicaments vétérinaires et leurs résidus: quels risques pour les organismes non cibles et le fonctionnement des écosystèmes ?,

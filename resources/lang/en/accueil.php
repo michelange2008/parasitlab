@@ -3,35 +3,34 @@
 return [
 
   "carousel" => [
-    "maitrisez" => "Maîtrisez le parasitisme de votre troupeau !",
-    "evaluez" => "Evaluez la situation de vos animaux !",
-    "limitez" => "Limitez les résistances !",
-    "respectez" => "Respectez la biodiversité !",
+    "maitrisez" => "Control parasitism in your herd !",
+    "evaluez" => "Evaluate the infestation of your animals !",
+    "limitez" => "Limit resistance to anthelmintics !",
+    "respectez" => "Respect biodiversity !",
   ],
 
   "entetes" => [
     "veterinaires" => [
-      "titre" => "Vétérinaires",
-      "texte_1" => "Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d'éviter les traitements inutiles.",
-      "texte_2" => "Vous voulez évaluer les risques pathogènes et l'existence éventuelles de résistance aux anthelmintiques.",
+      "titre" => "Veterinaries",
+      "texte_1" => "You wish to offer your breeders and customers a parasitological follow-up in order to avoid unnecessary treatments.",
+      "texte_2" => "You want to assess the pathogenic risks and the possible existence of resistance to anthelmintics.",
     ],
     "eleveurs" => [
-      "titre" => "Eleveurs (-euses)",
-      "texte_1" => "Vous souhaitez faire un suivi régulier et raisonné de l'infestation de votre troupeau pour ne plus traiter en aveugle.",
-      "texte_2" => "Vous êtes à la recherche d'un laboratoire vous fournissant des réponses rapides à vos questions sur le parasitisme d'un animal ou de votre troupeau.",
+      "titre" => "Farmers",
+      "texte_1" => "You wish to make a regular and reasoned follow-up of the infestation of your herd in order not to treat blindly anymore.",
+      "texte_2" => "You are looking for a laboratory that will provide you with quick answers to your questions about parasitism in an animal or your herd.",
     ],
     "cavalieres" => [
-      "titre" => "Cavalières (-iers)",
-      "texte_1" => "Vous avez toujours traité sytématiquement, parce que c'est \"ce qui se fait\". Et pourtant, votre cheval n'est peut-être pas parasité.",
-      "texte_2" => "De plus, les résistances des parasites aux traitements vont devenir un réel problème.",
+      "titre" => "Riders",
+      "texte_1" => "You've always treated synthetically, because it's the habit. And yet, your horse may not be parasitized.",
+      "texte_2" => "In addition, pest resistance to treatments will become a real problem.",
     ],
   ],
 
-  "LaboParasito" => "Un laboratoire d'analyses parasitologiques pour les ruminants, les porcs et les chevaux",
-  "situeDansLaDrome" => " situé dans la Drôme au Pôle Bio sur l'Écosite d'Eurre.",
-  "creeEtGere" => "Créé et géré par l'antenne France du ",
-  "ceLaboratoire" => ", ce laboratoire accueille tous vos prélèvements destinés à des analyses parasitologiques.",
-  "ensavoirplus" => "Pour en savoir plus ...",
+  "LaboParasito" => "A parasitological analysis laboratory for ruminants, pigs and horses",
+  "situeDansLaDrome" => " located in the Drôme (France) at the Pôle Bio sur l'Ecosite d'Eurre.",
+  "creeEtGere" => "Created and managed by the French branch of the ",
+  "ceLaboratoire" => ", this laboratory receives all your samples for parasitological analyses.",
 
   "pastilles" => [
     "coproscopies" => [
