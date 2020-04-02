@@ -1,5 +1,7 @@
 function choix_espece(url) {
 
+  $('#choix_select').children().remove();
+
   $.get({
     url : url
   })
