@@ -22,7 +22,7 @@ class AnatypesTableSeeder extends Seeder
           [
             'id' => 2,
             'abbreviation' => "SGI + DICR",
-            'nom' => "parasites gastro-intestinaux + petite douve",
+            'nom' => "parasites gastro-intestinaux +&nbsp;petite douve",
             'technique' => 'méthode quantitative McMaster - ZnCl2',
             'icone_id' => 32,
           ],
