@@ -1,40 +1,49 @@
+{{-- issu de ExtranetController@accueil avec utilisation du fichier carousel.jso et lang accueil.php --}}
 <div id="accueilCarousel" class="carousel slide" data-ride="carousel">
 
   <ol class="carousel-indicators">
-    <li data-target="#accueilCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#accueilCarousel" data-slide-to="1"></li>
-    <li data-target="#accueilCarousel" data-slide-to="2"></li>
-    <li data-target="#accueilCarousel" data-slide-to="3"></li>
+
+    @foreach ($carousel as $element)
+
+      @if ($element->index === 0)
+
+        <li data-target="#accueilCarousel" data-slide-to="{{ $element->index }}" class="active"></li>
+
+      @else
+
+        <li data-target="#accueilCarousel" data-slide-to="{{ $element->index }}"></li>
+
+      @endif
+
+    @endforeach
+
   </ol>
 
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="w-100" src="{{ url('storage/img/brebis.jpg') }}" alt="brebis">
-      <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-left">
-        <h2 class="">Maîtrisez le parasitisme de votre troupeau !</h2>
-      </div>
-    </div>
 
-    <div class="carousel-item">
-      <img class="w-100" src="{{ url('storage/img/vache.jpg') }}" alt="brebis">
-      <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce">
-        <h2>Evaluez la situation de vos animaux !</h2>
-      </div>
-    </div>
+    @foreach ($carousel as $element)
 
-    <div class="carousel-item">
-      <img class="w-100" src="{{ url('storage/img/cheval.jpg') }}" alt="brebis">
-      <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-center">
-        <h2>Limitez les résistances !</h2>
-      </div>
-    </div>
+      @if ($loop->first)
 
-    <div class="carousel-item">
-      <img class="w-100" src="{{ url('storage/img/entomofaune.jpg') }}" alt="entomofaune">
-      <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-right">
-        <h2>Respectez la biodiversité</h2>
-      </div>
-    </div>
+        <div class="carousel-item active">
+
+        @else
+
+          <div class="carousel-item">
+
+          @endif
+
+          <img class="w-100" src="{{ url('storage/img'.'/'.$element->image) }}" alt="brebis">
+
+          <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-left text-white">
+
+            <h2 class="ml-3">@lang($element->texte)</h2>
+
+          </div>
+
+        </div>
+
+      @endforeach
 
   </div>
 

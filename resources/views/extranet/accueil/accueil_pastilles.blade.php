@@ -11,9 +11,9 @@
 
           @include('fragments.carteBoutonRond', [
               'icone' => $element->icone,
-              'titre' => $element->titre,
-              'texte_1' => $element->texte_1,
-              'texte_2' => $element->texte_2,
+              'titre' => __($element->prefixe.'titre'),
+              'texte_1' => __($element->prefixe.'texte_1'),
+              'texte_2' => __($element->prefixe.'texte_2'),
               'type' => 'route',
               'route' => $element->route,
               'id' => $element->id ?? null,

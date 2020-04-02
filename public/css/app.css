@@ -6086,10 +6086,12 @@ readers do not read off random characters that represent icons */
 }
 
 .bandeau-bleu-tres-fonce {
-  background: #0A425A99 !important;
-  color: #76A6BB;
+  background-color: #0A425A !important;
   padding: 5px 10px;
   box-shadow: 5px 5px 15px black;
+  -webkit-filter: opacity(0.65);
+          filter: opacity(0.65);
+  /* Opacity for IE8 and lower */
 }
 
 mark {
