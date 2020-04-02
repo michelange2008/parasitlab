@@ -2,6 +2,13 @@
 
 return [
 
+  "carousel" => [
+    "maitrisez" => "Maîtrisez le parasitisme de votre troupeau !",
+    "evaluez" => "Evaluez la situation de vos animaux !",
+    "limitez" => "Limitez les résistances !",
+    "respectez" => "Respectez la biodiversité<",
+  ],
+
   "LaboParasito" => "Un laboratoire d'analyses parasitologiques pour les ruminants, les porcs et les chevaux",
   "situeDansLaDrome" => " situé dans la Drôme au Pôle Bio sur l'Écosite d'Eurre.",
   "creeEtGere" => "Créé et géré par l'antenne France du ",

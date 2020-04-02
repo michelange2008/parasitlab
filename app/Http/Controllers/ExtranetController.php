@@ -36,6 +36,7 @@ class ExtranetController extends Controller
         'menu' => $this->menu,
         'accueilEntetes' => $this->litJson('accueilEntetes'),
         'accueilPastilles' => $this->litJson('accueilPastilles'),
+        'carousel' => $this->litJson('carousel'),
       ]);
     }
 

@@ -147,11 +147,12 @@ $rouge-tres-fonce-transparent: #8F230A99;
 }
 
 .bandeau-bleu-tres-fonce {
-  background-color: $bleu-fonce !important;
-  background: $bleu-tres-fonce-transparent !important;
-  color: $bleu-tres-clair;
+  background-color: $bleu-tres-fonce !important;
+  // background: $bleu-tres-fonce-transparent !important;
+  // color: white;
   padding: 5px 10px;
   box-shadow: 5px 5px 15px black;
+  opacity: 65%;
 }
 
 mark {
