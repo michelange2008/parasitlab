@@ -18,7 +18,7 @@
               'route' => $element->route,
               'id' => $element->id ?? null,
               'couleur' => 'color-bleu-tres-fonce',
-              'intitule' => 'En savoir plus',
+              'intitule' => __('commun.know_more'),
               'fa2' => 'fas fa-chevron-right',
             ])
 
