@@ -15,14 +15,14 @@ class AnatypesTableSeeder extends Seeder
           [
             'id' => 1,
             'abbreviation' => "SGI",
-            'nom' => "strongles gastro-intestinaux + coccidies + moniezia",
+            'nom' => "parasites gastro-intestinaux",
             'technique' => 'méthode quantitative McMaster - NaCl',
             'icone_id' => 9,
           ],
           [
             'id' => 2,
             'abbreviation' => "SGI + DICR",
-            'nom' => "strongles gastro-intestinaux + petite douve",
+            'nom' => "parasites gastro-intestinaux + petite douve",
             'technique' => 'méthode quantitative McMaster - ZnCl2',
             'icone_id' => 32,
           ],
