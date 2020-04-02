@@ -13,6 +13,11 @@
       </td>
     </tr>
     <tr>
+      <td>{{ ucfirst($demande->anaacte->anatype->nom) }}</td>
+      <td>{{ $demande->anaacte->nom }}</td>
+    </tr>
+
+    <tr>
       <td style="line-height:100%" colspan="2" class="my-2">
         <p class="font-italic">Informations</p>
         {{ $demande->informations }}
@@ -46,13 +51,13 @@
 
       <tr>
         <td class="ml-3"><i>Lot parasité&nbsp;:</i></td>
-        <td>{{ ($prelevement->parasite == "saispas") ? "?" : ucfirst($prelevement->parasite) }}</td>
+        <td>{{ ($prelevement->parasite == "saispas") ? "?" : (ucfirst($prelevement->parasite) ? __('commun.oui') : __('commun.non')) }}</td>
       </tr>
 
       <tr>
         <td class="ml-3 font-italic">Signes observés&nbsp;:</td>
         <td>
-          @if (is_empty($prelevement['signes']))
+          @if (empty($prelevement['signes']))
 
             -
 
@@ -91,5 +96,5 @@
     <td style="width:300px">Date:</td>
     <td>Signature:</td>
   </tr>
-  
+
 </table>

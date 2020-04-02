@@ -12,13 +12,13 @@
 
       <div class="col-md-10">
 
-        @titre(['titre' => __('accueil.choisir_analyse'), 'icone' => 'choisir.svg'])
+        @titre(['titre' => __('titres.choisir_analyse'), 'icone' => 'choisir.svg'])
 
       </div>
 
       <div class="col-md-10 my-3">
 
-        @include('extranet.analyses.choisir.titre', ['titre' =>  __('accueil.queltype'), 'soustitre' => __('accueil.cliquerespece')])
+        @include('extranet.analyses.choisir.titre', ['titre' =>  __('choisir.queltype'), 'soustitre' => __('choisir.cliquerespece')])
 
       </div>
 
@@ -61,33 +61,6 @@
       </div>
 
     </div>
-    {{-- <div class="row my-3 justify-content-end">
-
-      @foreach ($liste as $espece_id => $anapacks)
-
-      <div class="col-md-10">
-
-        <div class="card-deck d-md-flex justify-content-center">
-
-
-            @foreach ($anapacks as $anapack)
-
-              @if ($anapack->visible)
-
-                @include('extranet.analyses.choisir.listeAnalysesProposees')
-
-              @endif
-
-            @endforeach
-
-          </div>
-
-        </div>
-
-      @endforeach
-
-    </div>
- --}}
 
   </div>
 

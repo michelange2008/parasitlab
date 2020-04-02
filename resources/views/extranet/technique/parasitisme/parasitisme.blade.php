@@ -12,7 +12,7 @@
 
       <div class="col-md-9">
 
-        @titre(['titre' => "Parasit'Lab Infos&nbsp;:", "soustitre" => "Des réponses à vos questions sur la parasitisme", "icone" => 'blog.svg'])
+        @titre(['titre' => __('titres.parasitisme.titre'), "soustitre" => __('titres.parasitisme.soustitre'), "icone" => 'blog.svg'])
 
       </div>
 
@@ -42,9 +42,7 @@
 
 
           <p>
-            Cette page est destinée à vous permettre d'approfondir vos connaissances sur le parasitisme.
-            Elle n'est pas une encyclopédie de parasitologie, mais elle s'attache à répondre aux questions que vous vous posez le plus souvent.
-            N'hésitez donc pas à nous interroger par mail si certaines interrogations sur le parasitisme vous empêchent de dormir la nuit <i class="fa fa-smile">.</i>
+            @lang('parasitisme.presentation')<i class="fa fa-smile">.</i>
           </p>
 
         </div>

@@ -1,10 +1,11 @@
+{{-- issu de cavaliers.blade et eleveurs.blade --}}
 <div class="card">
 
   <div class="card-body">
 
-    <h4>{{ __('accueil.question_remarque') }}</h4>
+    <h4>{{ __('contact.contacteznous.question_remarque') }}</h4>
 
-    <p>{{ __('accueil.repondre_questions') }}</p>
+    <p>{{ __('contact.contacteznous.repondre_questions') }}</p>
 
   </div>
 

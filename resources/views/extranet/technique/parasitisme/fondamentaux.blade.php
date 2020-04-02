@@ -10,7 +10,7 @@
 
       <div class="col-md-10">
 
-        @titre(['titre' => $article->titre, 'soustitre' => $article->soustitre, 'icone' => $article->icone])
+        @titre(['titre' => __($article->titre), 'soustitre' => __($article->soustitre), 'icone' => $article->icone])
 
       </div>
 

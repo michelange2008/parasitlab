@@ -16,4 +16,8 @@ return [
     Cross-resistance to moxidectin and ivermectin on a meat sheep farm in France,
     Vet. Parasitol., 2016 Aug 15, 226:88-92."
 
+  "fondamentaux_1_1" => "Lumaret, J.P., Kadiri, N., 2018.
+  Les médicaments vétérinaires et leurs résidus: quels risques pour les organismes non cibles et le fonctionnement des écosystèmes ?,
+  Bull. des GTV n° spécial 2018 Gestion du parasitisme: nouveaux enjeux, nouveaux défis, 93-100.",
+
 ];

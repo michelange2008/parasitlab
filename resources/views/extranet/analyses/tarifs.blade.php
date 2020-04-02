@@ -80,7 +80,7 @@
           'type' => 'route',
           'couleur' => 'btn-bleu',
           'route' => 'analyses.tarifsPdf',
-          'intitule' => 'Télécharger les tarifs',
+          'intitule' => __('tarifs.telecharger_tarifs'),
           'fa' => 'fas fa-file-pdf',
         ])
 

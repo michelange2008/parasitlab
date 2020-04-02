@@ -10,7 +10,7 @@
 
       <div class="col-md-10 col-xl-8">
 
-        @titre(['titre' => __('quisommesnous.titre'), "icone" => 'nouveau.svg'])
+        @titre(['titre' => __('titres.quisommesnous'), "icone" => 'nouveau.svg'])
 
       </div>
 
@@ -26,20 +26,16 @@
 
               <li class="media my-3">
 
-                <img class="shadow-lg" src="{{ url('storage/img/extranet').'/'.$element->image }}" alt="{{ __($element->titre) }}">
+                <img class="shadow-lg" src="{{ url('storage/img/extranet').'/'.$element->image }}" alt="{{ __($element->prefixe.'titre') }}">
 
                 <div class="media-body ml-3">
 
-                  <h3>{{ __('quisommesnous.'.$element->titre) }}</h3>
-                  <h5>{{ __('quisommesnous.'.$element->soustitre) }}</h5>
+                  <h3>@lang($element->prefixe.'titre')</h3>
+                  <h5>@lang($element->prefixe.'soustitre')</h5>
 
-                  @foreach ($element->contenu as $contenu)
+                  @lang($element->prefixe.'texte')
 
-                    <p>{{ __('quisommesnous.'.$contenu) }}</p>
-
-                  @endforeach
-
-                  <a class="btn" href="{{ $element->lien }}">En savoir plus <i class="fas fa-angle-right"></i></a>
+                  <a class="btn" href="{{ $element->lien }}">@lang('commun.know_more') <i class="fas fa-angle-right"></i></a>
 
                 </div>
 

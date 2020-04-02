@@ -25,7 +25,7 @@
 
   <a href="https://www.openstreetmap.org/?mlat=44.73707&amp;mlon=4.97505#map=18/44.73707/4.97505">
 
-    Afficher une carte plus grande
+    @lang('contact.contacts.map')
 
   </a>
 
@@ -33,7 +33,7 @@
 
     <a href="https://www.google.fr/maps/place/44%C2%B044'13.3%22N+4%C2%B058'31.5%22E/@44.7370159,4.9743157,18z/data=!3m1!4b1!4m15!1m8!3m7!1s0x0:0x0!2zNDTCsDQ0JzEyLjkiTiA0wrA1OCczMS40IkU!3b1!7e2!8m2!3d44.7369175!4d4.9753978!3m5!1s0x0:0x0!7e2!8m2!3d44.7370139!4d4.9754104">
 
-      (voir sur google map)
+      @lang('contact.contacts.google')
 
     </a>
 
