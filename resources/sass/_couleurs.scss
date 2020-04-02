@@ -152,8 +152,8 @@ $rouge-tres-fonce-transparent: #8F230A99;
   // color: white;
   padding: 5px 10px;
   box-shadow: 5px 5px 15px black;
-  opacity: 65%;
-  filter: alpha(opacity=65);  /* Opacity for IE8 and lower */
+  // opacity: 65%;
+  filter: opacity(0.65);  /* Opacity for IE8 and lower */
 }
 
 mark {

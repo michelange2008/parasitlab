@@ -37,7 +37,7 @@
 
           <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-left text-white">
 
-            <h2 class="text-white">@lang($element->texte)</h2>
+            <h2 class="ml-3">@lang($element->texte)</h2>
 
           </div>
 
