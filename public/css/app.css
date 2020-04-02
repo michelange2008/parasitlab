@@ -6086,6 +6086,7 @@ readers do not read off random characters that represent icons */
 }
 
 .bandeau-bleu-tres-fonce {
+  background-color: #1A5772 !important;
   background: #0A425A99 !important;
   color: #76A6BB;
   padding: 5px 10px;

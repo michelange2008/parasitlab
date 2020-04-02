@@ -147,6 +147,7 @@ $rouge-tres-fonce-transparent: #8F230A99;
 }
 
 .bandeau-bleu-tres-fonce {
+  background-color: $bleu-fonce !important;
   background: $bleu-tres-fonce-transparent !important;
   color: $bleu-tres-clair;
   padding: 5px 10px;
