@@ -1,44 +1,19 @@
 {
   "groupe_fibl" :
   {
-    "titre" : "groupe_fibl_titre",
-    "soustitre" : "groupe_fibl_soustitre",
-    "contenu" :
-    {
-      "p1" : "groupe_fibl_p1",
-      "p2" : "groupe_fibl_p2",
-      "p3" : "groupe_fibl_p3",
-      "p4" : "groupe_fibl_p4",
-      "p5" : "groupe_fibl_p5"
-    },
+    "prefixe" : "quisommesnous.groupe_fibl.",
     "image" : "groupe_fibl.jpg",
     "lien" : "https://www.fibl.org"
   },
-  "fibl_france" :
+  "fibl_local" :
   {
-    "titre" : "fibl_france_titre",
-    "soustitre" : "fibl_france_soustitre",
-    "contenu" :
-    {
-      "p1" : "fibl_france_p1",
-      "p2" : "fibl_france_p2",
-      "p3" : "fibl_france_p3",
-      "p4" : "fibl_france_p4",
-      "p5" : "fibl_france_p5"
-    },
+    "prefixe" : "quisommesnous.fibl_local.",
     "image" : "fibl_france.jpg",
     "lien" : "https://www.fibl.org/fr/sites/france-fr.html"
   },
   "parasitlab" :
   {
-    "titre" : "parasitlab_titre",
-    "soustitre" : "parasitlab_soustitre",
-    "contenu" :
-    {
-      "p1" : "parasitlab_p1",
-      "p2" : "parasitlab_p2",
-      "p3" : "parasitlab_p3"
-    },
+    "prefixe" : "quisommesnous.parasitlab.",
     "image" : "parasitlab.jpg",
     "lien" : "https://parasitlab.org"
   }

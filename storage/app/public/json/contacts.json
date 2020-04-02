@@ -1,0 +1,26 @@
+{
+  "email" : {
+    "icone" : "email.svg",
+    "prefixe" : "contact.contacts.email.",
+    "type" : "mail",
+    "fa" : "",
+    "adresse" : "contact@parasitlab.org",
+    "lien" : ""
+  },
+  "phone" : {
+    "icone" : "telephone.svg",
+    "prefixe" : "contact.contacts.phone.",
+    "type" : "phone",
+    "fa" : "fas fa-phone",
+    "adresse" : "",
+    "lien" : ""
+  },
+  "voir" : {
+    "icone" : "depl.svg",
+    "prefixe" : "contact.contacts.voir.",
+    "type" : "link",
+    "fa" : "fas fa-map-marked-alt",
+    "adresse" : "",
+    "lien" : "https://www.openstreetmap.org/#map=19/44.73704/4.97555"
+  }
+}

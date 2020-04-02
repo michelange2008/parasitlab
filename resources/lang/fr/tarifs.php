@@ -7,4 +7,5 @@ return [
   "especes" => "Espèces concernées&nbsp;: caprins, ovins, bovins, porcins, équins, asins.",
   "tva" => "TVA non applicable (art. 293 B du CGI)",
   "montants" => "Montants (en €)",
+  'telecharger_tarifs' => "Télécharger les tarifs",
 ];

@@ -3,21 +3,21 @@
   {
     "id" : "oui",
     "groupe" : "parasite",
-    "texte" : "Oui",
+    "texte" : "commun.oui",
     "value" : true
   },
   "non" :
   {
     "id" : "non",
     "groupe" : "parasite",
-    "texte" : "Non",
+    "texte" : "commun.non",
     "value" : false
   },
   "saispas" :
   {
     "id" : "saispas",
     "groupe" : "parasite",
-    "texte" : "Je ne sais pas",
+    "texte" : "commun.saispas",
     "value" : null
   }
 }

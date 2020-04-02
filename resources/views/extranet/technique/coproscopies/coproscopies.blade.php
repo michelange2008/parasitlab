@@ -12,7 +12,7 @@
 
       <div class="col-md-10">
 
-        @titre(['icone' => 'analyse.svg', 'titre' => "Les examens coproscopiques"])
+        @titre(['icone' => 'analyse.svg', 'titre' => __('titres.copros')])
 
       </div>
 
@@ -22,17 +22,17 @@
 
           <div class="media">
 
-            <img class="mr-3 d-none d-md-block shadow-lg " src="{!! url('storage/img/extranet/'.$element->image) !!}" alt="{!! $element->titre !!}">
+            <img class="mr-3 d-none d-md-block shadow-lg " src="{!! url('storage/img/extranet/'.$element->image) !!}" alt="@lang($element->prefixe.'titre')">
 
             <div class="media-body">
 
-              <h3 class="mt-2 text-secondary">{{ $element->titre }}</h3>
+              <h3 class="mt-2 text-secondary">@lang($element->prefixe.'titre')</h3>
 
-              @foreach ($element->texte as $texte)
+              <p style="font-size:1.15rem" class="mb-1">@lang($element->prefixe.('texte_1'))</p>
 
-                <p style="font-size:1.15rem" class="mb-1">{{ $texte }}</p>
+              <p style="font-size:1.15rem" class="mb-1">@lang($element->prefixe.('texte_2'))</p>
 
-              @endforeach
+              <p style="font-size:1.15rem" class="mb-1">@lang($element->prefixe.('texte_3'))</p>
 
             </div>
 

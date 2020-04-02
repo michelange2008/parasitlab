@@ -97,6 +97,7 @@ class ExtranetController extends Controller
     {
       return view('extranet.analyses', [
         'menu' => $this->menu,
+        'analyses' => $this->litJson('analyses'),
       ]);
     }
 
@@ -104,6 +105,7 @@ class ExtranetController extends Controller
     {
       return view('extranet.contact', [
         "menu" => $this->menu,
+        'contacts' => $this->litJson('contacts'),
       ]);
     }
 

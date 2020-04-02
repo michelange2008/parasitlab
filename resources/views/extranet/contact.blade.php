@@ -10,7 +10,7 @@
 
       <div class="col-md-10">
 
-        @titre(['titre' => 'Nous contacter', 'icone' => 'contact.svg'])
+        @titre(['titre' => __('titres.contact'), 'icone' => 'contact.svg'])
 
       </div>
 
@@ -22,36 +22,22 @@
 
         <div class="card-deck">
 
+          @foreach ($contacts as $contact)
+
           @include('fragments.carte', [
-            'icone' => 'email.svg',
-            'titre' => 'Ecrivez-nous',
-            'texte_1' => "Vous avez une question un peu complexe, nécessitant des explications détaillées...",
-            'texte_2' => "N'hésitez pas ! le courrier électronique est fait pour ça.",
-            'type' => 'mail',
+            'icone' => $contact->icone,
+            'titre' => __($contact->prefixe.'titre'),
+            'texte_1' => __($contact->prefixe.'texte_1'),
+            'texte_2' => __($contact->prefixe.'texte_2'),
+            'type' => $contact->type ?? '',
+            'adresse' => $contact->adresse ?? '',
+            'lien' => $contact->lien ?? '',
+            'fa' => $contact->fa ?? '',
             'adresse' => 'contact@parasitlab.org',
-            'intitule' => 'cliquez pour écrire',
+            'intitule' => __($contact->prefixe.'intitule'),
           ])
 
-          @include('fragments.carte', [
-            'icone' => 'telephone.svg',
-            'titre' => 'Appelez-nous',
-            'texte_1' => "Vous souhaitez juste une information sur une analyse en cours, un prélèvement à envoyer, une facture...",
-            'texte_2' => "Le téléphone est un bon moyen pour avoir une réponse rapide.",
-            'type' => 'phone',
-            'fa' => 'fas fa-phone',
-            'intitule' => '04 75 25 41 75',
-          ])
-
-          @include('fragments.carte', [
-            'icone' => 'depl.svg',
-            'titre' => 'Passez nous voir',
-            'texte_1' => "Vous souhaitez nous apporter un prélèvement ou juste nous dire bonjour... Du lundi au vendredi, de 8h30 à 11h30",
-            'texte_2' => "Pôle Bio - Ecosite du Val de Drôme - 150 Av. de Judée - 26400 Eurre ",
-            'type' => 'link',
-            'fa' => 'fas fa-map-marked-alt',
-            'lien' => 'https://www.openstreetmap.org/#map=19/44.73704/4.97555',
-            'intitule' => 'Voir sur la carte',
-          ])
+          @endforeach
 
         </div>
 

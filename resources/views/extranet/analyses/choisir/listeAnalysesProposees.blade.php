@@ -22,7 +22,7 @@
       'type' => 'link',
       'target' => '_self',
       'lien' => url('/analyses/choisir/'.$espece->id.'/'.$anatype->id),
-      'intitule' => "Remplir le formulaire",
+      'intitule' => __('choisir.fill_form'),
       'fa' => 'fas fa-pen',
       'couleur' => 'btn-secondary'])
 

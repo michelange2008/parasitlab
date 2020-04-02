@@ -2,8 +2,8 @@
   "1" :
   {
     "id" : 1,
-    "theme" : "Biodiversité et antiparasitaires",
-    "titre" : "Antiparasitaires : un danger pour l'environnement&nbsp;?",
+    "theme" : "fondamentaux.1.theme",
+    "titre" : "fondamentaux.1.titre",
     "soustitre" : null,
     "icone" : "entomo.svg",
     "vue" : "entomofaune"
@@ -11,9 +11,9 @@
   "2" :
   {
     "id" : 2,
-    "theme" : "Résistances aux antiparasitaires",
-    "titre" : "La résistance aux anthelmintiques&nbsp;:",
-    "soustitre" : "un sujet d'avenir.",
+    "theme" : "fondamentaux.2.theme",
+    "titre" : "fondamentaux.2.titre",
+    "soustitre" : "fondamentaux.2.soustitre",
     "icone" : "test_resistance.svg",
     "vue" : "resistances"
   }

@@ -49,6 +49,6 @@
 
 @else
 
-  <h5 class="m-3 p-3">Il n'y a pour l'instant aucun article, mais, pas d'inquiétude, ça vient&nbsp;!</h5>
+  <h5 class="m-3 p-3">@lang('parasitisme.aucun')</h5>
 
 @endif

@@ -1,6 +1,6 @@
 <div class="col-md-3 bd-sidebar my-3 d-none d-md-block">
 
-  <h4 class="bg-rouge p-3">Sujets permanents</h4>
+  <h4 class="bg-rouge p-3">@lang('parasitisme.sujets_perm')</h4>
 
   <ul class="list-group list-group-flush mb-3">
 
@@ -8,7 +8,7 @@
 
       <li class="list-group-item">
 
-        <a href="{{ route('parasitisme.fondamentaux', $sujet->id) }}">{{$sujet->theme}}</a>
+        <a href="{{ route('parasitisme.fondamentaux', $sujet->id) }}">@lang($sujet->theme)</a>
 
       </li>
 
@@ -18,7 +18,7 @@
 
   <hr class="divider">
 
-  <h4 class="mt-3 bg-rouge p-3">Rechercher un sujet</h4>
+  <h4 class="mt-3 bg-rouge p-3">@lang('parasitisme.sujet_cherche')</h4>
 
   @foreach ($motclefs as $motclef)
 
@@ -48,8 +48,8 @@
   <ul class="list-group list-group-flush">
 
     <div class="my-3" id="liste_blogs" ></div>
-
   </ul>
+
 
 
   <hr class="divider">
