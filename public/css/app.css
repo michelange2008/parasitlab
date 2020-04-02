@@ -6090,6 +6090,8 @@ readers do not read off random characters that represent icons */
   padding: 5px 10px;
   box-shadow: 5px 5px 15px black;
   opacity: 65%;
+  filter: alpha(opacity=65);
+  /* Opacity for IE8 and lower */
 }
 
 mark {
