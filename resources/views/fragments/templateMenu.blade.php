@@ -26,7 +26,7 @@
   </ul>
 </div>
 
-
+{{-- Boite de dialogue pour choisir l'espece pour le téléchargement du formulaire --}}
 <div id="choix" class="choix_especes" style="display:none;position:fixed; top:20vh; left:25%;width:50%; height:200px;border:solid 1px black; background:white">
   <form id="choix_form" action="{{ route('analyses.formulairePdf') }}" method="post">
     <div class="card">

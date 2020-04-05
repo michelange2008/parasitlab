@@ -188,24 +188,26 @@ class ExtranetDemandeController extends Controller
 
 
 // DEUX METHODES POUR RECUPERER DES DONNES PAR AJAX (choisir.js)
-// Pour avoir les anatypes qui correspondent à une espece donnee
-       public function anatypeSelonEspece($espece_id)
-       {
-         $anatypes = DB::table('anatypes')
-                        ->join('anatype_espece', 'anatypes.id', '=', 'anatype_espece.anatype_id')
-                        ->where('anatype_espece.espece_id', $espece_id)
-                        ->get();
+// // Pour avoir les anatypes qui correspondent à une espece donnee
+//        public function anatypeSelonEspece($espece_id)
+//        {
+//          $anatypes = DB::table('anatypes')
+//                         ->join('anatype_espece', 'anatypes.id', '=', 'anatype_espece.anatype_id')
+//                         ->where('anatype_espece.espece_id', $espece_id)
+//                         ->get();
+//
+//          return json_encode($anatypes);
+//        }
+// // Pour avoir les anaactes qui correspondent à un anatype donné
+//        public function anaacteSelonAnatype($anatype_id)
+//        {
+//          $anaactes = Anaacte::where('anatype_id', $anatype_id)->get();
+//
+//          return json_encode($anaactes);
+//        }
 
-         return json_encode($anatypes);
-       }
-// Pour avoir les anaactes qui correspondent à un anatype donné
-       public function anaacteSelonAnatype($anatype_id)
-       {
-         $anaactes = Anaacte::where('anatype_id', $anatype_id)->get();
-
-         return json_encode($anaactes);
-       }
-
+       // Issu du choisir.js -
+       // Renvoie la liste des Observations pour une espece donnée
        public function observationSelonEspece($espece_id)
        {
          $espece = Espece::find($espece_id);
@@ -215,6 +217,11 @@ class ExtranetDemandeController extends Controller
          return json_encode($observations);
        }
 
+       // Issu du choisir.js
+       // Renvoie la liste des analyses proposées selon l'espece et une liste d'observations
+       // Utilise les tables pivot espece_observation et anaacte_observation
+       // renvoie un json avec seulement les analyses les plus fréquentes
+       // Une manip permet de remonter le score des deux analyses particulières (haemonchus et resistance)
        public function analyseSelonObservations($espece_id, $liste)
        {
          // On récupère toutes les observations

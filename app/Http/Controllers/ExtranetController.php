@@ -92,6 +92,13 @@ class ExtranetController extends Controller
 
     }
 
+    public function getFormulairePdf($espece_id)
+    {
+      $espece = Espece::find($espece_id);
+
+      $this->telechargePdf('formulaire_'.$espece->abbreviation, 'demande_analyse_parasito_'.$espece->abbreviation);
+    }
+
     public function contact()
     {
       return view('extranet.contact', [

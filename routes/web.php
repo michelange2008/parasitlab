@@ -55,6 +55,8 @@ Route::group(['prefix' => LaravelLocalization::setlocale(),
 
   Route::post('/analyses/formulairePdf', ['uses' => 'ExtranetController@formulairePdf', 'as' => 'analyses.formulairePdf']);
 
+  Route::get('/analyses/getFormulairePdf/{espece_id}', ['uses' => 'ExtranetController@getFormulairePdf', 'as' => 'analyses.getFormulairePdf']);
+
   Route::get('/enpratique', ['uses' => 'Technique\CoproscopiesController@enpratique', 'as' => 'enpratique']);
 
   Route::get('/analyses/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'analyses.choisir']);
@@ -69,10 +71,10 @@ Route::group(['prefix' => LaravelLocalization::setlocale(),
 
   Route::post('envoiPackStore', ['uses' => 'ExtranetDemandeController@envoiPackStore', 'as' => "envoiPackStore"]);
 
-  Route::get('/analyses/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
-
-  Route::get('/analyses/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
-
+  // Route::get('/analyses/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
+  //
+  // Route::get('/analyses/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
+  //
   Route::get('/analyses/methode/{espece_id}', ['uses' => 'ExtranetDemandeController@observationSelonEspece']);
 
   Route::get('/analyses/observations/{espece_id}/{liste}', ['uses' => 'ExtranetDemandeController@analyseSelonObservations']);

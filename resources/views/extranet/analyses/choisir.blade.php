@@ -50,27 +50,4 @@
 
 </div>
 
-<div id="myModal" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Informations</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div id="explication" class="font-weight-bold"></div>
-        <p class="causes-possibles text-secondary font-italic" style="display:none">@lang('choisir.autres_causes')</p>
-        <div id="autres">
-
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('commun.close')</button>
-      </div>
-    </div>
-  </div>
-</div>
 @endsection

@@ -1,2 +1,6 @@
 
-  <a href="{{ route($route, $id ?? '') }}" class="btn {{ $couleur ?? 'btn-bleu' }} ajuste_hauteur mx-1"><i class="{{ $fa ?? '' }}"></i> {{ $intitule }}</a>
+  <a href="{{ route($route, $id ?? '') }}" class="btn {{ $couleur ?? 'btn-bleu' }} ajuste_hauteur mx-1">
+
+    <i class="{{ $fa ?? '' }}"></i> {{ $intitule }}
+
+  </a>
