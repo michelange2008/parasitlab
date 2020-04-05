@@ -16965,6 +16965,11 @@ a {
   color: inherit;
 }
 
+.pointeur {
+  pointer-events: all !important;
+  cursor: pointer !important;
+}
+
 .ajuste_hauteur {
   height: -webkit-max-content;
   height: -moz-max-content;
@@ -16973,6 +16978,10 @@ a {
 
 .col-form-label {
   font-weight: bold;
+}
+
+.bordure-epaisse {
+  border-left: solid 5px #0A425A;
 }
 
 .bd-sidebar {

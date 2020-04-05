@@ -21,6 +21,7 @@ class CoproscopiesController extends Controller
       $this->sousmenuAnalyses = $this->litJson('sousmenuAnalyses');
     }
 
+    // Renvoie à lapage coprosocopies.blade avec coproscopies.json et lang coproscopies.php sur l'adresse parasitlab/coproscopies
     public function accueil()
     {
       return view('extranet.technique.coproscopies.coproscopies', [

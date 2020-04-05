@@ -30,38 +30,47 @@
 
     </div>
 
-    <div id='liste_anatypes' class="row my-3 justify-content-end" style="display:none">
 
-      <div class="col-md-10">
 
-        @include('extranet.analyses.choisir.titre', ['titre' => __('analyseproposees '), 'id' => 'titre'])
+    <div class="row justify-content-end">
+
+      <div class="col-md-5">
+
+        @include('extranet.analyses.choisir.methodeChoixAnalyse')
+
+      </div>
+
+      <div class="col-md-5">
+
+        @include('extranet.analyses.choisir.listeAnalysesProposees')
 
       </div>
 
     </div>
 
-    <div class="row my-3 justify-content-end">
+</div>
 
-      <div class="col-md-10">
-
-        <div class="card-deck d-md-flex justify-content-center">
-
-          @foreach ($especes as $espece)
-
-            @foreach ($espece->anatypes as $anatype)
-
-              @include('extranet.analyses.choisir.listeAnalysesProposees')
-
-            @endforeach
-
-          @endforeach
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Informations</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="explication" class="font-weight-bold"></div>
+        <p class="causes-possibles text-secondary font-italic" style="display:none">@lang('choisir.autres_causes')</p>
+        <div id="autres">
 
         </div>
 
       </div>
-
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('commun.close')</button>
+      </div>
     </div>
-
   </div>
-
+</div>
 @endsection

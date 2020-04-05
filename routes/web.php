@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::group(['prefix' => LaravelLocalization::setlocale(),
-//               'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-// ], function() {
+Route::group(['prefix' => LaravelLocalization::setlocale(),
+              'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function() {
 
   Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
 
@@ -47,7 +47,7 @@
   //##############################################################################
   // PAGES POUR LE CHOIX DES ANALYSES LE REMPLISSAGE DU FORMULAIRE LES ASPECTS PRATIQUES
 
-  Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']); // correspond au menu "pour commencer"
+  // Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']); // correspond au menu "pour commencer"
 
   Route::get('/analyses/tarifs', ['uses' => 'ExtranetController@tarifs', 'as' => 'analyses.tarifs']);
 
@@ -72,6 +72,10 @@
   Route::get('/analyses/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
 
   Route::get('/analyses/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
+
+  Route::get('/analyses/methode/{espece_id}', ['uses' => 'ExtranetDemandeController@observationSelonEspece']);
+
+  Route::get('/analyses/observations/{espece_id}/{liste}', ['uses' => 'ExtranetDemandeController@analyseSelonObservations']);
 
   Route::get('/especes', ['uses' => 'EspeceController@listeEspeces', 'as' => 'especes']);
 
@@ -181,5 +185,5 @@
 
   });
 
-//
-// });
+
+});

@@ -21,6 +21,18 @@ class SignesTableSeeder extends Seeder
         [
           'nom' => 'poil / laine piqués',
         ],
+        [
+          'nom' => 'toux',
+        ],
+        [
+          'nom' => 'jetage',
+        ],
+        [
+          'nom' => 'anémie',
+        ],
+        [
+          'nom' => 'mauvaise croissance',
+        ],
       ]);
     }
 }

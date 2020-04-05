@@ -25,6 +25,8 @@ use App\Models\Productions\Signe;
 use App\Models\Espece;
 use App\Models\Eleveur;
 use App\Models\Veto;
+use App\Models\Categorie;
+use App\Models\Observation;
 
 class ExtranetDemandeController extends Controller
 {
@@ -46,6 +48,7 @@ class ExtranetDemandeController extends Controller
           'menu' => $this->menu,
           'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
           'especes' => $especes,
+          'categories' => Categorie::all(),
         ]);
       }
 
@@ -201,6 +204,71 @@ class ExtranetDemandeController extends Controller
          $anaactes = Anaacte::where('anatype_id', $anatype_id)->get();
 
          return json_encode($anaactes);
+       }
+
+       public function observationSelonEspece($espece_id)
+       {
+         $espece = Espece::find($espece_id);
+
+         $observations = $espece->observations;
+
+         return json_encode($observations);
+       }
+
+       public function analyseSelonObservations($espece_id, $liste)
+       {
+         // On récupère toutes les observations
+         $observations = Observation::find(explode('_', $liste));
+
+         $liste_anatypes = Analyse::select('anatype_id')->where('espece_id', $espece_id)->get();
+         $types = Collect();
+
+         foreach ($liste_anatypes as $anatype) {
+           $types->push($anatype->anatype_id);
+         }
+
+         $nb_observation = count(explode(',', $liste));
+
+         // On crée une nouvelle collection
+         $analyses = Collect();
+         // Qu'on peuple en passant en revue les différentes observations
+         foreach ($observations as $observation) {
+           // Les analyses attachées à ces observations
+           foreach ($observation->anaactes as $anaacte) {
+             if($types->contains($anaacte->anatype->id)) {
+
+               $item = Collect(); // Nouvelle collection pour chaque analyse
+               $item->put("type",$anaacte->anatype->nom); // On y met le nom du type
+               $item->put("acte", $anaacte->nom); // On y met le détait (anaacte)
+               $item->put("estSpecial", $anaacte->anatype->estSpecial ); // on rajoute l'attribut de certains types (résitances, haemonchus),
+               $item->put("id" ,$anaacte->id); // Et l'id
+               $analyses->push($item); // Et on rentre tout ça dans la collection initiale
+             }
+           }
+         }
+
+        $freq_analyses = $analyses->countBy('id')->values(); // On crée une nouvelle collection qui compte la fréquence de chaque analyse
+        $freq_analyses_max = $freq_analyses->max();
+        $analyses_uniques = $analyses->unique()->values(); // On élimine les doublons
+
+        // et on assoocie les deux collections
+        for ($i=0; $i < $freq_analyses->count() ; $i++) {
+
+          $analyses_uniques[$i]->put("nb", $freq_analyses[$i]);
+            $analyses_uniques[$i]->put("max", $freq_analyses_max);
+
+        }
+        $analyses_ponderees = $analyses_uniques->map(function($item, $key) {
+          if($item['estSpecial'] == 1) {
+            $item->estSpecial = $item['max'];
+
+          }
+          return $item;
+        });
+
+        $synthese = $analyses_ponderees->whereBetween("nb", [$freq_analyses_max-1, $freq_analyses_max]);
+
+         return json_encode($synthese->groupBy("type"));
        }
 
 }

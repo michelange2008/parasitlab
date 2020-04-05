@@ -36,6 +36,10 @@ a {
   color: inherit;
 }
 
+.pointeur {
+	pointer-events: all !important;
+	cursor: pointer !important;
+}
 
 .ajuste_hauteur {
   height: max-content;
@@ -45,6 +49,9 @@ a {
   font-weight: bold;
 }
 
+.bordure-epaisse {
+	border-left: solid 5px $bleu-tres-fonce;
+}
 // pour avoir une barre latérale fixe meme quand on scrolle
 .bd-sidebar {
 	position: -webkit-fixed;

@@ -92,15 +92,6 @@ class ExtranetController extends Controller
 
     }
 
-
-    public function analyses()
-    {
-      return view('extranet.analyses', [
-        'menu' => $this->menu,
-        'analyses' => $this->litJson('analyses'),
-      ]);
-    }
-
     public function contact()
     {
       return view('extranet.contact', [

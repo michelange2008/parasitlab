@@ -37,4 +37,9 @@ class Anaacte extends Model
     {
       return $this->belongsToMany(Factures::class);
     }
+
+    public function observations()
+    {
+      return $this->belongsToMany(\App\Models\Observation::class);
+    }
 }

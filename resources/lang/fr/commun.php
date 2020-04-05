@@ -11,5 +11,6 @@ return [
   "non" => "non",
   "saispas" => "je ne sais pas",
   "retour" => "Retour",
-  "annule" => "Annule",
+  "annule" => "Annuler",
+  "close" => "Fermer",
 ];

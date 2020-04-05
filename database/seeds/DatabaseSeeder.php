@@ -37,6 +37,10 @@ class DatabaseSeeder extends Seeder
       $this->call(Anaitem_analyseTableSeeder::class);
       $this->call(PrelevementsTableSeeder::class);
       $this->call(ResultatsTableSeeder::class);
+      $this->call(CategoriesTableSeeder::class);
+      $this->call(ObservationsTableSeeder::class);
+      $this->call(Espece_ObservationTableSeeder::class);
+      $this->call(Anaacte_ObservationTableSeeder::class);
       // $this->call(BlogsTableSeeder::class);
 
     }
