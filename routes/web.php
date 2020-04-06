@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => LaravelLocalization::setlocale(),
-              'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-], function() {
+// Route::group(['prefix' => LaravelLocalization::setlocale(),
+//               'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+// ], function() {
 
   Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
 
@@ -169,7 +169,7 @@ Route::group(['prefix' => LaravelLocalization::setlocale(),
 
     Route::resource('resultats', 'Labo\ResultatController');
 
-    Route::get('factures/create/{destinataire_id}', 'Labo\FactureController@preCreate')->name('factures.preCreate');
+    Route::get('factures/create/{destinataire_id}', 'Labo\FactureController@createFromUser')->name('factures.createFromUser');
 
     Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
@@ -178,6 +178,8 @@ Route::group(['prefix' => LaravelLocalization::setlocale(),
     Route::resource('factures', 'Labo\FactureController');
 
     Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf');
+
+    Route::resource('reglement', 'Labo\ReglementController');
 
     Route::resource('acte', 'Labo\ActeController');
 
@@ -188,4 +190,4 @@ Route::group(['prefix' => LaravelLocalization::setlocale(),
   });
 
 
-});
+// });
