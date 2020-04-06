@@ -3,7 +3,7 @@
 return [
 
   "carousel" => [
-    "maitrisez" => "Control parasitism in your herd !",
+    "maitrisez" => "Control internal parasitism in your herd !",
     "evaluez" => "Evaluate the infestation of your animals !",
     "limitez" => "Limit resistance to anthelmintics !",
     "respectez" => "Respect biodiversity !",

@@ -60,6 +60,14 @@ class AnatypesTableSeeder extends Seeder
             'estSpecial' => true,
             'icone_id' => 23,
           ],
+          [
+            'id' => 7,
+            'abbreviation' => "PACK",
+            'nom' => "Pack",
+            'technique' => '',
+            'estSpecial' => false,
+            'icone_id' => 16,
+          ],
         ]);
     }
 }

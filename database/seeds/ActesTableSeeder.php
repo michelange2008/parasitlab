@@ -15,7 +15,7 @@ class ActesTableSeeder extends Seeder
           [
             'id' => 1,
             'user_id' => 3,
-            'anaacte_id'=> 4,
+            'anaacte_id'=> 14,
             'nombre' => 2,
             'facturee' => false ,
             'facture_id' => null,
@@ -25,7 +25,7 @@ class ActesTableSeeder extends Seeder
           [
             'id' => 2,
             'user_id' => 5,
-            'anaacte_id'=> 4,
+            'anaacte_id'=> 14,
             'nombre' => 1,
             'facturee' => false ,
             'facture_id' => null,
@@ -35,7 +35,7 @@ class ActesTableSeeder extends Seeder
           [
             'id' => 3,
             'user_id' => 7,
-            'anaacte_id'=> 4,
+            'anaacte_id'=> 14,
             'nombre' => 3,
             'facturee' => false ,
             'facture_id' => null,
@@ -45,7 +45,7 @@ class ActesTableSeeder extends Seeder
           [
             'id' => 4,
             'user_id' => 5,
-            'anaacte_id'=> 4,
+            'anaacte_id'=> 14,
             'nombre' => 2,
             'facturee' => false ,
             'facture_id' => null,
@@ -55,7 +55,7 @@ class ActesTableSeeder extends Seeder
           [
             'id' => 5,
             'user_id' => 5,
-            'anaacte_id'=> 5,
+            'anaacte_id'=> 14,
             'nombre' => 1,
             'facturee' => false ,
             'facture_id' => null,

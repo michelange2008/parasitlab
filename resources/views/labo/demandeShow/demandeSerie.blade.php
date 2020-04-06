@@ -7,7 +7,7 @@
         'nom' => "voir la série ",
         'id' => $demande->serie_id,
         'route' => 'routeurSerie',
-        'tooltip' => "Cliquer pour afficher la série",
+        'tooltip' => "tooltips.affiche_detail_serie",
         'before' => "(",
         'after' => ")",
 

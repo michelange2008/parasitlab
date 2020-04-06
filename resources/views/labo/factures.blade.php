@@ -10,6 +10,16 @@
 
       <div class="col-md-11">
 
+        @include('fragments.flash')
+
+      </div>
+
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-11">
+
           @include('admin.index.index')
 
       </div>

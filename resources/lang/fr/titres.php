@@ -24,6 +24,12 @@ return [
 
   "contact" => "Nous contacter",
 
-  "quisommesnous" => "Qui sommes-nous&nbsp;?"
+  "quisommesnous" => "Qui sommes-nous&nbsp;?",
+
+  "factures" => "Factures à établir",
+
+  "liste_factures" => "Liste de factures",
+
+  "facture_create" => "Etablissement d'une facture",
 
 ];

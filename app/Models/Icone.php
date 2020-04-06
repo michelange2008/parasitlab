@@ -33,9 +33,9 @@ class Icone extends Model
     return $this->hasOne(Analyses\Anaacte::class);
   }
 
-  public function reglement()
+  public function modereglement()
   {
-    return $this->hasOne(Productions\Reglement::class);
+    return $this->hasOne(Productions\Modereglement::class);
   }
 
 }

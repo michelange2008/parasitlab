@@ -1,6 +1,6 @@
 <div class="form-group pl-3 border-left">
 
-  <h5>Actes à facturer</h5>
+  <h5>@lang('factures.actes_a_facturer')</h5>
 
   @isset($actes)
 
@@ -10,7 +10,8 @@
 
         <input class="custom-control-input" type="checkbox" name="acte_{{ $acte->id }}" id="acte_{{ $acte->id }}" value="on">
 
-        <label class="custom-control-label" for="acte_{{ $acte->id }}">{{ $acte->anaacte->nom }} ({{ $acte->nombre }})</label>
+        <label class="custom-control-label" for="acte_{{ $acte->id }}">
+          <span class="font-weight-bold">{{ ucfirst($acte->anaacte->nom) }}</span> ({{ $acte->nombre }})</label>
 
       </div>
 
@@ -18,7 +19,7 @@
 
   @else
 
-    <p class="color-rouge m-3">Aucun acte à facturer</p>
+    <p class="color-rouge m-3">@lang('factures.0_acte_a_facturer')</p>
 
   @endisset
 

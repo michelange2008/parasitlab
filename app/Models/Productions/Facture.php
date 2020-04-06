@@ -9,11 +9,6 @@ class Facture extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-    // public function demandes()
-    // {
-    //   return $this->hasMany(Demande::class);
-    // }
-
     public function user()
     {
       return $this->belongsTo(\App\User::class);

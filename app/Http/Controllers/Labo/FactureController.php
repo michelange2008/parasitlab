@@ -13,7 +13,7 @@ use App\Models\Productions\Facture;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Acte;
 use App\Models\Productions\Anaacte_Facture;
-use App\Models\Productions\Reglement;
+use App\Models\Productions\Modereglement;
 
 use App\Fournisseurs\ListeFacturesFournisseur;
 
@@ -57,8 +57,8 @@ class FactureController extends Controller
       }
 
       $fournisseur = new ListeFacturesFournisseur();
-
-      $datas = $fournisseur->renvoieDatas($factures, "Liste des factures", "factures.svg", 'tableauFactures', 'factures.etablir', 'Factures à établir');
+      // methode de ListeFournisseur (classe abstraite) : données du tableau, titre du tableau, icone du titre, nom du json avec les entetes de colonne, route du bouton, intitulé du bouton
+      $datas = $fournisseur->renvoieDatas($factures, __('titres.liste_factures'), "factures.svg", 'tableauFactures', 'factures.etablir', __('boutons.facture_add'));
 
       return view('labo.factures', [
         'menu' => $this->menu,
@@ -73,16 +73,16 @@ class FactureController extends Controller
     {
       // liste des utilisateurs qui ont des actes à facturer avec l'id de l'acte
       $users_anf =$this->clientsActesAFacturer();
-      //liste des utilisateurs qui ont des demandes à facturer avec l'il de la demande
+      //liste des utilisateurs qui ont des demandes à facturer avec l'id de la demande
       $users_dnf = $this->clientsDemandesAFacturer();
       //liste des id des utilisateurs à facturer.
 
       session(['users_dnf' => $users_dnf]);
-
+      // On établit une liste qui fusionne (merge) les id des users_anf et les id des users_dnf puis on ôte les doublons (unique)
       $users_a_facturer = $users_anf->keys()->merge($users_dnf->keys())->unique();
-
+      // Et on recherche le sutilisateurs de cette liste
       $users = User::find($users_a_facturer);
-
+      // Pour pouvoir les choisirs
       return view('labo.factures.factureAEtablir', [
         'menu' => $this->menu,
         'users' => $users,
@@ -92,20 +92,20 @@ class FactureController extends Controller
     /**
     * Fonction pour créer une facture après avoir choisi le destinataire
     */
-    public function preCreate($user_id)
+    public function createFromUser($user_id)
     {
-      // Cas où on reprend une session sans passer par factures.etablir
+      // Cas où on reprend une session sans passer par factures.etablir, cad sans avoir choisi un utilisateur à facturer
       // Il n'y a pas de tableau users_dnf stocké.
       if (!session()->has('users_dnf')) {
 
         return redirect()->route('factures.etablir');
 
       }
-
+      // On récupère l'user
       $user = User::find($user_id);
-
+      // On récupère la variable de session stockée dans la methode etablir (cf. au-dessus)
       $users_dnf = session()->get('users_dnf');
-
+      // Si il y a les utilisateurs de demandes non facturées sont le user en cours
       if($users_dnf->keys()->contains($user_id))
       {
         $demandes = Demande::find($users_dnf[$user_id]); // on reprend l'id du destinataire de facture associé aux id des demandes (cf; function etablir)
@@ -116,7 +116,7 @@ class FactureController extends Controller
         $demandes = null;
       }
 
-
+      // Il s'agit d'anaactes qui ne correspondent pas à une analyse: pack envoi, déplacement, visite, etc.
       $actes = Acte::where('facturee', false)->where('user_id', $user_id)->get();
 
       return view('labo.factures.factureCreate', [
@@ -128,7 +128,7 @@ class FactureController extends Controller
     }
 
     /**
-     * Non utilisé à cause de la spéficité de l'établissement d'une facture
+     * Non utilisé à cause de la spéficité de l'établissement d'une facture: la création d'une facture dépend toujours d'un utilisateur
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -152,7 +152,7 @@ class FactureController extends Controller
 
       }
       $datas = $request->all();
-
+// dd($datas);
       $nouvelle_facture = new Facture();
       $nouvelle_facture->user_id = $datas['destinataire'];
       $nouvelle_facture->faite_date = Carbon::now();
@@ -168,16 +168,16 @@ class FactureController extends Controller
 
           $demande = Demande::find($element[1]); // on recherche cette demande avec la seconde partie de la clef
 
-          foreach ($demande->anapack->anaactes as $anaacte) { // on passe en revue les anaactes de l'anapack de la demande
+          // foreach ($demande->anaacte as $anaacte) { // on passe en revue les anaactes de l'anapack de la demande
 
-            $nouvelle_facture->anaactes()->attach($anaacte->id, [ // et on en saisit les donnnées dans la table pivot anaacte_facture
+            $nouvelle_facture->anaactes()->attach($demande->anaacte_id, [ // et on en saisit les donnnées dans la table pivot anaacte_facture
               'facture_id' => $nouvelle_facture->id,
-              'pu_ht' => $anaacte->pu_ht,
-              'tva_id' => $anaacte->tva_id,
+              'pu_ht' => $demande->anaacte->pu_ht,
+              'tva_id' => $demande->anaacte->tva_id,
               'date' => $demande->date_reception,
             ]);
 
-          }
+          // }
 
           // On marque la demande comme facturés
           DB::table('demandes')->where('id', $demande->id)
@@ -223,7 +223,7 @@ class FactureController extends Controller
      */
     public function show($id)
     {
-        $reglements = Reglement::all();
+        $modereglements = Modereglement::all();
 
         $facture = Facture::findOrFail($id);
         // dd($facture);
@@ -244,7 +244,7 @@ class FactureController extends Controller
 
         return view('labo.factures.facture', [
           'menu'=> $this->menu,
-          'reglements' => $reglements,
+          'modereglements' => $modereglements,
           'facture_completee' => $facture_completee,
           'demandes' => $demandes,
           'anaactes_factures' => $anaactes_factures,
@@ -283,7 +283,13 @@ class FactureController extends Controller
      */
     public function destroy($id)
     {
-        //
+      // On remet non facturé les demandes et les actes de cette facture
+      DB::table('demandes')->where('facture_id', $id)->update(['facturee' => false]);
+      DB::table('actes')->where('facture_id', $id)->update(['facturee' => false]);
+      // Puis on dettuit la facture
+      Facture::destroy($id);
+
+      return redirect()->back()->with('message', 'facture_delete');
     }
 
     public function paiement(Request $request)

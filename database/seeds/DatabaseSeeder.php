@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
       $this->call(UnitesTableSeeder::class);
       $this->call(EspecesTableSeeder::class);
       $this->call(TvasTableSeeder::class);
-      $this->call(ReglementsTableSeeder::class);
+      $this->call(ModereglementsTableSeeder::class);
       $this->call(EleveursTableSeeder::class);
       $this->call(LabosTableSeeder::class);
       $this->call(AnaitemsTableSeeder::class);

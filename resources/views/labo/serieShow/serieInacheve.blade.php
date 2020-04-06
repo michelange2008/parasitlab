@@ -42,7 +42,7 @@
                   'id' => $demande->id,
                   'nom' => $demande->id,
                   'route' => 'demandes.show',
-                  'tooltip' => "Cliquer pour voir le détail de cette demande d'analyse",
+                  'tooltip' => 'tooltips.affiche_detail_demande',
                 ])
 
               </td>

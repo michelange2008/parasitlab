@@ -13,7 +13,7 @@ class TvasTableSeeder extends Seeder
     {
         DB::table('tvas')->insert([
           [
-            'id' => 1,
+            'id' => 4,
             'taux' => 0.20,
           ],
           [
@@ -25,7 +25,7 @@ class TvasTableSeeder extends Seeder
             'taux' => 0.055,
           ],
           [
-            'id' => 4,
+            'id' => 1,
             'taux' => 0,
           ]
         ]);

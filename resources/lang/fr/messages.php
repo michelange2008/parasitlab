@@ -7,4 +7,9 @@ return [
   "blog_destroy" => "L'article a été supprimé",
 
   "create_new_vet" => "Il faut créer un vétérinaire pour", //EleveurAdminController@store
+  "create_new_acte" => "Ce nouvel acte a été enregistré",
+
+  "facture_delete" => "Cette facture a été supprimée",
+
+  "reglement_fait" => "Ce réglement vient d'être enregistré",
 ];

@@ -10,7 +10,7 @@
 
       <div class="col-md-10 col-lg-8">
 
-        @titre(['titre' => "Factures à établir", 'icone' => 'factures.svg'])
+        @titre(['titre' => __('titres.factures'), 'icone' => 'factures.svg'])
 
       </div>
 
@@ -24,21 +24,21 @@
 
           <thead>
             <tr>
-              <th>Nom du client</th>
               <th></th>
+              <th>@lang('tableaux.nom_client')</th>
             </tr>
           </thead>
           <tbody>
             @foreach ($users as $user)
 
               <tr>
-                <td>{{ $user->name }}</td>
                 <td>
-                  <a class="btn btn-bleu btn-sm" href="{{ route('factures.preCreate', $user->id) }}"
-                    data-toggle="tooltip" title="cliquer pour créer la facture">
+                  <a  style="width:50px" class="btn btn-bleu btn-sm" href="{{ route('factures.createFromUser', $user->id) }}"
+                    data-toggle="tooltip" title="@lang('tooltips.create_facture')">
                     <i class="fas fa-euro-sign"></i>
                   </a>
                 </td>
+                <td>{{ $user->name }}</td>
               </tr>
 
             @endforeach

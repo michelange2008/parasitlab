@@ -47,7 +47,7 @@ class SerieController extends Controller
     public function index()
     {
         $series = Serie::all();
-
+// dd($series);
         $fournisseur = new ListeSeriesFournisseur();
 
         $datas = $fournisseur->renvoieDatas($series, "liste des séries d'analyse", 'serie.svg', 'tableauSeries', 'demandes.create', "Ajouter une demande d'analyse");

@@ -3,7 +3,7 @@
 return [
 
   "carousel" => [
-    "maitrisez" => "Maîtrisez le parasitisme de votre troupeau !",
+    "maitrisez" => "Maîtrisez le parasitisme interne de votre troupeau !",
     "evaluez" => "Evaluez la situation de vos animaux !",
     "limitez" => "Limitez les résistances !",
     "respectez" => "Respectez la biodiversité !",
@@ -31,6 +31,7 @@ return [
   "situeDansLaDrome" => " situé dans la Drôme au Pôle Bio sur l'Écosite d'Eurre.",
   "creeEtGere" => "Créé et géré par l'antenne France du ",
   "ceLaboratoire" => ", ce laboratoire accueille tous vos prélèvements destinés à des analyses parasitologiques.",
+  "limites" => "Pour l'instant, Parasit'Lab se consacre à la détection du parasitisme interne par le biais de coproscopies.",
   "ensavoirplus" => "Pour en savoir plus ...",
 
   "pastilles" => [

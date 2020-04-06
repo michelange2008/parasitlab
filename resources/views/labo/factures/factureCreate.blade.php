@@ -10,7 +10,7 @@
 
       <div class="col-md-10">
 
-        @titre(["titre" => "Etablissement d'une facture", "icone" => "factures.svg"])
+        @titre(["titre" => __('titres.facture_create'), "icone" => "factures.svg"])
 
       </div>
 
@@ -44,7 +44,7 @@
 
             </div>
 
-            @enregistreAnnule()
+            @enregistreAnnule(['nomBouton' => 'boutons.facturer'])
 
         </form>
 

@@ -23,4 +23,11 @@ trait AnaacteOutil
 
     return $anaacte;
   }
+
+  // A partir d'un anaacte, renvoie l'anatype6>nom et l'anaacte->nom en plus petit
+  public function formatAnaacteAnaType($anaacte)
+  {
+    return $anaacte->anatype->abbreviation."</br><span class='small'>(".$anaacte->abbreviation.")</span>";
+  }
+
 }

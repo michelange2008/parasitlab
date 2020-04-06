@@ -13,7 +13,7 @@ class Serie extends Model
       return $this->hasMany(Demande::class);
     }
 
-    public function anapack()
+    public function anaacte()
     {
       return $this->belongsTo(\App\Models\Analyses\Anaacte::class);
     }

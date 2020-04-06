@@ -2,13 +2,14 @@
 namespace App\Fournisseurs;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\AnaacteOutil;
 
 /**
  * CLASSE ABSTRAITE POUR LES TRAITS LISTE****FOURNISSEUR
  */
 abstract class ListeFournisseur
 {
-  use LitJson;
+  use LitJson, AnaacteOutil;
 
   private $datas;
 
@@ -51,7 +52,7 @@ abstract class ListeFournisseur
   */
   public function acteTypeCourt($anaacte)
   {
-    return $anaacte->anatype->abbreviation."</br><span class='small'>(".$anaacte->abbreviation.")</span>";
+    return $this->formatAnaacteAnaType($anaacte);
   }
 
   /*

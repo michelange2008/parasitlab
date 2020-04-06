@@ -98,7 +98,7 @@ class ActeController extends Controller
 
       }
 
-      return redirect()->route('acte.index')->with('message', 'Ce nouvel acte a été enregistré');
+      return redirect()->route('acte.index')->with('message', 'create_new_acte');
 
     }
 

@@ -27,8 +27,9 @@ $('.espece').on('click', function() {
   });
   // on efface le bouton de téléchargement du formulaire
   href = $('#pdf').attr('href');
-  var regex = /getFormulairePdf\/[0-9]+/;
+  // var regex = /getFormulairePdf\/[0-9]+/;
   href = (href.match(regex)) ? href.replace(regex, 'getFormulairePdf') : href;
+  console.log(href);
   $('#pdf').attr('href', href);
   $('#bouton_pdf').fadeOut();
   // On réinitialise le tableau de observations sélectionnées
@@ -92,9 +93,7 @@ $(".liste_observations").on('click', ".card-header", function() {
 
   listeAnalyses(url);
 
-  var href = $("#pdf").attr('href');
-  href = href.concat('/'+espece_id);
-  $('#pdf').attr('href', href);
+
   $('#bouton_pdf').fadeIn();
 });
 

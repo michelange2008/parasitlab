@@ -14,7 +14,7 @@
 
   @foreach ($demandes as $demande)
 
-    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst($demande->anapack->nom) }} du {{ $demande->date_reception }}</p>
+    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst($demande->anaacte->anatype->nom) }} du {{ $demande->date_reception }}</p>
 
   @endforeach
 

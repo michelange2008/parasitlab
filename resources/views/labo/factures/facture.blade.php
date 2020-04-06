@@ -46,7 +46,11 @@
 
     <div class="col-md-10">
 
-      @include('fragments.boutonUser', ['route' => 'facture.pdf', 'id' => $facture_completee->id, 'intitule' => 'afficher le pdf'])
+      @include('fragments.boutonUser', [
+        'route' => 'facture.pdf', 'id' => $facture_completee->id,
+        'intitule' => __('boutons.show_pdf'),
+        'couleur' => 'btn-rouge',
+      ])
 
     </div>
 
@@ -56,9 +60,9 @@
 
     <div class="col-md-10 p-3 border">
 
-      <h4>Paiement de la facture</h4>
-
-      <form class="" action="{{ route('facture.paiement') }}" method="post">
+      <h4>Paiement</h4>
+<?php // TODO: comprendre pourquoi si on met la traduction ça fout le bazar dans les balises ?>
+      <form class="" action="{{ route('reglement.store') }}" method="post">
 
         @csrf
 
@@ -68,13 +72,13 @@
 
           <div class=" col form-group">
 
-            <label for="reglement">Mode de règlement</label>
+            <label for="modereglement">Mode de réglement</label>
 
-            <select class="form-control" name="reglement_id">
+            <select class="form-control" name="modereglement_id">
 
-              @foreach ($reglements as $reglement)
+              @foreach ($modereglements as $modereglements)
 
-                <option value="{{ $reglement->id }}">{{ $reglement->nom }}</option>
+                <option value="{{ $modereglements->id }}">{{ $modereglements->nom }}</option>
 
               @endforeach
 
@@ -84,7 +88,7 @@
 
           <div class="col form-group">
 
-            <label for="payee_date">Date de paiement</label>
+            <label for="payee_date">date de paiement</label>
 
             <input class="form-control" type="date" name="payee_date" value="{{ Carbon\Carbon::now()->toDateString() }}">
 

@@ -8,13 +8,13 @@ class Reglement extends Model
 {
     public $timestamps = false;
 
-    public function icone()
-    {
-      return $this->belongsTo(\App\Models\Icone::class);
-    }
-
     public function facture()
     {
-      return $this->hasOne('Facture::class');
+      return $this->hasOne(Facture::class);
+    }
+
+    public function modereglement()
+    {
+      return $this->belongsTo(Modereglement::class);
     }
 }

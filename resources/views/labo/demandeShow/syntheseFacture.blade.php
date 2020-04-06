@@ -18,7 +18,7 @@
         </td>
       @elseif ($demande->acheve)
         <td class="color-rouge-tres-fonce text-center" colspan="2">
-          <a class="btn btn-bleu btn-sm" href="{{ route('factures.preCreate', ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id) }}">
+          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createFromUser', ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id) }}">
             Etablir la facture
           </a>
         </td>
