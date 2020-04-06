@@ -13,7 +13,7 @@
     'id' => '',
     'couleur' => 'btn-rouge',
     'fa' => 'fas fa-file-pdf',
-    'intitule' => 'Télécharger un formulaire'
+    'intitule' => 'form.form_download',
   ])
 
 </div>

@@ -10,7 +10,7 @@
 
   <div class="card-footer">
 
-    @include('fragments.bouton', ['type' => 'route', 'route' => 'enpratique', 'intitule' => 'En pratique', 'fa' => 'fas fa-sign-language'])
+    @bouton(['type' => 'route', 'route' => 'enpratique', 'intitule' => 'enpratique.en_pratique', 'fa' => 'fas fa-sign-language'])
 
   </div>
 

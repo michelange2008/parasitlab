@@ -10,7 +10,7 @@
 
       <div class="col-md-10 col-xl-8">
 
-        @titre(['titre' => , 'icone' => 'cv_rond.svg'])
+        @titre(['titre' => '__(titres.cavaliers)' , 'icone' => 'cv_rond.svg'])
 
       </div>
 

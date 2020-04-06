@@ -21,7 +21,7 @@
 
     <i class="{{ $fa ?? '' }}"></i>
 
-    {{ $intitule }}
+    {{ __( $intitule ) }}
 
     &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
 

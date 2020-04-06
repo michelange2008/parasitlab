@@ -16,7 +16,7 @@
 
   <div class="card-footer">
 
-    @include('fragments.bouton')
+    @bouton()
 
   </div>
 

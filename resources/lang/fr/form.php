@@ -43,5 +43,8 @@ return [
   "nom_prelev" => "nom du prélèvement",
   "ax_prelev" => "Concernant les animaux de ce prélèvement&nbsp;:",
   "sontparasites" => "Pensez-vous qu'ils sont parasités&nbsp;?",
-  "q_obserevation" => "Avez-vous observé&nbsp;:",
+  "q_observation" => "Avez-vous observé&nbsp;:",
+
+  "form_download" => "Télécharger un formulaire",
+  "ask_for_pack" => "Demander des packs d'envoi",
  ];

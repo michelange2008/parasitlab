@@ -14,7 +14,7 @@
 
   <div class="card-footer">
 
-    @include('fragments.bouton', ['type' => 'route', 'route' => $route, 'intitule' => $intitule ?? "En savoir plus", 'taille' => 'btn-lg'])
+    @bouton(['type' => 'route', 'route' => $route, 'intitule' => $intitule ?? "En savoir plus", 'taille' => 'btn-lg'])
 
   </div>
 

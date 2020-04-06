@@ -18,7 +18,7 @@
 
   <div class="card-footer">
 
-    @include('fragments.bouton', [
+    @bouton([
       'type' => 'link',
       'target' => '_self',
       'lien' => url('/analyses/choisir/'.$espece->id.'/'.$anatype->id),
