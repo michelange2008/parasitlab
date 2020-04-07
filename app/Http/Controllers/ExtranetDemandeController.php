@@ -49,6 +49,7 @@ class ExtranetDemandeController extends Controller
           'sousmenuAnalyses' => $this->litJson('sousmenuAnalyses'),
           'especes' => $especes,
           'categories' => Categorie::all(),
+          'qui_quand' => $this->litJson('qui_quand')
         ]);
       }
 
@@ -186,28 +187,6 @@ class ExtranetDemandeController extends Controller
 
        }
 
-
-// DEUX METHODES POUR RECUPERER DES DONNES PAR AJAX (choisir.js)
-// // Pour avoir les anatypes qui correspondent à une espece donnee
-//        public function anatypeSelonEspece($espece_id)
-//        {
-//          $anatypes = DB::table('anatypes')
-//                         ->join('anatype_espece', 'anatypes.id', '=', 'anatype_espece.anatype_id')
-//                         ->where('anatype_espece.espece_id', $espece_id)
-//                         ->get();
-//
-//          return json_encode($anatypes);
-//        }
-// // Pour avoir les anaactes qui correspondent à un anatype donné
-//        public function anaacteSelonAnatype($anatype_id)
-//        {
-//          $anaactes = Anaacte::where('anatype_id', $anatype_id)->get();
-//
-//          return json_encode($anaactes);
-//        }
-
-       // Issu du choisir.js -
-       // Renvoie la liste des Observations pour une espece donnée
        public function observationSelonEspece($espece_id)
        {
          $espece = Espece::find($espece_id);
@@ -276,6 +255,20 @@ class ExtranetDemandeController extends Controller
         $synthese = $analyses_ponderees->whereBetween("nb", [$freq_analyses_max-1, $freq_analyses_max]);
 
          return json_encode($synthese->groupBy("type"));
+       }
+
+       public function optionsSelonObservations($espece_id, $liste)
+       {
+         // On récupère toutes les observations
+         $observations = Observation::find(explode('_', $liste));
+         $liste_options = Collect();
+         foreach ($observations as $observation) {
+          foreach ($observation->options as $option) {
+            $liste_options->push($option->nom);
+          }
+         }
+
+         return json_encode($liste_options->unique());
        }
 
 }

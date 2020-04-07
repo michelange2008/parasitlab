@@ -8,4 +8,6 @@ return [
   "autres_causes" => "Autres causes possibles&nbsp;:",
   "analyseproposees" => "Voici les analyses proposées&nbsp;:",
   "fill_form" => "Remplir le formulaire",
+  "motif" => "Ensuite tout depend du motif de votre analyse&nbsp;:",
+
 ];

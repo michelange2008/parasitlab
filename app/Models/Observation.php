@@ -22,4 +22,9 @@ class Observation extends Model
     {
       return $this->belongsToMany(\App\Models\Analyses\Anaacte::class);
     }
+
+    public function options()
+    {
+      return $this->belongsToMany(Option::class);
+    }
 }

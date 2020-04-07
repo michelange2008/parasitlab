@@ -34,16 +34,16 @@
 
     <div class="row justify-content-end">
 
-      <div class="col-md-5">
+      <div class="col-md-4">
 
         @include('extranet.analyses.choisir.methodeChoixAnalyse')
 
       </div>
 
-      <div class="col-md-5">
+      <div class="col-md-6">
 
-        @include('extranet.analyses.choisir.listeAnalysesProposees')
-
+        {{-- @include('extranet.analyses.choisir.listeAnalysesProposees') --}}
+        @include('extranet.analyses.choisir.options')
       </div>
 
     </div>

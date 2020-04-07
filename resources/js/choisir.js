@@ -3,7 +3,7 @@
 // via une requete ajax qui interroge la méthode ExtranetDemandeController@observationSelonEspece
 // On affiche cette liste dans la vue methodeChoixAnalyse
 // Cela permet ensuite de cliquer sur les différentes observations et à chaque fois, ça fait uner requete ajax (ExtranetDemandeController@analyseSelonObservations)
-// Cette requete retourne un json que l'on affiche dans la vue listeAnalysesProposees
+// Cette requete retourne un json que l'on affiche dans la vue options.blade
 
 // Initialise la liste des observations
 var tableau_observations = [];
@@ -14,24 +14,18 @@ $('.espece').on('click', function() {
 
   // modifie l'affichage des logos espece
   $(".espece").css('filter', 'opacity(20%)');
-  $(this).css('filter', 'blur(0px)')
-  // On vide la liste des observations
-  $('.liste_observations').children().remove();
-  // On vide la liste des analyses proposées
-  $('#liste_analyses').children().remove();
-  // On masque le titre des analyses proposées
-  $(".titre_analyses").fadeOut();
-  // On masque toutes les explications
-  $('.observation').each(function () {
-    $(this).removeClass('active').addClass('disabled')
-  });
+  $(this).css('filter', 'blur(0px)');
+
+  videOption();
+  $('.categorie').hide();
+  $('.liste_observations').empty();
   // on efface le bouton de téléchargement du formulaire
-  href = $('#pdf').attr('href');
+  // href = $('#pdf').attr('href');
   // var regex = /getFormulairePdf\/[0-9]+/;
-  href = (href.match(regex)) ? href.replace(regex, 'getFormulairePdf') : href;
-  console.log(href);
-  $('#pdf').attr('href', href);
-  $('#bouton_pdf').fadeOut();
+  // href = (href.match(regex)) ? href.replace(regex, 'getFormulairePdf') : href;
+  // $('#pdf').attr('href', href);
+  // $('#bouton_pdf').fadeOut();
+
   // On réinitialise le tableau de observations sélectionnées
   tableau_observations = [];
 
@@ -41,7 +35,7 @@ $('.espece').on('click', function() {
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   // On modifie l'url pour pouvoir faire la requete
   var url = url_actuelle.replace('choisir', 'methode/'+espece_id);
-
+console.log(url);
   // affiche le soustitre et on lui donne l'attribut espece avec l'espece_id comme valeur pour la requete ajax suivante
   $("#titre_observations").attr('espece', espece_id).fadeIn()
   // on appelle la fonction qui fait la requete ajax
@@ -53,16 +47,17 @@ $('.espece').on('click', function() {
 // ################ DEUXIEME ETAPE ###########################################################
 // Quand on clique sur les observations
 $(".liste_observations").on('click', ".card-header", function() {
-
+  // SUR LA COLONNE OBSERVATIONS:
   // On commence par masquer toutes les explications
   $('.collapse').each(function() {
     // TODO: A voir s'il faut masquer les explications
     $(this).removeClass('show');
   })
-  // On vide la liste d'analyses
-  $('#liste_analyses').children().remove();
-  // On efface le titre
-  $('.titre_analyses').fadeIn();
+  // Changement de couleur de la ligne observation
+  $(this).toggleClass('disabled').toggleClass('active'); // et on change de couleur
+
+  // ON EFFACE TOUTE LA COLONNE OPTIONS:
+  videOption();
 
   // On récupère l'id de l'observation sur laquelle on a cliqué
   var observation_id = $(this).attr('data-target');
@@ -78,8 +73,6 @@ $(".liste_observations").on('click', ".card-header", function() {
     $("#"+observation_id).removeClass('show');
   }
 
-  // Changement de couleur de la ligne observation
-  $(this).toggleClass('disabled').toggleClass('active'); // et on change de couleur
   // On crée une liste de l'id des observatins sélectionnées, séparéees par des underscores pour le passer à l'ajax
   liste = '';
   $.each(tableau_observations, function(key, value) {
@@ -91,10 +84,10 @@ $(".liste_observations").on('click', ".card-header", function() {
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   var url = url_actuelle.replace('choisir', 'observations/'+espece_id+'/'+liste);
 
-  listeAnalyses(url);
+  listeOptions(url);
 
 
-  $('#bouton_pdf').fadeIn();
+  // $('#bouton_pdf').fadeIn();
 });
 
 // Fonction qui requete ajax avec l'espcece_id (ExtranetDemandeController@observationSelonEspece)
@@ -111,7 +104,7 @@ function listeObservations(url) {
     if(datas != null) {
 
       lignes = JSON.parse(datas);
-
+      $('.categorie').fadeIn();
       $.each(lignes, function(key, ligne) {
         // la creation de la variable autre est destinée à ne rien afficher quand la valeur de ligne.autres est null
         var autres = (ligne.autres == null) ? '': '<p class="ml-3 mb-0 p-1 pl-2 bordure-epaisse"><i>Autres causes&nbsp;: </i>' + ligne.autres + '</p>';
@@ -140,7 +133,7 @@ function listeObservations(url) {
 // Fonction pour mettre le permier mot en majuscule
 function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};
 
-function listeAnalyses(url) {
+function listeOptions(url) {
 
   $.get({
 
@@ -148,20 +141,55 @@ function listeAnalyses(url) {
 
   })
   .done(function(datas) {
-
     if(datas != null) {
-      var analyses = JSON.parse(datas);
-      // On passe en revue le JSON renvoyé par ExtranetDemandeController@analyseSelonObservations
-      $.each(analyses, function(key, value) {
-        var id = key.split(" ")[0]+key.length // Manipulation pour créer une id unique avec le nom de l'anatype
-        $('#liste_analyses').append("<li id="+id+" class='lead type list-group-item list-group-item-action color-bleu-tres-fonce'>"+ strUcFirst(key) +"</li>") // On liste les anatypes
+      if(JSON.parse(datas).length == 0) {
+          $('#aucune_option').append(
+            '<p class="lead alert-warning p-3">'
+            +'Désolé... Nous n\'avons aucune proposition d\'analyses pour cette situation.'
+            +'</p>'
+          );
+      }
+      else {
 
-        $.each(value, function(clef, valeur) { // On passe en revue les anaactes dans chaque anatype
-          $("#"+id).append('<ul id="anaacte'+valeur.id+'" class="small sousliste list-group color-bleu"></ul>') // On affiche l'anaacte dans une sousliste
-          $("#anaacte"+valeur.id).append("<li class='list-group-item'>"+strUcFirst(valeur.acte)+"</li>")
+        $('#titre_options').fadeIn();
+        var analyses = JSON.parse(datas);
+
+        $.each(analyses, function(key, value) {
+          $('.option').each(function() {
+            if($(this).attr('id') == value) {
+              $(this).fadeIn();
+            }
+          })
         })
-      })
+      }
+      $('#penser_veto').fadeIn(2000);
+
+      // On passe en revue le JSON renvoyé par ExtranetDemandeController@analyseSelonObservations
+      // $.each(analyses, function(key, value) {
+      //   var id = key.split(" ")[0]+key.length // Manipulation pour créer une id unique avec le nom de l'anatype
+      //   $('#liste_analyses').append("<li id="+id+" class='lead type list-group-item list-group-item-action color-bleu-tres-fonce'>"+ strUcFirst(key) +"</li>") // On liste les anatypes
+      //
+      //   $.each(value, function(clef, valeur) { // On passe en revue les anaactes dans chaque anatype
+      //     $("#"+id).append('<ul id="anaacte'+valeur.id+'" class="small sousliste list-group color-bleu"></ul>') // On affiche l'anaacte dans une sousliste
+      //     $("#anaacte"+valeur.id).append("<li class='list-group-item'>"+strUcFirst(valeur.acte)+"</li>")
+      //   })
+      // })
     }
 
   });
+}
+
+function videOption() {
+
+  // On masque le panneau veto
+  $("#penser_veto").hide();
+  // On masque la liste d'options
+  $('.option').each(function() {
+    $(this).hide();
+  });
+  // On masque le titre des analyses proposées
+  $("#titre_options").hide();
+  // On vide le 0 option
+  $('#aucune_option').empty();
+
 }

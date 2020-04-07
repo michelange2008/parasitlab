@@ -77,7 +77,9 @@
   //
   Route::get('/analyses/methode/{espece_id}', ['uses' => 'ExtranetDemandeController@observationSelonEspece']);
 
-  Route::get('/analyses/observations/{espece_id}/{liste}', ['uses' => 'ExtranetDemandeController@analyseSelonObservations']);
+  // Route::get('/analyses/observations/{espece_id}/{liste}', ['uses' => 'ExtranetDemandeController@analyseSelonObservations']);
+
+  Route::get('/analyses/observations/{espece_id}/{liste}', ['uses' => 'ExtranetDemandeController@optionsSelonObservations']);
 
   Route::get('/especes', ['uses' => 'EspeceController@listeEspeces', 'as' => 'especes']);
 

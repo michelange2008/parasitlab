@@ -23,26 +23,16 @@
 
       <div class="col-md-10">
 
-        <a id="btn_prelever" class="btn btn-lg btn-bleu lead btn_enpratique my-1" href="#"><i class="fas fa-cookie-bite"></i> @lang('enpratique.comment_prelever')</a>
+        @include('extranet.analyses.enpratique.prelever')
 
-        <a id="btn_envoyer" class="btn btn-sm btn-rouge lead btn_enpratique my-1" href="#"><i class="fas fa-paper-plane"></i> @lang('enpratique.comment_envoyer')</a>
-
-{{-- PANNEAU DES DEUX ONGLETS --}}
       </div>
+
+    </div>
+    <div class="row justify-content-end">
 
       <div class="col-md-10">
 
-        <div class="panneau" id="prelever">
-
-          @include('extranet.analyses.enpratique.prelever')
-
-        </div>
-
-        <div class="panneau" id="envoyer" style="display:none">
-
-          @include('extranet.analyses.enpratique.envoyer')
-
-        </div>
+        @include('extranet.analyses.enpratique.envoyer')
 
       </div>
 

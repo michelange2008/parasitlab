@@ -11,14 +11,14 @@
 
 </div>
 
-<div class="col-md-12 py-3">
+{{-- <div class="col-md-12 py-3"> --}}
 
-  <hr class="divider">
+  {{-- <hr class="divider">
 
   <h4 class="color-bleu-tres-fonce">
 
     @lang('enpratique.motif')
-    
+
   </h4>
 
 </div>
@@ -27,4 +27,4 @@
 
   @include('extranet.analyses.enpratique.prelever.qui_quand')
 
-</div>
+</div> --}}

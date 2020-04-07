@@ -2,6 +2,9 @@
 
 @foreach ($categories as $categorie)
 
-    <div class="liste_observations mb-3" id="observations_{{ $categorie->id }}"></div>
+  <div class="categorie lead alert-bleu p-2" style="display:none">
+    {{ $categorie->nom }}
+  </div>
+  <div class="mb-3 liste_observations" id="observations_{{ $categorie->id }}"></div>
 
 @endforeach

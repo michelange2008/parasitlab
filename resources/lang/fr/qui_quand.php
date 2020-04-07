@@ -24,7 +24,7 @@ return
   ],
   "bilan" =>
   [
-    "titre" => "Vous souhaitez évaluer le niveau d'infestation du troupeau en fin de saison de pâture",
+    "titre" => "Vous souhaitez évaluer le niveau d'infestation du troupeau en fin de saison de pâture, à l'entrée en bâtiment, en hiver, à l'achat, etc.",
     "soustitre" => "Il s'agit d'évaluer les mesures de prévention mises en place ou de faire un bilan avant un éventuel traitement",
     "qui" =>
 
@@ -35,6 +35,19 @@ return
     "quand" =>
 
       "En fin de saison de pâture, au début de l'automne ou à la rentrée en bâtiment."
+
+  ],
+  "bilan_indiv" =>
+  [
+    "titre" => "Vous souhaitez évaluer le niveau d'infestation d'un animal",
+    "soustitre" => "Il s'agit de savoir si son animal, ou un animal qu'on vient d'acquérir, est parasité",
+    "qui" =>
+
+      "Assez logiquement, l'animal en question",
+
+    "quand" =>
+
+      "En fin de saison de pâture, au début de l'automne ou à la rentrée en bâtiment, à l'achat et plus généralement à n'importe quel moment de l'année."
 
   ],
   "suivi" =>

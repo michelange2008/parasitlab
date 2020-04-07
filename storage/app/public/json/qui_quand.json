@@ -6,6 +6,7 @@
   {
     "diagnostic" : "diagnostic.",
     "bilan" : "bilan.",
+    "bilan_indiv" : "bilan_indiv.",
     "suivi" : "suivi.",
     "taux_haem" : "taux_haem.",
     "test_resistance" : "test_resistance.",

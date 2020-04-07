@@ -20,6 +20,12 @@ class ObservationsTableSeeder extends Seeder
           ],
           [
             "categorie_id" => 1,
+            "intitule" => "J’observe une baisse de production",
+            "explication" => "Les infestations parasitaires provoquent souvent des baisse de production",
+            "autres" => "alimentation insuffisante ou déséquilibrée, infections chroniques, stress, etc.",
+          ],
+          [
+            "categorie_id" => 1,
             "intitule" => "J’ai des animaux qui ont une mauvaise laine",
             "explication" => "Une mauvaise laine peut être signe de parasitisme interne",
             "autres" => "carences alimentaires, parasites externes (mélophages, gâles, ...)",
@@ -197,6 +203,12 @@ class ObservationsTableSeeder extends Seeder
             "intitule" => "J'ai des animaux qui toussent",
             "explication" => "Le passage de larves d'ascaris dans le poumons peut être responsable de toux",
             "autres" => "infections respiratoires, allergies, ...",
+          ],
+          [
+            "categorie_id" => 1,
+            "intitule" => "J'ai des animaux qui éternuent et qui mouchent",
+            "explication" => "Chez les petits ruminants, les éternuements le nez qui coule ou qui est bouché est souvent signe de la présence de larves d'oestres dans les narines: ces larves sont indétectables à la coproscopie.",
+            "autres" => "infections respiratoires, allergies, poussière, ...",
           ],
         ]);
     }

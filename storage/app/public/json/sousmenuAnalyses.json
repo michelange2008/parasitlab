@@ -18,7 +18,7 @@
         "type" : "route",
         "route" : "analyses.choisir",
         "icone" : "choisir.svg",
-        "intitule" : "Choisir"
+        "intitule" : "Choisir une analyse"
       },
       "enpratique" :
       {
@@ -26,7 +26,7 @@
         "type" : "route",
         "route" : "enpratique",
         "icone" : "enpratique.svg",
-        "intitule" : "Prélever/Envoyer"
+        "intitule" : "En pratique: prélever/envoyer"
       },
       "interpreter" :
       {
@@ -34,7 +34,7 @@
         "type" : "route",
         "route" : "interpreter",
         "icone" : "interpreter.svg",
-        "intitule" : "Interpréter"
+        "intitule" : "Interpréter les résultats"
       }
     }
   },
