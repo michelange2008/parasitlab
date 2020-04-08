@@ -38,6 +38,7 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 2, "observation_id" => 28 ],
           [ "espece_id" => 2, "observation_id" => 29 ],
           [ "espece_id" => 2, "observation_id" => 30 ],
+          [ "espece_id" => 2, "observation_id" => 34 ],
           [ "espece_id" => 3, "observation_id" => 1 ],
           [ "espece_id" => 3, "observation_id" => 2 ],
           [ "espece_id" => 3, "observation_id" => 5 ],
@@ -60,6 +61,7 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 3, "observation_id" => 27 ],
           [ "espece_id" => 3, "observation_id" => 28 ],
           [ "espece_id" => 3, "observation_id" => 29 ],
+          [ "espece_id" => 3, "observation_id" => 34 ],
           [ "espece_id" => 5, "observation_id" => 1 ],
           [ "espece_id" => 5, "observation_id" => 2 ],
           [ "espece_id" => 5, "observation_id" => 5 ],
@@ -81,9 +83,11 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 5, "observation_id" => 24 ],
           [ "espece_id" => 5, "observation_id" => 25 ],
           [ "espece_id" => 5, "observation_id" => 26 ],
+          [ "espece_id" => 6, "observation_id" => 34 ],
           [ "espece_id" => 5, "observation_id" => 27 ],
           [ "espece_id" => 5, "observation_id" => 28 ],
           [ "espece_id" => 5, "observation_id" => 29 ],
+          [ "espece_id" => 5, "observation_id" => 34 ],
           [ "espece_id" => 6, "observation_id" => 1 ],
           [ "espece_id" => 6, "observation_id" => 2 ],
           [ "espece_id" => 6, "observation_id" => 6 ],
@@ -101,6 +105,7 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 7, "observation_id" => 17 ],
           [ "espece_id" => 7, "observation_id" => 19 ],
           [ "espece_id" => 7, "observation_id" => 22 ],
+          [ "espece_id" => 7, "observation_id" => 35 ],
           [ "espece_id" => 8, "observation_id" => 1 ],
           [ "espece_id" => 8, "observation_id" => 5 ],
           [ "espece_id" => 8, "observation_id" => 6 ],
@@ -109,6 +114,7 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 8, "observation_id" => 17 ],
           [ "espece_id" => 8, "observation_id" => 19 ],
           [ "espece_id" => 8, "observation_id" => 22 ],
+          [ "espece_id" => 8, "observation_id" => 35 ],
 
         ]);
     }

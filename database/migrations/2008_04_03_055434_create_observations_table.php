@@ -15,6 +15,7 @@ class CreateObservationsTable extends Migration
     {
         Schema::create('observations', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->unsignedInteger('ordre');
             $table->unsignedInteger('categorie_id');
             $table->foreign('categorie_id')->references('id')->on('categories');
             $table->string('intitule', 191);

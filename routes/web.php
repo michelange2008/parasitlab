@@ -65,6 +65,8 @@
 
   Route::post('/analyses/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'analyses.formulaireStore']);
 
+  Route::post('/analyses/choisir/options', ['uses' => 'ExtranetDemandeController@options', 'as' => 'analyses.options']);
+
   Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
 
   Route::get('envoiPack', ['uses' => 'ExtranetDemandeController@envoiPack', 'as' => "envoiPack"]);

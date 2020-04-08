@@ -42,4 +42,13 @@ class Anaacte extends Model
     {
       return $this->belongsToMany(\App\Models\Observation::class);
     }
-}
+
+    public function options()
+    {
+      return $this->belongsToMany(\App\Models\Option::class);
+    }
+
+    public function especes()
+    {
+      return $this->belongsToMany(\App\Models\Espece::class);
+    }}

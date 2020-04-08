@@ -98,13 +98,12 @@ return
       Un calcul permet de connaitre le taux de réduction d'excrétion fécale et donc la présence éventuelle d'une résistance.",
 
   ],
-  "cas_equides" =>
+  "dicro" =>
   [
-    "titre" => "Cas particulier des chevaux et des ânes",
-    "soustitre" => "Dans le cas des équidés, il est souvent intéressant de privilégier des analyses individuelles.",
-    "qui" => "Sauf si les animaux sont très nombreux, il est préférable de faire des analyses individuelles.",
-    "quand" => "A la fin de la saison de pâture si les animaux sont en bon état.<br>
-      A n'importe quel moment de l'année, si un cheval ou un âne présente des signes de parasitisme.",
+    "titre" => "Le petite douve est un parasite très répandu en région sèche",
+    "soustitre" => "Elle entraîne des saisies du foie à l'abattoir mais ne pose pas de problèmes aux bovins, et rarement aux petits ruminants",
+    "qui" => "Il est possible de faire des analyses individuelles, de mélange ou par lot selon l'objectif",
+    "quand" => "Plutôt à la rentrée en bâtiment, car la petite douve a un cycle long (environ 2 mois).",
   ],
   "introduction" =>
   [
@@ -113,6 +112,22 @@ return
     "qui" => "Le ou les animaux acheté(s)",
     "quand" => "Durant la quarantaine, il faut faire une analyse coproscopique et si l'animal est parasité, effectuer un test de résistance.",
   ],
+  "respiratoire" =>
+  [
+    "titre" => "Vos animaux présentent des signes respiratoires, notamment de la toux",
+    "soustitre" => "Dans certains cas, ces symptômes sont attribuables aux strongles respiratoires",
+    "qui" => "Les animaux qui présentent des symptômes",
+    "quand" => "Au moment où vous observez ce problème",
+  ],
+  "douveparam" =>
+  [
+    "titre" => "La douve et le paramphistome peuvent atteindre tous les ruminants",
+    "soustitre" => "Ils sont présents principalement lorsqu'il y a des pâturages humides ou des bords de ruisseaux",
+    "qui" => "Les animaux qui présentent des symptômes ou des baisses de production",
+    "quand" => "ATTENTION: pour une meilleur fiabilité de l'analyse, il faut prélever pour chaque animal de la bouse matin, midi et soir",
+  ],
+
+
   "veto" =>
   [
     "titre" => "Dans tous les cas, n'hésitez pas à en discuter avec votre vétérinaire.",

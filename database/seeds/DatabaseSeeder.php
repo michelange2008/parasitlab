@@ -43,6 +43,8 @@ class DatabaseSeeder extends Seeder
       $this->call(Espece_ObservationTableSeeder::class);
       $this->call(ObservationOptionTableSeeder::class);
       $this->call(Anaacte_ObservationTableSeeder::class);
+      $this->call(AnacteOptionTableSeeder::class);
+      $this->call(AnaacteEspeceTableSeeder::class);
       // $this->call(BlogsTableSeeder::class);
 
     }

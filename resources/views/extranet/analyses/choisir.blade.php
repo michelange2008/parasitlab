@@ -29,8 +29,24 @@
       </div>
 
     </div>
+    <div class="row justify-content-end">
 
+      <div class="col-md-4">
+        <form id="choix_options" class="" action="{{ route('analyses.options') }}" method="post">
+          @csrf
 
+          <input id="input_espece" type="hidden" name="espece" value="">
+          <input id="input_age" type="hidden" name="age" value="">
+          @foreach ($categories as $categorie)
+
+            <input id="input_{{ $categorie->id }}" type="hidden" name="categorie_{{ $categorie->id }}" value="">
+
+          @endforeach
+
+        </form>
+
+      </div>
+    </div>
 
     <div class="row justify-content-end">
 

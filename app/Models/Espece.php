@@ -33,6 +33,11 @@ class Espece extends Model
       return $this->belongsToMany(Analyses\Anatype::class);
     }
 
+    public function Anaactes()
+    {
+      return $this->belongsToMany(Analyses\Anaacte::class);
+    }
+
     public function observations()
     {
       return $this->belongsToMany(Observation::class);

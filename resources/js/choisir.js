@@ -5,86 +5,98 @@
 // Cela permet ensuite de cliquer sur les différentes observations et à chaque fois, ça fait uner requete ajax (ExtranetDemandeController@analyseSelonObservations)
 // Cette requete retourne un json que l'on affiche dans la vue options.blade
 
+
+
+
+
 // Initialise la liste des observations
 var tableau_observations = [];
-
+  var selection = [];
 // ##################### PREMIERE ETAPE ##########################################################################
 // Affichage des analyses proposées après qu'on ait cliqué sur l'icone de l'espece (dans choisir.blade.php)
 $('.espece').on('click', function() {
 
-  // modifie l'affichage des logos espece
+  // On modifie l'affichage des logos espece
   $(".espece").css('filter', 'opacity(20%)');
   $(this).css('filter', 'blur(0px)');
-
+  // On vide la colonne d'options
   videOption();
   $('.categorie').hide();
   $('.liste_observations').empty();
-  // on efface le bouton de téléchargement du formulaire
-  // href = $('#pdf').attr('href');
-  // var regex = /getFormulairePdf\/[0-9]+/;
-  // href = (href.match(regex)) ? href.replace(regex, 'getFormulairePdf') : href;
-  // $('#pdf').attr('href', href);
-  // $('#bouton_pdf').fadeOut();
-
-  // On réinitialise le tableau de observations sélectionnées
-  tableau_observations = [];
 
   // On récupère l'id de l'espece sur laquelle on a cliqué
   var espece_id = $(this).attr('id').split('_')[1];
-  // On réupére l'url actuelle
+  // On stocke cette valeur dans un input hidden pour la suite
+  $("#input_espece").val(espece_id);
+  // On récupére l'url actuelle
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   // On modifie l'url pour pouvoir faire la requete
   var url = url_actuelle.replace('choisir', 'methode/'+espece_id);
-console.log(url);
+
   // affiche le soustitre et on lui donne l'attribut espece avec l'espece_id comme valeur pour la requete ajax suivante
   $("#titre_observations").attr('espece', espece_id).fadeIn()
   // on appelle la fonction qui fait la requete ajax
   listeObservations(url);
 
+  var observation_id = '';
+  // On réinitialise le tableau de observations sélectionnées
+  tableau_observations = [];
+  // On remet à zéro le numéro d'observation qui serait sélectionné
+  $('.liste_observations').each(function(key,value) {
+
+    selection.push(null);
+  })
 });
 
 
 // ################ DEUXIEME ETAPE ###########################################################
 // Quand on clique sur les observations
-$(".liste_observations").on('click', ".card-header", function() {
-  // SUR LA COLONNE OBSERVATIONS:
-  // On commence par masquer toutes les explications
-  $('.collapse').each(function() {
-    // TODO: A voir s'il faut masquer les explications
-    $(this).removeClass('show');
-  })
-  // Changement de couleur de la ligne observation
-  $(this).toggleClass('disabled').toggleClass('active'); // et on change de couleur
+$(".liste_observations").on('click', ".card", function() {
+  // On récupère l'id de la card qui englobe observation et explication cliquée
+  var id = $(this).attr('id').split('_')[1];
+  var observation_id = '#observation_' + id;
+  var explication_id = '#explication_' + id;
+  // On récupère la catégorie
+  var categorie_id = $(this).parent().attr('id');
+  var id_categorie = categorie_id.split('_')[1];
+
+// SUR LA COLONNE OBSERVATIONS:
+// On crée un booleen qui est vrai si l'observation est active, cad qu'elle a été cliquée
+  var est_active = ($(this).children(observation_id).attr('class').split(' ')).includes('active')
+
+  if(est_active) {
+
+    inactiveObservation(id);
+    // On supprime cette valeur dui tableau selection
+    selection[id-1] = null;
+
+  } else {
+    // Si une observation de cette catégorie est présente dans le tableau selection (cad a été sélectionnée avant)
+    if(selection[id_categorie-1] != null) { // Le id_categorie-1 est du au fait que l'array selection indice à 0 tandis que les bdd commencent à 1
+      var id_observation_active = selection[id_categorie-1];
+      // On inactive l'observation (fermer le collapse, enlever la couleur)
+      inactiveObservation(id_observation_active);
+    }
+    // Puis on inscrit la nouvelle obbservation cliquée dans le tableau selection
+    selection[id_categorie-1] = id;
+    activeObservation(id);
+  }
 
   // ON EFFACE TOUTE LA COLONNE OPTIONS:
   videOption();
 
-  // On récupère l'id de l'observation sur laquelle on a cliqué
-  var observation_id = $(this).attr('data-target');
-  // On affiche l'explication
-  $("#"+observation_id).addClass('show');
-
-  // stockage dans un tableau de l'id de la ligne
-  if(tableau_observations.indexOf(observation_id) == -1) { // si l'observation_id n'est pas dans le tableau
-    tableau_observations.push(observation_id); // on l'ajoute
-  }
-  else {
-    tableau_observations.splice(tableau_observations.indexOf(observation_id),1  ); // sinon on l'enlève
-    $("#"+observation_id).removeClass('show');
-  }
-
-  // On crée une liste de l'id des observatins sélectionnées, séparéees par des underscores pour le passer à l'ajax
-  liste = '';
-  $.each(tableau_observations, function(key, value) {
-    liste += value+"_";
+  // On stocke la sélection dans les input pour la transmission ajax
+  $.each(selection, function(key,value) {
+    var indice = key + 1;
+    $("#input_" + indice).val(value);
   })
-  // On récupère l'id de l'espece
-  espece_id = $("#titre_observations").attr('espece');
-  // Et on reconstruit l'url pour la requete ajax
-  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
-  var url = url_actuelle.replace('choisir', 'observations/'+espece_id+'/'+liste);
 
-  listeOptions(url);
+
+  // Et on reconstruit l'url pour la requete ajax
+  // var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+  // var url = url_actuelle.replace('choisir', 'observations/'+espece_id+'/'+liste);
+  //
+  listeOptions();
 
 
   // $('#bouton_pdf').fadeIn();
@@ -109,12 +121,12 @@ function listeObservations(url) {
         // la creation de la variable autre est destinée à ne rien afficher quand la valeur de ligne.autres est null
         var autres = (ligne.autres == null) ? '': '<p class="ml-3 mb-0 p-1 pl-2 bordure-epaisse"><i>Autres causes&nbsp;: </i>' + ligne.autres + '</p>';
         // On ajoute la liste des observations
-        $("#observations_" + ligne.categorie_id).append(
-          '<div class="card">'+
-            '<div class="card-header observation list-group-item list-group-item-action disabled pointeur" data-target="observation_' + ligne.id + '">' +
+        $("#categorie_" + ligne.categorie_id).append(
+          '<div id="card_' + ligne.id + '" class="card borderless" categorie="'+ligne.categorie_id+'">'+
+            '<div id="observation_' + ligne.id + '" class="card-header observation list-group-item list-group-item-action disabled pointeur" data-target="observation_' + ligne.id + '">' +
                   ligne.intitule +
             '</div>' +
-            '<div id="observation_' + ligne.id + '" class="collapse">' +
+            '<div id="explication_' + ligne.id + '" class="collapse bg-bleu-tres-clair">' +
               '<div class="card-body small">' +
                 '<p class="ml-3 mb-0 p-1 pl-2 bordure-epaisse">' + ligne.explication + '</p>' +
                 autres +
@@ -133,50 +145,59 @@ function listeObservations(url) {
 // Fonction pour mettre le permier mot en majuscule
 function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};
 
-function listeOptions(url) {
+function listeOptions() {
 
-  $.get({
+    var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+    // On modifie l'url pour pouvoir faire la requete
+    var url = url_actuelle.replace('choisir', 'choisir/options');
 
-    url : url,
+    $.post({
+      url : url,
+      data: $('form').serialize(),
+      datatype: 'json'
+    })
+    .done(function(datas) {
+      console.log(datas);
+    })
 
-  })
-  .done(function(datas) {
-    if(datas != null) {
-      if(JSON.parse(datas).length == 0) {
-          $('#aucune_option').append(
-            '<p class="lead alert-warning p-3">'
-            +'Désolé... Nous n\'avons aucune proposition d\'analyses pour cette situation.'
-            +'</p>'
-          );
-      }
-      else {
-
-        $('#titre_options').fadeIn();
-        var analyses = JSON.parse(datas);
-
-        $.each(analyses, function(key, value) {
-          $('.option').each(function() {
-            if($(this).attr('id') == value) {
-              $(this).fadeIn();
-            }
-          })
-        })
-      }
-      $('#penser_veto').fadeIn(2000);
-
-      // On passe en revue le JSON renvoyé par ExtranetDemandeController@analyseSelonObservations
-      // $.each(analyses, function(key, value) {
-      //   var id = key.split(" ")[0]+key.length // Manipulation pour créer une id unique avec le nom de l'anatype
-      //   $('#liste_analyses').append("<li id="+id+" class='lead type list-group-item list-group-item-action color-bleu-tres-fonce'>"+ strUcFirst(key) +"</li>") // On liste les anatypes
-      //
-      //   $.each(value, function(clef, valeur) { // On passe en revue les anaactes dans chaque anatype
-      //     $("#"+id).append('<ul id="anaacte'+valeur.id+'" class="small sousliste list-group color-bleu"></ul>') // On affiche l'anaacte dans une sousliste
-      //     $("#anaacte"+valeur.id).append("<li class='list-group-item'>"+strUcFirst(valeur.acte)+"</li>")
-      //   })
-      // })
-    }
-
-  });
+  //
+  // .done(function(datas) {
+  //   if(datas != null) {
+  //     if(JSON.parse(datas).length == 0) {
+  //         $('#aucune_option').append(
+  //           '<p class="lead alert-warning p-3">'
+  //           +'Désolé... Nous n\'avons aucune proposition d\'analyses pour cette situation.'
+  //           +'</p>'
+  //         );
+  //     }
+  //     else {
+  //
+  //       $('#titre_options').fadeIn();
+  //       var analyses = JSON.parse(datas);
+  //
+  //       $.each(analyses, function(key, value) {
+  //         $('.option').each(function() {
+  //           if($(this).attr('id') == value) {
+  //             $(this).fadeIn();
+  //           }
+  //         })
+  //       })
+  //     }
+  //     $('#penser_veto').fadeIn(2000);
+  //
+  //     // On passe en revue le JSON renvoyé par ExtranetDemandeController@analyseSelonObservations
+  //     // $.each(analyses, function(key, value) {
+  //     //   var id = key.split(" ")[0]+key.length // Manipulation pour créer une id unique avec le nom de l'anatype
+  //     //   $('#liste_analyses').append("<li id="+id+" class='lead type list-group-item list-group-item-action color-bleu-tres-fonce'>"+ strUcFirst(key) +"</li>") // On liste les anatypes
+  //     //
+  //     //   $.each(value, function(clef, valeur) { // On passe en revue les anaactes dans chaque anatype
+  //     //     $("#"+id).append('<ul id="anaacte'+valeur.id+'" class="small sousliste list-group color-bleu"></ul>') // On affiche l'anaacte dans une sousliste
+  //     //     $("#anaacte"+valeur.id).append("<li class='list-group-item'>"+strUcFirst(valeur.acte)+"</li>")
+  //     //   })
+  //     // })
+  //   }
+  //
+  // });
 }
 
 function videOption() {
@@ -191,5 +212,19 @@ function videOption() {
   $("#titre_options").hide();
   // On vide le 0 option
   $('#aucune_option').empty();
+
+}
+
+function inactiveObservation(id) {
+
+  $("#observation_" + id).toggleClass('active').toggleClass('disabled');
+  $("#explication_" + id).removeClass('show');
+
+}
+
+function activeObservation(id) {
+
+  $("#observation_" + id).toggleClass('active').toggleClass('disabled');
+  $("#explication_" + id).addClass('show');
 
 }

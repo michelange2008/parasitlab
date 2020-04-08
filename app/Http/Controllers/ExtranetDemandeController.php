@@ -27,6 +27,7 @@ use App\Models\Eleveur;
 use App\Models\Veto;
 use App\Models\Categorie;
 use App\Models\Observation;
+use App\Models\Option;
 
 class ExtranetDemandeController extends Controller
 {
@@ -189,9 +190,11 @@ class ExtranetDemandeController extends Controller
 
        public function observationSelonEspece($espece_id)
        {
-         $espece = Espece::find($espece_id);
 
-         $observations = $espece->observations;
+         $observations = DB::table('observations')
+                          ->join('espece_observation', 'espece_observation.observation_id', "=", 'observations.id')
+                          ->where('espece_observation.espece_id', $espece_id)
+                          ->orderBy('observations.ordre')->get();
 
          return json_encode($observations);
        }
@@ -259,16 +262,70 @@ class ExtranetDemandeController extends Controller
 
        public function optionsSelonObservations($espece_id, $liste)
        {
-         // On récupère toutes les observations
-         $observations = Observation::find(explode('_', $liste));
-         $liste_options = Collect();
-         foreach ($observations as $observation) {
-          foreach ($observation->options as $option) {
-            $liste_options->push($option->nom);
-          }
+         // On recherche d'abord les anaactes acceptés pour l'espece
+         $espece = Espece::find(7);
+
+         $anaactes = $espece->anaactes;
+         $liste_anaactes_espece = Collect();
+         foreach ($anaactes as $anaacte) {
+              $liste_anaactes_espece->push($anaacte->id);
          }
 
-         return json_encode($liste_options->unique());
+         // Puis on recherches les options et les anaactes permis par les observations
+         $observations = [ 1, 15, null];
+         $liste_options = Collect();
+         $liste_anaactes = Collect();
+
+         foreach ($observations as $observation_id) {
+
+           if(isset($observation_id)) {
+
+             $observation = Observation::find($observation_id);
+
+             foreach ($observation->options as $option) {
+
+               foreach($option->anaactes as $anaacte) {
+
+                 $liste_anaactes->push($anaacte->id);
+
+               }
+
+               $liste_options->push($option->nom);
+
+             }
+
+             foreach ($observation->anaactes as $anaacte) {
+
+               $liste_anaactes->push($anaacte->id);
+
+             }
+           }
+         }
+         $resultats = Collect();
+         // On élimine les doublons (countBy), on trie en descendant(sort et inverse), et on garde que les deux premières clefs ( keys: n° anaacte les plus fréquants)
+         // après avoir gardé que les anaactes qui sont aussi présent dans la liste des especes (intersect)
+         $resultats->put("options", $liste_options->countBy()->sort()->reverse()->slice(0,2)->keys());
+         // A peu près idem avec les options (sauf qu'il n'y a pas d'intersect);
+         $resultats->put("anaactes",$liste_anaactes->intersect($liste_anaactes_espece)->countBy()->sort()->reverse()->slice(0,2)->keys());
+
+         return json_encode($resultats);
+       }
+
+       public function options(Request $request)
+       {
+         $datas = $request->all();
+         // On récupère l'espece
+         $espece_id = $datas['espece'];
+         // On extrait les catégories dans une collection
+         $categories = Collect();
+         for ($i=1; $i < Categorie::count()+1  ; $i++) {
+           // $liste_options = DB
+           $categories->push($datas['categorie_'.$i]);
+         }
+
+
+
+         return $categories;
        }
 
 }

@@ -16999,6 +16999,14 @@ a {
           order: 1;
 }
 
+.observation:hover {
+  background: gainsboro;
+}
+
+.borderless {
+  border: 0px !important;
+}
+
 #radioBtn .notActive {
   color: #3276b1 !important;
   background-color: #fff !important;

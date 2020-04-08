@@ -18,9 +18,11 @@ class OptionsTableSeeder extends Seeder
           [ 'nom' => 'taux_haem.'],
           [ 'nom' => 'test_resistance.'],
           [ 'nom' => 'introduction.'],
-          [ 'nom' => 'cas_equides.'],
+          [ 'nom' => 'dicro.'],
           [ 'nom' => 'bilan_indiv.'],
-          ['nom' => null],
+          [ 'nom' => null],
+          [ 'nom' => 'respiratoire.'],
+          [ 'nom' => 'douveparam.'],
 
         ]);
     }

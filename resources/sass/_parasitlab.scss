@@ -68,6 +68,12 @@ a {
 	order: 1;
 }
 
+.observation:hover {
+	background: gainsboro;
+}
+.borderless {
+	border: 0px !important;
+}
 // gros bouton analyse terminée
 #radioBtn .notActive{
     color: #3276b1 !important ;

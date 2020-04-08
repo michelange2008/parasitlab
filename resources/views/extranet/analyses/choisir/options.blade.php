@@ -6,7 +6,7 @@
 
   @foreach ($qui_quand->contenu as $element) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
 
-    <div id="{{ $element }}" class="option" style="display:none">
+    <div id="{{ $element }}" class="option" >
 
       <div class="media border p-3 bg-bleu-tres-clair">
         <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/'.$element.'svg') !!}" alt="{{ $element }}">
