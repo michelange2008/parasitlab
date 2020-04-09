@@ -31,7 +31,10 @@
   <form id="choix_form" action="{{ route('analyses.formulairePdf') }}" method="post">
     <div class="card">
       <div class="card-header">
-        <h3>Choisissez une espèce</h3>
+        <h3>
+          <img src="{{ url('storage/img/icones/especes.svg') }}" alt="">
+          Choisissez une espèce...
+        </h3>
       </div>
 
       <div class="card-body">
@@ -42,7 +45,7 @@
       </div>
 
       <div class="card-footer">
-        <button id="choix_annule" class="btn btn-secondary" type="button" name="button">Annule</button>
+        <button id="choix_annule" class="btn btn-secondary" type="button" name="button">@lang('boutons.annule')</button>
       </div>
 
     </form>

@@ -9,7 +9,7 @@ function choix_espece(url) {
     var especes = JSON.parse(datas);
     var options ='<option value=null></option>';
     $.each(especes, function(key, value) {
-      options += "<option value='"+value.abbreviation+"'>"+value.nom+"</option>"
+      options += "<option value='"+strUcFirst(value.abbreviation)+"'>"+value.nom+"</option>"
     })
     $('#choix_select').append(options);
   });
@@ -41,3 +41,5 @@ $('#downloadFormulaire').on('click', function(event) {
   var url = $(this).attr('href');
   choix_espece(url);
 });
+// Fonction pour mettre le permier mot en majuscule
+function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};

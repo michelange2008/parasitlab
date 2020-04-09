@@ -7,6 +7,7 @@ return [
   "save" => "Enregistrer",
 
   "show_pdf" => "Afficher le pdf",
-
+  "retour" => "Retour",
+  "annule" => "Annuler",
 
 ];

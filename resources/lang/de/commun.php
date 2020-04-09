@@ -10,6 +10,5 @@ return [
   'oui' => 'oui',
   "non" => "non",
   "saispas" => "je ne sais pas",
-  "retour" => "Retour",
-  "annule" => "Annule",
+
 ];

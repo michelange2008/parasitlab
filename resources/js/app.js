@@ -26,6 +26,10 @@ $(document).ready(function () {
 
 $(function() {
 
+
+	// Fonction pour mettre le permier mot en majuscule
+	function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};
+
   $('[data-toggle="tooltip"]').tooltip();
 
   $('#table').bootstrapTable({
