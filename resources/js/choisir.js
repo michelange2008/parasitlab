@@ -11,11 +11,14 @@
 
 // Initialise la liste des observations
 var tableau_observations = [];
-  var selection = [];
+var selection = [];
+// On récupère le href original du bouton de téléchargment de formulaire pour pouvoir le remettre à zéro quand on change d'espèce
+var href_initial = $("#bouton_pdf").attr('href');
 // ##################### PREMIERE ETAPE ##########################################################################
 // Affichage des analyses proposées après qu'on ait cliqué sur l'icone de l'espece (dans choisir.blade.php)
 $('.espece').on('click', function() {
-
+  // On réinitialise le bouton de téléchargement de fichier
+  $('#bouton_pdf').attr('href', href_initial);
   // On modifie l'affichage des logos espece
   $(".espece").css('filter', 'opacity(20%)');
   $(this).css('filter', 'blur(0px)');
@@ -32,6 +35,11 @@ $('.espece').on('click', function() {
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   // On modifie l'url pour pouvoir faire la requete
   var url = url_actuelle.replace('choisir', 'methode/'+espece_id);
+
+  // On récupère l'abbreviation de l'espece pour pouvoir modifier le href du bouton de téléchargement du formulaire
+  var espece_abbreviation = $(this).attr('name');
+  var href = href_initial.replace('espece', espece_abbreviation);
+  $('#bouton_pdf').attr('href', href);
 
   // affiche le soustitre et on lui donne l'attribut espece avec l'espece_id comme valeur pour la requete ajax suivante
   $("#titre_observations").attr('espece', espece_id).fadeIn()
@@ -170,21 +178,21 @@ function listeOptions() {
 
           } else { // Mais si le tableau option n'est pas vide, on affiche les options et anaactes correpondants
 
-            $.each(options, function(key, value) {
+            $.each(options, function(key, value) { // Affichage des options
               $('#' + value + '.option').fadeIn();
             })
-            if(anaactes.length == 1) {
+            if(anaactes.length == 1) { // Affichage d'un titre d'analyses différent s'il y en a une ou deux
               $('#une').fadeIn();
             } else {
               $('#deux').fadeIn();
             }
 
-            $.each(anaactes, function(key, value) {
+            $.each(anaactes, function(key, value) { // Affichage des analyses
               $('#anaacte_' + value).fadeIn();
             })
 
           }
-
+          $('#boutons').fadeIn(1000);
           $('#penser_veto').fadeIn(2000); // Et le véto
 
         } else { // Si il n'y aucune observation séléctionnée, on efface tout
@@ -201,6 +209,7 @@ function videOptionsAnaaactes() {
 
   // On masque le panneau veto
   $("#penser_veto").hide();
+  $('#boutons').hide();
   // On masque la liste d'options
   $('.option').hide();
   $('.anaacte').hide();

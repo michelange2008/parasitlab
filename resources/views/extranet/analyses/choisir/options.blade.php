@@ -76,6 +76,10 @@
 
 </div>
 
+<div id="boutons" class="mb-3" style="display:none">
+  <a id="bouton_pdf" class="btn btn-rouge" href="{{ url('storage/pdf/formulaire_espece.pdf') }}" target="_blank" ><i class="fas fa-file-pdf"></i> Télécharger un formulaire</a>
+</div>
+
 {{-- recommandation pour le véto --}}
 <div id="penser_veto" class="media border p-3 mb-2  bg-rouge-clair" style="display:none">
   <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/veto.svg') !!}" alt="veto.svg">
