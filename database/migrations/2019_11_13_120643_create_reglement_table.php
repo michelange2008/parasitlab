@@ -17,7 +17,7 @@ class CreateReglementTable extends Migration
             $table->increments('id')->unsigned();
             $table->unsignedInteger('modereglement_id');
             $table->foreign('modereglement_id')->references('id')->on('modereglements');
-            $table->timestamp('date_reglement');
+            $table->timestamp('date_reglement')->nullable();
         });
     }
 
