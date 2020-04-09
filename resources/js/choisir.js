@@ -24,9 +24,12 @@ $('.espece').on('click', function() {
   $(this).css('filter', 'blur(0px)');
   // On vide la colonne d'options
   videOptionsAnaaactes();
+  // On efface les intertitres correspondant aux categories
   $('.categorie').hide();
+  // On vide la liste d'observation
   $('.liste_observations').empty();
 
+  selection = [];
   // On récupère l'id de l'espece sur laquelle on a cliqué
   var espece_id = $(this).attr('id').split('_')[1];
   // On stocke cette valeur dans un input hidden pour la suite
@@ -214,7 +217,6 @@ function videOptionsAnaaactes() {
   $('.option').hide();
   $('.anaacte').hide();
   // On masque le titre des analyses proposées
-  $("#titre_options").hide();
   $(".titre_analyses").hide();
 
   // On vide le 0 option
