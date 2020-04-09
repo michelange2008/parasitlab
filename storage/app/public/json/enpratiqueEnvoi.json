@@ -6,20 +6,17 @@
     {
       "prefixe" : "pack-envoi-vide.",
       "type" : "route",
-      "route" : "envoiPack"
+      "route" : "envoiPack",
+      "id" : "pack"
     },
     "formulaire_vierge" :
     {
       "prefixe" : "formulaire_vierge.",
-      "type" : "file",
-      "file" : "/pdf/formulaire_vierge.pdf"
-    },
-    "formulaire_ligne" :
-    {
-      "prefixe" : "formulaire_ligne.",
       "type" : "route",
-      "route" : "analyses.choisir"
+      "route" : "analyses.formulairePdf",
+      "id" : "telFormulaire"
     }
+
   }
 
 }

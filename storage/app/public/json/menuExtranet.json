@@ -23,12 +23,6 @@
 				"tooltip" : "Télécharger un formulaire vierge au format pdf",
 				"route" : "analyses.formulairePdf"
 			},
-			"ligneFormulaire" : {
-				"id" : "ligneFormulaire",
-				"nom" : "Remplir un formulaire en ligne",
-				"tooltip" : "Remplir un formulaire en ligne et l'imprimer ensuite",
-				"route" : "analyses.choisir"
-			},
 			"envoiPack" : {
 				"id" : "envoiPack",
 				"nom" : "Demander des pack d'envoi",

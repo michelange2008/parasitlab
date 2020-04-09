@@ -29,7 +29,7 @@ function choix_espece(url) {
   })
 }
 // sous menu de Express
-$('#telFormulaire').on('click', function(e) {
+$('.telFormulaire').on('click', function(e) {
   e.preventDefault();
   var url_actuelle = $(this).attr('href');
   var url = url_actuelle.replace('analyses/formulairePdf', 'especes');

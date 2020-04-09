@@ -10,7 +10,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             @foreach ($item->sousmenu as $sousmenu)
 
-              <a id="{{ $sousmenu->id ?? '' }}" class="dropdown-item d-inline-flex justify-content-between" href="{{ route($sousmenu->route) }}">
+              <a class="dropdown-item d-inline-flex justify-content-between {{ $sousmenu->id }}" href="{{ route($sousmenu->route) }}">
                 {!! $sousmenu->nom !!}
               </a>
 

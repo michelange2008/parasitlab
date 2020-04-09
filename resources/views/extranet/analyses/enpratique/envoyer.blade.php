@@ -64,7 +64,7 @@
             <div class="card-footer">
               @if ($element->type == 'route')
 
-                {!! link_to_route($element->route, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), '' ,['class' => 'btn btn-bleu'])!!}
+                {!! link_to_route($element->route, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), '' ,['class' => 'btn btn-bleu '.$element->id])!!}
 
 
               @elseif ($element->type == 'mail')
