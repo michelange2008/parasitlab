@@ -37,6 +37,8 @@ function choix_espece(url) {
     url_pdf = url.replace('especes', 'storage/pdf/formulaire_' + $(this).attr('id') + '.pdf');
     // Et on télécharge ce fichier
     window.open(url_pdf, null);
+    $('#choix').fadeOut();
+    
   })
   // Fermeture de la fenêtre en cliquant sur annuler
   $('#choix_annule').on('click', function(){

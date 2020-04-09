@@ -2,6 +2,7 @@
 
 return [
   "en_pratique" => "En pratique",
+  "choisir" => "Quelle analyse choisir ?",
   "questions" => "Toutes les questions sur les prélèvements: pourquoi, qui, quand, comment, ...",
   "comment_prelever" => "Comment prélever&nbsp;?",
   "comment_envoyer" => "Comment envoyer&nbsp;?",

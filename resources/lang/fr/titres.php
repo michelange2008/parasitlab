@@ -2,6 +2,8 @@
 
 return [
 
+  "cavaliers" => "cavalières et propriétaires de chevaux ou d'ânes",
+
   "copros" => "Pourquoi des coproscopies&nbsp;?",
 
   "choisir_analyse" => "Quelle analyse choisir&nbsp;?",

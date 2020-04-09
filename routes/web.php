@@ -49,21 +49,21 @@
 
   Route::get('/analyses/tarifs', ['uses' => 'ExtranetController@tarifs', 'as' => 'analyses.tarifs']);
 
-  Route::get('/analyses/tarifsPdf', ['uses' => 'ExtranetController@tarifsPdf', 'as' => 'analyses.tarifsPdf']);
+  // Route::get('/analyses/tarifsPdf', ['uses' => 'ExtranetController@tarifsPdf', 'as' => 'analyses.tarifsPdf']);
 
-  Route::post('/analyses/formulairePdf', ['uses' => 'ExtranetController@formulairePdf', 'as' => 'analyses.formulairePdf']);
+  // Route::post('/analyses/formulairePdf', ['uses' => 'ExtranetController@formulairePdf', 'as' => 'analyses.formulairePdf']);
 
-  Route::get('/analyses/getFormulairePdf/{espece_id}', ['uses' => 'ExtranetController@getFormulairePdf', 'as' => 'analyses.getFormulairePdf']);
+  // Route::get('/analyses/getFormulairePdf/{espece_id}', ['uses' => 'ExtranetController@getFormulairePdf', 'as' => 'analyses.getFormulairePdf']);
 
   Route::get('/enpratique', ['uses' => 'Technique\CoproscopiesController@enpratique', 'as' => 'enpratique']);
 
   Route::get('/analyses/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'analyses.choisir']);
 
-  Route::get('/analyses/choisir/{espece}/{anatype}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'analyses.formulaireDemande']);
+  // Route::get('/analyses/choisir/{espece}/{anatype}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'analyses.formulaireDemande']);
 
-  Route::post('/analyses/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'analyses.formulaireStore']);
+  // Route::post('/analyses/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'analyses.formulaireStore']);
 
-  Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
+  // Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
 
   Route::get('envoiPack', ['uses' => 'ExtranetDemandeController@envoiPack', 'as' => "envoiPack"]);
 

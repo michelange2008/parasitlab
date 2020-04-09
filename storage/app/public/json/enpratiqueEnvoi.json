@@ -13,7 +13,7 @@
     {
       "prefixe" : "formulaire_vierge.",
       "type" : "route",
-      "route" : "analyses.formulairePdf",
+      "route" : "especes",
       "id" : "telFormulaire"
     }
 

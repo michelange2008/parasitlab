@@ -84,20 +84,20 @@ class ExtranetController extends Controller
       $this->telechargePdf('tarifs', 'tarifs_parasitlab');
     }
 
-    public function formulairePdf(Request $request)
-    {
-      $espece = $request->all()['espece'];
-
-      $this->telechargePdf('formulaire_'.$espece, 'demande_analyse_parasito_'.$espece);
-
-    }
-
-    public function getFormulairePdf($espece_id)
-    {
-      $espece = Espece::find($espece_id);
-
-      $this->telechargePdf('formulaire_'.$espece->abbreviation, 'demande_analyse_parasito_'.$espece->abbreviation);
-    }
+    // public function formulairePdf(Request $request)
+    // {
+    //   $espece = $request->all()['espece'];
+    //
+    //   $this->telechargePdf('formulaire_'.$espece, 'demande_analyse_parasito_'.$espece);
+    //
+    // }
+    //
+    // public function getFormulairePdf($espece_id)
+    // {
+    //   $espece = Espece::find($espece_id);
+    //
+    //   $this->telechargePdf('formulaire_'.$espece->abbreviation, 'demande_analyse_parasito_'.$espece->abbreviation);
+    // }
 
     public function contact()
     {

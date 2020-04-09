@@ -76,15 +76,9 @@
 
       <div class="col-md-10 col-lg-8">
 
-        @bouton([
-          'type' => 'route',
-          'couleur' => 'btn-bleu',
-          'route' => 'analyses.tarifsPdf',
-          'intitule' => 'tarifs.telecharger_tarifs',
-          'fa' => 'fas fa-file-pdf',
-        ])
+        <a class="btn btn-rouge" href="{{ url('storage/pdf/tarifs.pdf') }}" target="_blank"><i class="fas fa-file-pdf"></i> @lang('boutons.teleTarifs')</a>
 
-        @include('fragments.boutonAnnule')
+        @include('fragments.boutonRetour')
 
       </div>
 

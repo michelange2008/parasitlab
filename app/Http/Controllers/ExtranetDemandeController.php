@@ -54,108 +54,108 @@ class ExtranetDemandeController extends Controller
         ]);
       }
 
-      public function formulaireDemande($espece_id, $anatype_id)
-      {
-        session()->forget('demande'); // suppression de l'objet mis en session par la méthode formulaireStore
-
-        $pays = $this->litJson("pays");
-
-        $estParasite = $this->litJson('estParasite');
-
-        $user = (auth()->user()) ? auth()->user() : "";
-
-        return view('extranet.analyses.formulaireDemande', [
-          'menu' => $this->menu,
-          'espece_id' => $espece_id,
-          'anatype_id' => $anatype_id,
-          'especes' => Espece::all(),
-          'anatypes' => Anatype::all(),
-          'signes' => Signe::all(),
-          'estParasite' => $estParasite,
-          'user' => $user,
-          'personne' => $this->personne(),
-          'pays' => $pays,
-        ]);
-      }
-
-      /*
-      * Il ne s'agit pas réellement de stocker la demande d'analyse mais de metttre
-      * en forme les données pour écrire le pdf téléchargeable
-      */
-
-      public function formulaireStore(FormulaireDemande $request)
-      {
-        $datas = $request->validated();
-        // dd($datas);
-
-
-        foreach ($datas as $key => $data) {
-          $datas[$key] = trim(strip_tags($data));
-        }
-        $user = User::select('id', 'name', 'email')->where('email', $datas['email'])->first();
-        if($user == null) {
-            $user = new User();
-            $user->id = 10000;
-            $user->name = $datas['name'];
-            $user->email = $datas['email'];
-            $user->usertype = $this->userTypeEleveur()->id;
-            $eleveur = new Eleveur();
-            $eleveur->user_id = $user->id;
-            $eleveur->address_1 = $datas['address_1'];
-            $eleveur->address_2 = $datas['address_2'];
-            $eleveur->cp = $datas['cp'];
-            $eleveur->commune = $datas['commune'];
-            $eleveur->indicatif = $datas['indicatif'];
-            $eleveur->tel = $datas['tel'];
-            $eleveur->num = $datas['num'];
-        } else {
-          $eleveur = Eleveur::where('user_id', $user->id)->first();
-        }
-
-        $demande = new Demande();
-        $demande->id = 10000;
-        $demande->user_id = $user->id;
-        $demande->nb_prelevement = intVal($datas['nb_prelevement']);
-        $demande->espece_id = $datas['espece_id'];
-        $demande->anaacte_id = $datas['anaacte_id'];
-        $demande->informations = $datas['informations'];
-        $demande->date_prelevement = $this->dateReadable($datas['date_prelevement']);
-        $demande->toveto = ($datas['veto'] == null) ? false : true;
-        $demande->veto = $datas['veto'];
-
-        $prelevements = Collect();
-
-        for ($i=1; $i < $datas['nb_prelevement'] + 1 ; $i++) {
-
-              $prelevement = Collect();
-              $prelevement->identification = ($datas['p_'.$i]== null) ? "lot n°".$i : $datas['p_'.$i];
-              $prelevement->parasite = $datas['parasite_'.$i];
-
-              $liste_signes = Signe::all();
-              $signes = Collect();
-
-              $prelevement->put('signes', $signes);
-
-              foreach ($liste_signes as $signe) {
-
-                if(isset($datas['signe_'.$i.'_'.$signe->id])) {
-
-                  $prelevement['signes']->push($signe->nom);
-
-                }
-
-              }
-              $prelevements->push($prelevement);
-        }
-        $demande->prelevements = $prelevements;
-        $demande->user = $user;
-        $demande->eleveur = $eleveur;
-
-        session(['demande' =>$demande]);
-
-        return redirect()->route('formulaire');
-
-       }
+      // public function formulaireDemande($espece_id, $anatype_id)
+      // {
+      //   session()->forget('demande'); // suppression de l'objet mis en session par la méthode formulaireStore
+      //
+      //   $pays = $this->litJson("pays");
+      //
+      //   $estParasite = $this->litJson('estParasite');
+      //
+      //   $user = (auth()->user()) ? auth()->user() : "";
+      //
+      //   return view('extranet.analyses.formulaireDemande', [
+      //     'menu' => $this->menu,
+      //     'espece_id' => $espece_id,
+      //     'anatype_id' => $anatype_id,
+      //     'especes' => Espece::all(),
+      //     'anatypes' => Anatype::all(),
+      //     'signes' => Signe::all(),
+      //     'estParasite' => $estParasite,
+      //     'user' => $user,
+      //     'personne' => $this->personne(),
+      //     'pays' => $pays,
+      //   ]);
+      // }
+      //
+      // /*
+      // * Il ne s'agit pas réellement de stocker la demande d'analyse mais de metttre
+      // * en forme les données pour écrire le pdf téléchargeable
+      // */
+      //
+      // public function formulaireStore(FormulaireDemande $request)
+      // {
+      //   $datas = $request->validated();
+      //   // dd($datas);
+      //
+      //
+      //   foreach ($datas as $key => $data) {
+      //     $datas[$key] = trim(strip_tags($data));
+      //   }
+      //   $user = User::select('id', 'name', 'email')->where('email', $datas['email'])->first();
+      //   if($user == null) {
+      //       $user = new User();
+      //       $user->id = 10000;
+      //       $user->name = $datas['name'];
+      //       $user->email = $datas['email'];
+      //       $user->usertype = $this->userTypeEleveur()->id;
+      //       $eleveur = new Eleveur();
+      //       $eleveur->user_id = $user->id;
+      //       $eleveur->address_1 = $datas['address_1'];
+      //       $eleveur->address_2 = $datas['address_2'];
+      //       $eleveur->cp = $datas['cp'];
+      //       $eleveur->commune = $datas['commune'];
+      //       $eleveur->indicatif = $datas['indicatif'];
+      //       $eleveur->tel = $datas['tel'];
+      //       $eleveur->num = $datas['num'];
+      //   } else {
+      //     $eleveur = Eleveur::where('user_id', $user->id)->first();
+      //   }
+      //
+      //   $demande = new Demande();
+      //   $demande->id = 10000;
+      //   $demande->user_id = $user->id;
+      //   $demande->nb_prelevement = intVal($datas['nb_prelevement']);
+      //   $demande->espece_id = $datas['espece_id'];
+      //   $demande->anaacte_id = $datas['anaacte_id'];
+      //   $demande->informations = $datas['informations'];
+      //   $demande->date_prelevement = $this->dateReadable($datas['date_prelevement']);
+      //   $demande->toveto = ($datas['veto'] == null) ? false : true;
+      //   $demande->veto = $datas['veto'];
+      //
+      //   $prelevements = Collect();
+      //
+      //   for ($i=1; $i < $datas['nb_prelevement'] + 1 ; $i++) {
+      //
+      //         $prelevement = Collect();
+      //         $prelevement->identification = ($datas['p_'.$i]== null) ? "lot n°".$i : $datas['p_'.$i];
+      //         $prelevement->parasite = $datas['parasite_'.$i];
+      //
+      //         $liste_signes = Signe::all();
+      //         $signes = Collect();
+      //
+      //         $prelevement->put('signes', $signes);
+      //
+      //         foreach ($liste_signes as $signe) {
+      //
+      //           if(isset($datas['signe_'.$i.'_'.$signe->id])) {
+      //
+      //             $prelevement['signes']->push($signe->nom);
+      //
+      //           }
+      //
+      //         }
+      //         $prelevements->push($prelevement);
+      //   }
+      //   $demande->prelevements = $prelevements;
+      //   $demande->user = $user;
+      //   $demande->eleveur = $eleveur;
+      //
+      //   session(['demande' =>$demande]);
+      //
+      //   return redirect()->route('formulaire');
+      //
+      //  }
 
        /*
        * Page de formulaire de demande d'envoi d'un pack

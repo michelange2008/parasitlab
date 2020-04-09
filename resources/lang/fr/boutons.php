@@ -10,4 +10,6 @@ return [
   "retour" => "Retour",
   "annule" => "Annuler",
 
+  "teleTarifs" => "Télécharger le tarifs"
+
 ];
