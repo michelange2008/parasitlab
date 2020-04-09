@@ -185,7 +185,7 @@ class AnaactesTableSeeder extends Seeder
           'num' => "6.a",
           'abbreviation' => "2 anal.",
           'nom' => "Analyses coprologiques de mélange avant et après vermifuge (5 à 8 animaux)",
-          'description' => "Ce test est une bonne approche sir vous soupçonnez l'existence d'une résistance des strongles de votre troupeau vis-à-vis des vermifuges.
+          'description' => "Ce test est une bonne approche si vous soupçonnez l'existence d'une résistance des strongles de votre troupeau vis-à-vis des vermifuges.
             C'est aussi une façon d'évaluer le risque d'introduire des parasites résistants avec l'achat d'un animal.",
           'anatype_id' => 6,
           'estSerie' => true,
