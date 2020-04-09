@@ -18,7 +18,7 @@ class CreateAnaactesTable extends Migration
           $table->string('num');
           $table->string('abbreviation', 50);
           $table->string('nom', 191);
-          $table->string('description', 191);
+          $table->text('description');
           $table->unsignedInteger('anatype_id')->nullable();
           $table->foreign('anatype_id')->references('id')->on('anatypes')->onDelete('set null');
           $table->boolean('estSerie')->default(false);

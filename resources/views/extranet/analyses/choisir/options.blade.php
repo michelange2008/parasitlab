@@ -66,6 +66,7 @@
             <p class="card-text">{!! ucfirst($anaacte->nom) !!}
               <span class="card-text"><small class="text-muted">{!! ucfirst($anaacte->pu_ht) !!}&nbsp;&euro;</small></span>
             </p>
+            <p class="card-text text-secondary pl-3 bordure-epaisse">{!! ucfirst($anaacte->description) !!}</p>
           </div>
         </div>
       </div>
