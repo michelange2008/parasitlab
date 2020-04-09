@@ -47,8 +47,6 @@
   //##############################################################################
   // PAGES POUR LE CHOIX DES ANALYSES LE REMPLISSAGE DU FORMULAIRE LES ASPECTS PRATIQUES
 
-  // Route::get('/analyses', ['uses' => 'ExtranetController@analyses', 'as' => 'analyses']); // correspond au menu "pour commencer"
-
   Route::get('/analyses/tarifs', ['uses' => 'ExtranetController@tarifs', 'as' => 'analyses.tarifs']);
 
   Route::get('/analyses/tarifsPdf', ['uses' => 'ExtranetController@tarifsPdf', 'as' => 'analyses.tarifsPdf']);
@@ -65,24 +63,17 @@
 
   Route::post('/analyses/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'analyses.formulaireStore']);
 
-  Route::post('/analyses/choisir/options', ['uses' => 'ExtranetDemandeController@options', 'as' => 'analyses.options']);
-
   Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
 
   Route::get('envoiPack', ['uses' => 'ExtranetDemandeController@envoiPack', 'as' => "envoiPack"]);
 
   Route::post('envoiPackStore', ['uses' => 'ExtranetDemandeController@envoiPackStore', 'as' => "envoiPackStore"]);
 
-  // Route::get('/analyses/anatypes/{espece_id}', ['uses' => 'ExtranetDemandeController@anatypeSelonEspece']);
-  //
-  // Route::get('/analyses/anaactes/{anatype_id}', ['uses' => 'ExtranetDemandeController@anaacteSelonAnatype']);
-  //
+  // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
   Route::get('/analyses/methode/{espece_id}', ['uses' => 'ExtranetDemandeController@observationSelonEspece']);
-
-  // Route::get('/analyses/observations/{espece_id}/{liste}', ['uses' => 'ExtranetDemandeController@analyseSelonObservations']);
-
-  Route::get('/analyses/observations/{espece_id}/{liste}', ['uses' => 'ExtranetDemandeController@optionsSelonObservations']);
-
+  // Requete ajax pour sélectionner les options et analyses dans la procédure de choix des analyses
+  Route::post('/analyses/choisir/options', ['uses' => 'ExtranetDemandeController@options', 'as' => 'analyses.options']);
+  // Requete ajax pour obtenir la liste des especes pour le téléchargement d'un formulaire
   Route::get('/especes', ['uses' => 'EspeceController@listeEspeces', 'as' => 'especes']);
 
   //##############################################################################

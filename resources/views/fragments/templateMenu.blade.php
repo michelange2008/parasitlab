@@ -26,29 +26,38 @@
   </ul>
 </div>
 
-{{-- Boite de dialogue pour choisir l'espece pour le téléchargement du formulaire --}}
-<div id="choix" class="choix_especes" style="display:none;position:fixed; top:20vh; left:25%;width:50%; height:200px;border:solid 1px black; background:white">
-  <form id="choix_form" action="{{ route('analyses.formulairePdf') }}" method="post">
+{{-- Boite de dialogue pour choisir l'espece et télécharger un formulaire--}}
+<div id="choix" class="choix_especes" style="display:none;position:fixed; top:20vh; left:25%;width:50%; box-shadow: 4px 4px 17px black">
+  {{-- stockage de l'adresse générique des formulaires pdf --}}
+  <div id="pdf_generique" class="d-none">{{ url('storage/') }}</div>
+  {{-- <form id="choix_form" action="{{ route('analyses.formulairePdf') }}" method="post"> --}}
     <div class="card">
+
       <div class="card-header">
+
         <h3>
-          <img src="{{ url('storage/img/icones/especes.svg') }}" alt="">
-          Choisissez une espèce...
+
+          <img class="mr-3 mt-1" src="{{ url('storage/img/icones/especes.svg') }}" alt="">
+
+          @lang('menus.teleForm')
+
         </h3>
+
+        <h5 class="text-center">@lang('menus.clicEspece')</h5>
+
       </div>
 
-      <div class="card-body">
-        @csrf
-        <select id="choix_select" class="form-control" name="espece">
-
-        </select>
+      <div id="card-especes" class="card-body d-flex justify-content-around">
+        {{-- ZONE POUR INSERER LES ICONES DES ESPECES --}}
       </div>
 
       <div class="card-footer">
+
         <button id="choix_annule" class="btn btn-secondary" type="button" name="button">@lang('boutons.annule')</button>
+
       </div>
 
-    </form>
+    {{-- </form> --}}
 
   </div>
 

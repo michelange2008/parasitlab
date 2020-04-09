@@ -10,21 +10,3 @@
   @include('extranet.analyses.enpratique.prelever.terre_lot')
 
 </div>
-
-{{-- <div class="col-md-12 py-3"> --}}
-
-  {{-- <hr class="divider">
-
-  <h4 class="color-bleu-tres-fonce">
-
-    @lang('enpratique.motif')
-
-  </h4>
-
-</div>
-
-<div class="col-md-12 py-3">
-
-  @include('extranet.analyses.enpratique.prelever.qui_quand')
-
-</div> --}}

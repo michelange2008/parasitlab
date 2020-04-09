@@ -7,19 +7,17 @@
 
   <div class="container-fluid">
 
-    @include('extranet.analyses.sousmenuAnalyses')
-
-    <div class="row my-3 justify-content-end">
+    <div class="row my-3 justify-content-center">
 
       <div class="col-md-10">
 
-        @titre(['icone' => 'enpratique.svg', 'titre' => __('titres.enpratique.titre'), 'soustitre' => __('titres.enpratique.soustitre')])
+        @titre(['icone' => 'enpratique.svg', 'titre' => __('titres.enpratique')])
 
       </div>
 
     </div>
 
-    <div class="row my-3 justify-content-end">
+    <div class="row justify-content-center">
 
       <div class="col-md-10">
 
@@ -28,7 +26,7 @@
       </div>
 
     </div>
-    <div class="row justify-content-end">
+    <div class="row justify-content-center">
 
       <div class="col-md-10">
 

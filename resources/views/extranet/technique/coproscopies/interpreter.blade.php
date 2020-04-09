@@ -6,9 +6,7 @@
 
   <div class="container-fluid">
 
-    @sousmenuAnalyses
-
-    <div class="row my-3 justify-content-end">
+    <div class="row my-3 justify-content-center">
 
       <div class="col-md-10">
 

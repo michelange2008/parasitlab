@@ -2,9 +2,9 @@
 
 return [
 
-  "copros" => "Les examens coproscopiques",
+  "copros" => "Pourquoi des coproscopies&nbsp;?",
 
-  "choisir_analyse" => "Choisir une analyse",
+  "choisir_analyse" => "Quelle analyse choisir&nbsp;?",
 
   "envoiPack" => "Demande d'envoi d'un pack pré-affranchi",
 
@@ -12,10 +12,7 @@ return [
 
   "formulaireDemande" => "Création d'un formulaire de demande d'analyse",
 
-  "enpratique" => [
-    "titre" => "En pratique",
-    "soustitre" => "(comment prélever & envoyer dans les meilleures conditions)",
-  ],
+  "enpratique" => "Comment prélever et envoyer dans les meilleures conditions&nbsp;?",
 
   "parasitisme" => [
     "titre" => "Parasit'Lab Infos&nbsp;: ",

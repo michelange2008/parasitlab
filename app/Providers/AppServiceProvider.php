@@ -44,7 +44,5 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('fragments.bouton', 'bouton');
       Blade::include('fragments.boutonRetour', 'retour');
       Blade::include('fragments.blocEnregistreAnnule', 'enregistreAnnule');
-
-      Blade::include('extranet.analyses.sousmenuAnalyses', 'sousmenuAnalyses');
     }
 }

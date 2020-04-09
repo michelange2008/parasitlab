@@ -26,7 +26,6 @@ class CoproscopiesController extends Controller
     {
       return view('extranet.technique.coproscopies.coproscopies', [
         'menu' => $this->menu,
-        'sousmenuAnalyses' => $this->sousmenuAnalyses,
         'coproscopies' => $this->litJson('coproscopies'),
       ]);
     }
@@ -34,7 +33,6 @@ class CoproscopiesController extends Controller
     {
       return view('extranet.analyses.enpratique', [
         'menu' => $this->menu,
-        'sousmenuAnalyses' => $this->sousmenuAnalyses,
         'qui_quand' => $this->litJson('qui_quand'),
         'terre_lot' => $this->litJson('terre_lot'),
         'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
@@ -46,7 +44,6 @@ class CoproscopiesController extends Controller
     {
       return view('extranet.technique.coproscopies.interpreter', [
         'menu' => $this->menu,
-        'sousmenuAnalyses' => $this->sousmenuAnalyses,
         'interpreter' => $this->litJson('interpreter'),
       ]);
     }

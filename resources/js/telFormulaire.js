@@ -1,45 +1,45 @@
+// Quand on clique sur Télécharger un formulaire dans le sous menu Express
+$('.telFormulaire').on('click', function(e) {
+  // On évite la soumission du formulaire
+  e.preventDefault();
+  // On récupérère l'href du formulaire (générée automatiquement avec l'afficha du menu)
+  var url = $(this).attr('href');
+  // Et on lance la fonction choix_espece
+  choix_espece(url);
+});
+
+// Fonction pour choisir l'espèce dont on veut télécharger le formulaire
 function choix_espece(url) {
-
-  $('#choix_select').children().remove();
-
+  // // On vide le card-body (pour éviter d'entasser les listes d'espèces successives)
+  $('#card-especes').empty();
+  // On récupère la liste de especes avec une requete ajax
   $.get({
     url : url
   })
   .done(function(datas) {
+    // On forme l'adresse des icones
+    var url_icones = url.replace('especes', 'storage/img/icones/');
+    // On analyse le fichier renvoyé par la requete ajax
     var especes = JSON.parse(datas);
-    var options ='<option value=null></option>';
+    // On passe en revue les espèces
     $.each(especes, function(key, value) {
-      options += "<option value='"+strUcFirst(value.abbreviation)+"'>"+value.nom+"</option>"
-    })
-    $('#choix_select').append(options);
+      // Pour chaque espece on crée une balise img
+      var espece = '<img id="' + value.abbreviation + '" class="espece-pdf img-65 img-change mx-3 pointeur" src="' + url_icones + value.abbreviation + '.svg" alt="' + value.nom + '" title="'+ value.nom +'">'
+      // On ajoute ces balises à la card-body
+      $('#card-especes').append(espece);
+    });
   });
-
+  // On affiche la fenêtre
   $('#choix').fadeIn();
-
-  $('#choix_select').on('click', function(){
-    if($(this).val() != 'null')
-    {
-      $('#choix_form').submit();
-      $('#choix').fadeOut();
-    }
-  });
-
+  // Quand on clique sur une icone espece
+  $('.card-body').on('click', '.espece-pdf', function() {
+    // On reforme une url de téléchargement du pdf en attribuant l'abbreviation de l'espece choisie pour former le nom du fichier pdf
+    url_pdf = url.replace('especes', 'storage/pdf/formulaire_' + $(this).attr('id') + '.pdf');
+    // Et on télécharge ce fichier
+    window.open(url_pdf, null);
+  })
+  // Fermeture de la fenêtre en cliquant sur annuler
   $('#choix_annule').on('click', function(){
     $('#choix').fadeOut();
   })
 }
-// sous menu de Express
-$('.telFormulaire').on('click', function(e) {
-  e.preventDefault();
-  var url_actuelle = $(this).attr('href');
-  var url = url_actuelle.replace('analyses/formulairePdf', 'especes');
-  choix_espece(url);
-});
-// sous menu latéral
-$('#downloadFormulaire').on('click', function(event) {
-  event.preventDefault();
-  var url = $(this).attr('href');
-  choix_espece(url);
-});
-// Fonction pour mettre le permier mot en majuscule
-function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};

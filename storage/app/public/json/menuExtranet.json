@@ -59,7 +59,7 @@
 				"id" : "telFormulaire",
 				"nom" : "Télécharger un formulaire vierge",
 				"tooltip" : "Télécharger un formulaire vierge au format pdf",
-				"route" : "analyses.formulairePdf"
+				"route" : "especes"
 			},
 			"envoiPack" : {
 				"id" : "envoiPack",
