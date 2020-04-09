@@ -1,12 +1,10 @@
-<h4 id="titre_options" class="mb-3"  style="display:none">@lang('choisir.motif')</h4>
-
 <div id="liste_options">
 
   <div id="aucune_option"></div>
 
-  @foreach ($qui_quand->contenu as $element) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
+  @foreach ($qui_quand->contenu as $key => $element) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
 
-    <div id="{{ $element }}" class="option" >
+    <div id="{{ $key }}" class="option" style="display:none">
 
       <div class="media border p-3 bg-bleu-tres-clair">
         <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/'.$element.'svg') !!}" alt="{{ $element }}">
@@ -41,6 +39,36 @@
 
       </div>
 
+    </div>
+
+  @endforeach
+
+</div>
+
+<h4 id="une" class="titre_analyses" class="mb-3"  style="display:none">@lang('choisir.analyse_prop_une')</h4>
+<h4 id="deux" class="titre_analyses" class="mb-3"  style="display:none">@lang('choisir.analyse_prop_deux')</h4>
+
+
+<div id="listes analyse">
+
+  <div id="aucune_analyse"></div>
+
+  @foreach ($anaactes as $anaacte)
+
+    <div id="anaacte_{{ $anaacte->id }}" class="anaacte card mb-3" style="display:none" >
+      <div class="row no-gutters">
+        <div class="col-md-2 m-auto">
+          <img src="{{  url('storage/img/icones'.'/'.$anaacte->anatype->icone->nom) }}" class="card-img img-65"  alt="{{ $anaacte->anatype->icone }}">
+        </div>
+        <div class="col-md-10">
+          <div class="card-body">
+            <h5 class="card-title"><span class="badge badge-bleu-tres-fonce">{!! $anaacte->num !!}</span> {!! ucfirst($anaacte->anatype->nom) !!}</h5>
+            <p class="card-text">{!! ucfirst($anaacte->nom) !!}
+              <span class="card-text"><small class="text-muted">{!! ucfirst($anaacte->pu_ht) !!}&nbsp;&euro;</small></span>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
   @endforeach

@@ -14,11 +14,11 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
           [
             "id" => 1,
-            "nom" => "signe",
+            "nom" => "observations",
           ],
           [
             "id" => 2,
-            "nom" => "action",
+            "nom" => "actions",
           ],
           [
             "id" => 3,

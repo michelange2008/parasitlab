@@ -14,6 +14,7 @@ class AnaactesTableSeeder extends Seeder
       DB::table('anaactes')->insert([
         [
           'id' => 1,
+          'num' => "1.a",
           'abbreviation' => "indiv.",
           'nom' => "analyse individuelle (1 animal)",
           'description' => "strongles gastro-intestinaux",
@@ -27,6 +28,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 2,
+          'num' => "1.b",
           'abbreviation' => "mélange de 5",
           'nom' => "analyse de mélange (5 animaux maximum)",
           'description' => "strongles gastro-intestinaux",
@@ -40,6 +42,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 3,
+          'num' => "1.c",
           'abbreviation' => "pack 3 anal.",
           'nom' => "pack de 3 échantillons individuels",
           'description' => "strongles gastro-intestinaux",
@@ -53,6 +56,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 4,
+          'num' => "1.d",
           'abbreviation' => "suivi annuel",
           'nom' => "pack de suivi annuel (4 envois de 3 échantillons)",
           'description' => "strongles gastro-intestinaux",
@@ -66,6 +70,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 5,
+          'num' => "2.a",
           'abbreviation' => "indiv.",
           'nom' => "analyse individuelle (1 animal)",
           'description' => "Analyse coprologique spécifique permettant de compter les oeufs de petite douve en plus de ceux des strongles gastro-intestinaux",
@@ -79,6 +84,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 6,
+          'num' => "2.b",
           'abbreviation' => "melange de 5",
           'nom' => "analyse de mélange (5 animaux maximum))",
           'description' => "Analyse coprologique spécifique permettant de compter les oeufs de petite douve en plus de ceux des strongles gastro-intestinaux",
@@ -92,6 +98,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 7,
+          'num' => "2.c",
           'abbreviation' => "pack 3 anal.",
           'nom' => "pack de 3 échantillons individuels.",
           'description' => "Analyse coprologique spécifique permettant de compter les oeufs de petite douve en plus de ceux des strongles gastro-intestinaux",
@@ -105,6 +112,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 8,
+          'num' => "2.d",
           'abbreviation' => "suivi annuel",
           'nom' => "Pack suivi annuel (4 envois de 3 échantillons par an)",
           'description' => "Analyse coprologique spécifique permettant de compter les oeufs de petite douve en plus de ceux des strongles gastro-intestinaux",
@@ -118,6 +126,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 9,
+          'num' => "3.a",
           'abbreviation' => "indiv.",
           'nom' => "analyse individuelle (1 animal)",
           'description' => "recherche de larves de strongles respiratoires",
@@ -131,6 +140,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 10,
+          'num' => "3.b",
           'abbreviation' => "mélange de 5",
           'nom' => "analyse de mélange (5 animaux maximum)",
           'description' => "recherche de larves de strongles par le test de Baermann",
@@ -144,6 +154,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 11,
+          'num' => "4.a",
           'abbreviation' => "mélange de 5",
           'nom' => "analyse de mélange (5 animaux maximum)",
           'description' => "Analyse coprologique spécifique permettant de compter les oeufs de grande douve et de paramphistome en plus de ceux des strongles gastro-intestinaux",
@@ -157,6 +168,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 12,
+          'num' => "5.a",
           'abbreviation' => "mélange",
           'nom' => "analyse de mélange (5 animaux maximum)",
           'description' => "evaluation de la proportion d'oeufs d'Haemonchus par une qPCR",
@@ -170,6 +182,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 13,
+          'num' => "6.a",
           'abbreviation' => "2 anal.",
           'nom' => "Analyses coprologiques de mélange avant et après vermifuge (5 à 8 animaux)",
           'description' => "évaluation de l'existence d'une résistance des strongles vis-à-vis des vermifuges",
@@ -183,6 +196,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 14,
+          'num' => "7.a",
           'abbreviation' => "kit envoi",
           'nom' => "kit d'echantillonnage pré-affranchi",
           'description' => "pack pour l'envoi des prélèvements avec l'affranchissement",
@@ -196,6 +210,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 15,
+          'num' => "1.e",
           'abbreviation' => "pack 3 anal.",
           'nom' => "pack de 3 échantillons de mélanges (5 animaux)",
           'description' => "strongles gastro-intestinaux",
@@ -209,6 +224,7 @@ class AnaactesTableSeeder extends Seeder
         ],
         [
           'id' => 16,
+          'num' => "2.e",
           'abbreviation' => "pack 3 anal.",
           'nom' => "pack de 3 échantillons de mélange (5 animaux)",
           'description' => "Analyse coprologique spécifique permettant de compter les oeufs de petite douve en plus de ceux des strongles gastro-intestinaux",

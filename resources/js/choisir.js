@@ -20,7 +20,7 @@ $('.espece').on('click', function() {
   $(".espece").css('filter', 'opacity(20%)');
   $(this).css('filter', 'blur(0px)');
   // On vide la colonne d'options
-  videOption();
+  videOptionsAnaaactes();
   $('.categorie').hide();
   $('.liste_observations').empty();
 
@@ -56,21 +56,20 @@ $(".liste_observations").on('click', ".card", function() {
   var id = $(this).attr('id').split('_')[1];
   var observation_id = '#observation_' + id;
   var explication_id = '#explication_' + id;
+  var estSelection = $(observation_id).attr('selection');
   // On récupère la catégorie
   var categorie_id = $(this).parent().attr('id');
   var id_categorie = categorie_id.split('_')[1];
 
 // SUR LA COLONNE OBSERVATIONS:
-// On crée un booleen qui est vrai si l'observation est active, cad qu'elle a été cliquée
-  var est_active = ($(this).children(observation_id).attr('class').split(' ')).includes('active')
-
-  if(est_active) {
+  if(estSelection == "oui") {
 
     inactiveObservation(id);
     // On supprime cette valeur dui tableau selection
-    selection[id-1] = null;
+    selection[id_categorie-1] = null;
 
-  } else {
+  } else if(estSelection == "non") {
+    // On passe l'attribut selection à true
     // Si une observation de cette catégorie est présente dans le tableau selection (cad a été sélectionnée avant)
     if(selection[id_categorie-1] != null) { // Le id_categorie-1 est du au fait que l'array selection indice à 0 tandis que les bdd commencent à 1
       var id_observation_active = selection[id_categorie-1];
@@ -78,12 +77,12 @@ $(".liste_observations").on('click', ".card", function() {
       inactiveObservation(id_observation_active);
     }
     // Puis on inscrit la nouvelle obbservation cliquée dans le tableau selection
-    selection[id_categorie-1] = id;
+    selection[id_categorie-1] = id; // Le "-1" est dû au fait que les id des catégories commencent à 1 tandis que l'index du tableau à 0
     activeObservation(id);
   }
 
   // ON EFFACE TOUTE LA COLONNE OPTIONS:
-  videOption();
+  videOptionsAnaaactes();
 
   // On stocke la sélection dans les input pour la transmission ajax
   $.each(selection, function(key,value) {
@@ -92,17 +91,14 @@ $(".liste_observations").on('click', ".card", function() {
   })
 
 
-  // Et on reconstruit l'url pour la requete ajax
-  // var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
-  // var url = url_actuelle.replace('choisir', 'observations/'+espece_id+'/'+liste);
-  //
+  // On appelle la fonction listeOptions qui fait une requete post du formulaire caché (ExtranetDemandeController@optionsSelonObservations)
   listeOptions();
 
 
   // $('#bouton_pdf').fadeIn();
 });
 
-// Fonction qui requete ajax avec l'espcece_id (ExtranetDemandeController@observationSelonEspece)
+// Fonction qui requete ajax avec l'espece_id (ExtranetDemandeController@observationSelonEspece)
 // Et affiche le résultat sous la forme d'une liste d'observations avec trois propriétés quand on clique:
 // 1) ça met l'observation en couleur
 // 2) cela expand l'affichage pour montrer l'explication et les autres origines
@@ -123,7 +119,7 @@ function listeObservations(url) {
         // On ajoute la liste des observations
         $("#categorie_" + ligne.categorie_id).append(
           '<div id="card_' + ligne.id + '" class="card borderless" categorie="'+ligne.categorie_id+'">'+
-            '<div id="observation_' + ligne.id + '" class="card-header observation list-group-item list-group-item-action disabled pointeur" data-target="observation_' + ligne.id + '">' +
+            '<div id="observation_' + ligne.id + '" class="card-header observation list-group-item list-group-item-action disabled pointeur" selection="non" >' +
                   ligne.intitule +
             '</div>' +
             '<div id="explication_' + ligne.id + '" class="collapse bg-bleu-tres-clair">' +
@@ -145,6 +141,7 @@ function listeObservations(url) {
 // Fonction pour mettre le permier mot en majuscule
 function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};
 
+// Fonction qui passe en display:block les options et les analyses sélectionnées
 function listeOptions() {
 
     var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
@@ -153,78 +150,90 @@ function listeOptions() {
 
     $.post({
       url : url,
-      data: $('form').serialize(),
+      data: $('form').serialize(), // on passe le formulaire caché
       datatype: 'json'
     })
     .done(function(datas) {
-      console.log(datas);
-    })
+      if(datas != null) { // Si des données sont revenues (ce qui doit être systématiquement le cas)
+        var options = JSON.parse(datas).options; // On récupère le tableau options (2 options max)
+        var anaactes = JSON.parse(datas).anaactes; // on révupère le tableau anaactes (2 anaactes max)
+        if(nombreSelections(selection) > 0) { // S'il y a au moins une sélection
 
-  //
-  // .done(function(datas) {
-  //   if(datas != null) {
-  //     if(JSON.parse(datas).length == 0) {
-  //         $('#aucune_option').append(
-  //           '<p class="lead alert-warning p-3">'
-  //           +'Désolé... Nous n\'avons aucune proposition d\'analyses pour cette situation.'
-  //           +'</p>'
-  //         );
-  //     }
-  //     else {
-  //
-  //       $('#titre_options').fadeIn();
-  //       var analyses = JSON.parse(datas);
-  //
-  //       $.each(analyses, function(key, value) {
-  //         $('.option').each(function() {
-  //           if($(this).attr('id') == value) {
-  //             $(this).fadeIn();
-  //           }
-  //         })
-  //       })
-  //     }
-  //     $('#penser_veto').fadeIn(2000);
-  //
-  //     // On passe en revue le JSON renvoyé par ExtranetDemandeController@analyseSelonObservations
-  //     // $.each(analyses, function(key, value) {
-  //     //   var id = key.split(" ")[0]+key.length // Manipulation pour créer une id unique avec le nom de l'anatype
-  //     //   $('#liste_analyses').append("<li id="+id+" class='lead type list-group-item list-group-item-action color-bleu-tres-fonce'>"+ strUcFirst(key) +"</li>") // On liste les anatypes
-  //     //
-  //     //   $.each(value, function(clef, valeur) { // On passe en revue les anaactes dans chaque anatype
-  //     //     $("#"+id).append('<ul id="anaacte'+valeur.id+'" class="small sousliste list-group color-bleu"></ul>') // On affiche l'anaacte dans une sousliste
-  //     //     $("#anaacte"+valeur.id).append("<li class='list-group-item'>"+strUcFirst(valeur.acte)+"</li>")
-  //     //   })
-  //     // })
-  //   }
-  //
-  // });
+          if(options.length == 0) { // Mais que le tableau option est vide, on affiche un message qu'il n'y a pas d'analyse
+
+            $('#aucune_option').append(
+              '<p class="lead alert-warning p-3">'
+              +'Désolé... Nous n\'avons aucune proposition d\'analyses pour cette situation car ce parasite n\'est pas détectable par coproscopie.'
+              +'</p>'
+            );
+
+
+          } else { // Mais si le tableau option n'est pas vide, on affiche les options et anaactes correpondants
+
+            $.each(options, function(key, value) {
+              $('#' + value + '.option').fadeIn();
+            })
+            if(anaactes.length == 1) {
+              $('#une').fadeIn();
+            } else {
+              $('#deux').fadeIn();
+            }
+
+            $.each(anaactes, function(key, value) {
+              $('#anaacte_' + value).fadeIn();
+            })
+
+          }
+
+          $('#penser_veto').fadeIn(2000); // Et le véto
+
+        } else { // Si il n'y aucune observation séléctionnée, on efface tout
+
+          videOptionsAnaaactes();
+        }
+
+      }
+
+    })
 }
 
-function videOption() {
+function videOptionsAnaaactes() {
 
   // On masque le panneau veto
   $("#penser_veto").hide();
   // On masque la liste d'options
-  $('.option').each(function() {
-    $(this).hide();
-  });
+  $('.option').hide();
+  $('.anaacte').hide();
   // On masque le titre des analyses proposées
   $("#titre_options").hide();
+  $(".titre_analyses").hide();
+
   // On vide le 0 option
   $('#aucune_option').empty();
+  $('#aucune_analyse').empty();
 
 }
 
 function inactiveObservation(id) {
-
+  $("#observation_" + id).attr('selection', 'non');
   $("#observation_" + id).toggleClass('active').toggleClass('disabled');
   $("#explication_" + id).removeClass('show');
 
 }
 
 function activeObservation(id) {
-
+  $("#observation_" + id).attr('selection', 'oui');
   $("#observation_" + id).toggleClass('active').toggleClass('disabled');
   $("#explication_" + id).addClass('show');
 
+}
+
+function nombreSelections(selection) {
+
+  var longueur_selection = 0
+  selection.forEach(function(value) {
+    longueur_selection += (value == null) ? 0 : 1;
+  });
+
+  return longueur_selection;
 }

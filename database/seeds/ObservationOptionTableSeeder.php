@@ -42,7 +42,7 @@ class ObservationOptionTableSeeder extends Seeder
           ],
           [
             'observation_id' => 8,
-            'option_id' =>  1,
+            'option_id' =>  10,
           ],
           [
             'observation_id' => 9,
@@ -134,7 +134,7 @@ class ObservationOptionTableSeeder extends Seeder
           ],
           [
             'observation_id' => 32,
-            'option_id' =>  10,
+            'option_id' =>  1,
           ],
           [
             'observation_id' => 33,

@@ -6108,6 +6108,11 @@ mark {
   color: #0A425A;
 }
 
+.badge-bleu-tres-fonce {
+  background: #0A425A;
+  color: white;
+}
+
 .navbar-bleu-tres-clair {
   background: #76A6BB;
 }
@@ -6160,6 +6165,10 @@ mark {
 
 .img-90 {
   height: 90px;
+}
+
+.img-65 {
+  height: 65px;
 }
 
 .img-50 {

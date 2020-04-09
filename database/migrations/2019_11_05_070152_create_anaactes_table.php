@@ -15,6 +15,7 @@ class CreateAnaactesTable extends Migration
     {
         Schema::create('anaactes', function (Blueprint $table) {
           $table->increments('id');
+          $table->string('num');
           $table->string('abbreviation', 50);
           $table->string('nom', 191);
           $table->string('description', 191);

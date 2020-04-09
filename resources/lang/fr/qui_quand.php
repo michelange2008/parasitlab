@@ -9,8 +9,8 @@ return
 
   "diagnostic" =>
   [
-    "titre" => "Vous faites face à un problème&nbsp;: baisse de production, mortalité, mauvais état",
-    "soustitre" => "Vous avez besoin de confirmer un diagnostic.",
+    "titre" => "Votre problème est (peut-être) d'origine parasitaire",
+    "soustitre" => "Il s'agit de confirmer le diagnostic.",
     "qui" =>
 
       "Les animaux malades ou en mauvais état.<br>
@@ -24,7 +24,7 @@ return
   ],
   "bilan" =>
   [
-    "titre" => "Vous souhaitez évaluer le niveau d'infestation du troupeau en fin de saison de pâture, à l'entrée en bâtiment, en hiver, à l'achat, etc.",
+    "titre" => "C'est le moment d'évaluer le niveau d'infestation éventuel du troupeau surtout si vous êtes en fin de saison de pâture, à l'entrée en bâtiment, en hiver, à l'achat, etc.",
     "soustitre" => "Il s'agit d'évaluer les mesures de prévention mises en place ou de faire un bilan avant un éventuel traitement",
     "qui" =>
 
@@ -39,15 +39,15 @@ return
   ],
   "bilan_indiv" =>
   [
-    "titre" => "Vous souhaitez évaluer le niveau d'infestation d'un animal",
-    "soustitre" => "Il s'agit de savoir si son animal, ou un animal qu'on vient d'acquérir, est parasité",
+    "titre" => "C'est le moment d'évaluer le niveau d'infestation de cet animal",
+    "soustitre" => "Il s'agit de savoir si votre animal, ou un animal que vous venez d'acquérir, est parasité (même s'il ne présente pas de symptôme)",
     "qui" =>
 
       "Assez logiquement, l'animal en question",
 
     "quand" =>
 
-      "En fin de saison de pâture, au début de l'automne ou à la rentrée en bâtiment, à l'achat et plus généralement à n'importe quel moment de l'année."
+      "En fin de saison de pâture, au début de l'automne ou à la rentrée en bâtiment, à l'achat et plus généralement dès que l'on se pose la question de le vermifuger."
 
   ],
   "suivi" =>
