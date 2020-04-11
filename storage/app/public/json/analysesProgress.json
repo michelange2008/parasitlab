@@ -1,18 +1,18 @@
 {
   "coproscopies" : {
-    "intitule" : "Pourquoi faire des coproscopies&nbsp;?",
+    "intitule" : "analysesProgress.coproscopies",
     "route" : "analyses.coproscopies"
   },
   "choisir" : {
-    "intitule" : "Quelle analyse choisir&nbsp;?",
+    "intitule" : "analysesProgress.choisir",
     "route" : "analyses.choisir"
   },
   "enpratique" : {
-    "intitule" : "Comment prélever /envoyer&nbsp;?",
+    "intitule" : "analysesProgress.enpratique",
     "route" : "analyses.enpratique"
   },
   "interpretation" : {
-    "intitule" : "Quelle interpretation&nbsp;?",
+    "intitule" : "analysesProgress.interpretation",
     "route" : "analyses.interpretation"
   }
 }

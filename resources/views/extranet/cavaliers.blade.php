@@ -66,12 +66,12 @@
 
               <h4 class="mt-0 mb-3">Résistances aux antiparasitaires, ne gâchons pas nos dernières cartouches!</h4>
               <p>La résistance vis-à-vis des anthelmintiques est régulièrement signalée pour les parasites digestifs des chevaux.</p>
-              <p>Le recours à un petit nombre de molécules de façon systématique favorise à terme l'apparition de ses résistances (cf. <a href="{{ route('parasitisme.resistances') }}"><i class="fas fa-video"></i> vidéo</a>).</p>
+              <p>Le recours à un petit nombre de molécules de façon systématique favorise à terme l'apparition de ses résistances (cf. <a href="{{ route('parasitisme.fondamentaux', 2) }}"><i class="fas fa-video"></i> vidéo</a>).</p>
               <p>Il est indispensable d'adopter aujourd'hui une démarche visant à limiter l'extension de ces résistances.</p>
               <p>Pour cela, il suffit de ne traiter que les chevaux pour lesquels le parasitisme dépasse un certain seuil.
                  C'est en réalisant des examens coproscopiques que l'on peut vérifier les niveaux d'infestation par les strongles digestifs.
                </p>
-               <p>La réduction du nombre de traitements a aussi un effet positif, en diminuant les rejets d'anthelminthiques dans l'environnement (cf. <a href="{{ route('parasitisme.entomofaune') }}"><i class="fas fa-book-reader"></i> article entomofaune</a>)</p>
+               <p>La réduction du nombre de traitements a aussi un effet positif, en diminuant les rejets d'anthelminthiques dans l'environnement (cf. <a href="{{ route('parasitisme.fondamentaux', 1) }}"><i class="fas fa-book-reader"></i> article entomofaune</a>)</p>
             </div>
 
           </li>

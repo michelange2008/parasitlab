@@ -31,7 +31,7 @@ class AnalysesController extends Controller
       return view('extranet.technique.coproscopies.coproscopies', [
         'menu' => $this->menu,
         'route' => 'analyses.coproscopies',
-        'progress' => $this->litJson('analysesProgress'),
+        'analysesProgress' => $this->litJson('analysesProgress'),
         'coproscopies' => $this->litJson('coproscopies'),
       ]);
     }
@@ -42,7 +42,7 @@ class AnalysesController extends Controller
       return view('extranet.analyses.choisir', [
         'menu' => $this->menu,
         'route' => 'analyses.choisir',
-        'progress' => $this->litJson('analysesProgress'),
+        'analysesProgress' => $this->litJson('analysesProgress'),
         'especes' => $especes,
         'categories' => Categorie::all(),
         'qui_quand' => $this->litJson('qui_quand'),
@@ -55,7 +55,7 @@ class AnalysesController extends Controller
       return view('extranet.analyses.enpratique', [
         'menu' => $this->menu,
         'route' => 'analyses.enpratique',
-        'progress' => $this->litJson('analysesProgress'),
+        'analysesProgress' => $this->litJson('analysesProgress'),
         'qui_quand' => $this->litJson('qui_quand'),
         'terre_lot' => $this->litJson('terre_lot'),
         'enpratiqueConserve' => $this->litJson('enpratiqueConserve'),
@@ -68,7 +68,7 @@ class AnalysesController extends Controller
       return view('extranet.technique.coproscopies.interpretation', [
         'menu' => $this->menu,
         'route' => 'analyses.interpretation',
-        'progress' => $this->litJson('analysesProgress'),
+        'analysesProgress' => $this->litJson('analysesProgress'),
         'interpreter' => $this->litJson('interpreter'),
       ]);
     }

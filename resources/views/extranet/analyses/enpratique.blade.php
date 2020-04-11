@@ -11,7 +11,7 @@
 
       <div class="col-md-10">
 
-        @include('fragments.progression')
+        @include('fragments.analysesProgress')
 
       </div>
 
