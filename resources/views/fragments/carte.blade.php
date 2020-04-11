@@ -1,6 +1,6 @@
 <div class="card">
 
-  <img class="m-3" src="{!! 'storage/img/icones/'.$icone !!}" alt="email">
+  <img class="m-3" src="{!! url('storage/img/icones/'.$icone) !!}" alt="email">
 
   <div class="card-body">
 

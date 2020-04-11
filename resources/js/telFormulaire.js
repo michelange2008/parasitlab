@@ -17,8 +17,9 @@ function choix_espece(url) {
     url : url
   })
   .done(function(datas) {
+    console.log(datas);
     // On forme l'adresse des icones
-    var url_icones = url.replace('especes', 'storage/img/icones/');
+    var url_icones = url.replace('api/especes', 'storage/img/icones/');
     // On analyse le fichier renvoyé par la requete ajax
     var especes = JSON.parse(datas);
     // On passe en revue les espèces
@@ -28,17 +29,20 @@ function choix_espece(url) {
       // On ajoute ces balises à la card-body
       $('#card-especes').append(espece);
     });
+  })
+  .fail(function(erreur) {
+    console.log(erreur);
   });
   // On affiche la fenêtre
   $('#choix').fadeIn();
   // Quand on clique sur une icone espece
   $('.card-body').on('click', '.espece-pdf', function() {
     // On reforme une url de téléchargement du pdf en attribuant l'abbreviation de l'espece choisie pour former le nom du fichier pdf
-    url_pdf = url.replace('especes', 'storage/pdf/formulaire_' + $(this).attr('id') + '.pdf');
+    url_pdf = url.replace('api/especes', 'storage/pdf/formulaire_' + $(this).attr('id') + '.pdf');
     // Et on télécharge ce fichier
     window.open(url_pdf, null);
     $('#choix').fadeOut();
-    
+
   })
   // Fermeture de la fenêtre en cliquant sur annuler
   $('#choix_annule').on('click', function(){

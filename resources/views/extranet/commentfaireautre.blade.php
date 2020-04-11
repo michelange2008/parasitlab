@@ -10,7 +10,7 @@
 
   <div class="card-footer">
 
-    @bouton(['type' => 'route', 'route' => 'analyses.choisir', 'intitule' => 'enpratique.choisir', 'fa' => 'fas fa-virus'])
+    @bouton(['type' => 'route', 'route' => 'analyses.choisir', 'intitule' => 'enpratique.choisir', 'fa' => 'fas fa-list'])
 
   </div>
 

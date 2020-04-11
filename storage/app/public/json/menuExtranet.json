@@ -15,7 +15,7 @@
 				"id" : "connaitre",
 				"nom": "Pourquoi des coproscopies ?",
 				"tooltip": "Qu'est-ce qu'une coproscopie&nbsp;?",
-				"route": "coproscopies"
+				"route": "analyses.coproscopies"
 			},
 			"choisir": {
 				"id" : "choisir",
@@ -27,13 +27,13 @@
 				"id" : "pratique",
 				"nom": "Comment prélever et envoyer&nbsp;?",
 				"tooltip": "Comment faire pour ...",
-				"route": "enpratique"
+				"route": "analyses.enpratique"
 			},
 			"interpreter": {
 				"id" : "interpreter",
 				"nom": "Quelle interprétation&nbsp;?",
 				"tooltip": "Comment faire pour ...",
-				"route": "interpreter"
+				"route": "analyses.interpretation"
 			}
 		}
 	},
@@ -53,7 +53,7 @@
 				"id" : "tarifs",
 				"nom" : "Voir les analyses et tarifs",
 				"tooltip" : "Liste de analyses proposées et des tarifs",
-				"route" : "analyses.tarifs"
+				"route" : "express.tarifs"
 			},
 			"telFormulaire" : {
 				"id" : "telFormulaire",
@@ -65,7 +65,7 @@
 				"id" : "envoiPack",
 				"nom" : "Demander des packs d'envoi",
 				"tooltip" : "Ces packs d'envois sont préafranchis et vous permettront une expédition sûre de vos prélèvements",
-				"route" : "envoiPack"
+				"route" : "express.envoiPack"
 			}
 		}
 	},
@@ -80,19 +80,19 @@
 				"id" : "contact",
         "nom": "Nous contacter",
         "tooltip": "un problème, une question ...",
-        "route": "contact"
+        "route": "infos.contact"
       },
       "qui": {
 				"id" : "qui",
         "nom": "Qui sommes-nous ?",
         "tooltip": "Un laboratoire de recherche sur le terrain",
-        "route": "quisommesnous"
+        "route": "infos.quisommesnous"
       },
       "legal": {
 				"id" : "legal",
         "nom": "Informations légales",
         "tooltip": "Crédits photo et vie privée",
-        "route": "infoslegales"
+        "route": "infos.infoslegales"
       }
 
     }

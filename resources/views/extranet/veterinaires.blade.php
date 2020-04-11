@@ -81,26 +81,6 @@
             src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="coproscopie">
           </div>
 
-          <!-- Modal -->
-          {{-- <div class="modal fade" id="anapack_{{ $anatype->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header alert-bleu-tres-fonce">
-                  <h4 class="modal-title" id="exampleModalLabel">{{ ucfirst($anatype->nom) }}</h4>
-                  <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  {{  $anatype->technique }}.
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-bleu" data-dismiss="modal">Fermer</button>
-                </div>
-              </div>
-            </div>
-          </div> --}}
-
         @endforeach
 
       </div>

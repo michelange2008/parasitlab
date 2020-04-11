@@ -20,7 +20,7 @@
 
   <div class="text-left mb-2 ml-2">
 
-    @bouton()
+    @boutonSavoirPlus()
 
   </div>
 

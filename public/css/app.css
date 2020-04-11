@@ -5898,11 +5898,11 @@ readers do not read off random characters that represent icons */
 }
 
 .bg-bleu {
-  background: #2E6B85;
+  background: #2E6B85 !important;
 }
 
 .bg-bleu-clair {
-  background: #488199;
+  background: #488199 !important;
 }
 
 .bg-bleu-tres-clair {
@@ -5911,11 +5911,11 @@ readers do not read off random characters that represent icons */
 }
 
 .bg-bleu-fonce {
-  background: #1A5772;
+  background: #1A5772 !important;
 }
 
 .bg-bleu-tres-fonce {
-  background: #0A425A;
+  background: #0A425A !important;
 }
 
 .color-bleu {
@@ -6111,6 +6111,43 @@ mark {
 .badge-bleu-tres-fonce {
   background: #0A425A;
   color: white;
+}
+
+.progress-active {
+  background: #0A425A !important;
+  color: white !important;
+}
+
+.progress-disabled {
+  background: lightgray !important;
+  color: #0A425A !important;
+}
+
+.progress-disabled:hover {
+  background: #76A6BB !important;
+}
+.progress-disabled:hover:a {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.arrow-right-active {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #0A425A;
+}
+
+.progress-disabled:before {
+  content: "";
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 20px 0px 20px 30px;
+  border-color: transparent transparent transparent #0A425A;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .navbar-bleu-tres-clair {
@@ -16972,6 +17009,11 @@ ul:hover > .titre-fond {
 
 a {
   color: inherit;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: #0A425A !important;
 }
 
 .pointeur {

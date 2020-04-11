@@ -2,7 +2,7 @@
 
   Elle est contruite à partir du fichier terre_lot.json et des fichiers de traduction terre_lot.php
 
-  Elle est amenée avec ses pages mères par le controller CoproscopiesController
+  Elle est amenée avec ses pages mères par le controller AnalysesController
 
  --}}
 

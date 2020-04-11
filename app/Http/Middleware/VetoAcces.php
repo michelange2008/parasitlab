@@ -18,7 +18,7 @@ class VetoAcces
 
             if(null === auth()->user() || auth()->user()->usertype->route !== "veterinaire")
             {
-              return redirect()->action('ExtranetController@accueil');
+              return redirect()->action('AccueilController@accueil');
             }
 
         return $next($request);

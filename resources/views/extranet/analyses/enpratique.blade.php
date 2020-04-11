@@ -1,4 +1,4 @@
-{{-- issu de CoproscopiesController@enpratique --}}
+{{-- issu de AnalysesController@enpratique --}}
 @extends('layouts.app')
 
 @extends('extranet.menuExtranet')
@@ -6,6 +6,16 @@
 @section('content')
 
   <div class="container-fluid">
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10">
+
+        @include('fragments.progression')
+
+      </div>
+
+    </div>
 
     <div class="row my-3 justify-content-center">
 

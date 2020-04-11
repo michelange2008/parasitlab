@@ -36,6 +36,11 @@ a {
   color: inherit;
 }
 
+a:hover {
+	text-decoration: none !important;
+	color: $bleu-tres-fonce !important;
+}
+
 .pointeur {
 	pointer-events: all !important;
 	cursor: pointer !important;

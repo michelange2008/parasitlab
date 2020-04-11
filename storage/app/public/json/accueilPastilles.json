@@ -5,7 +5,7 @@
     {
       "icone" : "copr.svg",
       "prefixe" : "accueil.pastilles.coproscopies.",
-      "route" : "coproscopies"
+      "route" : "analyses.coproscopies"
     },
     "parasitisme" :
     {

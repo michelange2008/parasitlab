@@ -37,7 +37,7 @@ $('.espece').on('click', function() {
   // On récupére l'url actuelle
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   // On modifie l'url pour pouvoir faire la requete
-  var url = url_actuelle.replace('choisir', 'methode/'+espece_id);
+  var url = url_actuelle.replace('analyses/choisir', 'api/observations/'+espece_id);
 
   // On récupère l'abbreviation de l'espece pour pouvoir modifier le href du bouton de téléchargement du formulaire
   var espece_abbreviation = $(this).attr('name');
@@ -157,7 +157,7 @@ function listeOptions() {
 
     var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
     // On modifie l'url pour pouvoir faire la requete
-    var url = url_actuelle.replace('choisir', 'choisir/options');
+    var url = url_actuelle.replace('analyses/choisir', 'api/options');
 
     $.post({
       url : url,

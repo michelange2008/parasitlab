@@ -54,6 +54,18 @@
       </div>
 
     </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-10">
+        <hr class="divider">
+
+        @retour()
+
+      </div>
+
+    </div>
+
   </div>
 
 @endsection

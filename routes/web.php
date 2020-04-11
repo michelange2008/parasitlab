@@ -10,90 +10,61 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::group(['prefix' => LaravelLocalization::setlocale(),
-//               'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-// ], function() {
 
-  Route::get('/', ['uses' => 'ExtranetController@accueil', 'as' => 'accueil']);
+//##############################################################################
+// MENU ACCUEIL
 
-  //##############################################################################
-  // PAGE D ACCUEIL PAR TYPE D UTILISATEUR
+  Route::get('/', ['uses' => 'AccueilController@accueil', 'as' => 'accueil']);
 
-  Route::get('/vétérinaires', ['uses' => 'ExtranetController@veterinaires', 'as' => 'veterinaires.accueil']);
+  Route::get('/vétérinaires', ['uses' => 'AccueilController@veterinaires', 'as' => 'veterinaires.accueil']);
 
-  Route::get('/éleveurs', ['uses' => 'ExtranetController@eleveurs', 'as' => 'eleveurs.accueil']);
+  Route::get('/éleveurs', ['uses' => 'AccueilController@eleveurs', 'as' => 'eleveurs.accueil']);
 
-  Route::get('/cavaliers', ['uses' => 'ExtranetController@cavaliers', 'as' => 'cavaliers.accueil']);
+  Route::get('/cavaliers', ['uses' => 'AccueilController@cavaliers', 'as' => 'cavaliers.accueil']);
 
   //##############################################################################
-  // PAGES TECHNIQUES
+  // MENU ANALYSES
+  Route::get('analyses/coproscopies', ['uses' => 'Technique\AnalysesController@accueil', 'as' => 'analyses.coproscopies']);
+
+  Route::get('/analyses/choisir', ['uses' => 'Technique\AnalysesController@choisir', 'as' => 'analyses.choisir']);
+
+  Route::get('analyses/enpratique', ['uses' => 'Technique\AnalysesController@enpratique', 'as' => 'analyses.enpratique']);
+
+  Route::get('analyses/interpretation', ['uses' => 'Technique\AnalysesController@interpretation', 'as' => 'analyses.interpretation']);
+
+  // ################################################################################
+  // MENU PARASITISME
 
   Route::get('/parasitisme', ['uses' => 'Technique\ParasitismeController@accueil', 'as' => 'parasitisme']);
 
   Route::get('/parasitisme/fondamentaux/{id}', ['uses' => 'Technique\ParasitismeController@fondamentaux', 'as' => 'parasitisme.fondamentaux']);
 
-  Route::get('/parasitisme/surdispersion', ['uses' => 'Technique\ParasitismeController@surdispersion', 'as' => 'parasitisme.surdispersion']);
-
-  Route::get('/parasitisme/résistances', ['uses' => 'Technique\ParasitismeController@resistances', 'as' => 'parasitisme.resistances']);
-
-  Route::get('/parasitisme/entomofaune', ['uses' => 'Technique\ParasitismeController@entomofaune', 'as' => 'parasitisme.entomofaune']);
-
-  Route::get('/coproscopies', ['uses' => 'Technique\CoproscopiesController@accueil', 'as' => 'coproscopies']);
-
-  Route::get('/coproscopies/interpreter', ['uses' => 'Technique\CoproscopiesController@interpreter', 'as' => 'interpreter']);
-
   Route::resource('blog', 'Technique\BlogController')->except('store', 'edit', 'create', 'destroy', 'update');
 
   //##############################################################################
-  // PAGES POUR LE CHOIX DES ANALYSES LE REMPLISSAGE DU FORMULAIRE LES ASPECTS PRATIQUES
+  // MENU EXPRESS
 
-  Route::get('/analyses/tarifs', ['uses' => 'ExtranetController@tarifs', 'as' => 'analyses.tarifs']);
+  Route::get('/express/tarifs', ['uses' => 'ExpressController@tarifs', 'as' => 'express.tarifs']);
 
-  // Route::get('/analyses/tarifsPdf', ['uses' => 'ExtranetController@tarifsPdf', 'as' => 'analyses.tarifsPdf']);
+  Route::get('/express/envoiPack', ['uses' => 'ExpressController@envoiPack', 'as' => "express.envoiPack"]);
 
-  // Route::post('/analyses/formulairePdf', ['uses' => 'ExtranetController@formulairePdf', 'as' => 'analyses.formulairePdf']);
-
-  // Route::get('/analyses/getFormulairePdf/{espece_id}', ['uses' => 'ExtranetController@getFormulairePdf', 'as' => 'analyses.getFormulairePdf']);
-
-  Route::get('/enpratique', ['uses' => 'Technique\CoproscopiesController@enpratique', 'as' => 'enpratique']);
-
-  Route::get('/analyses/choisir', ['uses' => 'ExtranetDemandeController@choisir', 'as' => 'analyses.choisir']);
-
-  // Route::get('/analyses/choisir/{espece}/{anatype}', ['uses' => 'ExtranetDemandeController@formulaireDemande', 'as' => 'analyses.formulaireDemande']);
-
-  // Route::post('/analyses/choisir/formulaireDemande', ['uses' => 'ExtranetDemandeController@formulaireStore', 'as' => 'analyses.formulaireStore']);
-
-  // Route::get('/formulaire', ['uses' => 'PdfController@formulaire', 'as' => 'formulaire']);
-
-  Route::get('envoiPack', ['uses' => 'ExtranetDemandeController@envoiPack', 'as' => "envoiPack"]);
-
-  Route::post('envoiPackStore', ['uses' => 'ExtranetDemandeController@envoiPackStore', 'as' => "envoiPackStore"]);
-
-  // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
-  Route::get('/analyses/methode/{espece_id}', ['uses' => 'ExtranetDemandeController@observationSelonEspece']);
-  // Requete ajax pour sélectionner les options et analyses dans la procédure de choix des analyses
-  Route::post('/analyses/choisir/options', ['uses' => 'ExtranetDemandeController@options', 'as' => 'analyses.options']);
-  // Requete ajax pour obtenir la liste des especes pour le téléchargement d'un formulaire
-  Route::get('/especes', ['uses' => 'EspeceController@listeEspeces', 'as' => 'especes']);
+  Route::post('/express/envoiPackStore', ['uses' => 'ExpressController@envoiPackStore', 'as' => "express.envoiPackStore"]);
 
   //##############################################################################
-  // PAGES DE CONTACT INFORMATIONS MENTIONS LEGALES
+  // MENU CONTACT INFORMATIONS MENTIONS LEGALES
 
-  Route::get('/quisommesnous', ['uses' => 'ExtranetController@quisommesnous', 'as' => 'quisommesnous']);
+  Route::get('infos/quisommesnous', ['uses' => 'InfosController@quisommesnous', 'as' => 'infos.quisommesnous']);
 
-  Route::get('/contact', ['uses' => 'ExtranetController@contact', 'as' => 'contact']);
+  Route::get('infos/contact', ['uses' => 'InfosController@contact', 'as' => 'infos.contact']);
 
-  Route::get('/infos-legales', ['uses' => 'ExtranetController@infoslegales', 'as' => 'infoslegales']);
+  Route::get('infos/infos-legales', ['uses' => 'InfosController@infoslegales', 'as' => 'infos.infoslegales']);
 
-  Route::get('/aide', ['uses' => 'ExtranetController@aide', 'as' => 'aide']);
-
+  Route::get('infos/aide', ['uses' => 'InfosController@aide', 'as' => 'infos.aide']);
+  // Non implémenté
   Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
   //##############################################################################
 
   Auth::routes(['register' => false]);
-
-  Route::get('/home', 'HomeController@index')->name('home');
-
 
   Route::group(['middleware' => 'auth', 'middleware' => 'eleveur'], function() {
 

@@ -78,7 +78,7 @@
 
 <div id="boutons" class="mb-3" style="display:none">
   <a id="bouton_pdf" class="btn btn-rouge" href="{{ url('storage/pdf/formulaire_espece.pdf') }}" target="_blank" ><i class="fas fa-file-pdf"></i> Télécharger un formulaire</a>
-  <a id="bouton_pdf" class="btn btn-bleu" href="{{ route('enpratique') }}"><i class="fas fa-virus"></i> En pratique: prélever/envoyer</a>
+  <a id="bouton_pdf" class="btn btn-bleu" href="{{ route('analyses.enpratique') }}"><i class="fas fa-virus"></i> En pratique: prélever/envoyer</a>
 </div>
 
 {{-- recommandation pour le véto --}}

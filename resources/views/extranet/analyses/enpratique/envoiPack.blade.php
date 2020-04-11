@@ -36,7 +36,7 @@
 
       <div class="col-md-10 col-lg-8">
 
-        <form class="" action="{{ route('envoiPackStore') }}" method="post">
+        <form class="" action="{{ route('express.envoiPackStore') }}" method="post">
 
           @csrf
 

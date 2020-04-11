@@ -13,7 +13,7 @@
 
       <li class="media my-3">
 
-        <img class="d-none d-sm-block img-thumbnail" src="{!! 'storage/img/icones/'.$element->image !!}" alt="{{ $element->image }}">
+        <img class="d-none d-sm-block img-thumbnail" src="{!! url('storage/img/icones/'.$element->image) !!}" alt="{{ $element->image }}">
 
         <div class="media-body ml-3 pt-2">
 

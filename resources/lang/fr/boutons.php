@@ -10,6 +10,8 @@ return [
   "retour" => "Retour",
   "annule" => "Annuler",
 
-  "teleTarifs" => "Télécharger le tarifs"
+  "teleTarifs" => "Télécharger le tarifs",
+
+  "choisirAnalyse" => "Quelle analyse choisir&nbsp;?",
 
 ];

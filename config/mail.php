@@ -27,7 +27,7 @@ return [
     | applications. A default option is provided that is compatible with
     | the Mailgun mail service which will provide reliable deliveries.
     |
-
+    */
     'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
 
 

@@ -18,7 +18,7 @@ class EleveurAcces
 
             if(null === auth()->user() || auth()->user()->usertype->route !== "eleveur")
             {
-              return redirect()->action('ExtranetController@accueil');
+              return redirect()->action('AccueilController@accueil');
             }
 
         return $next($request);

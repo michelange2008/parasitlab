@@ -9,9 +9,7 @@
 
     <i class="{{ $fa ?? '' }}"></i>
 
-    {{ $intitule }}
-
-    &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
+    @lang($intitule)
 
   </a>
 
@@ -21,10 +19,7 @@
 
     <i class="{{ $fa ?? '' }}"></i>
 
-    {{ __( $intitule ) }}
-
-    &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
-
+    @lang($intitule)
 
   </a>
 
@@ -34,7 +29,7 @@
 
     <i class="{{ $fa ?? ''}}"></i>
 
-    {{ $intitule }}
+    @lang($intitule)
 
     &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
 

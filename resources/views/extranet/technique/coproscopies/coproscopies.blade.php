@@ -10,6 +10,16 @@
 
       <div class="col-md-10">
 
+        @include('fragments.progression')
+
+      </div>
+
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10">
+
         @titre(['icone' => 'analyse.svg', 'titre' => __('titres.copros')])
 
       </div>
@@ -40,6 +50,23 @@
 
       @endforeach
 
-  </div>
+    </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-10">
+
+        @bouton([
+          'type' => 'route',
+          'route' => 'analyses.choisir',
+          'fa' => 'fas fa-list',
+          'intitule' => 'boutons.choisirAnalyse',
+        ])
+
+      </div>
+
+    </div>
+
+</div>
 
 @endsection

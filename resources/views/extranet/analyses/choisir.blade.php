@@ -6,7 +6,15 @@
 
   <div class="container-fluid">
 
-    {{-- @include('extranet.analyses.sousmenuAnalyses') --}}
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-12">
+
+        @include('fragments.progression')
+
+      </div>
+
+    </div>
 
     <div class="row my-3 justify-content-center">
 
@@ -53,7 +61,7 @@
 
 {{-- ########################### NE PAS SUPPRIMER !!! #################################################### --}}
 {{-- FORMULAIRE CACHE qui permeet la requetee ajax post:: il n'est pas affiché mais joue un role fondamental --}}
-<form id="choix_options" class="" action="{{ route('analyses.options') }}" method="post">
+<form id="choix_options" class="" action="{{ route('api.options') }}" method="post">
   @csrf
 
   <input id="input_espece" type="hidden" name="espece" value="">

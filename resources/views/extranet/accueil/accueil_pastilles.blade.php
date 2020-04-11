@@ -17,9 +17,8 @@
               'type' => 'route',
               'route' => $element->route,
               'id' => $element->id ?? null,
-              'couleur' => 'color-bleu-tres-fonce',
-              'intitule' => __('commun.know_more'),
               'fa2' => 'fas fa-chevron-right',
+              'intitule' => __('commun.know_more'),
             ])
 
         @endforeach

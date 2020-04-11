@@ -21,7 +21,7 @@ class LaboAcces
 
       if(null === auth()->user() || auth()->user()->usertype->route !== "laboratoire")
       {
-        return redirect()->action('ExtranetController@accueil');
+        return redirect()->action('AccueilController@accueil');
       }
         return $next($request);
     }

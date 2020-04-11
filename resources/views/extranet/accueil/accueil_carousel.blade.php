@@ -1,4 +1,4 @@
-{{-- issu de ExtranetController@accueil avec utilisation du fichier carousel.jso et lang accueil.php --}}
+{{-- issu de AccueilController@accueil avec utilisation du fichier carousel.jso et lang accueil.php --}}
 <div id="accueilCarousel" class="carousel slide" data-ride="carousel">
 
   <ol class="carousel-indicators">
