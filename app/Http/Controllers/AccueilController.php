@@ -64,6 +64,7 @@ class AccueilController extends Controller
     {
       return view('extranet.cavaliers', [
         "menu" => $this->menu,
+        "contenu" => $this->litJson('cavaliers'),
       ]);
     }
 
