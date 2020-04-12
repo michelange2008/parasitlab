@@ -23,31 +23,9 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'eleveur.demandeShow', 'Cliquer pour voir le détail de la demande');
+      $analyse = $this->lienFactory($demande->id, $this->acteTypeLong($demande->anaacte), 'eleveur.demandeShow', 'Cliquer pour voir le détail de la demande');
 
       $espece = $this->iconeFactory($demande->espece->icone);
-
-      // if(isset($demande->serie_id)) {
-      //
-      //   $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'eleveur.serieShow', 'Cliquer pour voir la série');
-      //
-      // }
-      // else {
-      //
-      //   $serie = $this->itemFactory('','');
-      //
-      // }
-      //
-      // if ($demande->toveto) {
-      //
-      //   $toveto = $this->itemFactory($demande->veto->user->name);
-      //
-      // }
-      // else {
-      //
-      //   $toveto =$this->itemFactory("");
-      //
-      // }
 
       $reception = $this->itemFactory($this->dateSortable($demande->date_reception));
 

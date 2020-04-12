@@ -61,11 +61,11 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-8 col-lg-6 border-top pt-4 lead">
+      <div class="col-md-8 col-lg-6 border-top mb-5 pt-4 lead">
 
         <img class="img-40" src="{!! url('storage/img/icones/question2.svg') !!}" alt="question">
 
-        Une question ? Un problème ? N'hésitez-pas
+        @lang('commun.question_probleme')
 
         @include('fragments.boutonContact')
 

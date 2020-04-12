@@ -31,4 +31,6 @@ return [
 
   "facture_create" => "Etablissement d'une facture",
 
+  "demandes_analyses" => "Liste des demandes d'analyse"
+
 ];

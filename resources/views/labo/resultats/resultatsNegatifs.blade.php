@@ -8,7 +8,7 @@
 
       <td class="ml-3 lead color-bleu-tres-fonce">
 
-        <i class="fas fa-smile"></i> Aucun parasite recherché n'a été identifié
+        <i class="fas fa-smile"></i> @lang('demandes.0_resultat')
 
       </td>
 

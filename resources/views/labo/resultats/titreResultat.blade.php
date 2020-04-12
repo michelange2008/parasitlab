@@ -6,7 +6,7 @@
 
       {{ ucfirst($prelevement->identification) }}
 
-      <small>(état du prélèvement: {{ $prelevement->etat->nom }})</small>
+      <small>(@lang('demandes.etat_prelevement') {{ $prelevement->etat->nom }})</small>
 
     </th>
 

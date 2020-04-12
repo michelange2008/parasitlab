@@ -8,7 +8,7 @@
 
     <div class="col-lg-3 bd-sidebar">
 
-      @include('utilisateurs.info')
+      @include('utilisateurs.pagePerso')
 
     </div>
 

@@ -3,13 +3,13 @@
   @include('admin.index.indexBouton')
 
 {{-- SI IL N Y A AUCUNE DEMANDE D ANALYSE POUR CET ELEVEUR --}}
-@if (count($datas->liste) === 0 && isset($zeroAnalyses))
+@if (count($datas->liste) === 0)
 
 <div class="row my-3">
 
   <div class="col-md-12">
 
-    <h4 class="text-secondary">{{ $zeroAnalyses }}</h4>
+    <h4 class="text-secondary">@lang('eleveurs.zero_analyse')</h4>
 
   </div>
 

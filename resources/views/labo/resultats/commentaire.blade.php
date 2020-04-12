@@ -6,11 +6,11 @@
 
       <h5 class="card-title">
 
-        Commentaire du {{ $demande->commentaire->date_commentaire }}
+        @lang('demandes;commentaire') {{ $demande->commentaire->date_commentaire }}
 
         @if($demande->commentaire->labo_id !== null)
 
-          (par {{ $demande->commentaire->labo->user->name }})
+          (@lang('commun.par') {{ $demande->commentaire->labo->user->name }})
 
         @endif
 

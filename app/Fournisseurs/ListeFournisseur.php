@@ -19,7 +19,7 @@ abstract class ListeFournisseur
   * un tableau: titre, icone, intitulés, liste
   */
 
-  public function renvoieDatas($liste_origine, $titre, $icone, $fichier_intitules, $addRoute, $addTitre) {
+  public function renvoieDatas($liste_origine, $titre, $icone, $fichier_intitules, $addRoute = null, $addTitre = null) {
 
     $this->datas = collect();
 
@@ -47,13 +47,20 @@ abstract class ListeFournisseur
   */
   abstract protected function creeListe($liste);
 
-  /*
+  /* ###############################################
+  * Appel au Trait AnaacteOutil
   * Concatene les informations actes + type avec mise en forme adaptée
   */
   public function acteTypeCourt($anaacte)
   {
     return $this->formatAnaacteAnaType($anaacte);
   }
+
+  public function acteTypeLong($anaacte)
+  {
+    return $this->formatAnaacteAnaTypeLong($anaacte);
+  }
+  // ###############################################
 
   /*
   * Crée les items de la liste à afficher renvoyer par la méthode liste

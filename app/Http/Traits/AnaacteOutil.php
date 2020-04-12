@@ -30,4 +30,9 @@ trait AnaacteOutil
     return $anaacte->anatype->abbreviation."</br><span class='small'>(".$anaacte->abbreviation.")</span>";
   }
 
+  public function formatAnaacteAnaTypeLong($anaacte)
+  {
+    return ucfirst($anaacte->anatype->nom)."</br><span class='small'>(".$anaacte->nom.")</span>";
+  }
+
 }

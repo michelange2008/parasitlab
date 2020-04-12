@@ -14,6 +14,7 @@ use App\Models\Productions\Serie;
 
 class RouteurController extends Controller
 {
+
   use UserTypeOutil;
 
   public function routeurPersonnel()

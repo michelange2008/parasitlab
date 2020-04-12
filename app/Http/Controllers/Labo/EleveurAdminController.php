@@ -173,15 +173,12 @@ class EleveurAdminController extends Controller
 
         $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveurAdmin', 'demandes.create', "Ajouter une demande");
 
-        $zeroAnalyses = "Cet éleveur n'a pour l'instant fait aucune demande d'analyse";
-
         session(['user' => $user]);
 
         return view('admin.eleveurShow', [
           'menu' => $this->menu,
           'user' => $user,
           'eleveurInfos' => $eleveurInfos,
-          'zeroAnalyses' => $zeroAnalyses,
           'datas' => $datas,
           'pays' => $this->pays,
         ]);

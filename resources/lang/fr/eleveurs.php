@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+  // PAGE DE ACCUEIL ELEVEUR EXTRANET
     "titre" => "Eleveurs, éleveuses ... reprenez la maîtrise de votre parasitisme&nbsp;!",
     "maitrise" =>
     [
@@ -35,6 +35,20 @@ return [
           Au fil de la saision de pâturage, le troupeau va s'infester progressivement.",
       "texte_2" => "Cette montée en charge de l'infestation sera variable selon les conditions météorologiques. Mais c'est surtout l'éleveur qui, grâce à la gestion de pâturage qu'il mettra en place, arrivera à limiter l'infestation du troupeau.",
       "texte_3" => "Le suivi de cette montée de l'infestation par des examens coproscopiques permet de réajuster les stratégies de gestion du pâturage."
-    ]
+    ],
+// PAGE ACCUEIL ELEVEUR INTRANET
+    "zero_analyse" => "Il n'y a pour l'instant aucune demande d'analyse",
+
+    "pagePerso" => [
+
+      "titre" => "Page personnelle",
+      "texte_1" => "Cet accès vous est réservé. Vous y trouverez les résultats d'analyse vous concernant.
+                    Vous aurez ainsi la possiblité de visionner les résultats des demandes d'analyses terminées
+                    et de les télécharger sous format pdf.",
+      "texte_2" => "C'est en cliquant sur les intitulés suivis de cette petite icone <i class='text-light fas fa-eye'></i> que
+                    vous aurez accès au détail des analyses ou des séries d'analyse.",
+      "texte_3" => "En cas de difficulté d'accès ou de navigation sur le site, n'hésitez pas à",
+      "signature" => "L'équipe du laboratoire",
+    ],
 
 ];
