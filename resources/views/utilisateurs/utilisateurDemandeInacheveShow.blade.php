@@ -1,9 +1,8 @@
- <p class="lead">Bonjour,<p>
+ <p class="lead">@lang('Hello!')<p>
 
-  <p class="lead">Nous avons bien reçu votre demande d'analyse le {{ $demande->date_reception }},
-    et nous sommes en train de nous en occuper.
+  <p class="lead">@lang('demandes.analyse_non_finie_1', ['date_reception' => $demande->date_reception])
   </p>
 
-  <p class="lead">Vous allez bientôt recevoir les résultats par e-mail.</p>
+  <p class="lead">@lang('demandes.analyse_non_finie_2')</p>
 
-  <p class="lead">L'équipe de Parasit'Lab</p>
+  <p class="lead">@lang('commun.signature')</p>

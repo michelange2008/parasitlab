@@ -6,8 +6,6 @@
 
   <div class="container-fluid">
 
-
-
     <div class="row my-3">
 
       <div class="d-none d-md-block col-md-4 bd-sidebar justify-content-center">
@@ -17,15 +15,15 @@
           <img class="img-claire" src="storage/img/icones/serie.svg" alt="Série">
 
           <h4>
-            Série
+            @lang('demandes.serie')
           </h4>
 
           <p>
-            Une série est une succession d'analyses sur les mêmes animaux
-            ou lots d'animaux, visant à évaluer une évolution de l'infestation parasitaire.
+            @lang('demandes.serie_def')
           </p>
+
           <p>
-            Les suivis de campagne et les tests de résistance sont des exemples de séries.
+            @lang('demandes.serie_exemple')
           </p>
           <hr>
 
@@ -47,16 +45,15 @@
 
         @include('utilisateurs.utilisateurTitreSerie')
 
-
         @if ($serie->acheve)
 
           @if ($serieInfos->identique)
 
-                @include('labo.serieShow.detailIdentique')
+            @include('labo.serieShow.detailIdentique')
 
           @else
 
-                @include('labo.serieShow.detailDifferent')
+            @include('labo.serieShow.detailDifferent')
 
           @endif
 
@@ -74,6 +71,9 @@
     </div>
 
   </div>
+
+
+
 
 
 

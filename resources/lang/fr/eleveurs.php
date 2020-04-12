@@ -48,7 +48,7 @@ return [
       "texte_2" => "C'est en cliquant sur les intitulés suivis de cette petite icone <i class='text-light fas fa-eye'></i> que
                     vous aurez accès au détail des analyses ou des séries d'analyse.",
       "texte_3" => "En cas de difficulté d'accès ou de navigation sur le site, n'hésitez pas à",
-      "signature" => "L'équipe du laboratoire",
+
     ],
 
 ];

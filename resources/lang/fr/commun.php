@@ -17,4 +17,5 @@ return [
   "retour" => "Retour",
   "annule" => "Annuler",
   "close" => "Fermer",
+  "signature" => "L'équipe de Parasit'Lab",
 ];

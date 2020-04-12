@@ -8,9 +8,9 @@
 
     <div class="row my-3 justify-content-center">
 
-      <div class="col-md-8 col-lg-6">
+      <div class="col-md-8 ">
 
-        @include('utilisateurs.UtilisateurTitreDemande')
+        @include('utilisateurs.utilisateurTitreDemande')
 
       </div>
 
@@ -19,7 +19,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-8 col-lg-6">
+      <div class="col-md-8">
 
 
         @if (!$demande->signe)
@@ -38,7 +38,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-8 col-lg-6">
+      <div class="col-md-8">
 
         @if ($demande->signe)
 
@@ -61,7 +61,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-8 col-lg-6 border-top mb-5 pt-4 lead">
+      <div class="col-md-8 border-top mb-5 pt-4 lead">
 
         <img class="img-40" src="{!! url('storage/img/icones/question2.svg') !!}" alt="question">
 
