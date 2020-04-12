@@ -22,7 +22,7 @@
 
   <p class="d-none d-lg-block">
 
-    En cas de difficulté d'accès ou de navigation sur le site, n'hésitez pas à <a href="{!! route('contact') !!}"><i class="fas fa-comments"></i> <strong>nous contacter</strong></a>
+    En cas de difficulté d'accès ou de navigation sur le site, n'hésitez pas à <a href="{!! route('infos.contact') !!}"><i class="fas fa-comments"></i> <strong>nous contacter</strong></a>
 
   </p>
 
