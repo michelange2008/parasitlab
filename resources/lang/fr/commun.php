@@ -14,6 +14,8 @@ return [
   'oui' => 'oui',
   "non" => "non",
   "saispas" => "je ne sais pas",
+
   "retour" => "Retour",
+
   "signature" => "L'équipe de Parasit'Lab",
 ];
