@@ -20,11 +20,11 @@ class ListeAnaactesFournisseur extends ListeFournisseur
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
       $icone = $this->iconeFactory($anaacte->anatype->icone);
-      
+
 
       $id = $this->itemFactory($anaacte->id);
 
-      $nom = $this->lienFactory($anaacte->id, $this->acteTypeCourt($anaacte), 'anaactes.edit','Cliquer pour modifier cet acte');
+      $nom = $this->lienFactory($anaacte->id, $this->acteTypeCourt($anaacte), 'anaactes.edit', 'edit_acte');
 
       $detail = $this->itemFactory($anaacte->description);
 

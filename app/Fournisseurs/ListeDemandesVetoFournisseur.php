@@ -25,11 +25,11 @@ class ListeDemandesVetoFournisseur extends ListeFournisseur
 
       $eleveur = $this->itemFactory($demande->user->name);
 
-      $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'routeurDemande', "Cliquer pour afficher cette demande d'analyse");
+      $analyse = $this->lienFactory($demande->id, $this->acteTypeLong($demande->anaacte), 'routeurDemande', 'affiche_detail_demande');
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'routeurSerie', "Cliquer pour afficher cette série");
+        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'routeurSerie', 'affiche_detail_serie');
 
       }
       else {

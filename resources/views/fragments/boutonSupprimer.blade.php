@@ -9,9 +9,9 @@
 
     data-toggle="tooltip" data-placement="top"
 
-    title="Suppression">
+    title="@lang('boutons.del_ligne')">
 
-      Supprimer
+      @lang('boutons.del')
 
 
   </button>

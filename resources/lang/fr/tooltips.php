@@ -11,6 +11,9 @@ return [
   "affiche_detail_analyse" => "Cliquer pour afficher le détail de cette analyse",
   "affiche_detail_serie" => "Cliquer pour afficher cette série",
   "affiche_facture" => "Cliquer pour afficher cette facture",
-
+  "affiche_detail_acte" => "Cliquer pour afficher la liste des actes",
   "create_facture" => "Cliquer pour créer la facture",
+
+  "edit_acte" => "Cliquer pour modifier cet acte",
+  "edit_analyse" => "Cliquer pour modifier cette analyse",
 ];

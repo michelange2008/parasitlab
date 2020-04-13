@@ -6,7 +6,7 @@
 
       @csrf
 
-      <button class="btn btn-sm mx-2 btn-outline-info" type="submit" name="edit"><i class="fas fa-edit"></i> Modifier</button>
+      <button class="btn btn-sm mx-2 btn-outline-info" type="submit" name="edit"><i class="fas fa-edit"></i> @lang('boutons.modifier')</button>
 
     </form>
 
@@ -16,7 +16,7 @@
 
       @method('DELETE')
 
-      <button class="btn btn-sm btn-outline-danger mx-2" type="submit" name="edit"><i class="fas fa-trash-alt"></i> Supprimer</button>
+      <button class="btn btn-sm btn-outline-danger mx-2" type="submit" name="edit"><i class="fas fa-trash-alt"></i> @lang('boutons.del')</button>
 
     </form>
 

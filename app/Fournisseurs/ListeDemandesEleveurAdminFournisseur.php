@@ -23,11 +23,11 @@ class ListeDemandesEleveurAdminFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'demandes.show', 'Cliquer pour voir le détail de la demande');
+      $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'demandes.show', 'affiche_detail_demande');
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', 'Cliquer pour voir la série');
+        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', 'affiche_detail_serie');
 
       }
       else {
@@ -40,7 +40,7 @@ class ListeDemandesEleveurAdminFournisseur extends ListeFournisseur
 
       if ($demande->toveto) {
 
-        $toveto = $this->lienFactory($demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show', "Cliquer pour afficher le vétérinaire");
+        $toveto = $this->lienFactory($demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show', 'affiche_veto');
 
       }
       else {
@@ -53,7 +53,7 @@ class ListeDemandesEleveurAdminFournisseur extends ListeFournisseur
 
       $terminee = $this->ouinonFactory(null, $demande->acheve);
 
-      $facture = ($demande->facture != null) ? $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'factures.show', "Cliquer pour afficher la facture") : "-";
+      $facture = ($demande->facture != null) ? $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'factures.show', 'affiche_facture') : "-";
 
       $suppr = $this->delFactory($demande->id, 'demandes.destroy');
 

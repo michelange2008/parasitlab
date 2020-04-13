@@ -10,9 +10,9 @@
 
     data-toggle="tooltip" data-placement="top"
 
-    title="Suppression de l'utilisateur">
+    title="@lang('boutons.del_user')">
 
-      Supprimer
-      
+      @lang('boutons.del')
+
 
   </button>

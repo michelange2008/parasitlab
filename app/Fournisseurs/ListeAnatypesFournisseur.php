@@ -23,7 +23,7 @@ class ListeAnatypesFournisseur extends ListeFournisseur
 
       $id = $this->itemFactory($anatype->id);
 
-      $nom = $this->lienFactory($anatype->id, $anatype->nom, 'anaactes.edit','Cliquer pour modifier cet acte');
+      $nom = $this->lienFactory($anatype->id, $anatype->nom, 'anaactes.edit','edit_acte');
 
       $technique = $this->itemFactory($anatype->technique);
 

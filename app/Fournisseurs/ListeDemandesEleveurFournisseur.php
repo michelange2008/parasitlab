@@ -23,7 +23,7 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $analyse = $this->lienFactory($demande->id, $this->acteTypeLong($demande->anaacte), 'eleveur.demandeShow', 'Cliquer pour voir le détail de la demande');
+      $analyse = $this->lienFactory($demande->id, $this->acteTypeLong($demande->anaacte), 'eleveur.demandeShow', 'affiche_detail_demande');
 
       $espece = $this->iconeFactory($demande->espece->icone);
 
@@ -35,7 +35,7 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       if ($demande->facturee) {
 
-        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', "Cliquer pour afficher cette facture");
+        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', 'affiche_facture');
 
       }
 

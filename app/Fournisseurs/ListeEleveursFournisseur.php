@@ -23,7 +23,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
         $description = [];
 
-        $nom = $this->lienFactory($user->id, $user->name, 'eleveurAdmin.show', "affiche_eleveur");
+        $nom = $this->lienFactory($user->id, $user->name, 'eleveurAdmin.show', 'affiche_eleveur');
 
         $email = $this->itemFactory($user->email);
 
@@ -42,7 +42,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
         }
         else {
 
-          $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', "affiche_veto");
+          $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', 'affiche_veto');
 
         }
 

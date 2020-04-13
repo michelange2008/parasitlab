@@ -20,9 +20,9 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $num_facture = $this->lienFactory($facture->id, "n° ".$facture->id, 'factures.show', 'Cliquer pour afficher le détail de cette facture');
+      $num_facture = $this->lienFactory($facture->id, "n° ".$facture->id, 'factures.show', 'affiche_facture');
 
-      $nom = $this->lienFactory($facture->user_id, $facture->user->name, 'eleveurAdmin.show', "Cliquer pour afficher cet éleveur");
+      $nom = $this->lienFactory($facture->user_id, $facture->user->name, 'eleveurAdmin.show', 'affiche_eleveur');
 
       $faite_date = $this->itemFactory($this->dateSortable($facture->faite_date));
 

@@ -54,7 +54,7 @@ class RouteurController extends Controller
     if($this->estLabo(auth()->user()->usertype_id)) {
 
 
-      return redirect()->route('demandes.show',['id' => $demande_id]);
+      return redirect()->route('demandes.show',['demande' => $demande_id]);
 
     }
     elseif ($this->estVeto(auth()->user()->usertype_id)) {

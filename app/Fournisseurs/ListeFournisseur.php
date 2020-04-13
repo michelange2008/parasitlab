@@ -121,7 +121,7 @@ abstract class ListeFournisseur
 
      $item->route = $route;
 
-     $item->tooltip = $tooltip;
+     $item->tooltip = __('tooltips.'.$tooltip);
 
      return $item;
    }

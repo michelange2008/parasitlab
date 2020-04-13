@@ -23,11 +23,11 @@ class ListeAnalysesFournisseur extends ListeFournisseur
 
       $anatype = $this->itemFactory($anaacte->anatype->nom);
 
-      $nom = $this->lienFactory($anaacte->id, $anaacte->nom, 'analyses.edit', "Cliquer pour modifier cette analyse");
+      $nom = $this->lienFactory($anaacte->id, $anaacte->nom, 'analyses.edit', 'edit_analyse');
 
       $espece = $this->iconeFactory($anaacte->espece->icone);
 
-      $acte = $this->lienFactory($anaacte->anaacte->id, $anaacte->anaacte->nom, 'anaactes.show', "Cliquer pour afficher la liste des actes");
+      $acte = $this->lienFactory($anaacte->anaacte->id, $anaacte->anaacte->nom, 'anaactes.show', 'affiche_detail_acte');
 
       $suppr = $this->delFactory($anaacte->id, 'analyses.destroy');
 

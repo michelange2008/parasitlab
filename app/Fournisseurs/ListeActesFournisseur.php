@@ -21,7 +21,7 @@ class ListeActesFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $eleveur = $this->lienFactory($acte->user->id, ucfirst($acte->user->name), 'eleveurAdmin.show', "Cliquer pour afficher le détail de cet éleveur");
+      $eleveur = $this->lienFactory($acte->user->id, ucfirst($acte->user->name), 'eleveurAdmin.show', 'affiche_detail_eleveur');
 
       $acte_nom = $this->lienFactory($acte->id, $acte->anaacte->nom, 'acte.show', ucfirst($acte->anaacte->description));
 
@@ -33,7 +33,7 @@ class ListeActesFournisseur extends ListeFournisseur
 
       if ($acte->facturee) {
 
-        $facture_id = $this->lienFactory($acte->facture->id, "n°".$acte->facture->id, 'home', "Cliquer pour afficher cette facture");
+        $facture_id = $this->lienFactory($acte->facture->id, "n°".$acte->facture->id, 'home', 'affiche_facture');
 
       }
 

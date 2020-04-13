@@ -21,11 +21,11 @@ class ListeUsersFournisseur extends ListeFournisseur
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
       $icone = $this->iconeFactory($user->userType->icone);
 
-      $nom = $this->lienFactory($user->id, ucfirst($user->name), 'user.show', "Cliquer pour voir cet utilisateur");
+      $nom = $this->lienFactory($user->id, ucfirst($user->name), 'user.show', 'affiche_user');
 
       $email = $this->itemFactory($user->email);
 
-      $userType = $this->lienFactory($user->userType->id, $user->userType->nom, $user->usertype->code.'Admin.index', "Cliquer pour voir tous les utilisateurs de ce type");
+      $userType = $this->lienFactory($user->userType->id, $user->userType->nom, $user->usertype->code.'Admin.index', 'affiche_all_type');
 
       $modifier = $this->modifierFactory($user->id, 'user.edit');
 
