@@ -25,7 +25,7 @@
 </div>
 <div class="form-group row px-3 my-3">
 
-<div class="col-md-4 ml-3">@lang('form.q_obserevation')</div>
+<div class="col-md-4 ml-3">@lang('form.q_observation')</div>
 
 <div class="col-md-7">
   @foreach ($signes as $signe)
