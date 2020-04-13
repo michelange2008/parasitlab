@@ -2,4 +2,4 @@
 
 @include('fragments.boutonEnregistre', ['nomBouton' => $nomBouton ?? 'boutons.save'])
 
-@include('fragments.boutonAnnule', ['route' => 'laboratoire'])
+@include('fragments.boutonAnnule', ['route' => $route ?? url('_previous')])

@@ -17,7 +17,7 @@
 
       <option value=null>@lang('form.no_vet')</option>
 
-      <option value="0">@lang('form.new_vet')</option>
+      <option value=0>@lang('form.new_vet')</option>
 
       @foreach ($vetos as $veto)
 

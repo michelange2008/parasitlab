@@ -124,7 +124,7 @@ class EleveurAdminController extends Controller
 
         session(['user' => $nouvel_user]);
         // si le veto_id == 0, c'est qu'il faut créer un nouveau veto
-        if($datas['veto_id'] == 0) {
+        if($datas['veto_id'] === "0") {
 
 
           session(['vetoDeleveur' => true]);
@@ -145,7 +145,7 @@ class EleveurAdminController extends Controller
 
           session()->forget(['usertype', 'user_id']); // après avoir vidé les infos passées en session
 
-          return redirect()->route('eleveurAdmin.show', $nouvel_eleveur->user->id);
+          return redirect()->route('eleveurAdmin.show', $nouvel_user->id);
 
         }
 // TODO: Quel intêret de la valeur en session route_retour ?

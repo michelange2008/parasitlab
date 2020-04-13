@@ -33,7 +33,7 @@
 
   <div class="col-md-12">
 
-    @include('fragments.blocEnregistreAnnule', ['nomBouton' => 'Continuer', 'route' => 'laboratoire'])
+    @include('fragments.blocEnregistreAnnule', ['nomBouton' => 'Continuer'])
 
   </div>
 

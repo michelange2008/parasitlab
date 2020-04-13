@@ -13,6 +13,7 @@ NECESSITE 4 VARIABLES: user, vetos, pays -->
 
     @include('admin.form.infosEleveur')
 
-    @include('fragments.boutonEnregistre')
+    @include('fragments.blocEnregistreAnnule',['route' => 'user.index'])
+
 
   {!! Form::close() !!}
