@@ -16,37 +16,37 @@
     },
     "name" : {
       "id" : "name",
-      "nom" : "nom",
+      "nom" : "form.nom",
       "align" : "left",
       "sortable" : true
     },
     "email" : {
       "id" : "email",
-      "nom" : "adresse mail",
+      "nom" : "form.email",
       "align" : "left",
       "sortable" : false
     },
     "fonction" : {
       "id" : "fonction",
-      "nom" : "fonction",
+      "nom" : "tableaux.fonction",
       "align" : "left",
       "sortable" : false
     },
     "est_signataire" : {
       "id" : "est_signataire",
-      "nom" : "signataire",
+      "nom" : "tableaux.signataire",
       "align" : "center",
       "sortable" : false
     },
     "modifier" : {
       "id" : "modifier",
-      "nom" : "modifier",
+      "nom" : "tableaux.modifier",
       "align" : "center",
       "sortable" : false
     },
     "suppr" : {
       "id" : "suppr",
-      "nom" : "del",
+      "nom" : "tableaux.del",
       "align" : "center",
       "sortable" : false
     }

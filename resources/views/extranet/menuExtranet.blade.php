@@ -23,7 +23,7 @@
 
                 <li class="nav-item nav-item-bleu-tres-clair">
 
-                  <a class="nav-link" href="{{ route(Auth::user()->usertype->route)}}" title="Accès réservé !"><strong>Accès personnel</strong></a>
+                  <a class="nav-link" href="{{ route(Auth::user()->usertype->route)}}" title="@lang('menuExtranet.cliquer_acces_perso')"><strong>@lang('menuExtranet.acces_personnel')</strong></a>
 
                 </li>
 

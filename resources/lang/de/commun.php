@@ -1,14 +1,18 @@
 <?php
 
 return [
-  "et" => "et",
-  "know_more" => "En savoir plus",
-  "contact_us" => "Pour toute question ou remarque, n'hésitez pas à nous contacter à l'adresse&nbsp;",
-  "cordialement" => "Cordialement",
-  "fibl_team" => "Toute l'équipe du FiBL France",
-  'espece' => "espèce",
-  'oui' => 'oui',
-  "non" => "non",
-  "saispas" => "je ne sais pas",
-
+  "et" => "und",
+  "par" => "par",
+  'ilya' => "Il y a",
+  "know_more" => "Mehr darüber wissen",
+  "contact_us_short" => "Kontakt",
+  "contact_us" => "Wenn Sie Fragen oder Anmerkungen haben, zögern Sie bitte nicht, uns unter der folgenden Adresse zu kontaktieren&nbsp;",
+  "question_probleme" => "Haben Sie eine Frage? Problem? Zögern Sie nicht",
+  "cordialement" => "Mit freundlichen Grüßen",
+  "fibl_team" => "Die gesamte Mannschaft des FiBL Frankreich",
+  'espece' => "Gattung",
+  'oui' => 'da',
+  "non" => "nein",
+  "saispas" => "Ich weiß es nicht.",
+  "signature" => "Das Team von Parasit'Lab",
 ];

@@ -16,25 +16,25 @@
     },
     "id" : {
       "id" : "id",
-      "nom" : "Id",
+      "nom" : "tableaux.Id",
       "align" : "center",
       "sortable" : true
     },
     "name" : {
       "id" : "name",
-      "nom" : "nom",
+      "nom" : "tableaux.nom",
       "align" : "left",
       "sortable" : true
     },
     "description" : {
       "id" : "description",
-      "nom" : "description",
+      "nom" : "tableaux.description",
       "align" : "left",
       "sortable" : false
     },
     "suppr" : {
       "id" : "suppr",
-      "nom" : "del",
+      "nom" : "tableaux.del",
       "align" : "center",
       "sortable" : false
     }

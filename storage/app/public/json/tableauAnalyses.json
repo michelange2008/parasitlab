@@ -16,25 +16,25 @@
     },
     "name" : {
       "id" : "name",
-      "nom" : "nom",
+      "nom" : "tableaux.nom",
       "align" : "left",
       "sortable" : true
     },
     "espece" : {
       "id" : "espece",
-      "nom" : "espece",
+      "nom" : "tableaux.espece",
       "align" : "center",
       "sortable" : false
     },
     "acte" : {
       "id" : "acte",
-      "nom" : "acte",
+      "nom" : "tableaux.acte",
       "align" : "left",
       "sortable" : true
     },
     "suppr" : {
       "id" : "suppr",
-      "nom" : "del",
+      "nom" : "tableaux.del",
       "align" : "center",
       "sortable" : false
     }

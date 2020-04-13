@@ -5,13 +5,17 @@
       @if(@isset($item->sousmenu))
         <li class="nav-item nav-item-bleu-tres-clair dropdown">
           <a id="{{ $item->id ?? '' }}" class="nav-link dropdown-toggle" href="{{ route($item->route) }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ $item->nom }}
+
+            @lang($item->prefixe."nom")
+
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             @foreach ($item->sousmenu as $sousmenu)
 
               <a class="dropdown-item d-inline-flex justify-content-between {{ $sousmenu->id }}" href="{{ route($sousmenu->route) }}">
-                {!! $sousmenu->nom !!}
+
+                @lang($sousmenu->prefixe."nom")
+
               </a>
 
             @endforeach
@@ -19,7 +23,7 @@
         </li>
       @else
         <li class="nav-item nav-item-bleu-tres-clair ">
-          <a id="{{ $item->id ?? '' }}" class="nav-link" href="{{ route($item->route) }}">{!! $item->nom !!}</a>
+          <a id="{{ $item->id ?? '' }}" class="nav-link" href="{{ route($item->route) }}">@lang($item->prefixe."nom")</a>
         </li>
       @endif
     @endforeach
@@ -39,11 +43,11 @@
 
           <img class="mr-3 mt-1" src="{{ url('storage/img/icones/especes.svg') }}" alt="">
 
-          @lang('menus.teleForm')
+          @lang('menuExtranet.teleForm')
 
         </h3>
+        <h5 class="text-center">@lang('menuExtranet.clicEspece')</h5>
 
-        <h5 class="text-center">@lang('menus.clicEspece')</h5>
 
       </div>
 

@@ -10,43 +10,43 @@
 
     "eleveur" : {
       "id" : "eleveur",
-      "nom" : "Eleveur",
+      "nom" : "tableaux.eleveur",
       "align" : "left",
       "sortable" : true
     },
     "name" : {
       "id" : "name",
-      "nom" : "Acte",
+      "nom" : "tableaux.acte",
       "align" : "left",
       "sortable" : false
     },
     "nombre" : {
       "id" : "nombre",
-      "nom" : "Nombre",
+      "nom" : "tableaux.nombre",
       "align" : "center",
       "sortable" : false
     },
     "creation" : {
       "id" : "creation",
-      "nom" : "Créé le",
+      "nom" : "tableaux.date_creation",
       "align" : "center",
       "sortable" : true
     },
     "facturee" : {
       "id" : "facturee",
-      "nom" : "Facturé",
+      "nom" : "tableaux.est_facture",
       "align" : "center",
       "sortable" : true
     },
     "num_facture" : {
       "id" : "num_facture",
-      "nom" : "N° fact.",
+      "nom" : "tableaux.num_fact",
       "align" : "center",
       "sortable" : false
     },
     "suppr" : {
       "id" : "suppr",
-      "nom" : "del",
+      "nom" : "tableaux.del",
       "align" : "center",
       "sortable" : false
     }

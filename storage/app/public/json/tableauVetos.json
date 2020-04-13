@@ -10,37 +10,37 @@
 
     "name" : {
       "id" : "name",
-      "nom" : "nom",
+      "nom" : "form.nom",
       "align" : "left",
       "sortable" : true
     },
     "email" : {
       "id" : "email",
-      "nom" : "adresse mail",
+      "nom" : "form.email",
       "align" : "left",
       "sortable" : false
     },
     "cro" : {
       "id" : "cro",
-      "nom" : "n° Ordre",
+      "nom" : "form.vet_id",
       "align" : "center",
       "sortable" : false
     },
     "cp" : {
       "id" : "cp",
-      "nom" : "cp",
+      "nom" : "form.cp",
       "align" : "center",
       "sortable" : true
     },
     "tel" : {
       "id" : "tel",
-      "nom" : "téléphone",
+      "nom" : "form.tel",
       "align" : "center",
       "sortable" : false
     },
     "suppr" : {
       "id" : "suppr",
-      "nom" : "del",
+      "nom" : "form.del",
       "align" : "center",
       "sortable" : false
     }

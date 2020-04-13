@@ -2,6 +2,7 @@
   "item_1" :
   {
     "id" : "extranet",
+    "prefixe" : "menuLabo.item_1.",
     "nom" : "Extranet",
     "tooltip" : "Retour à l'accueil général (extranet)",
     "route" : "accueil"
@@ -9,6 +10,7 @@
   "item_1b" :
   {
     "id" : "laboratoire",
+    "prefixe" : "menuLabo.item_1b.",
     "nom" : "Laboratoire",
     "tooltip" : "Liste de toutes les analyses",
     "route" : "laboratoire"
@@ -16,6 +18,7 @@
   "item_2" :
   {
     "id" : "productions",
+    "prefixe" : "menuLabo.item_2.",
     "nom" : "Productions",
     "tooltip" : "Retour à l'accueil général (extranet)",
     "route" : "laboratoire",
@@ -24,6 +27,7 @@
       "sousmenu_1" :
       {
         "id" : "demandes",
+        "prefixe" : "menuLabo.item_2.sousmenu_1.",
         "nom" : "Demandes",
         "tooltip" : "Liste de toutes les analyses",
         "route" : "laboratoire"
@@ -31,6 +35,7 @@
       "sousmenu_2" :
       {
         "id" : "series",
+        "prefixe" : "menuLabo.item_2.sousmenu_2.",
         "nom" : "Séries",
         "tooltip" : "Afficher les séries",
         "route" : "serie.index"
@@ -38,6 +43,7 @@
       "sousmenu_3" :
       {
         "id" : "actes",
+        "prefixe" : "menuLabo.item_2.sousmenu_3.",
         "nom" : "Actes",
         "tooltip" : "Afficher les actes",
         "route" : "acte.index"
@@ -47,6 +53,7 @@
   "item_6" :
   {
     "id" : "factures",
+    "prefixe" : "menuLabo.item_6.",
     "nom" : "Factures",
     "tooltip" : "Liste de factures",
     "route" : "factures.index"
@@ -54,6 +61,7 @@
   "item_4" :
   {
     "id" : "utilisateurs",
+    "prefixe" : "menuLabo.item_4.",
     "nom" : "Utilisateurs",
     "tooltip" : "Tout ce qui concerne les utilisateurs: éleveurs et vétérinaires",
     "route" : "laboratoire",
@@ -62,6 +70,7 @@
       "sousmenu_1" :
       {
         "id" : "nouveau",
+        "prefixe" : "menuLabo.item_4.sousmenu_1.",
         "nom" : "Nouveau",
         "icone" : "nouveau.svg",
         "tooltip" : "Ajouter un nouvel utilisateur",
@@ -70,6 +79,7 @@
       "sousmenu_2" :
       {
         "id" : "eleveurs",
+        "prefixe" : "menuLabo.item_4.sousmenu_2.",
         "nom" : "Eleveurs",
         "icone" : "eleveur.svg",
         "tooltip" : "Ajouter, modifier, supprimer des éleveurs",
@@ -78,6 +88,7 @@
       "sousmenu_3" :
       {
         "id" : "veterinaires",
+        "prefixe" : "menuLabo.item_4.sousmenu_3.",
         "nom" : "Vétérinaires",
         "icone" : "veto.svg",
         "tooltip" : "Ajouter, modifier, supprimer des vétérinaires",
@@ -86,6 +97,7 @@
       "sousmenu_4" :
       {
         "id" : "laboratoire_user",
+        "prefixe" : "menuLabo.item_4.sousmenu_4.",
         "nom" : "Laboratoire",
         "icone" : "labo.svg",
         "tooltip" : "Ajouter, modifier, supprimer membres du laboratoire",
@@ -94,6 +106,7 @@
       "sousmenu_5" :
       {
         "id" : "tous",
+        "prefixe" : "menuLabo.item_4.sousmenu_5.",
         "nom" : "Tous",
         "icone" : "users.svg",
         "tooltip" : "Consulter tous les utilisateurs",
@@ -104,6 +117,7 @@
   "item_5" :
   {
     "id" : "prestations",
+    "prefixe" : "menuLabo.item_5.",
     "nom" : "Prestations",
     "tooltip" : "Liste des différentes analyses et packs",
     "route" : "laboratoire",
@@ -112,6 +126,7 @@
       "sousmenu_1" :
       {
         "id" : "detail",
+        "prefixe" : "menuLabo.item_5.sousmenu_1.",
         "nom" : "Détail des analyses",
         "icone" : "analyse.svg",
         "tooltip" : "Ajouter, modifier, supprimer des analyses",
@@ -120,6 +135,7 @@
       "sousmenu_3" :
       {
         "id" : "types",
+        "prefixe" : "menuLabo.item_5.sousmenu_3.",
         "nom" : "Types d'analyse",
         "icone" : "pack.svg",
         "tooltip" : "Ajouter, modifier, supprimer des packs",

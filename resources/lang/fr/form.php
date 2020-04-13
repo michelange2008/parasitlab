@@ -3,6 +3,7 @@
 return [
 
   "nom" => "nom",
+  "email" => "Adresse mail",
   "address_1" => "adresse",
   "address_2" => "complément d'adresse",
   "cp" => "code postal",

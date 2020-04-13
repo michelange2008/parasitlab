@@ -38,7 +38,8 @@
   <thead class="alert-bleu-tres-fonce">
     <tr>
       @foreach ($datas->intitules->liste as $intitule) <!-- issu de tableauEleveurs.json -->
-        <th data-halign="{{ $intitule->align }}" data-align="{{ $intitule->align }}" data-field="{{ $intitule->id }}" data-sortable="{{ $intitule->sortable}}">{{ $intitule->nom }}</th>
+        <th data-halign="{{ $intitule->align }}" data-align="{{ $intitule->align }}" data-field="{{ $intitule->id }}"
+          data-sortable="{{ $intitule->sortable}}">{!! ucfirst(__($intitule->nom)) !!}</th>
       @endforeach
     </tr>
   </thead>

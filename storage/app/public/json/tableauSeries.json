@@ -10,25 +10,25 @@
 
     "name" : {
       "id" : "name",
-      "nom" : "Analyse",
+      "nom" : "tableaux.analyse",
       "align" : "left",
       "sortable" : false
     },
     "eleveur" : {
       "id" : "eleveur",
-      "nom" : "Eleveur",
+      "nom" : "tableaux.eleveur",
       "align" : "left",
       "sortable" : true
     },
     "espece" : {
       "id" : "espece",
-      "nom" : "Esp.",
+      "nom" : "tableaux.esp",
       "align" : "center",
       "sortable" : false
     },
     "acheve" : {
       "id" : "acheve",
-      "nom" : "Terminée",
+      "nom" : "tableaux.achevee",
       "align" : "center",
       "sortable" : true
     }

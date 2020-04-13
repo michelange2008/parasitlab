@@ -34,13 +34,13 @@
     },
     "pu_ht" : {
       "id" : "pu_ht",
-      "nom" : "prix (HT)",
+      "nom" : "pu_ht",
       "align" : "right",
       "sortable" : false
     },
     "tva" : {
       "id" : "tva",
-      "nom" : "TVA",
+      "nom" : "tva",
       "align" : "right",
       "sortable" : false
     },

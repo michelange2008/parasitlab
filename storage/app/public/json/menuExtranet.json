@@ -1,97 +1,82 @@
 {
 	"accueil": {
 		"id" : "accueil",
-		"nom": "Accueil",
-		"tooltip": "Retour à l'accueil",
+		"prefixe" : "menuExtranet.accueil.",
 		"route": "accueil"
 	},
 	"analyses": {
 		"id" : "analyses",
-		"nom": "Analyses",
-		"tooltip": "Toutes les analyses que nous proposons",
+		"prefixe" : "menuExtranet.analyses.",
 		"route": "accueil",
 		"sousmenu": {
-			"connaître": {
-				"id" : "connaitre",
-				"nom": "Pourquoi des coproscopies ?",
-				"tooltip": "Qu'est-ce qu'une coproscopie&nbsp;?",
+			"coproscopies": {
+				"id" : "coproscopies",
+				"prefixe" : "menuExtranet.analyses.coproscopies.",
 				"route": "analyses.coproscopies"
 			},
 			"choisir": {
 				"id" : "choisir",
-				"nom": "Quelle analyse choisir&nbsp;?",
-				"tooltip": "Quel analyse, pour quel objectif&nbsp;?",
+				"prefixe" : "menuExtranet.analyses.choisir.",
 				"route": "analyses.choisir"
 			},
-			"pratique": {
-				"id" : "pratique",
-				"nom": "Comment prélever et envoyer&nbsp;?",
-				"tooltip": "Comment faire pour ...",
+			"enpratique": {
+				"id" : "enpratique",
+				"prefixe" : "menuExtranet.analyses.enpratique.",
 				"route": "analyses.enpratique"
 			},
-			"interpreter": {
-				"id" : "interpreter",
-				"nom": "Quelle interprétation&nbsp;?",
-				"tooltip": "Comment faire pour ...",
+			"interpretation": {
+				"id" : "interpretation",
+				"prefixe" : "menuExtranet.analyses.interpretation.",
 				"route": "analyses.interpretation"
 			}
 		}
 	},
-	"parasite": {
-		"id" : "parasite",
-		"nom": "Parasitisme ",
-		"tooltip": "Tout ce que vous avez toujours voulu savoir",
+	"parasitisme": {
+		"id" : "parasitisme",
+		"prefixe" : "menuExtranet.parasitisme.",
 		"route": "parasitisme"
 	},
 	"express" : {
 		"id" : "express",
-		"nom" : "Express",
-		"tooltip" : "Si vous êtes pressés !",
+		"prefixe" : "menuExtranet.express.",
 		"route" : "accueil",
 		"sousmenu" : {
 			"tarifs" : {
 				"id" : "tarifs",
-				"nom" : "Voir les analyses et tarifs",
-				"tooltip" : "Liste de analyses proposées et des tarifs",
+				"prefixe" : "menuExtranet.express.tarifs.",
 				"route" : "express.tarifs"
 			},
 			"telFormulaire" : {
 				"id" : "telFormulaire",
-				"nom" : "Télécharger un formulaire vierge",
-				"tooltip" : "Télécharger un formulaire vierge au format pdf",
+				"prefixe" : "menuExtranet.express.telFormulaire.",
 				"route" : "especes"
 			},
 			"envoiPack" : {
 				"id" : "envoiPack",
-				"nom" : "Demander des packs d'envoi",
-				"tooltip" : "Ces packs d'envois sont préafranchis et vous permettront une expédition sûre de vos prélèvements",
+				"prefixe" : "menuExtranet.express.envoiPack.",
 				"route" : "express.envoiPack"
 			}
 		}
 	},
-	"infoaide": {
-		"id" : "infoaide",
-		"nom": "Infos et aide",
-		"tooltip": "Une questions, un problème, cliquez ici!",
+	"infos": {
+		"id" : "infos",
+		"prefixe" : "menuExtranet.infos.",
 		"route": "accueil",
     "sousmenu" :
     {
       "contact": {
 				"id" : "contact",
-        "nom": "Nous contacter",
-        "tooltip": "un problème, une question ...",
+				"prefixe" : "menuExtranet.infos.contact.",
         "route": "infos.contact"
       },
       "qui": {
 				"id" : "qui",
-        "nom": "Qui sommes-nous ?",
-        "tooltip": "Un laboratoire de recherche sur le terrain",
+				"prefixe" : "menuExtranet.infos.quisommesnous.",
         "route": "infos.quisommesnous"
       },
       "legal": {
 				"id" : "legal",
-        "nom": "Informations légales",
-        "tooltip": "Crédits photo et vie privée",
+				"prefixe" : "menuExtranet.infos.infoslegales.",
         "route": "infos.infoslegales"
       }
 

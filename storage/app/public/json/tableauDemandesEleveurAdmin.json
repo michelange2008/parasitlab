@@ -10,49 +10,49 @@
 
     "name" : {
       "id" : "name",
-      "nom" : "Analyse",
+      "nom" : "tableaux.analyse",
       "align" : "left",
       "sortable" : false
     },
     "serie" : {
       "id" : "serie",
-      "nom" : "Série",
+      "nom" : "tableaux.serie",
       "align" : "center",
       "sortable" : true
     },
     "espece" : {
       "id" : "espece",
-      "nom" : "Esp.",
+      "nom" : "tableaux.esp",
       "align" : "center",
       "sortable" : false
     },
     "toveto" : {
       "id" : "toveto",
-      "nom" : "-> vétérinaire",
+      "nom" : "tableaux.toveto",
       "align" : "left",
       "sortable" : true
     },
     "reception" : {
       "id" : "reception",
-      "nom" : "Reçue le",
+      "nom" : "tableaux.date_reception",
       "align" : "center",
       "sortable" : true
     },
     "acheve" : {
       "id" : "acheve",
-      "nom" : "Terminée",
+      "nom" : "tableaux.achevee",
       "align" : "center",
       "sortable" : true
     },
     "num_facture" : {
       "id" : "num_facture",
-      "nom" : "N° fact.",
+      "nom" : "tableaux.num_fact",
       "align" : "center",
       "sortable" : false
     },
     "suppr" : {
       "id" : "suppr",
-      "nom" : "del",
+      "nom" : "tableaux.del",
       "align" : "center",
       "sortable" : false
     }
