@@ -2,7 +2,7 @@
 
   <div class="form-group">
 
-    <label for="anatypeSelect">Type d'analyses</label>
+    <label for="anatypeSelect">@lang('form.ana_demandee')</label>
 
     <select id="select_anatype" class="form-control mb-3" name="anatype" required>
 
@@ -14,7 +14,7 @@
 
     </select>
 
-      <label for="anaacte_id">Type d'acte</label>
+      <label for="anaacte_id">@lang('form.type_acte')</label>
 {{-- Emplacement libre pour que le choisir.js puisse mettre la liste d'anaacte --}}
       <select id="select_anaacte" class="form-control" name="anaacte_id">
 

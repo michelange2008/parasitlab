@@ -1,12 +1,12 @@
 <div class="form-group">
 
-  <label for="userSelect">Demandeur</label>
+  <label for="userSelect">@lang('form.demandeur')</label>
 
   <select class="form-control" id="userSelect" name="userDemande" required>
 
     <option required></option>
 
-    <option id="nouveau" required>Nouveau</option>
+    <option id="nouveau" required>@lang('form.new')</option>
 
     @foreach ($eleveurs as $eleveur)
 

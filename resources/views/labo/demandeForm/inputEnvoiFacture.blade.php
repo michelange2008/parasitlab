@@ -1,5 +1,5 @@
 <div class="form-group">
-   <label for="facture" class="control-label text-right">Destinataire de la facture ?</label>
+   <label for="facture" class="control-label text-right">@lang('form.destinataire_facture')&nbsp;?</label>
  <div class="">
    <div class="input-group">
      <div id="radioBtn" class="btn-group">

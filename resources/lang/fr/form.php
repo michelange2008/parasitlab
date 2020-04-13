@@ -35,6 +35,7 @@ return [
 
   "infoDemAna" => "Informations sur la demande d'analyse",
   "date_prelevement" => "Date du prélèvement",
+  "date_reception" => "Date de réception",
   "ana_demandee" => "Analyse demandée",
   "type_acte" => "Type d'acte",
   "infos_diverses" => "Informations (motifs de l'analyse, état des animaux, etc.)",
@@ -48,4 +49,18 @@ return [
 
   "form_download" => "Télécharger un formulaire",
   "ask_for_pack" => "Demander des packs d'envoi",
+
+  "envoi_facture" => "Envois et facture",
+  "prelevements" => "Prélèvements",
+
+  "demandeur" => "Demandeur",
+  'new' => "Nouveau",
+  'destinataire_facture' => "Destinataire de la facture",
+  'envoi_result_veto' => "Envoi des résultats au vétérinaire ?",
+
+  "estSerie" => "",
+  "serie_explic" => "C'est une à dire d'une demande d'analyse avec plusieurs envois de prélèvements.",
+  "faire_choix" => "Faire un choix si besoin",
+  "etat_prelev" => "Etat du prélèvement",
+  "identif_prelev" => "Identification du prélèvement n°:num",
  ];

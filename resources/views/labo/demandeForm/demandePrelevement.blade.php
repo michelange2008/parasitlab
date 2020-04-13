@@ -2,7 +2,7 @@
 
   <div class="col-md-10 mx-auto">
 
-    <p class="lead pl-3 bg-bleu-tres-fonce text-white">Prélèvements</p>
+    <p class="lead pl-3 bg-bleu-tres-fonce text-white">@lang('form.prelevements')</p>
 
   </div>
 

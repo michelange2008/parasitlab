@@ -1,6 +1,6 @@
 <div class="form-group">
 
-  <label for="nomPrelevement_{{ $i }}">Identification du prélèvement n°{{$i}}</label>
+  <label for="nomPrelevement_{{ $i }}">@lang('form.identif_prelev', ['num' => $i])</label>
 
   @if ($i === 1)
 

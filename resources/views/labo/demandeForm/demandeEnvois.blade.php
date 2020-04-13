@@ -2,7 +2,7 @@
 
   <div class="col-md-10 mx-auto">
 
-    <p class="lead pl-3 bg-bleu-tres-fonce text-white">Envois et facture</p>
+    <p class="lead pl-3 bg-bleu-tres-fonce text-white">@lang('form.envoi_facture')</p>
 
   </div>
 
@@ -16,7 +16,7 @@
     @include('labo.demandeForm.inputEnvoiVeto')
 
     @include('labo.demandeForm.inputChoixVeto')
-    
+
 </div>
 
   <div class="col-md-5">

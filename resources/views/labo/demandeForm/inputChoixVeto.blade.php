@@ -19,7 +19,7 @@
 
         @endif
 
-        <option value="0">Nouveau vétérinaire</option>
+        <option value="0">@lang('form.new_vet')</option>
 
         @foreach ($vetos as $veto)
 

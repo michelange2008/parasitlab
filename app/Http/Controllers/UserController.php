@@ -60,6 +60,7 @@ class UserController extends Controller
       $usertypes = Usertype::all();
 
       $pays = $this->litJson('pays');
+
       $vetos = Veto::all();
 
       session(['route_retour' => 'usershow']);

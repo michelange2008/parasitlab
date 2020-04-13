@@ -4,13 +4,13 @@
 
     <i class="fas fa-exclamation-triangle"></i>
 
-    <strong>Il s'agit d'une série.</strong>
+    <strong>@lang('form.estSerie')</strong>
 
-    <span class="text-secondary">C'est une à dire d'une demande d'analyse avec plusieurs envois de prélèvements.</span>
+    <span class="text-secondary">@lang('form.serie_explic')</span>
 
   </p>
 
-  <p>Faire un choix si besoin</p>
+  <p>@lang('form.faire_choix')</p>
 
   <div id="premier" class="form-check">
 
