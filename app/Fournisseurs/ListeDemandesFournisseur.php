@@ -29,7 +29,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       if(isset($demande->serie_id)) {
 
-        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', ''affiche_detail_serie');
+        $serie = $this->lienFactory($demande->serie->id, "n°".$demande->serie->id, 'serie.show', 'affiche_detail_serie');
 
       }
       else {
@@ -42,7 +42,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       if ($demande->toveto) {
 
-        $toveto = $this->lienFactory($demande->veto->user->id, ucfirst($demande->veto->user->name), 'vetoAdmin.show', ''affiche_veto');
+        $toveto = $this->lienFactory($demande->veto->user->id, ucfirst($demande->veto->user->name), 'vetoAdmin.show', 'affiche_veto');
 
       }
       else {
@@ -61,7 +61,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       if ($demande->facturee) {
 
-        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', ''affiche_facture');
+        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', 'affiche_facture');
 
       }
 
