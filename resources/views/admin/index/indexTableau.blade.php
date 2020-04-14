@@ -9,7 +9,7 @@
 
   <div class="col-md-12">
 
-    <h4 class="text-secondary">{!! __($tableau_vide ?? '') !!}</h4>
+    <h4 class="text-secondary">{!! __($tableau_vide ?? 'tableaux.vide') !!}</h4>
 
   </div>
 

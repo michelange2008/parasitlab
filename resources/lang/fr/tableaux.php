@@ -37,6 +37,6 @@ return [
   "modifier" => "Modifier",
   "type" => "Type",
   "del" => "Suppr.",
-  'Id' => "Id"
-
+  'Id' => "Id",
+  'vide' => "Le tableau est vide",
 ];
