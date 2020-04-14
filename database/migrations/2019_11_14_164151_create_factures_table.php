@@ -24,7 +24,7 @@ class CreateFacturesTable extends Migration
             $table->timestamp('envoyee_date')->nullable();
             $table->boolean('payee')->default(0);
             $table->unsignedInteger('reglement_id')->nullable();
-            $table->foreign('reglement_id')->references('id')->on('reglements')->onDelete('cascade');
+            $table->foreign('reglement_id')->references('id')->on('reglements')->onDelete('set null');
             $table->softDeletes();
         });
     }

@@ -61,7 +61,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       if ($demande->facturee) {
 
-        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', 'affiche_facture');
+        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'factures.show', 'affiche_facture');
 
       }
 

@@ -21,7 +21,7 @@
 
     @else
 
-      <p class="color-rouge m-3">@lang('factures.0_analyses_a_facturer')</p>
+      <p class="color-rouge m-3">@lang('factures.zero_analyse_a_facturer')</p>
 
     @endisset
 

@@ -60,9 +60,12 @@ class FactureController extends Controller
       // methode de ListeFournisseur (classe abstraite) : données du tableau, titre du tableau, icone du titre, nom du json avec les entetes de colonne, route du bouton, intitulé du bouton
       $datas = $fournisseur->renvoieDatas($factures, __('titres.liste_factures'), "factures.svg", 'tableauFactures', 'factures.etablir', __('boutons.facture_add'));
 
+      $tableau_vide = 'factures.zero_facture';
+
       return view('labo.factures', [
         'menu' => $this->menu,
         'datas' => $datas,
+        'tableau_vide' => $tableau_vide,
       ]);
     }
 
@@ -137,7 +140,7 @@ class FactureController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Fonction appelée par la vue factureAEtablir issue de FactureController@etablir
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -152,7 +155,7 @@ class FactureController extends Controller
 
       }
       $datas = $request->all();
-// dd($datas);
+
       $nouvelle_facture = new Facture();
       $nouvelle_facture->user_id = $datas['destinataire'];
       $nouvelle_facture->faite_date = Carbon::now();
@@ -229,6 +232,12 @@ class FactureController extends Controller
         // dd($facture);
         $facture->faite_date = $this->dateReadable($facture->faite_date);
 
+        if($facture->reglement_id !== null) {
+
+          $facture->reglement->date_reglement = $this->dateReadable($facture->reglement->date_reglement);
+
+        }
+
         $facture_completee = $this->ajouteSommeEtTvas($facture);
 
         $anaactes_factures = Anaacte_Facture::where('facture_id', $id)->get();
@@ -240,6 +249,7 @@ class FactureController extends Controller
           $demande->date_reception = $this->dateReadable($demande->date_reception);
 
         }
+        // QUESTION: Pourquoi ces données en session ?
         session(['facture_completee'=> $facture_completee, 'demandes'=> $demandes, 'anaactes_factures' => $anaactes_factures]);
 
         return view('labo.factures.facture', [

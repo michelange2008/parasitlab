@@ -51,6 +51,7 @@ $(function() {
             text : 'oui',
             btnClass : 'btn-red',
             action : function() {
+							console.log(form_id);
               $(form_id).submit();
             },
           },

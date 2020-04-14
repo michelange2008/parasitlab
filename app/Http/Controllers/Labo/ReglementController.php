@@ -6,6 +6,7 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Productions\Facture;
 use App\Models\Productions\Reglement;
 
 class ReglementController extends Controller
@@ -95,6 +96,11 @@ class ReglementController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        DB::table('factures')->where('reglement_id', $id)->update(['payee' => false]); // On passe la facture à non réglée
+
+        Reglement::destroy($id);
+
+        return redirect()->back()->with('message', 'reglement_delete');
     }
 }

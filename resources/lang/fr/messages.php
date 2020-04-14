@@ -11,5 +11,5 @@ return [
 
   "facture_delete" => "Cette facture a été supprimée",
 
-  "reglement_fait" => "Ce réglement vient d'être enregistré",
+  "reglement_fait" => "Ce règlement vient d'être enregistré",
 ];

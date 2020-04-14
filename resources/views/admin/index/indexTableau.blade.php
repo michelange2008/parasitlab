@@ -9,7 +9,7 @@
 
   <div class="col-md-12">
 
-    <h4 class="text-secondary">@lang('eleveurs.zero_analyse')</h4>
+    <h4 class="text-secondary">{!! __($tableau_vide ?? '') !!}</h4>
 
   </div>
 

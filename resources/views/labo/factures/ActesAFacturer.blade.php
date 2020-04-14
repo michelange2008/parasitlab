@@ -19,7 +19,7 @@
 
   @else
 
-    <p class="color-rouge m-3">@lang('factures.0_acte_a_facturer')</p>
+    <p class="color-rouge m-3">@lang('factures.zero_acte_a_facturer')</p>
 
   @endisset
 

@@ -14,17 +14,17 @@ class ModereglementsTableSeeder extends Seeder
         DB::table('modereglements')->insert([
           [
             "id" => 3,
-            "nom" => "Espèces",
+            "nom" => "espèces",
             'icone_id' =>28,
           ],
           [
             "id" => 2,
-            "nom" => "Virement",
+            "nom" => "virement",
             'icone_id' =>29,
           ],
           [
             "id" => 1,
-            "nom" => "Chèque",
+            "nom" => "chèque",
             'icone_id' =>30,
           ],
         ]);

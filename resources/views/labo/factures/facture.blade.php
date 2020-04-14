@@ -10,9 +10,19 @@
 
       <div class="col-md-10">
 
+        @include('fragments.flash')
+
+      </div>
+
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10">
+
         @titre([
           'titre' => $facture_completee->user->name ,
-          'soustitre' => "(facture n°".$facture_completee->id." du ".$facture_completee->faite_date.")",
+          'soustitre' => "- ".__('factures.num_date', ['num' => $facture_completee->id, 'date' => $facture_completee->faite_date]),
           'icone' => 'factures.svg'
         ])
 
@@ -30,7 +40,6 @@
 
     </div>
 
-  </div>
 
   <div class="row justify-content-center">
 
@@ -51,7 +60,7 @@
         'intitule' => __('boutons.show_pdf'),
         'couleur' => 'btn-rouge',
       ])
-
+      <hr class="divider-court">
     </div>
 
   </div>
@@ -60,48 +69,29 @@
 
     <div class="col-md-10 p-3 border">
 
-      <h4>Paiement</h4>
-<?php // TODO: comprendre pourquoi si on met la traduction ça fout le bazar dans les balises ?>
-      <form class="" action="{{ route('reglement.store') }}" method="post">
+      @if ($facture_completee->payee)
 
-        @csrf
+        @include('labo.factures.suppReglement')
 
-        <input type="hidden" name="facture_id" value="{{ $facture_completee->id }}">
+      @else
 
-        <div class="row flex-row">
+        @include('labo.factures.reglement')
 
-          <div class=" col form-group">
-
-            <label for="modereglement">Mode de réglement</label>
-
-            <select class="form-control" name="modereglement_id">
-
-              @foreach ($modereglements as $modereglements)
-
-                <option value="{{ $modereglements->id }}">{{ $modereglements->nom }}</option>
-
-              @endforeach
-
-            </select>
-
-          </div>
-
-          <div class="col form-group">
-
-            <label for="payee_date">date de paiement</label>
-
-            <input class="form-control" type="date" name="payee_date" value="{{ Carbon\Carbon::now()->toDateString() }}">
-
-          </div>
-
-        </div>
-
-        @enregistreAnnule()
-
-      </form>
+      @endif
 
     </div>
 
   </div>
 
+  <div class="row justify-content-center mb-3">
+
+    <div class="col-md-10 d-flex justify-content-end">
+
+      @include('fragments.boutonRetour', ['url' => url('laboratoire/factures')])
+
+    </div>
+
+  </div>
+
+</div>
 @endsection
