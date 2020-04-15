@@ -103,7 +103,10 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 7, "observation_id" => 12 ],
           [ "espece_id" => 7, "observation_id" => 13 ],
           [ "espece_id" => 7, "observation_id" => 17 ],
-          [ "espece_id" => 7, "observation_id" => 19 ],
+//############################################################
+          // [ "espece_id" => 7, "observation_id" => 19 ],
+          [ "espece_id" => 7, "observation_id" => 36 ],
+//##############################################################
           [ "espece_id" => 7, "observation_id" => 22 ],
           [ "espece_id" => 7, "observation_id" => 35 ],
           [ "espece_id" => 8, "observation_id" => 1 ],
@@ -112,7 +115,8 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 8, "observation_id" => 12 ],
           [ "espece_id" => 8, "observation_id" => 13 ],
           [ "espece_id" => 8, "observation_id" => 17 ],
-          [ "espece_id" => 8, "observation_id" => 19 ],
+          // [ "espece_id" => 8, "observation_id" => 19 ],
+          [ "espece_id" => 8, "observation_id" => 36 ],
           [ "espece_id" => 8, "observation_id" => 22 ],
           [ "espece_id" => 8, "observation_id" => 35 ],
 

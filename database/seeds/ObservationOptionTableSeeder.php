@@ -68,14 +68,20 @@ class ObservationOptionTableSeeder extends Seeder
             'observation_id' => 12,
             'option_id' =>  5,
           ],
+// #################################################
+//####################### MODIF ####################
           [
             'observation_id' => 13,
-            'option_id' =>  8,
+            'option_id' =>  6,
           ],
-          [
-            'observation_id' => 13,
-            'option_id' =>  5,
-          ],
+          // [
+          //   'observation_id' => 13,
+          //   'option_id' =>  8,
+          // ],
+          // [
+          //   'observation_id' => 13,
+          //   'option_id' =>  5,
+          // ],
           [
             'observation_id' => 14,
             'option_id' =>  2,
@@ -167,6 +173,11 @@ class ObservationOptionTableSeeder extends Seeder
           [
             'observation_id' => 29,
             'option_id' =>  7,
+          ],
+// ######################################
+          [
+            'observation_id' => 36,
+            'option_id' =>  8,
           ],
 
         ]);

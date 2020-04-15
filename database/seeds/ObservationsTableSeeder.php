@@ -258,7 +258,17 @@ class ObservationsTableSeeder extends Seeder
             "explication" => "Si le parasitisme est modéré et l'immunité de l'animal-hôte suffisante, la présence de parasitisme ne provoque pas forcément de symptômes.",
             "autres" => null,
 
-          ]
+          ],
+          // ################################################################################
+          // ##################### AJOUT ####################################################
+          [
+            "categorie_id" => 2,
+            "ordre" => 4,
+            "intitule" => "Je vais mettre mon animal au pré",
+            "explication" => "Si vous n'avez pas évalué le parasitisme de cet animal à la rentrée en box, il est encore temps de le faire",
+            "autre" => null,
+          ],
+          // ##############################################################################
         ]);
     }
 }
