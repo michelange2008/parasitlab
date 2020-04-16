@@ -28,11 +28,12 @@
 <div class="col-md-4 ml-3">@lang('form.q_observation')</div>
 
 <div class="col-md-7">
+  
   @foreach ($signes as $signe)
 
     <div class="custom-control custom-checkbox custom-control-inline">
       <input type="checkbox" class="custom-control-input" id="{{ $signe->id.$i }}" name="signe_{{ $i.'_'.$signe->id }}">
-      <label class="custom-control-label" for="{{ $signe->id.$i }}">{{ $signe->nom }}</label>
+      <label class="custom-control-label" for="{{ $signe->id.$i }}">@lang($signe->nom)</label>
     </div>
 
   @endforeach

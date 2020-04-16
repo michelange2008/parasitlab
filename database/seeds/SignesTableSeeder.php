@@ -13,25 +13,25 @@ class SignesTableSeeder extends Seeder
     {
       DB::table('signes')->insert([
         [
-          'nom' => 'diarrhée',
+          'nom' => 'signes.diarrhee',
         ],
         [
-          'nom' => 'amaigrissement',
+          'nom' => 'signes.amaigrissement',
         ],
         [
-          'nom' => 'poil / laine piqués',
+          'nom' => 'signes.poilainepique',
         ],
         [
-          'nom' => 'toux',
+          'nom' => 'signes.toux',
         ],
         [
-          'nom' => 'jetage',
+          'nom' => 'signes.jetage',
         ],
         [
-          'nom' => 'anémie',
+          'nom' => 'signes.anemie',
         ],
         [
-          'nom' => 'mauvaise croissance',
+          'nom' => 'signes.mauvcroissance',
         ],
       ]);
     }
