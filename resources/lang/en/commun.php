@@ -1,21 +1,21 @@
 <?php
 
 return [
-  'et' => "et",
-  'par' => "par",
-  'ilya' => "Il y a",
-  'know_more' => "En savoir plus",
-  'contact_us_short' => "nous contacter",
-  'contact_us' => "Pour toute question ou remarque, n'hésitez pas à nous contacter à l'adresse&nbsp;",
-  'question_probleme' => "Une question ? Un problème ? N'hésitez-pas",
-  'cordialement' => "Cordialement",
-  'fibl_team' => "Toute l'équipe du FiBL France",
-  'espece' => "espèce",
-  'oui' => 'oui',
-  'non' => "non",
-  'saispas' => "je ne sais pas",
+  'et' => "and",
+  'par' => "by",
+  'ilya' => "there is/are",
+  'know_more' => "Read more",
+  'contact_us_short' => "contact us",
+  'contact_us' => "If you have any questions or comments, please do not hesitate to contact us at the following address&nbsp;",
+  'question_probleme' => "Do you have a question? Problem? Do not hesitate",
+  'cordialement' => "Sincerely",
+  'fibl_team' => "the FiBL France team",
+  'espece' => "species",
+  'oui' => 'yes',
+  'non' => "no",
+  'saispas' => "I don't know",
 
-  'retour' => "Retour",
+  'retour' => "Back",
 
-  'signature' => "L'équipe de Parasit'Lab",
+  'signature' => "The Parasit'Lab team",
 ];
