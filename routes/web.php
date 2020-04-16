@@ -150,9 +150,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
     Route::resource('acte', 'Labo\ActeController');
 
-    Route::resource('blog', 'Technique\BlogController')->except('show');
+    Route::resource('blog', 'Technique\BlogController')->except('show', 'index');
 
     Route::get('motclef/{motclef_id}', 'Technique\MotclefController@listeBlogs')->name('motclef.listeblogs');
+
+    Route::get('traductions', 'TraductionsController@index')->name('traductions');
 
   });
 
