@@ -12,8 +12,7 @@ return [
     */
     'route'          => [
         'prefix'     => 'translations',
-        'middleware' => 'web',
-        'middleware' => 'auth',
+        'middleware' => ['web', 'auth', 'labo'],
     ],
 
     /**
