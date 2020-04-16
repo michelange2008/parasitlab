@@ -128,7 +128,6 @@
         "id" : "detail",
         "prefixe" : "menuLabo.item_5.sousmenu_1.",
         "nom" : "Détail des analyses",
-        "icone" : "analyse.svg",
         "tooltip" : "Ajouter, modifier, supprimer des analyses",
         "route" : "anaactes.index"
       },
@@ -137,10 +136,15 @@
         "id" : "types",
         "prefixe" : "menuLabo.item_5.sousmenu_3.",
         "nom" : "Types d'analyse",
-        "icone" : "pack.svg",
         "tooltip" : "Ajouter, modifier, supprimer des packs",
         "route" : "anatypes.index"
       }
     }
+  },
+  "item_7" :
+  {
+    "id" : "traductions",
+    "prefixe" : "menuLabo.item_7.",
+    "route" : "traductions"
   }
 }
