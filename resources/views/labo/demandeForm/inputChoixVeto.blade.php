@@ -23,7 +23,7 @@
 
         @foreach ($vetos as $veto)
 
-          <option value="{{ $veto->id}}">{{ $veto->user->name }}</option>
+          <option value="{{ $veto->id}}">{{ $veto->name }}</option>
 
         @endforeach
 

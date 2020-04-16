@@ -12,11 +12,11 @@
 
       @if (session()->has('user') && $eleveur->user->id == session('user')->id)
 
-        <option id="{{$eleveur->user->id}}" selected required>{{$eleveur->user->name}}</option>
+        <option id="{{$eleveur->user_id}}" selected required>{{$eleveur->name}}</option>
 
       @else
 
-        <option id="{{$eleveur->user->id}}" required>{{$eleveur->user->name}}</option>
+        <option id="{{$eleveur->user_id}}" required>{{$eleveur->name}}</option>
 
       @endif
 

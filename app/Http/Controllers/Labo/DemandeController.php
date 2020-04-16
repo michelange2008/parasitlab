@@ -74,14 +74,18 @@ class DemandeController extends Controller
           'usertype' => $this->userTypeEleveur(),
         ]);
 
+        $vetos = DB::table('vetos')->join('users', 'users.id', "=", 'vetos.user_id')->orderBy('users.name', 'asc')->get();
+
+        $eleveurs = DB::table('eleveurs')->join('users', 'users.id', '=', 'eleveurs.user_id')->orderBy('users.name', 'asc')->get();
+
         $estParasite = $this->litJson('estParasite');
 // TODO: Ne pas oublier de vider les valeurs de session
         return view('labo.demandeCreate', [
           'menu' => $this->menu,
-          'eleveurs' => Eleveur::all(),
+          'eleveurs' => $eleveurs,
           'especes' => Espece::all(),
           'anatypes' => Anatype::all(),
-          'vetos' => Veto::all(),
+          'vetos' => $vetos,
           'usertypes' => Usertype::all(),
           'etats' => Etat::all(),
           'signes' => Signe::all(),
