@@ -78,7 +78,7 @@
 
         <a class="btn btn-rouge" href="{{ url('storage/pdf/tarifs.pdf') }}" target="_blank"><i class="fas fa-file-pdf"></i> @lang('boutons.teleTarifs')</a>
 
-        @include('fragments.boutonRetour')
+        @retour()
 
       </div>
 

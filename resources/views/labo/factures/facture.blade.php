@@ -87,7 +87,7 @@
 
     <div class="col-md-10 d-flex justify-content-end">
 
-      @include('fragments.boutonRetour', ['url' => url('laboratoire/factures')])
+      @retour(['url' => url('laboratoire/factures')])
 
     </div>
 

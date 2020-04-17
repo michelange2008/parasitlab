@@ -30,7 +30,7 @@
 
     <div class="col-md-10">
 
-      @include('fragments.blocEnregistreAnnule')
+      @enregistreAnnule()
 
     </div>
 

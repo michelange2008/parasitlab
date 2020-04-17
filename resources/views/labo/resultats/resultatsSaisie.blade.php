@@ -110,7 +110,7 @@
 
           <div class="col-md-10 col-lg-8">
 
-            @include('fragments.blocEnregistreAnnule', ['id' => $prelevement->demande->id ])
+            @enregistreAnnule(['id' => $prelevement->demande->id ])
 
           </div>
 

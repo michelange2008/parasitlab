@@ -16,4 +16,6 @@ return array (
   'saispas' => 'je ne sais pas',
   'retour' => 'Retour',
   'signature' => 'L\'équipe de Parasit\'Lab',
+  'total_demandes' => "Total des demandes d'analyses ",
+
 );

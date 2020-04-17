@@ -1,7 +1,12 @@
 @if (isset($type) && $type == 'mail') {{-- mailto --}}
 
-  @include('fragments.boutonMailTo')
+  <button class="btn btn-bleu" type="button" name="button">
 
+    <i class="fas fa-paper-plane"></i>
+
+    <a href="mailto:contact@parasitlab.org?subject={!! $sujet ?? '' !!}&body={!! $contenu ?? '' !!}">{{$intitule}}</a>
+
+  </button>
 
 @elseif (isset($type) && $type == 'link') {{-- lien externe --}}
 

@@ -14,7 +14,12 @@
 
   <div class="card-footer">
 
-    @include('fragments.bouton_demander_pack')
+    @bouton([
+      'fa' => 'fas fa-at',
+      "type" => "route",
+      "route" => "express.envoiPack",
+      "intitule" => "form.ask_for_pack",
+    ])
 
   </div>
 

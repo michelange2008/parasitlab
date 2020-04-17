@@ -1,5 +1,4 @@
-@if (auth()->user())
-
+{{-- Bouton qui s'affiche en dessous des blogs uniquement  --}}
   <div class="col-12 d-flex flex-row justify-content-end">
 
     <form id="edit_{{ $item->id }}" class="edit" action="{{ route($class.'.edit', $id) }}" method="get">
@@ -21,5 +20,3 @@
     </form>
 
   </div>
-
-@endif

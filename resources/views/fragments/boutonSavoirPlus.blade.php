@@ -1,3 +1,4 @@
+{{-- raccourci @boutonSavoirPlus --}}
 <a class="btn color-bleu-tres-fonce" href="{{ route( $route, $id ?? '' ) }}">
 
   {{ __( $intitule ) }}
