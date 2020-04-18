@@ -28,7 +28,7 @@
 </IfModule>
 
 <IfModule mod_headers.c>
-    Header set Content-Security-Policy "script-src 'self' https://www.google.com"
+    Header set Content-Security-Policy "script-src 'self' https://www.parasitlab.org"
     Header edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
     Header always set X-FRAME-OPTIONS "DENY"
     Header always set X-Content-Type-Options "nosniff"
