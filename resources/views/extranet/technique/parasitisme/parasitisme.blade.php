@@ -28,7 +28,7 @@
 
       <div class="col-md-9">
 
-          @if (auth()->user())
+          @if ($modif_blog)
 
             <div class="mb-3">
 

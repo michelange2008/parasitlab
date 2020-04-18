@@ -8,7 +8,7 @@ return array (
   'tarifs' => 'Analyses proposées et tarifs',
   'formulaireDemande' => 'Création d\'un formulaire de demande d\'analyse',
   'enpratique' => 'Comment prélever et envoyer dans les meilleures conditions&nbsp;?',
-  'parasitisme' => 
+  'parasitisme' =>
   array (
     'titre' => 'Parasit\'Lab Infos&nbsp;: ',
     'soustitre' => 'Des réponses à vos questions sur le parasitisme',
@@ -21,4 +21,5 @@ return array (
   'demandes_analyses' => 'Liste des demandes d\'analyse',
   'actes' => 'liste des actes',
   'traduction' => 'traductions',
+  'blog_add' => "Ajouter / modifier un article",
 );

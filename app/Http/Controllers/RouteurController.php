@@ -19,9 +19,8 @@ class RouteurController extends Controller
 
   public function routeurPersonnel()
   {
-
+    
     if($this->estLabo(auth()->user()->usertype_id)) {
-
 
       return redirect()->route('laboratoire');
 

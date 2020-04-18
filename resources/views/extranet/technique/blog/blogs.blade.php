@@ -37,11 +37,11 @@
 
       <div class="col-md-4">
 
-
+        @if ($modif_blog)
 
           @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
 
-
+        @endif
 
       </div>
 

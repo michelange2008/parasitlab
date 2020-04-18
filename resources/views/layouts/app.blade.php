@@ -12,7 +12,7 @@
 
     <title>Parasit'Lab - Appréhender la complexité du vivant</title>
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
 
     <!-- Styles -->
     <link href="{{url('css/app.css')}}" rel="stylesheet">

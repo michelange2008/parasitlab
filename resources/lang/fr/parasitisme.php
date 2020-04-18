@@ -12,5 +12,5 @@ return array (
   'tags_placeholder' => "Tapez ici les mots clefs séparés par un ;",
   'content_placeholder' => "tapez votre texte ici",
   'auteur' => "Auteur",
-
+  'blog_title' => "Titre de l'article",
 );

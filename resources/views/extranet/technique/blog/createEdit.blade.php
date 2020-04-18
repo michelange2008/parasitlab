@@ -10,7 +10,7 @@
 
       <div class="col-md-10">
 
-        @titre(['titre' => "Ajouter / modifier un article", "icone" => 'ajouter.svg'])
+        @titre(['titre' => __('titres.blog_add'), "icone" => 'ajouter.svg'])
 
       </div>
 
@@ -28,7 +28,7 @@
 
           <div class="form-group col-md-6">
 
-            <label for="titre">Titre de l'article</label>
+            <label for="titre">@lang('parasitisme.blog_title')</label>
 
             <input class="form-control" type="text" name="titre" id="titre" value="{{ $blog->titre ?? '' }}" required>
 

@@ -9,4 +9,6 @@ return array (
   'annule' => 'Annuler',
   'teleTarifs' => 'Télécharger le tarifs',
   'choisirAnalyse' => 'Quelle analyse choisir&nbsp;?',
+  'del' => "Supprimer",
+  'del_user' => "Supprimer cet utilisateur",
 );

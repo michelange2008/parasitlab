@@ -11,4 +11,5 @@ return array (
   'choisirAnalyse' => 'Quelle analyse choisir&nbsp;?',
   'voirmodif' => "Voir/modifier",
   'continuer' => "Continuer",
+  'modifier' => "Modifier",
 );
