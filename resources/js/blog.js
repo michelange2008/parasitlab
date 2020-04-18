@@ -86,19 +86,21 @@ $('.motclef').on('click', function(e) {
 
     var elements = JSON.parse(data);
 
+    var liste = '';
+
     $.each(elements, function(key, value) {
 
-      $('#liste_blogs').append(
 
-        '<li class="blogmotclef list-group-item" id="blogmotclef_'+
+        liste += '<li class="blogmotclef list-group-item" id="blogmotclef_'+
         value.id+
         '"><button class="blog btn text-left" >'+
         value.titre+
         '</button></li>'
 
 
-
-      );
     })
+
+    $('#liste_blogs').append(liste);
   })
+  
 })

@@ -1,4 +1,5 @@
 // require( './usertypes.js');
+require( './bs-custom-file-input-min.js')
 require('./bootstrap.js');
 
 require( './bootstrap-table.min.js');
@@ -14,13 +15,12 @@ require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
-require( './bs-custom-file-input-min.js')
 
 require( 'jquery-confirm' );
 
 $(document).ready(function () {
 
-	  bsCustomFileInput.init()
+	  // bsCustomFileInput.init()
 
 	})
 

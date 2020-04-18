@@ -70,18 +70,18 @@ $rouge-tres-fonce-transparent: #8F230A99;
 .color-rouge-tres-fonce { color: $rouge-tres-fonce ;}
 
 .btn-bleu {
-  background: $bleu-tres-fonce ;
-  color: white ;
+  background: $bleu-tres-fonce !important;
+  color: white !important;
 }
 
 .btn-bleu:hover {
   background: $bleu-tres-tres-clair ;
-  color: $bleu-tres-fonce ;
+  color: $bleu-tres-fonce !important ;
 }
 
 .btn-rouge {
-  background: $rouge-tres-fonce ;
-  color: white ;
+  background: $rouge-tres-fonce !important;
+  color: white !important;
 }
 
 .btn-rouge-clair {
@@ -176,17 +176,17 @@ mark {
 }
 
 .progress-active {
-  background: $bleu-tres-fonce ;
+  background: $bleu-tres-fonce !important;
   color: white ;
 }
 
 .progress-disabled {
-  background: lightgray ;
+  background: lightgray !important;
   // background: url('../images/fleche.svg') lightgray no-repeat ;
   color: $bleu-tres-fonce ;
 }
 .progress-disabled:hover {
-  background: $bleu-tres-clair ;
+  background: $bleu-tres-clair !important;
 
   &:a  {
     color: black ;
