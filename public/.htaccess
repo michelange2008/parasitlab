@@ -29,7 +29,7 @@
 
  # BEGIN Cache-Control Headers
 <ifmodule mod_headers.c>
- <filesmatch "\\.(ico|jpe?g|png|gif|swf|gz|ttf)$">
+ <filesmatch "\\.(ico|jpe?g|png|gif|swf|gz|ttf|svg)$">
  Header set Cache-Control "max-age=2592000, public"
  </filesmatch>
  <filesmatch "\\.(css)$">
