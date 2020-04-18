@@ -47,3 +47,19 @@ Header unset Cache-Control
 </filesmatch>
 </ifmodule>
  # END Cache-Control Headers
+
+
+##### Add support for SVG Graphics and CSS3 Pie #####
+
+	AddType image/svg+xml svg svgz
+	AddEncoding gzip svgz
+	AddType text/x-component .htc
+	DirectoryIndex index.php 
+
+
+# Apache 2.0
+SetOutputFilter DEFLATE
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-javascript
+
+
+
