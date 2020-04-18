@@ -42,7 +42,7 @@
 
 
           <p>
-            @lang('parasitisme.presentation')<i class="fa fa-smile">.</i>
+            @lang('parasitisme.presentation') <i class="fa fa-smile">.</i>
           </p>
 
         </div>
