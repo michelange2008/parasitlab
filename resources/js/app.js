@@ -14,7 +14,7 @@ require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
-
+require( './bs-custom-file-input-min.js')
 
 require( 'jquery-confirm' );
 
