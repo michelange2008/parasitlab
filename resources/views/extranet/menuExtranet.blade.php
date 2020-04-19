@@ -14,7 +14,7 @@
         @include('fragments.templateMenu')
 
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> --}}
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -58,6 +58,6 @@
                     </li>
                 @endguest
             </ul>
-        </div>
+        {{-- </div> --}}
     </div>
 </nav>

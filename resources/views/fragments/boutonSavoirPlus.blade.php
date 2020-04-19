@@ -3,7 +3,7 @@
 
   {{ __( $intitule ) }}
 
-  &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
+  &nbsp;&nbsp;&nbsp;<i class="{{ $fa2 ?? '' }}"></i>
 
 
 </a>

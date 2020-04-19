@@ -31,7 +31,7 @@
 
       @yield('content')
 
-      {{-- @yield('footer') --}}
+      @yield('footer')
 
       <!-- Scripts -->
       <script src="{{url('js/app.js')}}"></script>
