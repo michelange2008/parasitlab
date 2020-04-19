@@ -4,12 +4,12 @@
     @foreach ($menu as $item)
       @if(@isset($item->sousmenu))
         <li class="nav-item nav-item-bleu-tres-clair dropdown">
-          <a id="{{ $item->id ?? '' }}" class="nav-link dropdown-toggle" href="{{ route($item->route) }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a id="{{ $item->id ?? '' }}" class="nav-link dropdown-toggle" href="{{ route($item->route) }}" id="navbarDropdown_{{ $item->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
             @lang($item->prefixe."nom")
 
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown_{{ $item->id }}">
             @foreach ($item->sousmenu as $sousmenu)
 
               <a class="dropdown-item d-inline-flex justify-content-between {{ $sousmenu->id }}" href="{{ route($sousmenu->route) }}">
