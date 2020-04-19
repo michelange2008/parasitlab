@@ -102,5 +102,5 @@ $('.motclef').on('click', function(e) {
 
     $('#liste_blogs').append(liste);
   })
-  
+
 })
