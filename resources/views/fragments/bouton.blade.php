@@ -1,10 +1,13 @@
 @if (isset($type) && $type == 'mail') {{-- mailto --}}
 
-  <button class="btn btn-bleu" type="button" name="button">
+  <a class="btn btn-bleu" href="mailto:contact@parasitlab.org?subject={!! $sujet ?? '' !!}&body={!! $contenu ?? '' !!}">
 
     <i class="fas fa-paper-plane"></i>
 
-    <a href="mailto:contact@parasitlab.org?subject={!! $sujet ?? '' !!}&body={!! $contenu ?? '' !!}">{{$intitule}}</a>
+    @lang($intitule)
+
+  </a>
+
 
   </button>
 

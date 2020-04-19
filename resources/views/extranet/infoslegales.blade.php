@@ -56,9 +56,9 @@
 
             @endisset
 
-            <div class="divider-court">
 
-            </div>
+            <hr class="divider-court">
+
           </ul>
 
         @endforeach
