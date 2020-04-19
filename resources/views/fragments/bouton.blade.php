@@ -20,7 +20,7 @@
 
 @elseif (isset($type) && $type == 'route') {{-- lien interne --}}
 
-  <a id="{{ $bouton_id ?? ''}}" class="btn {{$couleur ?? 'btn-bleu'}} {{ $taille ?? "" }}" href="{{ route( $route, $id ?? '' ) }}">
+  <a id="{{ $bouton_id ?? 'idLien'}}" class="btn {{$couleur ?? 'btn-bleu'}} {{ $taille ?? "" }}" href="{{ route( $route, $id ?? '' ) }}">
 
     <i class="{{ $fa ?? '' }}"></i>
 
