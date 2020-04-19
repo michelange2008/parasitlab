@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="{{url('css/bootstrap-table.min.css')}}">
     {{-- <link rel="stylesheet" href="{{url('css/bootstrap-table-sticky-header.min.css')}}"> --}}
     <link rel="stylesheet" href="{{url('css/jquery-confirm.css')}}">
-<script>document.write()</script>
 </head>
   <body>
 
