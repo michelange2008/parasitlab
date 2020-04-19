@@ -1,7 +1,11 @@
 {{-- issu de AnalysesController@enpratique --}}
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 

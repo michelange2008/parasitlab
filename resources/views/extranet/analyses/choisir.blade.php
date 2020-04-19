@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 
@@ -60,7 +64,7 @@
 @endsection
 
 {{-- ########################### NE PAS SUPPRIMER !!! #################################################### --}}
-{{-- FORMULAIRE CACHE qui permeet la requetee ajax post:: il n'est pas affiché mais joue un role fondamental --}}
+{{-- FORMULAIRE CACHE qui permet la requetee ajax post:: il n'est pas affiché mais joue un role fondamental --}}
 <form id="choix_options" class="" action="{{ route('api.options') }}" method="post">
   @csrf
 

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('labo.laboMenu')
+@section('menu')
+
+  @include('labo.laboMenu')
+
+@endsection
 
 @section('content')
 
