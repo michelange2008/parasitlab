@@ -6,6 +6,7 @@ return array (
   'save' => 'Enregistrer',
   'show_pdf' => 'Afficher le pdf',
   'retour' => 'Retour',
+  'retour_accueil' => "Retour à l'accueil",
   'annule' => 'Annuler',
   'teleTarifs' => 'Télécharger le tarifs',
   'choisirAnalyse' => 'Quelle analyse choisir&nbsp;?',
