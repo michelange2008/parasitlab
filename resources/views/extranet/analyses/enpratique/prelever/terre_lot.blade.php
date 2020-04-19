@@ -26,7 +26,7 @@
 
     </li>
 
-    <hr class="divider-court">
+    <li><hr class="divider-court"></li>
 
   @endforeach
 
