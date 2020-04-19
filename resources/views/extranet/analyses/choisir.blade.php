@@ -62,7 +62,6 @@
 
 </div>
 
-@endsection
 
 {{-- ########################### NE PAS SUPPRIMER !!! #################################################### --}}
 {{-- FORMULAIRE CACHE qui permet la requetee ajax post:: il n'est pas affiché mais joue un role fondamental --}}
@@ -79,3 +78,5 @@
 
 </form>
 {{-- ############################################################################################################# --}}
+
+@endsection
