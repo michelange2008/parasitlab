@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{url('css/bootstrap-table.min.css')}}">
     {{-- <link rel="stylesheet" href="{{url('css/bootstrap-table-sticky-header.min.css')}}"> --}}
     <link rel="stylesheet" href="{{url('css/jquery-confirm.css')}}">
-
+<script>document.write()</script>
 </head>
   <body>
 
@@ -35,9 +35,7 @@
       @yield('footer')
 
       <!-- Scripts -->
-
-      <script src="{{url('js/app.js')}}" defer></script>
-      {{-- <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script> --}}
+      <script src="{{url('js/app.js')}}"></script>
 
   </body>
 

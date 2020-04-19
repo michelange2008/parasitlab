@@ -18,14 +18,7 @@ require( './telFormulaire.js');
 
 require( 'jquery-confirm' );
 
-$(document).ready(function () {
-
-	  // bsCustomFileInput.init()
-
-	})
-
 $(function() {
-
 
 	// Fonction pour mettre le permier mot en majuscule
 	function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};
