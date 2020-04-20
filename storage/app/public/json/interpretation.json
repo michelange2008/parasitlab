@@ -1,0 +1,17 @@
+{
+  "unites" :
+  {
+    "lang" : "interpretation.unites.",
+    "image" : "unites.jpg"
+  },
+  "seuil" :
+  {
+    "lang" : "interpretation.seuil.",
+    "image" : "seuil.jpg"
+  },
+  "niveau" :
+  {
+    "lang" : "interpretation.niveau.",
+    "image" : "niveau.jpg"
+  }
+}
