@@ -10,7 +10,7 @@
 
       @isset($vetoInfos->nbDemandes)
         <li class="list-group-item">
-          Total des demandes d'analyses <span class="badge badge-success ml-3">{{ $vetoInfos->nbDemandes }}</span>
+          @lang('commun.total_demandes')<span class="badge badge-success ml-3">{{ $vetoInfos->nbDemandes }}</span>
         </li>
       @endisset
 
@@ -21,7 +21,7 @@
       @include('fragments.boutonUser', [
         'route' => 'vetoAdmin.edit',
         'id' => $user->id,
-        'intitule' => 'Voir/modifier',
+        'intitule' => __('boutons.voirmodif'),
         'couleur' => 'btn-bleu',
         ])
     </div>

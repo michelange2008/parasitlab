@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 
@@ -10,7 +14,7 @@
 
       <div class="col-md-10">
 
-        @titre(['titre' => "Ajouter / modifier un article", "icone" => 'ajouter.svg'])
+        @titre(['titre' => __('titres.blog_add'), "icone" => 'ajouter.svg'])
 
       </div>
 
@@ -28,7 +32,7 @@
 
           <div class="form-group col-md-6">
 
-            <label for="titre">Titre de l'article</label>
+            <label for="titre">@lang('parasitisme.blog_title')</label>
 
             <input class="form-control" type="text" name="titre" id="titre" value="{{ $blog->titre ?? '' }}" required>
 
@@ -39,7 +43,7 @@
 
           <div class="form-group col-md-4">
 
-            <label for="auteur">Auteur</label>
+            <label for="auteur">@lang('parasitisme.auteur')</label>
 
             <select class="form-control" name="auteur">
 
@@ -68,23 +72,23 @@
 
         <div class="form-group">
 
-          <label for="contenu">Contenu de l'article</label>
+          <label for="contenu">@lang('parasitisme.content')</label>
 
-          <textarea class="form-control" name="contenu" id="contenu" rows="8" cols="80" placeholder="tapez votre texte ici" required>{{ $blog->contenu ?? '' }}</textarea>
+          <textarea class="form-control" name="contenu" id="contenu" rows="8" cols="80" placeholder="@lang('parasitisme.content_placeholder')" required>{{ $blog->contenu ?? '' }}</textarea>
 
         </div>
 
         <div class="custom-file col-md-8 mb-3">
 
           @include('admin.form.inputImage')
-          
+
         </div>
 
         <div class="form-group">
 
-          <label for="motclefs">Mots-clefs</label>
+          <label for="motclefs">@lang('parasitisme.tags')</label>
 
-          <input class="form-control" type="text" id="motclefs" name="motclefs" placeholder="Tapez ici les mots clefs séparés par un ;" value="{{ $blog->liste_motclefs ?? '' }}">
+          <input class="form-control" type="text" id="motclefs" name="motclefs" placeholder="@lang('parasitisme.tags_placeholder')" value="{{ $blog->liste_motclefs ?? '' }}">
 
         </div>
 

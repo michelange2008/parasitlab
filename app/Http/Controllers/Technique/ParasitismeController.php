@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FormatDate;
 use App\Http\Traits\BlogManager;
+use App\Http\Traits\UserTypeOutil;
 
 use App\Models\Parasitisme\Blog;
 use App\Models\Parasitisme\Motclef;
@@ -17,7 +18,7 @@ use App\Models\Parasitisme\Motclef;
 class ParasitismeController extends Controller
 {
 
-      use LitJson, FormatDate, BlogManager;
+      use LitJson, FormatDate, BlogManager, UserTypeOutil;
 
       protected $menu;
 
@@ -42,9 +43,16 @@ class ParasitismeController extends Controller
           $blog->date = $this->dateLisible($blog->updated_at); // à qui on met une date lisible (nécessaire pour apès modifier le blog affiché en js)
 
           $blog->liste_motclefs = $this->listeMotclefs($blog); // et on lui ajoute la liste des motclefs affichable en une ligne séparé par des virgules
-          
+
         }
 
+        $modif_blog = false;
+
+        if(auth()->user() !== null) {
+
+          $modif_blog = $this->estLabo(auth()->user()->usertype_id);
+
+        }
 
         return view('extranet.technique.parasitisme.parasitisme', [
           "menu" => $this->menu,
@@ -52,6 +60,7 @@ class ParasitismeController extends Controller
           "motclefs" => $motclefs,
           'blog' => $blog,
           'derniers_blogs' => $derniers_blogs,
+          'modif_blog' => $modif_blog,
         ]);
       }
 

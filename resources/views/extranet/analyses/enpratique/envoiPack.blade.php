@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 
@@ -49,7 +53,8 @@
           <div class="form-inline lead my-3">
 
             <label for="nb_pack" >{!! __('formulaires.envoiPack_1') !!}</label>
-            <input class="form-control mx-3 text-center" type="number" name="nb_pack" value="1" min="1" max="10" step="1">
+            
+            <input id="nb_pack" class="form-control mx-3 text-center" type="number" name="nb_pack" value="1" min="1" max="10" step="1">
 
           </div>
 

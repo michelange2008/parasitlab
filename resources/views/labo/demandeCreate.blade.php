@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('labo.laboMenu')
+@section('menu')
+
+  @include('labo.laboMenu')
+
+@endsection
 
 @section('content')
 
@@ -30,7 +34,7 @@
 
     <div class="col-md-10">
 
-      @include('fragments.blocEnregistreAnnule')
+      @enregistreAnnule()
 
     </div>
 

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('labo.laboMenu')
+@section('menu')
+
+  @include('labo.laboMenu')
+
+@endsection
 
 @section('content')
 
@@ -110,7 +114,7 @@
 
           <div class="col-md-10 col-lg-8">
 
-            @include('fragments.blocEnregistreAnnule', ['id' => $prelevement->demande->id ])
+            @enregistreAnnule(['id' => $prelevement->demande->id ])
 
           </div>
 

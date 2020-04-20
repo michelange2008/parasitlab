@@ -6,11 +6,11 @@
 
     @isset ($personne->address_1) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1" value="{{ $personne->address_1 ?? old('address_1')}}">
+      <input id="address_1" class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1" value="{{ $personne->address_1 ?? old('address_1')}}">
 
     @else {{-- Cas où c'est une création --}}
 
-      <input class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1"  placeholder="@lang('form.address_1')" value="{{ old('address_1') }}" required>
+      <input id="address_1" class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1"  placeholder="@lang('form.address_1')" value="{{ old('address_1') }}" required>
 
     @endisset
 

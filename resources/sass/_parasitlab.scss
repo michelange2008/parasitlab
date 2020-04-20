@@ -38,7 +38,7 @@ a {
 
 a:hover {
 	text-decoration: none !important;
-	color: $bleu-tres-fonce !important;
+	// color: $bleu-tres-fonce !important;
 }
 
 .pointeur {
@@ -88,13 +88,6 @@ a:hover {
 .resultatExiste {
   font-weight: bold;
   color: $bleu-fonce;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  background: black;
-  color: $bleu-tres-clair;
 }
 
 .labo-divider {
@@ -155,6 +148,13 @@ hr {
   font-size: 1.25rem;
 }
 
+.choix-especes {
+	position:fixed;
+	top:20vh;
+	left:25%;
+	width:50%;
+	box-shadow: 4px 4px 17px black;
+}
 
 @media screen and (max-width: 992px) {
 

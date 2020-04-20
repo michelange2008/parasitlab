@@ -6,7 +6,7 @@
 
     <span class="input-group-text"><i class="fas fa-globe-europe"></i></span>
 
-    <input class="form-control @error ('indicatif') is-invalid  @enderror" type="text" maxlength="3" name="indicatif" value="{{ $personne->indicatif ?? '33' }}" placeholder="@lang('indicatif')">
+    <input id="indicatif" class="form-control @error ('indicatif') is-invalid  @enderror" type="text" maxlength="3" name="indicatif" value="{{ $personne->indicatif ?? '33' }}" placeholder="@lang('indicatif')">
 
   </div>
 
@@ -16,7 +16,7 @@
 
   <div class="input-group col-sm-8">
 
-    <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-phone-alt"></i></span>
+    <span class="input-group-text" id="prepend_phone"><i class="fas fa-phone-alt"></i></span>
 
     <input class="form-control @error ('tel') is-invalid  @enderror" type="text" maxlength="10" name="tel" value="{{ $personne->tel ?? old('tel') }}" placeholder="@lang('form.placeholder_tel')" required>
 

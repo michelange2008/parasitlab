@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 
@@ -28,7 +32,7 @@
 
       <div class="col-md-9">
 
-          @if (auth()->user())
+          @if ($modif_blog)
 
             <div class="mb-3">
 
@@ -42,7 +46,7 @@
 
 
           <p>
-            @lang('parasitisme.presentation')<i class="fa fa-smile">.</i>
+            @lang('parasitisme.presentation') <i class="fa fa-smile">.</i>
           </p>
 
         </div>

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 
@@ -42,7 +46,14 @@
 
         @if ($demande->signe)
 
-          @include('fragments.boutonResultatPdf')
+          @bouton([
+            'type' => 'route',
+            'route' => 'resultatPdf',
+            'id' => $demande->id,
+            'couleur' => 'btn-rouge',
+            'fa' => 'fas fa-file-pdf',
+            'intitule' => 'boutons.show_pdf',
+          ])
 
         @endif
 

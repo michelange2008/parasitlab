@@ -1,7 +1,15 @@
 @if (isset($type) && $type == 'mail') {{-- mailto --}}
 
-  @include('fragments.boutonMailTo')
+  <a class="btn btn-bleu" href="mailto:contact@parasitlab.org?subject={!! $sujet ?? '' !!}&body={!! $contenu ?? '' !!}">
 
+    <i class="fas fa-paper-plane"></i>
+
+    @lang($intitule)
+
+  </a>
+
+
+  </button>
 
 @elseif (isset($type) && $type == 'link') {{-- lien externe --}}
 
@@ -15,7 +23,7 @@
 
 @elseif (isset($type) && $type == 'route') {{-- lien interne --}}
 
-  <a id="{{ $bouton_id ?? ''}}" class="btn {{$couleur ?? 'btn-bleu'}} {{ $taille ?? "" }}" href="{{ route( $route, $id ?? '' ) }}">
+  <a id="{{ $bouton_id ?? 'idLien'}}" class="btn {{$couleur ?? 'btn-bleu'}} {{ $taille ?? "" }}" href="{{ route( $route, $id ?? '' ) }}">
 
     <i class="{{ $fa ?? '' }}"></i>
 
@@ -31,7 +39,7 @@
 
     @lang($intitule)
 
-    &nbsp&nbsp&nbsp<i class="{{ $fa2 ?? '' }}"></i>
+    &nbsp;&nbsp;&nbsp;<i class="{{ $fa2 ?? '' }}"></i>
 
   </div>
 

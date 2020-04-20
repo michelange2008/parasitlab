@@ -3,7 +3,11 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR: SOIT UNE DEMANDE SIMPLE SOIT UNE SER
  --}}
 @extends('layouts.app')
 
-@extends('labo.laboMenu')
+@section('menu')
+
+  @include('labo.laboMenu')
+
+@endsection
 
 @section('content')
 

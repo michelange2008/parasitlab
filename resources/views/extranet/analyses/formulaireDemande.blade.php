@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 
@@ -51,7 +55,7 @@
 
         <div class="col-md-10 col-lg-8 mx-auto">
 
-          @include('fragments.blocEnregistreAnnule', ['nomBouton' => 'afficher le PDF'])
+          @enregistreAnnule(['nomBouton' => __('boutons.show_pdf')])
 
         </div>
 

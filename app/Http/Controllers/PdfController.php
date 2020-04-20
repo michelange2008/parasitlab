@@ -62,7 +62,7 @@ class PdfController extends Controller
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
-    $pdf = PDF::loadview('labo.resultats.pdf', compact('demande'));
+    $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande'));
 
     return $pdf;
   }

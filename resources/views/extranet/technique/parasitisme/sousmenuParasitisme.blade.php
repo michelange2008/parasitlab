@@ -45,9 +45,8 @@
     </span>
 
   @endforeach
-  <ul class="list-group list-group-flush">
-
-    <div class="my-3" id="liste_blogs" ></div>
+  <ul id="liste_blogs" class="list-group list-group-flush">
+    {{-- zone pour ajouter la liste des articles en fonction du mot clef choisi --}}
   </ul>
 
 

@@ -4,9 +4,9 @@
 
 <div id="a-envoyer-jq" demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" class="btn btn-lg btn-rouge a-envoyer" style="display:none">Envoyer</div>
 
-<div id="envoye-jq" class="icone-cadre" title="Cette demande a été envoyée le {{ $demande->date_envoi }}" style="display:none" >
+<div id="envoye-jq" class="icone-cadre" title="@lang('boutons.demande_date_envoi', ['date_envoi' => $demande->date_envoi])" style="display:none" >
 
-  <img class="img-40 d-block" src="storage/img/icones/envoye.svg" alt="envoyé">
+  <img class="img-40 d-block" src="{!! url('storage/img/icones/envoye.svg') !!}" alt="@lang('boutons.sent')">
 
 </div>
 
@@ -14,13 +14,13 @@
 
 @if($demande->signe && $demande->date_envoi === null)
 
-  <div demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" class="btn btn-lg btn-rouge a-envoyer">Envoyer</div>
+  <div demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" class="btn btn-lg btn-rouge a-envoyer">@lang('boutons.send')</div>
 
 @elseif ($demande->signe && $demande->date_envoi !== null)
 
-  <div id="envoye" class="icone-cadre" title="Cette demande a été envoyée le {{ $demande->date_envoi }}">
+  <div id="envoye" class="icone-cadre" title="@lang('boutons.demande_date_envoi', ['date_envoi' => $demande->date_envoi])">
 
-    <img class="img-40 d-block" src="{{ url('storage/img/icones/envoye.svg') }}" alt="envoyé">
+    <img class="img-40 d-block" src="{!! url('storage/img/icones/envoye.svg') !!}" alt="@lang('boutons.sent')">
 
   </div>
 

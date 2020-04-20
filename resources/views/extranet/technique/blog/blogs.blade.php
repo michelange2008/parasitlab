@@ -29,7 +29,7 @@
 
       <div class="col-md-8">
 
-        <span class="small"><i>Mots-clefs: </i></span>
+        <span class="small"><i>@lang('parasitisme.tags')&nbsp;: </i></span>
 
         <span id='liste_motclefs' class="small">{{ $blog->liste_motclefs }}</span>
 
@@ -37,7 +37,11 @@
 
       <div class="col-md-4">
 
-        @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
+        @if ($modif_blog)
+
+          @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
+
+        @endif
 
       </div>
 

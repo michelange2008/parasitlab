@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('labo.laboMenu')
+@section('menu')
+
+  @include('labo.laboMenu')
+
+@endsection
 
 @section('content')
 
@@ -87,7 +91,7 @@
 
     <div class="col-md-10 d-flex justify-content-end">
 
-      @include('fragments.boutonRetour', ['url' => url('laboratoire/factures')])
+      @retour(['url' => url('laboratoire/factures')])
 
     </div>
 

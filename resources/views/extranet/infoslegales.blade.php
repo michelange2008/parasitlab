@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@extends('extranet.menuExtranet')
+@section('menu')
+
+  @include("extranet.menuExtranet")
+
+@endsection
 
 @section('content')
 
@@ -52,9 +56,9 @@
 
             @endisset
 
-            <div class="divider-court">
 
-            </div>
+            <hr class="divider-court">
+
           </ul>
 
         @endforeach
