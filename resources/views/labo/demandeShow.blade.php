@@ -6,7 +6,7 @@
 
     <div class="btn-group" role="group" aria-label="modif-signature-envoi">
 
-      <a class="btn btn-lg btn-bleu" href="{{ route('resultats.edit', $demande->id )}}">Saisie/Modification des résultats</a>
+      <a class="btn btn-lg btn-bleu" href="{{ route('resultats.edit', $demande->id )}}">@lang('boutons.saisie_modif_result')</a>
 
       @if ($demande->acheve)
 
@@ -26,9 +26,9 @@
   @if ($demande->acheve)
 
     @include('fragments.titreCollapse', [
-      'titre' => "Informations sur l'analyse",
+      'titre' => __('demandes.analyse_infos'),
       'icone' => 'info_blanc.svg',
-      'tooltip' => "Cliquer pour voir les informations sur la demande d'analyse et la modifier",
+      'tooltip' => __('tooltips.affiche_detail_demande'),
       'collapse' => "demande",
       'detail' => true,
     ])

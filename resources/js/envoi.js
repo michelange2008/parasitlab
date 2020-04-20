@@ -11,7 +11,7 @@ $('.a-envoyer').on('click', function() {
     type : 'green',
     typeAnimated: 'true',
     title: "Envoyer une analyse",
-    content : "Veux-tu vraiment envoyer ces résultats aux destinataires ?",
+    content : "Dois-je envoyer ces résultats aux destinataires ?",
     buttons : {
       oui: {
         text : 'oui',
@@ -24,6 +24,7 @@ $('.a-envoyer').on('click', function() {
 
           })
           .done(function(data) {
+            console.log(data);
             $('#envoye').fadeOut();
             $('#a-envoyer-jq').fadeOut();
             $('#envoye-jq').fadeIn();

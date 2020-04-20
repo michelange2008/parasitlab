@@ -1,3 +1,4 @@
+
 // SASS style sheet */
 // Palette color codes */
 // Palette URL: http://paletton.com/#uid=33r0u0klWqvcqDOhJutpPmDtMhW */
@@ -75,8 +76,9 @@ $rouge-tres-fonce-transparent: #8F230A99;
 }
 
 .btn-bleu:hover {
-  background: $bleu-tres-tres-clair ;
+  background: $bleu-tres-tres-clair !important;
   color: $bleu-tres-fonce !important ;
+  border: solid 1px $bleu-tres-fonce;
 }
 
 .btn-rouge {
@@ -94,13 +96,13 @@ $rouge-tres-fonce-transparent: #8F230A99;
 }
 
 .btn-rouge-tres-clair:hover {
-  background: $rouge-clair important;
-  color: white important;
+  background: $rouge-clair !important;
+  color: white !important;
 }
 
 .btn-rouge:hover {
-  background: $rouge-tres-clair ;
-  color:$rouge-tres-fonce ;
+  background: $rouge-tres-clair !important;
+  color:$rouge-tres-fonce !important;
 }
 
 .btn-rouge-clair:hover {
@@ -139,6 +141,14 @@ $rouge-tres-fonce-transparent: #8F230A99;
 .list-group-item-bleu-tres-clair {
   background: $bleu-tres-clair ;
 
+}
+
+.card-header-rouge-tres-fonce {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: $rouge-tres-fonce;
+  color: $rouge-tres-clair;
+  border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
 .table .thead-bleu th {

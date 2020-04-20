@@ -23,7 +23,6 @@ class EnvoisController
 
     public function envoyerResultats($destinataire_id, $demande_id)
     {
-
       $demande = Demande::find($demande_id);
 
       $destinataire = User::find($destinataire_id);
@@ -32,9 +31,10 @@ class EnvoisController
 
       $mail = Mail::to($destinataire->email)->send(new Resultats($demande));
 
-      DB::table('demandes')->where('id', $demande_id)->update([
+      dd($mail);
+      $db = DB::table('demandes')->where('id', $demande_id)->update([
         'date_envoi' => \Carbon\Carbon::now(),
       ]);
-
+      return $mail;
     }
 }
