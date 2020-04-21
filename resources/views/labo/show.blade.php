@@ -56,6 +56,18 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR: SOIT UNE DEMANDE SIMPLE SOIT UNE SER
 
     </div>
 
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-4">
+
+        <hr class="divider">
+
+        @retour(['route' => 'laboratoire'])
+
+      </div>
+
+    </div>
+
   </div>
 
 @endsection

@@ -23,4 +23,5 @@ return array (
   'actes' => 'liste des actes',
   'traduction' => 'traductions',
   'blog_add' => "Ajouter / modifier un article",
+  'saisie_resultats' => "Saisie des résultats",
 );

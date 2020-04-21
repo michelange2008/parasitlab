@@ -21,6 +21,7 @@ return array (
   'date_reception' => 'Reçue le',
   'achevee' => 'Terminée',
   'signee' => 'Signée',
+  'envoyee' => "Envoyée",
   'facturee' => 'Facturée',
   'dest' => 'Nom du destinataire',
   'date_faite' => 'Date',

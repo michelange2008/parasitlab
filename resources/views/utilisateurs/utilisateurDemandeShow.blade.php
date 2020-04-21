@@ -57,7 +57,7 @@
 
         @endif
 
-        @retour(['url' => url('/personnel')])
+        @retour(['route' => 'routeurPersonnel'])
 
       </div>
 

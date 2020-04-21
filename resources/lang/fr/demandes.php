@@ -17,4 +17,7 @@ return array (
   'serie_def' => 'Une série est une succession d\'analyses sur les mêmes animaux ou lots d\'animaux, visant à évaluer une évolution de l\'infestation parasitaire.',
   'serie_exemple' => 'Les suivis de campagne et les tests de résistance sont des exemples de séries.',
   'analyse_infos' => "Informations sur l'analyse",
+  'resend_results' => "Renvoyer les résultats",
+  'resend_eleveur' => "Renvoyer les résultats à l'éleveur",
+  'resend_veto' => "Renvoyer les résultats au vétérinaire",
 );
