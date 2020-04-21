@@ -24,7 +24,7 @@
       </div>
     </noscript>
 
-    @include('cookieConsent::index')
+    {{-- @include('cookieConsent::index') --}}
 
     @include('extranet.accueil.accueil_carousel')
 

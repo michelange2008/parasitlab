@@ -16,7 +16,7 @@
 
   </div>
   <hr class="divider">
-  <h3>Identifiants de connexion</h3>
+  <h3>@lang('mails.envoiInfosConnexion.login_mdp')</h3>
   <ul>
 
     <li>Login&nbsp;:&nbsp;{{ $user->email }}</li>
