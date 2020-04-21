@@ -69,7 +69,7 @@ class AnalysesController extends Controller
         'menu' => $this->menu,
         'route' => 'analyses.interpretation',
         'analysesProgress' => $this->litJson('analysesProgress'),
-        'interpreter' => $this->litJson('interpreter'),
+        'interpreter' => $this->litJson('interpretation'),
       ]);
     }
 

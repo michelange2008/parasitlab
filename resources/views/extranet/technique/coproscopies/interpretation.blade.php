@@ -35,17 +35,16 @@
           @foreach ($interpreter as $element)
             <li class="media mb-4">
 
-              <img class="mr-3" src="{{url('storage/img/image_test.jpg')}}" alt="image">
+              <img class="img-200 mr-3" src="{{url('storage/img/'.'/'.$element->image)}}" alt="image">
 
               <div class="media-body">
 
-                <h4 class="mt-0">{!! $element->titre !!}</h4>
+                <h4 class="mt-0">@lang($element->lang.'titre')</h4>
 
-                @foreach ($element->texte as $texte)
+                <p>@lang($element->lang.'p1')</p>
+                <p>@lang($element->lang.'p2')</p>
+                <p>@lang($element->lang.'p3')</p>
 
-                  <p>{!! $texte !!}</p>
-
-                @endforeach
               </div>
 
             </li>
