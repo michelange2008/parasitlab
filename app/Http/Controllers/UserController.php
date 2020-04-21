@@ -93,7 +93,7 @@ class UserController extends Controller
 
         $nouvel_user->usertype_id = $datas['usertype'];
       }
-      else { // cas de la création d'un utilisateur paticulier au départ: éleveur, veto ou labo
+      else { // cas de la création d'un utilisateur particulier au départ: éleveur, veto ou labo
 
         $nouvel_user->usertype_id = session('usertype')->id; // on utilise la variable de SESSION
 

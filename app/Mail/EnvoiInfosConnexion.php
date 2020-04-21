@@ -6,12 +6,14 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Http\Traits\UserTypeOutil;
 
 class EnvoiInfosConnexion extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable, SerializesModels, UserTypeOutil;
 
-    public $user;
+    protected $user;
+
 
     /**
      * Create a new message instance.
@@ -30,9 +32,13 @@ class EnvoiInfosConnexion extends Mailable
      */
     public function build()
     {
+      $estVeto = $this->estVeto($this->user->usertype_id);
+
+      $estEleveur = $this->estEleveur($this->user->usertype_id);
+
         return $this->from(config('laboInfos.email_contact'))
                     ->subject('Informations de connexion')
                     ->view('mails.envoiInfosConnexion')
-                    ->with(['user' => $this->user]);
+                    ->with(['user' => $this->user, 'estVeto' => $estVeto, 'estEleveur' => $estEleveur]);
     }
 }

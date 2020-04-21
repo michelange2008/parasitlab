@@ -138,7 +138,7 @@ class EleveurAdminController extends Controller
 
           session(['user' => $nouvel_user]); // On rajoute le nouvel user en session pour qu'il soit choisi par défaut dans la liste déroulante
 
-          return redirect()->route('demandes.create'); // Et on renvoie au forulaire de création d'une nouvelle demande
+          return redirect()->route('demandes.create'); // Et on renvoie au formulaire de création d'une nouvelle demande
 
         // sinon on peut revenir à la route de retour
         } else {
