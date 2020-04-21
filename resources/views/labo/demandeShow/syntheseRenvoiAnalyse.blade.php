@@ -3,22 +3,22 @@
 
     <thead class="alert-bleu">
       <tr>
-        <th colspan="2">Renvoyer les résultats</th>
+        <th colspan="2">@lang('demandes.resend_results')</th>
       </tr>
     </thead>
 
     <tbody>
       <tr>
         <td><small>{{ $demande->user->name }}</small></td>
-        <td class="a-envoyer" destinataire="{{ $demande->user_id }}">
-          @include('labo.demandeShow.syntheseRenvoi', ['tooltip' => "Renvoyer les résultats à l'éleveur"])
+        <td class="a-envoyer" destinataire="{{ $demande->user_id }}" type="single">
+          @include('labo.demandeShow.syntheseRenvoi', ['tooltip' => __('demandes.resend_eleveur')])
         </td>
       </tr>
       @if ($demande->toveto)
         <tr>
           <td>{{ $demande->veto->user->name }}</td>
-          <td class="a-envoyer" destinataire="{{ $demande->veto->user->id }}">
-            @include('labo.demandeShow.syntheseRenvoi', ['tooltip' => "Renvoyer les résultats au vétérinaire"])
+          <td class="a-envoyer" destinataire="{{ $demande->veto->user->id }}" type="single">
+            @include('labo.demandeShow.syntheseRenvoi', ['tooltip' => __('demandes.resend_veto')])
           </td>
         </tr>
       @endif

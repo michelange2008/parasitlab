@@ -91,7 +91,7 @@
 
     <div class="col-md-10 d-flex justify-content-end">
 
-      @retour(['url' => url('laboratoire/factures')])
+      @retour(['route' => 'factures.index'])
 
     </div>
 

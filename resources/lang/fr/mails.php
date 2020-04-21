@@ -9,8 +9,9 @@ return array (
   ),
   'envoiRésultats' =>
   array (
-    'intro' => "Vous trouverez ci-joint les résultats de votre demande d'analyse reçue le :date_reception qui concernait",
+    'intro' => "Vous trouverez ci-joint les résultats de votre demande d'analyse reçue le :date_reception qui concernait:",
     'suite' => "Vous pouvez aussi consulter ces résultats en vous connectant sur votre espace personnel sur le site :site
       et en utilisant votre adresse mail comme login ainsi que le mot de passe qui vous a été envoyé précédemment.",
+    'question' => "Pour toute question n'hésitez pas à nous contacter.",
   ),
 );

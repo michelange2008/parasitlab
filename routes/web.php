@@ -15,6 +15,8 @@
 //##############################################################################
 // MENU ACCUEIL
 
+  Route::get('/home', ['uses' => 'AccueilController@accueil', 'as' => 'home']);
+
   Route::get('/', ['uses' => 'AccueilController@accueil', 'as' => 'accueil']);
 
   Route::get('/vétérinaires', ['uses' => 'AccueilController@veterinaires', 'as' => 'veterinaires.accueil']);
@@ -121,6 +123,8 @@
     route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
 
     route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');
+
+    route::get('envoyer_tous/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultatsTous')->name('mail.envoyerResultatsTous');
 
     Route::resource('user', 'UserController');
 

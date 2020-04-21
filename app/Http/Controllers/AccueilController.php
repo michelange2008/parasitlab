@@ -31,6 +31,7 @@ class AccueilController extends Controller
 
     public function accueil()
     {
+
       return view('extranet.accueil', [
         'menu' => $this->menu,
         'accueilEntetes' => $this->litJson('accueilEntetes'),

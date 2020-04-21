@@ -86,4 +86,7 @@
   'font awesome 5 free' => array(
     '900' => $fontDir . '/font-awesome-5-free-900_7186fe25fad749e3889f602c50fbdf3a',
   ),
+  'font awesome\\ 5 free' => array(
+    '900' => $fontDir . '/font-awesome-5-free-900_7186fe25fad749e3889f602c50fbdf3a',
+  ),
 ) ?>

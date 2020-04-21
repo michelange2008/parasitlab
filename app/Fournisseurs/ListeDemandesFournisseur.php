@@ -57,6 +57,8 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $signe = $this->ouinonFactory($demande->id, $demande->signe);
 
+      $envoyee = ($demande->date_envoi === null) ? $this->ouinonFactory($demande->id, false) :$this->ouinonFactory($demande->id, true);
+
       $facturee = $this->ouinonFactory($demande->id, $demande->facturee);
 
       if ($demande->facturee) {
@@ -82,6 +84,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
         $reception,
         $terminee,
         $signe,
+        $envoyee,
         $facturee,
         $facture_id,
         $suppr,

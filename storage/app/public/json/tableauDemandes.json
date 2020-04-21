@@ -56,6 +56,12 @@
       "align" : "center",
       "sortable" : true
     },
+    "envoyee" : {
+      "id" : "envoyee",
+      "nom" : "tableaux.envoyee",
+      "align" : "center",
+      "sortable" : true
+    },
     "facturee" : {
       "id" : "facturee",
       "nom" : "tableaux.facturee",
