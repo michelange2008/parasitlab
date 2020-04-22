@@ -40,7 +40,7 @@ class ActeController extends Controller
 
         $fournisseur = new ListeActesFournisseur();
 
-        $datas = $fournisseur->renvoieDatas($actes, "Actes", 'acte.svg', 'tableauActes', 'acte.create', "Ajouter un acte");
+        $datas = $fournisseur->renvoieDatas($actes, __('titres.list_actes'), 'acte.svg', 'tableauActes', 'acte.create', __('boutons.add_acte'));
 
         return view('labo.actes', [
           'menu' => $this->menu,

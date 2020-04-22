@@ -1,6 +1,16 @@
 <?php
 
 return array (
+  'add' => "Ajouter",
+  'add_analyse' => "Ajouter une nouvelle analyse",
+  'add_anaacte' => "Ajouter un nouvel acte",
+  'add_acte' => "Ajouter un acte",
+  'add_type' => "Ajouter un nouvel type",
+  'add_eleveur' => "Ajouter un éleveur",
+  'add_vet' => "Ajouter un vétérinaire",
+  'add_user' => "Ajouter un nouvel utilisateur",
+  'add_demande' => "Ajouter une demande d'analyse",
+
   'facture_add' => 'Ajouter une facture',
   'facturer' => 'Facturer',
   'save' => 'Enregistrer',

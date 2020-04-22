@@ -32,7 +32,7 @@ class AnatypeController extends Controller
 
       $fournisseur = new ListeAnaTypesFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($anatypes, "Liste des types d'analyses proposées", "acte.svg", 'tableauAnatypes', 'anatypes.create', "Ajouter un nouvel type");
+      $datas = $fournisseur->renvoieDatas($anatypes, __('titres.list_types'), "acte.svg", 'tableauAnatypes', 'anatypes.create', __('boutons.add_type'));
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,

@@ -7,18 +7,19 @@ use Illuminate\Http\Request;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\SerieInfos;
+use App\Http\Traits\VetoInfos;
 
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
+use App\User;
 
 use App\Fournisseurs\ListeDemandesVetoFournisseur;
-
 
 
 class VeterinaireController extends Controller
 {
 
-  use LitJson, SerieInfos, DemandeFactory {
+  use LitJson, VetoInfos, SerieInfos, DemandeFactory {
       DemandeFactory::dateSortable insteadof SerieInfos;
       DemandeFactory::dateReadable insteadof SerieInfos;
   }
@@ -46,7 +47,7 @@ class VeterinaireController extends Controller
 
       $fournisseur = new ListeDemandesVetoFournisseur();
 
-      $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesVeto', 'demandes.create', "Ajouter une demande d'analyse");
+      $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandesVeto', 'demandes.create', __('boutons.add_demande'));
 
       return view('utilisateurs.index', [
         'menu' => $this->menu,
@@ -54,6 +55,19 @@ class VeterinaireController extends Controller
         'datas' => $datas,
       ]);
 
+    }
+
+    public function show($id)
+    {
+      $user = User::find($id);
+
+      $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
+
+      return view('utilisateurs.vetos.vetoShow', [
+        'menu' => $this->menu,
+        'user' => $user,
+        'vetoInfos' => $vetoInfos,
+      ]);
     }
 
     public function demandeShow($demande_id)

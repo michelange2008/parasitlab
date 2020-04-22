@@ -37,7 +37,7 @@ class EleveurController extends Controller
       $fournisseur = new ListeDemandesEleveurFournisseur();
 
       //methode renvoieDatas($liste_origine, $titre, $icone, $fichier_intitules, $addRoute = route du bouton au dessus du tableau peut être null, $addTitre = titre de ce bouton peut être null) de ListeFournisseur (classe abstraite dont dérive ListeDemandesEleveurFournisseur)
-      $datas = $fournisseur->renvoieDatas($demandes, "demandes_analyses", 'demandes.svg', 'tableauDemandesEleveur');
+      $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandesEleveur');
 
       return view('utilisateurs.index', [
         "menu" => $this->menu,

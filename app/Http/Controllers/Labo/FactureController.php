@@ -58,7 +58,7 @@ class FactureController extends Controller
 
       $fournisseur = new ListeFacturesFournisseur();
       // methode de ListeFournisseur (classe abstraite) : données du tableau, titre du tableau, icone du titre, nom du json avec les entetes de colonne, route du bouton, intitulé du bouton
-      $datas = $fournisseur->renvoieDatas($factures, __('titres.liste_factures'), "factures.svg", 'tableauFactures', 'factures.etablir', __('boutons.facture_add'));
+      $datas = $fournisseur->renvoieDatas($factures, __('titres.list_factures'), "factures.svg", 'tableauFactures', 'factures.etablir', __('boutons.facture_add'));
 
       $tableau_vide = 'factures.zero_facture';
 

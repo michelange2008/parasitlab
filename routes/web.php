@@ -79,9 +79,12 @@
 
   });
 
+  // Page perso vétérinaires
   Route::group(['middleware' => 'auth', 'middleware' => 'veto'], function() {
 
     Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
+
+    Route::get('/veterinaire/{id}', 'VeterinaireController@show')->name('veterinaire.show');
 
     Route::get('/veterinaire/demande/{demande_id}', 'VeterinaireController@demandeShow')->name('veto.demandeShow');
 

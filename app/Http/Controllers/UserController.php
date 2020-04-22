@@ -42,7 +42,7 @@ class UserController extends Controller
 
       $fournisseur = new ListeUsersFournisseur();
 
-      $datas = $fournisseur->renvoieDatas($users, "Listes des utilisateurs", "users.svg", 'tableauUsers', 'user.create', "Ajouter un nouvel utilisateur");
+      $datas = $fournisseur->renvoieDatas($users, __('titres.list_users'), "users.svg", 'tableauUsers', 'user.create', __('boutons.add_user'));
 
         return view('admin.index.pageIndex', [
           'menu' => $this->menu,
