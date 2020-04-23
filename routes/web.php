@@ -86,6 +86,8 @@
 
     Route::get('/veterinaire/{id}', 'VeterinaireController@show')->name('veterinaire.show');
 
+    Route::post('/veterinaire', 'VeterinaireController@update')->name('veterinaire.update');
+
     Route::get('/veterinaire/demande/{demande_id}', 'VeterinaireController@demandeShow')->name('veto.demandeShow');
 
     Route::get('/veterinaire/serie/{serie_id}', 'VeterinaireController@serieShow')->name('veto.serieShow');

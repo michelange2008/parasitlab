@@ -34,4 +34,5 @@ return array (
   'traduction' => 'Traductions',
   'blog_add' => "Ajouter / modifier un article",
   'saisie_resultats' => "Saisie des résultats",
+  'veterinaire_mesinfos' => "Voir et modifier les informations de mon compte",
 );

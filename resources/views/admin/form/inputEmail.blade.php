@@ -1,6 +1,6 @@
 {{-- <label class="col-sm-3 col-form-label" for="email">Adresse  mail</label> --}}
 
-<div class="input-group">
+<div class="input-group my-2">
 
   <span class="input-group-text" id="prepend_email">@</span>
 

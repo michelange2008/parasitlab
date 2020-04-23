@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'nom' => 'nom',
+  'nom' => 'Nom',
   'email' => 'Adresse mail',
   'address_1' => 'adresse',
   'address_2' => 'complément d\'adresse',
@@ -22,7 +22,8 @@ return array (
   'signataire' => 'signataire',
   'choose_picture' => 'Choisissez une image (type jpg ou png)',
   'placeholder_tel' => 'numéro de téléphone (10 chiffres si vous êtes en France)',
-  'champs_obligatoire_lettres_chiffres' => 'Ce champs est facultatif mais ne doit contenir que des lettres et de chiffres',
+  'champs_obligatoire_lettres_chiffres' => "Ce champs est obligatoire et ne doit contenir que des lettres et de chiffres",
+  'champs_facultatif_lettres_chiffres' => 'Ce champs est facultatif mais ne doit contenir que des lettres et de chiffres',
   'champs_obligatoire_lettres' => 'Ce champs est obligatoire et ne doit comporter que des lettres',
   'champs_obligatoire_chiffres' => 'Ce champs est obligatoire et ne doit contenir que des chiffres',
   'champs_chiffres_max_3' => 'Ce champs ne doit comporter que des chiffres et pas plus de 3',

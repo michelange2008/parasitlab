@@ -36,7 +36,7 @@
   </div>
 
   @error('address_2')
-      <div class="invalid">@lang('form.champs_obligatoire_lettres_chiffres')</div>
+      <div class="invalid">@lang('form.champs_facultatif_lettres_chiffres')</div>
   @enderror
 
 </div>
@@ -82,7 +82,7 @@
 
 </div>
 
-  <select class="form-control" name="pays">
+  <select id='liste_pays' class="form-control" name="pays">
 
     @isset($personne->pays) {{-- Cas où c'est une modification --}}
 

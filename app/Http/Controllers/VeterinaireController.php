@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\VetoStore;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\DemandeFactory;
@@ -57,6 +59,32 @@ class VeterinaireController extends Controller
 
     }
 
+    public function update(VetoStore $request)
+    {
+      $datas = $request->validated();
+
+      $user = DB::table('users')->where('id', $datas['id'])
+          ->update([
+            'name' => $datas['name'],
+            'email' => $datas['email']
+          ]);
+
+      $veto = DB::table('vetos')->where('user_id', $datas['id'])
+          ->update([
+            'num' => $datas['num'],
+            'address_1' => $datas['address_1'],
+            'address_2' => $datas['address_2'],
+            'cp' => $datas['cp'],
+            'commune' => $datas['commune'],
+            'pays' => $datas['pays'],
+            'indicatif' => $datas['indicatif'],
+            'tel' => $datas['tel'],
+          ]);
+
+
+      return $user + $veto;
+    }
+
     public function show($id)
     {
       $user = User::find($id);
@@ -68,6 +96,7 @@ class VeterinaireController extends Controller
         'user' => $user,
         'vetoInfos' => $vetoInfos,
         'personne' => $user->veto,
+        'pays' => $this->litJson('pays'),
       ]);
     }
 

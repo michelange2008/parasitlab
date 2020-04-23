@@ -21,6 +21,8 @@ return array (
   'teleTarifs' => 'Télécharger le tarifs',
   'choisirAnalyse' => 'Quelle analyse choisir&nbsp;?',
   'voirmodif' => "Voir/modifier",
+  'voirmodif_infos_perso' => "Voir/modifier mes informations",
+  'retour_analyses' => "Retour à liste des analyses",
   'continuer' => "Continuer",
   'modifier' => "Modifier",
   'del' => "Supprimer",

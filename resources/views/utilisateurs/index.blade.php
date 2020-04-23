@@ -10,16 +10,17 @@
 
   <div class="container-fluid">
 
-    <div class="col-lg-3 bd-sidebar">
-
-      @include('utilisateurs.pagePerso')
-
-    </div>
-
     <div class="row my-3 justify-content-end">
 
+      <div class="col-md-3">
 
-      <div class="col-lg-9">
+        @include('utilisateurs.pagePerso')
+
+        @include('utilisateurs.vetos.boutonModifInfos')
+
+      </div>
+
+      <div class="col-md-9">
 
         @include('admin.index.index')
 
