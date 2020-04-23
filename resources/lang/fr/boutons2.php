@@ -9,6 +9,7 @@ return array (
   'annule' => 'Annuler',
   'teleTarifs' => 'Télécharger le tarifs',
   'choisirAnalyse' => 'Quelle analyse choisir&nbsp;?',
+<<<<<<< HEAD
   'voirmodif' => 'Voir/modifier',
   'continuer' => 'Continuer',
   'modifier' => 'Modifier',
@@ -27,4 +28,16 @@ return array (
   'send' => 'Envoyer',
   'sent' => 'envoyé',
   'demande_date_envoi' => 'Cette demande a été envoyée le :date_envoi',
+=======
+  'voirmodif' => "Voir/modifier",
+  'voirmodif_infos_perso' => "Voir/modifier mes informations",
+  'retour_analyses' => "Retour à liste des analyses",
+  'continuer' => "Continuer",
+  'modifier' => "Modifier",
+  'del' => "Supprimer",
+  'saisie_modif_result' => "Saisie/Modification des résultats",
+  'send' => "Envoyer",
+  'sent' => "envoyé",
+  'demande_date_envoi' => "Cette demande a été envoyée le :date_envoi",
+>>>>>>> 4570f9c7266e736f4802216b9a8f2f914c38375e
 );

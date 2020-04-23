@@ -26,4 +26,5 @@
   </p>
 
   <p class="d-none d-lg-block text-right"><i>@lang('commun.signature')</i></p>
+
 </div>

@@ -8,5 +8,5 @@ return array (
   'analyseproposees' => 'Voici les analyses proposées&nbsp;:',
   'fill_form' => 'Remplir le formulaire',
   'analyse_prop_une' => 'Nous vous proposons l\'analyse suivante&nbsp;:',
-  'analyse_prop_deux' => 'Deux analyses différentes peuvent être réalisées&nbsp;:',
+  'analyse_prop_deux' => 'Deux analyses différentes peuvent vous être suggérées&nbsp;:',
 );

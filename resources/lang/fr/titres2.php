@@ -18,6 +18,7 @@ return array (
   'factures' => 'Factures à établir',
   'liste_factures' => 'Liste de factures',
   'facture_create' => 'Etablissement d\'une facture',
+<<<<<<< HEAD
   'demandes_analyses' => 'Liste des demandes d\'analyse',
   'actes' => 'liste des actes',
   'traduction' => 'traductions',
@@ -35,4 +36,10 @@ return array (
   'list_labo' => 'Membres du laboratoire',
   'site_title' => 'Parasit\'Lab',
   'saisie_resultats' => 'Saisie des résultats',
+=======
+  'traduction' => 'Traductions',
+  'blog_add' => "Ajouter / modifier un article",
+  'saisie_resultats' => "Saisie des résultats",
+  'veterinaire_mesinfos' => "Voir et modifier les informations de mon compte",
+>>>>>>> 4570f9c7266e736f4802216b9a8f2f914c38375e
 );
