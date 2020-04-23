@@ -1,0 +1,33 @@
+<?php
+
+return array (
+  'add' => "Ajouter",
+  'add_analyse' => "Ajouter une nouvelle analyse",
+  'add_anaacte' => "Ajouter un nouvel acte",
+  'add_acte' => "Ajouter un acte",
+  'add_type' => "Ajouter un nouvel type",
+  'add_eleveur' => "Ajouter un éleveur",
+  'add_vet' => "Ajouter un vétérinaire",
+  'add_user' => "Ajouter un nouvel utilisateur",
+  'add_demande' => "Ajouter une demande d'analyse",
+
+  'facture_add' => 'Ajouter une facture',
+  'facturer' => 'Facturer',
+  'save' => 'Enregistrer',
+  'show_pdf' => 'Afficher le pdf',
+  'retour' => 'Retour',
+  'retour_accueil' => "Retour à l'accueil",
+  'annule' => 'Annuler',
+  'teleTarifs' => 'Télécharger le tarifs',
+  'choisirAnalyse' => 'Quelle analyse choisir&nbsp;?',
+  'voirmodif' => "Voir/modifier",
+  'voirmodif_infos_perso' => "Voir/modifier mes informations",
+  'retour_analyses' => "Retour à liste des analyses",
+  'continuer' => "Continuer",
+  'modifier' => "Modifier",
+  'del' => "Supprimer",
+  'saisie_modif_result' => "Saisie/Modification des résultats",
+  'send' => "Envoyer",
+  'sent' => "envoyé",
+  'demande_date_envoi' => "Cette demande a été envoyée le :date_envoi",
+);
