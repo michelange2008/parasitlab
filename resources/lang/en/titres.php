@@ -1,6 +1,7 @@
 <?php
 
 return array (
+
   'site_title' => 'Parasit\'Lab - Appréhender la complexité du vivant',
   'cavaliers' => 'cavalières et propriétaires de chevaux ou d\'ânes',
   'copros' => 'Pourquoi des coproscopies&nbsp;?',
@@ -9,7 +10,7 @@ return array (
   'tarifs' => 'Analyses proposées et tarifs',
   'formulaireDemande' => 'Création d\'un formulaire de demande d\'analyse',
   'enpratique' => 'Comment prélever et envoyer dans les meilleures conditions&nbsp;?',
-  'parasitisme' => 
+  'parasitisme' =>
   array (
     'titre' => 'Parasit\'Lab Infos&nbsp;: ',
     'soustitre' => 'Des réponses à vos questions sur le parasitisme',
@@ -21,4 +22,5 @@ return array (
   'facture_create' => 'Etablissement d\'une facture',
   'demandes_analyses' => 'Liste des demandes d\'analyse',
   'actes' => 'liste des actes',
+  
 );
