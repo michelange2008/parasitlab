@@ -63,10 +63,11 @@ class VeterinaireController extends Controller
 
       $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
 
-      return view('utilisateurs.vetos.vetoShow', [
+      return view('utilisateurs.vetos.veterinaireShow', [
         'menu' => $this->menu,
         'user' => $user,
         'vetoInfos' => $vetoInfos,
+        'personne' => $user->veto,
       ]);
     }
 

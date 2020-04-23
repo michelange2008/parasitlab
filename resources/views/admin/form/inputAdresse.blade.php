@@ -17,7 +17,7 @@
   </div>
 
   @error('address_1')
-      <div class="invalid">@lang('form.champs_obligatoire_lettres_chiffres')/div>
+      <div class="invalid">@lang('form.champs_obligatoire_lettres_chiffres')</div>
   @enderror
 
 
