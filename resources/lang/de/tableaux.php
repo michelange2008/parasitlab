@@ -37,5 +37,4 @@ return array (
   'del' => 'Suppr.',
   'Id' => 'Id',
   'vide' => 'Le tableau est vide',
-  'envoyee' => 'Envoyée',
 );

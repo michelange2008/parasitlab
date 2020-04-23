@@ -53,5 +53,4 @@ return array (
   'faire_choix' => 'Faire un choix si besoin',
   'etat_prelev' => 'Etat du prélèvement',
   'identif_prelev' => 'Identification du prélèvement n°:num',
-  'estFinie' => 'Analyse terminée (décocher si ce n\'est pas le cas)',
 );

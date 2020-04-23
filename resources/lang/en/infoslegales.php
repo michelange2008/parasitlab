@@ -13,7 +13,7 @@ return array (
 150 avenue de Judée
 F-26400 Eurre',
       'p3' => '<i>Téléphone&nbsp;:</i> +33 (0) 4 75 25 41 ',
-      'p4' => '<i>Directeur de la publication&nbsp;!:</i> Félix Heckendorn - Parasitologue',
+      'p4' => '<i>Directeur de la publication&nbsp!:</i> Félix Heckendorn - Parasitologue',
       'p5' => '<i>Co-directeur de la publication&nbsp;:</i> Michel BOUY - Vétérinaire',
     ),
   ),

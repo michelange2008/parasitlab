@@ -81,9 +81,4 @@ return array (
       'tooltip' => 'Ajouter, modifier, supprimer des packs',
     ),
   ),
-  'item_7' => 
-  array (
-    'nom' => 'Traductions',
-    'tooltip' => 'Accès à l\'outil de traduction',
-  ),
 );
