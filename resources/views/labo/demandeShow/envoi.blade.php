@@ -1,29 +1,34 @@
 {{-- les attributs demande et destinataire sont des informations destinées à la fonction ajax dans envoi.js --}}
 
 {{-- CETTE LIGNE CI-DESSOUS SONT UNIQUEMENT DESTINEES A L'AFFICHAGE PAR JQUERY (envoi.js) --}}
-<div id="a-envoyer-jq" demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" type="all" class="btn btn-lg btn-rouge a-envoyer" style="display:none">@lang('boutons.send')</div>
+{{-- <div id="a-envoyer-jq" demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" type="all" class="btn btn-lg btn-rouge a-envoyer" style="display:none">@lang('boutons.send')</div>
 
 <div id="envoye-jq" class="icone-cadre" title="@lang('boutons.demande_date_envoi', ['date_envoi' => $demande->date_envoi])" style="display:none" >
 
   <img class="img-40 d-block" src="{!! url('storage/img/icones/envoye.svg') !!}" alt="@lang('boutons.sent')">
 
-</div>
+</div> --}}
 
 {{-- ######################################################################################### --}}
 
-@if($demande->signe && $demande->date_envoi === null)
+{{-- @if($demande->signe && $demande->date_envoi === null) --}}
 
-  <div id="a-envoyer" demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" type="all" class="btn btn-lg btn-rouge a-envoyer">@lang('boutons.send')</div>
+  <div id="a-envoyer" demande="{{ $demande->id }}"
+        destinataire="{{ $demande->user_id }}"
+        type="all" class="btn btn-lg btn-rouge a-envoyer"
+        style="display:none">
+    @lang('boutons.send')
+  </div>
 
-@elseif ($demande->signe && $demande->date_envoi !== null)
+{{-- @elseif ($demande->signe && $demande->date_envoi !== null) --}}
 
-  <div id="envoye" class="icone-cadre" title="@lang('boutons.demande_date_envoi', ['date_envoi' => $demande->date_envoi])">
+  <div id="envoye" class="icone-cadre" title="@lang('boutons.demande_date_envoi', ['date_envoi' => $demande->date_envoi])" style="display:none">
 
     <img class="img-40 d-block" src="{!! url('storage/img/icones/envoye.svg') !!}" alt="@lang('boutons.sent')">
 
   </div>
 
-@endif
+{{-- @endif --}}
 
 {{-- PETITES BOULES QUI S'AGITENT LE TEMPS QUE LE MAIL S'ENVOIE --}}
 <div id="envoi-spinner" style="display:none">

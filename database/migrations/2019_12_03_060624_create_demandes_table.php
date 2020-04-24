@@ -48,6 +48,7 @@ class CreateDemandesTable extends Migration
             $table->timestamp('date_reception')->nullable();
             $table->timestamp('date_resultat')->nullable();
             $table->timestamp('date_envoi')->nullable();
+            $table->boolean('envoye')->default(false);
 
 
             $table->timestamp('date_signature')->nullable();

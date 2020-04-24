@@ -1,5 +1,6 @@
 <!-- INFORMATIONS SUR L'ANALYSE-->
-<div class="card">
+<div id="demande" class="card" acheve="{{ $demande->acheve }}" signe="{{ $demande->signe }}" envoye="{{ $demande->envoye }}" >
+
   <div class="card-header">
 
     @include('labo.demandeShow.titreDemande')
@@ -29,7 +30,7 @@
       'titre' => __('demandes.analyse_infos'),
       'icone' => 'info_blanc.svg',
       'tooltip' => __('tooltips.affiche_detail_demande'),
-      'collapse' => "demande",
+      'collapse' => "demande_detail",
       'detail' => true,
     ])
 
@@ -44,6 +45,20 @@
     @include('labo.resultatsAnalyse')
 
   @endif
+
+  </div>
+
+  <div id="affiche_pdf" class="m-2" style="display:none">
+
+      @bouton([
+        'type' => 'route',
+        'route' => 'resultatPdf',
+        'id' => $demande->id,
+        'couleur' => "btn-rouge",
+        'fa' => 'fas fa-file-pdf',
+        'intitule' => __('boutons.show_pdf'),
+        'target' => '_blank',
+      ])
 
   </div>
 

@@ -1,4 +1,4 @@
-<div class="collapse @if(!$demande->acheve) show @endif " id="demande" aria-expanded="true">
+<div class="collapse @if(!$demande->acheve) show @endif " id="demande_detail" aria-expanded="true">
   <div class="card card-body">
 
     <div class="row my-3">
@@ -11,7 +11,7 @@
 
           <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-start">
 
-            <h5 class="card-title mx-3">Analyse</h5>
+            <h5 class="card-title mx-3">@lang('demandes.analyse')</h5>
 
           </div>
 
@@ -33,7 +33,7 @@
 
           <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-start">
 
-            <h5 class="card-title mx-3">Facture</h5>
+            <h5 class="card-title mx-3">@lang('factures.facture')</h5>
 
           </div>
 

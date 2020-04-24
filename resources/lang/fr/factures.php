@@ -13,4 +13,5 @@ return array (
   'acte' => 'Acte',
   'reglee' => 'Facture réglée le :date par :mode',
   'reglementDel' => 'Supprimer le règlement',
+  'facture' => "Facture",
 );

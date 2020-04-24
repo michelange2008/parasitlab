@@ -48,6 +48,7 @@ class EnvoisController
       DB::table('demandes')->where('id', $demande_id)->update([
 
         'date_envoi' => \Carbon\Carbon::now(),
+        'envoye' => true,
 
       ]);
 

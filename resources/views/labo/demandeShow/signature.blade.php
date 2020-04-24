@@ -1,22 +1,21 @@
-@if (auth()->user()->labo->est_signataire && !$demande->signe)
+@if (auth()->user()->labo->est_signataire)
 
-    <a id="a-signer" attribut="{{ $demande->id }}" class="mx-3 btn btn-lg btn-rouge" href="{{ route('demande.signer', $demande->id )}}">Signer</a>
+    <a id="a-signer" attribut="{{ $demande->id }}"
+          class="mx-3 btn btn-lg btn-rouge"
+          href="{{ route('demande.signer', $demande->id )}}"
+          style="display:none">
 
-    <div id="signe-jq" style="display:none" class="icone-cadre mx-3">
+        @lang('boutons.signer')
 
-      <img class="img-40 d-block" src="{{ url('storage/img/icones/signature.svg')}}" alt="signé" title="Cette demande a été signée le {{ $demande->date_signature }}">
+    </a>
+
+@endif
+
+    <div id="signe" class="icone-cadre mx-3" style="display:none">
+
+      <img class="img-40 d-block"
+            src="{{ url('storage/img/icones/signature.svg')}}"
+            alt="signé"
+            title="@lang('tooltips.demande_signe', ['date_signature' => $demande->date_signature, 'signataire' => $demande->labo->user->name ?? '']) ">
 
     </div>
-
-
-@endif
-
-@if ($demande->signe)
-
-  <div class="icone-cadre mx-3" title="Cette demande a été signée le {{ $demande->date_signature }}">
-
-    <img class="img-40 d-block" src="{{ url('storage/img/icones/signature.svg') }}" alt="signé">
-
-  </div>
-
-@endif

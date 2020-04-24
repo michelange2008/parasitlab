@@ -8,7 +8,7 @@ require( './bootstrap-table-locale-all.js');
 
 require( './createUser.js');
 require( './createDemande.js');
-require( './signe.js');
+require( './demandeShow.js');
 require( './envoi.js');
 require( './choisir.js');
 require( './nbPrelevement.js');

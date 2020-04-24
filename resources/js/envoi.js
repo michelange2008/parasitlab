@@ -29,9 +29,6 @@ console.log(type);
         btnClass : 'btn-success',
         action : function() {
           $('#envoi-spinner').fadeIn();
-          $('#a-envoyer').hide();
-          $('#a-envoyer-jq').hide();
-          $('#envoye').fadeOut();
 
           $.get({
 
@@ -53,11 +50,12 @@ console.log(type);
                 }
               }
             });
-            $('#envoye-jq').fadeIn();
+            $('#a-envoyer').hide();
+            $('#envoye').fadeIn();
           })
           .fail(function(data) {
             $('#envoi-spinner').hide();
-            $('#envoye-jq').hide();
+            $('#envoye').hide();
             $('#a-envoyer').show();
             alertProblem();
           });
