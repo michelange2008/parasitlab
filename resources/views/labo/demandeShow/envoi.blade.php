@@ -1,7 +1,7 @@
 {{-- les attributs demande et destinataire sont des informations destinées à la fonction ajax dans envoi.js --}}
 
 {{-- CETTE LIGNE CI-DESSOUS SONT UNIQUEMENT DESTINEES A L'AFFICHAGE PAR JQUERY (envoi.js) --}}
-<div id="a-envoyer" demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" type="all" class="btn btn-lg btn-rouge a-envoyer" style="display:none">@lang('boutons.send')</div>
+<div id="a-envoyer-jq" demande="{{ $demande->id }}" destinataire="{{ $demande->user_id }}" type="all" class="btn btn-lg btn-rouge a-envoyer" style="display:none">@lang('boutons.send')</div>
 
 <div id="envoye-jq" class="icone-cadre" title="@lang('boutons.demande_date_envoi', ['date_envoi' => $demande->date_envoi])" style="display:none" >
 

@@ -22,8 +22,10 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
   Route::get('/observations/{espece_id}', ['uses' => 'Api\DonneesController@observationSelonEspece']);
-  
+
   // Requete ajax pour sélectionner les options et analyses dans la procédure de choix des analyses
   Route::post('/options', ['uses' => 'Api\DonneesController@options', 'as' => 'api.options']);
+
+  Route::get('/anaactes/{anatype_id}/{espece}', ['uses' => 'Api\DonneesController@anaacteSelonAnatypeEspece']);
 
 });

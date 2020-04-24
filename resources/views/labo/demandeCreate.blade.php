@@ -10,11 +10,11 @@
 
 <div class="container-fluid">
 
-  <div class="row">
+  <div class="row my-3">
 
     <div class="col-md-10 mx-auto">
 
-      @include('admin.titreCreationDemande')
+      @titre(['titre' => __('titres.nouvelle_demande'), 'icone' => 'demandes.svg'])
 
     </div>
 

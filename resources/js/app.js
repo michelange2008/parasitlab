@@ -16,6 +16,7 @@ require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
 require( './veterinaire_modif.js');
+require( './nouvelleDemande');
 
 require( 'jquery-confirm' );
 

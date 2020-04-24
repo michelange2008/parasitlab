@@ -104,4 +104,16 @@ public function options(Request $request)
 
   }
 
+  public function anaacteSelonAnatypeEspece($anatype_id, $espece)
+  {
+    $espece_choisie = Espece::where('nom', '=', $espece)->first();
+
+    $anaactes = DB::table('anaactes')
+                ->where('anaactes.anatype_id', '=', $anatype_id)
+                ->join('anaacte_espece', 'anaacte_espece.anaacte_id', '=', 'anaactes.id')
+                ->where('anaacte_espece.espece_id', '=' , $espece_choisie->id)->get();
+
+    return json_encode($anaactes);
+  }
+
 }

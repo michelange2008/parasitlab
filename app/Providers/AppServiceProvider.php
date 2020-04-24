@@ -41,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('fragments.titre', 'titre');
       Blade::include('admin.titreCreationUser', 'titreCreationUser');
 
+      Blade::include('fragments.image', 'image');
+
       Blade::include('fragments.bouton', 'bouton');
       Blade::include('fragments.boutonSavoirPlus', 'boutonSavoirPlus');
       Blade::include('fragments.boutonRetour', 'retour');

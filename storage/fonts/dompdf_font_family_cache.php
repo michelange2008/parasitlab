@@ -84,9 +84,6 @@
     'normal' => $fontDir . '/nunito-normal_176125b1b6dc4704cbf0390040859779',
   ),
   'font awesome 5 free' => array(
-    '900' => $fontDir . '/font-awesome-5-free-900_da83a1795c45482345722831c5ccd0fb',
-  ),
-  'font awesome\\ 5 free' => array(
-    '900' => $fontDir . '/font-awesome-5-free-900_da83a1795c45482345722831c5ccd0fb',
+    '900' => $fontDir . '/font-awesome-5-free-900_7186fe25fad749e3889f602c50fbdf3a',
   ),
 ) ?>

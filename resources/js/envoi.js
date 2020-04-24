@@ -30,6 +30,7 @@ console.log(type);
         action : function() {
           $('#envoi-spinner').fadeIn();
           $('#a-envoyer').hide();
+          $('#a-envoyer-jq').hide();
           $('#envoye').fadeOut();
 
           $.get({

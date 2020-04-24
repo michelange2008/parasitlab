@@ -4,7 +4,7 @@
 
     <div class="col-md-1 d-sm-none d-md-block">
 
-      @include('fragments.image', ['image' => 'nouveau.svg'])
+      @image(['image' => 'nouveau.svg'])
 
     </div>
 
@@ -17,7 +17,7 @@
 
     <div class="col-md-1 d-sm-none d-md-block">
 
-      @include('fragments.image', ['image' => 'espece.svg'])
+      @image(['image' => 'espece.svg'])
 
     </div>
 
@@ -34,7 +34,7 @@
 
   <div class="col-md-1 d-sm-none d-md-block">
 
-    @include('fragments.image', ['image' => 'analyse.svg'])
+    @image(['image' => 'analyse.svg'])
 
   </div>
 
@@ -47,7 +47,7 @@
 
   <div class="col-md-1 d-sm-none d-md-block">
 
-    @include('fragments.image', ['image' => 'date.svg'])
+    @image(['image' => 'date.svg'])
 
   </div>
 
