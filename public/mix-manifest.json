@@ -2,6 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/js/app.js.map": "/js/app.js.map",
+    "/js/choisir.js": "/js/choisir.js",
+    "/js/choisir.js.map": "/js/choisir.js.map",
     "/js/factures.js": "/js/factures.js",
     "/js/factures.js.map": "/js/factures.js.map",
     "/js/veterinaire_modif.js": "/js/veterinaire_modif.js",

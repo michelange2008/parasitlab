@@ -10,14 +10,11 @@ require( './createUser.js');
 require( './createDemande.js');
 require( './demandeShow.js');
 require( './envoi.js');
-require( './choisir.js');
 require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
-// require( './veterinaire_modif.js');
 require( './nouvelleDemande');
-// require( './factures');
 
 require( 'jquery-confirm' );
 
