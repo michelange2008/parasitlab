@@ -1,28 +1,38 @@
 //Mise à jour de l'AFFICHAGE
 var demande = $('#demande');
 
-if(demande.attr('signe') == 1) {
+if(demande.attr('acheve') == 1) {
 
-  $('#affiche_pdf').show();
-  $('#signe').show();
-  $('#renvoyer_resultats').show();
+  $('#inacheve').hide();
 
-  if(demande.attr('envoye') == 1) {
+  if(demande.attr('signe') == 1) {
 
-    $('#envoye').show();
+    $('#affiche_pdf').show();
+    $('#signe').show();
+    $('#renvoyer_resultats').show();
 
-  }
+    if(demande.attr('envoye') == 1) {
 
-  else {
+      $('#envoye').show();
 
-    $('#a-envoyer').show();
+    }
+
+    else {
+
+      $('#a-envoyer').show();
+
+    }
+
+  } else {
+
+    $('#a-signer').show();
 
   }
 
 } else {
 
-  $('#a-signer').show();
-
+  $("a-signer").hide();
+  
 }
 
 
@@ -59,6 +69,7 @@ $('#a-signer').on('click', function(e) {
             $('#a-envoyer').fadeIn()
             $('#affiche_pdf').show();
             $('#renvoyer_resultats').show();
+            $('#inacheve').hide();
           })
           .fail(function(data) {
             console.log(data);

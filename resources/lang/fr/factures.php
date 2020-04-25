@@ -14,4 +14,5 @@ return array (
   'reglee' => 'Facture réglée le :date par :mode',
   'reglementDel' => 'Supprimer le règlement',
   'facture' => "Facture",
+  'rien' => "Il n'y a rien à facturer.",
 );

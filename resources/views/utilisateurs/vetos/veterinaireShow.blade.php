@@ -56,3 +56,9 @@
   </div>
 
 @endsection
+
+@section('scripts')
+
+  <script src="{{url('js/veterinaire_modif.js')}}"></script>
+
+@endsection

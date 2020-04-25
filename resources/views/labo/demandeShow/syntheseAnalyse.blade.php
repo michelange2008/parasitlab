@@ -3,7 +3,7 @@
     @if ($demande->toveto)
       <tr>
         <td>
-          <small>-> Vétérinaire</small>
+          <small>-> {!! ucfirst('commun.vet') !!}</small>
         </td>
         <td>
           <a href="{{ route('vetoAdmin.show', $demande->veto_id)}}">
@@ -15,19 +15,19 @@
 
     <tr>
       <td>
-        <small>Date de prélèvement : </small>
+        <small>{!! ucfirst(__('form.date_prelevement')) !!}&nbsp;: </small>
       </td>
       <td>
         @if ($demande->date_prelevement !== null)
           {{ $demande->date_prelevement }}
         @else
-          NC
+          ?
         @endif
       </td>
     </tr>
     <tr>
       <td>
-        <small>Date de réception :</small>
+        <small>@lang('form.date_reception')&nbsp;:</small>
       </td>
       <td>
         {{ $demande->date_reception }}
@@ -35,20 +35,20 @@
     </tr>
     <tr>
       <td>
-        <small>Date de resultats : </small>
+        <small>@lang('tableaux.date_resultat')&nbsp;: </small>
       </td>
       <td>
-        @if ($demande->date_resultat !== null)
+        {{-- @if ($demande->date_resultat !== null) --}}
           {{ $demande->date_resultat }}
-        @else
-          <span class="color-rouge-tres-fonce">Analyses non terminées</span>
-        @endif
+        {{-- @else --}}
+          <span id="inacheve" class="color-rouge-tres-fonce">@lang('demandes.analyse_non_finie')</span>
+        {{-- @endif --}}
       </td>
     </tr>
     @if ($demande->date_resultat !== null)
       <tr>
         <td>
-          <small>Date d'envoi : </small>
+          <small>@lang('tableaux.date_envoi')&nbsp;: </small>
         </td>
         <td>
           {{ $demande->date_envoi }}

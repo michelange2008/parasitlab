@@ -99,25 +99,17 @@ class FactureController extends Controller
     {
       // Cas où on reprend une session sans passer par factures.etablir, cad sans avoir choisi un utilisateur à facturer
       // Il n'y a pas de tableau users_dnf stocké.
-      if (!session()->has('users_dnf')) {
-
-        return redirect()->route('factures.etablir');
-
-      }
+      // if (!session()->has('users_dnf')) {
+      //
+      //   return redirect()->route('factures.etablir');
+      //
+      // }
       // On récupère l'user
       $user = User::find($user_id);
-      // On récupère la variable de session stockée dans la methode etablir (cf. au-dessus)
-      $users_dnf = session()->get('users_dnf');
-      // Si il y a les utilisateurs de demandes non facturées sont le user en cours
-      if($users_dnf->keys()->contains($user_id))
-      {
-        $demandes = Demande::find($users_dnf[$user_id]); // on reprend l'id du destinataire de facture associé aux id des demandes (cf; function etablir)
-        $demandes = $this->formatDateDemandes($demandes);
+      // On récupère les demandes non facturées de cet user
+      $demandes = Demande::where('user_id', $user_id)->where('facturee', false)->get();
 
-      }
-      else {
-        $demandes = null;
-      }
+      $demandes = $this->formatDateDemandes($demandes);
 
       // Il s'agit d'anaactes qui ne correspondent pas à une analyse: pack envoi, déplacement, visite, etc.
       $actes = Acte::where('facturee', false)->where('user_id', $user_id)->get();

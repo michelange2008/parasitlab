@@ -15,8 +15,9 @@ require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
-require( './veterinaire_modif.js');
+// require( './veterinaire_modif.js');
 require( './nouvelleDemande');
+// require( './factures');
 
 require( 'jquery-confirm' );
 
