@@ -2,7 +2,7 @@
 
   @bouton([
     'type' => 'route',
-    'route' => 'veterinaire',
+    'route' => $route,
     'couleur' => 'btn-secondary',
     'intitule' => 'boutons.retour_analyses',
     'fa' => 'fas fa-undo-alt',

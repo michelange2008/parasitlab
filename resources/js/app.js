@@ -20,16 +20,24 @@ require( 'jquery-confirm' );
 
 $(function() {
 
-	// Fonction pour mettre le permier mot en majuscule
-	function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};
+	$.ajaxSetup({
 
-  $('[data-toggle="tooltip"]').tooltip();
+		headers: {
+			'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
 
-  $('#table').bootstrapTable({
+// Initialisation des js de bootstrap
+	$('[data-toggle="tooltip"]').tooltip();
 
-  })
+  $('#table').bootstrapTable();
+
+	$('.toast').toast();
+
+	$('.carousel').carousel();
 
 
+	// Fonction d'appel d'une boite de dialogue quand on veut supprimer quelque chose (analyse, personne, etc.)
     $('.suppr').on('click', function(event) {
       event.preventDefault();
       var form_id = "#"+$(this).attr('id');
@@ -55,10 +63,6 @@ $(function() {
       })
     });
 
-  $('#list-tab-eleveur a').on('click', function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	});
 
   Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
@@ -68,14 +72,16 @@ $(function() {
 
 	$('#reception').val(new Date().toDateInputValue());
 
-	$('.carousel').carousel();
 
-	$('#enpratiqueTab a').on('click', function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})
+	// $('#enpratiqueTab a').on('click', function (e) {
+	//   e.preventDefault()
+	//   $(this).tab('show')
+	// })
 
-	$('.toast').toast();
+	// $('#list-tab-eleveur a').on('click', function (e) {
+		//   e.preventDefault()
+		//   $(this).tab('show')
+		// });
 
 
 });

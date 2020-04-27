@@ -1,3 +1,21 @@
+// Choix de ne pas afficher l'indicatif du téléphone quand le pays est la France
+($('#liste_pays option:selected').val() == "France") ? $("#indicatif").parent().hide() : $("#indicatif").show();
+// Si on change de pays
+$("#liste_pays").on('change', function() {
+  // Qu'on choisit la france comme pays
+  if($('#liste_pays option:selected').val() == "France")
+  {
+    $("#indicatif").val(33); // On passe l'indicatif à 33
+    $("#indicatif").parent().hide() // On masque l'indicatif
+  // Si on choisit un autre pays
+  } else {
+    $("#indicatif").val(''); // On vide le champs de l'indicatif de téléphone
+    $("#indicatif").parent().show(); //Et on affiche ce champs
+
+  }
+
+});
+
 // Fontion pour vérifier si un email a un format valide
 function isEmail(myVar){
   // La 1ère étape consiste à définir l'expression régulière d'une adresse email
@@ -37,7 +55,7 @@ $('#userCreateForm').on('submit', function(e) {
       } catch (e) {
         $.alert({
           title: "Attention",
-          content: "Cette adresse email existe déjà !",
+          content: $('#email_doublon').attr('message'),
           type: 'red'
         });
       } finally {
@@ -76,7 +94,7 @@ $('#userCreateForm').on('submit', function(e) {
 
     $.alert({
       title: "Attention",
-      content: "Cette adresse email n'est pas valide",
+      content: $('#email_non_valide').attr('message'),
       type: 'red'
     })
   }

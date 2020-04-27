@@ -6,7 +6,7 @@
 
     @isset ($personne->address_1) {{-- Cas où c'est une modification --}}
 
-      <input id="address_1" class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1" value="{{ $personne->address_1 ?? old('address_1')}}">
+      <input id="address_1" class="form-control @error ('address_1') is-invalid @enderror" type="text" maxlength="190" name="address_1" value="{{ $personne->address_1 ?? old('address_1')}}" required>
 
     @else {{-- Cas où c'est une création --}}
 
@@ -48,7 +48,7 @@
 
     @isset ($personne->cp) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="cp" value="{{ $personne->cp ?? old('cp') }}">
+      <input class="form-control @error ('cp') is-invalid  @enderror" type="text" name="cp" value="{{ $personne->cp ?? old('cp') }}" required>
 
     @else {{-- Cas où c'est une création --}}
 
@@ -66,7 +66,7 @@
 
     @isset ($personne->commune) {{-- Cas où c'est une modification --}}
 
-      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" maxlength="190" name="commune" value="{{ $personne->commune ?? old('commune') }}">
+      <input class="form-control @error ('commune') is-invalid  @enderror" type="text" maxlength="190" name="commune" required value="{{ $personne->commune ?? old('commune') }}">
 
     @else {{-- Cas où c'est une création --}}
 

@@ -2,7 +2,7 @@
 
   @bouton([
     'type' => 'route',
-    'route' => 'veterinaire.show',
+    'route' => $route.'.show',
     'id' => auth()->user()->id,
     'intitule' => 'boutons.voirmodif_infos_perso',
     'fa' => 'fas fa-user-edit',

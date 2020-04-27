@@ -39,6 +39,8 @@ class VeterinaireController extends Controller
 
     public function index()
     {
+      $user = User::find(auth()->user()->id);
+
       $demandes = Demande::where('veto_id', auth()->user()->veto->id)->get();
 
       foreach ($demandes as $demande) {
@@ -54,6 +56,7 @@ class VeterinaireController extends Controller
       return view('utilisateurs.index', [
         'menu' => $this->menu,
         'demandes' => $demandes,
+        'route' => $user->usertype->route,
         'datas' => $datas,
       ]);
 
@@ -62,6 +65,16 @@ class VeterinaireController extends Controller
     public function update(VetoStore $request)
     {
       $datas = $request->validated();
+
+      // Si un autre utilisateur à déjà la même adresse email, on renvoie une erreur à la requete ajax
+      $email_exist = User::where('email', $datas['email'])->where('id', '<>', $datas['id'])->count();
+
+      if($email_exist > 0) {
+
+        return ["erreur" => true];
+
+      }
+      //################################################################################################
 
       $user = DB::table('users')->where('id', $datas['id'])
           ->update([
@@ -91,11 +104,12 @@ class VeterinaireController extends Controller
 
       $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
 
-      return view('utilisateurs.vetos.veterinaireShow', [
+      return view('utilisateurs.utilisateurShow', [
         'menu' => $this->menu,
         'user' => $user,
         'vetoInfos' => $vetoInfos,
         'personne' => $user->veto,
+        'route' => $user->usertype->route,
         'pays' => $this->litJson('pays'),
       ]);
     }

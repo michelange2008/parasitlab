@@ -16,7 +16,7 @@
 
         @include('utilisateurs.pagePerso')
 
-        @include('utilisateurs.vetos.boutonModifInfos')
+        @include('utilisateurs.boutonModifInfos')
 
       </div>
 

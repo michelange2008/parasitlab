@@ -1,4 +1,4 @@
-<label class="col-form-label" for="indicatif">Téléphone</label>
+<label class="col-form-label" for="indicatif">@lang('form.tel')</label>
 
 <div class="my-2 form-row">
 
@@ -6,7 +6,7 @@
 
     <span class="input-group-text"><i class="fas fa-globe-europe"></i></span>
 
-    <input id="indicatif" class="form-control @error ('indicatif') is-invalid  @enderror" type="text" maxlength="3" name="indicatif" value="{{ $personne->indicatif ?? '33' }}" placeholder="@lang('indicatif')">
+    <input id="indicatif" class="form-control @error ('indicatif') is-invalid  @enderror" type="text" maxlength="3" name="indicatif" value="{{ $personne->indicatif ?? '33' }}" placeholder="@lang('indicatif')" required>
 
   </div>
 

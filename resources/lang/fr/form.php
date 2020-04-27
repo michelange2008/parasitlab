@@ -3,6 +3,8 @@
 return array (
   'nom' => 'Nom',
   'email' => 'Adresse mail',
+  'email_doublon' => "Cet adresse de courriel est déjà celle d'un autre utilisateur. Merci d'en proposer une autre.",
+  'email_non_valide' => "Cette adresse email n'est pas valide&nbsp;!",
   'address_1' => 'adresse',
   'address_2' => 'complément d\'adresse',
   'cp' => 'code postal',
@@ -14,6 +16,7 @@ return array (
   'vet_nom' => 'nom du vétérinaire',
   'no_vet' => 'Aucun vétérinaire',
   'new_vet' => 'Nouveau vétérinaire',
+  'find_no_vet' => "Si vous ne trouvez pas votre vétérinaire dans notre liste, merci de nous l'indiquer par courriel",
   'farm_id' => 'numéro de cheptel',
   'vet_id' => 'N° d\'inscription à l\'Ordre',
   'photo' => 'photo',
@@ -22,6 +25,7 @@ return array (
   'signataire' => 'signataire',
   'choose_picture' => 'Choisissez une image (type jpg ou png)',
   'placeholder_tel' => 'numéro de téléphone (10 chiffres si vous êtes en France)',
+  'champs_obligatoire_email' => "Ce champs est obligatoire et doit contenir une adresse mail valide",
   'champs_obligatoire_lettres_chiffres' => "Ce champs est obligatoire et ne doit contenir que des lettres et de chiffres",
   'champs_facultatif_lettres_chiffres' => 'Ce champs est facultatif mais ne doit contenir que des lettres et de chiffres',
   'champs_obligatoire_lettres' => 'Ce champs est obligatoire et ne doit comporter que des lettres',
@@ -56,4 +60,15 @@ return array (
   'identif_prelev' => 'Identification du prélèvement n°:num',
   'estFinie' => 'Analyse terminée (décocher si ce n\'est pas le cas)',
   'espece' => 'Espèce',
+
+  'user_guide_title' => "Mode d'emploi",
+  'user_guide_soustitre_1' => "Cliquez sur modifier",
+  'user_guide_text_1' => "Si vous souhaitez modifier ou corriger des informations vous concernant, commencez par cliquer sur le bouton \":icon Modifier\".",
+  'user_guide_soustitre_2' => "Faites vos modifications",
+  'user_guide_text_2' => "A partir de là vous pouvez faire toutes les modifications que vous souhaitez.
+            Si vous laissez certains champs vides alors qu'ils doivent être remplis, ne vous inquiétez pas, le site vous le signalera.",
+  'user_guide_soustitre_3' => "Cliquez sur enregistrer",
+  'user_guide_text_3' => "Une fois que vous avez fait les changements désirés, vous devez valider en cliquant sur le bouton \":icon Enregistrer\".",
+  'user_guide_soustitre_4' => "En cas de problème...",
+  'user_guide_text_4' => "si vous rencontrez des difficultés, n'hésitez pas à nous contacter ",
 );

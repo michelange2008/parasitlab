@@ -69,9 +69,13 @@
 
   Auth::routes(['register' => false]);
 
-  Route::group(['middleware' => 'auth', 'middleware' => 'eleveur'], function() {
+  Route::group(['middleware' => 'web', 'middleware' => 'auth', 'middleware' => 'eleveur'], function() {
 
     Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
+
+    Route::get('/eleveur/{id}', 'EleveurController@show')->name('eleveur.show');
+
+    Route::post('/eleveur', 'EleveurController@update')->name('eleveur.update');
 
     Route::get('/eleveur/demande/{demande_id}', 'EleveurController@demandeShow')->name('eleveur.demandeShow');
 
@@ -80,7 +84,7 @@
   });
 
   // Page perso vétérinaires
-  Route::group(['middleware' => 'auth', 'middleware' => 'veto'], function() {
+  Route::group(['middleware' => 'web', 'middleware' => 'auth', 'middleware' => 'veto'], function() {
 
     Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
