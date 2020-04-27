@@ -56,7 +56,7 @@ class PdfController extends Controller
 
   }
 
-  public function attachPdf($demande_id)
+  public function attachPdfResultats($demande_id)
   {
     $demande = Demande::find($demande_id);
 
@@ -72,26 +72,24 @@ class PdfController extends Controller
     // code...
   }
 
-  public function formulaire()
-  {
-    $demande = session('demande');
-
-    $pdf = PDF::loadview('extranet.analyses.formulairePDF.formulairePDF', compact('demande'));
-
-    return $pdf->stream('demande.pdf');
-  }
-
   public function facture($facture_id)
   {
-    $facture_completee = session()->get('facture_completee');
+    // utilisation de la fonction elementDeFacture du trait FactureFactory
+    $elementDeFacture = $this->prepareFacture($facture_id);
 
-    $demandes = session()->get('demandes');
-
-    $anaactes_factures = session()->get('anaactes_factures');
-
-    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('facture_completee', 'demandes', 'anaactes_factures'));
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
 
     return $pdf->stream('facture.pdf');
+  }
+
+  public function attachPdfFacture($facture_id)
+  {
+    // utilisation de la fonction elementDeFacture du trait FactureFactory
+    $elementDeFacture = $this->prepareFacture($facture_id);
+
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
+
+    return $pdf;
   }
 
 }

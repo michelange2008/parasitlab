@@ -25,8 +25,11 @@
       <div class="col-md-10">
 
         @titre([
-          'titre' => $facture_completee->user->name ,
-          'soustitre' => "- ".__('factures.num_date', ['num' => $facture_completee->id, 'date' => $facture_completee->faite_date]),
+          'titre' => $elementDeFacture->facture->user->name ,
+          'soustitre' => "- ".__('factures.num_date', [
+            'num' => $elementDeFacture->facture->id,
+            'date' => $elementDeFacture->facture->faite_date,
+          ]),
           'icone' => 'factures.svg'
         ])
 
@@ -60,7 +63,7 @@
     <div class="col-md-10">
 
       @include('fragments.boutonUser', [
-        'route' => 'facture.pdf', 'id' => $facture_completee->id,
+        'route' => 'facture.pdf', 'id' => $elementDeFacture->facture->id,
         'intitule' => __('boutons.show_pdf'),
         'couleur' => 'btn-rouge',
       ])
@@ -73,7 +76,7 @@
 
     <div class="col-md-10 p-3 border">
 
-      @if ($facture_completee->payee)
+      @if ($elementDeFacture->facture->payee)
 
         @include('labo.factures.suppReglement')
 

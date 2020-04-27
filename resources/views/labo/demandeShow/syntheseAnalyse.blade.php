@@ -3,7 +3,7 @@
     @if ($demande->toveto)
       <tr>
         <td>
-          <small>-> {!! ucfirst('commun.vet') !!}</small>
+          <small>-> {!! ucfirst(__('form.vet')) !!}</small>
         </td>
         <td>
           <a href="{{ route('vetoAdmin.show', $demande->veto_id)}}">

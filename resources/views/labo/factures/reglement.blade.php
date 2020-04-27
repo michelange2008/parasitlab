@@ -4,7 +4,7 @@
 
   @csrf
 
-  <input type="hidden" name="facture_id" value="{{ $facture_completee->id }}">
+  <input type="hidden" name="facture_id" value="{{ $elementDeFacture->facture->id }}">
 
   <div class="row flex-row">
 

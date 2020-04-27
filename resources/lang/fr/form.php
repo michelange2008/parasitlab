@@ -32,7 +32,6 @@ return array (
   'champs_obligatoire_chiffres' => 'Ce champs est obligatoire et ne doit contenir que des chiffres',
   'champs_chiffres_max_3' => 'Ce champs ne doit comporter que des chiffres et pas plus de 3',
   'champs_chiffres_max_10' => 'Ce champs ne doit comporter que des chiffres (10 au maximum)',
-  'infoDemAna' => 'Informations sur la demande d\'analyse',
   'date_prelevement' => 'Date du prélèvement',
   'date_reception' => 'Date de réception',
   'ana_demandee' => 'Analyse demandée',

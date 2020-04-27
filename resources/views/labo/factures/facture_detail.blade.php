@@ -13,7 +13,7 @@
     </thead>
 
     <tbody>
-      @foreach ($anaactes_factures as $anaacte_facture)
+      @foreach ($elementDeFacture->anaactes_factures as $anaacte_facture)
 
         <tr>
           <td>{!! ucfirst($anaacte_facture->anaacte->anatype->nom) !!}&nbsp;: <br> {!! $anaacte_facture->anaacte->nom !!}</td>
@@ -31,9 +31,9 @@
 
       <tr class="table-bleu-tres-tres-clair font-weight-bolder">
         <td colspan="4">Totalt HT</td>
-        <td class="text-right">{{ $facture_completee->somme_facture->total_ht }}</td>
+        <td class="text-right">{{ $elementDeFacture->facture->somme_facture->total_ht }}</td>
       </tr>
-      @foreach ($facture_completee->liste_tvas as $taux => $valeur)
+      @foreach ($elementDeFacture->facture->liste_tvas as $taux => $valeur)
 
         @if ($valeur != 0)
 
@@ -47,7 +47,7 @@
       @endforeach
       <tr class="table-bleu-tres-tres-clair font-weight-bolder">
         <td colspan="4">Total TTC</td>
-        <td class="text-right">{{ $facture_completee->somme_facture->total_ttc }}</td>
+        <td class="text-right">{{ $elementDeFacture->facture->somme_facture->total_ttc }}</td>
       </tr>
     </tbody>
 

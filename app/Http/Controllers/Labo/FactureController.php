@@ -49,7 +49,7 @@ class FactureController extends Controller
     public function index()
     {
       $factures = Facture::all();
-
+      // On procède au calcul de chaque facture
       foreach ($factures as $facture) {
         $somme_facture = $this->calculSommeFacture($facture);
         $facture->total_ht = $somme_facture->total_ht;
@@ -97,17 +97,11 @@ class FactureController extends Controller
     */
     public function createFromUser($user_id)
     {
-      // Cas où on reprend une session sans passer par factures.etablir, cad sans avoir choisi un utilisateur à facturer
-      // Il n'y a pas de tableau users_dnf stocké.
-      // if (!session()->has('users_dnf')) {
-      //
-      //   return redirect()->route('factures.etablir');
-      //
-      // }
+
       // On récupère l'user
       $user = User::find($user_id);
       // On récupère les demandes non facturées de cet user
-      $demandes = Demande::where('user_id', $user_id)->where('facturee', false)->get();
+      $demandes = Demande::where('user_id', $user_id)->where('facturee', false)->where('signe', true)->get();
 
       $demandes = $this->formatDateDemandes($demandes);
 
@@ -124,6 +118,7 @@ class FactureController extends Controller
 
     /**
      * Non utilisé à cause de la spéficité de l'établissement d'une facture: la création d'une facture dépend toujours d'un utilisateur
+     * Il s'agit donc de la fonction etablir ou createFromUser
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -218,38 +213,15 @@ class FactureController extends Controller
      */
     public function show($id)
     {
+        // ça c'est pour la liste déroulante du paiement de la facture
         $modereglements = Modereglement::all();
-
-        $facture = Facture::findOrFail($id);
-        // dd($facture);
-        $facture->faite_date = $this->dateReadable($facture->faite_date);
-
-        if($facture->reglement_id !== null) {
-
-          $facture->reglement->date_reglement = $this->dateReadable($facture->reglement->date_reglement);
-
-        }
-
-        $facture_completee = $this->ajouteSommeEtTvas($facture);
-
-        $anaactes_factures = Anaacte_Facture::where('facture_id', $id)->get();
-
-        $demandes = Demande::where('facture_id', $id)->get();
-
-        foreach ($demandes as $demande) {
-
-          $demande->date_reception = $this->dateReadable($demande->date_reception);
-
-        }
-        // QUESTION: Pourquoi ces données en session ?
-        session(['facture_completee'=> $facture_completee, 'demandes'=> $demandes, 'anaactes_factures' => $anaactes_factures]);
+        // utilisation de la fonction elementDeFacture du trait FactureFactory
+        $elementDeFacture = $this->prepareFacture($id);
 
         return view('labo.factures.facture', [
           'menu'=> $this->menu,
           'modereglements' => $modereglements,
-          'facture_completee' => $facture_completee,
-          'demandes' => $demandes,
-          'anaactes_factures' => $anaactes_factures,
+          'elementDeFacture' => $elementDeFacture,
         ]);
 
     }

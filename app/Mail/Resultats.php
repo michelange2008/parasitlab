@@ -34,7 +34,7 @@ class Resultats extends Mailable
 
         $pdfController = new PdfController();
 
-        $pdf = $pdfController->attachPdf($this->demande->id);
+        $pdf = $pdfController->attachPdfResultats($this->demande->id);
 
         return $this->subject("Résutats d'analyse")
                     ->view('mails.resultats', ['demande' => $this->demande])

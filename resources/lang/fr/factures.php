@@ -15,4 +15,11 @@ return array (
   'reglementDel' => 'Supprimer le règlement',
   'facture' => "Facture",
   'rien' => "Il n'y a rien à facturer.",
+  'dest' => "Destinataire",
+  'ttc' => "TTC",
+  'faire_facture' => "Etablir la facture",
+  'facture_envoyee_le' => "Facture envoyée le",
+  'facture_non_envoyee' => "facture non envoyée",
+  'facture_payee_le' => "Facture payée le ",
+  'facture_non_payee' => "Facture non payée",
 );

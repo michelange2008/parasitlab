@@ -10,6 +10,7 @@ use App\Fournisseurs\ListeDemandesFournisseur;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeFactory;
+use App\Http\Traits\FactureFactory;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\SerieManager;
 
@@ -23,6 +24,7 @@ use App\Models\Analyses\Anaitem;
 use App\Models\Veto;
 use App\Models\Usertype;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Facture;
 use App\Models\Productions\Serie;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Etat;
@@ -32,7 +34,7 @@ use App\Models\Productions\Signe;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeFactory, SerieManager;
+    use LitJson, EleveurInfos, DemandeFactory, FactureFactory, SerieManager;
     use UserTypeOutil ;
 
     protected $menu;
@@ -208,9 +210,22 @@ class DemandeController extends Controller
 
       $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
+      if($demande->facturee) {
+
+        $facture = Facture::find($demande->facture_id);
+
+        $facture = $this->ajouteSommeEtTvas($facture);
+
+      } else {
+
+        $facture = null;
+
+      }
+
       return view('labo.show', [
         'menu' => $this->menu,
         'demande' => $demande,
+        'facture' => $facture,
         'user' => $user,
         'eleveurInfos' => $this->eleveurInfos($user),
       ]);
