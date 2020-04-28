@@ -31,4 +31,5 @@ return array (
   'sent' => "envoyé",
   'demande_date_envoi' => "Cette demande a été envoyée le :date_envoi",
   'signer' => "Signer",
+  'new_blog' => "Ecrire un nouvel article",
 );

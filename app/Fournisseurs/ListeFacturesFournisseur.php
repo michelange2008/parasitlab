@@ -30,7 +30,15 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       $total_ttc = $this->itemFactory($facture->total_ttc);
 
-      $envoyee_date = $this->itemFactory($this->dateSortable($facture->envoyee_date));
+      if($facture->envoyee_date === null) {
+
+        $envoyee_date = $this->lienFactory($facture->id, __('boutons.send'), 'mail.envoyerFacture', 'envoi_facture', '<i class="fas fa-paper-plane"></i>');
+
+      } else {
+
+        $envoyee_date = $this->itemFactory($this->dateSortable($facture->envoyee_date));
+
+      }
 
       $payee = $this->ouinonFactory($facture->facture_id, $facture->payee);
 

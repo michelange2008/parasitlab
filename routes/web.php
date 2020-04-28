@@ -133,6 +133,8 @@
 
     route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');
 
+    route::get('envoyer_facture/{facture_id}', 'Labo\EnvoisController@envoyerFacture')->name('mail.envoyerFacture');
+
     route::get('envoyer_tous/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultatsTous')->name('mail.envoyerResultatsTous');
 
     Route::resource('user', 'UserController');

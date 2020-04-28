@@ -47,7 +47,7 @@
     {
       "id" : "envoyee_date",
       "nom" : "tableaux.date_envoi",
-      "align" : "left",
+      "align" : "center",
       "sortable" : true
     },
     "payee" :
@@ -68,7 +68,7 @@
     {
       "id" : "payee_date",
       "nom" : "tableaux.date_payee",
-      "align" : "left",
+      "align" : "center",
       "sortable" : true
     },
     "suppr" : {

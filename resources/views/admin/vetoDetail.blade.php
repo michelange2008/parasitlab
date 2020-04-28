@@ -20,10 +20,10 @@
     @if (auth()->user()->usertype->route === 'laboratoire')
 
       <div class="card-footer">
-        @include('fragments.boutonUser', [
+        @boutonUser([
           'route' => 'vetoAdmin.edit',
           'id' => $user->id,
-          'intitule' => __('boutons.voirmodif'),
+          'intitule' => 'voirmodif',
           'couleur' => 'btn-bleu',
         ])
       </div>

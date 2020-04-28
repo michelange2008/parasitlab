@@ -17,14 +17,14 @@
 
   <div class="card-footer">
 
-    @include('fragments.boutonUser', [
+    @boutonUser([
       'route' => 'laboAdmin.edit',
       'id' => $user->id,
-      'intitule' => 'Voir/modifier',
+      'intitule' => 'voirmodif',
       'couleur' => 'btn-bleu',
       ])
 
-      @include('fragments.boutonAnnule')
+    @retour(['route' => 'laboAdmin.index'])
 
   </div>
 

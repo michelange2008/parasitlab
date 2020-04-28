@@ -7,12 +7,14 @@ use PDF;
 use Illuminate\Support\Facades\Mail;
 
 use App\Mail\Resultats;
+use App\Mail\MailFacture;
 use App\Mail\EmailDemande;
 
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\LitJson;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Facture;
 use App\Models\Veto;
 use App\User;
 
@@ -32,6 +34,24 @@ class EnvoisController
 
       $this->envoie($destinataire->email, $demande);
 
+    }
+
+    public function envoyerFacture($facture_id)
+    {
+      $facture = Facture::find($facture_id);
+
+      $email = $facture->user->email;
+
+      $mail = Mail::to($email)->send(new MailFacture($facture));
+
+      DB::table('factures')->where('id', $facture_id)->update([
+
+        'envoyee_date' => \Carbon\Carbon::now(),
+        'envoyee' => true,
+
+      ]);
+
+      return redirect()->route('factures.index')->with('message', 'facture_envoyee');
     }
 
     // Fonction appelée par le bouton envoyer de la page demandeShow

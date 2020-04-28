@@ -171,7 +171,7 @@ trait FactureFactory
     return $destinataire_facture;
   }
 
-  // Revnoi tous les éléments pour afficher une facture ou en faire un PDF
+  // Renvoie tous les éléments pour afficher une facture ou en faire un PDF
   public function prepareFacture($facture_id)
   {
     $elementDeFacture = Collect();

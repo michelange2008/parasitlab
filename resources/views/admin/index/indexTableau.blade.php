@@ -66,6 +66,7 @@
                   'nom' => $detail->nom,
                   'route' => $detail->route,
                   'tooltip' => $detail->tooltip,
+                  'icone' => $detail->icone ?? '',
                 ])
               </td>
 

@@ -62,10 +62,17 @@
 
     <div class="col-md-10">
 
-      @include('fragments.boutonUser', [
+      @boutonUser([
         'route' => 'facture.pdf', 'id' => $elementDeFacture->facture->id,
-        'intitule' => __('boutons.show_pdf'),
+        'intitule' => 'show_pdf',
         'couleur' => 'btn-rouge',
+        'fa' => 'fas fa-file-pdf',
+      ])
+      @boutonUser([
+        'route' => 'mail.envoyerFacture', 'id' => $elementDeFacture->facture->id,
+        'intitule' => 'send',
+        'couleur' => 'btn-bleu',
+        'fa' => 'fas fa-paper-plane',
       ])
       <hr class="divider-court">
     </div>

@@ -17,4 +17,5 @@ return array (
   'edit_acte' => 'Cliquer pour modifier cet acte',
   'edit_analyse' => 'Cliquer pour modifier cette analyse',
   'demande_signe' => "Cette demande a été signée le :date_signature par :signataire",
+  'envoi_facture' => "Envoyer cette facture par courriel au destinataire",
 );

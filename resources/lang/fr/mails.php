@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'envoiInfosConnexion' => 
+  'envoiInfosConnexion' =>
   array (
     'intro' => 'J\'ai le plaisir de vous transmettre les informations de connexion pour l\'accès à votre espace personnel sur le site',
     'warning_mdp' => 'Vous êtes le seul à connaître ce mot de passe. Ne l\'oubliez-pas!',
@@ -11,11 +11,17 @@ return array (
     'si_erreur' => 'Si vous n\'êtes dans aucune des deux situations, n\'hésitez pas à nous écrire par retour de mail.',
     'login_mdp' => 'Identifiants de connexion',
   ),
-  'envoiRésultats' => 
+  'envoiRésultats' =>
   array (
     'intro' => 'Vous trouverez ci-joint les résultats de votre demande d\'analyse reçue le :date_reception qui concernait:',
     'suite' => 'Vous pouvez aussi consulter ces résultats en vous connectant sur votre espace personnel sur le site :site
       et en utilisant votre adresse mail comme login ainsi que le mot de passe qui vous a été envoyé précédemment.',
     'question' => 'Pour toute question n\'hésitez pas à nous contacter.',
+  ),
+  'envoiFacture' =>
+  array (
+    'intro' => "Vous trouverez ci-joint une facture correspondant à des analyses réalisées par nos soins.",
+    'suite' => "Vous pouvez aussi consulter cette facture et les résultats d'analyse correspondants en vous connectant à votre espace personnel sur le site :site
+      et en utilisant votre adresse mail comme login ainsi que le mot de passe qui vous a été envoyé précédemment.",
   ),
 );

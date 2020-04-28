@@ -109,7 +109,7 @@ abstract class ListeFournisseur
      return $item;
    }
 
-   public function lienFactory($id, $nom, $route, $tooltip)
+   public function lienFactory($id, $nom, $route, $tooltip, $icone = '<i class="text-secondary fas fa-eye"></i>')
    {
      $item = collect();
 
@@ -122,6 +122,8 @@ abstract class ListeFournisseur
      $item->route = $route;
 
      $item->tooltip = __('tooltips.'.$tooltip);
+
+     $item->icone = $icone;
 
      return $item;
    }
