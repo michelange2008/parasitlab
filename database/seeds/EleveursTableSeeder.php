@@ -52,6 +52,16 @@ class EleveursTableSeeder extends Seeder
             'tel' => '0601234567',
             'veto_id' => null,
           ],
+          [
+            'user_id' => 12,
+            'num' =>"26292539",
+            'address_1' => "732 La Galane",
+            'address_2' => null,
+            'cp' => "26170",
+            'commune' => "Saint Auban sur l'Ouvèze",
+            'tel' => '0630843195',
+            'veto_id' => null,
+          ],
         ]);
     }
 }

@@ -89,6 +89,13 @@ class UsersTableSeeder extends Seeder
           'password' => bcrypt('haemonchus'),
           'usertype_id' => 2
         ],
+        [
+          'id' => 12,
+          'name' => 'Amélie Lèbre',
+          'email' => 'amelie.lebre@hotmail.fr',
+          'password' => bcrypt('haemonchus'),
+          'usertype_id' => 1,
+        ],
       ]);
     }
 }

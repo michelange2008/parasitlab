@@ -107,7 +107,7 @@ class DemandeController extends Controller
 // dd($datas);
       session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
-      $user = User::where('name', $datas['userDemande'])->first();
+      $user = User::find($datas['userDemande']);
       $espece = Espece::where('nom', $datas['espece'])->first();
       $anaacte = Anaacte::find($datas['anaacte_id']);
       // GESTION DE LA SERIE
