@@ -4,6 +4,8 @@
 
   <select class="form-control" id="especeSelect" name="espece" required>
 
+    <option value=""></option>
+
     @foreach ($especes as $espece)
 
       <option id="{{ $espece->nom }}" required>{{(mb_convert_case($espece->nom, MB_CASE_TITLE))}}</option>

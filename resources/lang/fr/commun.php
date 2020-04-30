@@ -23,4 +23,7 @@ return array (
   'envoyer_pack' => 'Merci d\'envoyer ::nb_pack pack d\'envoi à:',
   'Phone' => 'Téléphone',
   'eleveur' => 'ELEVEUR',
+
+
+  'question_del' => 'Faut-il vraiment effectuer cette suppression ?',
 );

@@ -6,7 +6,7 @@
 
     <option required></option>
 
-    <option id="nouveau" required>@lang('form.new')</option>
+    <option id="nouveau" required titre = "@lang('form.new_farmer')" texte="@lang('form.create_new_eleveur')">@lang('form.new')</option>
 
     @foreach ($eleveurs as $eleveur)
 

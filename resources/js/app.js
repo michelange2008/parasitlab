@@ -7,14 +7,12 @@ require( './bootstrap-table-accent-neutralise.min.js');
 require( './bootstrap-table-locale-all.js');
 
 require( './createUser.js');
-require( './createDemande.js');
 require( './demandeShow.js');
 require( './envoi.js');
 require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
-require( './nouvelleDemande');
 
 require( 'jquery-confirm' );
 
@@ -39,21 +37,25 @@ $(function() {
 
 	// Fonction d'appel d'une boite de dialogue quand on veut supprimer quelque chose (analyse, personne, etc.)
     $('.suppr').on('click', function(event) {
+
       event.preventDefault();
+
       var form_id = "#"+$(this).attr('id');
+
       $.confirm({
         theme : 'dark',
         type : 'red',
         typeAnimated: 'true',
-        title: "Suppression",
-        content : "Faut-il vraiment effectuer cette suppression ?",
+        title: $(this).attr('titre'), // on récupère le texte de la boite
+        content : $(this).attr('texte'), // de dialogue dans les attributs titre et texte (manip pour la multilingue)
         buttons : {
           oui: {
             text : 'oui',
             btnClass : 'btn-red',
             action : function() {
-							console.log(form_id);
+
               $(form_id).submit();
+
             },
           },
           non: function() {

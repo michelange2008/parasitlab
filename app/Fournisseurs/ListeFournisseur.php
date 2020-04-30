@@ -165,6 +165,10 @@ abstract class ListeFournisseur
 
      $item->route = $route;
 
+     $item->titre = 'boutons.del';
+
+     $item->texte = 'commun.question_del';
+
      return $item;
    }
 

@@ -28,4 +28,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/anaactes/{anatype_id}/{espece}', ['uses' => 'Api\DonneesController@anaacteSelonAnatypeEspece']);
 
+  Route::get('/anatypes/{espece}', ['uses' => 'Api\DonneesController@anatypeSelonEspece']);
+
+  Route::get('/estSerie/{anaacte_id}/{user_id}', ['uses' => 'Api\DonneesController@estSerie']);
+
 });

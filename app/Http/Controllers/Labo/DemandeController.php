@@ -130,13 +130,14 @@ class DemandeController extends Controller
       {
         $toveto = true;
         $user_veto_id = $datas['veto_id'];
-        $user_veto = Veto::find($user_veto_id);
+        $user_veto = User::find($user_veto_id);
+        $veto_id = $user_veto->veto->id;
       }
       // Sinon le "veto_id" est passé à null
       else {
         $toveto = false;
         $user_veto_id = null;
-        $user_veto = null;
+        $veto_id = null;
       }
 
       // Puis créer la demande
@@ -148,7 +149,7 @@ class DemandeController extends Controller
       $nouvelle_demande->serie_id = $serie_id;
       $nouvelle_demande->informations = $datas['informations'];
       $nouvelle_demande->toveto = $toveto;
-      $nouvelle_demande->veto_id = $user_veto_id;
+      $nouvelle_demande->veto_id = $veto_id;
       $nouvelle_demande->date_prelevement = $datas['prelevement'];
       $nouvelle_demande->date_reception = $datas['reception'];
 
@@ -157,14 +158,13 @@ class DemandeController extends Controller
       // CREATION DES PRELEVEMENTS
         // on cherche d'abord toutes les analyses correspondant aux actes (anatype->anaactes)
         // certains anaactes correspondent à plusieurs analyses: ex: copro + identification haemonchus
-        $analyse = DB::table('analyses')
-                    ->join('anatypes', 'anatypes.id', '=', 'analyses.anatype_id')
-                    ->join('anaactes', 'anaactes.anatype_id', '=' , 'anatypes.id')
-                    ->where('analyses.anatype_id', $anaacte->anatype->id)
-                    ->where('analyses.espece_id', $espece->id)
-                    ->where('anaactes.estAnalyse', true)->first();
+
+        $analyse = Analyse::where('analyses.anatype_id', $anaacte->anatype->id)
+                  ->where('analyses.espece_id', $espece->id)
+                  ->first();
         // Puis pour chaque analyse
         // Il faut créer les prélèvements
+
         if ($analyse !== null) {
 
 

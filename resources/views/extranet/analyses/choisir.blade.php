@@ -56,6 +56,7 @@
 
         {{-- @include('extranet.analyses.choisir.listeAnalysesProposees') --}}
         @include('extranet.analyses.choisir.options')
+        
       </div>
 
     </div>
@@ -75,7 +76,8 @@
     <input id="input_{{ $categorie->id }}" type="hidden" name="categorie_{{ $categorie->id }}" value="">
 
   @endforeach
-
+  <div id="zero-analyse" class="d-none">
+  </div>
 </form>
 {{-- ############################################################################################################# --}}
 

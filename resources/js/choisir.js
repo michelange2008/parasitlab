@@ -6,14 +6,12 @@
 // Cette requete retourne un json que l'on affiche dans la vue options.blade
 
 
-
-
-
 // Initialise la liste des observations
 var tableau_observations = [];
 var selection = [];
 // On récupère le href original du bouton de téléchargment de formulaire pour pouvoir le remettre à zéro quand on change d'espèce
 var href_initial = $("#bouton_pdf").attr('href');
+
 // ##################### PREMIERE ETAPE ##########################################################################
 // Affichage des analyses proposées après qu'on ait cliqué sur l'icone de l'espece (dans choisir.blade.php)
 $('.espece').on('click', function() {
@@ -172,11 +170,7 @@ function listeOptions() {
 
           if(options.length == 0) { // Mais que le tableau option est vide, on affiche un message qu'il n'y a pas d'analyse
 
-            $('#aucune_option').append(
-              '<p class="lead alert-warning p-3">'
-              +'Désolé... Nous n\'avons aucune proposition d\'analyses pour cette situation car ce parasite n\'est pas détectable par coproscopie.'
-              +'</p>'
-            );
+            $('#aucune_option').show();
 
 
           } else { // Mais si le tableau option n'est pas vide, on affiche les options et anaactes correpondants
@@ -194,9 +188,9 @@ function listeOptions() {
               $('#anaacte_' + value).fadeIn();
             })
 
+            $('#boutons').fadeIn(1000);
           }
-          $('#boutons').fadeIn(1000);
-          $('#penser_veto').fadeIn(2000); // Et le véto
+          $('#penser_veto').fadeIn(3000); // Et le véto
 
         } else { // Si il n'y aucune observation séléctionnée, on efface tout
 
@@ -220,8 +214,7 @@ function videOptionsAnaaactes() {
   $(".titre_analyses").hide();
 
   // On vide le 0 option
-  $('#aucune_option').empty();
-  $('#aucune_analyse').empty();
+  $('#aucune_option').hide();
 
 }
 

@@ -79,7 +79,7 @@
             @elseif($detail->action === 'del')
 
               <td>
-                @supprLigne(['id' => $detail->id, 'route' => $detail->route])
+                @supprLigne(['id' => $detail->id, 'route' => $detail->route, 'titre' => $detail->titre, 'texte' => $detail->texte])
               </td>
 
             @elseif ($detail->action === 'modifier')

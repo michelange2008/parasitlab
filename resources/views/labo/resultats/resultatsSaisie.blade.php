@@ -16,7 +16,8 @@
 
         @titre([
           'titre' => __('titres.saisie_resultats'),
-          'soustitre' => "(".$demande->user->name."&nbsp;: ".$prelevements[0]->demande->anaacte->anatype->abbreviation." - ".$prelevements[0]->demande->anaacte->abbreviation.")"])
+          'soustitre' => "(".$demande->user->name."&nbsp;: ".$prelevements[0]->demande->anaacte->anatype->abbreviation." - ".$prelevements[0]->demande->anaacte->abbreviation.")"
+        ])
 
       </div>
 
@@ -62,9 +63,9 @@
                   <thead>
 
                     <tr>
-                       <th>Parasite</th>
-                       <th>Quantité</th>
-                       <th>Unité</th>
+                       <th>@lang('form.parasite')</th>
+                       <th>@lang('form.qtt')</th>
+                       <th>@lang('form.unit')</th>
                     </tr>
                   </thead>
 

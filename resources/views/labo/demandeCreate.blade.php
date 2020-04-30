@@ -45,3 +45,9 @@
 </div>
 
 @endsection
+
+@section('scripts')
+
+  <script src="{{url('js/createDemande.js')}}"></script>
+
+@endsection
