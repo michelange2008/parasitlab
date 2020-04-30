@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ url('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{url('css/bootstrap-table.min.css')}}">
 
 </head>
