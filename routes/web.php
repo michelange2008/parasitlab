@@ -15,9 +15,9 @@
 //##############################################################################
 // MENU ACCUEIL
 
-  Route::get('/home', ['uses' => 'AccueilController@accueil', 'as' => 'home']);
-
   Route::get('/', ['uses' => 'AccueilController@accueil', 'as' => 'accueil']);
+
+  Route::get('/home', ['uses' => 'AccueilController@accueil', 'as' => 'home']);
 
   Route::get('/vétérinaires', ['uses' => 'AccueilController@veterinaires', 'as' => 'veterinaires.accueil']);
 
@@ -124,8 +124,6 @@
     route::resource('anaactes', 'Analyses\AnaacteController');
 
     route::resource('anatypes', 'Analyses\AnatypeController');
-
-    route::get('estserie/{anaacte_id}/{user_id}', 'Analyses\AnaacteController@estSerie')->name('estserie');
 
     route::resource('demandes', 'Labo\DemandeController');
 
