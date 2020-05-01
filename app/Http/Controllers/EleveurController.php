@@ -12,17 +12,19 @@ use App\Models\Eleveur;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
 use App\Models\Productions\Commentaire;
+use App\Models\Productions\Facture;
 use App\Fournisseurs\ListeDemandesEleveurFournisseur;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\SerieInfos;
 use App\Http\Traits\EleveurInfos;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\FactureFactory;
 
 class EleveurController extends Controller
 {
 
-  use LitJson, EleveurInfos, SerieInfos, DemandeFactory {
+  use LitJson, EleveurInfos, FactureFactory, SerieInfos, DemandeFactory {
       DemandeFactory::dateSortable insteadof SerieInfos;
       DemandeFactory::dateReadable insteadof SerieInfos;
   }
@@ -73,7 +75,7 @@ class EleveurController extends Controller
     public function update(EleveurStore $request)
     {
       $datas = $request->validated();
-      
+
       // Si un autre utilisateur à déjà la même adresse email, on renvoie une erreur à la requete ajax
       $email_exist = User::where('email', $datas['email'])->where('id', '<>', $datas['id'])->count();
 
@@ -121,6 +123,25 @@ class EleveurController extends Controller
         'menu' => $this->menu,
         'demande' => $demande,
         'commentaire' => $commentaire,
+      ]);
+    }
+
+    public function facturesIndex()
+    {
+      // code...
+    }
+
+    public function factureShow($id)
+    {
+      $facture = Facture::find($id);
+
+      $elementDeFacture = $this->prepareFacture($id);
+// dd($elementDeFacture);
+      return view('utilisateurs.utilisateurFactureShow', [
+        'menu' => $this->menu,
+        'facture' => $facture,
+        'elementDeFacture' => $elementDeFacture,
+        'route' => auth()->user()->usertype->route,
       ]);
     }
 

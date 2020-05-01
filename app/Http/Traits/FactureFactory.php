@@ -178,11 +178,6 @@ trait FactureFactory
     // On cherche la facture
     $facture = Facture::findOrFail($facture_id);
 
-    // On met en forme la date
-    $facture->faite_date = $this->dateReadable($facture->faite_date);
-
-    // Si la facture a été réglée, on met en forme la date
-    ($facture->reglement_id !== null) ? $facture->reglement->date_reglement = $this->dateReadable($facture->reglement->date_reglement): '';
     // Et on calcul son total
     $facture_completee = $this->ajouteSommeEtTvas($facture);
     // On récupère les actes facturés... Bon c'est pas tout à fait correct de faire une requête sur la table pivot
@@ -192,12 +187,6 @@ trait FactureFactory
     $anaactes_factures = Anaacte_Facture::where('facture_id', $facture_id)->get();
 
     $demandes = Demande::where('facture_id', $facture_id)->get();
-
-    foreach ($demandes as $demande) {
-
-      $demande->date_reception = $this->dateReadable($demande->date_reception);
-
-    }
 
     $elementDeFacture->facture = $facture_completee;
     $elementDeFacture->demandes = $demandes;

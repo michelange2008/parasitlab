@@ -4,7 +4,7 @@
 
   <p>
 
-    @lang('mails.envoiRésultats.intro', ['date_reception' => $demande->date_reception])
+    @lang('mails.envoiRésultats.intro', ['date_reception' => \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL')])
 
   </p>
 

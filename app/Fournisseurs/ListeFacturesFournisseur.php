@@ -2,15 +2,11 @@
 namespace App\Fournisseurs;
 
 use App\Fournisseurs\ListeFournisseur;
-use App\Http\Traits\FormatDate;
-
 /**
  *
  */
 class ListeFacturesFournisseur extends ListeFournisseur
 {
-
-  use FormatDate;
 
   public function creeListe($factures)
   {
@@ -24,7 +20,7 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       $nom = $this->lienFactory($facture->user_id, $facture->user->name, 'eleveurAdmin.show', 'affiche_eleveur');
 
-      $faite_date = $this->itemFactory($this->dateSortable($facture->faite_date));
+      $faite_date = $this->dateFactory($facture->faite_date);
 
       $total_ht = $this->itemFactory($facture->total_ht);
 
@@ -36,7 +32,7 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       } else {
 
-        $envoyee_date = $this->itemFactory($this->dateSortable($facture->envoyee_date));
+        $envoyee_date = $this->dateFactory($facture->envoyee_date);
 
       }
 
@@ -44,7 +40,7 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       $reglement = ($facture->reglement_id != null) ? $this->iconeFactory($facture->reglement->modereglement->icone) : " - ";
 
-      $payee_date = ($facture->reglement_id != null) ? $this->itemFactory($this->dateSortable($facture->reglement->date_reglement)) : ' - ';
+      $payee_date = ($facture->reglement_id != null) ? $this->itemFactory($facture->reglement->date_reglement) : ' - ';
 
       $suppr = ($facture->payee) ? "" : $this->delFactory($facture->id, 'factures.destroy');
 

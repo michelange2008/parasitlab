@@ -8,7 +8,7 @@
 <table class="table table-bordered pdf-table">
   <tr>
     <td>Espèce : <strong>{{ mb_strtoupper($demande->espece->nom) }}</strong></td>
-    <td>Date de réception: <strong>{{ $demande->date_reception}}</strong></td>
+    <td>Date de réception: <strong>{{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</strong></td>
     <td>Nb de prélèvements: <strong>{{ $demande->nb_prelevement}}</strong></td>
   </tr>
   @if ($demande->anaacte->serie)
@@ -97,7 +97,7 @@
 <div class="text-right">
 
   <p class="lignes">
-    Signée le {{ $demande->date_signature }} par {{ $demande->labo->user->name }}
+    Signée le {{ \Carbon\Carbon::parse($demande->date_signature)->isoFormat('DD/MM/Y') }} par {{ $demande->labo->user->name }}
   </p>
   <img width="250px" src="{!! 'storage/img/labo/signatures/'.$demande->labo->signature !!}" alt="">
 

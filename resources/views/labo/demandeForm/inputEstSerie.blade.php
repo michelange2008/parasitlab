@@ -12,7 +12,7 @@
 
   <div id="pas_de_serie">
 
-    <p>Cet utilisateur n'a pas d'autres séries en cours, donc il s'agit du premier prélèvemen d'une nouvelle série</p>
+    <p>Cet utilisateur n'a pas d'autres séries en cours, donc il s'agit du premier prélèvement d'une nouvelle série</p>
 
     <input type="radio" class="d-none"  id="premierPrelevementSerie" name="serie" value='null' checked >
 

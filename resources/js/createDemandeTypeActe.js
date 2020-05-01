@@ -163,7 +163,7 @@ console.log(url_nouvelle);
   })
   .fail(function(data) {
 
-    console.log("ça merde !");
+    console.log(data);
   })
 
 }

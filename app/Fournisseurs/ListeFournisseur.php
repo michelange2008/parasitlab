@@ -78,6 +78,19 @@ abstract class ListeFournisseur
     return $item;
   }
 
+  public function dateFactory($nom)
+  {
+    $item = collect();
+
+    $item->action = 'date';
+
+    $item->id = $nom;
+
+    $item->nom = $nom;
+
+    return $item;
+  }
+
   public function iconeFactory($icone)
   {
     $item = collect();

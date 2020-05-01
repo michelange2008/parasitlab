@@ -7,7 +7,7 @@
         <p class="adresseFibl">150 Avenue de Judée - F-26400 EURRE</p>
       </td>
       <td class="text-right">
-        <p class="adresseFibl">Date facture: {{$elementDeFacture->facture->faite_date}}</p>
+        <p class="adresseFibl">Date facture: {{\Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL')}}</p>
         <p class="adresseFibl">Référence dossier {{$elementDeFacture->facture->id}}</p>
         {{-- <p class="adresseFibl">{{ucfirst($demande->anapack->nom)}}</p> --}}
       </td>

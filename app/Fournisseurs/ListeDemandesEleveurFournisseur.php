@@ -5,15 +5,11 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Productions\Demande;
 
-use App\Http\Traits\FormatDate;
-
 /**
  *  FOURNIT LES DATAS POUR L'AFFICHAGE DE LA LISTE DES DEMANDES D'UN ELEVEUR DANS index.blade.php
  */
 class ListeDemandesEleveurFournisseur extends ListeFournisseur
 {
-
-  use FormatDate;
 
   public function creeliste($demandes)
   {
@@ -27,7 +23,7 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       $espece = $this->iconeFactory($demande->espece->icone);
 
-      $reception = $this->itemFactory($this->dateSortable($demande->date_reception));
+      $reception = $this->dateFactory($demande->date_reception);
 
       $terminee = $this->ouinonFactory(null, $demande->acheve);
 
@@ -35,7 +31,7 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
 
       if ($demande->facturee) {
 
-        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'home', 'affiche_facture');
+        $facture_id = $this->lienFactory($demande->facture->id, "n°".$demande->facture->id, 'eleveur.factureShow', 'affiche_facture');
 
       }
 
@@ -48,8 +44,6 @@ class ListeDemandesEleveurFournisseur extends ListeFournisseur
       $description = [
         $analyse,
         $espece,
-        // $serie,
-        // $toveto,
         $reception,
         $terminee,
         $facturee,

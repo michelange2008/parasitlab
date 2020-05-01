@@ -58,6 +58,16 @@
                 @endisset
               </td>
 
+            @elseif($detail->action === 'date')
+
+              <td>
+                {{-- juste pour le tri des dates tout en ayant un affichage correct --}}
+                <span style="display:none">{{ \Carbon\Carbon::parse($detail->nom)}}</span>
+
+                {{ \Carbon\Carbon::parse($detail->nom)->isoFormat('D MMM Y') }}
+
+              </td>
+
             @elseif($detail->action === 'lien')
 
               <td>

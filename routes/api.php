@@ -32,4 +32,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/estSerie/{anaacte_id}/{user_id}', ['uses' => 'Api\DonneesController@estSerie']);
 
+  Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf');
+
+
 });

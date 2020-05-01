@@ -10,9 +10,9 @@
 
 <div class="row justify-content-center mb-3 d-flex align-items-end">
 
-  <div class="col-md-1" style="height:80px">
+  <div class="col-lg-1">
 
-    @include('fragments.image', ['image' => 'prelevement.svg'])
+    @include('fragments.image', ['image' => 'prelevement.svg', 'class' => 'img-90'])
 
   </div>
 

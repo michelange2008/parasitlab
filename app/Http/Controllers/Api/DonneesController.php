@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 use DB;
-
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Espece;
@@ -10,11 +10,8 @@ use App\Models\Categorie;
 use App\Models\Observation;
 use App\Models\Analyses\Anaacte;
 
-use App\Http\Traits\FormatDate;
-
 class DonneesController extends Controller
 {
-  use FormatDate;
   /*
   * Méthode pour fournir la liste d'espèce dans la fenêtre de coix d'un formulaire à télécharger
   * utilisee dans telFormulaire.js
@@ -173,7 +170,7 @@ public function estSerie($anaacte_id, $user_id)
 
     foreach ($demandes as $demande) {
 
-      $demande->date_reception = $this->dateReadable($demande->date_reception);
+      $demande->date_reception = Carbon::parse($demande->date_reception)->isoFormat('LL');
 
       $liste[$i] =$demande;
 

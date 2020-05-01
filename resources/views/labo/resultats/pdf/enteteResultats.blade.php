@@ -7,7 +7,7 @@
         <p class="adresseFibl">150 Avenue de Judée - F-26400 EURRE</p>
       </td>
       <td class="text-right">
-        <p class="adresseFibl">Date signature: {{$demande->date_signature}}</p>
+        <p class="adresseFibl">Date signature: {{\Carbon\Carbon::parse($demande->date_signature)->isoFormat('DD/MM/Y')}}</p>
         <p class="adresseFibl">Référence dossier {{$demande->id}}</p>
         <p class="adresseFibl">{{ucfirst($demande->anaacte->anatype->nom)}}</p>
       </td>

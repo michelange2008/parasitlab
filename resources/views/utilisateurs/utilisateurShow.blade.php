@@ -22,7 +22,7 @@
 
       <div class="col-md-9">
 
-        @titre(['titre' => __('titres.veterinaire_mesinfos'), 'icone' => 'acte.svg'])
+        @titre(['titre' => __('titres.utilisateur_mesinfos'), 'icone' => 'acte.svg'])
 
         <div class="row">
 

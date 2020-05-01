@@ -22,4 +22,8 @@ return array (
   'facture_non_envoyee' => "facture non envoyée",
   'facture_payee_le' => "Facture payée le ",
   'facture_non_payee' => "Facture non payée",
+  'facture_a_regler' => "Facture à régler avant le",
+
+  'mode_reglement' => "Le réglement de la facture peut se faire par chèque ou par virement",
+  'rib' => 'RIB',
 );

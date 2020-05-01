@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Traits\UserTypeOutil;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Facture;
 use App\Models\Productions\Serie;
 
 class RouteurController extends Controller
@@ -19,7 +20,7 @@ class RouteurController extends Controller
 
   public function routeurPersonnel()
   {
-    
+
     if($this->estLabo(auth()->user()->usertype_id)) {
 
       return redirect()->route('laboratoire');
@@ -72,7 +73,6 @@ class RouteurController extends Controller
 
     }
 
-
   }
 
   public function routeurSerie($serie_id)
@@ -103,6 +103,29 @@ class RouteurController extends Controller
 
     }
 
+  }
+
+  public function routeurFacturePdf($facture_id)
+  {
+    if($this->estLabo(auth()->user()->usertype_id)) {
+
+      return redirect()->route('facture.pdf', $facture_id);
+
+    }
+
+    else {
+
+      $facture = Facture::find($facture_id);
+
+      if(auth()->user()->id == $facture->user_id) {
+
+        return redirect()->route('facture.pdf', $facture_id);
+
+      }
+
+    }
+
+    return redirect()->route('accueil');
   }
 
 }

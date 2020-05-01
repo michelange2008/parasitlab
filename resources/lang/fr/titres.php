@@ -38,5 +38,7 @@ return array (
   'list_labo' => 'Membres du laboratoire',
 
   'saisie_resultats' => 'Saisie des résultats',
-  'veterinaire_mesinfos' => "Voir / modifier mes informations personnelles"
+  'utilisateur_mesinfos' => "Voir / modifier mes informations personnelles",
+  'utilisateur_mesfactures' => "Factures",
+  'utilisateur_mafacture' => "Facture",
 );

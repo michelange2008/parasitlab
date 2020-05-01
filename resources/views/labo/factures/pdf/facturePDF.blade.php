@@ -10,11 +10,11 @@
 
   </div>
 
-  <p class="font-weight-bold lead">Facture n°{{ $elementDeFacture->facture->id }} du {{ $elementDeFacture->facture->faite_date }}</p>
+  <p class="font-weight-bold lead">Facture n°{{ $elementDeFacture->facture->id }} du {{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL') }}</p>
 
   @foreach ($elementDeFacture->demandes as $demande)
 
-    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst($demande->anaacte->anatype->nom) }} du {{ $demande->date_reception }}</p>
+    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst($demande->anaacte->anatype->nom) }} du {{ Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
 
   @endforeach
 
@@ -26,7 +26,7 @@
 
   @else
 
-    <p>Facture à régler avant le {{ Carbon\Carbon::createFromDate($elementDeFacture->facture->faite_date)->addMonth()->format('d M Y') }} par chèque à l'ordre du Fibl France ou par virement.</p>
+    <p>Facture à régler avant le {{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->addMonth()->isoFormat('LL') }} par chèque à l'ordre du Fibl France ou par virement.</p>
 
     <p>IBAN: </p>
 

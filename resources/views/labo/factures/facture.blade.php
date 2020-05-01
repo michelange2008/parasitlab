@@ -41,7 +41,7 @@
 
       <div class="col-md-10">
 
-        @include('labo.factures.facture-entete')
+        @include('labo.factures.facture_entete')
 
       </div>
 
