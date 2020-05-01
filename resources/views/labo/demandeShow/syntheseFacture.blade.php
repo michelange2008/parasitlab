@@ -30,7 +30,7 @@
           <small>@lang('factures.facture_envoyee_le')</small>
         </td>
         <td>
-          @include('fragments.dateFr', ['date' => $demande->facture->envoyee_date])
+          {{ \Carbon\Carbon::parse($facture->envoyee_date)->isoFormat('LL') }}
         </td>
       </tr>
     @elseif ($demande->facturee)
@@ -47,7 +47,7 @@
         <small>@lang('factures.facture_payee_le')</small>
         </td>
         <td>
-          @include('fragments.dateFr', ['date' => $demande->facture->payee_date])
+          {{ \Carbon\Carbon::parse($facture->payee_date)->isoFormat('LL') }}
         </td>
       </tr>
     @elseif ($demande->facturee && $demande->facture->envoyee)

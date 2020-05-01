@@ -22,10 +22,7 @@ class SerieController extends Controller
 
     protected $menu;
 
-    use LitJson, SerieInfos, EleveurInfos, DemandeFactory {
-        DemandeFactory::dateSortable insteadof SerieInfos;
-        DemandeFactory::dateReadable insteadof SerieInfos;
-    }
+    use LitJson, SerieInfos, EleveurInfos, DemandeFactory;
     /**
      * Create a new controller instance.
      *

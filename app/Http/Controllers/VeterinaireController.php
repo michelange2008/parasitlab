@@ -21,10 +21,7 @@ use App\Fournisseurs\ListeDemandesVetoFournisseur;
 class VeterinaireController extends Controller
 {
 
-  use LitJson, VetoInfos, SerieInfos, DemandeFactory {
-      DemandeFactory::dateSortable insteadof SerieInfos;
-      DemandeFactory::dateReadable insteadof SerieInfos;
-  }
+  use LitJson, VetoInfos, SerieInfos, DemandeFactory;
 
   protected $menu;
 

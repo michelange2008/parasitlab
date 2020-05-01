@@ -19,7 +19,7 @@
       </td>
       <td>
         @if ($demande->date_prelevement !== null)
-          {{ $demande->date_prelevement }}
+          {{ \Carbon\Carbon::parse($demande->date_prelevement)->isoFormat('LL') }}
         @else
           ?
         @endif
@@ -30,7 +30,7 @@
         <small>@lang('form.date_reception')&nbsp;:</small>
       </td>
       <td>
-        {{ $demande->date_reception }}
+        {{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}
       </td>
     </tr>
     <tr>
@@ -38,11 +38,11 @@
         <small>@lang('tableaux.date_resultat')&nbsp;: </small>
       </td>
       <td>
-        {{-- @if ($demande->date_resultat !== null) --}}
-          {{ $demande->date_resultat }}
-        {{-- @else --}}
+        @if ($demande->date_resultat !== null)
+          {{ \Carbon\Carbon::parse($demande->date_resultat)->isoFormat('LL') }}
+        @else
           <span id="inacheve" class="color-rouge-tres-fonce">@lang('demandes.analyse_non_finie')</span>
-        {{-- @endif --}}
+        @endif
       </td>
     </tr>
     @if ($demande->date_resultat !== null)
@@ -51,7 +51,7 @@
           <small>@lang('tableaux.date_envoi')&nbsp;: </small>
         </td>
         <td>
-          {{ $demande->date_envoi }}
+          {{ \Carbon\Carbon::parse($demande->date_envoi)->isoFormat('LL') }}
         </td>
       </tr>
     @endif

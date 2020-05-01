@@ -5,7 +5,7 @@
     <div class="card card-body mb-3">
 
       <div class="card-title alert alert-bleu-tres-fonce">
-        <strong>@include('fragments.dateFr', ['date' => $demande->date_prelevement])</strong> - {{ ucfirst($demande->prelevements[0]->analyse->nom) }}
+        <strong>{{ \Carbon\Carbon::parse($demande->date_prelevement)->isoFormat('LL') }}</strong> - {{ ucfirst($demande->prelevements[0]->analyse->nom) }}
 
       </div>
 

@@ -25,10 +25,7 @@ use App\Http\Traits\FormatDate;
 class FactureController extends Controller
 {
 
-    use LitJson, DemandeFactory, FactureFactory, FormatDate  {
-      FormatDate::dateSortable insteadof DemandeFactory;
-      FormatDate::dateReadable insteadof DemandeFactory;
-    }
+    use LitJson, DemandeFactory, FactureFactory, FormatDate;
 
     protected $menu;
 

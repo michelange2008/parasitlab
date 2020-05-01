@@ -24,10 +24,7 @@ use App\Http\Traits\FactureFactory;
 class EleveurController extends Controller
 {
 
-  use LitJson, EleveurInfos, FactureFactory, SerieInfos, DemandeFactory {
-      DemandeFactory::dateSortable insteadof SerieInfos;
-      DemandeFactory::dateReadable insteadof SerieInfos;
-  }
+  use LitJson, EleveurInfos, FactureFactory, SerieInfos, DemandeFactory;
 
   protected $menu;
 
@@ -136,7 +133,7 @@ class EleveurController extends Controller
       $facture = Facture::find($id);
 
       $elementDeFacture = $this->prepareFacture($id);
-// dd($elementDeFacture);
+
       return view('utilisateurs.utilisateurFactureShow', [
         'menu' => $this->menu,
         'facture' => $facture,

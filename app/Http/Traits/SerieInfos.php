@@ -101,7 +101,7 @@ trait SerieInfos
 
 
         $serieTitres->push([
-          "intitule" => $this->dateReadable($demande->date_prelevement),
+          "intitule" => $demande->date_prelevement,
           "demande_id" => $demande->id,
         ]);
 
@@ -110,7 +110,7 @@ trait SerieInfos
 
 
         $serieTitres->push([
-          "intitule" => $this->dateReadable($demande->date_reception),
+          "intitule" => $demande->date_reception,
           "demande_id" => $demande->id,
         ]);
       }

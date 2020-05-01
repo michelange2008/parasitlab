@@ -78,14 +78,7 @@ trait DemandeFactory
       $commentaire->date_commentaire = null;
       $commentaire->labo = null;
     }
-    else {
 
-      if ($commentaire->date_commentaire !== null) {
-
-        $commentaire->date_commentaire = $this->dateReadable($commentaire->date_commentaire);
-
-      }
-    }
     $demande->commentaire = $commentaire;
 
   }
