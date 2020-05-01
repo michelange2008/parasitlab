@@ -77,7 +77,10 @@
     'italic' => $rootDir . '/lib/fonts/DejaVuSerif-Italic',
     'normal' => $rootDir . '/lib/fonts/DejaVuSerif',
   ),
+  'font awesome 5 free' => array(
+    '900' => $fontDir . '/font-awesome-5-free-900_06c6f2978d210a131c40bfb284521060',
+  ),
   'font awesome\\ 5 free' => array(
-    '900' => $fontDir . '/font-awesome-5-free-900_7186fe25fad749e3889f602c50fbdf3a',
+    '900' => $fontDir . '/font-awesome-5-free-900_06c6f2978d210a131c40bfb284521060',
   ),
 ) ?>
