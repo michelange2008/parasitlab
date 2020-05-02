@@ -22,4 +22,5 @@ return array (
   'resend_eleveur' => 'Renvoyer les résultats à l\'éleveur',
   'resend_veto' => 'Renvoyer les résultats au vétérinaire',
   'analyse' => "Analyse",
+  'results' => 'résultats',
 );

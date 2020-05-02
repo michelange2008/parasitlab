@@ -16,6 +16,9 @@ return array (
   'create_facture' => 'Cliquer pour créer la facture',
   'edit_acte' => 'Cliquer pour modifier cet acte',
   'edit_analyse' => 'Cliquer pour modifier cette analyse',
-  'demande_signe' => "Cette demande a été signée le :date_signature par :signataire",
+  'demande_signe' => "Ces résultats d'analyses ont été signés le :date_signature par :signataire",
   'envoi_facture' => "Envoyer cette facture par courriel au destinataire",
+  'saisie_faite' => "La saisie des résultats a été faite le :date",
+  'saisie_faite_signee' => "La saisie des résultats a été faite le :date et comme elle est signée on ne peut plus la modifier",
+  'envoi_fait' => "Ces résultats d'analyses ont été envoyés le :date_envoi",
 );

@@ -15,7 +15,11 @@
 
     @endforeach
 
-    @include('labo.resultats.listeNonDetecte')
+    @if (count($prelevement->nonDetecte) > 0)
+
+      @include('labo.resultats.listeNonDetecte')
+
+    @endif
 
   </tbody>
 

@@ -17,8 +17,11 @@
           <strong>{{ $facture->somme_facture->total_ttc}}&nbsp;@lang('factures.ttc')</strong>
         </td>
       @elseif ($demande->acheve)
-        <td class="color-rouge-tres-fonce text-center" colspan="2">
-          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createFromUser', ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id) }}">
+        <td class="color-rouge-tres-fonce text-left pl-0" colspan="2">
+          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createDemandeFromUser', [
+            ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id,
+            $demande->id,
+            ]) }}">
             @lang('factures.faire_facture')
           </a>
         </td>

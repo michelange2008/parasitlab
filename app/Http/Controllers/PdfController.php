@@ -26,20 +26,22 @@ class PdfController extends Controller
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
+    $laboInfos = config('laboInfos');
+
     if ($this->estEleveur(auth()->user()->usertype->id)) {
 
-      $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande'));
+      $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande', 'laboInfos'));
 
     }
     elseif ($this->estVeto(auth()->user()->usertype->id)) {
 
-      $pdf = PDF::loadview('labo.resultats.pdf.vetoPdf', compact('demande'));
+      $pdf = PDF::loadview('labo.resultats.pdf.vetoPdf', compact('demande', 'laboInfos'));
 
     }
 
     elseif ($this->estLabo(auth()->user()->usertype->id)) {
 
-      $pdf = PDF::loadview('labo.resultats.pdf.laboPdf', compact('demande'));
+      $pdf = PDF::loadview('labo.resultats.pdf.laboPdf', compact('demande', 'laboInfos'));
 
     }
 
@@ -77,7 +79,9 @@ class PdfController extends Controller
     // utilisation de la fonction elementDeFacture du trait FactureFactory
     $elementDeFacture = $this->prepareFacture($facture_id);
 
-    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
+    $laboInfos = config('laboInfos');
+
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture', 'laboInfos'));
 
     return $pdf->stream('facture.pdf');
   }
@@ -87,7 +91,9 @@ class PdfController extends Controller
     // utilisation de la fonction elementDeFacture du trait FactureFactory
     $elementDeFacture = $this->prepareFacture($facture_id);
 
-    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
+    $laboInfos = config('laboInfos');
+
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture', 'laboInfos'));
 
     return $pdf;
   }

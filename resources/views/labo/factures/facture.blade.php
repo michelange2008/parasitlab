@@ -28,7 +28,7 @@
           'titre' => $elementDeFacture->facture->user->name ,
           'soustitre' => "- ".__('factures.num_date', [
             'num' => $elementDeFacture->facture->id,
-            'date' => $elementDeFacture->facture->faite_date,
+            'date' => \Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL'),
           ]),
           'icone' => 'factures.svg'
         ])

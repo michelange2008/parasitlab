@@ -222,7 +222,7 @@ class DemandeController extends Controller
 
       }
 
-      return view('labo.show', [
+      return view('labo.demandeShow', [
         'menu' => $this->menu,
         'demande' => $demande,
         'facture' => $facture,

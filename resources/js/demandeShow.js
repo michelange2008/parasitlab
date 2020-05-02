@@ -7,6 +7,7 @@ if(demande.attr('acheve') == 1) {
 
   if(demande.attr('signe') == 1) {
 
+    $('#acheve_non_signe').hide();
     $('#affiche_pdf').show();
     $('#signe').show();
     $('#renvoyer_resultats').show();
@@ -25,6 +26,7 @@ if(demande.attr('acheve') == 1) {
 
   } else {
 
+    $('#acheve_signe').hide();
     $('#a-signer').show();
 
   }
@@ -32,7 +34,7 @@ if(demande.attr('acheve') == 1) {
 } else {
 
   $("a-signer").hide();
-  
+
 }
 
 
@@ -64,6 +66,8 @@ $('#a-signer').on('click', function(e) {
 
           })
           .done(function(data) {
+            $('#acheve_non_signe').hide();
+            $('#acheve_signe').show();
             $('#a-signer').hide();
             $('#signe').fadeIn();
             $('#a-envoyer').fadeIn()

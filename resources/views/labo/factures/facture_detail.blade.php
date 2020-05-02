@@ -4,11 +4,11 @@
 
     <thead class="thead-bleu-tres-fonce">
       <tr class="text-center">
-        <th>Acte</th>
-        <th>P.U. HT</th>
-        <th>TVA</th>
-        <th>Qtt</th>
-        <th>Prix total</th>
+        <th>@lang('factures.acte')</th>
+        <th>@lang('tableaux.pu_ht')</th>
+        <th>@lang('tableaux.tva')</th>
+        <th>@lang('tableaux.qtt')</th>
+        <th>@lang('tableaux.total_ttc')</th>
       </tr>
     </thead>
 
@@ -30,7 +30,7 @@
       </tr>
 
       <tr class="table-bleu-tres-tres-clair font-weight-bolder">
-        <td colspan="4">Totalt HT</td>
+        <td colspan="4">@lang('tableaux.total_ht')</td>
         <td class="text-right">{{ $elementDeFacture->facture->somme_facture->total_ht }}</td>
       </tr>
       @foreach ($elementDeFacture->facture->liste_tvas as $taux => $valeur)
@@ -38,7 +38,7 @@
         @if ($valeur != 0)
 
           <tr class="text-right">
-            <td colspan="4">TVA à {{ $taux }}</td>
+            <td colspan="4">@lang('tableaux.tva')&nbsp;: {{ $taux }}</td>
             <td>{{ $valeur }} &euro;</td>
           </tr>
 
@@ -46,7 +46,7 @@
 
       @endforeach
       <tr class="table-bleu-tres-tres-clair font-weight-bolder">
-        <td colspan="4">Total TTC</td>
+        <td colspan="4">@lang('tableaux.total_ttc')</td>
         <td class="text-right">{{ $elementDeFacture->facture->somme_facture->total_ttc }}</td>
       </tr>
     </tbody>

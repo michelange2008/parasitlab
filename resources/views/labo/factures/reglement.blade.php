@@ -28,7 +28,7 @@
 
       <label for="payee_date">@lang('factures.date_paiement')</label>
 
-      <input class="form-control" type="date" name="payee_date" value="{{ Carbon\Carbon::now()->toDateString() }}">
+      <input class="form-control" type="date" name="payee_date" value="{{ \Carbon\Carbon::now()->toDateString() }}">
 
     </div>
 

@@ -1,77 +1,27 @@
-<div class="collapse @if(!$demande->acheve) show @endif " id="demande_detail" aria-expanded="true">
-  <div class="card card-body">
+<div class="card card-body">
 
-    <div class="row my-3">
+  <!-- AFFICHAGE DES DONNEES ANALYSE -->
+  <!-- TITRE ANALYSE-->
+  <h5 class="card-title alert-secondary p-3 ">@lang('demandes.analyse')</h5>
 
-<!-- AFFICHAGE DES DONNEES ANALYSE -->
-      <div class="col-md-6">
+  <!-- DETAIL ANALYSE-->
 
-    <!-- TITRE ANALYSE-->
-        <div class="row mx-1">
+  @include('labo.demandeShow.syntheseAnalyse', ['demande' => $demande])
 
-          <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-start">
+  <!-- LIENS POUR RENVOYER ANALYSE ET FACTURE-->
+  @include('labo.demandeShow.syntheseRenvoiAnalyse')
 
-            <h5 class="card-title mx-3">@lang('demandes.analyse')</h5>
 
-          </div>
+  <!-- AFFICHAGE DES DONNEES FACTURE-->
 
-        </div>
-    <!-- DETAIL ANALYSE-->
-        <div class="row mx-1 border">
+  <!-- TITRE FACTURE-->
 
-          @include('labo.demandeShow.syntheseAnalyse', ['demande' => $demande])
+  <h5 class="card-title p-3 alert-secondary">@lang('factures.facture')</h5>
 
-        </div>
 
-      </div>
+  <!-- DETAIL FACTURE-->
+  @include('labo.demandeShow.syntheseFacture', ['demande' => $demande])
 
-<!-- AFFICHAGE DES DONNEES FACTURE-->
-      <div class="col-md-6">
-
-    <!-- TITRE FACTURE-->
-        <div class="row mx-1">
-
-          <div class="col-md-12 alert-bleu-tres-fonce pt-3 d-inline-flex justify-content-start">
-
-            <h5 class="card-title mx-3">@lang('factures.facture')</h5>
-
-          </div>
-
-        </div>
-
-    <!-- DETAIL FACTURE-->
-        <div class="row mx-1 border">
-
-          <div class="col-md-12">
-
-            @include('labo.demandeShow.syntheseFacture', ['demande' => $demande])
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-<!-- LIENS POUR RENVOYER ANALYSE ET FACTURE-->
-    <div class="row my-3">
-
-      <div class="col-md-6">
-
-        @include('labo.demandeShow.syntheseRenvoiAnalyse')
-
-      </div>
-
-      {{-- <div class="col-md-6">
-
-        @include('labo.demandeShow.syntheseRenvoiFacture', ['route' => "#"])
-
-      </div> --}}
-
-    </div>
-
-</div>
-
+  @include('labo.demandeShow.syntheseRenvoiFacture', ['route' => "#"])
 
 </div>

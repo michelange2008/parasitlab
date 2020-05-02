@@ -15,14 +15,14 @@
 
   <div id="a-envoyer" demande="{{ $demande->id }}"
         destinataire="{{ $demande->user_id }}"
-        type="all" class="btn btn-lg btn-rouge a-envoyer"
+        type="all" class="btn btn-lg btn-rouge a-envoyer ml-3"
         style="display:none">
     @lang('boutons.send')
   </div>
 
 {{-- @elseif ($demande->signe && $demande->date_envoi !== null) --}}
 
-  <div id="envoye" class="icone-cadre" title="@lang('boutons.demande_date_envoi', ['date_envoi' => $demande->date_envoi])" style="display:none">
+  <div id="envoye" class="icone-cadre" title="@lang('tooltips.envoi_fait', ['date_envoi' => \Carbon\Carbon::parse($demande->date_envoi)->isoFormat('LL')])" style="display:none">
 
     <img class="img-40 d-block" src="{!! url('storage/img/icones/envoye.svg') !!}" alt="@lang('boutons.sent')">
 

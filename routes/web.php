@@ -156,6 +156,8 @@
 
     Route::get('factures/create/{destinataire_id}', 'Labo\FactureController@createFromUser')->name('factures.createFromUser');
 
+    Route::get('factures/create/{destinataire_id}/{demande_id}', 'Labo\FactureController@createDemandeFromUser')->name('factures.createDemandeFromUser');
+
     Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
     Route::post('facture/paiement', 'Labo\FactureController@paiement')->name('facture.paiement');

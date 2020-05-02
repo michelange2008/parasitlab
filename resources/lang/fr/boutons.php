@@ -26,10 +26,8 @@ return array (
   'continuer' => "Continuer",
   'modifier' => "Modifier",
   'del' => "Supprimer",
-  'saisie_modif_result' => "Saisie/Modification des résultats",
   'send' => "Envoyer",
   'sent' => "envoyé",
-  'demande_date_envoi' => "Cette demande a été envoyée le :date_envoi",
   'signer' => "Signer",
   'new_blog' => "Ecrire un nouvel article",
 );

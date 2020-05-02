@@ -1,9 +1,9 @@
 @if ($demande->date_resultat !== null)
   <table id="renvoyer_resultats" class="table" style="display:none">
 
-    <thead class="alert-bleu">
+    <thead>
       <tr>
-        <th colspan="2">@lang('demandes.resend_results')</th>
+        <th class="color-bleu" colspan="2">@lang('demandes.resend_results')</th>
       </tr>
     </thead>
 
@@ -16,7 +16,7 @@
       </tr>
       @if ($demande->toveto)
         <tr>
-          <td>{{ $demande->veto->user->name }}</td>
+          <td><small>{{ $demande->veto->user->name }}</small></td>
           <td class="a-envoyer" demande="{{ $demande->id }}" destinataire="{{ $demande->veto->user->id }}" type="single">
             @include('labo.demandeShow.syntheseRenvoi', ['tooltip' => __('demandes.resend_veto')])
           </td>

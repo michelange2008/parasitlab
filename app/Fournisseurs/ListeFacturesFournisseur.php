@@ -40,7 +40,7 @@ class ListeFacturesFournisseur extends ListeFournisseur
 
       $reglement = ($facture->reglement_id != null) ? $this->iconeFactory($facture->reglement->modereglement->icone) : " - ";
 
-      $payee_date = ($facture->reglement_id != null) ? $this->itemFactory($facture->reglement->date_reglement) : ' - ';
+      $payee_date = ($facture->reglement_id != null) ? $this->dateFactory($facture->reglement->date_reglement) : ' - ';
 
       $suppr = ($facture->payee) ? "" : $this->delFactory($facture->id, 'factures.destroy');
 

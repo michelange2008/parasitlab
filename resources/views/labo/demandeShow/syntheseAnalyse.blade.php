@@ -1,17 +1,5 @@
 <table class="table table-hover">
   <tbody>
-    @if ($demande->toveto)
-      <tr>
-        <td>
-          <small>-> {!! ucfirst(__('form.vet')) !!}</small>
-        </td>
-        <td>
-          <a href="{{ route('vetoAdmin.show', $demande->veto_id)}}">
-            <strong>{{ $demande->veto->user->name}}</strong>
-          </a>
-        </td>
-      </tr>
-    @endif
 
     <tr>
       <td>
@@ -33,6 +21,19 @@
         {{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}
       </td>
     </tr>
+    @if ($demande->toveto)
+      <tr>
+        <td>
+          <small>-> {!! ucfirst(__('form.vet')) !!}</small>
+        </td>
+        <td>
+          <small><a href="{{ route('vetoAdmin.show', $demande->veto_id)}}">
+            {{ $demande->veto->user->name}}
+          </a></small>
+        </td>
+      </tr>
+    @endif
+
     <tr>
       <td>
         <small>@lang('tableaux.date_resultat')&nbsp;: </small>

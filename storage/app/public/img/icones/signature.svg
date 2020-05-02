@@ -36,8 +36,8 @@
      id="namedview16"
      showgrid="false"
      inkscape:zoom="2.36"
-     inkscape:cx="-50.453797"
-     inkscape:cy="48.514181"
+     inkscape:cx="-149.39447"
+     inkscape:cy="46.819266"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -54,7 +54,7 @@
        inkscape:locked="false" /></sodipodi:namedview><g
      id="g12"
      style="fill:#0a425a;fill-opacity:1"
-     transform="translate(-0.49932926,0.40099999)"><path
+     transform="matrix(0.93335595,0,0,0.93335595,0.6002585,1.5005601)"><path
        d="M 27.523,6.77 15.851,18.441 c -0.675,0.674 -0.675,1.768 0,2.443 l 0.645,0.645 c 0.674,0.674 1.769,0.674 2.443,0 L 30.612,9.857 Z"
        id="path2"
        style="fill:#0a425a;fill-opacity:1"

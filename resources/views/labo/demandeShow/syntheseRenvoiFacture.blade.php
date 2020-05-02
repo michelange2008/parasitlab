@@ -1,9 +1,10 @@
-@if ($demande->facture->faite)
+@if ($demande->facture)
+
   <table class="table">
 
-    <thead class="alert-bleu">
+    <thead>
       <tr>
-        <th colspan="2">Renvoyer la facture</th>
+        <th class="color-bleu" colspan="2">@lang('factures.renvoi')</th>
       </tr>
     </thead>
 
@@ -12,11 +13,12 @@
         <td>
           <small>{{ $demande->facture->user->name }}</small>
         </td>
-        <td>
+        <td id="facture-a-envoyer">
           @include('labo.demandeShow.syntheseRenvoi', ['route' => $route, 'tooltip' => "Renvoyer le facture à l'éleveur"])
         </td>
       </tr>
     </tbody>
 
   </table>
+
 @endif

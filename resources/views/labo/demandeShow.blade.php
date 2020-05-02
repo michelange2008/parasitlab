@@ -1,65 +1,110 @@
-<!-- INFORMATIONS SUR L'ANALYSE-->
-<div id="demande" class="card" acheve="{{ $demande->acheve }}" signe="{{ $demande->signe }}" envoye="{{ $demande->envoye }}" >
+{{-- ISSU DE  demandeController@show
+AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
+ --}}
+@extends('layouts.app')
 
-  <div class="card-header">
+@section('menu')
 
-    @include('labo.demandeShow.titreDemande')
+  @include('labo.laboMenu')
 
-    <div class="btn-group" role="group" aria-label="modif-signature-envoi">
+@endsection
 
-      <a class="btn btn-lg btn-bleu" href="{{ route('resultats.edit', $demande->id )}}">@lang('boutons.saisie_modif_result')</a>
+@section('content')
 
-      @if ($demande->acheve)
+  <div class="container-fluid">
 
-        @include('labo.demandeShow.signature')
+    <div class="row">
 
-        @include('labo.demandeShow.envoi')
+      @include('fragments.breadcrumb', [
+        'liste' => [
+          "Accueil" => 'laboratoire',
+          "Demandes" => 'demandes.index'
+        ],
+        'nom' => isset($demande->anaacte->anatype->nom) ? ucfirst($demande->anaacte->anatype->nom) : ucfirst($serie->anapack->nom)
+      ])
 
-      @endif
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-11">
+
+        @titre([
+          'titre' => $demande->user->name.'&nbsp;: '.$demande->anaacte->anatype->abbreviation.' - '.$demande->anaacte->nom,
+          'icone' => $demande->espece->icone->nom,
+        ])
+
+      </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-4">
+
+        <!-- INFORMATIONS SUR L ANALYSE: SI TERMINEE NE S'AFFICHE PAS PAR DEFAUT - SINON AFFICHEE-->
+        @include('labo.demandeShow.demandeDetail')
+
+      </div>
+
+      {{-- RESULTATS D'ANALYSE --}}
+      <div class="col-md-7">
+
+        <div id="demande" class="card" acheve="{{ $demande->acheve }}" signe="{{ $demande->signe }}" envoye="{{ $demande->envoye }}" >
+
+          <div class="card-header">
+
+            <div class="btn-group" role="group" aria-label="modif-signature-envoi">
+
+              @include('labo.demandeShow.saisie')
+
+            @if ($demande->acheve)
+
+                @include('labo.demandeShow.signature')
+
+                @include('labo.demandeShow.envoi')
+
+              @endif
+
+            </div>
+
+          </div>
+
+          <div class="card-body">
+
+            <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
+            @if ($demande->acheve)
+
+              @include('labo.resultatsAnalyse')
+
+            @endif
+
+          </div>
+
+          <div id="affiche_pdf" class="m-4" style="display:none">
+
+            @bouton([
+            'type' => 'route',
+            'route' => 'resultatPdf',
+            'id' => $demande->id,
+            'couleur' => "btn-rouge",
+            'fa' => 'fas fa-file-pdf',
+            'intitule' => __('boutons.show_pdf'),
+            'target' => '_blank',
+            ])
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row my-3"> {{-- Juste une ligne pour donner un peu d'espace au bas de page --}}
 
     </div>
 
   </div>
 
-  <div class="card-body">
-
-  <!-- TITRE POUR CLIQUER ET EXPANDRE SI L'ANALYSE EST TERMINEE - NE S'AFFICHE PAS SI L'ANALYSE N'EST PAS TERMINÉE-->
-  @if ($demande->acheve)
-
-    @include('fragments.titreCollapse', [
-      'titre' => __('demandes.analyse_infos'),
-      'icone' => 'info_blanc.svg',
-      'tooltip' => __('tooltips.affiche_detail_demande'),
-      'collapse' => "demande_detail",
-      'detail' => true,
-    ])
-
-  @endif
-
-  <!-- INFORMATIONS SUR L ANALYSE: SI TERMINEE NE S'AFFICHE PAS PAR DEFAUT - SINON AFFICHEE-->
-  @include('labo.demandeShow.demandeDetail')
-
-  <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
-  @if ($demande->acheve)
-
-    @include('labo.resultatsAnalyse')
-
-  @endif
-
-  </div>
-
-  <div id="affiche_pdf" class="m-2" style="display:none">
-
-      @bouton([
-        'type' => 'route',
-        'route' => 'resultatPdf',
-        'id' => $demande->id,
-        'couleur' => "btn-rouge",
-        'fa' => 'fas fa-file-pdf',
-        'intitule' => __('boutons.show_pdf'),
-        'target' => '_blank',
-      ])
-
-  </div>
-
-</div>
+@endsection

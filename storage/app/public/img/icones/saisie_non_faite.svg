@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100px"
+   width="100px"
+   fill="#000000"
+   data-name="Layer 1"
+   viewBox="0 0 100 100"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="saisie_non_faite.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Untitled-2-24</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="2.36"
+     inkscape:cx="-145.12712"
+     inkscape:cy="44.915255"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <title
+     id="title2">Untitled-2-24</title>
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:#8f230a;fill-opacity:1"
+     id="path10"
+     d="M 85.11,22.71 H 14.89 A 5.61,5.61 0 0 0 9.34,28.39 V 80 H 90.66 V 28.39 a 5.61,5.61 0 0 0 -5.55,-5.68 z m 0,50.86 a 0.6,0.6 0 0 1 -0.6,0.61 h -69 A 0.61,0.61 0 0 1 14.9,73.57 V 28.8 a 0.6,0.6 0 0 1 0.61,-0.6 h 69 a 0.6,0.6 0 0 1 0.6,0.6 z"
+     data-name="Compound Path" />
+  <path
+     inkscape:connector-curvature="0"
+     style="fill:#8f230a;fill-opacity:1"
+     id="path12"
+     d="m 97,83.49 a 0.23,0.23 0 0 1 0.22,0.26 11.3,11.3 0 0 1 -3.11,6.25 10.79,10.79 0 0 1 -7.76,3.28 H 13.65 A 11.06,11.06 0 0 1 2.79,83.75 0.23,0.23 0 0 1 3,83.49 h 36.06 a 0.21,0.21 0 0 1 0.21,0.22 v 0 a 2.39,2.39 0 0 0 2.36,2.41 h 16.74 a 2.39,2.39 0 0 0 2.36,-2.41 v 0 a 0.21,0.21 0 0 1 0.21,-0.22 z"
+     data-name="Path" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#8f230a;fill-opacity:1;stroke:none;"
+     x="40.677971"
+     y="65.372879"
+     id="text844"><tspan
+       sodipodi:role="line"
+       id="tspan842"
+       x="40.677971"
+       y="65.372879"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:FreeSerif;-inkscape-font-specification:'FreeSerif Bold';fill:#8f230a;fill-opacity:1;">?</tspan></text>
+</svg>

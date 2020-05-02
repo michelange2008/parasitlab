@@ -16,6 +16,6 @@
       <img class="img-40 d-block"
             src="{{ url('storage/img/icones/signature.svg')}}"
             alt="signé"
-            title="@lang('tooltips.demande_signe', ['date_signature' => $demande->date_signature, 'signataire' => $demande->labo->user->name ?? '']) ">
+            title="@lang('tooltips.demande_signe', ['date_signature' => \Carbon\Carbon::parse($demande->date_signature)->isoFormat('LL'), 'signataire' => $demande->labo->user->name ?? '']) ">
 
     </div>

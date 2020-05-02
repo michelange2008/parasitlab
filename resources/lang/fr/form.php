@@ -40,7 +40,7 @@ return array (
   'type_acte' => 'Type d\'acte',
   'infos_diverses' => 'Informations (motifs de l\'analyse, état des animaux, etc.)',
   'infos_diverses_placeholder' => 'Si vous souhaitez nous transmettre des informations: motifs de l\'analyse (suivi, problèmes, etc.), état des animaux, mortalité, etc.',
-  'nb_prelevement' => 'Nombre de prélèvements (de 1 à 10)',
+  'nb_prelevement' => 'Nombre de prélèvements',
   'prelev_nb' => 'Prélèvement n°',
   'nom_prelev' => 'nom du prélèvement',
   'ax_prelev' => 'Concernant les animaux de ce prélèvement&nbsp;:',
@@ -63,6 +63,7 @@ return array (
   'identif_prelev' => 'Identification du prélèvement n°:num',
   'estFinie' => 'Analyse terminée (décocher si ce n\'est pas le cas)',
   'espece' => 'Espèce',
+  'comment' => "Commentaire",
 
   'user_guide_title' => "Mode d'emploi",
   'user_guide_soustitre_1' => "Cliquez sur modifier",
@@ -83,4 +84,6 @@ return array (
   'parasite' => "Parasite",
   'qtt' => "Quantité",
   'unit' => "Unité",
+
+  "demande_serie" => 'Cette demande d\'analyse fait partie d\'un pack qui compte 3 séries de prélèvement',
 );

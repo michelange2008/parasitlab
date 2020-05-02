@@ -3,6 +3,7 @@
 return array (
   'et' => 'et',
   'par' => 'par',
+  'du' => 'du',
   'ilya' => 'Il y a',
   'know_more' => 'En savoir plus',
   'contact_us_short' => 'nous contacter',

@@ -10,11 +10,11 @@
 
   </div>
 
-  <p class="font-weight-bold lead">Facture n°{{ $elementDeFacture->facture->id }} du {{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL') }}</p>
+  <p class="font-weight-bold lead">@lang('factures.facture')&nbsp;n°{{ $elementDeFacture->facture->id }} @lang('commun.du')&nbsp;{{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL') }}</p>
 
   @foreach ($elementDeFacture->demandes as $demande)
 
-    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst($demande->anaacte->anatype->nom) }} du {{ Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
+    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst($demande->anaacte->anatype->nom) }} @lang('commun.du')&nbsp;{{ Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
 
   @endforeach
 
@@ -22,11 +22,11 @@
 
   @if ($elementDeFacture->facture->payee)
 
-    <p>Facture réglée le {{ $elementDeFacture->facture->reglement->date_reglement }} par {{ $elementDeFacture->facture->reglement->modereglement->nom }}.</p>
+    <p>@lang('factures.facture_payee_le') {{ \Carbon\Carbon::parse($elementDeFacture->facture->reglement->date_reglement)->isoFormat('LL') }} @lang('commun.par') {{ $elementDeFacture->facture->reglement->modereglement->nom }}.</p>
 
   @else
 
-    <p>Facture à régler avant le {{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->addMonth()->isoFormat('LL') }} par chèque à l'ordre du Fibl France ou par virement.</p>
+    <p>@lang('factures.facture_a_regler') {{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->addMonth()->isoFormat('LL') }} @lang('factures.pay_to_fibl')</p>
 
     <p>IBAN: </p>
 
