@@ -50,9 +50,7 @@ class PdfController extends Controller
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
-    $laboInfos = config('laboInfos');
-
-    $pdf = PDF::loadview('labo.resultats.pdf.'.$vue, compact('demande', 'laboInfos'));
+    $pdf = PDF::loadview('labo.resultats.pdf.'.$vue, compact('demande'));
 
     $name = $demande->user->name."_".$demande->anaacte->anatype->nom."_".$demande->date_resultat.".pdf";
 
@@ -81,9 +79,7 @@ class PdfController extends Controller
     // utilisation de la fonction elementDeFacture du trait FactureFactory
     $elementDeFacture = $this->prepareFacture($facture_id);
 
-    $laboInfos = config('laboInfos');
-
-    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture', 'laboInfos'));
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
 
     return $pdf->stream('facture.pdf');
   }
@@ -93,9 +89,7 @@ class PdfController extends Controller
     // utilisation de la fonction elementDeFacture du trait FactureFactory
     $elementDeFacture = $this->prepareFacture($facture_id);
 
-    $laboInfos = config('laboInfos');
-
-    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture', 'laboInfos'));
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
 
     return $pdf;
   }

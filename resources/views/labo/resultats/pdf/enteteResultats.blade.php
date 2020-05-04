@@ -3,8 +3,8 @@
     <tr>
       <td>
         <img width="250px" src="{{ url('storage/logo.svg') }}" alt="Logo du labo">
-        <p class="adresseFibl">{{ $laboInfos['address_1'] }}</p>
-        <p class="adresseFibl">{{ $laboInfos['address_2'] }}</p>
+        <p class="adresseFibl">{{ config('laboInfos.address_1') }}</p>
+        <p class="adresseFibl">{{ config('laboInfos.address_2') }}</p>
       </td>
       <td class="text-right">
         <p class="adresseFibl">@lang('demandes.signe_le') {{\Carbon\Carbon::parse($demande->date_signature)->isoFormat('DD/MM/Y')}}</p>

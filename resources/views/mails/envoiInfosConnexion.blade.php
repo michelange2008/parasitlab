@@ -35,7 +35,7 @@
   <ul>
 
     <li>Login&nbsp;:&nbsp;{{ $user->email }}</li>
-    
+
     <li>{{ __('Password') }}&nbsp;:&nbsp;{{ $user->password }}</li>
 
   </ul>
@@ -51,7 +51,7 @@
 
   </p>
 
-  <p>@lang('commun.contact_us'){{ config('laboInfos.email_contact') }}</p>
+  <p>@lang('commun.contact_us'){{ config('laboInfos.email_contact')   }}</p>
   <br>
   <p>@lang('commun.cordialement'),</p>
   <br>

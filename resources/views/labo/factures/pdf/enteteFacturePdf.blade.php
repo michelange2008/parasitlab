@@ -8,9 +8,9 @@
 
         <img width="250px" src="{{ url('storage/logo.svg') }}" alt="Logo du labo">
 
-        <p class="adresseFibl">{{ $laboInfos['address_1']}}</p>
+        <p class="adresseFibl">{{ config('laboInfos.address_1') }}</p>
 
-        <p class="adresseFibl">{{ $laboInfos['address_2']}}</p>
+        <p class="adresseFibl">{{ config('laboInfos.address_2') }}</p>
 
       </td>
 

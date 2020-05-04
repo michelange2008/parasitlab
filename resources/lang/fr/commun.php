@@ -26,6 +26,5 @@ return array (
   'Phone' => 'Téléphone',
   'eleveur' => 'ELEVEUR',
 
-
   'question_del' => 'Faut-il vraiment effectuer cette suppression ?',
 );

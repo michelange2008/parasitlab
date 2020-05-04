@@ -28,7 +28,8 @@
 
     <p>@lang('factures.facture_a_regler') {{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->addMonth()->isoFormat('LL') }} @lang('factures.pay_to_fibl')</p>
 
-    <p>IBAN: </p>
+    <p>@lang('factures.iban'):&nbsp;{{ config('laboInfos.iban') }}</p>
+    <p>@lang('factures.bic'):&nbsp;{{ config('laboInfos.bic') }}</p>
 
   @endif
 

@@ -36,7 +36,7 @@ class EnvoiInfosConnexion extends Mailable
 
       $estEleveur = $this->estEleveur($this->user->usertype_id);
 
-        return $this->from(config('laboInfos.email_contact'))
+        return $this->from(config('app.mail'))
                     ->subject('Informations de connexion')
                     ->view('mails.envoiInfosConnexion')
                     ->with(['user' => $this->user, 'estVeto' => $estVeto, 'estEleveur' => $estEleveur]);

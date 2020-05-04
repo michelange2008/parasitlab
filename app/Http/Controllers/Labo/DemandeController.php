@@ -50,6 +50,7 @@ class DemandeController extends Controller
 
     public function index()
     {
+      
       $demandes = Demande::all();
 
       session()->forget('user');

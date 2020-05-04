@@ -49,6 +49,9 @@
         <td colspan="4">@lang('tableaux.total_ttc')</td>
         <td class="text-right">{{ $elementDeFacture->facture->somme_facture->total_ttc }}</td>
       </tr>
+      <tr>
+        <td class="text-right" colspan="5"><small class="font-italic">@lang('factures.no_tva')</small></td>
+      </tr>
     </tbody>
 
   </table>
