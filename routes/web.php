@@ -18,6 +18,8 @@
 
   Route::get('/', 'AccueilController@index')->name('accueil');
 
+  Route::get('/accueil', 'AccueilController@index');
+
   Route::get('veterinaires', ['uses' => 'AccueilController@veterinaires', 'as' => 'veterinaires.accueil']);
 
   Route::get('eleveurs', ['uses' => 'AccueilController@eleveurs', 'as' => 'eleveurs.accueil']);
@@ -78,6 +80,8 @@
 
     Route::get('eleveur/demande/{demande_id}', 'EleveurController@demandeShow')->name('eleveur.demandeShow');
 
+    Route::get('resultatPdf/eleveur/{demande_id}', ['uses' => 'PdfController@resultatsPdfEleveur', 'as' => 'resultatspdf.eleveur']);
+
     Route::get('eleveur/factures', 'EleveurController@facturesIndex')->name('eleveur.facturesIndex');
 
     Route::get('eleveur/factures/{id}', 'EleveurController@factureShow')->name('eleveur.factureShow');
@@ -99,6 +103,8 @@
 
     Route::get('veterinaire/serie/{serie_id}', 'VeterinaireController@serieShow')->name('veto.serieShow');
 
+    Route::get('resultatPdf/veto/{demande_id}', ['uses' => 'PdfController@resultatsPdfVeto', 'as' => 'resultatspdf.veto']);
+
   });
 
 
@@ -111,13 +117,12 @@
 
     Route::get('routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
 
-    Route::get('resultatPdf/{demande}', ['uses' => 'PdfController@resultatPdf', 'as' => 'resultatPdf']);
 
     Route::get('facturePdf/{id}', ['uses' => 'RouteurController@routeurFacturePdf', 'as' => 'routeurFacturePdf']);
 
+    Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@routeurResultatsPdf', 'as' => 'routeurResultatsPdf']);
+
   });
-
-
 
   // ROUTES INTERNES AU LABORATOIRE
   Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){
@@ -153,6 +158,8 @@
     Route::get('usertypes', 'UsertypeController@liste')->name('usertypeJson');
 
     Route::resource('resultats', 'Labo\ResultatController');
+
+    Route::get('resultatPdf/labo/{demande_id}', ['uses' => 'PdfController@resultatsPdfLabo', 'as' => 'resultatspdf.labo']);
 
     Route::get('factures/create/{destinataire_id}', 'Labo\FactureController@createFromUser')->name('factures.createFromUser');
 

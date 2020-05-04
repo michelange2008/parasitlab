@@ -56,8 +56,9 @@ class EleveurController extends Controller
     {
       $user = User::find($id);
 
-      $eleveurInfos = $this->eleveurInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
+      $this->authorize('view', $user);
 
+      $eleveurInfos = $this->eleveurInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
       return view('utilisateurs.utilisateurShow', [
         'menu' => $this->menu,
         'user' => $user,
@@ -110,7 +111,8 @@ class EleveurController extends Controller
 
     public function demandeShow($demande_id)
     {
-      $demande = Demande::find($demande_id);
+      $demande = Demande::findOrFail($demande_id);
+      $this->authorize('view', $demande->user);
 
       $demande = $this->demandeFactory($demande);
 
@@ -130,7 +132,9 @@ class EleveurController extends Controller
 
     public function factureShow($id)
     {
-      $facture = Facture::find($id);
+      $facture = Facture::findOrFail($id);
+
+      $this->authorize('view', $facture->user);
 
       $elementDeFacture = $this->prepareFacture($id);
 
@@ -145,6 +149,8 @@ class EleveurController extends Controller
     public function serieShow($serie_id)
     {
       $serie = Serie::find($serie_id);
+
+      $this->authorize('view', $serie->user);
 
       foreach ($serie->demandes as $demande) {
 

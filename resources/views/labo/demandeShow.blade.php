@@ -85,7 +85,7 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
 
             @bouton([
             'type' => 'route',
-            'route' => 'resultatPdf',
+            'route' => 'routeurResultatsPdf',
             'id' => $demande->id,
             'couleur' => "btn-rouge",
             'fa' => 'fas fa-file-pdf',

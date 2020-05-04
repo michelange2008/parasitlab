@@ -7,6 +7,7 @@ return array (
   'ilya' => 'Il y a',
   'know_more' => 'En savoir plus',
   'contact_us_short' => 'nous contacter',
+  'contact_us_short_2' => 'Contactez-nous',
   'contact_us' => 'Pour toute question ou remarque, n\'hésitez pas à nous contacter à l\'adresse&nbsp;',
   'question_probleme' => 'Une question ? Un problème ? N\'hésitez-pas',
   'cordialement' => 'Cordialement',

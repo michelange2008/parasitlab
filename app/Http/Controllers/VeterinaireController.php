@@ -99,6 +99,8 @@ class VeterinaireController extends Controller
     {
       $user = User::find($id);
 
+      $this->authorize('view', $user);
+
       $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
 
       return view('utilisateurs.utilisateurShow', [
@@ -113,7 +115,14 @@ class VeterinaireController extends Controller
 
     public function demandeShow($demande_id)
     {
-      $demande = Demande::find($demande_id);
+
+      $demande = Demande::where('id', $demande_id)->where('veto_id', auth()->user()->veto->id)->first();
+
+      if(!isset($demande)) {
+
+        abort(403);
+
+      }
 
       $demande = $this->demandeFactory($demande);
 
@@ -126,7 +135,15 @@ class VeterinaireController extends Controller
     public function serieShow($serie_id)
     {
 
-      $serie = Serie::find($serie_id);
+      $demande = Demande::where('serie_id', $serie_id)->where('veto_id', auth()->user()->veto->id)->first();
+
+      if(!isset($demande)) {
+
+        abort(403);
+
+      }
+
+      $serie = $demande->serie;
 
       foreach ($serie->demandes as $demande) {
 

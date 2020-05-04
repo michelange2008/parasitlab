@@ -128,4 +128,31 @@ class RouteurController extends Controller
     return redirect()->route('accueil');
   }
 
+  public function routeurResultatsPdf($demande_id)
+  {
+
+    if($this->estLabo(auth()->user()->usertype_id)) {
+
+      return redirect()->route('resultatspdf.labo', $demande_id);
+
+    }
+
+    elseif ($this->estEleveur(auth()->user()->usertype_id)) {
+
+      return redirect()->route('resultatspdf.eleveur', $demande_id);
+    }
+
+    elseif ($this->estVeto(auth()->user()->usertype_id)) {
+
+      return redirect()->route('resultatspdf.veto', $demande_id);
+
+    }
+
+    else {
+      return redirect('/accueil');
+
+    }
+
+  }
+
 }

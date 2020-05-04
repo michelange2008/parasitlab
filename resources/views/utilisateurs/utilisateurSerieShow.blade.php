@@ -31,13 +31,13 @@
           </p>
           <hr>
 
-          <img src="{!! 'storage/img/icones/'.$serie->anapack->icone->nom !!}" alt="{{ $serie->anapack->nom }}">
+          <img src="{!! 'storage/img/icones/'.$serie->anaacte->icone->nom !!}" alt="{{ $serie->anaacte->nom }}">
 
-          <p class="lead">{{ ucfirst($serie->anapack->nom) }}</p>
+          <p class="lead">{{ ucfirst($serie->anaacte->nom) }}</p>
 
           <p>
 
-            {{$serie->anapack->detail}}
+            {{$serie->anaacte->detail}}
 
           </p>
 

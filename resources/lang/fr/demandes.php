@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'recu_le' => 'Demande d\'analyse reçue le ',
-  'signe_le' => 'signée le ',
+  'recu_le' => 'Reçue le ',
+  'signe_le' => 'Signée le ',
   '0_resultat' => 'Aucun parasite recherché n\'a été identifié',
   'voir_non_detecte' => 'Voir les non détectés',
-  'affiche_non_detecte' => 'Afficher les parasites non-detectés',
+  'affiche_non_detecte' => 'AfficRer les parasites non-detectés',
   'non_detecte' => 'Parasites recherchés mais non retrouvés (absents ou présents en-dessous du seuil de détection)&nbsp;:',
   'etat_prelevement' => 'état du prélèvement&nbsp;:',
   'commentaire' => 'Commentaire du',
@@ -22,5 +22,5 @@ return array (
   'resend_eleveur' => 'Renvoyer les résultats à l\'éleveur',
   'resend_veto' => 'Renvoyer les résultats au vétérinaire',
   'analyse' => "Analyse",
-  'results' => 'résultats',
+  'results' => 'Résultats',
 );

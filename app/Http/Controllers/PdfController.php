@@ -20,7 +20,31 @@ class PdfController extends Controller
 {
   use DemandeFactory, LitJson, UserTypeOutil, FactureFactory;
 
-  public function resultatPdf($demande_id)
+  public function resultatsPdfEleveur($demande_id)
+  {
+    $user = Demande::findOrFail($demande_id)->user;
+
+    $this->authorize('view', $user);
+
+    return $this->preparePdfResultats($demande_id, 'eleveurPdf');
+
+  }
+
+  public function resultatsPdfVeto($demande_id)
+  {
+
+    return $this->preparePdfResultats($demande_id, 'vetoPdf');
+
+  }
+
+  public function resultatsPdfLabo($demande_id)
+  {
+
+    return $this->preparePdfResultats($demande_id, 'laboPdf');
+
+  }
+
+  public function preparePdfResultats($demande_id, $vue)
   {
     $demande = Demande::find($demande_id);
 
@@ -28,35 +52,13 @@ class PdfController extends Controller
 
     $laboInfos = config('laboInfos');
 
-    if ($this->estEleveur(auth()->user()->usertype->id)) {
-
-      $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande', 'laboInfos'));
-
-    }
-    elseif ($this->estVeto(auth()->user()->usertype->id)) {
-
-      $pdf = PDF::loadview('labo.resultats.pdf.vetoPdf', compact('demande', 'laboInfos'));
-
-    }
-
-    elseif ($this->estLabo(auth()->user()->usertype->id)) {
-
-      $pdf = PDF::loadview('labo.resultats.pdf.laboPdf', compact('demande', 'laboInfos'));
-
-    }
-
-    else {
-
-      return route('accueil');
-
-    }
-
+    $pdf = PDF::loadview('labo.resultats.pdf.'.$vue, compact('demande', 'laboInfos'));
 
     $name = $demande->user->name."_".$demande->anaacte->anatype->nom."_".$demande->date_resultat.".pdf";
 
     return $pdf->stream($name);
-
   }
+
 
   public function attachPdfResultats($demande_id)
   {

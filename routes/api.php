@@ -34,5 +34,4 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf');
 
-
 });

@@ -4,7 +4,7 @@
 
     <div class="card-body">
 
-      <h5 class="card-title">
+      <p class="card-title lead">
 
         @lang('demandes.commentaire') {{ \Carbon\Carbon::parse($demande->commentaire->date_commentaire)->isoFormat('LL') }}
 
@@ -14,7 +14,7 @@
 
         @endif
 
-      </h5>
+      </p>
 
       <p class="card-text">
 

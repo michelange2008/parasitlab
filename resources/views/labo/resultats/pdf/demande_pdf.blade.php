@@ -34,7 +34,7 @@
 @if ($prelevement->toutNegatif)
 
   <tr>
-    <td colspan="3">@lang('demandes.0_resultat')/td>
+    <td colspan="3">@lang('demandes.0_resultat')</td>
   </tr>
 
 @else
