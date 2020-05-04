@@ -7,7 +7,7 @@ return [
   'phone' => "+33 (0)4 75 25 41 55",
   'site' => "https://parasitlab.org",
   'email_contact' => 'contact@parasitlab.org',
-  'prefixe_facture' => 'PL-'
+  'prefixe_facture' => 'PL-',
   'iban' => "FR76 1390 6001 2585 0451 2667 191",
   'bic' => "AGRIFRPP839",
 ];
