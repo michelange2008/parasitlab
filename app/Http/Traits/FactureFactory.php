@@ -72,7 +72,7 @@ trait FactureFactory
     return $users_anf;
   }
 
-  public function ajouteSommeEtTvas($facture)
+  public function ajouteSommeEtTvasEtNum($facture)
   {
     $somme_facture = $this->calculSommeFacture($facture);
 
@@ -81,6 +81,8 @@ trait FactureFactory
     $facture->somme_facture = $somme_facture;
 
     $facture->liste_tvas = $liste_tvas;
+
+    $facture->num = config('laboInfos.prefixe_facture').$facture->id;
 
     return $facture;
   }
@@ -179,7 +181,7 @@ trait FactureFactory
     $facture = Facture::findOrFail($facture_id);
 
     // Et on calcul son total
-    $facture_completee = $this->ajouteSommeEtTvas($facture);
+    $facture_completee = $this->ajouteSommeEtTvasEtNum($facture);
     // On récupère les actes facturés... Bon c'est pas tout à fait correct de faire une requête sur la table pivot
     // Mais contrairement aux autres tables, cette table pivot stocke de l'information au delà des id des actes et des factures
     // En effet, il est indispensable de mettre à chaque fois le montant de l'acte au cas où cette valeur change ultérieurement

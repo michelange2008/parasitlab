@@ -27,7 +27,7 @@
         @titre([
           'titre' => $elementDeFacture->facture->user->name ,
           'soustitre' => "- ".__('factures.num_date', [
-            'num' => $elementDeFacture->facture->id,
+            'num' => $elementDeFacture->facture->num,
             'date' => \Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL'),
           ]),
           'icone' => 'factures.svg'
@@ -67,6 +67,7 @@
         'intitule' => 'show_pdf',
         'couleur' => 'btn-rouge',
         'fa' => 'fas fa-file-pdf',
+        'target' => "_blank",
       ])
       @boutonUser([
         'route' => 'mail.envoyerFacture', 'id' => $elementDeFacture->facture->id,

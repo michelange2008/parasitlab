@@ -7,5 +7,6 @@ return [
   'phone' => "+33 (0)4 75 25 41 55",
   'site' => "https://parasitlab.org",
   'email_contact' => 'contact@parasitlab.org',
+  'prefixe_facture' => 'PL-'
 
 ];

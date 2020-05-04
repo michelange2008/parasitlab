@@ -214,7 +214,7 @@ class DemandeController extends Controller
 
         $facture = Facture::find($demande->facture_id);
 
-        $facture = $this->ajouteSommeEtTvas($facture);
+        $facture = $this->ajouteSommeEtTvasEtNum($facture);
 
       } else {
 

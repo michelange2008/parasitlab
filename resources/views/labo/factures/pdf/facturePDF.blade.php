@@ -10,7 +10,7 @@
 
   </div>
 
-  <p class="font-weight-bold lead">@lang('factures.facture')&nbsp;n°{{ $elementDeFacture->facture->id }} @lang('commun.du')&nbsp;{{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL') }}</p>
+  <p class="font-weight-bold lead">@lang('factures.facture')&nbsp;n°{{ $elementDeFacture->facture->num }} @lang('commun.du')&nbsp;{{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL') }}</p>
 
   @foreach ($elementDeFacture->demandes as $demande)
 
