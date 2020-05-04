@@ -44,6 +44,7 @@
               'intitule' => 'show_pdf',
               'couleur' => 'btn-rouge',
               'fa' => 'fas fa-file-pdf',
+              'target' => '_blank',
             ])
 
           </div>
