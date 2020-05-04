@@ -6,7 +6,7 @@
 
       <td>
 
-        <img width="250px" src="images/logo.svg" alt="Logo du labo">
+        <img width="250px" src="{{ url('storage/logo.svg') }}" alt="Logo du labo">
 
         <p class="adresseFibl">{{ $laboInfos['address_1']}}</p>
 
