@@ -22,7 +22,7 @@ class ObservationsTableSeeder extends Seeder
           [
             "categorie_id" => 1,
             "ordre" => 2,
-            "intitule" => "J’observe une baisse de production",
+            "intitule" => "J’observe une baisse de production de lait",
             "explication" => "Les infestations parasitaires provoquent souvent des baisse de production",
             "autres" => "alimentation insuffisante ou déséquilibrée, infections chroniques, stress, etc.",
           ],
@@ -266,6 +266,13 @@ class ObservationsTableSeeder extends Seeder
             "ordre" => 4,
             "intitule" => "Je vais mettre mon animal au pré",
             "explication" => "Si vous n'avez pas évalué le parasitisme de cet animal à la rentrée en box, il est encore temps de le faire",
+            "autre" => null,
+          ],
+          [
+            "categorie_id" => 2,
+            "ordre" => 9,
+            "intitule" => "Je veux connaître la dynamique d'évolution du parasitisme dans mon troupeau",
+            "explication" => "Si vous souhaitez comprendre à quel moment les animaux s'infestent, si cette infestation reste limitée et supportable et comment raisonner un éventuel traitement sélectif à la rentrée en bâtiment...",
             "autre" => null,
           ],
           // ##############################################################################

@@ -64,11 +64,12 @@
         </div>
         <div class="col-md-10">
           <div class="card-body">
-            <h5 class="card-title"><span class="badge badge-bleu-tres-fonce">{!! $anaacte->num !!}</span> {!! ucfirst($anaacte->anatype->nom) !!}</h5>
+            <h5 class="card-title">{!! ucfirst($anaacte->anatype->nom) !!}</h5>
             <p class="card-text">{!! ucfirst($anaacte->nom) !!}
               <span class="card-text"><small class="text-muted">{!! ucfirst($anaacte->pu_ht) !!}&nbsp;&euro;</small></span>
             </p>
             <p class="card-text text-secondary pl-3 bordure-epaisse">{!! ucfirst($anaacte->description) !!}</p>
+            <p class="text-muted">@lang('choisir.num_analyse')&nbsp;<span class="badge badge-bleu-tres-fonce">{!! $anaacte->num !!}</span></p>
           </div>
         </div>
       </div>
@@ -77,8 +78,8 @@
   @endforeach
 
   <div id="boutons" class="mb-3" style="display:none">
-    <a id="bouton_pdf" class="btn btn-rouge" href="{{ url('storage/pdf/formulaire_espece.pdf') }}" target="_blank" ><i class="fas fa-file-pdf"></i> Télécharger un formulaire</a>
-    <a id="bouton_pdf" class="btn btn-bleu" href="{{ route('analyses.enpratique') }}"><i class="fas fa-virus"></i> En pratique: prélever/envoyer</a>
+    <a id="bouton_pdf" class="btn btn-rouge" href="{{ url('storage/pdf/formulaire_espece.pdf') }}" target="_blank" ><i class="fas fa-file-pdf"></i>&nbsp;@lang('boutons.tele_form')</a>
+    <a id="bouton_pdf" class="btn btn-bleu" href="{{ route('analyses.enpratique') }}"><i class="fas fa-virus"></i>&nbsp;@lang('boutons.prelevenvoi')</a>
   </div>
 
   {{-- recommandation pour le véto --}}

@@ -57,6 +57,10 @@ a:hover {
 .bordure-epaisse {
 	border-left: solid 5px $bleu-tres-fonce;
 }
+
+.active {
+	background: $bleu-tres-fonce !important;
+}
 // pour avoir une barre latérale fixe meme quand on scrolle
 .bd-sidebar {
 	position: -webkit-fixed;

@@ -14,11 +14,11 @@ class ObservationOptionTableSeeder extends Seeder
         db::table('observation_option')->insert([
           [
             'observation_id' => 1,
-            'option_id' =>  1,
+            'option_id' =>  12,
           ],
           [
             'observation_id' => 2,
-            'option_id' =>  1,
+            'option_id' =>  12,
           ],
           [
             'observation_id' => 3,
@@ -74,14 +74,6 @@ class ObservationOptionTableSeeder extends Seeder
             'observation_id' => 13,
             'option_id' =>  6,
           ],
-          // [
-          //   'observation_id' => 13,
-          //   'option_id' =>  8,
-          // ],
-          // [
-          //   'observation_id' => 13,
-          //   'option_id' =>  5,
-          // ],
           [
             'observation_id' => 14,
             'option_id' =>  2,
@@ -178,6 +170,10 @@ class ObservationOptionTableSeeder extends Seeder
           [
             'observation_id' => 36,
             'option_id' =>  8,
+          ],
+          [
+            'observation_id' => 37,
+            'option_id' => 3,
           ],
 
         ]);

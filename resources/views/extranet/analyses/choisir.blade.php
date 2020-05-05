@@ -46,6 +46,14 @@
 
     <div class="row justify-content-center">
 
+      <div class="col-md-12">
+
+        <h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')
+          <br><span style="font-size:60%">@lang('choisir.liste_observations_mde')</span>
+        </h4>
+
+      </div>
+
       <div class="col-md-4">
 
         @include('extranet.analyses.choisir.methodeChoixAnalyse')
@@ -56,7 +64,7 @@
 
         {{-- @include('extranet.analyses.choisir.listeAnalysesProposees') --}}
         @include('extranet.analyses.choisir.options')
-        
+
       </div>
 
     </div>

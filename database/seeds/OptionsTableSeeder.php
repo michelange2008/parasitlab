@@ -23,6 +23,7 @@ class OptionsTableSeeder extends Seeder
           [ 'nom' => null],
           [ 'nom' => 'respiratoire'],
           [ 'nom' => 'douveparam'],
+          [ 'nom' => 'baisse_prod' ],
 
         ]);
     }

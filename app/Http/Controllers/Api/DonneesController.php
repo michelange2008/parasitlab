@@ -97,7 +97,7 @@ public function options(Request $request)
     // On élimine les doublons (countBy), on trie en descendant(sort et inverse), et on garde que les deux premières clefs ( keys: n° option les plus fréquants)
     $resultats->put("options", $liste_options->countBy()->sort()->reverse()->slice(0,2)->keys());
     // On ne garde que les anaactes de la liste $liste_anaactes qui sont aussi présents dans la liste des especes (intersect)
-    // On élimine les doublons (countBy), on trie en descendant(sort et inverse), et on garde que les deux premières clefs ( keys: n° anaacte les plus fréquants)
+    // On élimine les doublons (countBy), on trie en descendant(sort et reverse), et on garde que les deux premières clefs ( keys: n° anaacte les plus fréquants)
     $resultats->put("anaactes",$liste_anaactes->intersect($liste_anaactes_espece)->countBy()->sort()->reverse()->slice(0,2)->keys());
 
     return json_encode($resultats);

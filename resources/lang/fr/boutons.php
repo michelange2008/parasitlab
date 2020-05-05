@@ -30,4 +30,7 @@ return array (
   'sent' => "envoyé",
   'signer' => "Signer",
   'new_blog' => "Ecrire un nouvel article",
+
+  'tele_form' => "Télécharger un formulaire",
+  'prelevenvoi' => "En pratique: prélever/envoyer",
 );

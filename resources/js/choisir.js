@@ -102,9 +102,8 @@ $(".liste_observations").on('click', ".card", function() {
 
   // On appelle la fonction listeOptions qui fait une requete post du formulaire caché (ExtranetDemandeController@optionsSelonObservations)
   listeOptions();
-
-
-  // $('#bouton_pdf').fadeIn();
+  // Et on remonte le scroll juste sous la ligne des especes
+  window.scrollTo(200,250);
 });
 
 // Fonction qui requete ajax avec l'espece_id (ExtranetDemandeController@observationSelonEspece)
@@ -119,7 +118,6 @@ function listeObservations(url) {
   })
   .done(function(datas) {
     if(datas != null) {
-
       lignes = JSON.parse(datas);
       $('.categorie').fadeIn();
       $.each(lignes, function(key, ligne) {
@@ -166,6 +164,7 @@ function listeOptions() {
       if(datas != null) { // Si des données sont revenues (ce qui doit être systématiquement le cas)
         var options = JSON.parse(datas).options; // On récupère le tableau options (2 options max)
         var anaactes = JSON.parse(datas).anaactes; // on révupère le tableau anaactes (2 anaactes max)
+        console.log(anaactes);
         if(nombreSelections(selection) > 0) { // S'il y a au moins une sélection
 
           if(options.length == 0) { // Mais que le tableau option est vide, on affiche un message qu'il n'y a pas d'analyse
