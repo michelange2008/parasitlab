@@ -4,7 +4,7 @@
 
     <li class="media my-3">
 
-      <img id="image" width="250px" src="{{ url('storage/img/blog').'/'.$blog->image }}" alt="">
+      <img id="image" width="250px" src="{{ url('storage/img/blog').'/'.$blog->image }}" alt="{{ $blog->image }}">
 
       <div class="media-body ml-3">
 

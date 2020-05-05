@@ -1,7 +1,7 @@
 <div class="bg-bleu-tres-fonce p-3 align-items-middle color-bleu-tres-clair">
 
 
-  <img class="img-90 d-none ck d-lg-block img-claire" src="{!! url('storage/img/icones/'.auth()->user()->usertype->icone->nom) !!}" alt="">
+  <img class="img-90 d-none ck d-lg-block img-claire" src="{!! url('storage/img/icones/'.auth()->user()->usertype->icone->nom) !!}" alt="usertype">
 
   <h4 class="d-lg-block">@lang('eleveurs.pagePerso.titre')</h4>
 

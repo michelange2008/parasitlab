@@ -56,7 +56,7 @@
 
 
           <div class="card bg-rouge-tres-clair mb-3" style="min-width:300px">
-            <img src="{!! 'storage/img/icones/'.$element->prefixe.'svg' !!}" alt="">
+            <img src="{!! 'storage/img/icones/'.$element->prefixe.'svg' !!}" alt="icon">
             <div class="card-body">
               <h4>@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'h4')</h4>
               <p>@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'p')</p>
