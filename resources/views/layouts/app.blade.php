@@ -21,9 +21,6 @@
 
     <!-- Styles -->
     <link href="{{url('css/app.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{url('css/bootstrap-table.min.css')}}">
-    {{-- <link rel="stylesheet" href="{{url('css/bootstrap-table-sticky-header.min.css')}}"> --}}
-    <link rel="stylesheet" href="{{url('css/jquery-confirm.css')}}">
 </head>
   <body>
 
@@ -38,6 +35,8 @@
 
       @yield('scripts')
 
+      <link rel="stylesheet" href="{{url('css/bootstrap-table.min.css')}}">
+      <link rel="stylesheet" href="{{url('css/jquery-confirm.css')}}">
   </body>
 
 </html>
