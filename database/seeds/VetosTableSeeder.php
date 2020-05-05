@@ -22,6 +22,16 @@ class VetosTableSeeder extends Seeder
           'indicatif' => "33",
           'tel' => '0475483048',
         ],
+        [
+          'id' => 2,
+          'user_id' => 13,
+          'num' => "503018",
+          'address_1' => '605 Grande Rue',
+          'cp' => '26300',
+          'commune' => "BARBIERES",
+          'indicatif' => "33",
+          'tel' => '0475472035',
+        ],
       ]);
     }
 }

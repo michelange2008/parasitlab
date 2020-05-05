@@ -20,7 +20,7 @@ class EleveursTableSeeder extends Seeder
             'cp' => "26300",
             'commune' => "Saint Vincent la Commanderie",
             'tel' => '0601234567',
-            'veto_id' => 1,
+            'veto_id' => 2,
           ],
           [
             'user_id' => 5,
@@ -50,7 +50,7 @@ class EleveursTableSeeder extends Seeder
             'cp' => "26300",
             'commune' => "Rochefort-Samson",
             'tel' => '0601234567',
-            'veto_id' => null,
+            'veto_id' => 2,
           ],
           [
             'user_id' => 12,
