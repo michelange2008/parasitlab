@@ -44,6 +44,8 @@ $('.espece').on('click', function() {
 
   // affiche le soustitre et on lui donne l'attribut espece avec l'espece_id comme valeur pour la requete ajax suivante
   $("#titre_observations").attr('espece', espece_id).fadeIn()
+
+  $("#choisirTuto").fadeIn();
   // on appelle la fonction qui fait la requete ajax
   listeObservations(url);
 
@@ -154,7 +156,7 @@ function listeOptions() {
     var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
     // On modifie l'url pour pouvoir faire la requete
     var url = url_actuelle.replace('analyses/choisir', 'api/options');
-
+    $("#choisirTuto").hide();
     $.post({
       url : url,
       data: $('form').serialize(), // on passe le formulaire caché
@@ -211,7 +213,8 @@ function videOptionsAnaaactes() {
   $('.anaacte').hide();
   // On masque le titre des analyses proposées
   $(".titre_analyses").hide();
-
+  // On affiche le tuto
+  $("#choisirTuto").fadeIn();
   // On vide le 0 option
   $('#aucune_option').hide();
 

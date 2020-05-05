@@ -61,6 +61,12 @@ a:hover {
 .active {
 	background: $bleu-tres-fonce !important;
 }
+.list-group-item-trans {
+	position: relative;
+	display: block;
+	padding: .75rem 1.25rem;
+	border: 1px solid rgba(0,0,0,.125);
+}
 // pour avoir une barre latérale fixe meme quand on scrolle
 .bd-sidebar {
 	position: -webkit-fixed;

@@ -48,9 +48,7 @@
 
       <div class="col-md-12">
 
-        <h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')
-          <br><span style="font-size:60%">@lang('choisir.liste_observations_mde')</span>
-        </h4>
+        <h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')</h4>
 
       </div>
 
@@ -62,7 +60,8 @@
 
       <div class="col-md-8">
 
-        {{-- @include('extranet.analyses.choisir.listeAnalysesProposees') --}}
+        @include('extranet.analyses.choisir.choisirTuto')
+
         @include('extranet.analyses.choisir.options')
 
       </div>
