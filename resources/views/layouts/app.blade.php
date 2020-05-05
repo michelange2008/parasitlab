@@ -16,11 +16,11 @@
     <link rel="icon" href="{{url('storage/favicon.png')}}" />
 
     <title>@lang('titres.site_title')</title>
-    <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
 
     <!-- Styles -->
     <link href="{{url('css/app.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('css/bootstrap-table.min.css')}}">
+    <link rel="stylesheet" href="{{url('css/jquery-confirm.css')}}">
 </head>
   <body>
 
@@ -35,8 +35,6 @@
 
       @yield('scripts')
 
-      <link rel="stylesheet" href="{{url('css/bootstrap-table.min.css')}}">
-      <link rel="stylesheet" href="{{url('css/jquery-confirm.css')}}">
   </body>
 
 </html>
