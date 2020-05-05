@@ -101,7 +101,7 @@ trait SerieInfos
 
 
         $serieTitres->push([
-          "intitule" => $demande->date_prelevement,
+          "intitule" => Carbon::parse($demande->date_prelevement)->isoFormat('LL'),
           "demande_id" => $demande->id,
         ]);
 

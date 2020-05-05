@@ -12,11 +12,11 @@
 
     <div class="row my-3">
 
-      <div class="d-none d-md-block col-md-4 bd-sidebar justify-content-center">
+      <div class="d-none d-md-block col-md-4 justify-content-center">
 
         <div class="col-md-10 alert-bleu-tres-fonce m-auto py-3">
 
-          <img class="img-claire" src="storage/img/icones/serie.svg" alt="Série">
+          <img class="img-claire" src="{{ url('storage/img/icones/serie.svg') }}" alt="Série">
 
           <h4>
             @lang('demandes.serie')
@@ -29,9 +29,9 @@
           <p>
             @lang('demandes.serie_exemple')
           </p>
-          <hr>
+          {{-- <hr>
 
-          <img src="{!! 'storage/img/icones/'.$serie->anaacte->icone->nom !!}" alt="{{ $serie->anaacte->nom }}">
+          <img src="{!! url('storage/img/icones/'.$serie->anaacte->icone->nom) !!}" alt="{{ $serie->anaacte->nom }}">
 
           <p class="lead">{{ ucfirst($serie->anaacte->nom) }}</p>
 
@@ -39,13 +39,13 @@
 
             {{$serie->anaacte->detail}}
 
-          </p>
+          </p> --}}
 
         </div>
 
       </div>
 
-      <div class="col-md-8 col-lg-6">
+      <div class="col-md-10 col-lg-8">
 
         @include('utilisateurs.utilisateurTitreSerie')
 
