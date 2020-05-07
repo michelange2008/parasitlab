@@ -10,7 +10,7 @@
 
   <h3 style="margin-left:40px">
 
-    {{ ucfirst($demande->anaacte->anatype->nom) }} - {{ $demande->anaacte->nom }}.
+    {{ ucfirst(__($demande->anaacte->anatype->nom)) }} - {{ $demande->anaacte->nom }}.
 
   </h3>
 {{-- impossible d'utiliser config(laboInfos) à cause de tous les " et ' --}}

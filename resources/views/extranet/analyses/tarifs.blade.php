@@ -49,7 +49,7 @@
           @foreach ($anatypes as $anatype)
 
             <tr class="alert-bleu-tres-fonce">
-              <td colspan="3">{{ ucfirst($anatype->nom) }}</td>
+              <td colspan="3">{{ ucfirst(__($anatype->nom)) }}</td>
             </tr>
 
             @foreach ($anaactes as $anaacte)

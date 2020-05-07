@@ -12,7 +12,7 @@
           <input class="custom-control-input case_demande" type="checkbox" name="demande_{{ $demande->id }}" id="demande_{{ $demande->id }}" value="on">
 
           <label class="custom-control-label my-1" for="demande_{{ $demande->id }}">
-            <p class="font-weight-bold mb-0">{!! ucfirst($demande->anaacte->anatype->nom) !!}</p>
+            <p class="font-weight-bold mb-0">{!! ucfirst(__($demande->anaacte->anatype->nom)) !!}</p>
             <p class="mb-0">{!! ucfirst($demande->anaacte->nom) !!}</p>
             <p class="mb-0 font-italic">{{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
           </label>

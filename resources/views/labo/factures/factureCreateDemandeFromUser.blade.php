@@ -32,7 +32,7 @@
 
         <div class="border-left pl-3">
 
-          <p class="lead">{{ ucfirst($demande->anaacte->anatype->nom) }}</p>
+          <p class="lead">{{ ucfirst(__($demande->anaacte->anatype->nom)) }}</p>
 
           <p>{{ ucfirst($demande->anaacte->nom) }}</p>
 

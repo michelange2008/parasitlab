@@ -20,7 +20,7 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR: SOIT UNE DEMANDE SIMPLE SOIT UNE SER
           "Accueil" => 'laboratoire',
           "Demandes" => 'demandes.index'
         ],
-        'nom' => isset($demande->anaacte->anatype->nom) ? ucfirst($demande->anaacte->anatype->nom) : ucfirst($serie->anapack->nom)
+        'nom' => isset($demande->anaacte->anatype->nom) ? ucfirst(__($demande->anaacte->anatype->nom)) : ucfirst($serie->anapack->nom)
       ])
 
     </div>

@@ -64,7 +64,7 @@
         </div>
         <div class="col-md-10">
           <div class="card-body">
-            <h5 class="card-title">{!! ucfirst($anaacte->anatype->nom) !!}</h5>
+            <h5 class="card-title">{!! ucfirst(__($anaacte->anatype->nom)) !!}</h5>
             <p class="card-text">{!! ucfirst($anaacte->nom) !!}
               <span class="card-text"><small class="text-muted">{!! ucfirst($anaacte->pu_ht) !!}&nbsp;&euro;</small></span>
             </p>

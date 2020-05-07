@@ -16,7 +16,7 @@
       @foreach ($elementDeFacture->anaactes_factures as $anaacte_facture)
 
         <tr>
-          <td>{!! ucfirst($anaacte_facture->anaacte->anatype->nom) !!}&nbsp;: <br> {!! $anaacte_facture->anaacte->nom !!}</td>
+          <td>{!! ucfirst(__($anaacte_facture->anaacte->anatype->nom)) !!}&nbsp;: <br> {!! $anaacte_facture->anaacte->nom !!}</td>
           <td class="text-right">{{ number_format($anaacte_facture->pu_ht, 2, ",", " ")}} &euro;</td>
           <td class="text-center">{{ ($anaacte_facture->tva->taux  * 100)." %"}}</td>
           <td class="text-center">{{ $anaacte_facture->nombre }}</td>

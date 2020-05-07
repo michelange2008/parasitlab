@@ -14,7 +14,7 @@
 
   @foreach ($elementDeFacture->demandes as $demande)
 
-    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst($demande->anaacte->anatype->nom) }} @lang('commun.du')&nbsp;{{ Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
+    <p class="pl-3 color-bleu font-weight-bold">{{ ucfirst(__($demande->anaacte->anatype->nom)) }} @lang('commun.du')&nbsp;{{ Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
 
   @endforeach
 

@@ -7,7 +7,7 @@
 
     <h3>{{ $demande->user->name }}</h3>
 
-    <h4>{{ ucfirst($demande->anaacte->anatype->nom) }}<br><span class="small">{{ ucfirst($demande->anaacte->nom) }}</span></h4>
+    <h4>{{ ucfirst(__($demande->anaacte->anatype->nom)) }}<br><span class="small">{{ ucfirst($demande->anaacte->nom) }}</span></h4>
 
   </div>
 

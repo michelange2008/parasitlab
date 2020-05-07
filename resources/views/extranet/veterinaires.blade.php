@@ -79,7 +79,7 @@
 
         @foreach ($anatypes as $anatype)
 
-          <div data-toggle="tooltip" data-placement="top" title="{{ ucfirst($anatype->nom) }}">
+          <div data-toggle="tooltip" data-placement="top" title="{{ ucfirst(__($anatype->nom)) }}">
 
             <img class="img-zoom"
             src="{!! 'storage/img/icones/'.$anatype->icone->nom !!}" alt="coproscopie">

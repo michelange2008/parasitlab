@@ -13,7 +13,7 @@
       </td>
     </tr>
     <tr>
-      <td>{{ ucfirst($demande->anaacte->anatype->nom) }}</td>
+      <td>{{ ucfirst(__($demande->anaacte->anatype->nom) )}}</td>
       <td>{{ $demande->anaacte->nom }}</td>
     </tr>
 

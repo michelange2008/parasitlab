@@ -1,7 +1,7 @@
 <br>
 <div class="text-center alert-secondary">
 
-  <p class="pdf-titre">{{ ucfirst($demande->anaacte->anatype->nom) }} (@lang('demandes.results'))</p>
+  <p class="pdf-titre">{{ ucfirst(__($demande->anaacte->anatype->nom)) }} (@lang('demandes.results'))</p>
 
 </div>
 
