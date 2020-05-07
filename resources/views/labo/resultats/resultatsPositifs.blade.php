@@ -7,7 +7,7 @@
 
         <tr>
 
-          <td>{{ $resultat->anaitem->nom }}</td>
+          <td>{{ ucfirst(__($resultat->anaitem->nom)) }}</td>
 
           <td class="text-right">{{ $resultat->valeur }} {{ $resultat->anaitem->unite->nom }}</td>
 

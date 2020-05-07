@@ -43,7 +43,7 @@
   @foreach ($prelevement->resultats as $resultat)
     <tr>
       <td class="ligne1">
-        {{$resultat->anaitem->nom}}
+        {{ @lang($resultat->anaitem->nom))}}
       </td>
       <td class="lignes text-right">
         {{$resultat->valeur}}

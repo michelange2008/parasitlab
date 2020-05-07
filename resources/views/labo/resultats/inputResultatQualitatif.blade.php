@@ -31,7 +31,7 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
 
   <td class="{{ $class }}">
 
-    {{$anaitem->nom}}
+    {{ucfirst(__($anaitem->nom))}}
 
   </td>
 
