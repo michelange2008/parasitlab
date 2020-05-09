@@ -3,27 +3,27 @@
   {
     "index" : 0,
     "texte" : "accueil.carousel.maitrisez",
-    "image" : "brebis.jpg"
+    "image" : "brebis.jpg.webp"
   },
   "evaluez" :
   {
     "index" : 1,
     "texte" : "accueil.carousel.evaluez",
-    "image" : "vache.jpg"
+    "image" : "vache.jpg.webp"
 
   },
   "limitez" :
   {
     "index" : 2,
     "texte" : "accueil.carousel.limitez",
-    "image" : "cheval.jpg"
+    "image" : "cheval.jpg.webp"
 
   },
   "respectez" :
   {
     "index" : 3,
     "texte" : "accueil.carousel.respectez",
-    "image" : "entomofaune.jpg"
+    "image" : "entomofaune.jpg.webp"
 
   }
 }

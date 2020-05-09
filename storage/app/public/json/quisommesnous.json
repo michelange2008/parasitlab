@@ -2,19 +2,19 @@
   "groupe_fibl" :
   {
     "prefixe" : "quisommesnous.groupe_fibl.",
-    "image" : "groupe_fibl.jpg",
+    "image" : "groupe_fibl.jpg.webp",
     "lien" : "https://www.fibl.org"
   },
   "fibl_local" :
   {
     "prefixe" : "quisommesnous.fibl_local.",
-    "image" : "fibl_france.jpg",
+    "image" : "fibl_france.jpg.webp",
     "lien" : "https://www.fibl.org/fr/sites/france-fr.html"
   },
   "parasitlab" :
   {
     "prefixe" : "quisommesnous.parasitlab.",
-    "image" : "parasitlab.jpg",
+    "image" : "parasitlab.jpg.webp",
     "lien" : "https://parasitlab.org"
   }
 }

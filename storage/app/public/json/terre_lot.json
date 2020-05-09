@@ -5,17 +5,17 @@
     "comment" :
     {
       "prefixe" : "comment.",
-      "image" : "crottin.jpg"
+      "image" : "crottin.jpg.webp"
     },
     "plusieurs" :
     {
       "prefixe" : "plusieurs.",
-      "image" : "plusieurs.jpg"
+      "image" : "plusieurs.jpg.webp"
     },
     "lot" :
     {
       "prefixe" : "lot.",
-      "image" : "lot.jpg"
+      "image" : "lot.jpg.webp"
     }
   }
 }

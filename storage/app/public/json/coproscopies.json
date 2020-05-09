@@ -1,22 +1,22 @@
 {
   "questcequecest" :
   {
-    "image" :"examens_2.jpg",
+    "image" :"examens_2.jpg.webp",
     "prefixe" : "coproscopies.questcequecest."
   },
   "fiable" :
   {
-    "image" :"examens_1.jpg",
+    "image" :"examens_1.jpg.webp",
     "prefixe" : "coproscopies.fiable."
   },
   "nonvalide" :
   {
-    "image" :"examens_0.jpg",
+    "image" :"examens_0.jpg.webp",
     "prefixe" : "coproscopies.nonvalide."
   },
   "interpretation" :
   {
-    "image" :"examens_3.jpg",
+    "image" :"examens_3.jpg.webp",
     "prefixe" : "coproscopies.interpretation."
   }
 }

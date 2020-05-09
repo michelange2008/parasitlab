@@ -2,19 +2,19 @@
   "bloc_1" :
   {
     "prefixe" : "cavaliers.bloc_1.",
-    "image" : "cv_poulain.jpg",
+    "image" : "cv_poulain.jpg.webp",
     "image_left" : true
   },
   "bloc_2" :
   {
     "prefixe" : "cavaliers.bloc_2.",
-    "image" : "cv_pature.jpg",
+    "image" : "cv_pature.jpg.webp" ,
     "image_left" : false
   },
   "bloc_3" :
   {
     "prefixe" : "cavaliers.bloc_3.",
-    "image" : "cv_naseau.jpg",
+    "image" : "cv_naseau.jpg.webp",
     "image_left" : true
   }
 }
