@@ -36,10 +36,14 @@
       </div>
 
       <div class="col-md-12 my-3 d-md-flex justify-content-around">
+        {{-- ligne cachée pour récupérer l'adressse de icones --}}
+      <div id="src_img_espece" lien = "{{ url('storage/img/icones') }}"></div>
 
         @include('extranet.analyses.choisir.listeEspeces')
 
       </div>
+
+        @include('extranet.analyses.choisir.listeAges')
 
     </div>
 

@@ -1,1 +1,1 @@
-        <h2 id="{{ $id ?? "" }}">{{ $titre }} <small>{{ $soustitre ?? "" }} </small></h2>
+        <h2 id="titre">{{ $titre }} <small>{{ $soustitre ?? "" }} </small></h2>

@@ -18,6 +18,11 @@ class Icone extends Model
     return $this->hasOne(Icone::class);
   }
 
+  public function ages()
+  {
+    return $this->hasOne(Age::class);
+  }
+
   public function usertype()
   {
     return $this->hasOne(Usertype::class);

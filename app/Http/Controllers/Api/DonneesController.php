@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Espece;
+use App\Models\Age;
 use App\Models\Categorie;
 use App\Models\Observation;
 use App\Models\Analyses\Anaacte;
@@ -19,6 +20,15 @@ class DonneesController extends Controller
   public function especes()
   {
     return json_encode(Espece::all());
+  }
+
+  /*
+  * Méthode pour fournir la liste des ages en fonction d'une espèce dans la fenêtre de choix d'analyse
+  * utilisee dans telFormulaire.js
+  */
+  public function ages($espece_id)
+  {
+    return json_encode(Age::where('espece_id', $espece_id)->with('icone')->get());
   }
 
   /*
@@ -37,6 +47,22 @@ class DonneesController extends Controller
     return json_encode($observations);
   }
 
+  /*
+  * Méthode pour fournir les observations correspondant à un age d'une espece dans le choix de l'analyse
+  * Vue: choisir.blade
+  * JS: choisir.js
+  */
+  public function observationSelonAge($age_id)
+  {
+    $observations = DB::table('observations')
+                     ->join('age_observation', 'age_observation.observation_id', "=", 'observations.id')
+                     ->where('age_observation.age_id', $age_id)
+                     ->orderBy('observations.ordre')->get();
+
+    return json_encode($observations);
+  }
+
+
 
 /*
 * Méthode qui renvoie les options et les analyses possibles en fonction du choix de l'espèce
@@ -45,15 +71,31 @@ class DonneesController extends Controller
 public function options(Request $request)
   {
     $datas = $request->all();
+    // On crée une collection des anaactes permis par une espece ou un age donné
+    $liste_anaactes_espece_age = Collect();
+    // S'il n'y a pas de choix d'un age
+    if($datas['age'] === null) {
 
-    // On récupère l'espece
-    $espece = Espece::find($datas['espece']);
+      // On récupère l'espece
+      $espece = Espece::find($datas['espece']);
+      // On recherche d'abord les anaactes acceptés pour l'espece (table pivot anaacte_espece)
+      $anaactes = $espece->anaactes;
 
-    // On recherche d'abord les anaactes acceptés pour l'espece (table pivot anaacte_espece)
-    $anaactes = $espece->anaactes;
-    $liste_anaactes_espece = Collect();
-    foreach ($anaactes as $anaacte) {
-         $liste_anaactes_espece->push($anaacte->id);
+      foreach ($anaactes as $anaacte) {
+        $liste_anaactes_espece_age->push($anaacte->id);
+
+      }
+      // S'il y a le choix d'un age
+    } else {
+
+      // On récupère l'age
+      $age = Age::find($datas['age']);
+      // On recherche d'abord les anaactes acceptés pour l'age (table pivot age_anaacte)
+      $anaactes = $age->anaactes;
+
+      foreach ($anaactes as $anaacte) {
+        $liste_anaactes_espece_age->push($anaacte->id);
+      }
     }
 
     // On récupère les observations dans une collection avec 3 item: 1 pour chaque catégorie d'observation
@@ -66,7 +108,7 @@ public function options(Request $request)
     // Puis on recherches les options et les anaactes permis par les observations
     $liste_options = Collect();
     $liste_anaactes = Collect();
-    // On passs en revue la collection $observations
+    // On passe en revue la collection $observations
     foreach ($observations as $observation_id) {
       // Si cette observation n'est pas nulle
       if(isset($observation_id)) {
@@ -98,7 +140,9 @@ public function options(Request $request)
     $resultats->put("options", $liste_options->countBy()->sort()->reverse()->slice(0,2)->keys());
     // On ne garde que les anaactes de la liste $liste_anaactes qui sont aussi présents dans la liste des especes (intersect)
     // On élimine les doublons (countBy), on trie en descendant(sort et reverse), et on garde que les deux premières clefs ( keys: n° anaacte les plus fréquants)
-    $resultats->put("anaactes",$liste_anaactes->intersect($liste_anaactes_espece)->countBy()->sort()->reverse()->slice(0,2)->keys());
+    $resultats->put("anaactes",$liste_anaactes->intersect($liste_anaactes_espece_age)->countBy()->sort()->reverse()->slice(0,2)->keys());
+
+    // return json_encode($liste_anaactes_espece_age->intersect($liste_anaactes)->countBy()->sort()->reverse()->slice(0,2)->keys());
 
     return json_encode($resultats);
 

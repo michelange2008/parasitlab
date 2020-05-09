@@ -90,6 +90,7 @@ class Espece_ObservationTableSeeder extends Seeder
           [ "espece_id" => 5, "observation_id" => 29 ],
           [ "espece_id" => 5, "observation_id" => 34 ],
           [ "espece_id" => 5, "observation_id" => 37 ],
+          [ "espece_id" => 5, "observation_id" => 32 ],
           [ "espece_id" => 6, "observation_id" => 1 ],
           [ "espece_id" => 6, "observation_id" => 2 ],
           [ "espece_id" => 6, "observation_id" => 6 ],

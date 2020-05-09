@@ -20,8 +20,12 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/especes', ['uses' => 'Api\DonneesController@especes', 'as' => 'especes']);
 
+  Route::get('/ages/{espece_id}', ['uses' => 'Api\DonneesController@ages', 'as' => 'ages']);
+
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
-  Route::get('/observations/{espece_id}', ['uses' => 'Api\DonneesController@observationSelonEspece']);
+  Route::get('/observations/especes/{espece_id}', ['uses' => 'Api\DonneesController@observationSelonEspece']);
+  // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
+  Route::get('/observations/ages/{age_id}', ['uses' => 'Api\DonneesController@observationSelonAge']);
 
   // Requete ajax pour sélectionner les options et analyses dans la procédure de choix des analyses
   Route::post('/options', ['uses' => 'Api\DonneesController@options', 'as' => 'api.options']);

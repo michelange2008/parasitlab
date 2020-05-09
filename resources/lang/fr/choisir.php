@@ -24,4 +24,5 @@ return array (
   'tuto_choix' => "Il n'est possible de choisir qu'un item par catégorie.",
   'tuto_veto' => "Attention ! Ce n'est qu'un algoritme. Dans tous les cas, n'hésitez pas à discuter avec votre vétérinaire de l'analyse la plus adaptée à votre situation.",
   'jouer' => "A vous de jouer !",
+  'choisir_age' => "Choisir un âge",
 );

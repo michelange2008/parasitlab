@@ -18,6 +18,11 @@ class Observation extends Model
       return $this->belongsToMany(Espece::class);
     }
 
+    public function ages()
+    {
+      return $this->belongsToMany(Age::class);
+    }
+
     public function anaactes()
     {
       return $this->belongsToMany(\App\Models\Analyses\Anaacte::class);

@@ -13,6 +13,7 @@ class ObservationsTableSeeder extends Seeder
     {
         DB::table('observations')->insert([
           [
+            'id' => 1,
             "categorie_id" => 1,
             "ordre" => 3,
             "intitule" => "J‘ai des animaux qui maigrissent",
@@ -20,6 +21,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" =>  "alimentation, maladies chroniques",
           ],
           [
+            'id' => 2,
             "categorie_id" => 1,
             "ordre" => 2,
             "intitule" => "J’observe une baisse de production de lait",
@@ -27,6 +29,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "alimentation insuffisante ou déséquilibrée, infections chroniques, stress, etc.",
           ],
           [
+            'id' => 3,
             "categorie_id" => 1,
             "ordre" => 4,
             "intitule" => "J’ai des animaux qui ont une mauvaise laine",
@@ -34,6 +37,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "carences alimentaires, parasites externes (mélophages, gâles, ...)",
           ],
           [
+            'id' => 4,
             "categorie_id" => 1,
             "ordre" => 5,
             "intitule" => "J'ai des animaux qui perdent leur laine",
@@ -41,6 +45,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "carences alimentaires, des parasites externes (mélophages, gâles, ...)",
           ],
           [
+            'id' => 5,
             "categorie_id" => 1,
             "ordre" => 6,
             "intitule" => "J'ai des animaux qui ont un mauvais poil",
@@ -48,6 +53,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "carences alimentaires, des parasites externes (poux, gâles, ...)",
           ],
           [
+            'id' => 6,
             "categorie_id" => 1,
             "ordre" => 7,
             "intitule" => "J'ai des animaux qui ont de la diarrhée",
@@ -55,6 +61,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "déséquilibre alimentaire, changement alimentaire, mise à l'herbe, infections intestinales",
           ],
           [
+            'id' => 7,
             "categorie_id" => 1,
             "ordre" => 13,
             "intitule" => "J'ai des animaux qui meurent",
@@ -62,6 +69,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "accidents, maladies diverses, etc.",
           ],
           [
+            'id' => 8,
             "categorie_id" => 1,
             "ordre" => 8,
             "intitule" => "J'ai des animaux qui toussent",
@@ -69,6 +77,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "infections respiratoires, allergies, ...",
           ],
           [
+            'id' => 9,
             "categorie_id" => 1,
             "ordre" => 9,
             "intitule" => "J'ai des animaux qui mouchent",
@@ -76,6 +85,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "infections respiratoires, allergies, ...",
           ],
           [
+            'id' => 10,
             "categorie_id" => 1,
             "ordre" => 11,
             "intitule" => "J'ai des animaux très anémiés",
@@ -83,6 +93,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "hémorragies, parasites sanguins, carences, etc."
           ],
           [
+            'id' => 11,
             "categorie_id" => 1,
             "ordre" => 12,
             "intitule" => "J'ai des animaux avec le signe de la bouteille",
@@ -90,6 +101,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "toute maladie anémiante ou toute atteinte grave du foie",
           ],
           [
+            'id' => 12,
             "categorie_id" => 2,
             "ordre" => 8,
             "intitule" => "J'ai fait un traitement avec un vermifuge et la situation ne s'est pas améliorée",
@@ -97,6 +109,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => "mauvais diagnostic, traitement inadapté ou mal administré (sous-dosage)",
           ],
           [
+            'id' => 13,
             "categorie_id" => 2,
             "ordre" => 6,
             "intitule" => "Je viens d'acheter un animal",
@@ -104,6 +117,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => null,
           ],
           [
+            'id' => 14,
             "categorie_id" => 2,
             "ordre" => 7,
             "intitule" => "Je viens d'acheter un troupeau",
@@ -111,6 +125,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 15,
             "categorie_id" => 2,
             "ordre" => 2,
             "intitule" => "Je rentre mon troupeau en bergerie",
@@ -118,6 +133,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 16,
             "categorie_id" => 2,
             "ordre" => 2,
             "intitule" => "Je rentre mon troupeau en bâtiment",
@@ -125,6 +141,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 17,
             "categorie_id" => 2,
             "ordre" => 2,
             "intitule" => "Je rentre mon animal au box",
@@ -132,6 +149,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 18,
             "categorie_id" => 2,
             "ordre" => 3,
             "intitule" => "c'est le début de l'hiver",
@@ -139,6 +157,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 19,
             "categorie_id" => 2,
             "ordre" => 4,
             "intitule" => "Je vais sortir mes animaux à l'herbe",
@@ -146,6 +165,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 20,
             "categorie_id" => 2,
             "ordre" => 5,
             "intitule" => "Je pars en transhumance",
@@ -153,6 +173,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 21,
             "categorie_id" => 2,
             "ordre" => 1,
             "intitule" => "Je veux connaître la situation de mon troupeau",
@@ -160,6 +181,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 22,
             "categorie_id" => 2,
             "ordre" => 1,
             "intitule" => "Je veux connaître la situation de mon animal",
@@ -167,6 +189,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 23,
             "categorie_id" => 2,
             "ordre" => 1,
             "intitule" => "Je veux connaître la situation d'un animal",
@@ -174,6 +197,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 24,
             "categorie_id" => 2,
             "ordre" => 8,
             "intitule" => "Je veux mettre en place une rotation de pâturage",
@@ -181,6 +205,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 25,
             "categorie_id" => 3,
             "ordre" => 1,
             "intitule" => "Je vis plutôt en zone sèche",
@@ -188,6 +213,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 26,
             "categorie_id" => 3,
             "ordre" => 2,
             "intitule" => "Je vis plutôt en climat méditerranéen",
@@ -195,6 +221,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 27,
             "categorie_id" => 3,
             "ordre" => 4,
             "intitule" => "Mes animaux ont accès à des pâturages humides",
@@ -202,6 +229,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 28,
             "categorie_id" => 3,
             "ordre" => 5,
             "intitule" => "J'ai régulièrement des foies saisis pour grande douve",
@@ -209,6 +237,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 29,
             "categorie_id" => 3,
             "ordre" => 3,
             "intitule" => "J'ai régulièrement des foies saisis pour petite douve",
@@ -216,6 +245,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 30,
             "categorie_id" => 1,
             "ordre" => 6,
             "intitule" => "J'ai observé des \"grains de riz blancs\" dans les crottes de mes animaux",
@@ -223,6 +253,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 31,
             "categorie_id" => 1,
             "ordre" => 4,
             "intitule" => "Mon animal se frotte régulièrement l'arrière-train aux arbres ou aux poteaux",
@@ -230,6 +261,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => "parasites externes",
           ],
           [
+            'id' => 32,
             "categorie_id" => 1,
             "ordre" => 10,
             "intitule" => "J'ai des animaux qui toussent",
@@ -237,6 +269,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "infections respiratoires, allergies, ...",
           ],
           [
+            'id' => 33,
             "categorie_id" => 1,
             "ordre" => 10,
             "intitule" => "J'ai des animaux qui éternuent et qui mouchent",
@@ -244,6 +277,7 @@ class ObservationsTableSeeder extends Seeder
             "autres" => "infections respiratoires, allergies, poussière, ...",
           ],
           [
+            'id' => 34,
             'categorie_id' => 1,
             'ordre' => 1,
             'intitule' => "Mon troupeau me paraît globalement en bonne santé",
@@ -252,6 +286,7 @@ class ObservationsTableSeeder extends Seeder
 
           ],
           [
+            'id' => 35,
             'categorie_id' => 1,
             'ordre' => 1,
             'intitule' => "Mon animal me paraît globalement en bonne santé",
@@ -259,9 +294,8 @@ class ObservationsTableSeeder extends Seeder
             "autres" => null,
 
           ],
-          // ################################################################################
-          // ##################### AJOUT ####################################################
           [
+            'id' => 36,
             "categorie_id" => 2,
             "ordre" => 4,
             "intitule" => "Je vais mettre mon animal au pré",
@@ -269,6 +303,7 @@ class ObservationsTableSeeder extends Seeder
             "autre" => null,
           ],
           [
+            'id' => 37,
             "categorie_id" => 2,
             "ordre" => 9,
             "intitule" => "Je veux connaître la dynamique d'évolution du parasitisme dans mon troupeau",

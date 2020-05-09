@@ -51,4 +51,10 @@ class Anaacte extends Model
     public function especes()
     {
       return $this->belongsToMany(\App\Models\Espece::class);
-    }}
+    }
+
+    public function ages()
+    {
+      return $this->belongsToMany(\App\Models\Age::class);
+    }
+}

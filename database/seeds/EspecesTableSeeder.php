@@ -48,6 +48,7 @@ class EspecesTableSeeder extends Seeder
             'abbreviation' => "ane",
             "icone_id" => 26,
           ],
+
         ]);
     }
 }
