@@ -77,6 +77,15 @@
 
   @endforeach
 
+  {{-- panneau d'info autres analyes si choix bovins --}}
+  <div id="autres_analyses" class="media border p-3 mb-2 bg-warning" style="display:none">
+    <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/interpreter.svg') !!}" alt="interpreter.svg">
+    <div class="media-body">
+      <p class="lead">@lang('qui_quand.veto.autres_analyses')</p>
+    </div>
+
+  </div>
+
   <div id="boutons" class="mb-3" style="display:none">
     <a id="bouton_pdf" class="btn btn-rouge" href="{{ url('storage/pdf/formulaire_espece.pdf') }}" target="_blank" ><i class="fas fa-file-pdf"></i>&nbsp;@lang('boutons.tele_form')</a>
     <a id="bouton_pdf" class="btn btn-bleu" href="{{ route('analyses.enpratique') }}"><i class="fas fa-virus"></i>&nbsp;@lang('boutons.prelevenvoi')</a>

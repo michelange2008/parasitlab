@@ -9,6 +9,7 @@ use App\Models\Espece;
 use App\Models\Age;
 use App\Models\Categorie;
 use App\Models\Observation;
+use App\Models\Exclusion;
 use App\Models\Analyses\Anaacte;
 
 class DonneesController extends Controller
@@ -62,7 +63,10 @@ class DonneesController extends Controller
     return json_encode($observations);
   }
 
-
+public function essai()
+{
+  return view('essai');
+}
 
 /*
 * Méthode qui renvoie les options et les analyses possibles en fonction du choix de l'espèce
@@ -74,8 +78,8 @@ public function options(Request $request)
     // On crée une collection des anaactes permis par une espece ou un age donné
     $liste_anaactes_espece_age = Collect();
     // S'il n'y a pas de choix d'un age
-    if($datas['age'] === null) {
-
+    $age_id = ($datas['age'] === null) ? null : $datas['age']; // On met une valeur fictive à l'age pour la requete sur les exclusion
+    if($age_id === null) {
       // On récupère l'espece
       $espece = Espece::find($datas['espece']);
       // On recherche d'abord les anaactes acceptés pour l'espece (table pivot anaacte_espece)
@@ -108,20 +112,28 @@ public function options(Request $request)
     // Puis on recherches les options et les anaactes permis par les observations
     $liste_options = Collect();
     $liste_anaactes = Collect();
+    $liste_exclusions = Collect(); // Liste de id des anaactes exclus par les observations retenues (par exemple: paturage humide exclue petite douve)
     // On passe en revue la collection $observations
     foreach ($observations as $observation_id) {
       // Si cette observation n'est pas nulle
       if(isset($observation_id)) {
         // On la recherche dans la base de donnée
         $observation = Observation::find($observation_id);
+        // On recherche les anaactes exclus par cette observation
+        $exclusions = Exclusion::where('observation_id', $observation_id)->where('espece_id', $datas['espece'])->where('age_id', $age_id)->get();
+        // On remplit la liste correspondante
+        foreach ($exclusions as $exclusion) {
+          $liste_exclusions->push($exclusion->anaacte_id);
+        }
         // Et on passe en revue les options possibles avec cette observation (table pivot observation_option)
         foreach ($observation->options as $option) {
           // Si au moins une option existe pour cette observation
           if(isset($option->nom)) {
             // on passe en revue les anaactes permis par cette option (table pivot anaacte_option)
             foreach($option->anaactes as $anaacte) {
-              // Et on ajoute l'id de l'anaacte à la liste
-              $liste_anaactes->push($anaacte->id);
+                // dump($anaacte->anatype->nom);
+                // on ajoute l'id de l'anaacte à la liste
+                $liste_anaactes->push($anaacte->id);
             }
             // Et on ajoute l'option à la liste d'options
             $liste_options->push($option->nom);
@@ -129,11 +141,14 @@ public function options(Request $request)
         }
         // On passe en revue tous les anaactes permis par l'observation (table pivot anaacte_observation)
         foreach ($observation->anaactes as $anaacte) {
-          // Et on continue l'ajout dans la liste des anaactes
-          $liste_anaactes->push($anaacte->id);
+            // Et on continue l'ajout dans la liste des anaactes
+            $liste_anaactes->push($anaacte->id);
         }
       }
     }
+    // On élimine des deux listes construites les id d'anaacte qui sont dans la liste d'exclusion
+    $liste_anaactes = $liste_anaactes->diff($liste_exclusions);
+    $liste_anaactes_espece_age = $liste_anaactes_espece_age->diff($liste_exclusions);
     // On crée la collection qui sera transmise en réponse à la requête ajax
     $resultats = Collect();
     // On élimine les doublons (countBy), on trie en descendant(sort et inverse), et on garde que les deux premières clefs ( keys: n° option les plus fréquants)
@@ -141,8 +156,6 @@ public function options(Request $request)
     // On ne garde que les anaactes de la liste $liste_anaactes qui sont aussi présents dans la liste des especes (intersect)
     // On élimine les doublons (countBy), on trie en descendant(sort et reverse), et on garde que les deux premières clefs ( keys: n° anaacte les plus fréquants)
     $resultats->put("anaactes",$liste_anaactes->intersect($liste_anaactes_espece_age)->countBy()->sort()->reverse()->slice(0,2)->keys());
-
-    // return json_encode($liste_anaactes_espece_age->intersect($liste_anaactes)->countBy()->sort()->reverse()->slice(0,2)->keys());
 
     return json_encode($resultats);
 

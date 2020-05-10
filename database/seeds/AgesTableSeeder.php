@@ -15,14 +15,14 @@ class AgesTableSeeder extends Seeder
 
           [
             'id' => 1,
-            "nom" => "vaches",
+            "nom" => "Vaches",
             'abbreviation' => "vl",
             'espece_id' => 5,
             "icone_id" => 33,
           ],
           [
             'id' => 2,
-            "nom" => "génisses ou broutards",
+            "nom" => "Génisses ou broutards",
             'abbreviation' => "jb",
             'espece_id' => 5,
             "icone_id" => 34,

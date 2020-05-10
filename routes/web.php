@@ -16,6 +16,10 @@
 //##############################################################################
 // MENU ACCUEIL
 
+  Route::get('/essai', 'Api\DonneesController@essai');
+
+  Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
+
   Route::get('/', 'AccueilController@index')->name('accueil');
 
   Route::get('/accueil', 'AccueilController@index');

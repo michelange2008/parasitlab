@@ -11,40 +11,42 @@ class EspecesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('especes')->delete();
+        
         DB::table('especes')->insert([
           [
             'id' => 2,
-            "nom" => "ovins",
+            "nom" => "Ovins",
             'abbreviation' => "ov",
             "icone_id" => 5,
           ],
           [
             'id' => 3,
-            "nom" => "caprins",
+            "nom" => "Caprins",
             'abbreviation' => "cp",
             "icone_id" => 3,
           ],
           [
             'id' => 5,
-            "nom" => "bovins",
+            "nom" => "Bovins",
             'abbreviation' => "bv",
             "icone_id" => 2,
           ],
           [
             'id' => 6,
-            "nom" => "porcins",
+            "nom" => "Porcins",
             'abbreviation' => "pc",
             "icone_id" => 6,
           ],
           [
             'id' => 7,
-            "nom" => "chevaux",
+            "nom" => "Chevaux",
             'abbreviation' => "cv",
             "icone_id" => 4,
           ],
           [
             'id' => 8,
-            "nom" => "ânes",
+            "nom" => "Ânes",
             'abbreviation' => "ane",
             "icone_id" => 26,
           ],

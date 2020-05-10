@@ -11,6 +11,8 @@ class Age_ObservationTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('age_observation')->delete();
+
         DB::table('age_observation')->insert([
 
           ['age_id' => 1, 'observation_id' => 2],

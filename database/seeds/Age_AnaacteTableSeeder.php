@@ -11,6 +11,8 @@ class Age_AnaacteTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('age_anaacte')->delete();
+
         DB::table('age_anaacte')->insert([
 
           ['age_id' => 1 , 'anaacte_id' => 5],

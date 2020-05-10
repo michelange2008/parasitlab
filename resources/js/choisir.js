@@ -217,7 +217,7 @@ function listeOptions() {
       if(datas != null) { // Si des données sont revenues (ce qui doit être systématiquement le cas)
         var options = JSON.parse(datas).options; // On récupère le tableau options (2 options max)
         var anaactes = JSON.parse(datas).anaactes; // on révupère le tableau anaactes (2 anaactes max)
-        console.log(anaactes);
+
         if(nombreSelections(selection) > 0) { // S'il y a au moins une sélection
 
           if(options.length == 0) { // Mais que le tableau option est vide, on affiche un message qu'il n'y a pas d'analyse
@@ -244,6 +244,10 @@ function listeOptions() {
           }
           $('#penser_veto').fadeIn(3000); // Et le véto
 
+          if($("#input_espece").val()== 5 ) {
+            $('#autres_analyses').fadeIn(2000);
+          }
+
         } else { // Si il n'y aucune observation séléctionnée, on efface tout
 
           videOptionsAnaaactes();
@@ -261,6 +265,7 @@ function videOptionsAnaaactes() {
 
   // On masque le panneau veto
   $("#penser_veto").hide();
+  $("#autres_analyses").hide();
   $('#boutons').hide();
   // On masque la liste d'options
   $('.option').hide();
