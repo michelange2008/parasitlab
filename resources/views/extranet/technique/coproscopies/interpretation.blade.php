@@ -35,7 +35,7 @@
           @foreach ($interpreter as $element)
             <li class="media mb-4">
 
-              <img class="img-200 mr-3" src="{{url('storage/img/'.'/'.$element->image)}}" alt="image">
+              <img class="img-200 mr-3" src="{{url('storage/img/analyses/interpreter/'.$element->image)}}" alt="image">
 
               <div class="media-body">
 

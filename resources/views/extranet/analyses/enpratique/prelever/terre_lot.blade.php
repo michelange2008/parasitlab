@@ -12,7 +12,7 @@
 
     <li class="media">
 
-      <img src="{{ url('storage/img').'/'.$item->image }}" alt="biology">
+      <img src="{{ url('storage/img/analyses/preleverenvoyer/'.$item->image) }}" alt="biology">
 
       <div class="media-body ml-3">
 

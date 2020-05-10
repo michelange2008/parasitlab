@@ -99,5 +99,6 @@ return array (
   array (
     'titre' => 'Dans tous les cas, n\'hésitez pas à en discuter avec votre vétérinaire.',
     'soustitre' => 'Cela vous permettra d\'adapter ces préconisations à votre élevage. Vous pouvez aussi nous contacter.',
+    'autres_analyses' => 'Pour ce qui concerne les bovins, il existent d\'autres analyses qui se font sur prise de sang ou dans le lait. Mais nous ne réalisons pas ces analyses pour le moment.',
   ),
 );

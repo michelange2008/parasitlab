@@ -33,7 +33,7 @@
 
           @endif
 
-          <img class="w-100" src="{{ url('storage/img'.'/'.$element->image) }}" alt="brebis">
+          <img class="w-100" src="{{ url('storage/img/accueil/carousel'.'/'.$element->image) }}" alt="brebis">
 
           <div class="carousel-caption d-none d-md-block bandeau-bleu-tres-fonce text-left text-white">
 

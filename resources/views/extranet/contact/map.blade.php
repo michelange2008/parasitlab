@@ -2,13 +2,13 @@
 
   <div style="width:25vw" class="border mr-1">
 
-    <img class="img-100-100" src="{!! url('storage/img/map_finale.svg') !!}" alt="plan">
+    <img class="img-100-100" src="{!! url('storage/img/infoaide/nouscontacter/map_finale.svg') !!}" alt="plan">
 
   </div>
 
   <div style="width:75vw; height:35.36vw">
 
-    <iframe width="100%" height="100%" 
+    <iframe width="100%" height="100%"
 
     src="https://www.openstreetmap.org/export/embed.html?bbox=4.971506595611573%2C44.735325134754305%2C4.97858762741089%2C44.738808008198184&amp;layer=mapnik&amp;marker=44.73706659769891%2C4.9750471115112305"
     style="border: 1px solid black">

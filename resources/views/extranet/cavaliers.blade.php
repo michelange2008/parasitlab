@@ -12,7 +12,7 @@
 
     <div class="row my-3 justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-12 col-lg-11 col-xl-10">
 
         @titre(['titre' => __('titres.cavaliers') , 'icone' => 'cv_rond.svg'])
 
@@ -22,7 +22,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-12 col-lg-11 col-xl-10">
 
         <ul class="list-unstyled">
 
@@ -32,7 +32,7 @@
 
               @if ($detail->image_left)
 
-                <img src="{{ url('storage/img'.'/'.$detail->image) }}" alt="@lang($detail->prefixe.'alt')" title="@lang($detail->prefixe.'title')">
+                <img src="{{ url('storage/img/accueil/cavaliers'.'/'.$detail->image) }}" alt="@lang($detail->prefixe.'alt')" title="@lang($detail->prefixe.'title')">
 
               @endif
 
@@ -47,7 +47,7 @@
 
               @if (!$detail->image_left)
 
-                <img src="{{ url('storage/img'.'/'.$detail->image) }}" alt="@lang($detail->prefixe.'alt')" title="@lang($detail->prefixe.'title')">
+                <img src="{{ url('storage/img/accueil/cavaliers'.'/'.$detail->image) }}" alt="@lang($detail->prefixe.'alt')" title="@lang($detail->prefixe.'title')">
 
               @endif
 
@@ -63,7 +63,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-12 col-lg-11 col-xl-10">
 
         <div class="alert-bleu p-3">
           <p class="lead mb-0">
@@ -76,7 +76,7 @@
 
     <div class="row justify-content-center my-3">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-12 col-lg-11 col-xl-10">
 
         <hr class="divider">
 

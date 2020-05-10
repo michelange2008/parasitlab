@@ -2,7 +2,7 @@
 
   <div class="embed-responsive embed-responsive-16by9">
 
-    <iframe class="embed-responsive-item" src="{{ url('storage/img/resist/Resistance.mp4') }}" allowfullscreen></iframe>
+    <iframe class="embed-responsive-item" src="{{ url('storage/img/parasitisme/resist/Resistance.mp4') }}" allowfullscreen></iframe>
 
   </div>
 
