@@ -1,3 +1,4 @@
+{{-- ISSU DE labo.demandeForm.demandeEnvois.blade.php --}}
 <div class="form-group">
    <label for="facture" class="control-label text-right">@lang('form.destinataire_facture')&nbsp;?</label>
  <div class="">
