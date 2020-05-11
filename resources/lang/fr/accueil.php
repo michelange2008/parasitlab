@@ -33,7 +33,7 @@ return array (
   'situeDansLaDrome' => ' situé dans la Drôme au Pôle Bio sur l\'Écosite d\'Eurre.',
   'creeEtGere' => 'Créé et géré par l\'antenne France du ',
   'ceLaboratoire' => ', ce laboratoire accueille tous vos prélèvements destinés à des analyses parasitologiques.',
-  'limites' => 'Pour l\'instant, Parasit\'Lab se consacre à la détection du parasitisme interne par le biais de coproscopies.',
+  'limites' => 'Parasit\'Lab se consacre à la détection du parasitisme interne par le biais de coproscopies.',
   'ensavoirplus' => 'Pour en savoir plus ...',
   'pastilles' =>
   array (
