@@ -2,7 +2,7 @@
 
 return array (
 
-  'site_title' => 'Parasit\'Lab - Appréhender la complexité du vivant',
+  'site_title' => 'Parasit\'Lab - Laboratoire de parasitologie des ruminants,  porcs, chevaux, ânes dans la Drôme',
   'cavaliers' => 'cavalières et propriétaires de chevaux ou d\'ânes',
   'copros' => 'Pourquoi des coproscopies&nbsp;?',
   'choisir_analyse' => 'Quelle analyse choisir&nbsp;?',
