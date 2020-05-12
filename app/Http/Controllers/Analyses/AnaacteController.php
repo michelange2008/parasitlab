@@ -29,7 +29,7 @@ class AnaacteController extends Controller
      */
     public function index()
     {
-      $anaactes = Anaacte::where('estAnalyse', true)->orderBy('anatype_id', 'asc')->get();
+      $anaactes = Anaacte::where('estAnalyse', true)->orderBy('num', 'asc')->get();
 
       foreach ($anaactes as $anaacte) {
 
@@ -41,7 +41,7 @@ class AnaacteController extends Controller
       $fournisseur = new ListeAnaactesFournisseur(); // voir class ListeFournisseur
 
       $datas = $fournisseur->renvoieDatas($anaactes, __('titres.list_anaactes'), "acte.svg", 'tableauAnaactes', 'anaactes.create', __('boutons.add_anaacte'));
-
+// dd($datas);
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,
         'datas' => $datas,
@@ -91,7 +91,12 @@ class AnaacteController extends Controller
      */
     public function edit($id)
     {
-      return view('errors.entravaux');
+      $anaacte = Anaacte::find($id);
+
+      return view('admin.anaactes.anaacte', [
+        'menu' => $this->menu,
+        'anaacte' => $anaacte,
+      ]);
 
     }
 

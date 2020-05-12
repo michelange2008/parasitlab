@@ -9,6 +9,7 @@ use App\Fournisseurs\ListeAnatypesFournisseur;
 use App\Http\Traits\LitJson;
 
 use \App\Models\Analyses\Anatype;
+use \App\Models\Analyses\Anaitem;
 
 class AnatypeController extends Controller
 {
@@ -81,7 +82,11 @@ class AnatypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.anatypes.anatype', [
+          'menu' => $this->menu,
+          'anatype' => Anatype::find($id),
+          'anaitems' => Anaitem::all(),
+        ]);
     }
 
     /**

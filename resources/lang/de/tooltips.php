@@ -16,4 +16,5 @@ return array (
   'create_facture' => 'Cliquer pour créer la facture',
   'edit_acte' => 'Cliquer pour modifier cet acte',
   'edit_analyse' => 'Cliquer pour modifier cette analyse',
+  'edit_type' => 'cliquer pour modifier ce groupe d\'analyses',
 );

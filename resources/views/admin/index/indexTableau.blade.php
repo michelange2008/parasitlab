@@ -53,7 +53,7 @@
               <td>
                 @isset($detail->nom)
 
-                  {{ $detail->nom }}
+                  {{ ucfirst($detail->nom) }}
 
                 @endisset
               </td>
@@ -73,7 +73,7 @@
               <td>
                 @nomLien([
                   'id' => $detail->id,
-                  'nom' => $detail->nom,
+                  'nom' => ucfirst($detail->nom),
                   'route' => $detail->route,
                   'tooltip' => $detail->tooltip,
                   'icone' => $detail->icone ?? '',
