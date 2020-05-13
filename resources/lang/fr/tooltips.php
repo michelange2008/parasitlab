@@ -16,6 +16,7 @@ return array (
   'create_facture' => 'Cliquer pour créer la facture',
   'edit_acte' => 'Cliquer pour modifier cet acte',
   'edit_analyse' => 'Cliquer pour modifier cette analyse',
+  'edit_anaitem' => 'Cliquer pour modifier ce parasite',
   'demande_signe' => "Ces résultats d'analyses ont été signés le :date_signature par :signataire",
   'envoi_facture' => "Envoyer cette facture par courriel au destinataire",
   'saisie_faite' => "La saisie des résultats a été faite le :date",

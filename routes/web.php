@@ -139,6 +139,8 @@
 
     route::resource('anatypes', 'Analyses\AnatypeController');
 
+    route::resource('anaitems', 'Analyses\AnaitemController');
+
     route::resource('demandes', 'Labo\DemandeController');
 
     route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');

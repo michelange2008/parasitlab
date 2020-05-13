@@ -1,0 +1,48 @@
+{
+  "tri" : {
+
+    "colonne" : "nom",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "abbr" : {
+      "id" : "abbr",
+      "nom" : "Abbréviation",
+      "align" : "left",
+      "sortable" : false
+    },
+    "nom" : {
+      "id" : "nom",
+      "nom" : "Parasite recherché",
+      "align" : "left",
+      "sortable" : true
+    },
+    "type_unite" : {
+      "id" : "type_unite",
+      "nom" : "Type de comptage",
+      "align" : "left",
+      "sortable" : false
+    },
+    "unite" : {
+      "id" : "unite",
+      "nom" : "Unité",
+      "align" : "left",
+      "sortable" : false
+    },
+    "valeurs" : {
+      "id" : "valeurs",
+      "nom" : "Valeurs",
+      "align" : "left",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}

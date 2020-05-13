@@ -4,6 +4,7 @@ return array (
   'add' => "Ajouter",
   'add_analyse' => "Ajouter une nouvelle analyse",
   'add_anaacte' => "Ajouter un nouvel acte",
+  'add_anaitem' => "Ajouter un nouveau parasite à rechercher",
   'add_acte' => "Ajouter un acte",
   'add_type' => "Ajouter un nouvel type",
   'add_eleveur' => "Ajouter un éleveur",

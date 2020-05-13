@@ -86,4 +86,9 @@ return array (
   'unit' => "Unité",
 
   "demande_serie" => 'Cette demande d\'analyse fait partie d\'un pack qui compte 3 séries de prélèvement',
+
+  'abbr' => 'Abbréviation',
+  'choisir' => "Choisir ...",
+  'unites' => "Unités",
+  'valeurs' => "Valeurs",
 );

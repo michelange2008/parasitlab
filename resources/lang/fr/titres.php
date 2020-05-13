@@ -27,6 +27,7 @@ return array (
   'demandes_analyses' => 'Liste des demandes d\'analyse',
   'list_anaactes' => 'Liste des analyses proposées',
   'list_analyses' => 'Liste des analyses',
+  'list_anaitems' => 'Liste des parasites recherchés',
   'list_types' => 'Liste des types d\'analyses proposées',
   'list_actes' => 'Actes',
   'list_eleveurs' => 'Liste des éleveurs',
