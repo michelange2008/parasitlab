@@ -2,6 +2,7 @@
 
 return array (
   'et' => 'et',
+  'ou' => 'ou',
   'par' => 'par',
   'du' => 'du',
   'ilya' => 'Il y a',

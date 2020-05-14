@@ -39,12 +39,12 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
   <td>
 
     <input class="{{ $class }} form-control" type="number" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}"
-            value="{{ $valeur }}" placeholder="résultat">
+            value="{{ $valeur }}" placeholder="@lang('result')">
   </td>
 
   <td class="text-right">
 
-    {{ $anaitem->unite->nom }}
+    @lang($anaitem->unite->nom)
 
   </td>
 

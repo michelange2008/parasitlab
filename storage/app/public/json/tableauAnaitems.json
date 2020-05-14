@@ -8,6 +8,12 @@
 
   "liste" : {
 
+    "image" : {
+      "id" : "img",
+      "nom" : "",
+      "align" : "center",
+      "sortable" : false
+    },
     "abbr" : {
       "id" : "abbr",
       "nom" : "Abbréviation",

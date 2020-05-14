@@ -89,6 +89,12 @@ return array (
 
   'abbr' => 'Abbréviation',
   'choisir' => "Choisir ...",
+  'type_unite' => "Type de donnée",
   'unites' => "Unités",
   'valeurs' => "Valeurs",
+
+  'absence' => "Absence",
+  'presence' => "Présence",
+
+  'result' => 'résultat',
 );

@@ -53,7 +53,7 @@
               <td>
                 @isset($detail->nom)
 
-                  {{ ucfirst($detail->nom) }}
+                  {{ ucfirst(__($detail->nom)) }}
 
                 @endisset
               </td>
@@ -73,7 +73,7 @@
               <td>
                 @nomLien([
                   'id' => $detail->id,
-                  'nom' => ucfirst($detail->nom),
+                  'nom' => ucfirst(__($detail->nom)),
                   'route' => $detail->route,
                   'tooltip' => $detail->tooltip,
                   'icone' => $detail->icone ?? '',
@@ -118,7 +118,7 @@
 
               <td>
 
-                <img class="img-50" src="{{ url('storage/img/labo/photos/'.$detail->nom) }}" alt="{{ $detail->nom }}">
+                <img class="img-50" src="{{ url('storage/img/'.$detail->nom) }}" alt="{{ $detail->nom }}">
 
               </td>
             @endempty

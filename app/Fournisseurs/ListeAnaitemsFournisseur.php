@@ -19,6 +19,8 @@ class ListeAnaitemsFournisseur extends ListeFournisseur
 
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
+      $image = $this->photoFactory('icones/oeufs/'.$anaitem->image);
+
       $abbreviation = $this->itemFactory($anaitem->abbreviation);
 
       $nom = $this->lienFactory($anaitem->id, $anaitem->nom, 'anaitems.edit', 'edit_anaitem');
@@ -32,6 +34,7 @@ class ListeAnaitemsFournisseur extends ListeFournisseur
       $suppr = $this->delFactory($anaitem->id, 'analyses.destroy');
 
       $description = [
+        $image,
         $abbreviation,
         $nom,
         $type_unite,

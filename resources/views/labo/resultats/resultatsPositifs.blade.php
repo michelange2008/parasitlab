@@ -9,7 +9,7 @@
 
           <td>{{ $resultat->anaitem->nom }}</td>
 
-          <td class="text-right">{{ $resultat->valeur }} {{ $resultat->anaitem->unite->nom }}</td>
+          <td class="text-right">{{ $resultat->valeur }} @lang($resultat->anaitem->unite->nom) </td>
 
         </tr>
 

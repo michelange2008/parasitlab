@@ -49,7 +49,7 @@
         {{$resultat->valeur}}
       </td>
       <td class="lignes">
-        {{$resultat->anaitem->unite->nom}}
+        @lang($resultat->anaitem->unite->nom)
       </td>
     </tr>
   @endforeach

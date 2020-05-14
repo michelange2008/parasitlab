@@ -15,6 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/factures.js', 'public/js')
     .js('resources/js/infosPerso_modif.js', 'public/js')
     .js('resources/js/choisir.js', 'public/js')
+    .js('resources/js/anaitem.js', 'public/js')
     .js('resources/js/createDemande', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
    .options({
