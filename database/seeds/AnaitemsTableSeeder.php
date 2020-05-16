@@ -18,7 +18,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "strongles gastro-intestinaux",
             "unite_id" => "1",
             "qtt_id" => "1",
-            "image" => "oeuf.jpg",
+            "image" => "SGIN.png",
           ],
           [
             'id' => 2,
@@ -58,7 +58,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "strongles respiratoires",
             "unite_id" => "3",
             "qtt_id" => "2",
-            "image" => "oeuf.jpg",
+            "image" => "RESP.png",
           ],
           [
             'id' => 7,
@@ -66,7 +66,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "petite douve",
             "unite_id" => "5",
             "qtt_id" => "3",
-            "image" => "oeuf.jpg",
+            "image" => "DICR.png",
           ],
           [
             'id' => 8,
@@ -74,7 +74,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "grande douve",
             "unite_id" => "5",
             "qtt_id" => "3",
-            "image" => "oeuf.jpg",
+            "image" => "FASC.png",
           ],
           [
             'id' => 9,
@@ -82,7 +82,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "paramphistome",
             "unite_id" => "1",
             "qtt_id" => "1",
-            "image" => "oeuf.jpg",
+            "image" => "PHIS.png",
           ],
           [
             'id' => 10,
