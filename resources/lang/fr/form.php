@@ -84,7 +84,9 @@ return array (
   'parasite' => "Parasite",
   'qtt' => "Quantité",
   'unit' => "Unité",
-
+  'change_image' => 'Changer l\'image',
+  'del' => "Effacer",
+  'browse' => 'Ouvrir',
   "demande_serie" => 'Cette demande d\'analyse fait partie d\'un pack qui compte 3 séries de prélèvement',
 
   'abbr' => 'Abbréviation',

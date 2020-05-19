@@ -12,10 +12,11 @@ use App\Models\Analyses\Qtt;
 
 use App\Fournisseurs\ListeAnaitemsFournisseur;
 use App\Http\Traits\LitJson;
+use App\Http\Traits\ImagesManager;
 
 class AnaitemController extends Controller
 {
-    use LitJson;
+    use LitJson, ImagesManager;
 
     protected $menu;
 
@@ -101,12 +102,29 @@ class AnaitemController extends Controller
     public function update(Request $request, $id)
     {
         $datas = $request->all();
+        $file = $request->file('image_nouvelle');
+        // dd(url('storage/img/icones/oeufs/'.$datas['image_default']));
+        // dd($datas['abbreviation']);
+        if($file === null) {
+
+          $image_nouvelle = $datas['image_default'];
+
+        } else {
+
+          $image_nouvelle = $datas['abbreviation'].'.'.$file->extension();
+
+          $this->supprImage('storage/img/icones/oeufs/'.$datas['image_default']);
+
+          $file->storeAs('img/icones/oeufs', $image_nouvelle, 'public');
+
+        }
 
         DB::table('anaitems')->where('id', $id)->update([
           'abbreviation' => $datas['abbreviation'],
           'nom' => $datas['nom'],
           'unite_id' => $datas['unite'],
           'qtt_id' => $datas['qtt'],
+          'image' => $image_nouvelle,
         ]);
 
         return redirect()->route('anaitems.index')->with('message', 'anaitem_updated');

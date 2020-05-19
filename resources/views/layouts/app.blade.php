@@ -35,6 +35,8 @@
 
       @yield('scripts')
 
+      @yield('css')
+
   </body>
 
 </html>

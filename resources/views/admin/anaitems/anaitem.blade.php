@@ -25,7 +25,7 @@
 
       <div class="col-md-7 col-lg-6 col-xl-5">
         {{-- formulaire de modification d'un anaitem --}}
-        <form id="form_anaitem" action="{{ route('anaitems.update', $anaitem->id) }}" method="post">
+        <form id="form_anaitem" action="{{ route('anaitems.update', $anaitem->id) }}" method="post" enctype="multipart/form-data" >
 
           @csrf
 
@@ -97,11 +97,21 @@
 
               </div>
 
-              <div id="anaitem_enregistre">
+            </div>
 
-                @enregistreAnnule()
+            <div class="form-row">
+
+              <div class="col-md-10 offset-md-2">
+
+                @include('admin.anaitems.inputImage')
 
               </div>
+
+            </div>
+
+            <div id="anaitem_enregistre">
+
+              @enregistreAnnule(['route' => route('anaitems.index')])
 
             </div>
 

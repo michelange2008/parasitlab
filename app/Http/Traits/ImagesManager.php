@@ -17,7 +17,7 @@ trait ImagesManager
     }
 
     else {
-      // dd('ça couille');
+      dd('ça couille');
     }
 
   }
