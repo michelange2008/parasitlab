@@ -86,6 +86,7 @@ return array (
   'unit' => "Unité",
   'change_image' => 'Changer l\'image',
   'del' => "Effacer",
+  'change' => 'Changer',
   'browse' => 'Ouvrir',
   "demande_serie" => 'Cette demande d\'analyse fait partie d\'un pack qui compte 3 séries de prélèvement',
 

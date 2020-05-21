@@ -1,23 +1,14 @@
 <div id="identite" class="my-3">
 
-  <div class="form-group">
+  <div class="form-row">
 
-    <div class="form-group row">
+    <div class="col">
 
-      <div class="col-sm-12">
-
-        @include('admin.form.inputName')
-
-      </div>
-
+      @include('admin.form.inputName')
 
     </div>
 
-  </div>
-
-  <div class="form-group row">
-
-    <div class="col-sm-12">
+    <div class="col">
 
       @include('admin.form.inputEmail')
 

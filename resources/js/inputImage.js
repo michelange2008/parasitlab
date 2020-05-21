@@ -1,5 +1,6 @@
 // Chargement d'une image
 $(document).on('click', '#close-preview', function(){
+    console.log($(this).attr('id'));
     $('.image-preview').popover('hide');
     // Hover befor close the preview
     $('.image-preview').hover(
@@ -31,14 +32,16 @@ $(function() {
     });
     // Clear event
     $('.image-preview-clear').click(function(){
-        $('.image-preview').attr("data-content","").popover('hide');
-        $('.image-preview-filename').val("");
-        $('.image-preview-clear').hide();
-        $('.image-preview-input input:file').val("");
-        $(".image-preview-input-title").text("Browse");
+      var id = $(this).attr('id').split('_')[1];
+        $("#group_" + id).attr("data-content","").popover('hide');
+        $("#input_dis_" + id).val("");
+        $("#bouton_" + id).hide();
+        $("input_" + id + " input:file").val("");
+        $("#span_" + id).text("Ouvrir");
     });
     // Create the preview image
-    $(".image-preview-input input:file").change(function (){
+    $(".image-preview-input input:file").change(function (e){
+      var id = $(this).attr('name').split('_')[0];
         var img = $('<img/>', {
             id: 'dynamic',
             width:250,
@@ -48,11 +51,12 @@ $(function() {
         var reader = new FileReader();
         // Set preview image into the popover data-content
         reader.onload = function (e) {
-            $(".image-preview-input-title").text("Change");
-            $(".image-preview-clear").show();
-            $(".image-preview-filename").val(file.name);
+          // $(".image-preview-input-title").text("Change");
+            $("#span_" + id).text($('#changer').html());
+            $("#bouton_" + id).show();
+            $("#input_dis_" + id).val(file.name);
             img.attr('src', e.target.result);
-            $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
+            $("#group_" + id).attr("data-content",$(img)[0].outerHTML).popover("show");
         }
         reader.readAsDataURL(file);
     });

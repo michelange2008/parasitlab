@@ -1,56 +1,23 @@
 {{-- lignes pour l'enregistrement des images: photo et signature de l'utilisateur --}}
-<div class="form-group">
+<div class="row align-items-center">
 
+  <div class="col-md-6">
 
-    <div class="col-sm-6">
-
-      {{-- Le principe est de télécharger une image et de lui attribuer le nom de l'ancienne image de signature --}}
-      <label class="col-form-label" for="photo">{{ ucfirst(__('form.photo')) }}&nbsp;:</label>
-
-      @isset ($user->labo->photo)
-
-        <img class="img-90 col-form-label" src="{{ url('storage/img/labo/photos/'.$user->labo->photo) }}" alt="picture">
-
-        {{-- Un champs caché du nom du fichier de signature de façon à pouvoir renommer l'image téléchargée avec le nom d'origine --}}
-        <input type="hidden" name="icone" value="{{ $user->labo->photo }}">
-
-      @endisset
-
-    </div>
-
-    <div class="col-sm-9">
-      {{-- Un champs visible de saisie d'une image si on veut changer la signature --}}
-      {{-- <input class="form-control" type="file" name="photo" accept="image/jpeg, image/jpg, image/x-png"> --}}
-      @include('admin.form.inputImage', ['name' => 'photo'])
-
-    </div>
+    @include('admin.form.inputImage', [
+      'image' => $user->labo->photo,
+      'chemin' => 'storage/img/labo/photos/',
+      'name' => 'photo'
+    ])
 
   </div>
 
-  <div class="form-group">
+  <div id="input_signataire" class="col-md-6" statut = "{{ $user->labo->est_signataire }}" style="display:none">
 
-    <div class="col-sm-6">
-
-      {{-- Le principe est de télécharger une image et de lui attribuer le nom de l'ancienne image de signature --}}
-      <label class="col-form-label" for="imageSignature">{{ ucfirst(__('form.sign')) }}&nbsp;:</label>
-
-      @isset ($user->labo->signature)
-
-        <img class="img-90 col-form-label" src="{{ url('storage/img/labo/signatures/'.$user->labo->signature) }}" alt="@lang('form.sign')">
-
-        {{-- Un champs caché du nom du fichier de signature de façon à pouvoir renommer l'image téléchargée avec le nom d'origine --}}
-        <input type="hidden" name="signature" value="{{ $user->labo->signature }}">
-
-      @endisset
-
-    </div>
-
-    <div class="col-sm-9">
-      {{-- Un champs visible de saisie d'une image si on veut changer la signature --}}
-      {{-- <input class="form-control" type="file" name="imageSignature" accept=".jpg, .png, .jpeg, .svg"> --}}
-
-      @include('admin.form.inputImage', ['name' => 'imageSignature'])
-
+    @include('admin.form.inputImage', [
+      'image' => $user->labo->signature,
+      'chemin' => 'storage/img/labo/signatures/',
+      'name' => 'signature'
+    ])
 
   </div>
 

@@ -101,9 +101,13 @@
 
             <div class="form-row">
 
-              <div class="col-md-10 offset-md-2">
+              <div class="col-md-12">
 
-                @include('admin.anaitems.inputImage')
+                @include('admin.form.inputImage', [
+                  'image' => $anaitem->image ,
+                  'chemin' => 'storage/img/icones/oeufs/',
+                  'name' => 'image'
+                ])
 
               </div>
 
@@ -147,7 +151,7 @@
 
             </div>
 
-            @enregistreAnnule(['route' => '#'])
+            @enregistreAnnule(['route' => route('anaitems.index')])
 
           </form>
 

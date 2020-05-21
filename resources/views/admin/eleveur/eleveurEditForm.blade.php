@@ -6,7 +6,7 @@ NECESSITE 4 VARIABLES: user, vetos, pays -->
 
   @METHOD('PUT')
 
-    @include('admin.form.cache')
+    <input type="hidden" name="usertype_id" value="{{ $user->usertype->id }}">
 
     @include('admin.form.identite')
 
