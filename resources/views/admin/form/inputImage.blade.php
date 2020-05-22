@@ -3,7 +3,7 @@
 
   <div class="col-md-4">
     {{-- il faut passer le chemin de l'image et le nom en paramètres --}}
-    <img class="img-100" src="{{ url($chemin.$image) }}" alt="$image">
+    <img class="img-100" src="{{ url($chemin.$image) }}" alt="{{ $image }}">
 
   </div>
 

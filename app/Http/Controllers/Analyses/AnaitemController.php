@@ -51,7 +51,11 @@ class AnaitemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.anaitems.anaitemCreate', [
+          'menu' => $this->menu,
+          'unites' => Unite::all(),
+          'qtts' => Qtt::all(),
+      ]);
     }
 
     /**
