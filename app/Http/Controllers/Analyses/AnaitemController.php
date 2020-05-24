@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Analyses;
 use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Intervention\Image\ImageManagerStatic as Image;
 use App\Models\Analyses\Anaitem;
 use App\Models\Analyses\Unite;
 use App\Models\Analyses\Qtt;
@@ -66,7 +66,34 @@ class AnaitemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datas = $request->validate([
+          'abbreviation' => 'bail|required|unique:anaitems|max:4',
+          'nom' => 'required|max:191',
+          'unite' =>'numeric',
+          'qtt' => 'numeric',
+        ]);
+
+        $file = $request->file('image_nouvelle');
+        $extension = $file->extension();
+        $image_nouvelle = $datas['abbreviation'].'.'.$extension;
+
+        $image = Image::make($file)->fit(200, 200)->save('storage/img/icones/oeufs/'.$image_nouvelle);
+
+        $anaitem = new Anaitem();
+
+        $anaitem->abbreviation = $datas['abbreviation'];
+
+        $anaitem->nom = $datas['nom'];
+
+        $anaitem->unite_id = $datas['unite'];
+
+        $anaitem->qtt_id = $datas['qtt'];
+
+        $anaitem->image = $image_nouvelle;
+
+        $anaitem->save();
+
+        return redirect()->route('anaitems.index')->with('message', 'anaitem_create');
     }
 
     /**
@@ -119,7 +146,7 @@ class AnaitemController extends Controller
 
           $this->supprImage('storage/img/icones/oeufs/'.$datas['image_default']);
 
-          $file->storeAs('img/icones/oeufs', $image_nouvelle, 'public');
+          $image = Image::make($file)->fit(200, 200)->save('storage/img/icones/oeufs/'.$image_nouvelle);
 
         }
 
@@ -142,6 +169,12 @@ class AnaitemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $anaitem = Anaitem::find($id);
+
+        Anaitem::destroy($id);
+
+        $this->supprImage('storage/img/icones/oeufs/'.$anaitem->image);
+
+        return redirect()->route('anaitems.index')->with('message', 'anaitem_destroy');
     }
 }

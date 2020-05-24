@@ -92,6 +92,7 @@ return array (
 
   'abbr' => 'Abbréviation',
   'choisir' => "Choisir ...",
+  'choisir_image' => 'Choisir une image',
   'type_unite' => "Type de donnée",
   'unites' => "Unités",
   'valeurs' => "Valeurs",

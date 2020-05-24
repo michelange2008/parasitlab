@@ -87,8 +87,7 @@
             <div class="col-md-12">
 
               @include('admin.form.inputImage', [
-                'image' => '' ,
-                'chemin' => 'storage/img/icones/oeufs/',
+                'nouveau' => true,
                 'name' => 'image'
               ])
 

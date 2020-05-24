@@ -11,4 +11,6 @@ return array (
   'reglement_delete' => 'Ce règlement vient d\'être supprimé',
   'facture_envoyee' => 'La facture a bien été envoyée',
   'anaitem_updated' => "Le parasite a été mis à jour",
+  'anaitem_destroy' => "Ce parasite a été détruit !",
+  'anaitem_create' => "Un nouveau parasite vient d'être créé",
 );

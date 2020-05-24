@@ -3,7 +3,15 @@
 
   <div class="col-md-4">
     {{-- il faut passer le chemin de l'image et le nom en paramètres --}}
-    <img class="img-100" src="{{ url($chemin.$image) }}" alt="{{ $image }}">
+    @if($nouveau)
+
+      <span>@lang('form.choisir_image')&nbsp;:</span>
+
+    @else
+
+      <img class="img-100" src="{{ url($chemin.$image) }}" alt="{{ $image }}">
+
+    @endif
 
   </div>
 
@@ -11,7 +19,7 @@
 
     <div id="group_{{ $name }}" class="input-group image-preview">
       {{-- il faut aussi passer en parametre le préfixe du nom car possibilité qu'il y ait deux champs inputImage --}}
-      <input type="hidden" name="{{ $name }}_default" value="{{ $image }}">
+      <input type="hidden" name="{{ $name }}_default" value="{{ $image ?? '' }}">
 
       <input id="input_dis_{{ $name }}" type="text" class="form-control image-preview-filename" disabled="disabled" > <!-- don't give a name === doesn't send on POST/GET -->
 
@@ -29,7 +37,7 @@
 
           <span id="span_{{ $name }}" class="image-preview-input-title">@lang('form.browse')</span>
 
-          <input type="file" accept="image/png, image/jpeg, image/gif" name="{{ $name }}_nouvelle"/> <!-- rename it -->
+          <input type="file" accept="image/png, image/jpeg, image/gif" name="{{ $name }}_nouvelle" required/> <!-- rename it -->
 
         </div>
 
