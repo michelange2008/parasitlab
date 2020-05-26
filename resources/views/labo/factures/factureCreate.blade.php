@@ -48,6 +48,7 @@
 
             </div>
 
+
             @enregistreAnnule(['nomBouton' => 'boutons.facturer'])
 
         </form>
@@ -57,5 +58,11 @@
     </div>
 
   </div>
+
+@endsection
+
+@section('scripts')
+
+  <script src="{{url('js/factures.js')}}"></script>
 
 @endsection

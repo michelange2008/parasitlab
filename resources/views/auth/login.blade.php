@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <img style="position:absolute; width:100vw" src="{!! url('storage/img/paysage.jpg') !!}" alt="Paysage">
+  <img style="position:absolute; width:100vw" src="{!! url('storage/img/login/paysage.jpg.webp') !!}" alt="Paysage">
 <div class="container fond">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -58,7 +58,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-bleu">
                                     {{ __('Login') }}
                                 </button>
 

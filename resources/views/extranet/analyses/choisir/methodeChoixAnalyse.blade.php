@@ -1,4 +1,3 @@
-<h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')</h4>
 
 @foreach ($categories as $categorie)
 

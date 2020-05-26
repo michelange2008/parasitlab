@@ -10,11 +10,11 @@
 
 <div class="container-fluid">
 
-  <div class="row">
+  <div class="row my-3">
 
     <div class="col-md-10 mx-auto">
 
-      @include('admin.titreCreationDemande')
+      @titre(['titre' => __('titres.nouvelle_demande'), 'icone' => 'demandes.svg'])
 
     </div>
 
@@ -43,5 +43,11 @@
   {!! Form::close() !!}
 
 </div>
+
+@endsection
+
+@section('scripts')
+
+  <script src="{{url('js/createDemande.js')}}"></script>
 
 @endsection

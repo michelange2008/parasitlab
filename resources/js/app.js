@@ -7,10 +7,8 @@ require( './bootstrap-table-accent-neutralise.min.js');
 require( './bootstrap-table-locale-all.js');
 
 require( './createUser.js');
-require( './createDemande.js');
-require( './signe.js');
+require( './demandeShow.js');
 require( './envoi.js');
-require( './choisir.js');
 require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
@@ -20,32 +18,44 @@ require( 'jquery-confirm' );
 
 $(function() {
 
-	// Fonction pour mettre le permier mot en majuscule
-	function strUcFirst(a){return (a+'').charAt(0).toUpperCase()+a.substr(1);};
+	$.ajaxSetup({
 
-  $('[data-toggle="tooltip"]').tooltip();
+		headers: {
+			'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
 
-  $('#table').bootstrapTable({
+// Initialisation des js de bootstrap
+	$('[data-toggle="tooltip"]').tooltip();
 
-  })
+  $('#table').bootstrapTable();
+
+	$('.toast').toast();
+
+	$('.carousel').carousel();
 
 
+	// Fonction d'appel d'une boite de dialogue quand on veut supprimer quelque chose (analyse, personne, etc.)
     $('.suppr').on('click', function(event) {
+
       event.preventDefault();
+
       var form_id = "#"+$(this).attr('id');
+
       $.confirm({
         theme : 'dark',
         type : 'red',
         typeAnimated: 'true',
-        title: "Suppression",
-        content : "Faut-il vraiment effectuer cette suppression ?",
+        title: $(this).attr('titre'), // on récupère le texte de la boite
+        content : $(this).attr('texte'), // de dialogue dans les attributs titre et texte (manip pour la multilingue)
         buttons : {
           oui: {
             text : 'oui',
             btnClass : 'btn-red',
             action : function() {
-							console.log(form_id);
+
               $(form_id).submit();
+
             },
           },
           non: function() {
@@ -55,27 +65,25 @@ $(function() {
       })
     });
 
-  $('#list-tab-eleveur a').on('click', function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	});
 
-  Date.prototype.toDateInputValue = (function() {
-    var local = new Date(this);
-    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-    return local.toJSON().slice(0,10);
-  });
+  // Date.prototype.toDateInputValue = (function() {
+  //   var local = new Date(this);
+  //   local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+  //   return local.toJSON().slice(0,10);
+  // });
+	//
+	// $('#reception').val(new Date().toDateInputValue());
 
-	$('#reception').val(new Date().toDateInputValue());
 
-	$('.carousel').carousel();
+	// $('#enpratiqueTab a').on('click', function (e) {
+	//   e.preventDefault()
+	//   $(this).tab('show')
+	// })
 
-	$('#enpratiqueTab a').on('click', function (e) {
-	  e.preventDefault()
-	  $(this).tab('show')
-	})
-
-	$('.toast').toast();
+	// $('#list-tab-eleveur a').on('click', function (e) {
+		//   e.preventDefault()
+		//   $(this).tab('show')
+		// });
 
 
 });

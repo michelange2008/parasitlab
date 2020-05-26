@@ -2,7 +2,7 @@
 
   <li class="media">
 
-    <img src="{{ url('storage/img/antiparasit.png') }}" alt="Antiparasitaires">
+    <img src="{{ url('storage/img/parasitisme/entomo/antiparasit.png') }}" alt="Antiparasitaires">
 
     <div class="media-body ml-3">
 
@@ -24,13 +24,13 @@
 
     </div>
 
-    <img src="{{ url('storage/img/coprophage_1.png') }}" alt="Coprophage">
+    <img src="{{ url('storage/img/parasitisme/entomo/coprophage_1.png') }}" alt="Coprophage">
 
   </li>
 
   <li class="media">
 
-    <img src="{{ url('storage/img/paturage.png') }}" alt="Antiparasitaires">
+    <img src="{{ url('storage/img/parasitisme/entomo/paturage.png') }}" alt="Antiparasitaires">
 
     <div class="media-body ml-3">
 

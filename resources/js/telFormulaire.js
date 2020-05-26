@@ -17,7 +17,7 @@ function choix_espece(url) {
     url : url
   })
   .done(function(datas) {
-    console.log(datas);
+    console.log(JSON.parse(datas));
     // On forme l'adresse des icones
     var url_icones = url.replace('api/especes', 'storage/img/icones/');
     // On analyse le fichier renvoyé par la requete ajax

@@ -8,8 +8,12 @@ use App\Models\Espece;
 
 class EspeceController extends Controller
 {
+    // Fonction destinée à permettre le choix d'espece pour le formulaire
     public function listeEspeces()
     {
-      return json_encode(Espece::all());
+      $especes =Espece::all();
+
+      return json_encode($especes);
+
     }
 }

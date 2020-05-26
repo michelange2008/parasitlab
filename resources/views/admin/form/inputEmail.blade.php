@@ -1,6 +1,6 @@
 {{-- <label class="col-sm-3 col-form-label" for="email">Adresse  mail</label> --}}
 
-<div class="input-group">
+<div class="input-group my-2">
 
   <span class="input-group-text" id="prepend_email">@</span>
 
@@ -9,5 +9,9 @@
 </div>
 
   @error('email')
-    <div class="invalid">Ce champs est obligatoire et doit contenir une adresse mail valide</div>
+    <div class="invalid">@lang('form.champs_obligatoire_email')</div>
   @enderror
+
+<div id="email_doublon" class="d-none" message="@lang('form.email_doublon')"></div>
+
+<div id="email_non_valide" class="d-none" message="@lang('form.email_non_valide')"></div>

@@ -4,7 +4,6 @@ namespace App\Http\Traits;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Commentaire;
 
-use App\Http\Traits\FormatDate;
 use App\Http\Traits\ListeNomParasites;
 
 /**
@@ -16,7 +15,7 @@ use App\Http\Traits\ListeNomParasites;
 trait DemandeFactory
 {
 
-  use FormatDate, ListeNomParasites;
+  use ListeNomParasites;
 
   /*
   * AJOUTE L'ATTRIBUT estNegatif AUX PRELEVEMENTS: TRUE SI AUCUN PARASITE DETECTE, FALSE DANS LE CAS CONTRAIRE
@@ -25,8 +24,6 @@ trait DemandeFactory
   public function demandeFactory($demande)
   {
     $this->configResultatsPrelevement($demande);
-
-    $this->formatDateDemande($demande);
 
     $this->ajouteCommentaire($demande);
 
@@ -69,32 +66,6 @@ trait DemandeFactory
     return $demande;
   }
 
-  public function formatDateDemande($demande)
-  {
-
-    $demande->date_prelevement = $this->dateReadable($demande->date_prelevement);
-
-    $demande->date_reception = $this->dateReadable($demande->date_reception);
-
-    $demande->date_resultat = $this->dateReadable($demande->date_resultat);
-
-    $demande->date_envoi = $this->dateReadable($demande->date_envoi);
-
-    $demande->date_signature = $this->dateReadable($demande->date_signature);
-
-  }
-
-  public function formatDateDemandes($demandes)
-  {
-    foreach ($demandes as $demande) {
-
-      $this->formatDateDemande($demande);
-
-    }
-
-    return $demandes;
-  }
-
   public function ajouteCommentaire($demande)
   {
     $commentaire = Commentaire::where('demande_id', $demande->id)->first();
@@ -107,14 +78,7 @@ trait DemandeFactory
       $commentaire->date_commentaire = null;
       $commentaire->labo = null;
     }
-    else {
 
-      if ($commentaire->date_commentaire !== null) {
-
-        $commentaire->date_commentaire = $this->dateReadable($commentaire->date_commentaire);
-
-      }
-    }
     $demande->commentaire = $commentaire;
 
   }

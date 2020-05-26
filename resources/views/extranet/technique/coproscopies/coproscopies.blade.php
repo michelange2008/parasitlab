@@ -34,7 +34,7 @@
 
           <div class="media">
 
-            <img class="mr-3 d-none d-md-block shadow-lg " src="{!! url('storage/img/extranet/'.$element->image) !!}" alt="@lang($element->prefixe.'titre')">
+            <img class="mr-3 d-none d-md-block shadow-lg " src="{!! url('storage/img/analyses/coproscopies/'.$element->image) !!}" alt="@lang($element->prefixe.'titre')">
 
             <div class="media-body">
 

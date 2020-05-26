@@ -20,43 +20,45 @@ class PdfController extends Controller
 {
   use DemandeFactory, LitJson, UserTypeOutil, FactureFactory;
 
-  public function resultatPdf($demande_id)
+  public function resultatsPdfEleveur($demande_id)
+  {
+    $user = Demande::findOrFail($demande_id)->user;
+
+    $this->authorize('view', $user);
+
+    return $this->preparePdfResultats($demande_id, 'eleveurPdf');
+
+  }
+
+  public function resultatsPdfVeto($demande_id)
+  {
+
+    return $this->preparePdfResultats($demande_id, 'vetoPdf');
+
+  }
+
+  public function resultatsPdfLabo($demande_id)
+  {
+
+    return $this->preparePdfResultats($demande_id, 'laboPdf');
+
+  }
+
+  public function preparePdfResultats($demande_id, $vue)
   {
     $demande = Demande::find($demande_id);
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
-    if ($this->estEleveur(auth()->user()->usertype->id)) {
-
-      $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande'));
-
-    }
-    elseif ($this->estVeto(auth()->user()->usertype->id)) {
-
-      $pdf = PDF::loadview('labo.resultats.pdf.vetoPdf', compact('demande'));
-
-    }
-
-    elseif ($this->estLabo(auth()->user()->usertype->id)) {
-
-      $pdf = PDF::loadview('labo.resultats.pdf.laboPdf', compact('demande'));
-
-    }
-
-    else {
-
-      return route('accueil');
-
-    }
-
+    $pdf = PDF::loadview('labo.resultats.pdf.'.$vue, compact('demande'));
 
     $name = $demande->user->name."_".$demande->anaacte->anatype->nom."_".$demande->date_resultat.".pdf";
 
     return $pdf->stream($name);
-
   }
 
-  public function attachPdf($demande_id)
+
+  public function attachPdfResultats($demande_id)
   {
     $demande = Demande::find($demande_id);
 
@@ -72,26 +74,24 @@ class PdfController extends Controller
     // code...
   }
 
-  public function formulaire()
-  {
-    $demande = session('demande');
-
-    $pdf = PDF::loadview('extranet.analyses.formulairePDF.formulairePDF', compact('demande'));
-
-    return $pdf->stream('demande.pdf');
-  }
-
   public function facture($facture_id)
   {
-    $facture_completee = session()->get('facture_completee');
+    // utilisation de la fonction elementDeFacture du trait FactureFactory
+    $elementDeFacture = $this->prepareFacture($facture_id);
 
-    $demandes = session()->get('demandes');
-
-    $anaactes_factures = session()->get('anaactes_factures');
-
-    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('facture_completee', 'demandes', 'anaactes_factures'));
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
 
     return $pdf->stream('facture.pdf');
+  }
+
+  public function attachPdfFacture($facture_id)
+  {
+    // utilisation de la fonction elementDeFacture du trait FactureFactory
+    $elementDeFacture = $this->prepareFacture($facture_id);
+
+    $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
+
+    return $pdf;
   }
 
 }

@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\VetoStore;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\SerieInfos;
+use App\Http\Traits\VetoInfos;
 
 use App\Models\Productions\Demande;
 use App\Models\Productions\Serie;
+use App\User;
 
 use App\Fournisseurs\ListeDemandesVetoFournisseur;
-
 
 
 class VeterinaireController extends Controller
 {
 
-  use LitJson, SerieInfos, DemandeFactory {
-      DemandeFactory::dateSortable insteadof SerieInfos;
-      DemandeFactory::dateReadable insteadof SerieInfos;
-  }
+  use LitJson, VetoInfos, SerieInfos, DemandeFactory;
 
   protected $menu;
 
@@ -36,6 +36,8 @@ class VeterinaireController extends Controller
 
     public function index()
     {
+      $user = User::find(auth()->user()->id);
+
       $demandes = Demande::where('veto_id', auth()->user()->veto->id)->get();
 
       foreach ($demandes as $demande) {
@@ -46,19 +48,81 @@ class VeterinaireController extends Controller
 
       $fournisseur = new ListeDemandesVetoFournisseur();
 
-      $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesVeto', 'demandes.create', "Ajouter une demande d'analyse");
+      $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandesVeto', 'demandes.create', __('boutons.add_demande'));
 
       return view('utilisateurs.index', [
         'menu' => $this->menu,
         'demandes' => $demandes,
+        'route' => $user->usertype->route,
         'datas' => $datas,
       ]);
 
     }
 
+    public function update(VetoStore $request)
+    {
+      $datas = $request->validated();
+
+      // Si un autre utilisateur à déjà la même adresse email, on renvoie une erreur à la requete ajax
+      $email_exist = User::where('email', $datas['email'])->where('id', '<>', $datas['id'])->count();
+
+      if($email_exist > 0) {
+
+        return ["erreur" => true];
+
+      }
+      //################################################################################################
+
+      $user = DB::table('users')->where('id', $datas['id'])
+          ->update([
+            'name' => $datas['name'],
+            'email' => $datas['email']
+          ]);
+
+      $veto = DB::table('vetos')->where('user_id', $datas['id'])
+          ->update([
+            'num' => $datas['num'],
+            'address_1' => $datas['address_1'],
+            'address_2' => $datas['address_2'],
+            'cp' => $datas['cp'],
+            'commune' => $datas['commune'],
+            'pays' => $datas['pays'],
+            'indicatif' => $datas['indicatif'],
+            'tel' => $datas['tel'],
+          ]);
+
+
+      return $user + $veto;
+    }
+
+    public function show($id)
+    {
+      $user = User::find($id);
+
+      $this->authorize('view', $user);
+
+      $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
+
+      return view('utilisateurs.utilisateurShow', [
+        'menu' => $this->menu,
+        'user' => $user,
+        'vetoInfos' => $vetoInfos,
+        'personne' => $user->veto,
+        'route' => $user->usertype->route,
+        'pays' => $this->litJson('pays'),
+      ]);
+    }
+
     public function demandeShow($demande_id)
     {
-      $demande = Demande::find($demande_id);
+
+      $demande = Demande::where('id', $demande_id)->where('veto_id', auth()->user()->veto->id)->first();
+
+      if(!isset($demande)) {
+
+        abort(403);
+
+      }
 
       $demande = $this->demandeFactory($demande);
 
@@ -71,7 +135,15 @@ class VeterinaireController extends Controller
     public function serieShow($serie_id)
     {
 
-      $serie = Serie::find($serie_id);
+      $demande = Demande::where('serie_id', $serie_id)->where('veto_id', auth()->user()->veto->id)->first();
+
+      if(!isset($demande)) {
+
+        abort(403);
+
+      }
+
+      $serie = $demande->serie;
 
       foreach ($serie->demandes as $demande) {
 

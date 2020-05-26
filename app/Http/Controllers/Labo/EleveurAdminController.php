@@ -62,7 +62,7 @@ class EleveurAdminController extends Controller
 
       $fournisseur = new ListeEleveursFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($users, "liste des éleveurs", $icone, 'tableauEleveurs', 'eleveurAdmin.create', "Ajouter un éleveur");
+      $datas = $fournisseur->renvoieDatas($users, __('titres.list_eleveurs'), $icone, 'tableauEleveurs', 'eleveurAdmin.create', __('boutons.add_eleveur'));
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,
@@ -138,7 +138,7 @@ class EleveurAdminController extends Controller
 
           session(['user' => $nouvel_user]); // On rajoute le nouvel user en session pour qu'il soit choisi par défaut dans la liste déroulante
 
-          return redirect()->route('demandes.create'); // Et on renvoie au forulaire de création d'une nouvelle demande
+          return redirect()->route('demandes.create'); // Et on renvoie au formulaire de création d'une nouvelle demande
 
         // sinon on peut revenir à la route de retour
         } else {
@@ -171,7 +171,7 @@ class EleveurAdminController extends Controller
 
         $fournisseur = new ListeDemandesEleveurAdminFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesEleveurAdmin', 'demandes.create', "Ajouter une demande");
+        $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandesEleveurAdmin', 'demandes.create', __('boutons.add_demande'));
 
         session(['user' => $user]);
 

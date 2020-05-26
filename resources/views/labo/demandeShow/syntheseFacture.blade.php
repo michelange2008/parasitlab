@@ -2,7 +2,7 @@
   <tbody>
     <tr>
       <td>
-        <small>Destinataire : </small>
+        <small>@lang('factures.dest')&nbsp;: </small>
       </td>
       <td>
         {{ ($demande->user_dest_fact) ? $demande->user->name : $demande->veto->user->name}}
@@ -11,15 +11,18 @@
     <tr>
       @if ($demande->facturee)
         <td>
-          <small>Montant TTC : </small>
+          <small>@lang('tableaux.total_ttc')&nbsp;: </small>
         </td>
         <td>
-          <strong>{{ $demande->facture->total_ttc}} € TTC</strong>
+          <strong>{{ $facture->somme_facture->total_ttc}}&nbsp;@lang('factures.ttc')</strong>
         </td>
       @elseif ($demande->acheve)
-        <td class="color-rouge-tres-fonce text-center" colspan="2">
-          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createFromUser', ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id) }}">
-            Etablir la facture
+        <td class="color-rouge-tres-fonce text-left pl-0" colspan="2">
+          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createDemandeFromUser', [
+            ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id,
+            $demande->id,
+            ]) }}">
+            @lang('factures.faire_facture')
           </a>
         </td>
       @endif
@@ -27,34 +30,34 @@
     @if ($demande->facturee && $demande->facture->envoyee)
       <tr>
         <td>
-          <small>Facture envoyée le </small>
+          <small>@lang('factures.facture_envoyee_le')</small>
         </td>
         <td>
-          @include('fragments.dateFr', ['date' => $demande->facture->envoyee_date])
+          {{ \Carbon\Carbon::parse($facture->envoyee_date)->isoFormat('LL') }}
         </td>
       </tr>
-    @elseif ($demande->facturee && $demande->facture->faite)
+    @elseif ($demande->facturee)
       <tr>
         <td class="color-rouge-tres-fonce"><i class="fas fa-exclamation-triangle"></i></td>
         <td class="color-rouge-tres-fonce">
-          facture non envoyée
+          @lang('factures.facture_non_envoyee')
         </td>
       </tr>
     @endif
     @if ($demande->facturee && $demande->facture->payee)
       <tr class="alert-success">
         <td>
-        <small>Facture payée le </small>
+        <small>@lang('factures.facture_payee_le')</small>
         </td>
         <td>
-          @include('fragments.dateFr', ['date' => $demande->facture->payee_date])
+          {{ \Carbon\Carbon::parse($facture->payee_date)->isoFormat('LL') }}
         </td>
       </tr>
     @elseif ($demande->facturee && $demande->facture->envoyee)
       <tr>
         <td class="color-rouge-tres-fonce"><i class="fas fa-exclamation-triangle"></i></td>
         <td class="color-rouge-tres-fonce">
-          facture non payée
+          @lang('factures.facture_non_payee')
         </td>
       </tr>
     @endif

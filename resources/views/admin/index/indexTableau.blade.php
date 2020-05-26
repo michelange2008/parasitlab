@@ -53,9 +53,19 @@
               <td>
                 @isset($detail->nom)
 
-                  {{ $detail->nom }}
+                  {{ ucfirst(__($detail->nom)) }}
 
                 @endisset
+              </td>
+
+            @elseif($detail->action === 'date')
+
+              <td>
+                {{-- juste pour le tri des dates tout en ayant un affichage correct --}}
+                <span style="display:none">{{ \Carbon\Carbon::parse($detail->nom)}}</span>
+
+                {{ \Carbon\Carbon::parse($detail->nom)->isoFormat('D MMM Y') }}
+
               </td>
 
             @elseif($detail->action === 'lien')
@@ -63,9 +73,10 @@
               <td>
                 @nomLien([
                   'id' => $detail->id,
-                  'nom' => $detail->nom,
+                  'nom' => ucfirst(__($detail->nom)),
                   'route' => $detail->route,
                   'tooltip' => $detail->tooltip,
+                  'icone' => $detail->icone ?? '',
                 ])
               </td>
 
@@ -78,7 +89,7 @@
             @elseif($detail->action === 'del')
 
               <td>
-                @supprLigne(['id' => $detail->id, 'route' => $detail->route])
+                @supprLigne(['id' => $detail->id, 'route' => $detail->route, 'titre' => $detail->titre, 'texte' => $detail->texte])
               </td>
 
             @elseif ($detail->action === 'modifier')
@@ -107,7 +118,7 @@
 
               <td>
 
-                <img class="img-50" src="{{ url('storage/img/labo/photos/'.$detail->nom) }}" alt="{{ $detail->nom }}">
+                <img class="img-50" src="{{ url('storage/img/'.$detail->nom) }}" alt="{{ $detail->nom }}">
 
               </td>
             @endempty

@@ -18,6 +18,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "strongles gastro-intestinaux",
             "unite_id" => "1",
             "qtt_id" => "1",
+            "image" => "oeuf.jpg",
           ],
           [
             'id' => 2,
@@ -25,6 +26,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "nématodirus",
             "unite_id" => "1",
             "qtt_id" => "1",
+            "image" => "NEMA.png",
           ],
           [
             'id' => 3,
@@ -32,6 +34,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "trichuris",
             "unite_id" => "1",
             "qtt_id" => "1",
+            "image" => "TRIC.png",
           ],
           [
             'id' => 4,
@@ -39,6 +42,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "strongyloïdes",
             "unite_id" => "1",
             "qtt_id" => "1",
+            "image" => "STRY.png",
           ],
           [
             'id' => 5,
@@ -46,6 +50,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "coccidies",
             "unite_id" => "2",
             "qtt_id" => "2",
+            "image" => "COCC.png",
           ],
           [
             'id' => 6,
@@ -53,6 +58,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "strongles respiratoires",
             "unite_id" => "3",
             "qtt_id" => "2",
+            "image" => "oeuf.jpg",
           ],
           [
             'id' => 7,
@@ -60,6 +66,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "petite douve",
             "unite_id" => "5",
             "qtt_id" => "3",
+            "image" => "oeuf.jpg",
           ],
           [
             'id' => 8,
@@ -67,6 +74,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "grande douve",
             "unite_id" => "5",
             "qtt_id" => "3",
+            "image" => "oeuf.jpg",
           ],
           [
             'id' => 9,
@@ -74,6 +82,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "paramphistome",
             "unite_id" => "1",
             "qtt_id" => "1",
+            "image" => "oeuf.jpg",
           ],
           [
             'id' => 10,
@@ -81,6 +90,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "haemonchus",
             "unite_id" => "4",
             "qtt_id" => "4",
+            "image" => "HAEM.png",
           ],
           [
             'id' => 11,
@@ -88,6 +98,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => " ténia (moniezia expansa)",
             "unite_id" => "5",
             "qtt_id" => "3",
+            "image" => "MONI.png",
           ],
           [
             'id' => 12,
@@ -95,6 +106,7 @@ class AnaitemsTableSeeder extends Seeder
             "nom" => "ascaris",
             "unite_id" => "5",
             "qtt_id" => "3",
+            "image" => "ASCA.png",
           ],
         ]);
     }

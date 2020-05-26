@@ -1,3 +1,4 @@
+{{-- ISSU DE labo.demandeForm.demandeEnvois.blade.php --}}
 <div class="form-group">
    <label for="facture" class="control-label text-right">@lang('form.destinataire_facture')&nbsp;?</label>
  <div class="">
@@ -8,14 +9,14 @@
          @if ($usertype->route === 'eleveur')
 
            <a class="btn btn-rouge border active" data-toggle="facture" data-title="{{ $usertype->id }}">
-             <img class="img-25 mr-3" src="{{ url('storage/img/icones/'.$usertype->icone->nom) }}" alt="">
+             <img class="img-25 mr-3" src="{{ url('storage/img/icones/'.$usertype->icone->nom) }}" alt="usertype">
              {{ $usertype->nom }}
            </a>
 
          @else
 
            <a class="btn btn-rouge border notActive" data-toggle="facture" data-title="{{ $usertype->id }}">
-             <img class="img-25 mr-3" src="{{ url('storage/img/icones/'.$usertype->icone->nom) }}" alt="">
+             <img class="img-25 mr-3" src="{{ url('storage/img/icones/'.$usertype->icone->nom) }}" alt="usertype">
              {{ $usertype->nom}}
            </a>
 

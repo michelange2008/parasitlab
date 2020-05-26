@@ -9,13 +9,17 @@
 
           <td>{{ $resultat->anaitem->nom }}</td>
 
-          <td class="text-right">{{ $resultat->valeur }} {{ $resultat->anaitem->unite->nom }}</td>
+          <td class="text-right">{{ $resultat->valeur }} @lang($resultat->anaitem->unite->nom) </td>
 
         </tr>
 
     @endforeach
 
-    @include('labo.resultats.listeNonDetecte')
+    @if (count($prelevement->nonDetecte) > 0)
+
+      @include('labo.resultats.listeNonDetecte')
+
+    @endif
 
   </tbody>
 

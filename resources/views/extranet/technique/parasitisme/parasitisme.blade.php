@@ -36,7 +36,7 @@
 
             <div class="mb-3">
 
-              @include('fragments.boutonUser', ['route' => 'blog.create', 'intitule' => "Nouvel article"])
+              @boutonUser(['route' => 'blog.create', 'intitule' => 'new_blog'])
 
             </div>
 

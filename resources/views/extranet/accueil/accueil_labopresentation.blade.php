@@ -23,7 +23,7 @@
 
     <div class="col-md-5">
 
-      <img src="{{ 'storage/img/polebio.jpg' }}" alt="">
+      <img src="{{ 'storage/img/accueil/polebio.jpg' }}" alt="Pole BIO">
 
     </div>
 

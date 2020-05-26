@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Technique;
+use DB;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Analyses\Anaacte;
 use App\Models\Categorie;
 use App\Models\Espece;
+use App\Models\Age;
 
 use App\Http\Traits\LitJson;
 
@@ -37,13 +39,12 @@ class AnalysesController extends Controller
     }
     public function choisir()
     {
-      $especes = Espece::all();
-
       return view('extranet.analyses.choisir', [
         'menu' => $this->menu,
         'route' => 'analyses.choisir',
         'analysesProgress' => $this->litJson('analysesProgress'),
-        'especes' => $especes,
+        'especes' => Espece::all(),
+        'ages' => Age::all(),
         'categories' => Categorie::all(),
         'qui_quand' => $this->litJson('qui_quand'),
         'anaactes' => Anaacte::where('estAnalyse', true)->orderBy('num')->get(),

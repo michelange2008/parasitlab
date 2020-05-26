@@ -17,14 +17,19 @@
 
     </ul>
 
-    <div class="card-footer">
-      @include('fragments.boutonUser', [
-        'route' => 'vetoAdmin.edit',
-        'id' => $user->id,
-        'intitule' => __('boutons.voirmodif'),
-        'couleur' => 'btn-bleu',
+    @if (auth()->user()->usertype->route === 'laboratoire')
+
+      <div class="card-footer">
+        @boutonUser([
+          'route' => 'vetoAdmin.edit',
+          'id' => $user->id,
+          'intitule' => 'voirmodif',
+          'couleur' => 'btn-bleu',
         ])
-    </div>
+      </div>
+
+    @endif
+
   </div>
 
 @endisset

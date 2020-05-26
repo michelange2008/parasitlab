@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'comment' =>
+  'comment' => 
   array (
     'titre' => 'Comment prendre les échantillons&nbsp;?',
     'texte' => 'Quelque soit l\'analyse demandée, il faut prélever des crottes, crottins ou bouses.<br>
@@ -11,7 +11,7 @@ return array (
                   Pour plus d\'informations, consultez la fiche technique correspondante <a href=\'#\'><i class=\'fas fa-external-link-alt\'></i></a>',
     'remarque' => '<i class=\'fas fa-exclamation-circle text-danger\'></i> Une coproscopie se fait avec une petite poignée de crottes. Il n\'est donc pas utile de nous envoyer de quantités importantes.',
   ),
-  'lot' =>
+  'lot' => 
   array (
     'titre' => 'Analyses individuelles ou de mélange',
     'texte' => '<p>Pour obtenir une image représentative de l’infestation du troupeau,
@@ -25,7 +25,7 @@ return array (
                 et de traiter de façon ciblée, si cela s’avère nécessaire.',
     'remarque' => '<i class=\'fas fa-exclamation-circle text-danger\'></i> Quand on fait un prélèvement pour une analyse de mélange, il faut veiller à ramasser à peu près la même quantité de fèces de chaque animal.',
   ),
-  'plusieurs' =>
+  'plusieurs' => 
   array (
     'titre' => 'Comment choisir les animaux ?',
     'texte' => 'Au sein d’un troupeau, le parasitisme est inégalement réparti.

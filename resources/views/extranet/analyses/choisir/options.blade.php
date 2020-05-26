@@ -1,6 +1,10 @@
 <div id="liste_options">
 
-  <div id="aucune_option"></div>
+  <div id="aucune_option" style="display:none">
+
+    <p class="lead alert-warning p-3">@lang('choisir.aucune_analyse')</p>
+
+  </div>
 
   @foreach ($qui_quand->contenu as $key => $element) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
 
@@ -51,8 +55,6 @@
 
 <div id="listes analyse">
 
-  <div id="aucune_analyse"></div>
-
   @foreach ($anaactes as $anaacte)
 
     <div id="anaacte_{{ $anaacte->id }}" class="anaacte card mb-3" style="display:none" >
@@ -62,11 +64,12 @@
         </div>
         <div class="col-md-10">
           <div class="card-body">
-            <h5 class="card-title"><span class="badge badge-bleu-tres-fonce">{!! $anaacte->num !!}</span> {!! ucfirst($anaacte->anatype->nom) !!}</h5>
+            <h5 class="card-title">{!! ucfirst($anaacte->anatype->nom) !!}</h5>
             <p class="card-text">{!! ucfirst($anaacte->nom) !!}
               <span class="card-text"><small class="text-muted">{!! ucfirst($anaacte->pu_ht) !!}&nbsp;&euro;</small></span>
             </p>
             <p class="card-text text-secondary pl-3 bordure-epaisse">{!! ucfirst($anaacte->description) !!}</p>
+            <p class="text-muted">@lang('choisir.num_analyse')&nbsp;<span class="badge badge-bleu-tres-fonce">{!! $anaacte->num !!}</span></p>
           </div>
         </div>
       </div>
@@ -74,21 +77,30 @@
 
   @endforeach
 
-</div>
+  {{-- panneau d'info autres analyes si choix bovins --}}
+  <div id="autres_analyses" class="media border p-3 mb-2 bg-warning" style="display:none">
+    <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/interpreter.svg') !!}" alt="interpreter.svg">
+    <div class="media-body">
+      <p class="lead">@lang('qui_quand.veto.autres_analyses')</p>
+    </div>
 
-<div id="boutons" class="mb-3" style="display:none">
-  <a id="bouton_pdf" class="btn btn-rouge" href="{{ url('storage/pdf/formulaire_espece.pdf') }}" target="_blank" ><i class="fas fa-file-pdf"></i> Télécharger un formulaire</a>
-  <a id="bouton_pdf" class="btn btn-bleu" href="{{ route('analyses.enpratique') }}"><i class="fas fa-virus"></i> En pratique: prélever/envoyer</a>
-</div>
+  </div>
 
-{{-- recommandation pour le véto --}}
-<div id="penser_veto" class="media border p-3 mb-2  bg-rouge-clair" style="display:none">
-  <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/veto.svg') !!}" alt="veto.svg">
-  <div class="media-body">
-    <h4 class="mt-0">
-      @lang('qui_quand.veto.titre')
-    </h4>
-    <p class="lead">@lang('qui_quand.veto.soustitre')</p>
+  <div id="boutons" class="mb-3" style="display:none">
+    <a id="bouton_pdf" class="btn btn-rouge" href="{{ url('storage/pdf/formulaire_espece.pdf') }}" target="_blank" ><i class="fas fa-file-pdf"></i>&nbsp;@lang('boutons.tele_form')</a>
+    <a id="bouton_pdf" class="btn btn-bleu" href="{{ route('analyses.enpratique') }}"><i class="fas fa-virus"></i>&nbsp;@lang('boutons.prelevenvoi')</a>
+  </div>
+
+  {{-- recommandation pour le véto --}}
+  <div id="penser_veto" class="media border p-3 mb-2  bg-rouge-clair" style="display:none">
+    <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/veto.svg') !!}" alt="veto.svg">
+    <div class="media-body">
+      <h4 class="mt-0">
+        @lang('qui_quand.veto.titre')
+      </h4>
+      <p class="lead">@lang('qui_quand.veto.soustitre')</p>
+
+    </div>
 
   </div>
 

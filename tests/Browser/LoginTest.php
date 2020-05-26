@@ -25,7 +25,7 @@ class LoginTest extends DuskTestCase
                   ->value('#password', '123456')
                   ->value('#password-confirm', '123456')
                   ->click('button[type="submit"]') //Click the submit button on the page
-                  ->assertPathIs('/home') //Make sure you are in the home page
+                  ->assertPathIs('/accueil) //Make sure you are in the home page
           //Make sure you see the phrase in the arguement
                   ->assertSee("You are logged in!");
       });

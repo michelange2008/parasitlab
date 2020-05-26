@@ -25,8 +25,11 @@
       <div class="col-md-10">
 
         @titre([
-          'titre' => $facture_completee->user->name ,
-          'soustitre' => "- ".__('factures.num_date', ['num' => $facture_completee->id, 'date' => $facture_completee->faite_date]),
+          'titre' => $elementDeFacture->facture->user->name ,
+          'soustitre' => "- ".__('factures.num_date', [
+            'num' => $elementDeFacture->facture->num,
+            'date' => \Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL'),
+          ]),
           'icone' => 'factures.svg'
         ])
 
@@ -38,7 +41,7 @@
 
       <div class="col-md-10">
 
-        @include('labo.factures.facture-entete')
+        @include('labo.factures.facture_entete')
 
       </div>
 
@@ -59,10 +62,18 @@
 
     <div class="col-md-10">
 
-      @include('fragments.boutonUser', [
-        'route' => 'facture.pdf', 'id' => $facture_completee->id,
-        'intitule' => __('boutons.show_pdf'),
+      @boutonUser([
+        'route' => 'facture.pdf', 'id' => $elementDeFacture->facture->id,
+        'intitule' => 'show_pdf',
         'couleur' => 'btn-rouge',
+        'fa' => 'fas fa-file-pdf',
+        'target' => "_blank",
+      ])
+      @boutonUser([
+        'route' => 'mail.envoyerFacture', 'id' => $elementDeFacture->facture->id,
+        'intitule' => 'send',
+        'couleur' => 'btn-bleu',
+        'fa' => 'fas fa-paper-plane',
       ])
       <hr class="divider-court">
     </div>
@@ -73,7 +84,7 @@
 
     <div class="col-md-10 p-3 border">
 
-      @if ($facture_completee->payee)
+      @if ($elementDeFacture->facture->payee)
 
         @include('labo.factures.suppReglement')
 
@@ -91,7 +102,7 @@
 
     <div class="col-md-10 d-flex justify-content-end">
 
-      @retour(['url' => url('laboratoire/factures')])
+      @retour(['route' => 'factures.index'])
 
     </div>
 

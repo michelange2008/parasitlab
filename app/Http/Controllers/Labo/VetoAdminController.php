@@ -51,7 +51,7 @@ class VetoAdminController extends Controller
 
         $fournisseur = new ListeVetosFournisseur();
 
-        $datas =$fournisseur->renvoiedatas($users, 'liste des vétérinaires', $icone, 'tableauVetos', 'vetoAdmin.create', "Ajouter un vétérinaire");
+        $datas =$fournisseur->renvoiedatas($users, __('titres.list_vets'), $icone, 'tableauVetos', 'vetoAdmin.create', __('boutons.add_vet'));
 
         return view('admin.index.pageIndex', [
           'menu' => $this->menu,
@@ -153,7 +153,7 @@ class VetoAdminController extends Controller
 
         $fournisseur = new ListeDemandesVetoFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandesVeto', 'laboAdmin.create', "Ajouter une demande");
+        $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandesVeto', 'laboAdmin.create', __('boutons.add_demande'));
 
         return view('admin.vetoShow', [
           'menu' => $this->menu,

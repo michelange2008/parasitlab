@@ -21,7 +21,7 @@
     </tr>
     <tr>
       <td>
-        <p class="adresse adresse-petit">ELEVEUR&nbsp;: <strong>{{ $demande->user->name }}</strong></p>
+        <p class="adresse adresse-petit">@lang('communs.eleveur')&nbsp;: <strong>{{ $demande->user->name }}</strong></p>
       </td>
       <td>
         <p class="adresse">{{ $demande->veto->cp }} {{ $demande->user->commune }}</p>

@@ -3,15 +3,11 @@ namespace App\Fournisseurs;
 
 use App\Fournisseurs\ListeFournisseur;
 
-use App\Http\Traits\FormatDate;
-
 /**
  *  FOURNIT LES DATAS POUR L'AFFICHAGE DE LA LISTE DES DEMANDES DANS index.blade.php
  */
 class ListeActesFournisseur extends ListeFournisseur
 {
-
-  use FormatDate;
 
   public function creeliste($actes)
   {
@@ -29,7 +25,7 @@ class ListeActesFournisseur extends ListeFournisseur
 
       $facturee = $this->ouinonFactory($acte->id, $acte->facturee);
 
-      $creation = $this->itemFactory($this->dateSortable($acte->updated_at->toDateTimeString()));
+      $creation = $this->dateFactory($acte->updated_at);
 
       if ($acte->facturee) {
 

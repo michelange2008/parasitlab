@@ -36,15 +36,25 @@
       </div>
 
       <div class="col-md-12 my-3 d-md-flex justify-content-around">
+        {{-- ligne cachée pour récupérer l'adressse de icones --}}
+      <div id="src_img_espece" lien = "{{ url('storage/img/icones') }}"></div>
 
         @include('extranet.analyses.choisir.listeEspeces')
 
       </div>
 
+        @include('extranet.analyses.choisir.listeAges')
+
     </div>
 
 
     <div class="row justify-content-center">
+
+      <div class="col-md-12">
+
+        <h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')</h4>
+
+      </div>
 
       <div class="col-md-4">
 
@@ -54,8 +64,10 @@
 
       <div class="col-md-8">
 
-        {{-- @include('extranet.analyses.choisir.listeAnalysesProposees') --}}
+        @include('extranet.analyses.choisir.choisirTuto')
+
         @include('extranet.analyses.choisir.options')
+
       </div>
 
     </div>
@@ -75,8 +87,15 @@
     <input id="input_{{ $categorie->id }}" type="hidden" name="categorie_{{ $categorie->id }}" value="">
 
   @endforeach
-
+  <div id="zero-analyse" class="d-none">
+  </div>
 </form>
 {{-- ############################################################################################################# --}}
+
+@endsection
+
+@section('scripts')
+
+  <script src="{{url('js/choisir.js')}}"></script>
 
 @endsection

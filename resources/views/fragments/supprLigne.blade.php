@@ -3,7 +3,7 @@ ET UN ROUTAGE VERS LA METHODE destroy
 VARIABLES: id ET route
 -->
 
-<form id="form_{{ $id }}" class="suppr"
+<form id="form_{{ $id }}" class="suppr" texte="@lang($texte)" titre="@lang($titre)"
   action="{{ route($route, $id) }}" method="POST">
 
   {{  csrf_field() }}
@@ -14,7 +14,7 @@ VARIABLES: id ET route
 
     data-toggle="tooltip" data-placement="top"
 
-    title="Suppression de la ligne">
+    title="@lang($titre)"> {{-- attribut pour la boite de dialogue js --}}
 
       <i class="text-center text-danger fas fa-trash-alt"></i>
 

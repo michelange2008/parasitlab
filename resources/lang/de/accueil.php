@@ -1,29 +1,28 @@
-
 <?php
 
 return array (
-  'carousel' =>
+  'carousel' => 
   array (
     'maitrisez' => 'Kontrollieren Sie den Parasitismus in Ihrer Herde !',
     'evaluez' => 'Bewerten Sie die Situation Ihrer Tiere !',
     'limitez' => 'Widerstand gegen Entwurmung begrenzen !',
     'respectez' => 'Respektieren Sie die biologische Vielfalt !',
   ),
-  'entetes' =>
+  'entetes' => 
   array (
-    'veterinaires' =>
+    'veterinaires' => 
     array (
       'titre' => 'Tierärzte',
       'texte_1' => 'Sie möchten Ihren Züchtern und Kunden eine parasitologische Nachsorge anbieten, um unnötige Behandlungen zu vermeiden.',
       'texte_2' => 'Sie wollen die pathogenen Risiken und das mögliche Vorhandensein einer Resistenz gegen Anthelmintika beurteilen.',
     ),
-    'eleveurs' =>
+    'eleveurs' => 
     array (
       'titre' => 'Züchter',
       'texte_1' => 'Vous souhaitez faire un suivi régulier et raisonné de l\'infestation de votre troupeau pour ne plus traiter en aveugle.',
       'texte_2' => 'Vous êtes à la recherche d\'un laboratoire vous fournissant des réponses rapides à vos questions sur le parasitisme d\'un animal ou de votre troupeau.',
     ),
-    'cavalieres' =>
+    'cavalieres' => 
     array (
       'titre' => 'Cavalières (-iers)',
       'texte_1' => 'Vous avez toujours traité sytématiquement, parce que c\'est "ce qui se fait". Et pourtant, votre cheval n\'est peut-être pas parasité.',
@@ -36,27 +35,27 @@ return array (
   'ceLaboratoire' => ', Dieses Labor erhält alle Ihre Proben für parasitologische Analysen.',
   'limites' => 'Pour l\'instant, Parasit\'Lab se consacre à la détection du parasitisme interne par le biais de coproscopies.',
   'ensavoirplus' => 'Mehr darüber wissen ...',
-  'pastilles' =>
+  'pastilles' => 
   array (
-    'coproscopies' =>
+    'coproscopies' => 
     array (
       'titre' => 'Coproscopies',
       'texte_1' => 'Si l\'on souhaite gérer le parasitisme de son troupeau avec peu (ou pas) de traitements, il est indispensable de suivre les niveaux d\'infestation.',
       'texte_2' => 'Les analyses coproscopiques sont une aide précieuse en complément de l\'observation des animaux.',
     ),
-    'parasitisme' =>
+    'parasitisme' => 
     array (
       'titre' => 'Parasites',
       'texte_1' => 'Les différents parasites des animaux d\'élevage ont tous des cycles bien définis, des localisations précises au sein de l\'organisme et des modes de survie variables selon les espèces.',
       'texte_2' => 'En réponse à l\'infestation parasitaire, les animaux développent une immunité variable et plus ou moins durable.',
     ),
-    'resistances' =>
+    'resistances' => 
     array (
       'titre' => 'Résistances',
       'texte_1' => 'Le développement de résistances aux traitements antiparasitaires est un processus naturel inévitable. Les élevages caprins sont les premiers concernés.',
       'texte_2' => 'C\'est une situation préoccupante qui peut être évitée par la pratique de traitements ciblés.',
     ),
-    'biodiversite' =>
+    'biodiversite' => 
     array (
       'titre' => 'Biodiversité',
       'texte_1' => 'Certains traitements anthelmintiques ont des propriétés insecticides et son rejetés avec les fécès des animaux.',

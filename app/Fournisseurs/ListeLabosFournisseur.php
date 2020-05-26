@@ -19,7 +19,7 @@ class ListeLabosFournisseur extends ListeFournisseur
 
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
 
-      $photo = $this->photoFactory($user->labo->photo);
+      $photo = $this->photoFactory('labo/photos/'.$user->labo->photo);
 
       $nom = $this->lienFactory($user->id, ucfirst($user->name), 'laboAdmin.show', 'affiche_user');
 

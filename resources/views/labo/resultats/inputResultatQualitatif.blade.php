@@ -41,16 +41,16 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
 
       @if ($valeur === null)
 
-        <option value="absence">Absence</option>
+        <option value="absence">@lang('absence')</option>
 
-        <option value="presence">Présence</option>
+        <option value="presence">@lang('presence')</option>
 
 
       @else
 
-        <option value="presence">Présence</option>
+        <option value="absence">@lang('absence')</option>
 
-        <option value="absence">Absence</option>
+        <option value="presence">@lang('presence')</option>
 
       @endif
 
@@ -60,7 +60,7 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
 
   <td class="text-right">
 
-    {{ $anaitem->unite->nom }}
+    @lang($anaitem->unite->nom)
 
   </td>
 

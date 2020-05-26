@@ -13,7 +13,7 @@ class VetoStore extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class VetoStore extends FormRequest
     public function rules()
     {
         return [
-            //
+          'id' => 'integer|bail|required',
+          'name' => 'string|bail|required|max:191',
+          'email' => 'bail|required|email',
+          'address_1' => 'string|required|max:191',
+          'address_2' => 'string|nullable|max:191',
+          'cp' => 'alpha_num|required|max:5',
+          'commune' => 'string|required|max:191',
+          'indicatif' => 'string|required|max:3',
+          'tel' => 'string|required|max:10',
+          'num' => 'alpha_num',
+          'pays' => 'alpha_num',
         ];
     }
 }

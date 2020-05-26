@@ -8,7 +8,7 @@
       "soustitre" : "veterinaires.soustitre_1",
       "image" :
       {
-        "file" : "ostertagia_2.jpg",
+        "file" : "ostertagia_2.jpg.webp",
         "alt" : "ostertagia",
         "title" : "Oeuf d'Ostertagia"
       },
@@ -29,7 +29,7 @@
       "soustitre" : "veterinaires.soustitre_2",
       "image" :
       {
-        "file" :  "cp_herbe.jpg",
+        "file" :  "cp_herbe.jpg.webp",
         "alt" : "chèvre",
         "title" : "Les chèvres, premières concernées par les résistances aux anthelminthiques"
       },

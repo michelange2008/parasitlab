@@ -2,24 +2,28 @@
 namespace App\Http\Traits;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Facture;
 use App\Models\Productions\Acte;
 use App\Models\Veto;
 use App\Models\Analyses\Tva;
 use App\Models\Productions\Anaacte_Facture;
 
 /**
- * Permet d'extraire le
+ * Ensemble de méthodes permettant d'établir une facture
  */
 trait FactureFactory
 {
   /**
-  * Méthode pour la liste des users qui ont de demandes non facturées (manipulation due au fait que certaines demandes d'analyses ne sont pas à facturer au propriétaire des animaux)
+  * Méthode pour la liste des users qui ont de demandes non facturées (manipulation due au fait que certaines demandes
+  * d'analyses ne sont pas à facturer au propriétaire des animaux)
   *
   * return collection avec une liste d'id utilisateurs ayant chacun une liste de demande_id
   */
   function clientsDemandesAFacturer()
   {
-    $demandes_non_facturees = Demande::select('id','user_id', 'veto_id', 'user_dest_fact')->where('facturee', false)->get();
+    $demandes_non_facturees = Demande::select('id','user_id', 'veto_id', 'user_dest_fact')
+                              ->where('signe', true)
+                              ->where('facturee', false)->get();
 
     // Manipulation pour associer au user_id le destinatire de la facture
     $udnf = Collect();
@@ -68,7 +72,7 @@ trait FactureFactory
     return $users_anf;
   }
 
-  public function ajouteSommeEtTvas($facture)
+  public function ajouteSommeEtTvasEtNum($facture)
   {
     $somme_facture = $this->calculSommeFacture($facture);
 
@@ -77,6 +81,8 @@ trait FactureFactory
     $facture->somme_facture = $somme_facture;
 
     $facture->liste_tvas = $liste_tvas;
+
+    $facture->num = config('laboInfos.prefixe_facture').$facture->id;
 
     return $facture;
   }
@@ -165,5 +171,32 @@ trait FactureFactory
       }
     }
     return $destinataire_facture;
+  }
+
+  // Renvoie tous les éléments pour afficher une facture ou en faire un PDF
+  public function prepareFacture($facture_id)
+  {
+    $elementDeFacture = Collect();
+    // On cherche la facture
+    $facture = Facture::findOrFail($facture_id);
+
+    // Et on calcul son total
+    $facture_completee = $this->ajouteSommeEtTvasEtNum($facture);
+    // On récupère les actes facturés... Bon c'est pas tout à fait correct de faire une requête sur la table pivot
+    // Mais contrairement aux autres tables, cette table pivot stocke de l'information au delà des id des actes et des factures
+    // En effet, il est indispensable de mettre à chaque fois le montant de l'acte au cas où cette valeur change ultérieurement
+    // (augmentation des tarifs ou changement du taux de tva)
+    $anaactes_factures = Anaacte_Facture::where('facture_id', $facture_id)->get();
+
+    $demandes = Demande::where('facture_id', $facture_id)->get();
+
+    $elementDeFacture->facture = $facture_completee;
+    $elementDeFacture->demandes = $demandes;
+    $elementDeFacture->anaactes_factures = $anaactes_factures;
+
+    // QUESTION: Pourquoi ces données en session ? C'est pour les récupérer quand on veut éditer une facture en pdf via le PdfController
+    session(['facture_completee'=> $facture_completee, 'demandes'=> $demandes, 'anaactes_factures' => $anaactes_factures]);
+
+    return $elementDeFacture;
   }
 }

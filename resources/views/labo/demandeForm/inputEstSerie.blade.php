@@ -6,17 +6,27 @@
 
     <strong>@lang('form.estSerie')</strong>
 
-    <span class="text-secondary">@lang('form.serie_explic')</span>
+    <span class="text-secondary">&nbsp;:&nbsp;@lang('form.serie_explic')</span>
 
   </p>
 
-  <p>@lang('form.faire_choix')</p>
+  <div id="pas_de_serie">
 
-  <div id="premier" class="form-check">
+    <p>Cet utilisateur n'a pas d'autres séries en cours, donc il s'agit du premier prélèvement d'une nouvelle série</p>
 
-    <input type="radio" class="form-check-input"  id="premierPrelevementSerie" name="serie" value='null' checked>
+    <input type="radio" class="d-none"  id="premierPrelevementSerie" name="serie" value='null' checked >
 
-    <label class="form-check-label" for="premierPrelevementSerie">1<sup>er</sup> envoi d'une nouvelle série ?</label>
+  </div>
+
+  <div id="y_a_serie" style="display:none">
+
+    <p>@lang('form.faire_choix')</p>
+
+    <div id="premier" class="form-check"></div>
+
+    {{-- Ci-dessous div non visible uniquemenent destiné à fournir le texte traduit à createDemande.js --}}
+    <div id="autre" class="d-none" texte="@lang('form.nouvel_envoi')"></div>
+    <div id="premier_envoi" class="d-none" texte="@lang('form.premier_envoi')"></div>
 
   </div>
 

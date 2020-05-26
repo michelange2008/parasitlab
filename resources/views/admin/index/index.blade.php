@@ -1,3 +1,3 @@
-@include('admin.index.indexTitre')
+@titre(['titre' => $datas->titre, 'icone' => $datas->icone])
 
 @include('admin.index.indexTableau')

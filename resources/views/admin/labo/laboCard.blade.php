@@ -1,7 +1,7 @@
 {{-- AFFICHE LE DÉTAIL DES MEMBRES DU LABORATOIRE --}}
 <div class="card" >
 
-  <img class="img-100-100" src="{{ url('storage/img/labo/photos/'.$user->labo->photo)}}" alt="">
+  <img class="img-100-100" src="{{ url('storage/img/labo/photos/'.$user->labo->photo)}}" alt="picture">
 
   <div class="card-body">
 
@@ -11,20 +11,20 @@
 
     <p class="card-text">{{ $user->labo->fonction }}</p>
 
-    <img class="img-50" src="{{ url('storage/img/labo/signatures/'.$user->labo->signature) }}" alt="">
+    <img class="img-50" src="{{ url('storage/img/labo/signatures/'.$user->labo->signature) }}" alt="signature">
 
   </div>
 
   <div class="card-footer">
 
-    @include('fragments.boutonUser', [
+    @boutonUser([
       'route' => 'laboAdmin.edit',
       'id' => $user->id,
-      'intitule' => 'Voir/modifier',
+      'intitule' => 'voirmodif',
       'couleur' => 'btn-bleu',
       ])
 
-      @include('fragments.boutonAnnule')
+    @retour(['route' => 'laboAdmin.index'])
 
   </div>
 

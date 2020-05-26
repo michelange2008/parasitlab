@@ -30,7 +30,7 @@
 
               <li class="media my-3">
 
-                <img class="shadow-lg" src="{{ url('storage/img/extranet').'/'.$element->image }}" alt="{{ __($element->prefixe.'titre') }}">
+                <img class="shadow-lg" src="{{ url('storage/img/infoaide/quisommesnous/'.$element->image) }}" alt="{{ __($element->prefixe.'titre') }}">
 
                 <div class="media-body ml-3">
 

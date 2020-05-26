@@ -50,6 +50,12 @@
 
         </table>
 
+        <div class="my-3 text-right">
+
+          @retour(['route' => 'factures.index'])
+
+        </div>
+
       </div>
 
     </div>

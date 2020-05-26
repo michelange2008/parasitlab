@@ -9,7 +9,7 @@
 
         <h3>
 
-          <img class="mr-3 mt-1" src="{{ url('storage/img/icones/especes.svg') }}" alt="">
+          <img class="mr-3 mt-1" src="{{ url('storage/img/icones/especes.svg') }}" alt="especes">
 
           @lang('menuExtranet.teleForm')
 

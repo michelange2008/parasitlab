@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
       $this->call(VetosTableSeeder::class);
       $this->call(UnitesTableSeeder::class);
       $this->call(EspecesTableSeeder::class);
+      $this->call(AgesTableSeeder::class);
       $this->call(TvasTableSeeder::class);
       $this->call(ModereglementsTableSeeder::class);
       $this->call(EleveursTableSeeder::class);
@@ -45,6 +46,8 @@ class DatabaseSeeder extends Seeder
       $this->call(Anaacte_ObservationTableSeeder::class);
       $this->call(AnacteOptionTableSeeder::class);
       $this->call(AnaacteEspeceTableSeeder::class);
+      $this->call(Age_ObservationTableSeeder::class);
+      $this->call(Age_AnaacteTableSeeder::class);
       // $this->call(BlogsTableSeeder::class);
 
     }

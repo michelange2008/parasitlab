@@ -15,24 +15,43 @@
     </a>
 
   </div>
+
+  @if ($estVeto)
+
+    <p>@lang('mails.envoiInfosConnexion.info_veto')</p>
+
+  @elseif ($estEleveur)
+
+    <p>@lang('mails.envoiInfosConnexion.info_eleveur')</p>
+
+  @endif
+
+  <p>@lang('mails.envoiInfosConnexion.si_erreur')</p>
+
   <hr class="divider">
-  <h3>Identifiants de connexion</h3>
+
+  <h3>@lang('mails.envoiInfosConnexion.login_mdp')</h3>
+
   <ul>
 
     <li>Login&nbsp;:&nbsp;{{ $user->email }}</li>
+
     <li>{{ __('Password') }}&nbsp;:&nbsp;{{ $user->password }}</li>
+
   </ul>
+
   <hr class="divider">
+
   <p>@lang('mails.envoiInfosConnexion.warning_mdp')</p>
 
   <p>
-    @lang('mails.envoiInfosConnexion.how_reset_mdp')
+    @lang('mails.envoiInfosConnexion.how_reset_mdp')&nbsp;
 
     <a class="btn" href="{{ url('password/reset') }}">{{ __('Reset Password') }}</a>
 
   </p>
 
-  <p>@lang('commun.contact_us'){{ config('laboInfos.email_contact') }}</p>
+  <p>@lang('commun.contact_us'){{ config('laboInfos.email_contact')   }}</p>
   <br>
   <p>@lang('commun.cordialement'),</p>
   <br>

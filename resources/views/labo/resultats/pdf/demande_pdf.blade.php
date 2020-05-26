@@ -1,20 +1,20 @@
 <br>
 <div class="text-center alert-secondary">
 
-  <p class="pdf-titre">{{ ucfirst($demande->anaacte->anatype->nom) }} (résultats)</p>
+  <p class="pdf-titre">{{ ucfirst($demande->anaacte->anatype->nom) }} (@lang('demandes.results'))</p>
 
 </div>
 
 <table class="table table-bordered pdf-table">
   <tr>
-    <td>Espèce : <strong>{{ mb_strtoupper($demande->espece->nom) }}</strong></td>
-    <td>Date de réception: <strong>{{ $demande->date_reception}}</strong></td>
-    <td>Nb de prélèvements: <strong>{{ $demande->nb_prelevement}}</strong></td>
+    <td>@lang('tableaux.espece') : <strong>{{ mb_strtoupper($demande->espece->nom) }}</strong></td>
+    <td>@lang('tableaux.date_reception') <strong>{{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</strong></td>
+    <td>@lang('form.nb_prelevement'): <strong>{{ $demande->nb_prelevement}}</strong></td>
   </tr>
   @if ($demande->anaacte->serie)
     <tr>
       <td colspan="3">
-          Cette demande d'analyse fait partie d'un pack qui compte 3 séries de prélèvement
+          @lang('form.demande_serie')
       </td>
     </tr>
   @endif
@@ -26,7 +26,7 @@
     <tr class="pdf-table-titre">
       <td colspan="3" class="ligne1"><strong>{{ mb_strtoupper($prelevement->identification)}}</strong> (prelevement n°{{ $loop->index + 1}} -
         <span class="lignes">
-          état du prélèvement: <strong>{{ $prelevement->etat->nom }}</strong>
+          @lang('form.etat_prelev'): <strong>{{ $prelevement->etat->nom }}</strong>
        </span>
      </td>
     </tr>
@@ -34,7 +34,7 @@
 @if ($prelevement->toutNegatif)
 
   <tr>
-    <td colspan="3">Aucun parasite recherché n'a été détecté</td>
+    <td colspan="3">@lang('demandes.0_resultat')</td>
   </tr>
 
 @else
@@ -49,18 +49,16 @@
         {{$resultat->valeur}}
       </td>
       <td class="lignes">
-        {{$resultat->anaitem->unite->nom}}
+        @lang($resultat->anaitem->unite->nom)
       </td>
     </tr>
   @endforeach
-
-  {{-- <div class="page-break"></div> --}}
 
 @endif
 
 <tr>
   <td colspan="3">
-    <p class="lignes"><span class="font-italic">Parasites recherchés mais non détectés: </span>
+    <p class="lignes"><span class="font-italic">@lang('demandes.non_detecte') </span>
 
       @foreach ($prelevement->nonDetecte as $nondetecte)
 
@@ -97,8 +95,8 @@
 <div class="text-right">
 
   <p class="lignes">
-    Signée le {{ $demande->date_signature }} par {{ $demande->labo->user->name }}
+    @lang('demandes.signe_le') {{ \Carbon\Carbon::parse($demande->date_signature)->isoFormat('DD/MM/Y') }} par {{ $demande->labo->user->name }}
   </p>
-  <img width="250px" src="{!! 'storage/img/labo/signatures/'.$demande->labo->signature !!}" alt="">
+  <img width="250px" src="{!! 'storage/img/labo/signatures/'.$demande->labo->signature !!}" alt="signature">
 
 </div>

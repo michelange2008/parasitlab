@@ -5,15 +5,11 @@ use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Productions\Serie;
 
-use App\Http\Traits\FormatDate;
-
 /**
  *  FOURNIT LES DATAS POUR L'AFFICHAGE DE LA LISTE DES DEMANDES DANS index.blade.php
  */
 class ListeSeriesFournisseur extends ListeFournisseur
 {
-
-  use FormatDate;
 
   public function creeliste($series)
   {

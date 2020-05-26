@@ -13,6 +13,11 @@ class Espece extends Model
       return $this->belongsTo(Icone::class);
     }
 
+    public function ages()
+    {
+      return $this->hasMany(Age::class);
+    }
+
     public function analyses()
     {
       return $this->hasMany(Analyses\Analyse::class);

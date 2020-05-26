@@ -15,12 +15,12 @@ class CreateObservationsTable extends Migration
     {
         Schema::create('observations', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->unsignedInteger('ordre');
-            $table->unsignedInteger('categorie_id');
             $table->foreign('categorie_id')->references('id')->on('categories');
             $table->string('intitule', 191);
             $table->mediumText('explication');
             $table->string('autres', 191)->nullable();
+            $table->unsignedInteger('categorie_id');
+            $table->unsignedInteger('ordre');
         });
     }
 

@@ -8,11 +8,11 @@
 
 <ul class="list-unstyled">
 
-  @foreach ($terre_lot->items as $item) {{-- On purcours les blocs --}}
+  @foreach ($terre_lot->items as $item) {{-- On parcours les blocs --}}
 
     <li class="media">
 
-      <img src="{{ url('storage/img').'/'.$item->image }}" alt="">
+      <img src="{{ url('storage/img/analyses/preleverenvoyer/'.$item->image) }}" alt="biology">
 
       <div class="media-body ml-3">
 

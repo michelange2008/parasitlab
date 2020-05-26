@@ -4,7 +4,7 @@
 
     <div class="col-md-1 d-sm-none d-md-block">
 
-      @include('fragments.image', ['image' => 'nouveau.svg'])
+      @image(['image' => 'nouveau.svg'])
 
     </div>
 
@@ -17,14 +17,15 @@
 
     <div class="col-md-1 d-sm-none d-md-block">
 
-      @include('fragments.image', ['image' => 'espece.svg'])
+      @image(['image' => 'analyse.svg'])
 
     </div>
 
     <div class="col-md-4">
 
-      {{-- CHOIX DE L'ESPECE --}}
-      @include('labo.demandeForm.inputEspece')
+      {{-- CHOIX DE L'ANALYSE --}}
+      @include('labo.demandeForm.inputAnatype')
+
     </div>
 
 </div>
@@ -34,29 +35,24 @@
 
   <div class="col-md-1 d-sm-none d-md-block">
 
-    @include('fragments.image', ['image' => 'analyse.svg'])
+    @image(['image' => 'espece.svg'])
 
   </div>
 
   <div class="col-md-4 border-right">
 
-    {{-- CHOIX DE L'ANALYSE --}}
-    @include('labo.demandeForm.inputTypeActe')
+    {{-- CHOIX DE L'ESPECE --}}
+    @include('labo.demandeForm.inputEspece')
 
   </div>
 
-  <div class="col-md-1 d-sm-none d-md-block">
-
-    @include('fragments.image', ['image' => 'date.svg'])
-
-  </div>
+  <div class="col-md-1"></div>
 
   <div class="col-md-4">
 
-    {{-- SAISIE DES DATES DE PRELEVEMENT (NON REQUIS) OU DE RECEPTION (REQUIS) --}}
-    @include('labo.demandeForm.inputDates')
-
+    @include('labo.demandeForm.inputAnaacte')
   </div>
+
 
 {{-- BLOC QUI N EST PAS AFFICHE AU DEPARTS'affiche seulement si on choisit un anapack
 qui crée une série (test de résistance par ex).
@@ -64,9 +60,31 @@ Dans ce cas, s'affiche un bloc permettant de préciser que c'est le premier de l
 En plus, si un éleveur à une (ou plusieurs) série non terminée avec un anapack identique, ça affiche une nouvelle
 ligne qui permet d'associer la nouvelle demande à cette série
 --}}
-  <div id="estSerie" class="col-md-10 d-none">
 
-    @include('labo.demandeForm.inputEstSerie')
+</div>
+
+<div class="row justify-content-center mt-2">
+
+  <div class="col-md-1 d-sm-none d-md-block">
+
+    @image(['image' => 'date.svg'])
+
+  </div>
+
+  <div class="col-md-4 border-right">
+
+    {{-- SAISIE DES DATES DE PRELEVEMENT (NON REQUIS) OU DE RECEPTION (REQUIS) --}}
+    @include('labo.demandeForm.inputDates')
+
+  </div>
+
+  <div class="col-md-5">
+
+    <div id="estSerie" class="d-none">
+
+      @include('labo.demandeForm.inputEstSerie')
+
+    </div>
 
   </div>
 

@@ -6,7 +6,7 @@
 
     <span class="input-group-text"><i class="fas fa-user-md"></i></span>
 
-    <select class="form-control" name="veto_id">
+    <select id="liste_veterinaires" class="form-control" name="veto_id">
 
 
       @isset($user->eleveur->veto->id)
@@ -17,7 +17,7 @@
 
       <option value=null>@lang('form.no_vet')</option>
 
-      <option value=0>@lang('form.new_vet')</option>
+      <option id="new_vet" value=0>@lang('form.new_vet')</option>
 
       @foreach ($vetos as $veto)
 

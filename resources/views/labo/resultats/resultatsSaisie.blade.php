@@ -15,8 +15,9 @@
       <div class="col-md-10 col-lg-8">
 
         @titre([
-          'titre' => "Saisie des résultats",
-          'soustitre' => "(".$demande->user->name."&nbsp;: ".$prelevements[0]->demande->anaacte->anatype->abbreviation."- ".$prelevements[0]->demande->anaacte->abbreviation.")"])
+          'titre' => __('titres.saisie_resultats'),
+          'soustitre' => "(".$demande->user->name."&nbsp;: ".$prelevements[0]->demande->anaacte->anatype->abbreviation." - ".$prelevements[0]->demande->anaacte->abbreviation.")"
+        ])
 
       </div>
 
@@ -33,12 +34,11 @@
 
           <div class="form-check">
 
-            <h4 class="color-bleu-tres-fonce">L'analyse est-elle terminée ?</h4>
-            <label class="switch">
-              <input type="checkbox" name="acheve" checked>
-              <span class="slider round"></span>
-              <span class="absolute-no">NON</span>
-            </label>
+            <div class="custom-control custom-checkbox">
+              <input class="custom-control-input" type="checkbox" name="acheve" id="acheve" checked>
+              <label class="custom-control-label" for="acheve">@lang('form.estFinie')</label>
+            </div>
+
           </div>
 
         </div>
@@ -63,9 +63,9 @@
                   <thead>
 
                     <tr>
-                       <th>Parasite</th>
-                       <th>Quantité</th>
-                       <th>Unité</th>
+                       <th>@lang('form.parasite')</th>
+                       <th>@lang('form.qtt')</th>
+                       <th>@lang('form.unit')</th>
                     </tr>
                   </thead>
 

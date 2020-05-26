@@ -10,6 +10,7 @@ use App\Fournisseurs\ListeDemandesFournisseur;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\DemandeFactory;
+use App\Http\Traits\FactureFactory;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\SerieManager;
 
@@ -23,6 +24,7 @@ use App\Models\Analyses\Anaitem;
 use App\Models\Veto;
 use App\Models\Usertype;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Facture;
 use App\Models\Productions\Serie;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Etat;
@@ -32,7 +34,7 @@ use App\Models\Productions\Signe;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeFactory, SerieManager;
+    use LitJson, EleveurInfos, DemandeFactory, FactureFactory, SerieManager;
     use UserTypeOutil ;
 
     protected $menu;
@@ -48,13 +50,14 @@ class DemandeController extends Controller
 
     public function index()
     {
+
       $demandes = Demande::all();
 
       session()->forget('user');
 
       $fournisseur = new ListeDemandesFournisseur();
 
-      $datas = $fournisseur->renvoieDatas($demandes, "liste des demandes d'analyse", 'demandes.svg', 'tableauDemandes', 'demandes.create', "Ajouter une demande d'analyse");
+      $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandes', 'demandes.create', __('boutons.add_demande'));
 
       return view('admin.index.pageIndex', [
           "menu" => $this->menu,
@@ -105,7 +108,7 @@ class DemandeController extends Controller
 // dd($datas);
       session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
-      $user = User::where('name', $datas['userDemande'])->first();
+      $user = User::find($datas['userDemande']);
       $espece = Espece::where('nom', $datas['espece'])->first();
       $anaacte = Anaacte::find($datas['anaacte_id']);
       // GESTION DE LA SERIE
@@ -128,13 +131,14 @@ class DemandeController extends Controller
       {
         $toveto = true;
         $user_veto_id = $datas['veto_id'];
-        $user_veto = Veto::find($user_veto_id);
+        $user_veto = User::find($user_veto_id);
+        $veto_id = $user_veto->veto->id;
       }
       // Sinon le "veto_id" est passé à null
       else {
         $toveto = false;
         $user_veto_id = null;
-        $user_veto = null;
+        $veto_id = null;
       }
 
       // Puis créer la demande
@@ -146,7 +150,7 @@ class DemandeController extends Controller
       $nouvelle_demande->serie_id = $serie_id;
       $nouvelle_demande->informations = $datas['informations'];
       $nouvelle_demande->toveto = $toveto;
-      $nouvelle_demande->veto_id = $user_veto_id;
+      $nouvelle_demande->veto_id = $veto_id;
       $nouvelle_demande->date_prelevement = $datas['prelevement'];
       $nouvelle_demande->date_reception = $datas['reception'];
 
@@ -155,14 +159,13 @@ class DemandeController extends Controller
       // CREATION DES PRELEVEMENTS
         // on cherche d'abord toutes les analyses correspondant aux actes (anatype->anaactes)
         // certains anaactes correspondent à plusieurs analyses: ex: copro + identification haemonchus
-        $analyse = DB::table('analyses')
-                    ->join('anatypes', 'anatypes.id', '=', 'analyses.anatype_id')
-                    ->join('anaactes', 'anaactes.anatype_id', '=' , 'anatypes.id')
-                    ->where('analyses.anatype_id', $anaacte->anatype->id)
-                    ->where('analyses.espece_id', $espece->id)
-                    ->where('anaactes.estAnalyse', true)->first();
+
+        $analyse = Analyse::where('analyses.anatype_id', $anaacte->anatype->id)
+                  ->where('analyses.espece_id', $espece->id)
+                  ->first();
         // Puis pour chaque analyse
         // Il faut créer les prélèvements
+
         if ($analyse !== null) {
 
 
@@ -208,9 +211,22 @@ class DemandeController extends Controller
 
       $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
-      return view('labo.show', [
+      if($demande->facturee) {
+
+        $facture = Facture::find($demande->facture_id);
+
+        $facture = $this->ajouteSommeEtTvasEtNum($facture);
+
+      } else {
+
+        $facture = null;
+
+      }
+
+      return view('labo.demandeShow', [
         'menu' => $this->menu,
         'demande' => $demande,
+        'facture' => $facture,
         'user' => $user,
         'eleveurInfos' => $this->eleveurInfos($user),
       ]);

@@ -12,34 +12,13 @@ class ObservationOptionTableSeeder extends Seeder
     public function run()
     {
         db::table('observation_option')->insert([
-          [
-            'observation_id' => 1,
-            'option_id' =>  1,
-          ],
-          [
-            'observation_id' => 2,
-            'option_id' =>  1,
-          ],
-          [
-            'observation_id' => 3,
-            'option_id' =>  1,
-          ],
-          [
-            'observation_id' => 4,
-            'option_id' =>  1,
-          ],
-          [
-            'observation_id' => 5,
-            'option_id' =>  1,
-          ],
-          [
-            'observation_id' => 6,
-            'option_id' =>  1,
-          ],
-          [
-            'observation_id' => 7,
-            'option_id' =>  1,
-          ],
+          [ 'observation_id' => 1, 'option_id' =>  12 ],
+          [ 'observation_id' => 2, 'option_id' =>  12 ],
+          [ 'observation_id' => 3, 'option_id' =>  1 ],
+          [ 'observation_id' => 4, 'option_id' =>  1 ],
+          [ 'observation_id' => 5, 'option_id' =>  1 ],
+          [ 'observation_id' => 6, 'option_id' =>  1 ],
+          [ 'observation_id' => 7, 'option_id' =>  1 ],
           [
             'observation_id' => 8,
             'option_id' =>  10,
@@ -74,14 +53,6 @@ class ObservationOptionTableSeeder extends Seeder
             'observation_id' => 13,
             'option_id' =>  6,
           ],
-          // [
-          //   'observation_id' => 13,
-          //   'option_id' =>  8,
-          // ],
-          // [
-          //   'observation_id' => 13,
-          //   'option_id' =>  5,
-          // ],
           [
             'observation_id' => 14,
             'option_id' =>  2,
@@ -178,6 +149,10 @@ class ObservationOptionTableSeeder extends Seeder
           [
             'observation_id' => 36,
             'option_id' =>  8,
+          ],
+          [
+            'observation_id' => 37,
+            'option_id' => 3,
           ],
 
         ]);

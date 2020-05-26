@@ -29,8 +29,9 @@ class AccueilController extends Controller
       $this->menu = $this->litJson('menuExtranet');
     }
 
-    public function accueil()
+    public function index()
     {
+
       return view('extranet.accueil', [
         'menu' => $this->menu,
         'accueilEntetes' => $this->litJson('accueilEntetes'),

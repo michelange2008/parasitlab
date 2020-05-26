@@ -20,15 +20,11 @@ use App\Fournisseurs\ListeFacturesFournisseur;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\FactureFactory;
-use App\Http\Traits\FormatDate;
 
 class FactureController extends Controller
 {
 
-    use LitJson, DemandeFactory, FactureFactory, FormatDate  {
-      FormatDate::dateSortable insteadof DemandeFactory;
-      FormatDate::dateReadable insteadof DemandeFactory;
-    }
+    use LitJson, DemandeFactory, FactureFactory;
 
     protected $menu;
 
@@ -49,7 +45,7 @@ class FactureController extends Controller
     public function index()
     {
       $factures = Facture::all();
-
+      // On procède au calcul de chaque facture
       foreach ($factures as $facture) {
         $somme_facture = $this->calculSommeFacture($facture);
         $facture->total_ht = $somme_facture->total_ht;
@@ -58,7 +54,7 @@ class FactureController extends Controller
 
       $fournisseur = new ListeFacturesFournisseur();
       // methode de ListeFournisseur (classe abstraite) : données du tableau, titre du tableau, icone du titre, nom du json avec les entetes de colonne, route du bouton, intitulé du bouton
-      $datas = $fournisseur->renvoieDatas($factures, __('titres.liste_factures'), "factures.svg", 'tableauFactures', 'factures.etablir', __('boutons.facture_add'));
+      $datas = $fournisseur->renvoieDatas($factures, __('titres.list_factures'), "factures.svg", 'tableauFactures', 'factures.etablir', __('boutons.facture_add'));
 
       $tableau_vide = 'factures.zero_facture';
 
@@ -97,27 +93,11 @@ class FactureController extends Controller
     */
     public function createFromUser($user_id)
     {
-      // Cas où on reprend une session sans passer par factures.etablir, cad sans avoir choisi un utilisateur à facturer
-      // Il n'y a pas de tableau users_dnf stocké.
-      if (!session()->has('users_dnf')) {
 
-        return redirect()->route('factures.etablir');
-
-      }
       // On récupère l'user
       $user = User::find($user_id);
-      // On récupère la variable de session stockée dans la methode etablir (cf. au-dessus)
-      $users_dnf = session()->get('users_dnf');
-      // Si il y a les utilisateurs de demandes non facturées sont le user en cours
-      if($users_dnf->keys()->contains($user_id))
-      {
-        $demandes = Demande::find($users_dnf[$user_id]); // on reprend l'id du destinataire de facture associé aux id des demandes (cf; function etablir)
-        $demandes = $this->formatDateDemandes($demandes);
-
-      }
-      else {
-        $demandes = null;
-      }
+      // On récupère les demandes non facturées de cet user
+      $demandes = Demande::where('user_id', $user_id)->where('facturee', false)->where('signe', true)->get();
 
       // Il s'agit d'anaactes qui ne correspondent pas à une analyse: pack envoi, déplacement, visite, etc.
       $actes = Acte::where('facturee', false)->where('user_id', $user_id)->get();
@@ -131,7 +111,21 @@ class FactureController extends Controller
     }
 
     /**
+    * Fonction pour créer une facture après avoir choisi le destinataire et la demande
+    */
+    public function createDemandeFromUser($user_id, $demande_id)
+    {
+
+      return view('labo.factures.factureCreateDemandeFromUser', [
+        'menu' => $this->menu,
+        'user' => User::find($user_id),
+        'demande' => Demande::find($demande_id),
+      ]);
+
+    }
+    /**
      * Non utilisé à cause de la spéficité de l'établissement d'une facture: la création d'une facture dépend toujours d'un utilisateur
+     * Il s'agit donc de la fonction etablir ou createFromUser
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -147,15 +141,30 @@ class FactureController extends Controller
      */
     public function store(Request $request)
     {
+      // QUESTION: Est-ce utile ?
       // Cas où on reprend une session sans passer par factures.etablir
       // Il n'y a pas de tableau users_dnf stocké.
-      if (!session()->has('users_dnf')) {
+      // if (!session()->has('users_dnf')) {
+      //
+      //   return redirect()->route('factures.etablir');
+      //
+      // }
+      $datas = $request->all();
+      // Dans le cas où on passe par un user et une demande seulement, la case "rajouter un kit" a peut-être été cochée
+      if(isset($datas['kit'])) {
+        // Dans ce cas on rajoute un acte kit à ce user
+        $kit = new Acte;
 
-        return redirect()->route('factures.etablir');
+        $kit->user_id = $datas['destinataire'];
+        $kit->anaacte_id = 14;
+
+        $kit->save();
+
+        $datas['acte_'.$kit->id] = "on";
 
       }
-      $datas = $request->all();
 
+      // dd($datas);
       $nouvelle_facture = new Facture();
       $nouvelle_facture->user_id = $datas['destinataire'];
       $nouvelle_facture->faite_date = Carbon::now();
@@ -171,16 +180,12 @@ class FactureController extends Controller
 
           $demande = Demande::find($element[1]); // on recherche cette demande avec la seconde partie de la clef
 
-          // foreach ($demande->anaacte as $anaacte) { // on passe en revue les anaactes de l'anapack de la demande
-
             $nouvelle_facture->anaactes()->attach($demande->anaacte_id, [ // et on en saisit les donnnées dans la table pivot anaacte_facture
               'facture_id' => $nouvelle_facture->id,
               'pu_ht' => $demande->anaacte->pu_ht,
               'tva_id' => $demande->anaacte->tva_id,
               'date' => $demande->date_reception,
             ]);
-
-          // }
 
           // On marque la demande comme facturés
           DB::table('demandes')->where('id', $demande->id)
@@ -215,7 +220,7 @@ class FactureController extends Controller
 
       session()->forget('users_dnf');
 
-      return redirect()->route('factures.index');
+      return redirect()->route('factures.show', ['facture' => $nouvelle_facture->id]);
     }
 
     /**
@@ -226,38 +231,15 @@ class FactureController extends Controller
      */
     public function show($id)
     {
+        // ça c'est pour la liste déroulante du paiement de la facture
         $modereglements = Modereglement::all();
-
-        $facture = Facture::findOrFail($id);
-        // dd($facture);
-        $facture->faite_date = $this->dateReadable($facture->faite_date);
-
-        if($facture->reglement_id !== null) {
-
-          $facture->reglement->date_reglement = $this->dateReadable($facture->reglement->date_reglement);
-
-        }
-
-        $facture_completee = $this->ajouteSommeEtTvas($facture);
-
-        $anaactes_factures = Anaacte_Facture::where('facture_id', $id)->get();
-
-        $demandes = Demande::where('facture_id', $id)->get();
-
-        foreach ($demandes as $demande) {
-
-          $demande->date_reception = $this->dateReadable($demande->date_reception);
-
-        }
-        // QUESTION: Pourquoi ces données en session ?
-        session(['facture_completee'=> $facture_completee, 'demandes'=> $demandes, 'anaactes_factures' => $anaactes_factures]);
+        // utilisation de la fonction elementDeFacture du trait FactureFactory
+        $elementDeFacture = $this->prepareFacture($id);
 
         return view('labo.factures.facture', [
           'menu'=> $this->menu,
           'modereglements' => $modereglements,
-          'facture_completee' => $facture_completee,
-          'demandes' => $demandes,
-          'anaactes_factures' => $anaactes_factures,
+          'elementDeFacture' => $elementDeFacture,
         ]);
 
     }

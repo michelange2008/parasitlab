@@ -4,5 +4,5 @@
 @section('code', '419')
 @section('message', __('Page Expired'))
 @section('bouton')
-  <a href="{{ route('home') }}" class="btn btn-bleu">Retour à l'accueil</a>
+  <a href="{{ route('accueil') }}" class="btn btn-bleu">@lang('boutons.retour_accueil')</a>
 @endsection

@@ -131,13 +131,19 @@
         "tooltip" : "Ajouter, modifier, supprimer des analyses",
         "route" : "anaactes.index"
       },
-      "sousmenu_3" :
+      "sousmenu_2" :
       {
         "id" : "types",
-        "prefixe" : "menuLabo.item_5.sousmenu_3.",
+        "prefixe" : "menuLabo.item_5.sousmenu_2.",
         "nom" : "Types d'analyse",
         "tooltip" : "Ajouter, modifier, supprimer des packs",
         "route" : "anatypes.index"
+      },
+      "sousmenu_3" :
+      {
+        "id" : "items",
+        "prefixe" : "menuLabo.item_5.sousmenu_3.",
+        "route" : "anaitems.index"
       }
     }
   },

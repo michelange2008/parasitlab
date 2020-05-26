@@ -9,6 +9,7 @@ use App\Fournisseurs\ListeAnatypesFournisseur;
 use App\Http\Traits\LitJson;
 
 use \App\Models\Analyses\Anatype;
+use \App\Models\Analyses\Anaitem;
 
 class AnatypeController extends Controller
 {
@@ -32,7 +33,7 @@ class AnatypeController extends Controller
 
       $fournisseur = new ListeAnaTypesFournisseur(); // voir class ListeFournisseur
 
-      $datas = $fournisseur->renvoieDatas($anatypes, "Liste des types d'analyses proposées", "acte.svg", 'tableauAnatypes', 'anatypes.create', "Ajouter un nouvel type");
+      $datas = $fournisseur->renvoieDatas($anatypes, __('titres.list_types'), "acte.svg", 'tableauAnatypes', 'anatypes.create', __('boutons.add_type'));
 
       return view('admin.index.pageIndex', [
         'menu' => $this->menu,
@@ -81,7 +82,11 @@ class AnatypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.anatypes.anatype', [
+          'menu' => $this->menu,
+          'anatype' => Anatype::find($id),
+          'anaitems' => Anaitem::all(),
+        ]);
     }
 
     /**

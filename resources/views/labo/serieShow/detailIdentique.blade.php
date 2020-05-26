@@ -47,7 +47,7 @@
   </thead>
 
   <tbody>
-    
+
     @foreach ($serieInfos->serieTableau->valeurs as $valeur)
 
       <tr>

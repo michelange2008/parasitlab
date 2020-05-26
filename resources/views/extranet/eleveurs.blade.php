@@ -12,7 +12,7 @@
 
     <div class="row my-3 justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-11 col-lg-10 col-xl-9">
 
         @titre(['titre' => __($elements->fichier.'.'.$elements->titre), 'icone' => 'eleveur.svg'])
 
@@ -22,7 +22,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-11 col-lg-10 col-xl-9">
 
           <ul class="list-unstyled">
 
@@ -30,7 +30,7 @@
 
               <li class="media my-3">
 
-                <img src="{{ url('storage/img').'/'.$contenu->image }}" alt="Troupeaux">
+                <img src="{{ url('storage/img/accueil/eleveurs').'/'.$contenu->image }}" alt="Troupeaux">
 
                 <div class="media-body ml-3">
 
@@ -60,7 +60,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-11 col-lg-10 col-xl-9">
 
         <div class="card-deck">
 

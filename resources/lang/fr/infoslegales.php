@@ -34,7 +34,7 @@ F-26400 Eurre',
     array (
       'p1' => '<i>Photos&nbsp;:</i> Henri LAGASSE (photos noir et blanc, photo page de connexion), Amélie LEBRE, FiBL',
       'p2' => '<i>Icones&nbsp;:</i> Noun Project <a class=\'color-bleu\' href=\'https://thenounproject.com/\'><i class=\'fas fa-external-link-alt\'></i></a>',
-      'p3' => '<i>Visuels&nbsp;:</i> Michel BOUY,',
+      'p3' => '<i>Visuels et conception du site web&nbsp;:</i> Michel BOUY,',
     ),
   ),
   'bloc_4' =>

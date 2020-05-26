@@ -18,10 +18,10 @@
 
     <div class="card-footer d-inline-flex">
 
-      @include('fragments.boutonUser', [
+      @boutonUser([
         'route' => 'eleveurAdmin.edit',
         'id' => $user->id,
-        'intitule' => 'Voir/modifier',
+        'intitule' => 'voirmodif',
         'couleur' => 'btn-bleu',
         ])
 

@@ -16,4 +16,5 @@ return array (
   'saispas' => 'Ich weiß es nicht.',
   'retour' => 'Retour',
   'signature' => 'Das Team von Parasit\'Lab',
+  'Phone' => 'phone number',
 );

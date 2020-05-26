@@ -62,7 +62,7 @@ class AnacteOptionTableSeeder extends Seeder
           ],
           [
             'anaacte_id' => 11,
-            'option_id' => 10,
+            'option_id' => 11,
           ],
           [
             'anaacte_id' => 12,

@@ -2,16 +2,16 @@
   "unites" :
   {
     "lang" : "interpretation.unites.",
-    "image" : "unites.jpg"
+    "image" : "unites.jpg.webp"
   },
   "seuil" :
   {
     "lang" : "interpretation.seuil.",
-    "image" : "seuil.jpg"
+    "image" : "seuil.jpg.webp"
   },
   "niveau" :
   {
     "lang" : "interpretation.niveau.",
-    "image" : "niveau.jpg"
+    "image" : "niveau.jpg.webp"
   }
 }

@@ -5,19 +5,25 @@
 
   @isset($demandes)
 
-      @foreach ($demandes as $demande)
+      @forelse ($demandes as $demande)
 
         <div class="custom-control custom-checkbox">
 
-          <input class="custom-control-input" type="checkbox" name="demande_{{ $demande->id }}" id="demande_{{ $demande->id }}" value="on">
+          <input class="custom-control-input case_demande" type="checkbox" name="demande_{{ $demande->id }}" id="demande_{{ $demande->id }}" value="on">
 
           <label class="custom-control-label my-1" for="demande_{{ $demande->id }}">
-            <p class="font-weight-bold mb-0">{!! ucfirst($demande->anaacte->anatype->nom) !!}</p>{!! ucfirst($demande->anaacte->nom) !!} - {{ $demande->date_reception }}
+            <p class="font-weight-bold mb-0">{!! ucfirst($demande->anaacte->anatype->nom) !!}</p>
+            <p class="mb-0">{!! ucfirst($demande->anaacte->nom) !!}</p>
+            <p class="mb-0 font-italic">{{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
           </label>
 
         </div>
 
-      @endforeach
+      @empty
+
+        <h4>@lang('factures.rien')</h4>
+
+      @endforelse
 
     @else
 

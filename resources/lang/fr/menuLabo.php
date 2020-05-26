@@ -75,15 +75,21 @@ return array (
       'nom' => 'Détail des analyses',
       'tooltip' => 'Ajouter, modifier, supprimer des analyses',
     ),
-    'sousmenu_3' =>
+    'sousmenu_2' =>
     array (
       'nom' => 'Types d\'analyse',
-      'tooltip' => 'Ajouter, modifier, supprimer des packs',
+      'tooltip' => 'Ajouter, modifier, supprimer des types',
     ),
+    'sousmenu_3' =>
+    array (
+      'nom' => 'Parasites recherchés',
+      'tooltip' => 'Ajouter, modifier, supprimer des parasites',
+    ),
+
   ),
   'item_7' =>
   array (
-    'nom' => "Traductions",
-    'tooltip' => "Accès à l'outil de traduction",
-  )
+    'nom' => 'Traductions',
+    'tooltip' => 'Accès à l\'outil de traduction',
+  ),
 );

@@ -1,4 +1,5 @@
 
+
 <?php
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +16,25 @@
 //##############################################################################
 // MENU ACCUEIL
 
-  Route::get('/', ['uses' => 'AccueilController@accueil', 'as' => 'accueil']);
+  Route::get('/essai', 'Api\DonneesController@essai');
 
-  Route::get('/vétérinaires', ['uses' => 'AccueilController@veterinaires', 'as' => 'veterinaires.accueil']);
+  Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
 
-  Route::get('/éleveurs', ['uses' => 'AccueilController@eleveurs', 'as' => 'eleveurs.accueil']);
+  Route::get('/', 'AccueilController@index')->name('accueil');
 
-  Route::get('/cavaliers', ['uses' => 'AccueilController@cavaliers', 'as' => 'cavaliers.accueil']);
+  Route::get('/accueil', 'AccueilController@index');
+
+  Route::get('veterinaires', ['uses' => 'AccueilController@veterinaires', 'as' => 'veterinaires.accueil']);
+
+  Route::get('eleveurs', ['uses' => 'AccueilController@eleveurs', 'as' => 'eleveurs.accueil']);
+
+  Route::get('cavaliers', ['uses' => 'AccueilController@cavaliers', 'as' => 'cavaliers.accueil']);
 
   //##############################################################################
   // MENU ANALYSES
   Route::get('analyses/coproscopies', ['uses' => 'Technique\AnalysesController@accueil', 'as' => 'analyses.coproscopies']);
 
-  Route::get('/analyses/choisir', ['uses' => 'Technique\AnalysesController@choisir', 'as' => 'analyses.choisir']);
+  Route::get('analyses/choisir', ['uses' => 'Technique\AnalysesController@choisir', 'as' => 'analyses.choisir']);
 
   Route::get('analyses/enpratique', ['uses' => 'Technique\AnalysesController@enpratique', 'as' => 'analyses.enpratique']);
 
@@ -36,20 +43,20 @@
   // ################################################################################
   // MENU PARASITISME
 
-  Route::get('/parasitisme', ['uses' => 'Technique\ParasitismeController@accueil', 'as' => 'parasitisme']);
+  Route::get('parasitisme', ['uses' => 'Technique\ParasitismeController@accueil', 'as' => 'parasitisme']);
 
-  Route::get('/parasitisme/fondamentaux/{id}', ['uses' => 'Technique\ParasitismeController@fondamentaux', 'as' => 'parasitisme.fondamentaux']);
+  Route::get('parasitisme/fondamentaux/{id}', ['uses' => 'Technique\ParasitismeController@fondamentaux', 'as' => 'parasitisme.fondamentaux']);
 
   Route::resource('blog', 'Technique\BlogController')->except('store', 'edit', 'create', 'destroy', 'update');
 
   //##############################################################################
   // MENU EXPRESS
 
-  Route::get('/express/tarifs', ['uses' => 'ExpressController@tarifs', 'as' => 'express.tarifs']);
+  Route::get('express/tarifs', ['uses' => 'ExpressController@tarifs', 'as' => 'express.tarifs']);
 
-  Route::get('/express/envoiPack', ['uses' => 'ExpressController@envoiPack', 'as' => "express.envoiPack"]);
+  Route::get('express/envoiPack', ['uses' => 'ExpressController@envoiPack', 'as' => "express.envoiPack"]);
 
-  Route::post('/express/envoiPackStore', ['uses' => 'ExpressController@envoiPackStore', 'as' => "express.envoiPackStore"]);
+  Route::post('express/envoiPackStore', ['uses' => 'ExpressController@envoiPackStore', 'as' => "express.envoiPackStore"]);
 
   //##############################################################################
   // MENU CONTACT INFORMATIONS MENTIONS LEGALES
@@ -62,28 +69,45 @@
 
   Route::get('infos/aide', ['uses' => 'InfosController@aide', 'as' => 'infos.aide']);
   // Non implémenté
-  Route::get('/presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
+  Route::get('presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
   //##############################################################################
 
   Auth::routes(['register' => false]);
 
-  Route::group(['middleware' => 'auth', 'middleware' => 'eleveur'], function() {
+  Route::group(['middleware' => 'web', 'middleware' => 'auth', 'middleware' => 'eleveur'], function() {
 
-    Route::get('/eleveur', 'EleveurController@index')->name('eleveur');
+    Route::get('eleveur', 'EleveurController@index')->name('eleveur');
 
-    Route::get('/eleveur/demande/{demande_id}', 'EleveurController@demandeShow')->name('eleveur.demandeShow');
+    Route::get('eleveur/{id}', 'EleveurController@show')->name('eleveur.show');
 
-    Route::get('/eleveur/serie/{serie_id}', 'EleveurController@serieShow')->name('eleveur.serieShow');
+    Route::post('eleveur', 'EleveurController@update')->name('eleveur.update');
+
+    Route::get('eleveur/demande/{demande_id}', 'EleveurController@demandeShow')->name('eleveur.demandeShow');
+
+    Route::get('resultatPdf/eleveur/{demande_id}', ['uses' => 'PdfController@resultatsPdfEleveur', 'as' => 'resultatspdf.eleveur']);
+
+    Route::get('eleveur/factures', 'EleveurController@facturesIndex')->name('eleveur.facturesIndex');
+
+    Route::get('eleveur/factures/{id}', 'EleveurController@factureShow')->name('eleveur.factureShow');
+
+    Route::get('eleveur/serie/{serie_id}', 'EleveurController@serieShow')->name('eleveur.serieShow');
 
   });
 
-  Route::group(['middleware' => 'auth', 'middleware' => 'veto'], function() {
+  // Page perso vétérinaires
+  Route::group(['middleware' => 'web', 'middleware' => 'auth', 'middleware' => 'veto'], function() {
 
-    Route::get('/veterinaire', 'VeterinaireController@index')->name('veterinaire');
+    Route::get('veterinaire', 'VeterinaireController@index')->name('veterinaire');
 
-    Route::get('/veterinaire/demande/{demande_id}', 'VeterinaireController@demandeShow')->name('veto.demandeShow');
+    Route::get('veterinaire/{id}', 'VeterinaireController@show')->name('veterinaire.show');
 
-    Route::get('/veterinaire/serie/{serie_id}', 'VeterinaireController@serieShow')->name('veto.serieShow');
+    Route::post('veterinaire', 'VeterinaireController@update')->name('veterinaire.update');
+
+    Route::get('veterinaire/demande/{demande_id}', 'VeterinaireController@demandeShow')->name('veto.demandeShow');
+
+    Route::get('veterinaire/serie/{serie_id}', 'VeterinaireController@serieShow')->name('veto.serieShow');
+
+    Route::get('resultatPdf/veto/{demande_id}', ['uses' => 'PdfController@resultatsPdfVeto', 'as' => 'resultatspdf.veto']);
 
   });
 
@@ -91,22 +115,23 @@
   // routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
   Route::group(['middleware' => 'auth'], function(){
 
-    Route::get('/personnel', 'RouteurController@routeurPersonnel')->name('routeurPersonnel');
+    Route::get('personnel', 'RouteurController@routeurPersonnel')->name('routeurPersonnel');
 
-    Route::get('/routeur/serie/{serie_id}', 'RouteurController@routeurSerie')->name('routeurSerie');
+    Route::get('routeur/serie/{serie_id}', 'RouteurController@routeurSerie')->name('routeurSerie');
 
-    Route::get('/routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
+    Route::get('routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
 
-    Route::get('/resultatPdf/{demande}', ['uses' => 'PdfController@resultatPdf', 'as' => 'resultatPdf']);
+
+    Route::get('facturePdf/{id}', ['uses' => 'RouteurController@routeurFacturePdf', 'as' => 'routeurFacturePdf']);
+
+    Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@routeurResultatsPdf', 'as' => 'routeurResultatsPdf']);
 
   });
-
-
 
   // ROUTES INTERNES AU LABORATOIRE
   Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function(){
 
-    Route::get('/', 'Labo\DemandeController@index')->name('laboratoire');
+    Route::get('', 'Labo\DemandeController@index')->name('laboratoire');
 
     route::resource('analyses', 'Analyses\AnalyseController');
 
@@ -114,13 +139,19 @@
 
     route::resource('anatypes', 'Analyses\AnatypeController');
 
-    route::get('estserie/{anaacte_id}/{user_id}', 'Analyses\AnaacteController@estSerie')->name('estserie');
+    route::resource('anaitems', 'Analyses\AnaitemController');
+
+    route::resource('unites', 'Analyses\UniteController');
 
     route::resource('demandes', 'Labo\DemandeController');
 
     route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
 
     route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');
+
+    route::get('envoyer_facture/{facture_id}', 'Labo\EnvoisController@envoyerFacture')->name('mail.envoyerFacture');
+
+    route::get('envoyer_tous/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultatsTous')->name('mail.envoyerResultatsTous');
 
     Route::resource('user', 'UserController');
 
@@ -136,15 +167,17 @@
 
     Route::resource('resultats', 'Labo\ResultatController');
 
+    Route::get('resultatPdf/labo/{demande_id}', ['uses' => 'PdfController@resultatsPdfLabo', 'as' => 'resultatspdf.labo']);
+
     Route::get('factures/create/{destinataire_id}', 'Labo\FactureController@createFromUser')->name('factures.createFromUser');
+
+    Route::get('factures/create/{destinataire_id}/{demande_id}', 'Labo\FactureController@createDemandeFromUser')->name('factures.createDemandeFromUser');
 
     Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
     Route::post('facture/paiement', 'Labo\FactureController@paiement')->name('facture.paiement');
 
     Route::resource('factures', 'Labo\FactureController');
-
-    Route::get('facture/pdf/{facture_id}', 'PdfController@facture')->name('facture.pdf');
 
     Route::resource('reglement', 'Labo\ReglementController');
 

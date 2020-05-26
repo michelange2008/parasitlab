@@ -33,11 +33,6 @@ class ResultatController extends Controller
 
     public function edit($demande_id)
     {
-      // $datas = $this->litCsv('LAB_analyses_anaitems');
-      //
-      // DB::table('anaitem_analyse')->insert($datas);
-      //
-      // dd('');
 
       $demande = Demande::find($demande_id);
 
@@ -71,7 +66,7 @@ class ResultatController extends Controller
       // SI IL Y A UN INDEX ACHEVE C'EST QUE LE SWITCH EST SUR ON - ON MET A JOUR LA DEMANDE
       if(isset($datas['acheve'])) {
 
-        DB::table('demandes')->where('id', $demande_id)->update(['acheve' => true]);
+        DB::table('demandes')->where('id', $demande_id)->update(['acheve' => true, 'date_resultat' => date("Y-m-d H:i:s")]);
 
       }
       // SINON C'EST QU'IL EST SUR OFF - ON MET A JOUR LA DEMANDE

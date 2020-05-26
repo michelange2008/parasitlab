@@ -22,10 +22,7 @@ class SerieController extends Controller
 
     protected $menu;
 
-    use LitJson, SerieInfos, EleveurInfos, DemandeFactory {
-        DemandeFactory::dateSortable insteadof SerieInfos;
-        DemandeFactory::dateReadable insteadof SerieInfos;
-    }
+    use LitJson, SerieInfos, EleveurInfos, DemandeFactory;
     /**
      * Create a new controller instance.
      *
@@ -50,7 +47,7 @@ class SerieController extends Controller
 // dd($series);
         $fournisseur = new ListeSeriesFournisseur();
 
-        $datas = $fournisseur->renvoieDatas($series, "liste des séries d'analyse", 'serie.svg', 'tableauSeries', 'demandes.create', "Ajouter une demande d'analyse");
+        $datas = $fournisseur->renvoieDatas($series, __('titres.list_series'), 'serie.svg', 'tableauSeries', 'demandes.create', __('boutons.add_demande'));
 
         return view('admin.index.pageIndex', [
             "menu" => $this->menu,

@@ -22,13 +22,13 @@
     },
     "name" : {
       "id" : "name",
-      "nom" : "nom",
+      "nom" : "Groupe",
       "align" : "left",
       "sortable" : true
     },
     "technique" : {
       "id" : "technique",
-      "nom" : "technique",
+      "nom" : "nom",
       "align" : "left",
       "sortable" : false
     },
