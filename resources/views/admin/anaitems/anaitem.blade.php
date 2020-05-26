@@ -25,7 +25,7 @@
 
       <div class="col-md-7 col-lg-6 col-xl-5">
         {{-- formulaire de modification d'un anaitem --}}
-        <form id="form_anaitem" action="{{ route('anaitems.update', $anaitem->id) }}" method="post">
+        <form id="form_anaitem" action="{{ route('anaitems.update', $anaitem->id) }}" method="post" enctype="multipart/form-data" >
 
           @csrf
 
@@ -97,11 +97,26 @@
 
               </div>
 
-              <div id="anaitem_enregistre">
+            </div>
 
-                @enregistreAnnule()
+            <div class="form-row">
+
+              <div class="col-md-12">
+
+                @include('admin.form.inputImage', [
+                  'nouveau' => false,
+                  'image' => $anaitem->image ,
+                  'chemin' => 'storage/img/icones/oeufs/',
+                  'name' => 'image'
+                ])
 
               </div>
+
+            </div>
+
+            <div id="anaitem_enregistre">
+
+              @enregistreAnnule(['route' => route('anaitems.index')])
 
             </div>
 
@@ -110,41 +125,10 @@
       </div>
 
       <div class="col-md-4 col-lg-4 col-xl-4 border-left">
-        {{-- paragraphe caché au départ destiné à créer une nouvelle unité voir anaitem.js --}}
-        <div id="para_unite" style="display:none">
 
-          <h4 class="text-center">@lang('unites.new_unite')</h4>
-
-          <form id="form_unite" action="{{ route('unites.create')}}" method="post">
-
-            @csrf
-
-            <div class="form-group">
-
-              <label for="type">@lang('form.type_unite')</label>
-              <select class="form-control" name="type_unite">
-                <option value="@lang('unites.qttf')">@lang('unites.qttf')</option>
-                <option value="@lang('unites.qltf')">@lang('unites.qltf')</option>
-                <option value="@lang('unites.semiqttf')">@lang('unites.semiqttf')</option>
-              </select>
-
-            </div>
-
-            <div class="form-group">
-
-              <label for="nom_unite">@lang('form.nom')</label>
-              <input class="form-control" type="text" name="nom_unite" value="" required>
-
-            </div>
-
-            @enregistreAnnule(['route' => '#'])
-
-          </form>
-
-        </div>
+        @include('admin.anaitems.uniteCreate')
 
       </div>
-
 
     </div>
 

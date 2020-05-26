@@ -13,6 +13,9 @@ class CreateAnaitemsTable extends Migration
      */
     public function up()
     {
+      DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+      Schema::dropIfExists('anaitems');
+      DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         Schema::create('anaitems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('abbreviation', 4);

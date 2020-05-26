@@ -42,4 +42,6 @@ return array (
   'utilisateur_mesinfos' => "Voir / modifier mes informations personnelles",
   'utilisateur_mesfactures' => "Factures",
   'utilisateur_mafacture' => "Facture",
+
+  'anaitem_create' => 'Ajouter un nouveau parasite'
 );

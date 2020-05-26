@@ -34,6 +34,11 @@
       <script src="{{url('js/app.js')}}"></script>
 
       @yield('scripts')
+      @yield('css')
+
+      @yield('script_inputImage')
+      @yield('css_inputImage')
+
 
   </body>
 

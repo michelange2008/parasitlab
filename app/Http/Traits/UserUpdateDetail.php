@@ -74,36 +74,36 @@ trait UserUpdateDetail
   {
 
 
-    if(isset($datas['photo'])) // Si une photo a été choisie
+    if(isset($datas['photo_nouvelle'])) // Si une photo a été choisie
     {
 
       if ($user->labo->photo != "default.jpg")  //Et que l'utilisateur a déjà une photo
       {
-        $this->supprImage('storage/img/labo/photos/'.$user->labo->photo); // On supprime l'ancienne photo
+        $this->supprImage('storage/img/labo/photos/'.$datas['photo_default']); // On supprime l'ancienne photo
       }
 
-      $datas['photo']->store('public/img/labo/photos'); // On l'enregistre
+      $datas['photo_nouvelle']->store('public/img/labo/photos'); // On l'enregistre
 
       DB::table('labos')->where('user_id', $user->id) // Et on met à jour les infos dans la base de donnee
       ->Update([
         'user_id' => $user->id,
-        'photo' => $datas['photo']->hashName(),
+        'photo' => $datas['photo_nouvelle']->hashName(),
       ]);
     }
 
-    if(isset($datas['imageSignature']))
+    if(isset($datas['signature_nouvelle']))
     {
       if($user->labo->signature != "default.svg")
       {
         $this->supprImage('storage/img/labo/signatures/'.$user->labo->signature);
       }
 
-      $datas['imageSignature']->store('public/img/labo/signatures');
+      $datas['signature_nouvelle']->store('public/img/labo/signatures');
 
       DB::table('labos')->where('user_id', $user->id)
       ->Update([
         'user_id' => $user->id,
-        'signature' => $datas['imageSignature']->hashName(),
+        'signature' => $datas['signature_nouvelle']->hashName(),
       ]);
 
     }

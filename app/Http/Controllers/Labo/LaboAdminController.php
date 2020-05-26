@@ -26,7 +26,10 @@ use App\Http\Traits\ImagesManager;
 class LaboAdminController extends Controller
 {
 
-  use LitJson, UserTypeOutil, UserUpdateDetail, UserCreateDetail, ImagesManager;
+  use LitJson, UserTypeOutil, UserUpdateDetail, UserCreateDetail, ImagesManager
+    {
+      ImagesManager::supprImage insteadof UserUpdateDetail;
+    }
 
   protected $menu;
   /**

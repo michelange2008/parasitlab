@@ -31,7 +31,7 @@ class ListeAnaitemsFournisseur extends ListeFournisseur
 
       $valeur = $this->itemFactory($anaitem->qtt->nom);
 
-      $suppr = $this->delFactory($anaitem->id, 'analyses.destroy');
+      $suppr = $this->delFactory($anaitem->id, 'anaitems.destroy');
 
       $description = [
         $image,

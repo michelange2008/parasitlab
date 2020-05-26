@@ -9,13 +9,9 @@ NECESSITE  VARIABLES: user, -->
 
   @METHOD('POST')
 
-  {{-- @include('admin.form.cache') --}}
-
-  {{-- @include('admin.form.identite', ['create' => true]) --}}
-
   @include('admin.form.images')
 
-  @include('admin.form.fonction')
+  @include('admin.form.inputFonction')
 
   @include('fragments.boutonEnregistre')
 

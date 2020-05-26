@@ -25,10 +25,10 @@ $(function() {
 		}
 	});
 
-// Initialisation des js de bootstrap
+	// Initialisation des js de bootstrap
 	$('[data-toggle="tooltip"]').tooltip();
 
-  $('#table').bootstrapTable();
+	$('#table').bootstrapTable();
 
 	$('.toast').toast();
 
@@ -36,54 +36,55 @@ $(function() {
 
 
 	// Fonction d'appel d'une boite de dialogue quand on veut supprimer quelque chose (analyse, personne, etc.)
-    $('.suppr').on('click', function(event) {
+	$('.suppr').on('click', function(event) {
 
-      event.preventDefault();
+		event.preventDefault();
 
-      var form_id = "#"+$(this).attr('id');
+		var form_id = "#"+$(this).attr('id');
 
-      $.confirm({
-        theme : 'dark',
-        type : 'red',
-        typeAnimated: 'true',
-        title: $(this).attr('titre'), // on récupère le texte de la boite
-        content : $(this).attr('texte'), // de dialogue dans les attributs titre et texte (manip pour la multilingue)
-        buttons : {
-          oui: {
-            text : 'oui',
-            btnClass : 'btn-red',
-            action : function() {
+		$.confirm({
+			theme : 'dark',
+			type : 'red',
+			typeAnimated: 'true',
+			title: $(this).attr('titre'), // on récupère le texte de la boite
+			content : $(this).attr('texte'), // de dialogue dans les attributs titre et texte (manip pour la multilingue)
+			buttons : {
+				oui: {
+					text : 'oui',
+					btnClass : 'btn-red',
+					action : function() {
 
-              $(form_id).submit();
+						$(form_id).submit();
 
-            },
-          },
-          non: function() {
+					},
+				},
+				non: function() {
 
-          }
-        }
-      })
-    });
+				}
+			}
+		})
+	});
 
+	// FONCTION POUR AFFICHER L'input image signature quand un user laboratoire passe de non signataire à signataire
+	// Afficher ou non l'image en fonction du statut signataire ou non
+	if($("#input_signataire").attr('statut') === "1") {
 
-  // Date.prototype.toDateInputValue = (function() {
-  //   var local = new Date(this);
-  //   local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-  //   return local.toJSON().slice(0,10);
-  // });
-	//
-	// $('#reception').val(new Date().toDateInputValue());
+		$("#input_signataire").show();
 
+	}
+	// Changer l'affichage de l'input signature en fonction de la checkbox est_signataire
+	$("#signataire").on('change', function() {
 
-	// $('#enpratiqueTab a').on('click', function (e) {
-	//   e.preventDefault()
-	//   $(this).tab('show')
-	// })
+		if($("#signataire").is(':checked')) {
 
-	// $('#list-tab-eleveur a').on('click', function (e) {
-		//   e.preventDefault()
-		//   $(this).tab('show')
-		// });
+			$("#input_signataire").show();
 
+		} else {
+
+			$("#input_signataire").hide();
+
+		}
+
+	})
 
 });

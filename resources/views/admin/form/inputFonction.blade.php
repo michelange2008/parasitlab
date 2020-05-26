@@ -1,42 +1,42 @@
-<div class="row">
+<div class="col-md-6 my-3">
 
-  <div class="col-md-5">
+  <label class="col-form-label" for="fonction">{{ ucfirst(__('form.fonction')) }}&nbsp;:</label>
 
-    <label class="col-form-label" for="fonction">{{ ucfirst(__('form.fonction')) }}&nbsp;:</label>
+  @isset($user->labo->fonction)
 
-    @isset($user->labo->fonction)
+    <input class="form-control" type="text" name="fonction" value="{{ $user->labo->fonction  ?? old('fonction') }}">
 
-      <input class="form-control" type="text" name="fonction" value="{{ $user->labo->fonction  ?? old('fonction') }}">
+  @else
 
-    @else
+    <input class="form-control" type="text" name="fonction" placeholder="@lang('form.fonction')" value="{{ old('fonction') }}">
 
-      <input class="form-control" type="text" name="fonction" placeholder="@lang('form.fonction')" value="{{ old('fonction') }}">
+  @endisset
 
-    @endisset
+</div>
 
-  </div>
+<div class="col-md-6 m-3">
 
-  <div class="col-md-5">
-
-    <label class="col-form-label" for="signataire">{{ ucfirst(__('form.signataire')) }}&nbsp;:</label>
+  <div class="custom-control custom-switch">
 
     @isset($user->labo->est_signataire)
 
       @if($user->labo->est_signataire == 1)
 
-        <input class="form-control" type="checkbox" name="signataire" checked>
+        <input class="custom-control-input" type="checkbox" id="signataire" name="signataire" checked>
 
       @else
 
-        <input class="form-control" type="checkbox" name="signataire">
+        <input class="custom-control-input" type="checkbox" id="signataire" name="signataire">
 
       @endif
 
     @else
 
-      <input class="form-control" type="checkbox" name="signataire">
+      <input class="custom-control-input" type="checkbox" id="signataire" name="signataire">
 
     @endisset
+
+    <label class="custom-control-label" for="signataire">{{ ucfirst(__('form.signataire')) }}</label>
 
   </div>
 

@@ -185,7 +185,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $datas = $request->all();
-
+// dd($datas);
         $user = User::find($id);
 
         DB::table('users')->where('id', $id)
@@ -194,7 +194,6 @@ class UserController extends Controller
                   'id' => $id,
                   'name' => $datas['name'],
                   'email' => $datas['email'],
-                  'password' => $datas['password'],
                   'usertype_id' => $datas['usertype_id'],
                 ]);
 
