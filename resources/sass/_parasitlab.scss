@@ -1,3 +1,19 @@
+.alg-bouton {
+
+}
+.alg-bouton:hover {
+	filter: drop-shadow(2px 2px 2px black);
+	cursor: pointer;
+}
+
+.alg-ligne {
+	stroke-opacity:0.6;
+}
+.alg-ligne:hover {
+		stroke-opacity:1;
+		cursor: pointer;
+}
+
 // affichage des données invalides dans la vérification des formulaires
 .invalid {
 	width: 100%;

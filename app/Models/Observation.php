@@ -10,7 +10,7 @@ class Observation extends Model
 
     public function categorie()
     {
-      return $this->belongsTo(Catégorie::class);
+      return $this->belongsTo(Categorie::class);
     }
 
     public function especes()

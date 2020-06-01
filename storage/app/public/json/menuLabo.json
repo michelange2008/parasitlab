@@ -144,6 +144,12 @@
         "id" : "items",
         "prefixe" : "menuLabo.item_5.sousmenu_3.",
         "route" : "anaitems.index"
+      },
+      "sousmenu_4" :
+      {
+        "id" : "items",
+        "prefixe" : "menuLabo.item_5.sousmenu_4.",
+        "route" : "algorithme.index"
       }
     }
   },

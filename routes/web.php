@@ -189,6 +189,32 @@
 
     Route::get('traductions', 'TraductionsController@index')->name('traductions');
 
+    //###########################
+    // GESTION DE L'ALGORITME DE CHOIX
+    Route::get('algorithme', 'Analyses\Algorithme\BaseController@index')->name('algorithme.index');
+
+    Route::resource('algorithme/observations', 'Analyses\Algorithme\ObservationsController');
+
+    Route::post('algorithme/observations/animal', 'Analyses\Algorithme\ObservationsController@animalObservationStore')->name('animalObservationStore');
+
+    Route::get('algorithme/observations/age/{age_id}', 'Analyses\Algorithme\ObservationsController@age')->name('observations.age');
+
+    Route::get('algorithme/analyses/age/{age_id}', 'Analyses\AnaacteController@age')->name('anaactes.age');
+
+    Route::get('algorithme/observations/espece/{espece_id}', 'Analyses\Algorithme\ObservationsController@espece')->name('observations.espece');
+
+    Route::get('algorithme/analyses/espece/{espece_id}', 'Analyses\AnaacteController@espece')->name('anaactes.espece');
+
+    Route::resource('algorithme/options', 'Analyses\Algorithme\OptionsController');
+
+    Route::resource('algorithme/ages', 'Analyses\Algorithme\AgesController');
+
+    Route::get('algorithme/observations/age/{age_id}/{observation_id}', 'Analyses\Algorithme\ObservationsController@ageObservation');
+
+    Route::get('algorithme/observations/espece/{espece_id}/{observation_id}', 'Analyses\Algorithme\ObservationsController@especeObservation');
+
+    Route::resource('algorithme/especes', 'Analyses\Algorithme\EspecesAlgoController');
+
   });
 
 // });

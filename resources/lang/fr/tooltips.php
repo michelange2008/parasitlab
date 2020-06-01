@@ -22,4 +22,8 @@ return array (
   'saisie_faite' => "La saisie des résultats a été faite le :date",
   'saisie_faite_signee' => "La saisie des résultats a été faite le :date et comme elle est signée on ne peut plus la modifier",
   'envoi_fait' => "Ces résultats d'analyses ont été envoyés le :date_envoi",
+  'voir_obs_esp' => 'Voir les observations pour cette espece',
+  'voir_obs_age' => 'Voir les observations pour cet âge',
+  'voir_ana_esp' => 'Voir les analyses proposées pour cette espece',
+  'voir_ana_age' => 'Voir les analyses proposées pour cet âge',
 );

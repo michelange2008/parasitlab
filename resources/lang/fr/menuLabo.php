@@ -85,6 +85,11 @@ return array (
       'nom' => 'Parasites recherchés',
       'tooltip' => 'Ajouter, modifier, supprimer des parasites',
     ),
+    'sousmenu_4' =>
+    array (
+      'nom' => 'Algorithme',
+      'tooltip' => 'Modifier le comportement de l\'algorithme de choix des analyses',
+    ),
 
   ),
   'item_7' =>

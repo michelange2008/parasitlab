@@ -43,5 +43,9 @@ return array (
   'utilisateur_mesfactures' => "Factures",
   'utilisateur_mafacture' => "Facture",
 
-  'anaitem_create' => 'Ajouter un nouveau parasite'
+  'anaitem_create' => 'Ajouter un nouveau parasite',
+
+  'algo_age_espece' => 'Algorithme de choix: espèces et âges',
+  'age_espece' => 'Liste des espèces et des âges',
+  'algo_observations' => 'Liste des observations',
 );
