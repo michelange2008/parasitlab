@@ -12,7 +12,7 @@
 
     <div class="row my-3 justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-11 col-lg-10 col-xl-9">
 
         @titre(['titre' => __('titres.quisommesnous'), "icone" => 'nouveau.svg'])
 
@@ -22,38 +22,118 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-10 col-xl-8">
+      <div class="col-md-11 col-lg-10 col-xl-9">
 
-          <ul class="list_unstyled">
+        <div class="row">
 
-            @foreach ($quisommesnous as $element)
+          <div class="col-md-6">
 
-              <li class="media my-3">
+            <h4>@lang('quisommesnous.parasitlab.titre')</h4>
 
-                <img class="shadow-lg" src="{{ url('storage/img/infoaide/quisommesnous/'.$element->image) }}" alt="{{ __($element->prefixe.'titre') }}">
+            <h5>@lang('quisommesnous.parasitlab.soustitre')</h5>
 
-                <div class="media-body ml-3">
+            <div class="text-justify">
 
-                  <h3>@lang($element->prefixe.'titre')</h3>
-                  <h5>@lang($element->prefixe.'soustitre')</h5>
+              @lang('quisommesnous.parasitlab.texte')
 
-                  @lang($element->prefixe.'texte')
+            </div>
 
-                  <a class="btn" href="{{ $element->lien }}">@lang('commun.know_more') <i class="fas fa-angle-right"></i></a>
+          </div>
 
-                </div>
+          <div class="col-md-6 text-right">
+            <figure class="figure">
 
-              </li>
+              <img class="img-fluid" src="{{ url('storage/img/infoaide/quisommesnous/macmaster.jpg') }}" alt="">
+              <figcaption class="figure-caption">La lame de MacMaster permet un comptage précis des oeufs de parasites</p>
 
-              <hr class="divider">
+            </figure>
 
-            @endforeach
+          </div>
 
-          </ul>
+        </div>
+        <hr class="divider">
 
       </div>
 
     </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-11 col-lg-10 col-xl-9">
+
+        <h5>@lang('quisommesnous.fibl_local.soustitre')</h5>
+
+      </div>
+
+      <div class="col-md-11 col-lg-10 col-xl-9">
+
+        @foreach ($quisommesnous as $groupes)
+
+          <h4>{{ ucfirst($groupes->groupe) }}</h4>
+
+          <div class="d-flex justify-content-between">
+
+            @foreach ($groupes->personnes as $personne)
+
+              <figure class="figure m-3">
+
+                <img class="img-fluid img-200 shadow-lg" src="{{ url('storage/img/labo/photos/'.$users->where('id', $personne->id)->get($personne->id -1)->labo->photo) }}" alt="poueeet">
+
+                <figcaption class="figure-caption pr-4">
+                  {{ $users->where('id', $personne->id)->get($personne->id -1)->name }}</br>
+                  {{ $personne->texte }}
+                </figcaption>
+
+              </figure>
+
+            @endforeach
+
+          </div>
+
+        @endforeach
+
+        <hr class="divider">
+
+      </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+      <div class="col-md-11 col-lg-10 col-xl-9">
+
+        <div class="row">
+
+          <div class="col-md-7">
+
+            <h4 class='mb-2'>@lang('quisommesnous.groupe_fibl.titre')</h4>
+
+            <h5>@lang('quisommesnous.groupe_fibl.soustitre')</h5>
+
+            @lang('quisommesnous.groupe_fibl.texte')
+
+          </div>
+
+          <div class="col-md-5 text-right">
+
+            <img class="img-fluid" src="{{ url('storage/img/infoaide/quisommesnous/groupe_fibl.jpg.webp') }}" alt="Groupe FiBL">
+
+          </div>
+
+        </div>
+
+        <h5>@lang('quisommesnous.fibl_parasito.soustitre')</h5>
+        @lang('quisommesnous.fibl_parasito.texte')
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row my-3">
 
   </div>
 

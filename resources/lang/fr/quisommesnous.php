@@ -1,32 +1,37 @@
 <?php
 
 return array (
-  'groupe_fibl' => 
+  'groupe_fibl' =>
   array (
     'titre' => 'Le groupe FiBL',
     'soustitre' => 'Un groupe européen consacré à la recherche en agriculture biologique',
-    'texte' => '<p>L’institut de recherche de l’agriculture biologique FiBL a été fondé en 1973 et est établi à Frick, en Argovie, depuis 1997.</p>
-    <p>Le FiBL Suisse emploie environ 200 spécialistes et représente l’un des principaux instituts de recherche en agriculture biologique à l’échelle mondiale.</p>
-    <p>De nombreuses thématiques de recherche sont étudiées au travers de ses quatre départements de recherche : sciences du sol, sciences des plantes, sciences animales et questions socioéconomiques.</p>
-    <p>L’approche scientifique du FiBL s’appuie sur l’expérimentation on farm en lien étroit avec les agriculteurs, couplée avec la recherche fondamentale en laboratoire.</p>
-    <p>Le FiBL est également présent en Allemagne, Autriche, Hongrie, Belgique et France, formant ainsi le groupe FiBL.</p>',
+    'texte' => '<p>L’institut de recherche de l’agriculture biologique FiBL a été fondé il y a plus que 40 ans en Suisse et représente l’un des principaux instituts de recherche en agriculture biologique
+          à l’échelle mondiale.</p><p>Le FiBL emploie plus de 300 chercheurs, formateurs et spécialistes dans 6 pays (Allemagne, Autriche, Hongrie, Belgique, Suisse, France).</p>
+           <p>L’approche scientifique du FiBL s’appuie sur l’expérimentation on farm en lien étroit avec les agriculteurs, couplée avec la recherche fondamentale en laboratoire.</p>
+            <p>Le FiBL propose également plusieurs prestations de services pour des compagnies et entreprises. </p>',
   ),
-  'fibl_local' => 
+  'fibl_parasito' =>
+  array(
+    'soustitre' => '25 ans de recherche et diagnostic en parasitologie',
+    'texte' => '<p>Le FiBL est également doté d’une forte expérience de près de 25 ans autour de la recherche et du diagnostic en parasitologie sur les animaux d\’élevage.
+            Ces thématiques liées à la santé animale sont en effet un sujet de recherche et de prestation important.</p>
+            <p>Dans le cadre de ces activités, l’équipe du laboratoire du FiBL Suisse propose plus de 20 méthodes pour l’identification, la quantification et la caractérisation d’œufs,
+            de larves et d’adultes de strongles digestifs et pulmonaires, de douves du foie et de coccidies.</p>
+            <p>Le laboratoire de parasitologie Suisse est devenu un laboratoire de référence nationale pour le service sanitaire des petits ruminants.
+            Chaque année, près de 7 000 échantillons de fèces de moutons, chèvres et cervidés sont analysés dans le cadre de ce service. Parallèlement à cela,
+            des diagnostics d’infestations parasitaires sur bovins, volailles et chevaux sont réalisés à la demande des vétérinaires.</p>',
+  ),
+  'fibl_local' =>
   array (
     'titre' => 'Le FiBL France',
-    'soustitre' => 'Cinq années de recherche de terrain en parasitologie des animaux d\'élevage',
-    'texte' => '<p>Le FiBL France a été créé en 2017 sous la forme d’une association loi 1901 et fait actuellement partie du groupe FiBL.</p>
-    <p>Basé dans le département de la Drôme (région Auvergne-Rhône-Alpes) sur le Pôle Bio à Eurre, le FiBL France a pour objectif de travailler au service de l’Agriculture Biologique drômoise et du territoire français, en complémentarité avec les structures françaises de recherche et de développement agricole.</p>
-    <p>Composée de 5 salariés, la structure est également équipée d’un laboratoire d’analyses de terrain qui permet de réaliser de nombreuses analyses en lien avec les essais réalisés sur le terrain.</p>
-    <p>Le FiBL France travaille en collaboration avec d’autres membres du groupe FiBL ce qui permet de renforcer la capacité de l’équipe française à travailler sur des sujets diversifiés et à développer de nombreux projets.</p>
-    <p>Les thématiques autour de la santé animale et notamment en lien avec la parasitologie vétérinaire ont été abordées à plusieurs reprises ces dernières années.',
+    'soustitre' => 'Constitué de plusieurs professionnels de la santé animale, ce service a pour vocation d’offrir un service de qualité tout en étant le plus réactif possible face à vos demandes.',
   ),
-  'parasitlab' => 
+  'parasitlab' =>
   array (
     'titre' => 'Parasit\'Lab',
     'soustitre' => 'Les compétences d\'un laboratoire de recherche au service de vos troupeaux',
-    'texte' => '<p>Parasit’Lab est un service de prestations proposé aux éleveurs ovins, caprins, bovins, porcins mais également équins qui se posent des questions sur le parasitisme présent sur leur troupeau.</p>
-    <p>Le laboratoire du FiBL France est équipé de matériels performants pour effectuer de nombreuses analyses coprologiques et apporter un maximum d’informations plus approfondies concernant le parasitisme de l’élevage.</p>
-    <p>Ces analyses constituent des outils d’aide à la décision dans la gestion du troupeau tout en apportant un niveau de connaissances plus affiné des animaux.',
+    'texte' => '<p>Parasit’Lab est un service de prestations qui offre une gamme d’analyses en lien avec la parasitologie vétérinaire.
+        Ce service est proposé aux éleveurs ovins, caprins, bovins, porcins mais également équins qui se posent des questions sur le parasitisme interne présent sur leur troupeau.</p>
+        <p>Depuis plusieurs années, le laboratoire du FiBL France s’est équipé de matériels performants pour effectuer de nombreuses analyses en parasitologie en quantités importantes</p>',
   ),
 );
