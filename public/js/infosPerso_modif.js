@@ -104,7 +104,7 @@ eval("// FONCTION DESTINEE A PASSER LE FORMULAIRE DE MODIFICATION DES DONNEES DU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\33683\www\parasitlab\resources\js\infosPerso_modif.js */"./resources/js/infosPerso_modif.js");
+module.exports = __webpack_require__(/*! /mnt/c/Users/33683/www/parasitlab/resources/js/infosPerso_modif.js */"./resources/js/infosPerso_modif.js");
 
 
 /***/ })

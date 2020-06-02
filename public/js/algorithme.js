@@ -42,6 +42,7 @@ $('.alg-bouton').on('click', function() {
   //
   // $("#modal-infos").modal('show');
 })
+
 //######################################################################
 // MODIFICATION DES OBSERVATIONS PAR UNE FENETRE MODALE ET UNE REQUETE ajax
 //######################################################################

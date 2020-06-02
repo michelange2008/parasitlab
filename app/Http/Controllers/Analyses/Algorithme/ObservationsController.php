@@ -32,7 +32,11 @@ class ObservationsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.algorithme.observationsIndex', [
+          'menu' => $this->menu,
+          'observations' => Observation::all(),
+          'categories' => Categorie::all(),
+        ]);
     }
 
     /**
@@ -146,12 +150,13 @@ class ObservationsController extends Controller
       // Observation liée à cet age précis
       $observations_actives = $animal->observations()->get();
 
-      return view('admin.algorithme.observations', [
+      return view('admin.algorithme.observationsAnimal', [
         'menu' => $this->menu,
         'animal' => $animal,
         'observations' => $observations_sort,
         'observations_actives' => $observations_actives,
         'categories' => $categories,
+        'especes' => Espece::with('ages')->get(),
       ]);
     }
     // Fonction qui reçoit la requete ajax pour associer ou dissocier age et observation
@@ -185,12 +190,13 @@ class ObservationsController extends Controller
       // Observation liée à cet age précis
       $observations_actives = $animal->observations()->get();
 
-      return view('admin.algorithme.observations', [
+      return view('admin.algorithme.observationsAnimal', [
         'menu' => $this->menu,
         'animal' => $animal,
         'observations' => $observations_sort,
         'observations_actives' => $observations_actives,
         'categories' => $categories,
+        'especes' => Espece::with('ages')->get(),
       ]);
     }
     // Fonction qui reçoit la requete ajax pour associer ou dissocier age et observation

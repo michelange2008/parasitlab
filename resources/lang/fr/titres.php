@@ -47,5 +47,6 @@ return array (
 
   'algo_age_espece' => 'Algorithme de choix: espèces et âges',
   'age_espece' => 'Liste des espèces et des âges',
-  'algo_observations' => 'Liste des observations',
+  'algo_observations' => 'Algorithme: animaux et observations',
+  'algo_observationsIndex' => 'Algorithme: liste des observations',
 );

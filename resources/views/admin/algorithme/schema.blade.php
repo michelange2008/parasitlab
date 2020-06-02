@@ -193,7 +193,7 @@
           <rect
              style="fill-opacity:1;fill: #1A5772;fill-rule:evenodd;stroke:none;stroke-width:0.223243"
              id="rect12"
-             width="43.592354"
+             width="50"
              height="18.142857"
              x="23.434523"
              y="27.214285" />
@@ -241,6 +241,8 @@
     </g>
     <g
        id="observations"
+       type="route"
+       route="observations"
        class="alg-bouton"
        transform="translate(-4.5357143,72.684607)">
       <rect
@@ -343,7 +345,7 @@
     </g>
     <path
        style="fill:none;fill-opacity:0.6;fill-rule:evenodd;stroke:#8f230a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5, 1.5;stroke-dashoffset:0"
-       d="M 67.026876,41.571713 121.60764,54.808617"
+       d="M 71,41.571713 121.60764,54.808617"
        id="especes_exclusions"
        class="alg-ligne"
        inkscape:connector-type="polyline"

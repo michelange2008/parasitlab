@@ -104,7 +104,7 @@ eval("// Intervient dans la page choisir (ExtranetDemandeController@choisir)\n//
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\33683\www\parasitlab\resources\js\choisir.js */"./resources/js/choisir.js");
+module.exports = __webpack_require__(/*! /mnt/c/Users/33683/www/parasitlab/resources/js/choisir.js */"./resources/js/choisir.js");
 
 
 /***/ })
