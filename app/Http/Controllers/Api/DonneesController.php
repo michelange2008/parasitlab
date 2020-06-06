@@ -128,7 +128,7 @@ public function options(Request $request)
         // Et on passe en revue les options possibles avec cette observation (table pivot observation_option)
         foreach ($observation->options as $option) {
           // Si au moins une option existe pour cette observation
-          if(isset($option->nom)) {
+          if(isset($option->abbreviation)) {
             // on passe en revue les anaactes permis par cette option (table pivot anaacte_option)
             foreach($option->anaactes as $anaacte) {
                 // dump($anaacte->anatype->nom);
@@ -136,7 +136,7 @@ public function options(Request $request)
                 $liste_anaactes->push($anaacte->id);
             }
             // Et on ajoute l'option à la liste d'options
-            $liste_options->push($option->nom);
+            $liste_options->push($option->abbreviation);
           }
         }
         // On passe en revue tous les anaactes permis par l'observation (table pivot anaacte_observation)

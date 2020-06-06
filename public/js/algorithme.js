@@ -47,7 +47,8 @@ $('.alg-bouton').on('click', function() {
 // MODIFICATION DES OBSERVATIONS PAR UNE FENETRE MODALE ET UNE REQUETE ajax
 //######################################################################
 var nouvelle_url_put = '';
-$('.intitule').on('click', function(e) {
+
+$('.edit_observation').on('click', function(e) {
   e.preventDefault();
   // On récupère l'id de l'observation à modifier
   var observation_id = $(this).attr('id').split('_')[1];
@@ -101,13 +102,13 @@ $('.observation_update').on('submit', function(e) {
   })
   .fail(function(datas) {
     console.log(datas);
-  })
-})
+  });
+});
 
 $('#bouton_annule').on('click', function(e) {
   e.preventDefault();
   fermeModal();
-})
+});
 
 function fermeModal() {
   // On masque la fenetre modale
@@ -118,7 +119,30 @@ function fermeModal() {
   $('#autres-modal').empty();
   $('#ordre-modal').empty();
 
-}
+};
+
+//##############################################################################
+// Suppression d'une observation
+//############################################################################
+$(".suppr_observation").on('click', function(e) {
+
+  e.preventDefault();
+  var id = $(this).attr('id');
+  $.confirm({
+    type : 'red',
+    title : "Suppression d'une observation",
+    content : "Etes-vous vraiment sûr de vouloir supprimer cette observation et toutes les associations qui y sont attachées ?",
+    buttons : {
+      OUI: function() {
+        $('#form_' + id).submit()
+      },
+      NON: function() {
+
+      }
+    }
+  })
+});
+
 
 //###############################################################################
 // GESTION DES CHECKBOX DES OBSERVATIONS

@@ -5,7 +5,7 @@
     <div class="modal-content">
 
       <div class="modal-header d-flex justify-content-start align-items-center">
-        Modifier l'observation
+        @lang('form.obs_modif')
       </div>
 
       <div class="modal-body">
@@ -13,30 +13,22 @@
           @method('PUT')
           @csrf
           <div class="form-group">
-            <label for="intitule">Intitulé</label>
+            <label for="intitule">@lang('form.intitule')</label>
             <div id="intitule-modal"></div>
           </div>
           <div class="form-group">
-            <label for="explication">Explication</label>
+            <label for="explication">@lang('form.explication')</label>
             <div id="explication-modal"></div>
           </div>
           <div class="form-group">
-            <label for="autres">Autres causes possibles</label>
+            <label for="autres">@lang('form.autres_causes')</label>
             <div id="autres-modal"></div>
           </div>
+
+          @include('admin.algorithme.inputCategorie')
+
           <div class="form-group">
-            <label>Catégories</label>
-            <div class=" border px-3 py-2">
-              @foreach ($categories as $categorie)
-                <div class="custom-control custom-radio ">
-                  <input id="{{ $categorie->nom }}" class="custom-control-input" type="radio" name="categorie" value="{{ $categorie->id }}">
-                  <label class="custom-control-label" for="{{ $categorie->nom }}">{{ $categorie->nom }}</label>
-                </div>
-              @endforeach
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="ordre">Position dans la liste</label>
+            <label for="ordre">@lang('form.position_liste')</label>
             <div id="ordre-modal"></div>
           </div>
           <div class="my-3">

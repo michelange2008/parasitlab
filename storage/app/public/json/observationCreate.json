@@ -1,0 +1,19 @@
+{
+  "intitule" :
+  {
+    "fornameid" : "intitule",
+    "label" : "intitule",
+    "required" : "required"
+  },
+  "explication" :
+  {
+    "fornameid" : "explication",
+    "label" : "explication",
+    "required" : "required"
+  },
+  "autres" :
+  {
+    "fornameid" : "autres",
+    "label" : "autres_causes"
+  }
+}

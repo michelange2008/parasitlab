@@ -13,4 +13,7 @@ return array (
   'anaitem_updated' => "Le parasite a été mis à jour",
   'anaitem_destroy' => "Ce parasite a été détruit !",
   'anaitem_create' => "Un nouveau parasite vient d'être créé",
+  'observation_create' => "Une nouvelle observation vient d'être créée",
+  'observation_destroy' => "L'observation a été supprimée",
+  'observation_edit' => "L'observation a été modifiée",
 );

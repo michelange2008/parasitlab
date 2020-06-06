@@ -158,7 +158,7 @@
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
        d="M 55.983908,44.625589 216.96402,165.17216"
-       id="anaitems_especes"
+       id="anaactes_especes"
        type="modal"
        class="alg-ligne"
        inkscape:connector-type="polyline"
@@ -179,6 +179,14 @@
        class="alg-ligne"
        d="M 46.216023,44.889281 59.225005,165.17574"
        style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
+     <path
+        inkscape:connector-curvature="0"
+        inkscape:connector-type="polyline"
+        id="anaactes_observations"
+        type="modal"
+        class="alg-ligne"
+        d="M 90,175, 220,175"
+        style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
     <g
        transform="translate(-2.3569336e-6,-0.00763159)"
        id="especes"
@@ -294,7 +302,7 @@
       </g>
     </g>
     <g
-       id="anaitems"
+       id="anaactes"
        class="alg-bouton">
       <rect
          style="fill:#f3cd6c;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.358467"
@@ -315,7 +323,7 @@
     <path
        style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
        d="M 99.897191,107.85004 211.4077,165.1756"
-       id="ages_anaitems"
+       id="ages_anaactes"
        class="alg-ligne"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -364,7 +372,7 @@
     <path
        style="fill:none;fill-opacity:0.6;fill-rule:evenodd;stroke:#8f230a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.5, 1.5;stroke-dashoffset:0"
        d="M 158.0807,78.931569 222.2989,165.1756"
-       id="anaitems_exclusions"
+       id="anaactes_exclusions"
        class="alg-ligne"
        inkscape:connector-type="polyline"
        inkscape:connector-curvature="0"
@@ -393,7 +401,7 @@
        inkscape:connection-start="#g2049"
        inkscape:connector-curvature="0"
        inkscape:connector-type="polyline"
-       id="anaitems_options"
+       id="anaactes_options"
        class="alg-ligne"
        d="M 243.17849,45.357141 230.04771,165.1756"
        style="fill:#0a415a;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;fill-opacity:0.60000002;stroke-miterlimit:4;stroke-dasharray:none" />

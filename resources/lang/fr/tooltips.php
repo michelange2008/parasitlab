@@ -26,4 +26,6 @@ return array (
   'voir_obs_age' => 'Voir les observations pour cet âge',
   'voir_ana_esp' => 'Voir les analyses proposées pour cette espece',
   'voir_ana_age' => 'Voir les analyses proposées pour cet âge',
+  'edit_obs' => "Modifier cette observation",
+  'suppr_obs' => "Supprimer cette observation",
 );

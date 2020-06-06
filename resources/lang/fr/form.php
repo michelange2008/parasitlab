@@ -101,4 +101,15 @@ return array (
   'presence' => "Présence",
 
   'result' => 'résultat',
+
+  'categories' => "Catégories",
+  'obs_modif' => "Modifier l'observation",
+  'intitule' => "Intitulé de l'observation",
+  'explication' => "Description de l'observation",
+  'autres_causes' => "Autres causes possibles pour cette observation",
+  'position_liste' => "Position dans la liste",
+  'observation_association_espece' => "Association avec une espèce",
+  'observation_association_age' => "Association avec un age",
+  'observation_association_anaactes' => "Association avec une analyse",
+
 );

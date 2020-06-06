@@ -6,17 +6,17 @@
 
   </div>
 
-  @foreach ($qui_quand->contenu as $key => $element) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
+  @foreach ($options as $option) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
 
-    <div id="{{ $key }}" class="option" style="display:none">
+    <div id="{{ $option->abbreviation }}" class="option" style="display:none">
 
       <div class="media border p-3 bg-bleu-tres-clair">
-        <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/'.$element.'svg') !!}" alt="{{ $element }}">
+        <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/'.$option->abbreviation.'.svg') !!}" alt="{{ $option->abbreviation }}">
         <div class="media-body">
           <h4 class="mt-0">
-            @lang($qui_quand->prefixe.$element.'titre')
+            {{ $option->titre }}
           </h4>
-          <p class="lead">@lang($qui_quand->prefixe.$element.'soustitre')</p>
+          <p class="lead">{{ $option->soustitre }}</p>
 
         </div>
 
@@ -26,18 +26,18 @@
 
         <div class="col-md-6 border-left">
 
-          <p class="lead"><i class="fas fa-hand-point-right"></i> @lang($qui_quand->prefixe.'qui_prelever')</p>
+          <p class="lead"><i class="fas fa-hand-point-right"></i> @lang('options.qui_prelever')</p>
 
-          <p>@lang($qui_quand->prefixe.$element."qui")</p>
+          <p>{{ $option->qui }}</p>
 
         </div>
 
 
         <div class="col-md-6 border-left">
 
-          <p class="lead"><i class="fas fa-calendar-alt"></i> @lang($qui_quand->prefixe.'quand_prelever')</p>
+          <p class="lead"><i class="fas fa-calendar-alt"></i> @lang('options.quand_prelever')</p>
 
-          <p>@lang($qui_quand->prefixe.$element."quand")</p>
+          <p>{{ $option->quand }}</p>
 
         </div>
 

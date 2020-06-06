@@ -11,13 +11,17 @@ class AnatypesTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+      DB::table('anatypes')->truncate();
+      DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
         DB::table('anatypes')->insert([
           [
             'id' => 1,
             'abbreviation' => "SGI",
             'nom' => "parasites gastro-intestinaux",
             'technique' => 'méthode quantitative McMaster - NaCl',
-            'estSpecial' => false,
+            'estAnalyse' => true,
             'icone_id' => 9,
           ],
           [
@@ -25,7 +29,7 @@ class AnatypesTableSeeder extends Seeder
             'abbreviation' => "SGI + DICR",
             'nom' => "parasites gastro-intestinaux + petite douve",
             'technique' => 'méthode quantitative McMaster - ZnCl2',
-            'estSpecial' => false,
+            'estAnalyse' => true,
             'icone_id' => 32,
           ],
           [
@@ -33,7 +37,7 @@ class AnatypesTableSeeder extends Seeder
             'abbreviation' => "SGResp",
             'nom' => "strongles pulmonaires",
             'technique' => 'méthode semi-quantitative de Baermann',
-            'estSpecial' => false,
+            'estAnalyse' => true,
             'icone_id' => 10,
           ],
           [
@@ -41,7 +45,7 @@ class AnatypesTableSeeder extends Seeder
             'abbreviation' => "GD + PARAM",
             'nom' => "grande douve et paramphistome",
             'technique' => 'méthode qualitative de sédimentation',
-            'estSpecial' => false,
+            'estAnalyse' => true,
             'icone_id' => 31,
           ],
           [
@@ -49,7 +53,7 @@ class AnatypesTableSeeder extends Seeder
             'abbreviation' => "HAEM",
             'nom' => "quantification Haemonchus contortus",
             'technique' => 'analyse qPCR',
-            'estSpecial' => true,
+            'estAnalyse' => true,
             'icone_id' => 15,
           ],
           [
@@ -57,7 +61,7 @@ class AnatypesTableSeeder extends Seeder
             'abbreviation' => "RESIST",
             'nom' => "test d'efficacité de produits vermifuges",
             'technique' => 'méthode quantitative McMaster - NaCl',
-            'estSpecial' => true,
+            'estAnalyse' => true,
             'icone_id' => 23,
           ],
           [
@@ -65,7 +69,7 @@ class AnatypesTableSeeder extends Seeder
             'abbreviation' => "PACK",
             'nom' => "Pack",
             'technique' => '',
-            'estSpecial' => false,
+            'estAnalyse' => false,
             'icone_id' => 16,
           ],
         ]);

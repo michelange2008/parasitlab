@@ -49,4 +49,5 @@ return array (
   'age_espece' => 'Liste des espèces et des âges',
   'algo_observations' => 'Algorithme: animaux et observations',
   'algo_observationsIndex' => 'Algorithme: liste des observations',
+  'algo_observation_add' => 'Création d\'une nouvelle observation',
 );

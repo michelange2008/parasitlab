@@ -13,9 +13,18 @@ class CreateOptionsTable extends Migration
      */
     public function up()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('options');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
         Schema::create('options', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->string('abbreviation', 50)->nullable();
             $table->string('nom', 191)->nullable();
+            $table->string('titre', 191)->nullable();
+            $table->string('soustitre', 191)->nullable();
+            $table->text('qui', 191)->nullable();
+            $table->text('quand', 191)->nullable();
         });
     }
 

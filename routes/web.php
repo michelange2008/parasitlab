@@ -194,24 +194,30 @@
     Route::get('algorithme', 'Analyses\Algorithme\BaseController@index')->name('algorithme.index');
 
     Route::resource('algorithme/observations', 'Analyses\Algorithme\ObservationsController');
-
-    Route::post('algorithme/observations/animal', 'Analyses\Algorithme\ObservationsController@animalObservationStore')->name('animalObservationStore');
-
+    // Enregistrement de l'association d'une observation avec un age ou une espece: INUTILE ?
+    // Route::post('algorithme/observations/animal', 'Analyses\Algorithme\ObservationsController@animalObservationStore')->name('animalObservationStore');
+    // Liste des observations associées à un age
     Route::get('algorithme/observations/age/{age_id}', 'Analyses\Algorithme\ObservationsController@age')->name('observations.age');
-
-    Route::get('algorithme/analyses/age/{age_id}', 'Analyses\AnaacteController@age')->name('anaactes.age');
-
+    // Liste des observations associées à une espece
     Route::get('algorithme/observations/espece/{espece_id}', 'Analyses\Algorithme\ObservationsController@espece')->name('observations.espece');
+    // Modification de l'association entre une observation et un age
+    Route::get('algorithme/observations/age/{age_id}/{observation_id}', 'Analyses\Algorithme\ObservationsController@ageObservation');
+    // Modification de l'association entre une observation et une espece
+    Route::get('algorithme/observations/espece/{espece_id}/{observation_id}', 'Analyses\Algorithme\ObservationsController@especeObservation');
+    // Modification de l'association d'une observation avec des especes ou des ages
+    Route::get('algorithme/observation/animal/{observation_id}', 'Analyses\Algorithme\ObservationsController@editAnimal')->name('observation.editAnimal');
+    // Modification de l'association d'une observation avec des options
+    Route::get('algorithme/observation/option/{observation_id}', 'Analyses\Algorithme\ObservationsController@editOption')->name('observation.editOption');
+    // Modification de l'association d'une observation avec des anaactes
+    Route::get('algorithme/observation/anaacte/{observation_id}', 'Analyses\Algorithme\ObservationsController@editAnaacte')->name('observation.editAnaacte');
+    // Liste de anaactes associés à un age
+    Route::get('algorithme/analyses/age/{age_id}', 'Analyses\AnaacteController@age')->name('anaactes.age');
 
     Route::get('algorithme/analyses/espece/{espece_id}', 'Analyses\AnaacteController@espece')->name('anaactes.espece');
 
     Route::resource('algorithme/options', 'Analyses\Algorithme\OptionsController');
 
     Route::resource('algorithme/ages', 'Analyses\Algorithme\AgesController');
-
-    Route::get('algorithme/observations/age/{age_id}/{observation_id}', 'Analyses\Algorithme\ObservationsController@ageObservation');
-
-    Route::get('algorithme/observations/espece/{espece_id}/{observation_id}', 'Analyses\Algorithme\ObservationsController@especeObservation');
 
     Route::resource('algorithme/especes', 'Analyses\Algorithme\EspecesAlgoController');
 
