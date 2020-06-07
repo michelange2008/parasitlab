@@ -6,12 +6,12 @@
 
   </div>
 
-  @foreach ($options as $option) {{-- on boucle sur le json qui_quand.json qui renvoie au fichier de langue qui_quand.php --}}
+  @foreach ($options as $option)
 
     <div id="{{ $option->abbreviation }}" class="option" style="display:none">
 
       <div class="media border p-3 bg-bleu-tres-clair">
-        <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/'.$option->abbreviation.'.svg') !!}" alt="{{ $option->abbreviation }}">
+        <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/algorithme/'.$option->icone) !!}" alt="{{ $option->icone }}">
         <div class="media-body">
           <h4 class="mt-0">
             {{ $option->titre }}

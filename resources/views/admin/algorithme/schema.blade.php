@@ -280,6 +280,8 @@
        style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;marker-mid:url(#Arrow2Mend)" />
     <g
        id="options"
+       type="route"
+       route="options"
        class="alg-bouton">
       <g
          transform="translate(23.8125,6.4255938)"

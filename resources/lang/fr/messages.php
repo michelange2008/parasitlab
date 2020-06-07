@@ -16,4 +16,6 @@ return array (
   'observation_create' => "Une nouvelle observation vient d'être créée",
   'observation_destroy' => "L'observation a été supprimée",
   'observation_edit' => "L'observation a été modifiée",
+  'option_create' => "Une nouvelle explication a été créée",
+  'option_destroy' => "L'explication a été supprimée",
 );

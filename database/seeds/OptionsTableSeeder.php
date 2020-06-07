@@ -24,6 +24,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'Il s\'agit de confirmer le diagnostic.',
             'qui' => 'Les animaux malades ou en mauvais état.<br>Il est conseillé de faire une 2<sup>ème</sup> analyse avec les animaux en bon état',
             'quand' => 'Au moment de la constatation du problème.',
+            'icone' => 'diagnostic.svg',
           ],
           [
             'id' => 2,
@@ -35,6 +36,7 @@ class OptionsTableSeeder extends Seeder
             Les animaux maigres ou en mauvais état, les animaux bien portants, les primipares (agnelles, antenaises, génisses d\'un an ou de deux ans)<br>
             D\'autres lots sont envisageables en fonction de l\'historique de pâturage (estives, parcours, ...).',
             'quand' => 'En fin de saison de pâture, au début de l\'automne ou à la rentrée en bâtiment.',
+            'icone' => 'bilan.svg',
           ],
           [
             'id' => 3,
@@ -47,6 +49,7 @@ class OptionsTableSeeder extends Seeder
             'quand' => 'Une première analyse peut être faite à la mise à l\'herbe si aucun bilan n\'a été fait l\'année d\'avant. Sinon, un premier prélèvement fin mai permet d\'évaluer la montée de l\'infestation.<br>
             Une seconde analyse est à réaliser durant le mois de juillet, moment qui correspond au premier pic d\'infestation<br>
             Une troisième et dernière analyse sera réalisée à l\'automne.',
+            'icone' => 'suivi.svg',
           ],
           [
             'id' => 4,
@@ -56,6 +59,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'La connaissance de ce taux d\'haemonchus vous permettra une analyse plus fine du risque encouru par les animaux.',
             'qui' => 'Il faut faire un lot de 5 animaux&nbsp;:<br>En choisissant a priori des animaux susceptibles d\'être infestés=> maigres, anémiés, mauvais état général.',
             'quand' => 'C\'est une analyse à réaliser au pic de l\'infestation, c\'est-à-dire au mois de Juillet.<br>Mais il est possible de faire cette analyse à n\'importe quel autre moment si on observe des signes de parasitisme, notamment liés à haemonchus (anémie).',
+            'icone' => 'taux_haem.svg',
           ],
           [
             'id' => 5,
@@ -69,6 +73,7 @@ class OptionsTableSeeder extends Seeder
             'quand' => 'Une première analyse est faite le jour du traitement.<br>
             Une seconde analyse est réalisée 7 à 14 jours après le traitement, selon le produit utilisé (contactez-nous pour plus d\'informations).<br>
             Un calcul permet de connaitre le taux de réduction d\'excrétion fécale et donc la présence éventuelle d\'une résistance.',
+            'icone' => 'test_resistance.svg',
           ],
           [
             'id' => 6,
@@ -78,6 +83,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'Cet animal présente le risque d\'introduire chez vous des parasites résistants aux vermifuges',
             'qui' => 'Le ou les animaux acheté(s)',
             'quand' => 'Durant la quarantaine, il faut faire une analyse coproscopique et si l\'animal est parasité, effectuer un test de résistance.',
+            'icone' => 'introduction.svg',
           ],
           [
             'id' => 7,
@@ -87,6 +93,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'Elle entraîne des saisies du foie à l\'abattoir mais ne pose pas de problèmes aux bovins, et rarement aux petits ruminants',
             'qui' => 'Il est possible de faire des analyses individuelles, de mélange ou par lot selon l\'objectif',
             'quand' => 'Plutôt à la rentrée en bâtiment, car la petite douve a un cycle long (environ 2 mois).',
+            'icone' => 'dicro.svg',
           ],
           [
             'id' => 8,
@@ -96,6 +103,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'Il s\'agit de savoir si votre animal, ou un animal que vous venez d\'acquérir, est parasité (même s\'il ne présente pas de symptôme)',
             'qui' => 'Assez logiquement, l\'animal en question',
             'quand' => 'En fin de saison de pâture, au début de l\'automne ou à la rentrée en bâtiment, à l\'achat et plus généralement dès que l\'on se pose la question de le vermifuger.',
+            'icone' => 'bilan_indiv.svg',
           ],
           [
             'id' => 10,
@@ -105,6 +113,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'Dans certains cas, ces symptômes sont attribuables aux strongles respiratoires',
             'qui' => 'Les animaux qui présentent des symptômes',
             'quand' => 'Au moment où vous observez ce problème',
+            'icone' => 'respiratoire.svg',
           ],
           [
             'id' => 11,
@@ -114,6 +123,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'Ils sont présents principalement lorsqu\'il y a des pâturages humides ou des bords de ruisseaux',
             'qui' => 'Les animaux qui présentent des symptômes ou des baisses de production',
             'quand' => 'ATTENTION: pour une meilleur fiabilité de l\'analyse, il faut prélever pour chaque animal de la bouse matin, midi et soir',
+            'icone' => 'douveparam.svg',
           ],
           [
             'id' => 12,
@@ -123,6 +133,7 @@ class OptionsTableSeeder extends Seeder
             'soustitre' => 'Il s\'agit de confirmer le diagnostic.',
             'qui' => 'Les animaux qui ne produisent plus autant de lait qu\'avant ou ceux qui maigrissent.<br>Il est possible de faire une 2<sup>ème</sup> analyse avec les animaux en bon état',
             'quand' => 'Au moment de la constatation du problème.',
+            'icone' => 'baisse_prod.svg',
           ],
         ]);
     }

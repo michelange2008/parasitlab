@@ -37,7 +37,7 @@
 
           <span id="span_{{ $name }}" class="image-preview-input-title">@lang('form.browse')</span>
 
-          <input type="file" accept="image/png, image/jpeg, image/gif" name="{{ $name }}_nouvelle" required/> <!-- rename it -->
+          <input type="file" accept="image/png, image/jpeg, image/gif" name="{{ $name }}_nouvelle"  @if ($nouveau) required  @endif/> <!-- rename it -->
 
         </div>
 

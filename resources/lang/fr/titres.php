@@ -50,4 +50,6 @@ return array (
   'algo_observations' => 'Algorithme: animaux et observations',
   'algo_observationsIndex' => 'Algorithme: liste des observations',
   'algo_observation_add' => 'Création d\'une nouvelle observation',
+  'algo_optionsIndex' => "Liste des explications d'une situation",
+  'algo_addOption' => "Ajouter une nouvelle explication",
 );

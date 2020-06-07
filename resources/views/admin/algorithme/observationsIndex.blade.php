@@ -32,6 +32,8 @@
 
           @boutonUser(['route' => 'observations.create', 'fa' => 'fas fa-plus-square', 'intitule' => 'add_observation'])
 
+          @retour(['route' => 'algorithme.index'])
+
         </div>
 
         <table class="table table-striped">
@@ -60,7 +62,7 @@
                 <form id="form_suppr_{{ $observation->id }}" action="{{ route('observations.destroy', $observation->id) }}" method="post">
                   @csrf
                   @method('delete')
-                  <a id="suppr_{{ $observation->id }}" class="suppr_observation" href="#" data-toggle="tooltip" title="@lang('tooltips.suppr_obs')"><i class="text-danger fas fa-trash-alt"></i></a>
+                  <a id="suppr_{{ $observation->id }}" class="suppr_item" href="#" data-toggle="tooltip" title="@lang('tooltips.suppr_obs')"><i class="text-danger fas fa-trash-alt"></i></a>
 
                 </form>
               </td>
@@ -70,6 +72,16 @@
           @endforeach
 
         </table>
+
+      </div>
+
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-11 col-lg-10 col-xl-9">
+
+        @retour(['route' => 'algorithme.index'])
 
       </div>
 

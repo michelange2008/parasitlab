@@ -195,7 +195,7 @@
 
     Route::resource('algorithme/observations', 'Analyses\Algorithme\ObservationsController');
     // Enregistrement de l'association d'une observation avec un age ou une espece: INUTILE ?
-    // Route::post('algorithme/observations/animal', 'Analyses\Algorithme\ObservationsController@animalObservationStore')->name('animalObservationStore');
+    Route::post('algorithme/animal/observations', 'Analyses\Algorithme\ObservationsController@animalObservationStore')->name('animalObservationStore');
     // Liste des observations associées à un age
     Route::get('algorithme/observations/age/{age_id}', 'Analyses\Algorithme\ObservationsController@age')->name('observations.age');
     // Liste des observations associées à une espece
@@ -210,7 +210,11 @@
     Route::get('algorithme/observation/option/{observation_id}', 'Analyses\Algorithme\ObservationsController@editOption')->name('observation.editOption');
     // Modification de l'association d'une observation avec des anaactes
     Route::get('algorithme/observation/anaacte/{observation_id}', 'Analyses\Algorithme\ObservationsController@editAnaacte')->name('observation.editAnaacte');
+    // Gestion des options (aka explications)
+    Route::resource('algorithme/options',  'Analyses\Algorithme\OptionsController');
     // Liste de anaactes associés à un age
+    Route::get('algorithme/options/anaacte/{option_id}', 'Analyses\Algorithme\OptionsController@editAnaacte')->name('option.editAnaacte');
+
     Route::get('algorithme/analyses/age/{age_id}', 'Analyses\AnaacteController@age')->name('anaactes.age');
 
     Route::get('algorithme/analyses/espece/{espece_id}', 'Analyses\AnaacteController@espece')->name('anaactes.espece');

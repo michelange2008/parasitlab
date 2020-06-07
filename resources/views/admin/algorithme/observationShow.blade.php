@@ -81,7 +81,7 @@
 
               @foreach ($observation->options as $option)
 
-                <img src="{{ url('storage/img/icones/'.$option->abbreviation.'.svg') }}" alt="">
+                <img src="{{ url('storage/img/algorithme/'.$option->icone) }}" alt="">
 
                 <p class="mb-1 ml-3 font-weight-bold">{{ $option->titre }}</p>
 

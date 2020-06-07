@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Option extends Model
 {
+
+  public $timestamps = false;
+
   public function observations()
   {
     return $this->belongsToMany(Observation::class);

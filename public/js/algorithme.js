@@ -46,85 +46,85 @@ $('.alg-bouton').on('click', function() {
 //######################################################################
 // MODIFICATION DES OBSERVATIONS PAR UNE FENETRE MODALE ET UNE REQUETE ajax
 //######################################################################
-var nouvelle_url_put = '';
-
-$('.edit_observation').on('click', function(e) {
-  e.preventDefault();
-  // On récupère l'id de l'observation à modifier
-  var observation_id = $(this).attr('id').split('_')[1];
-  //On récupère l'url pour la soumission du formulaire en ajax
-  var url_put = $('.observation_update').attr('action');
-  // On élimine la fin pour enlever l'id initiale
-  var pos = url_put.search('observations');
-  // On recontruit l'url pour la requete ajax
-  nouvelle_url_put = url_put.slice(0, pos) + 'observations/' + observation_id;
-  // On remplit les champs du formulaire avec les valeurs trouvées dans les attributs de chaque observation
-  $('#intitule-modal').append(
-    '<input class="form-control" type="text" name="intitule" value="' + $(this).attr('intitule') + '" required>'
-  );
-  $('#explication-modal').append(
-    '<input class="form-control" type="text" name="explication" value="' + $(this).attr('explication') + '" required>'
-  );
-  $('#autres-modal').append(
-    '<input class="form-control" type="text" name="autres" value="' + $(this).attr('autres') + '">'
-  );
-  $('#ordre-modal').append(
-    '<input class="form-control" type="number" name="ordre" value="' + $(this).attr('ordre') + '" required>'
-  );
-  // On récupère la catégorie correspondante
-  var categorie = $(this).attr('categorie');
-  // Et on coche le bouton radio correspndant à la catégorie
-  $('input[type=radio][name=categorie][id=' + categorie + ']').attr('checked', true);
-  // On affiche la fenetre modale avec le formulaire
-  $('#modal-infos').modal('show');
-})
-
-$('.observation_update').on('submit', function(e) {
-  e.preventDefault();
-  var donnees = $(this).serialize();
-
-  $.ajax({
-    type : "PUT",
-    url : nouvelle_url_put,
-    data : donnees,
-  })
-  .done(function(retour) {
-    fermeModal();
-    var observation = retour[0];
-    $('#ordre_' + observation.id).html(observation.ordre);
-    $('#intitule_' + observation.id + ' > a').html(observation.intitule);
-    $('#intitule_' + observation.id).attr('ordre', observation.ordre);
-    $('#intitule_' + observation.id).attr('intitule', observation.intitule);
-    $('#intitule_' + observation.id).attr('explication', observation.explication);
-    $('#intitule_' + observation.id).attr('autres', observation.autres);
-    $('#intitule_' + observation.id).attr('categorie', observation.categorie.nom);
-
-  })
-  .fail(function(datas) {
-    console.log(datas);
-  });
-});
-
-$('#bouton_annule').on('click', function(e) {
-  e.preventDefault();
-  fermeModal();
-});
-
-function fermeModal() {
-  // On masque la fenetre modale
-  $('#modal-infos').modal('hide');
-  // On vide tous les champs
-  $('#intitule-modal').empty();
-  $('#explication-modal').empty();
-  $('#autres-modal').empty();
-  $('#ordre-modal').empty();
-
-};
+// var nouvelle_url_put = '';
+//
+// $('.edit_observation').on('click', function(e) {
+//   e.preventDefault();
+//   // On récupère l'id de l'observation à modifier
+//   var observation_id = $(this).attr('id').split('_')[1];
+//   //On récupère l'url pour la soumission du formulaire en ajax
+//   var url_put = $('.observation_update').attr('action');
+//   // On élimine la fin pour enlever l'id initiale
+//   var pos = url_put.search('observations');
+//   // On recontruit l'url pour la requete ajax
+//   nouvelle_url_put = url_put.slice(0, pos) + 'observations/' + observation_id;
+//   // On remplit les champs du formulaire avec les valeurs trouvées dans les attributs de chaque observation
+//   $('#intitule-modal').append(
+//     '<input class="form-control" type="text" name="intitule" value="' + $(this).attr('intitule') + '" required>'
+//   );
+//   $('#explication-modal').append(
+//     '<input class="form-control" type="text" name="explication" value="' + $(this).attr('explication') + '" required>'
+//   );
+//   $('#autres-modal').append(
+//     '<input class="form-control" type="text" name="autres" value="' + $(this).attr('autres') + '">'
+//   );
+//   $('#ordre-modal').append(
+//     '<input class="form-control" type="number" name="ordre" value="' + $(this).attr('ordre') + '" required>'
+//   );
+//   // On récupère la catégorie correspondante
+//   var categorie = $(this).attr('categorie');
+//   // Et on coche le bouton radio correspndant à la catégorie
+//   $('input[type=radio][name=categorie][id=' + categorie + ']').attr('checked', true);
+//   // On affiche la fenetre modale avec le formulaire
+//   $('#modal-infos').modal('show');
+// })
+//
+// $('.observation_update').on('submit', function(e) {
+//   e.preventDefault();
+//   var donnees = $(this).serialize();
+//
+//   $.ajax({
+//     type : "PUT",
+//     url : nouvelle_url_put,
+//     data : donnees,
+//   })
+//   .done(function(retour) {
+//     fermeModal();
+//     var observation = retour[0];
+//     $('#ordre_' + observation.id).html(observation.ordre);
+//     $('#intitule_' + observation.id + ' > a').html(observation.intitule);
+//     $('#intitule_' + observation.id).attr('ordre', observation.ordre);
+//     $('#intitule_' + observation.id).attr('intitule', observation.intitule);
+//     $('#intitule_' + observation.id).attr('explication', observation.explication);
+//     $('#intitule_' + observation.id).attr('autres', observation.autres);
+//     $('#intitule_' + observation.id).attr('categorie', observation.categorie.nom);
+//
+//   })
+//   .fail(function(datas) {
+//     console.log(datas);
+//   });
+// });
+//
+// $('#bouton_annule').on('click', function(e) {
+//   e.preventDefault();
+//   fermeModal();
+// });
+//
+// function fermeModal() {
+//   // On masque la fenetre modale
+//   $('#modal-infos').modal('hide');
+//   // On vide tous les champs
+//   $('#intitule-modal').empty();
+//   $('#explication-modal').empty();
+//   $('#autres-modal').empty();
+//   $('#ordre-modal').empty();
+//
+// };
 
 //##############################################################################
 // Suppression d'une observation
 //############################################################################
-$(".suppr_observation").on('click', function(e) {
+$(".suppr_item").on('click', function(e) {
 
   e.preventDefault();
   var id = $(this).attr('id');

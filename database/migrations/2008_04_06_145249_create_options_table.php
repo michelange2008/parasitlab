@@ -25,6 +25,7 @@ class CreateOptionsTable extends Migration
             $table->string('soustitre', 191)->nullable();
             $table->text('qui', 191)->nullable();
             $table->text('quand', 191)->nullable();
+            $table->string('icone', 191);
         });
     }
 

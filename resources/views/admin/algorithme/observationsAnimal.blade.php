@@ -1,3 +1,6 @@
+
+{{-- page qui affiche la liste des observations pour une espece ou age donné avec possibilité de modifier l'association entre l'espece/age et l'observation
+Tout ce fait en jquery avec une requête ajax post pour la mise à jour de la base de données --}}
 @extends('layouts.app')
 
 @section('menu')

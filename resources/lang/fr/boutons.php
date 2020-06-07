@@ -35,4 +35,5 @@ return array (
   'tele_form' => "Télécharger un formulaire",
   'prelevenvoi' => "En pratique: prélever/envoyer",
   'add_observation' => 'Nouvelle observation',
+  'add_option' => 'Nouvelle explication',
 );
