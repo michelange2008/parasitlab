@@ -29,35 +29,18 @@ Tout ce fait en jquery avec une requête ajax post pour la mise à jour de la ba
 
       <div class="col-md-11 col-lg-10 col-xl-9 d-flex justify-content-between">
 
-        @retour(['route' => 'especes.index'])
+        <div>
 
-        <div class="">
+          @retour(['route' => 'especesAlgo.index'])
 
-          @foreach ($especes as $espece)
+          @retour(['route' => 'algorithme.index', 'fa' => 'fas fa-project-diagram', 'intitule' => 'algo_graph'])
 
-            @if ($espece->ages->isNotEmpty())
+        </div>
 
-              @foreach ($espece->ages as $age)
 
-                <a href="{{ route('observations.age', $age->id) }}">
+        <div>
 
-                  <img id="age_{{ $age->id }}" class="img-50 tete age" src="{{ url('storage/img/icones/'.$age->icone->nom) }}" alt="{{ $age->icone->nom }}">
-
-                </a>
-
-              @endforeach
-
-            @else
-
-              <a href="{{ route('observations.espece', $espece->id) }}">
-
-                <img id="espece_{{ $espece->id }}" class="img-50 tete espece" src="{{ url('storage/img/icones/'.$espece->icone->nom) }}" alt="{{ $espece->icone->nom }}">
-
-              </a>
-
-            @endif
-
-          @endforeach
+          @include('admin.algorithme.choixAnimal', ['route' => 'observations'])
 
         </div>
 

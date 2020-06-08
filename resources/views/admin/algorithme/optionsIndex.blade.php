@@ -44,14 +44,16 @@
                 <td> <img class="img-50" src="{{ url('storage/img/algorithme/'.$option->icone) }}" alt=""> </td>
 
                 <td>
-                  <a href="{{ route('options.show', $option->id) }}" data-toggle="tooltip" title="Modifier cette explication">
+                  <a href="{{ route('options.show', $option->id) }}" data-toggle="tooltip" title="@lang('tooltips.show_option')">
                     {{ $option->nom }}
                   </a>
                 </td>
 
                 <td>{{ $option->titre }}</td>
 
-                <td> <a href="{{ route('options.edit', $option->id) }}"><i class="fas fa-edit text-success"></i></a></td>
+                <td> <a href="{{ route('options.edit', $option->id) }}" data-toggle="tooltip" title="@lang('tooltips.editOption')"><i class="fas fa-edit text-success"></i></a></td>
+
+                <td> <a href="{{ route('option.editAnaacte', $option->id) }}" data-toggle="tooltip" title="@lang('tooltips.editOptionAnaacte')"><i class="fas fa-microscope color-bleu-tres-fonce"></i></a></td>
 
                 <td>
 

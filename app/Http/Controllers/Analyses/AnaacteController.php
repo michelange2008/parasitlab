@@ -8,6 +8,10 @@ use DB;
 use App\Fournisseurs\ListeAnaactesFournisseur;
 
 use App\Models\Analyses\Anaacte;
+use App\Models\Analyses\Anatype;
+use App\Models\Espece;
+use App\Models\Age;
+
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\AnaacteOutil;
@@ -124,12 +128,57 @@ class AnaacteController extends Controller
 
     public function age($age_id)
     {
-      // code...
+      return view('admin.algorithme.animalAnaactesShow', [
+        'menu' => $this->menu,
+        'type' => 'age',
+        'ages' => Age::all(),
+        'especes' => Espece::all(),
+        'animal' => Age::find($age_id),
+        'anatypes' => Anatype::where('estAnalyse', 1)->get(),
+      ]);
     }
 
     public function espece($espece_id)
     {
-      // code...
+      return view('admin.algorithme.animalAnaactesShow', [
+        'menu' => $this->menu,
+        'type' => 'espece',
+        'ages' => Age::all(),
+        'especes' => Espece::all(),
+        'animal' => Espece::find($espece_id),
+        'anatypes' => Anatype::where('estAnalyse', 1)->get(),
+      ]);
+    }
+
+    /**
+     * Modification des associations entre anaacte et espece ou age
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function animalUpdate(Request $request, $id)
+    {
+      $datas = $request->all();
+
+      $animal = ($datas['type'] === "age") ? Age::find($id) : Espece::find($id);
+
+      $anaactes_id = Collect();
+
+      foreach ($datas as $key => $data) {
+
+        if(explode('_', $key)[0] == "anaacte") {
+
+          $anaactes_id->push(explode('_', $key)[1]);
+
+        }
+
+      }
+
+      $animal->anaactes()->detach();
+      $animal->anaactes()->attach($anaactes_id);
+
+      return redirect()->back()->with('message', 'animal_anaacte_update');
     }
 
 }

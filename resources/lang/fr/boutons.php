@@ -36,4 +36,5 @@ return array (
   'prelevenvoi' => "En pratique: prélever/envoyer",
   'add_observation' => 'Nouvelle observation',
   'add_option' => 'Nouvelle explication',
+  'algo_graph' => 'Retour au schéma',
 );

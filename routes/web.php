@@ -214,16 +214,18 @@
     Route::resource('algorithme/options',  'Analyses\Algorithme\OptionsController');
     // Liste de anaactes associés à un age
     Route::get('algorithme/options/anaacte/{option_id}', 'Analyses\Algorithme\OptionsController@editAnaacte')->name('option.editAnaacte');
-
+    // Renvoie à la liste des anaactes associés à un age
     Route::get('algorithme/analyses/age/{age_id}', 'Analyses\AnaacteController@age')->name('anaactes.age');
-
+    // Renvoie à la liste des anaactes associés à une espece
     Route::get('algorithme/analyses/espece/{espece_id}', 'Analyses\AnaacteController@espece')->name('anaactes.espece');
+
+    Route::put('algorithme/analyses/animal/{id}', 'Analyses\AnaacteController@animalUpdate')->name('anaactes.animalUpdate');
 
     Route::resource('algorithme/options', 'Analyses\Algorithme\OptionsController');
 
-    Route::resource('algorithme/ages', 'Analyses\Algorithme\AgesController');
+    Route::resource('algorithme/agesAlgo', 'Analyses\Algorithme\AgesController');
 
-    Route::resource('algorithme/especes', 'Analyses\Algorithme\EspecesAlgoController');
+    Route::resource('algorithme/especesAlgo', 'Analyses\Algorithme\EspecesAlgoController');
 
   });
 

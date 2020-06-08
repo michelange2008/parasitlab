@@ -191,7 +191,7 @@
        transform="translate(-2.3569336e-6,-0.00763159)"
        id="especes"
        type="route"
-       route="especes"
+       route="especesAlgo"
        class="alg-bouton"
        inkscape:label="bouton">
       <g
@@ -223,7 +223,7 @@
     <g
        id="ages"
        type="route"
-       route="especes"
+       route="especesAlgo"
        class="alg-bouton"
        transform="translate(-16.135659,30.616071)">
       <g

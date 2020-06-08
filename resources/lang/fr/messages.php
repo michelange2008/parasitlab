@@ -18,4 +18,6 @@ return array (
   'observation_edit' => "L'observation a été modifiée",
   'option_create' => "Une nouvelle explication a été créée",
   'option_destroy' => "L'explication a été supprimée",
+  'option_edit' => "L'option a été modifiée",
+  'animal_anaacte_update' => 'La modification de l\'association d\'une analyse avec un type d\'animal a été effetuée',
 );

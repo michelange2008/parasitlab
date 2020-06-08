@@ -295,7 +295,7 @@ class ObservationsController extends Controller
       // Observation liée à cet age précis
       $observations_actives = $animal->observations()->get();
 
-      return view('admin.algorithme.observationsAnimal', [
+      return view('admin.algorithme.animalObservationsShow', [
         'menu' => $this->menu,
         'animal' => $animal,
         'observations' => $observations_sort,
@@ -335,7 +335,7 @@ class ObservationsController extends Controller
       // Observation liée à cet age précis
       $observations_actives = $animal->observations()->get();
 
-      return view('admin.algorithme.observationsAnimal', [
+      return view('admin.algorithme.animalObservationsShow', [
         'menu' => $this->menu,
         'animal' => $animal,
         'observations' => $observations_sort,
