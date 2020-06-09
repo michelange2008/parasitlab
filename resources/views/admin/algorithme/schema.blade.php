@@ -94,8 +94,8 @@
     inkscape:connector-type="polyline"
     inkscape:connector-curvature="0" />
     <path
-    style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
-    d="m 50.661556,43.890632 26.66165,46.071535"
+    style="fill:none;fill-rule:evenodd;stroke:#f3cd6c;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+    d="m 50.661556,45 26.66165,45"
     id="especes_ages"
     type="modal"
     class="alg-ligne"
@@ -115,7 +115,7 @@
     id="anaactes_observations"
     type="modal"
     class="alg-ligne"
-    d="M 90,175, 220,175"
+    d="M 98.5,175, 220,175"
     style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
     <path
        inkscape:connection-end="#rect12-9"
