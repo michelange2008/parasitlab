@@ -32,7 +32,7 @@
 
           @boutonUser(['route' => 'observations.create', 'fa' => 'fas fa-plus-square', 'intitule' => 'add_observation'])
 
-          @retour(['route' => 'algorithme.index'])
+          @retour(['route' => 'algorithme.index', 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
 
         </div>
 
