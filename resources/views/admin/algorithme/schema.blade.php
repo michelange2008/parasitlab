@@ -1,4 +1,13 @@
 <svg viewBox="0 0 297 210">
+  <path
+  style="fill:none;fill-rule:evenodd;stroke:#f3cd6c;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+  d="m 50.661556,45 26.66165,45"
+  id="especes_ages"
+  type="modal"
+  class="alg-ligne"
+  inkscape:connector-type="polyline"
+  inkscape:connector-curvature="0" />
+
   <g
      id="layer1"
      inkscape:groupmode="layer"
@@ -89,14 +98,6 @@
     style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
     d="M 55.983908,44.625589 216.96402,165.17216"
     id="anaactes_especes"
-    type="modal"
-    class="alg-ligne"
-    inkscape:connector-type="polyline"
-    inkscape:connector-curvature="0" />
-    <path
-    style="fill:none;fill-rule:evenodd;stroke:#f3cd6c;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
-    d="m 50.661556,45 26.66165,45"
-    id="especes_ages"
     type="modal"
     class="alg-ligne"
     inkscape:connector-type="polyline"
