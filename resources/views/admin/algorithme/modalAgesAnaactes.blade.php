@@ -1,4 +1,4 @@
-<div id="modal-especes_ages" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-infos" aria-hidden="true">
+<div id="modal-ages_anaactes" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal-infos" aria-hidden="true">
 
   <div class="modal-dialog">
 
@@ -6,17 +6,17 @@
 
       <div class="modal-header">
 
-        <h5 class="modal-title" id="modal-infos-titre">Relation entre espèces et âges</h5>
+        <h5 class="modal-title" id="modal-infos-titre">Association d'analyses à certains âges</h5>
 
       </div>
 
       <div class="modal-body">
 
         <p>
-          Pour certaines espèces, le choix de l'analyse se fait sur la base d'une classe d'age
+          Quand il existe des classes d'âge pour une espèces, ce sont celles-ci qui sont associées à des analyses
         </p>
-        <p>Dans ce cas, les relations aux observations et aux analyses se font avec les âges et non l'espèce.</p>
-        <p>Par exemple, les bovins ont deux classes d'âge: les vaches et les génisses/broutards.</p>
+        <p>Par exemple, les bovins ont deux classes d'âge: les vaches et les génisses/broutards.
+          Mais seuls les broutards sont associés à la recherche de strongles gastro-intestinaux. </p>
 
       </div>
 

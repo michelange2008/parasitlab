@@ -9,6 +9,7 @@
 @section('content')
 
   @include('admin.algorithme.modalEspecesAges')
+  @include('admin.algorithme.modalAgesAnaactes')
   @include('admin.algorithme.modalEspecesObservations')
   @include('admin.algorithme.modalAgesObservations')
   @include('admin.algorithme.modalAnaactesObservations')
