@@ -227,6 +227,8 @@
 
     Route::resource('algorithme/especesAlgo', 'Analyses\Algorithme\EspecesAlgoController');
 
+    Route::resource('algorithme/exclusions', 'Analyses\Algorithme\ExclusionsController');
+
   });
 
 // });

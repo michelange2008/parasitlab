@@ -28,4 +28,9 @@ class Age extends Model
       return $this->belongsToMany(Analyses\Anaacte::class);
     }
 
+    public function exclusion()
+    {
+      return $this->hasOne(Exclusion::class);
+    }
+
 }

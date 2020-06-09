@@ -8,14 +8,26 @@ class Exclusion extends Model
 {
   public $timestamps = false;
 
-  public function observations()
+  protected $fillable = ['espece_id', 'age_id', 'observation_id', 'anaacte_id']; 
+
+  public function observation()
   {
-    return $this->belongsToMany(\App\Models\Observation::class);
+    return $this->belongsTo(\App\Models\Observation::class);
   }
 
-  public function anaactes()
+  public function anaacte()
   {
-    return $this->belongsToMany(\App\Models\Analyses\Anaacte::class);
+    return $this->belongsTo(\App\Models\Analyses\Anaacte::class);
+  }
+
+  public function espece()
+  {
+    return $this->belongsTo(\App\Models\Espece::class);
+  }
+
+  public function age()
+  {
+    return $this->belongsTo(\App\Models\Age::class);
   }
 
 }

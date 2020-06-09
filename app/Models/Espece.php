@@ -47,4 +47,9 @@ class Espece extends Model
     {
       return $this->belongsToMany(Observation::class);
     }
+
+    public function exclusion()
+    {
+      return $this->hasOne(Exclusion::class);
+    }
 }

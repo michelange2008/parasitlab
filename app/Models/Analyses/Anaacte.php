@@ -57,4 +57,9 @@ class Anaacte extends Model
     {
       return $this->belongsToMany(\App\Models\Age::class);
     }
+
+    public function exclusion()
+    {
+      return $this->hasOne(\App\Models\Analyses\Anaacte::class);
+    }
 }

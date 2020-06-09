@@ -20,4 +20,7 @@ return array (
   'option_destroy' => "L'explication a été supprimée",
   'option_edit' => "L'option a été modifiée",
   'animal_anaacte_update' => 'La modification de l\'association d\'une analyse avec un type d\'animal a été effetuée',
+  'exclusion_existe' => 'ATTENTION, cette exclusion existe déjà',
+  'exclusion_non_existe' => 'Une nouvelle exclusion a été créée',
+  'exclusion_del' => 'Cette exclusion a été supprimée',
 );

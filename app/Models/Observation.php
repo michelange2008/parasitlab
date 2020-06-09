@@ -33,4 +33,9 @@ class Observation extends Model
     {
       return $this->belongsToMany(Option::class);
     }
+
+    public function exclusion()
+    {
+      return $this->hasOne(Exclusion::class);
+    }
 }

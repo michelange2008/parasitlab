@@ -112,4 +112,10 @@ return array (
   'observation_association_age' => "Association avec un age",
   'observation_association_anaactes' => "Association avec une analyse",
 
+  'choix_espece' => 'Choisissez une espèce ...',
+  'choix_age' => 'Choisissez un âge ...',
+  'choix_animal' => 'Choisissez un type d\'animal ...',
+  'choix_espece_age' => 'Choisissez une espèce ou un âge',
+  'choix_observation' => 'Choisissez une observation',
+  'choix_anaacte_exclu' => 'Choisissez l\'analyse qui sera exclu avec cette espèce/âge et cette observation'
 );

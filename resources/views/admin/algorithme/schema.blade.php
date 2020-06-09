@@ -332,6 +332,8 @@
        inkscape:connection-end="#g902" />
     <g
        id="exclusions"
+       type="route"
+       route="exclusions"
        class="alg-bouton"
        transform="translate(3.7797619,-10.96131)">
       <g

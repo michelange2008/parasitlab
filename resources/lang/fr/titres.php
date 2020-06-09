@@ -52,4 +52,6 @@ return array (
   'algo_observation_add' => 'Création d\'une nouvelle observation',
   'algo_optionsIndex' => "Liste des explications d'une situation",
   'algo_addOption' => "Ajouter une nouvelle explication",
+  'algo_exclusions' => "Liste des exclusions",
+  'algo_add_exclusion' => 'Ajouter une nouvelle exclusion',
 );

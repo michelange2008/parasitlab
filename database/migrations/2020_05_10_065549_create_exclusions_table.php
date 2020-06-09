@@ -13,7 +13,12 @@ class CreateExclusionsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('exclusions');
+        
         Schema::create('exclusions', function (Blueprint $table) {
+
+          $table->increments('id');
+
           $table->unsignedInteger('espece_id');
           $table->foreign('espece_id')->references('id')->on('especes');
 
