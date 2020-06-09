@@ -12,7 +12,7 @@ use App\Models\Observation;
 use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Anaacte;
 
-use App\http\Traits\LitJson;
+use App\Http\Traits\LitJson;
 
 class ExclusionsController extends Controller
 {
