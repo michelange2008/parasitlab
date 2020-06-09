@@ -81,7 +81,7 @@
 
       <div class="col-md-11 col-lg-10 col-xl-9">
 
-        @retour(['route' => 'algorithme.index'])
+        @retour(['route' => 'algorithme.index', 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
 
       </div>
 

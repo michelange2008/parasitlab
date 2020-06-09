@@ -20,6 +20,16 @@
 
     </div>
 
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-11 col-lg-10 col-xl-9">
+
+        @retour(['route' => 'algorithme.index', 'fa' => 'fas fa-project-diagram', 'intitule' => 'algo_graph'])
+
+      </div>
+
+    </div>
+
     <div class="row justify-content-center">
 
       <div class="col-md-11 col-lg-10 col-xl-9">
@@ -59,7 +69,7 @@
 
           @endforeach
 
-      </table>
+        </table>
 
       </div>
 
