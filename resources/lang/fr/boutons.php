@@ -38,4 +38,6 @@ return array (
   'add_option' => 'Nouvelle explication',
   'algo_graph' => 'Retour au schéma',
   'add_exclusion' => "Ajouter une règle d'exclusion",
+
+  'fermer' => 'Fermer',
 );

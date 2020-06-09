@@ -8,7 +8,12 @@
 
 @section('content')
 
-  @include('admin.algorithme.modalInfos')
+  @include('admin.algorithme.modalEspecesAges')
+  @include('admin.algorithme.modalEspecesObservations')
+  @include('admin.algorithme.modalAgesObservations')
+  @include('admin.algorithme.modalAnaactesObservations')
+  @include('admin.algorithme.modalObservationsOptions')
+  @include('admin.algorithme.modalEspecesAnaactes')
 
   <div class="container-fluid">
 

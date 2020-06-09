@@ -26,7 +26,7 @@
           <rect
              style="fill-opacity:1;fill: #1A5772;fill-rule:evenodd;stroke:none;stroke-width:0.223243"
              id="rect12"
-             width="50"
+             width="47"
              height="18.142857"
              x="23.434523"
              y="27.214285" />
@@ -82,7 +82,7 @@
          y="92.49099"
          x="26.312338"
          height="18.142857"
-         width="76.867409"
+         width="72"
          id="rect12-9"
          style="fill-opacity:1;fill: #1A5772;fill-rule:evenodd;stroke:none;stroke-width:0.296445" />
       <text
@@ -116,7 +116,7 @@
     id="anaactes_observations"
     type="modal"
     class="alg-ligne"
-    d="M 98.5,175, 220,175"
+    d="M 93.5,175, 220,175"
     style="fill:none;fill-rule:evenodd;stroke:#0a425a;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none" />
     <path
        inkscape:connection-end="#rect12-9"
