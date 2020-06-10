@@ -15,6 +15,7 @@
   @include('admin.algorithme.modalAnaactesObservations')
   @include('admin.algorithme.modalObservationsOptions')
   @include('admin.algorithme.modalEspecesAnaactes')
+  @include('admin.algorithme.modalAnaactesOptions')
 
   <div class="container-fluid">
 
