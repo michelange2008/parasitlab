@@ -199,7 +199,17 @@ $(".liste_observations").on('click', ".card", function() {
   window.scrollTo(200,250);
 });
 
+// Ferme le tuto si on clique sur la petite souris
+$('#avousdejouer').on('click', function() {
 
+  $('#choisirTuto').fadeOut();
+  
+    window.scrollTo(200,250);
+
+})
+//#####################################################################################
+// FONCTIONS //
+//######################################################################################
 // Fonction qui passe en display:block les options et les analyses sélectionnées
 function listeOptions() {
 
