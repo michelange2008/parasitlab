@@ -81,7 +81,7 @@
   <div id="autres_analyses" class="media border p-3 mb-2 bg-warning" style="display:none">
     <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/interpreter.svg') !!}" alt="interpreter.svg">
     <div class="media-body">
-      <p class="lead">@lang('qui_quand.veto.autres_analyses')</p>
+      <p class="lead">@lang('options.autres_analyses')</p>
     </div>
 
   </div>
