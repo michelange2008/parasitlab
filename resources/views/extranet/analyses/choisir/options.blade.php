@@ -28,7 +28,7 @@
 
           <p class="lead"><i class="fas fa-hand-point-right"></i> @lang('options.qui_prelever')</p>
 
-          <p>{{ $option->qui }}</p>
+          <p>{!! $option->qui !!}</p>
 
         </div>
 
@@ -37,7 +37,7 @@
 
           <p class="lead"><i class="fas fa-calendar-alt"></i> @lang('options.quand_prelever')</p>
 
-          <p>{{ $option->quand }}</p>
+          <p>{!! $option->quand !!}</p>
 
         </div>
 
