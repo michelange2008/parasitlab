@@ -138,8 +138,16 @@ class OptionsController extends Controller
 
             // Stockage de l'icone en lui mettant le nom de l'abbreviation
             $file = $request->file('icone_nouvelle');
-            $extension = $file->extension();
-            $file->storeAs('img/algorithme', $datas['abbreviation'].'.'.$extension, 'public');
+            
+            if($file !== null) {
+
+              $extension = $file->extension();
+              $file->storeAs('img/algorithme', $datas['abbreviation'].'.'.$extension, 'public');
+              Option::where('id', $id)->update([
+                'icone' =>  $option->abbreviation.'.'.$extension,
+              ]);
+
+            }
 
             // Mise à jour de l'option
             Option::where('id', $id)->update([
@@ -148,7 +156,6 @@ class OptionsController extends Controller
               'soustitre' => $datas['soustitre'],
               'qui' => $datas['qui'],
               'quand' => $datas['quand'],
-              'icone' =>  $option->abbreviation.'.'.$extension,
             ]);
             // Mise à jour des anaactes associés à l'option
           } elseif ($datas['type'] == "anaacte") {
