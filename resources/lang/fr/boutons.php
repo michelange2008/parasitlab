@@ -24,6 +24,7 @@ return array (
   'voirmodif' => "Voir/modifier",
   'voirmodif_infos_perso' => "Voir/modifier mes informations",
   'retour_analyses' => "Retour à la liste des analyses",
+  'commencer' => "Commencer",
   'continuer' => "Continuer",
   'modifier' => "Modifier",
   'del' => "Supprimer",

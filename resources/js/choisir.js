@@ -4,8 +4,7 @@
 // On affiche cette liste dans la vue methodeChoixAnalyse
 // Cela permet ensuite de cliquer sur les différentes observations et à chaque fois, ça fait uner requete ajax (ExtranetDemandeController@analyseSelonObservations)
 // Cette requete retourne un json que l'on affiche dans la vue options.blade
-
-
+var choisirFirst = $('#choisirFirst').attr('session');
 // Initialise la liste des observations
 var tableau_observations = [];
 var selection = [];
@@ -16,6 +15,17 @@ var url_actuelle = window.location.protocol + "//" + window.location.host + wind
 var href_initial = $("#bouton_pdf").attr('href');
 // On récupère l'adresse des icones ainsi que le contenu du tooltip pour la remise à zéro en changement d'espcèce
 var src_img_espece = $('#src_img_espece').attr('lien');
+
+//#################################### INTRODUCTION ############################################################
+// Explique qu'il faut choisir une analyse
+// Efface l'explication et affiche la liste des especes
+$('#choisirExplicationBouton').on('click', function() {
+
+  $('#choisirExplication').hide();
+
+  $('#choisirEspece').fadeIn();
+
+})
 
  // ##################### PREMIERE ETAPE ##########################################################################
 // Affichage des analyses proposées après qu'on ait cliqué sur l'icone de l'espece (dans choisir.blade.php)
@@ -53,7 +63,7 @@ $('.espece').on('click', function() {
     // Si le json renvoyé par la requete 'n'est pas un tableau vide c'est qu'il y a différentes classes d'age
     if(ages.length > 0) {
       // On ajoute le titre: Choisir un age
-      var ajout = '<div class="my-3 p-3 alert-secondary shadow"><p class="lead">' + $("#age").attr('titre') + '</p>';
+      var ajout = '<div class="my-3 p-3"><p class="lead">' + $("#age").attr('titre') + '</p>';
       // On passe en revue le tableau
       $.each(ages, function(key, lignes) {
         // Et à chaque fois on ajoute une image correspondant à un age de l'espece sélectionnée
@@ -114,7 +124,12 @@ function listeObservations(type, id) {
   // affiche le soustitre et on lui donne l'attribut espece avec l'espece_id comme valeur pour la requete ajax suivante
   $("#titre_observations").fadeIn()
   // On affiche le tuto
-  $("#choisirTuto").fadeIn();
+  if(choisirFirst) {
+
+    $("#choisirTuto").fadeIn();
+
+    choisirFirst = false;
+  }
 
   // On modifie l'url pour pouvoir faire la requete
   var url = url_actuelle.replace('analyses/choisir', 'api/observations/'+type+'/'+id);
@@ -203,7 +218,7 @@ $(".liste_observations").on('click', ".card", function() {
 $('#avousdejouer').on('click', function() {
 
   $('#choisirTuto').fadeOut();
-  
+
     window.scrollTo(200,250);
 
 })
@@ -217,7 +232,7 @@ function listeOptions() {
     // On modifie l'url pour pouvoir faire la requete
     var url = url_actuelle.replace('analyses/choisir', 'api/options');
     $("#choisirTuto").hide();
-    console.log(url);
+
     $.post({
       url : url,
       data: $('form').serialize(), // on passe le formulaire caché

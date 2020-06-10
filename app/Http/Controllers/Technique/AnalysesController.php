@@ -40,6 +40,8 @@ class AnalysesController extends Controller
     }
     public function choisir()
     {
+      session()->put('choisirFirst', true);
+
       return view('extranet.analyses.choisir', [
         'menu' => $this->menu,
         'route' => 'analyses.choisir',
@@ -55,6 +57,7 @@ class AnalysesController extends Controller
 
     public function enpratique()
     {
+
       return view('extranet.analyses.enpratique', [
         'menu' => $this->menu,
         'route' => 'analyses.enpratique',

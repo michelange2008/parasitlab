@@ -22,7 +22,17 @@ return array (
   'situ_texte' => "Cela renvoit plutôt à des questions de localisation de votre élevage ou de vos pâturages. Cette liste n'apparaît que pour les ruminants.",
   'tuto_clic' => "En cliquant sur une des observations, vous verrez s'afficher une ou plusieurs propositions d'analyses.",
   'tuto_choix' => "Il n'est possible de choisir qu'un item par catégorie.",
-  'tuto_veto' => "Attention ! Ce n'est qu'un algorithme. Dans tous les cas, n'hésitez pas à discuter avec votre vétérinaire de l'analyse la plus adaptée à votre situation.",
+  'tuto_veto' => "Attention ! Ce n'est qu'un algorithme. N'hésitez pas à discuter avec votre vétérinaire de l'analyse la plus adaptée à votre situation. Vous pouvez aussi nous contacter.",
   'jouer' => "A vous de jouer !",
   'choisir_age' => "Choisir un âge",
+
+  'pourquoi_tant' => "Pourquoi tant d'analyses possibles ?",
+
+  'meilleure_fiabilite' => "Une meilleure fiabilité des résultats",
+
+  'nombreuses_analyses' => "Parasit'Lab propose de nombreuses analyses coproscopiques différentes afin d'<strong>améliorer la fiabilité des résultats</strong>.",
+
+  'techniques_adaptees' => "En effet, un comptage précis des oeufs des différents types de parasites nécessite d'avoir recours à des techniques adaptées à chaque cas.",
+
+  'outil_choix' => "Pour cette raisons, nous vous proposons un outil de <strong>choix de l'analyse la plus adaptée à votre situation</strong>."
 );
