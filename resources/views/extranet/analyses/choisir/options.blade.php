@@ -16,7 +16,7 @@
           <h4 class="mt-0">
             {{ $option->titre }}
           </h4>
-          <p class="lead">{{ $option->soustitre }}</p>
+          <p class="lead">{!! $option->soustitre !!}</p>
 
         </div>
 
