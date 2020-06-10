@@ -22,9 +22,9 @@ class CreateOptionsTable extends Migration
             $table->string('abbreviation', 50)->nullable();
             $table->string('nom', 191)->nullable();
             $table->string('titre', 191)->nullable();
-            $table->string('soustitre', 191)->nullable();
-            $table->text('qui', 191)->nullable();
-            $table->text('quand', 191)->nullable();
+            $table->text('soustitre')->nullable();
+            $table->text('qui')->nullable();
+            $table->text('quand')->nullable();
             $table->string('icone', 191);
         });
     }
