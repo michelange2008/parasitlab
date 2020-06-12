@@ -23,4 +23,8 @@ return array (
   'exclusion_existe' => 'ATTENTION, cette exclusion existe déjà',
   'exclusion_non_existe' => 'Une nouvelle exclusion a été créée',
   'exclusion_del' => 'Cette exclusion a été supprimée',
+  'icone_store' => "Une nouvelle icone a été ajoutée",
+  'icone_del' => "Cette icone a été supprimée",
+  'anatype_add' => "Un nouveau type d'analyses a été ajouté",
+  'anatype_del' => "Ce type d'analyses a été supprimé",
 );

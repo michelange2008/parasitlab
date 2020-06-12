@@ -90,6 +90,11 @@ return array (
       'nom' => 'Algorithme',
       'tooltip' => 'Modifier le comportement de l\'algorithme de choix des analyses',
     ),
+    'sousmenu_5' =>
+    array (
+      'nom' => 'Icones',
+      'tooltip' => 'Gérer les icones',
+    ),
 
   ),
   'item_7' =>

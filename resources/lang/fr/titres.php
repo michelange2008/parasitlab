@@ -44,6 +44,7 @@ return array (
   'utilisateur_mafacture' => "Facture",
 
   'anaitem_create' => 'Ajouter un nouveau parasite',
+  'anatype_create' => 'creation d\'un nouveau type d\'analyse',
 
   'algo_age_espece' => 'Algorithme de choix: espèces et âges',
   'age_espece' => 'Liste des espèces et des âges',
@@ -54,4 +55,8 @@ return array (
   'algo_addOption' => "Ajouter une nouvelle explication",
   'algo_exclusions' => "Liste des exclusions",
   'algo_add_exclusion' => 'Ajouter une nouvelle exclusion',
+
+  'icones_titre' => "Liste des icones disponibles",
+  'icone_create' => "Enregistrer une nouvelle icone",
+  'icones_suppr' => "Suppression d'une icone",
 );

@@ -41,4 +41,7 @@ return array (
   'add_exclusion' => "Ajouter une règle d'exclusion",
 
   'fermer' => 'Fermer',
+
+  'icone_add' => 'Ajouter une icone',
+  'icones_suppr' => "Supprimer une icone",
 );

@@ -87,4 +87,41 @@ $(function() {
 
 	})
 
+// Suppression Icone
+
+$('.icone_del').on('click', function() {
+
+	var nom = $(this).attr('alt');
+	var id = $(this).attr('id');
+
+console.log(nom);
+	$.confirm({
+			type : 'red',
+			thme : 'dark',
+	    title: 'Suppression !',
+	    content: 'Souhaitez-vous vraiment supprimer <strong>' + nom + '</strong> ?',
+	    buttons: {
+	        Oui: function () {
+	            $('#icone_suppr_' + id ).submit();
+	        },
+	        Non: function () {
+
+	        },
+	    }
+	});
+});
+
+$('.icone_add').on('click', function() {
+
+	var icone_id = $(this).attr('id');
+	var icone_nom = $(this).attr('alt');
+
+	$('#input_choix_icone_nom').attr('value', icone_nom);
+	$('#input_choix_icone_id').attr('value', icone_id);
+
+	$('#modal-choix-icone').modal('hide');
+})
+
+
+
 });

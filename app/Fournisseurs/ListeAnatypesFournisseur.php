@@ -27,7 +27,7 @@ class ListeAnatypesFournisseur extends ListeFournisseur
 
       $technique = $this->itemFactory($anatype->technique);
 
-      $suppr = $this->delFactory($anatype->id, 'analyses.destroy');
+      $suppr = $this->delFactory($anatype->id, 'anatypes.destroy');
 
       $description = [
         $icone,

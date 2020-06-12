@@ -117,5 +117,20 @@ return array (
   'choix_animal' => 'Choisissez un type d\'animal ...',
   'choix_espece_age' => 'Choisissez une espèce ou un âge',
   'choix_observation' => 'Choisissez une observation',
-  'choix_anaacte_exclu' => 'Choisissez l\'analyse qui sera exclu avec cette espèce/âge et cette observation'
+  'choix_anaacte_exclu' => 'Choisissez l\'analyse qui sera exclu avec cette espèce/âge et cette observation',
+
+  'option_abbreviation' => 'Abbreviation (en 15 car. max)',
+  'option_nom' => 'Nom (en deux ou trois mots)',
+  'option_titre' => 'Titre (Ce qui apparaît à l\'utilisateur)',
+  'option_soustitre' =>  'Sous-titre (Une description plus détaillée)',
+  'option_qui' => 'Qui prélever',
+  'option_quand' => 'Quand prélever',
+
+  'anatype_abbreviation' => "Abbreviation (10 car. max)",
+  'anatype_technique' => "Description de la technique",
+  'estAnalyse' => 'Est-ce une analyse ?',
+   'oui' => 'Oui',
+  'non' => 'Non',
+
+  'nom_icone' => 'Nom de l\'icone (sans l\'extension)',
 );

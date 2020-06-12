@@ -10,6 +10,7 @@ use App\Http\Traits\LitJson;
 
 use \App\Models\Analyses\Anatype;
 use \App\Models\Analyses\Anaitem;
+use \App\Models\Icone;
 
 class AnatypeController extends Controller
 {
@@ -48,7 +49,10 @@ class AnatypeController extends Controller
      */
     public function create()
     {
-      return view('errors.entravaux');
+      return view('admin.anatypes.anatypeCreate', [
+        'menu' => $this->menu,
+        'icones' => Icone::all()->sortBy('nom'),
+      ]);
 
     }
 
@@ -60,7 +64,20 @@ class AnatypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datas = $request->all();
+
+        $nouvel_anatype = new Anatype();
+
+        $nouvel_anatype->abbreviation = $request->abbreviation;
+        $nouvel_anatype->nom = $request->nom;
+        $nouvel_anatype->technique = $request->technique;
+        $nouvel_anatype->estAnalyse = $request->estAnalyse;
+        $nouvel_anatype->icone_id = $request->icone_id;
+
+        $nouvel_anatype->save();
+
+        return redirect()->route('anatypes.index')->with('message', 'anatype_add');
+
     }
 
     /**
@@ -109,6 +126,8 @@ class AnatypeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Anatype::destroy($id);
+
+        return redirect()->back()->with('message', 'anatype_del');
     }
 }

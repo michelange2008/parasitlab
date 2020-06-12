@@ -150,6 +150,12 @@
         "id" : "items",
         "prefixe" : "menuLabo.item_5.sousmenu_4.",
         "route" : "algorithme.index"
+      },
+      "sousmenu_5" :
+      {
+        "id" : "items",
+        "prefixe" : "menuLabo.item_5.sousmenu_5.",
+        "route" : "icones.index"
       }
     }
   },

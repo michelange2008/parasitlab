@@ -103,7 +103,7 @@
 
               <div class="col-md-12">
 
-                @include('admin.form.inputImage', [
+                @inputImage( [
                   'nouveau' => false,
                   'image' => $anaitem->image ,
                   'chemin' => 'storage/img/icones/oeufs/',

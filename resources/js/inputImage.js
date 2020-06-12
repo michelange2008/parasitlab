@@ -60,4 +60,49 @@ $(function() {
         }
         reader.readAsDataURL(file);
     });
+
+    //############################################################################
+    // VERIFIE QUE L'ICONE EST UNIQUE
+    //############################################################################
+    $('#iconeCreate').on('click', function(e) {
+
+      // On récupère le nom de fichier
+      var file = $('.image-preview-input input:file').val();
+      // On extrait l'extension de ce fichier
+      var extension = file.split('.').pop();
+      // On récupère le nom de l'icone
+      var icone_nom = $('input:text').val();
+      // On construit le fichier
+      var icone = icone_nom.toLowerCase() + '.' + extension;
+
+      var url = $('#form_icone').attr('action');
+
+      var url_get = url.replace('laboratoire/icones', 'api/listeIcones')
+
+      $.get({
+
+        url : url_get,
+
+      })
+      .done(function(datas) {
+
+        var icones = JSON.parse(datas);
+        if(icones.indexOf(icone) == '-1' ) {
+          console.log(icones.indexOf(icone));
+
+          $('#form_icone').submit();
+
+        }
+
+        else {
+
+          $('input:text').focus().val('').attr('placeholder', 'Le nom "' + icone_nom + '" existe déjà');
+        }
+      })
+      .fail(function(datas){
+
+          console.log(datas);
+      });
+
+    });
 });

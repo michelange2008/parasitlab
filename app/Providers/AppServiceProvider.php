@@ -48,5 +48,8 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('fragments.boutonSavoirPlus', 'boutonSavoirPlus');
       Blade::include('fragments.boutonRetour', 'retour');
       Blade::include('fragments.blocEnregistreAnnule', 'enregistreAnnule');
+
+      Blade::include('admin.form.inputText', 'inputText');
+      Blade::include('admin.form.inputImage', 'inputImage');
     }
 }

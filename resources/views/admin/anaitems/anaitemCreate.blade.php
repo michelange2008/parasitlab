@@ -86,7 +86,7 @@
 
             <div class="col-md-12">
 
-              @include('admin.form.inputImage', [
+              @inputImage( [
                 'nouveau' => true,
                 'name' => 'image'
               ])

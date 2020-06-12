@@ -189,6 +189,9 @@
 
     Route::get('traductions', 'TraductionsController@index')->name('traductions');
 
+    Route::get('icones/suppression', 'IconesController@suppr')->name('icones.suppr');
+
+    Route::resource('icones', 'IconesController');
     //###########################
     // GESTION DE L'ALGORITME DE CHOIX
     Route::get('algorithme', 'Analyses\Algorithme\BaseController@index')->name('algorithme.index');

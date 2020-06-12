@@ -51,7 +51,7 @@
 
                 <td>{{ $option->titre }}</td>
 
-                <td> <a href="{{ route('options.edit', $option->id) }}" data-toggle="tooltip" title="@lang('tooltips.editOption')"><i class="fas fa-edit text-success"></i></a></td>
+                <td> <a href="{{ route('options.edit', $option->id) }}" data-toggle="tooltip" title="@lang('tooltips.edit_option')"><i class="fas fa-edit text-success"></i></a></td>
 
                 <td> <a href="{{ route('option.editAnaacte', $option->id) }}" data-toggle="tooltip" title="@lang('tooltips.editOptionAnaacte')"><i class="fas fa-microscope color-bleu-tres-fonce"></i></a></td>
 

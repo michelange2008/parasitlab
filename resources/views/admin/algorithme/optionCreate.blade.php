@@ -29,24 +29,24 @@
           <div class="row">
             <div class="col-md-4">
 
-              @include('admin.algorithme.inputText', ['nom' => 'abbreviation', 'label' => 'Abbreviation (en 15 car. max)', 'required' => true, "maxlength" => 15, 'value' =>''])
+              @include('admin.form.inputText', ['nom' => 'abbreviation', 'label' => 'option_abbreviation', 'required' => true, "maxlength" => 15, 'value' =>''])
           </div>
           <div class="col-md-8">
 
-            @include('admin.algorithme.inputText', ['nom' => 'nom', 'label' => 'Nom (en deux ou trois mots)', 'required' => true, 'value' => ''])
+            @include('admin.form.inputText', ['nom' => 'nom', 'label' => 'option_nom', 'required' => true, 'value' => ''])
           </div>
 
           </div>
-          @include('admin.algorithme.inputText', ['nom' => 'titre', 'label' => 'Titre (Ce qui apparaît à l\'utilisateur)', 'required' => true, 'value' =>''])
-          @include('admin.algorithme.inputText', ['nom' => 'soustitre', 'label' => 'Sous-titre (Une description plus détaillée)', 'required' => true, 'value' =>''])
-          @include('admin.algorithme.inputTextarea', [ 'nom' => 'qui', 'label' => 'Qui prélever', 'required' => true, 'value' =>''])
-          @include('admin.algorithme.inputTextarea', [ 'nom' => 'quand', 'label' => 'Quand prélever', 'required' => true, 'value' =>''])
+          @include('admin.form.inputText', ['nom' => 'titre', 'label' => 'option_titre', 'required' => true, 'value' =>''])
+          @include('admin.form.inputText', ['nom' => 'soustitre', 'label' => 'option_soustitre', 'required' => true, 'value' =>''])
+          @include('admin.form.inputTextarea', [ 'nom' => 'qui', 'label' => 'option_qui', 'required' => true, 'value' =>''])
+          @include('admin.form.inputTextarea', [ 'nom' => 'quand', 'label' => 'option_quand', 'required' => true, 'value' =>''])
 
           <div class="form-row">
 
             <div class="col-md-12">
 
-              @include('admin.form.inputImage', [
+              @inputImage( [
                 'nouveau' => true,
                 'name' => 'icone'
               ])

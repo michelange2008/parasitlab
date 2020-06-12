@@ -32,20 +32,20 @@
 
           <div class="row">
             <div class="col-md-8">
-              @include('admin.algorithme.inputText', ['nom' => 'nom', 'label' => 'Nom (en deux ou trois mots)', 'required' => true, 'value' => $option->nom])
+              @include('admin.form.inputText', ['nom' => 'nom', 'label' => 'option_nom', 'required' => true, 'value' => $option->nom])
             </div>
           </div>
 
-          @include('admin.algorithme.inputText', ['nom' => 'titre', 'label' => 'Titre (Ce qui apparaît à l\'utilisateur)', 'required' => true, 'value' => $option->titre])
-          @include('admin.algorithme.inputTextarea', ['nom' => 'soustitre', 'label' => 'Sous-titre (Une description plus détaillée)', 'required' => true, 'value' => $option->soustitre])
-          @include('admin.algorithme.inputTextarea', [ 'nom' => 'qui', 'label' => 'Qui prélever', 'required' => true, 'value' => $option->qui])
-          @include('admin.algorithme.inputTextarea', [ 'nom' => 'quand', 'label' => 'Quand prélever', 'required' => true, 'value' => $option->quand])
+          @include('admin.form.inputText', ['nom' => 'titre', 'label' => 'option_titre', 'required' => true, 'value' => $option->titre])
+          @include('admin.form.inputTextarea', ['nom' => 'soustitre', 'label' => 'option_soustitre', 'required' => true, 'value' => $option->soustitre])
+          @include('admin.form.inputTextarea', [ 'nom' => 'qui', 'label' => 'option_qui', 'required' => true, 'value' => $option->qui])
+          @include('admin.form.inputTextarea', [ 'nom' => 'quand', 'label' => 'option_quand', 'required' => true, 'value' => $option->quand])
 
           <div class="form-row">
 
             <div class="col-md-12">
 
-              @include('admin.form.inputImage', [
+              @inputImage( [
                 'nouveau' => false,
                 'chemin' => 'storage/img/algorithme/',
                 'image' => $option->icone,

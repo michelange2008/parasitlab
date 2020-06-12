@@ -80,7 +80,7 @@
 
         <div class="custom-file col-md-8 mb-3">
 
-          @include('admin.form.inputImage', ['nouveau' => true, 'name' => 'image'])
+          @inputImage( ['nouveau' => true, 'name' => 'image'])
 
         </div>
 

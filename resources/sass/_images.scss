@@ -11,6 +11,10 @@
   width: 100%;
 }
 
+.img-100px {
+  width: 100px;
+}
+
 .img-90 {
   // width: 50px;
   height: 90px;
@@ -54,6 +58,14 @@
 
 .img-zoom:hover {
   animation: scale-up-center 1s ease-in-out both;
+}
+.icone {
+  border: solid 1px darkgrey;
+}
+.icone:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 6px black;
+  background: lightgrey;
 }
 
 /* ----------------------------------------------
