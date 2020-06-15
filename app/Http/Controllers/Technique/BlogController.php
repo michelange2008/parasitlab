@@ -49,7 +49,7 @@ class BlogController extends Controller
 
       $blog = new Blog();
 
-      $route = ['blog.store'];
+      $route = ['nom' => 'blog.store'];
 
       $method = "POST";
 
@@ -74,17 +74,16 @@ class BlogController extends Controller
           'titre' => 'required|unique:blogs|max:191',
           'contenu' => 'required',
           'auteur' => 'required',
-          'image' => 'file|image|required',
-          'motclefs' => '',
+          'image_nouvelle' => 'file|image|required',
         ]);
 
         $nouveau_blog = new Blog;
 
-        $fichier_image = $request->file('image');
+        $fichier_image = $request->file('image_nouvelle');
 
         $nouvelle_image = $fichier_image->store('img/blog', 'public');
 
-        $this->storeUpdate($nouveau_blog, $validateData, $nouvelle_image);
+        $this->storeUpdate($nouveau_blog, $request, $nouvelle_image);
 
         return redirect()->route('parasitisme');
     }
@@ -123,7 +122,7 @@ class BlogController extends Controller
 
       $blog->liste_motclefs = $this->listeMotclefs($blog);
 
-      $route = ['blog.update', $id];
+      $route = ["nom" => 'blog.update', "id" => $id];
 
       $method = 'PUT';
 
@@ -132,7 +131,8 @@ class BlogController extends Controller
         'blog' => $blog,
         'route' => $route,
         'method' => $method,
-        'laboratoires' => $laboratoires
+        'laboratoires' => $laboratoires,
+        'image' => Blog::find($id)->image,
       ]);
     }
 

@@ -21,7 +21,7 @@
       {{-- il faut aussi passer en parametre le préfixe du nom car possibilité qu'il y ait deux champs inputImage --}}
       <input type="hidden" name="{{ $name }}_default" value="{{ $image ?? '' }}">
 
-      <input id="input_dis_{{ $name }}" type="text" class="form-control image-preview-filename" disabled="disabled" > <!-- don't give a name === doesn't send on POST/GET -->
+      <input id="input_dis_{{ $name }}" type="text" class="form-control image-preview-filename" disabled="disabled" value="{{ $image ?? '' }}" > <!-- don't give a name === doesn't send on POST/GET -->
 
       <span class="input-group-btn">
         <!-- image-preview-clear button -->
