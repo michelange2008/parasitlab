@@ -64,6 +64,7 @@ return array (
   'estFinie' => 'Analyse terminée (décocher si ce n\'est pas le cas)',
   'espece' => 'Espèce',
   'comment' => "Commentaire",
+  'description' => "Description",
 
   'user_guide_title' => "Mode d'emploi",
   'user_guide_soustitre_1' => "Cliquez sur modifier",
@@ -129,8 +130,10 @@ return array (
   'anatype_abbreviation' => "Abbreviation (10 car. max)",
   'anatype_technique' => "Description de la technique",
   'estAnalyse' => 'Est-ce une analyse ?',
+  'estTarif' => "Est-ce affiché dans les tarifs ?",
    'oui' => 'Oui',
   'non' => 'Non',
-
+  'pu_ht' => "Prix HT",
+  'tva' => 'TVA',
   'nom_icone' => 'Nom de l\'icone (sans l\'extension)',
 );

@@ -9,8 +9,10 @@ use App\Fournisseurs\ListeAnaactesFournisseur;
 
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Anatype;
+use App\Models\Analyses\Tva;
 use App\Models\Espece;
 use App\Models\Age;
+use App\Models\Icone;
 
 
 use App\Http\Traits\LitJson;
@@ -98,7 +100,9 @@ class AnaacteController extends Controller
 
       return view('admin.anaactes.anaacte', [
         'menu' => $this->menu,
+        'icones' => Icone::all()->sortBy('nom'),
         'anaacte' => $anaacte,
+        'tvas' => Tva::all(),
       ]);
 
     }
@@ -112,7 +116,23 @@ class AnaacteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $anaacte = Anaacte::find($id);
+
+        $anaacte->abbreviation = $request->abbreviation;
+        $anaacte->nom = $request->nom;
+        $anaacte->description = $request->description;
+        $anaacte->estSerie = $request->estSerie;
+        $anaacte->estAnalyse = $request->estAnalyse;
+        $anaacte->estTarif = $request->estTarif;
+        $anaacte->icone_id = $request->icone_id;
+        $anaacte->pu_ht = $request->pu_ht;
+        $anaacte->tva_id = $request->tva_id;
+
+        $anaacte->save();
+
+        return redirect()->route('anaactes.index')->with('message', 'anaacte_update');
+
     }
 
     /**

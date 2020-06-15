@@ -50,6 +50,8 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('fragments.blocEnregistreAnnule', 'enregistreAnnule');
 
       Blade::include('admin.form.inputText', 'inputText');
+      Blade::include('admin.form.inputTextarea', 'inputTextarea');
       Blade::include('admin.form.inputImage', 'inputImage');
+      Blade::include('admin.form.inputOuiNon', 'inputOuiNon');
     }
 }

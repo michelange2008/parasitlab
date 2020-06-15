@@ -27,4 +27,5 @@ return array (
   'icone_del' => "Cette icone a été supprimée",
   'anatype_add' => "Un nouveau type d'analyses a été ajouté",
   'anatype_del' => "Ce type d'analyses a été supprimé",
+  'anaacte_update' => "Cette analyse a été modifiée",
 );

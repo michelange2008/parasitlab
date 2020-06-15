@@ -2,7 +2,7 @@
 
   <label for="{{ $nom }}">@lang('form.'.$label)</label>
 
-  <input class="form-control" type="text"
+  <input class="form-control" type="{{ $type ?? 'num' }}"
 
           name="{{ $nom }}" id="{{ $nom }}"
 
@@ -10,7 +10,7 @@
 
           maxlength="{{ $maxlength ?? 191 }}"
 
-          required={{ $required }}
+          required={{ $required ?? false }}
 
           placeholder="{{ $placeholder ?? '' }}"
 
