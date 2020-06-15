@@ -10,7 +10,7 @@
 
     required={{ $required }}
 
-    placeholder={{ $placeholder ?? '' }}
+    placeholder={{ __('form.'.($placeholder ?? '')) }}
 
     >{{ old( $nom ) ?? $value }}</textarea>
 

@@ -61,7 +61,11 @@ class AnaacteController extends Controller
      */
     public function create()
     {
-      return view('errors.entravaux');
+      return view('admin.anaactes.anaacteCreate', [
+        'menu' => $this->menu,
+        'anatypes' => Anatype::all(),
+        'icones' => Icone::all()->sortBy('nom'),
+      ]);
 
     }
 

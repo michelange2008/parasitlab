@@ -127,6 +127,7 @@ return array (
   'option_qui' => 'Qui prélever',
   'option_quand' => 'Quand prélever',
 
+  'anatype' => 'Type d\'analyse',
   'anatype_abbreviation' => "Abbreviation (10 car. max)",
   'anatype_technique' => "Description de la technique",
   'estAnalyse' => 'Est-ce une analyse ?',
@@ -136,4 +137,6 @@ return array (
   'pu_ht' => "Prix HT",
   'tva' => 'TVA',
   'nom_icone' => 'Nom de l\'icone (sans l\'extension)',
+  'anaacte_nom' => "Nom du nouvel acte à créer",
+  'anaacte_description' => "Description destinée aux utilisateurs"
 );

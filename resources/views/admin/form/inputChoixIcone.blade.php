@@ -12,7 +12,7 @@
     {{-- champ visible mais désactivé pour afficher le nom de l'icone --}}
     <input id="input_choix_icone_nom" class="form-control" type="text" name="icone_nom" value="{{ $icone->nom ?? '' }}" disabled>
     {{-- Champs activé mais invisible pour transmettre l'id de l'icone --}}
-    <input id="input_choix_icone_id" class="form-control" type="hidden" name="icone_id" value="{{ $icone->id }}">
+    <input id="input_choix_icone_id" class="form-control" type="hidden" name="icone_id" value="{{ $icone->id ?? '' }}">
 
   </div>
 
