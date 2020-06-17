@@ -9,7 +9,7 @@
 
     @else
 
-      <img class="img-100" src="{{ url($chemin.$image) }}" alt="{{ $image }}">
+      <img class="img-100" src="{{ url($chemin.$image) }}" alt="{{ $blog->image }}">
 
     @endif
 
@@ -19,9 +19,9 @@
 
     <div id="group_{{ $name }}" class="input-group image-preview">
       {{-- il faut aussi passer en parametre le préfixe du nom car possibilité qu'il y ait deux champs inputImage --}}
-      <input type="hidden" name="{{ $name }}_default" value="{{ $image ?? '' }}">
+      <input type="hidden" name="{{ $name }}_default" value="{{ $blog->image ?? '' }}">
 
-      <input id="input_dis_{{ $name }}" type="text" class="form-control image-preview-filename" disabled="disabled" value="{{ $image ?? '' }}" > <!-- don't give a name === doesn't send on POST/GET -->
+      <input id="input_dis_{{ $name }}" type="text" class="form-control image-preview-filename" disabled="disabled" value="{{ $blog->image ?? '' }}" > <!-- don't give a name === doesn't send on POST/GET -->
 
       <span class="input-group-btn">
         <!-- image-preview-clear button -->
@@ -37,7 +37,7 @@
 
           <span id="span_{{ $name }}" class="image-preview-input-title">@lang('form.browse')</span>
 
-          <input type="file" accept="image/png, image/jpeg, image/gif, image/svg" name="{{ $name }}_nouvelle"  @if ($nouveau) required  @endif/> <!-- rename it -->
+          <input type="file" accept="image/png, image/jpeg, image/gif, image/svg" name="{{ $name }}_nouvelle" > <!-- rename it -->
 
         </div>
 

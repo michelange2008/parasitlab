@@ -26,7 +26,7 @@
 
         {{-- {{ Form::model($blog, ['route' => $route, 'enctype' => 'multipart/form-data']) }} --}}
 
-        <form action="{{ route($route['nom'], $id ?? '') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route($route['nom'], $route(['id']) ?? '') }}" method="post" enctype="multipart/form-data">
 
           @csrf
 
@@ -85,7 +85,16 @@
 
         <div class="custom-file col-md-8 mb-3">
 
-          @inputImage( ['nouveau' => true, 'name' => 'image', 'image' => $blog->image])
+          @isset($image)
+
+            @inputImage( ['nouveau' => false, 'name' => 'image', 'image' => $blog->image])
+
+          @else
+
+            @inputImage( ['nouveau' => true, 'name' => 'image', 'image' => $blog->image])
+
+          @endisset
+
 
         </div>
 

@@ -132,7 +132,7 @@ class BlogController extends Controller
         'route' => $route,
         'method' => $method,
         'laboratoires' => $laboratoires,
-        'image' => Blog::find($id)->image,
+        'chemin' => 'storage/img/blog/',
       ]);
     }
 
@@ -145,6 +145,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+      dd($resquest->all());
       $validateData = $request->validate([
         'titre' => 'required|max:191',
         'contenu' => 'required',
