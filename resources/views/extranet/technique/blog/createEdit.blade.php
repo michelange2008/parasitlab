@@ -26,7 +26,7 @@
 
         {{-- {{ Form::model($blog, ['route' => $route, 'enctype' => 'multipart/form-data']) }} --}}
 
-        <form action="{{ route($route['nom'], $route(['id'] ?? '') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route($route['nom'], $route['id'] ?? '') }}" method="post" enctype="multipart/form-data">
 
           @csrf
 
@@ -85,7 +85,7 @@
 
         <div class="custom-file col-md-8 mb-3">
 
-          @isset($image)
+          @isset($blog->image)
 
             @inputImage( ['nouveau' => false, 'name' => 'image', 'image' => $blog->image])
 
@@ -98,7 +98,7 @@
 
         </div>
 
-        <div class="form-group">
+        <div class="form-group my-3">
 
           <label for="motclefs">@lang('parasitisme.tags')</label>
 
@@ -110,7 +110,7 @@
 
           <div class="col">
 
-            @enregistreAnnule(['route' => url()->previous()])
+            @enregistreAnnule(['route' => route('blog.index')])
 
           </div>
 

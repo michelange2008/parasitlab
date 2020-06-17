@@ -6,7 +6,7 @@
 
           name="{{ $nom }}" id="{{ $nom }}"
 
-          value="{{ old( $nom ) ?? $value }}"
+          value="{{ old('nom') ?? $value }}"
 
           maxlength="{{ $maxlength ?? 191 }}"
 

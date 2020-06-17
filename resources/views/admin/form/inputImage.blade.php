@@ -9,7 +9,7 @@
 
     @else
 
-      <img class="img-100" src="{{ url($chemin.$image) }}" alt="{{ $blog->image }}">
+      <img class="img-50" src="{{ url($chemin.$image) }}" alt="{{ $blog->image }}">
 
     @endif
 
@@ -37,13 +37,21 @@
 
           <span id="span_{{ $name }}" class="image-preview-input-title">@lang('form.browse')</span>
 
-          <input type="file" accept="image/png, image/jpeg, image/gif, image/svg" name="{{ $name }}_nouvelle" > <!-- rename it -->
+          <input type="file" accept="image/png, image/jpeg, image/gif, image/svg" name="{{ $name }}_nouvelle" @if ($nouveau) required  @endif> <!-- rename it -->
 
         </div>
 
       </span>
 
+
+
     </div><!-- /input-group image-preview [TO HERE]-->
+
+    @error('image_nouvelle')
+
+      <div class="alert alert-danger">{{ __($message) }}</div>
+
+    @enderror
 
   </div>
   {{-- traduction pour le javascript --}}

@@ -145,7 +145,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-      dd($resquest->all());
+
       $validateData = $request->validate([
         'titre' => 'required|max:191',
         'contenu' => 'required',
@@ -158,7 +158,7 @@ class BlogController extends Controller
       // Mise à jour des mots clefs et suppression de ceux qui en sont plus utilisés
       $blog->motclefs()->detach();
 
-      $fichier_image = (null !== $request->file('image')) ? $request->file('image') : false;
+      $fichier_image = (null !== $request->file('image_nouvelle')) ? $request->file('image_nouvelle') : false;
 
       $nouvelle_image = ($fichier_image) ? $fichier_image->store('img/blog', 'public') : false;
 
