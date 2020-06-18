@@ -36,7 +36,7 @@ class ParasitismeController extends Controller
 
         $derniers_blogs = Blog::orderBy('updated_at', 'desc')->get(); // pour afficher les 5 derniers blogs dans le menu latéral
 
-        $blog = Blog::orderBy('updated_at', 'desc')->first(); // dernier blog
+        $blog = Blog::orderBy('created_at', 'desc')->first(); // dernier blog
 
         if(isset($blog)) {
 
