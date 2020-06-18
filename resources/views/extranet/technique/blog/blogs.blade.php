@@ -14,7 +14,7 @@
 
             <h5 id="titre" class="m-1">{{ ucfirst($blog->titre) }}
 
-              <span id='date_creation' class="text-muted m-1" >( {{ \Carbon\Carbon::parse($blog->updated_at)->isoFormat('D MMM Y') }} )</span></h5>
+              <span id='date_creation' class="text-muted m-1" >( {{ \Carbon\Carbon::parse($blog->created_at)->isoFormat('D MMM Y') }} )</span></h5>
 
               <p id="introduction_{{ $blog->id }}" class="blog-introduction my-3">{{ $blog->introduction }}</p>
 
@@ -59,7 +59,7 @@
             </div>
 
           </div>
-          
+
           @if ($modif_blog)
 
             @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
