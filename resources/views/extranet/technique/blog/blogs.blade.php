@@ -56,18 +56,18 @@
 
                 <div id="readless_{{ $blog->id }}" class="btn btn-outline-secondary mb-3 readless" style="display:none"><i class="fas fa-chevron-left"></i> Replier</div>
 
-
+              </div>
               @if ($modif_blog)
 
                 @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
 
               @endif
 
-              <hr class="divider-court">
-
             </div>
 
-        </li>
+            <hr class="divider-court">
+
+          </li>
 
       @endforeach
 

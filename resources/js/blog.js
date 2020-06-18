@@ -13,27 +13,23 @@ $('.motclef').on('click', function(e) {
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-  var url = url_actuelle.replace('parasitisme', 'laboratoire/motclef/' + id); // modifie d'adresse pour accéder à la méthode show de BlogController
+  var url = url_actuelle + '/motclef/' + id ; // modifie d'adresse pour accéder à la méthode show de BlogController
 
   $.get({
 
     url : url,
 
   })
-  .done(function(data) {
-
-    var elements = JSON.parse(data);
-
-    var liste = '';
+  .done(function(elements) {
 
     $.each(elements, function(key, value) {
-
+      // Efface tous les articles
       $('.blog').hide();
-
-      $('#blog_' + value.id).show();
+      // Affiche les articles correspnande au mot clef
+      $('#blog_' + value).show();
 
     })
-
+    // Affiche le bouton rétablir
     $('#blogs_retablir').show();
 
   })
@@ -48,7 +44,7 @@ $('#blogs_retablir').on('click', function() {
   $('#blogs_retablir').hide();
 
   $('a').removeClass('alert-bleu-tres-fonce');
-  
+
 })
 
 //##############################################################################

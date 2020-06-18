@@ -70,6 +70,9 @@
   Route::get('infos/aide', ['uses' => 'InfosController@aide', 'as' => 'infos.aide']);
   // Non implémenté
   Route::get('presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
+
+  Route::get('parasitisme/motclef/{motclef_id}', 'Technique\MotclefController@listeBlogs')->name('motclef.listeblogs');
+
   //##############################################################################
 
   Auth::routes(['register' => false]);
@@ -184,8 +187,6 @@
     Route::resource('acte', 'Labo\ActeController');
 
     Route::resource('blog', 'Technique\BlogController')->except('show', 'index');
-
-    Route::get('motclef/{motclef_id}', 'Technique\MotclefController@listeBlogs')->name('motclef.listeblogs');
 
     Route::get('traductions', 'TraductionsController@index')->name('traductions');
 
