@@ -34,7 +34,7 @@ class ParasitismeController extends Controller
 
         $motclefs = Motclef::all();
 
-        $derniers_blogs = Blog::orderBy('updated_at', 'desc')->get(); // pour afficher les 5 derniers blogs dans le menu latéral
+        $derniers_blogs = Blog::orderBy('created_at', 'desc')->get(); // pour afficher les 5 derniers blogs dans le menu latéral
 
         $blog = Blog::orderBy('created_at', 'desc')->first(); // dernier blog
 
