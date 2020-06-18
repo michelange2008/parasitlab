@@ -1,65 +1,3 @@
-// Affichage d'un blog en cliquant sur son titre
-function afficheBlog(nouvel_id) {
-
-  var ancien_id = $('.suppr').attr('id'); // id du blog affiché avant d'avoir cliqué
-
-
-  var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
-
-  var url = url_actuelle.replace('parasitisme', 'blog/' + nouvel_id); // modifie d'adresse pour accéder à la méthode show de BlogController
-
-  var image_avec_chemin = $('#image').attr('src'); // chemin de l'image actuelle pour pouvoir connaître son nom
-
-  var image = image_avec_chemin.split("/")[(image_avec_chemin.split("/").length -1)]; // nom de l'image après éclatement de l'adresse
-
-  $.get({
-
-    url : url,
-
-  })
-
-  .done(function(data) {
-
-    var elements = JSON.parse(data);
-
-    // modification du chemin de l'image pour l'affichage
-    var nouvel_image_avec_chemin = image_avec_chemin.replace(image, elements.image);
-    // Affichage des différents éléments qui ont changé
-    $('#image').attr('src', nouvel_image_avec_chemin);
-    $('#titre').html(elements.titre);
-    $('#date_creation').html('( ' + elements.date + ' )');
-    $('#contenu').html(elements.contenu);
-    $("#auteur").html(elements.auteur);
-    $('#liste_motclefs').html(elements.liste_motclefs);
-    // Modification des liens pour l'édition et la suppression
-    var edit = $(".edit").attr('action');
-    var nouvel_edit = edit.replace(ancien_id, elements.id );
-    $('.edit').attr('action', nouvel_edit);
-    var suppr = $('.suppr').attr('action');
-    var nouveau_suppr = suppr.replace(ancien_id, elements.id);
-    $('.suppr').attr('action', nouveau_suppr);
-  })
-
-}
-
-$('.blog').on('click', function(e) {
-
-  var nouvel_id = $(this).attr('id').split("_")[1]; // id du blog que l'on veut afficher
-
-  afficheBlog(nouvel_id)
-
-})
-
-$('#liste_blogs').on('click', '.blogmotclef', function(e) {
-
-  var nouvel_id = $(this).attr('id').split("_")[1]; // id du blog que l'on veut afficher
-
-  afficheBlog(nouvel_id)
-
-})
-
-
-
 // affichage de la liste de blogs correspondant à un motclef_
 $('.motclef').on('click', function(e) {
 
@@ -90,17 +28,59 @@ $('.motclef').on('click', function(e) {
 
     $.each(elements, function(key, value) {
 
+      $('.blog').hide();
 
-        liste += '<li class="blogmotclef list-group-item" id="blogmotclef_'+
-        value.id+
-        '"><button class="blog btn text-left" >'+
-        value.titre+
-        '</button></li>'
-
+      $('#blog_' + value.id).show();
 
     })
 
-    $('#liste_blogs').append(liste);
+    $('#blogs_retablir').show();
+
   })
 
 })
+
+// Rétablir toutes les blogs
+$('#blogs_retablir').on('click', function() {
+
+  $('.blog').show();
+
+  $('#blogs_retablir').hide();
+
+  $('a').removeClass('alert-bleu-tres-fonce');
+  
+})
+
+//##############################################################################
+// BLOG lire plus ou moins
+//##############################################################################
+// DEPLIER POUR LIRE PLUS
+	$('.readmore').on('click', function() {
+
+		var id = $(this).attr('id').split('_')[1];
+		// Affiche tous les boutons lire plus
+		$('.readmore').show();
+		// Efface le bouton lireplus cliqué
+		$(this).hide();
+		// Efface tous les boutons liremoins
+		$('.readless').hide();
+		// Affiche le bouton liremoins de l'article sélectionné
+		$('#readless_' + id).fadeIn();
+		// Efface tous les contenus
+		$('.blog-contenu').hide();
+		// Affiche le contenu du blog sélectionné
+		$('#contenu_' + id).fadeIn();
+
+	});
+
+	// REPLIER POUR LIRE MOINS
+	$('.readless').on('click', function() {
+
+		// On efface tous les boutons readless
+		$('.readless').hide();
+		// On affiche tous les boutons readmore
+		$('.readmore').fadeIn();
+		// On efface tous les contenus
+		$('.blog-contenu').hide();
+
+	})

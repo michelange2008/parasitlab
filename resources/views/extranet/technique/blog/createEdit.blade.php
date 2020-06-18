@@ -75,6 +75,14 @@
 
         </div>
 
+        @inputTextarea([
+          'nom' => 'introduction',
+          'label' => 'blog_intro',
+          'placeholder' => 'blog_intro_placeholder',
+          'value' => $blog->introduction ?? '',
+
+        ])
+
         <div class="form-group">
 
           <label for="contenu">@lang('parasitisme.content')</label>

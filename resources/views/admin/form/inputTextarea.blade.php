@@ -8,14 +8,14 @@
 
     rows = "3"
 
-    required={{ $required }}
+    required={{ $required ?? true }}
 
     placeholder={{ __('form.'.($placeholder ?? '')) }}
 
     >{{ old( $nom ) ?? $value }}</textarea>
 
 @error( $nom )
-  <div class="invalid">@lang('Il faut une valeur qui n\'est pas déjà existance')</div>
+  <div class="invalid">@lang('form.erreur_existe')</div>
 @enderror
 
 </div>

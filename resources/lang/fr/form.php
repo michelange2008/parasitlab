@@ -138,5 +138,8 @@ return array (
   'tva' => 'TVA',
   'nom_icone' => 'Nom de l\'icone (sans l\'extension)',
   'anaacte_nom' => "Nom du nouvel acte à créer",
-  'anaacte_description' => "Description destinée aux utilisateurs"
+  'anaacte_description' => "Description destinée aux utilisateurs",
+  'erreur_existe' => 'Il faut une valeur qui n\'est pas déjà existante',
+  'blog_intro' => 'Introduction ou résumé',
+  'blog_intro_placeholder' => "Introduction ou court résumé",
 );

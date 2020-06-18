@@ -1,58 +1,80 @@
-@if (isset($blog))
+@if (isset($blogs))
 
-  <ul class="list-unstyled">
+    <ul class="list-unstyled my-3">
 
-    <li class="media my-3">
+      @foreach ($blogs as $blog)
 
-      <img id="image" width="250px" src="{{ url('storage/img/blog').'/'.$blog->image }}" alt="{{ $blog->image }}">
+      <li id="blog_{{ $blog->id }}" class="blog">
 
-      <div class="media-body ml-3">
+        <div class="media">
 
-        <div class="d-flex flex-row">
+          <img id="image" width="250px" src="{{ url('storage/img/blog').'/'.$blog->image }}" alt="{{ $blog->image }}">
 
-          <h5 id="titre" class="m-1">{{ ucfirst($blog->titre) }} </h5>
+          <div class="media-body ml-3">
 
-          <h5 id='date_creation' class="text-muted m-1" >( {{ $blog->date }} )</h5>
+            <h5 id="titre" class="m-1">{{ ucfirst($blog->titre) }}
 
-        </div>
+              <span id='date_creation' class="text-muted m-1" >( {{ \Carbon\Carbon::parse($blog->updated_at)->isoFormat('D MMM Y') }} )</span></h5>
+
+              <p id="introduction_{{ $blog->id }}" class="blog-introduction my-3">{{ $blog->introduction }}</p>
+
+              <p id="contenu_{{ $blog->id }}" class="blog-contenu" style="display:none">{!! nl2br($blog->contenu) !!}</p>
+
+              <div id="readmore_{{ $blog->id }}" class="btn btn-outline-secondary mb-3 readmore">Lire plus <i class="fas fa-chevron-right"></i></div>
+
+              <p id="auteur_{{ $blog->id }}" class="blockquote-footer">{{ $blog->user->name }}</p>
+
+              <p class="small"><i>@lang('parasitisme.tags')&nbsp;: </i>
+
+                @foreach ($blog->motclefs as $motclef)
+
+                  @if ($loop->last)
+
+                    @if ($loop->iteration === 1)
+
+                      <span id='liste_motclefs'>{{ ucfirst($motclef->motclef) }}.</span>
+
+                    @else
+
+                      <span id='liste_motclefs'>{{ $motclef->motclef }}.</span>
+
+                    @endif
+
+                  @elseif ($loop->first)
+
+                    <span id='liste_motclefs'>{{ ucfirst($motclef->motclef) }},</span>
+
+                  @else
+
+                    <span id='liste_motclefs'>{{ $motclef->motclef }}, </span>
+
+                  @endif
+
+                @endforeach
+
+              </p>
+
+                <div id="readless_{{ $blog->id }}" class="btn btn-outline-secondary mb-3 readless" style="display:none"><i class="fas fa-chevron-left"></i> Replier</div>
 
 
-        <span id="contenu">{!! nl2br($blog->contenu) !!}</span>
+              @if ($modif_blog)
 
-        <p id="auteur" class="blockquote-footer">{{ $blog->user->name }}</p>
+                @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
 
-      </div>
+              @endif
 
-    </li>
+              <hr class="divider-court">
 
-    <div class="row">
+            </div>
 
-      <div class="col-md-8">
+        </li>
 
-        <span class="small"><i>@lang('parasitisme.tags')&nbsp;: </i></span>
+      @endforeach
 
-        <span id='liste_motclefs' class="small">{{ $blog->liste_motclefs }}</span>
+    </ul>
 
-      </div>
+  @else
 
-      <div class="col-md-4">
+    <h5 class="m-3 p-3">@lang('parasitisme.aucun')</h5>
 
-        @if ($modif_blog)
-
-          @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
-
-        @endif
-
-      </div>
-
-    </div>
-
-    <hr class="divider-court">
-
-  </ul>
-
-@else
-
-  <h5 class="m-3 p-3">@lang('parasitisme.aucun')</h5>
-
-@endif
+  @endif

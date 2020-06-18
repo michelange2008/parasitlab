@@ -20,6 +20,11 @@
 
   <h4 class="mt-3 bg-rouge p-3">@lang('parasitisme.sujet_cherche')</h4>
 
+  <p class="text-muted small">Vous pouvez rechercher les articles par mot-clef en cliquant sur un des mots-clefs ci-dessous.</p>
+
+  <hr class="divider">
+
+  <p>Mots-clefs</p>
   @foreach ($motclefs as $motclef)
 
     <span class="color-bleu-tres-fonce my-3" style="font-size: {{ 0.4 + 0.3 * $motclef->blogs->count() }}rem">
@@ -45,14 +50,10 @@
     </span>
 
   @endforeach
-  <ul id="liste_blogs" class="list-group list-group-flush">
-    {{-- zone pour ajouter la liste des articles en fonction du mot clef choisi --}}
-  </ul>
-
-
 
   <hr class="divider">
 
+  <button id="blogs_retablir" class="btn btn-sm btn-bleu" style="display:none">Afficher tous les articles</button>
 
 
 </div>

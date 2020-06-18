@@ -148,6 +148,7 @@ class BlogController extends Controller
 
       $validateData = $request->validate([
         'titre' => 'required|max:191',
+        'introduction' => 'required',
         'contenu' => 'required',
         'auteur' => 'required',
         'image' => 'file|image',
@@ -209,6 +210,7 @@ class BlogController extends Controller
 
       // STOCKAGE OU UPDATE DU BLOG
       $blog->titre = $validateData['titre'];
+      $blog->introduction = $validateData['introduction'];
       $blog->contenu = $validateData['contenu'];
       $blog->user_id = $validateData['auteur'];
       $blog->image = ($nouvelle_image) ? explode('/', $nouvelle_image)[2] : $blog->image;

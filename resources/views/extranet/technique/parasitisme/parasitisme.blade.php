@@ -59,7 +59,7 @@
 
       <div class="col-md-9">
 
-        @include('extranet.technique.blog.blogs')
+        @include('extranet.technique.blog.blogs', [ 'blogs' => $derniers_blogs])
 
       </div>
 
