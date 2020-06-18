@@ -1,8 +1,8 @@
 @if (isset($blogs))
 
-    <ul class="list-unstyled my-3">
+  <ul class="list-unstyled my-3">
 
-      @foreach ($blogs as $blog)
+    @foreach ($blogs as $blog)
 
       <li id="blog_{{ $blog->id }}" class="blog">
 
@@ -54,20 +54,21 @@
 
               </p>
 
-                <div id="readless_{{ $blog->id }}" class="btn btn-outline-secondary mb-3 readless" style="display:none"><i class="fas fa-chevron-left"></i> Replier</div>
-
-              </div>
-              @if ($modif_blog)
-
-                @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
-
-              @endif
+              <div id="readless_{{ $blog->id }}" class="btn btn-outline-secondary mb-3 readless" style="display:none"><i class="fas fa-chevron-left"></i> Replier</div>
 
             </div>
 
-            <hr class="divider-court">
+          </div>
+          
+          @if ($modif_blog)
 
-          </li>
+            @include('fragments.blocModifSupprime', ['class' => 'blog', 'id' => $blog->id, 'item' => $blog])
+
+          @endif
+
+          <hr class="divider-court">
+
+        </li>
 
       @endforeach
 
