@@ -21,11 +21,11 @@ $('.motclef').on('click', function(e) {
 
   })
   .done(function(elements) {
+    // Efface tous les articles
+    $('.blog').hide();
 
     $.each(elements, function(key, value) {
-      // Efface tous les articles
-      $('.blog').hide();
-      // Affiche les articles correspnande au mot clef
+      // Affiche les articles correspondante au mot clef
       $('#blog_' + value).show();
 
     })
