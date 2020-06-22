@@ -54,6 +54,7 @@ $('#blogs_retablir').on('click', function() {
 	$('.readmore').on('click', function() {
 
 		var id = $(this).attr('id').split('_')[1];
+
 		// Affiche tous les boutons lire plus
 		$('.readmore').show();
 		// Efface le bouton lireplus cliqué
