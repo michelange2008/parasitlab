@@ -12,7 +12,7 @@
 
           <div class="media-body ml-3">
 
-            <h5 id="titre" class="m-1">{{ ucfirst($blog->titre) }}
+            <h5 class="m-1">{{ ucfirst($blog->titre) }}
 
               <span id='date_creation' class="text-muted m-1" >( {{ \Carbon\Carbon::parse($blog->created_at)->isoFormat('D MMM Y') }} )</span></h5>
 
@@ -32,21 +32,21 @@
 
                     @if ($loop->iteration === 1)
 
-                      <span id='liste_motclefs'>{{ ucfirst($motclef->motclef) }}.</span>
+                      <span>{{ ucfirst($motclef->motclef) }}.</span>
 
                     @else
 
-                      <span id='liste_motclefs'>{{ $motclef->motclef }}.</span>
+                      <span>{{ $motclef->motclef }}.</span>
 
                     @endif
 
                   @elseif ($loop->first)
 
-                    <span id='liste_motclefs'>{{ ucfirst($motclef->motclef) }},</span>
+                    <span>{{ ucfirst($motclef->motclef) }},</span>
 
                   @else
 
-                    <span id='liste_motclefs'>{{ $motclef->motclef }}, </span>
+                    <span>{{ $motclef->motclef }}, </span>
 
                   @endif
 
