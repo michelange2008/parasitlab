@@ -4,17 +4,17 @@
   <div class="col-md-6">
 
     @inputImage( [
-      'image' => $user->labo->photo,
+      'image' => $user->labo->photo ?? "",
       'chemin' => 'storage/img/labo/photos/',
       'name' => 'photo'
     ])
 
   </div>
 
-  <div id="input_signataire" class="col-md-6" statut = "{{ $user->labo->est_signataire }}" style="display:none">
+  <div id="input_signataire" class="col-md-6" statut = "{{ $user->labo->est_signataire ?? "" }}" style="display:none">
 
     @inputImage( [
-      'image' => $user->labo->signature,
+      'image' => $user->labo->signature ?? "",
       'chemin' => 'storage/img/labo/signatures/',
       'name' => 'signature'
     ])

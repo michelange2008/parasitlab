@@ -3,7 +3,7 @@
 
   <div class="col-md-4">
     {{-- il faut passer le chemin de l'image et le nom en paramètres --}}
-    @if($nouveau)
+    @isset($nouveau)
 
       <span>@lang('form.choisir_image')&nbsp;:</span>
 
@@ -11,7 +11,7 @@
 
       <img class="img-50" src="{{ url($chemin.$image) }}" alt="{{ $image }}">
 
-    @endif
+    @endisset
 
   </div>
 
@@ -37,7 +37,7 @@
 
           <span id="span_{{ $name }}" class="image-preview-input-title">@lang('form.browse')</span>
 
-          <input type="file" accept="image/png, image/jpeg, image/gif, image/svg" name="{{ $name }}_nouvelle" @if ($nouveau) required  @endif> <!-- rename it -->
+          <input type="file" accept="image/png, image/jpeg, image/gif, image/svg" name="{{ $name }}_nouvelle" @isset ($nouveau) required  @endisset> <!-- rename it -->
 
         </div>
 
