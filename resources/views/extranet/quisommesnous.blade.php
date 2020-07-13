@@ -77,10 +77,10 @@
 
               <figure class="figure m-3">
 
-                <img class="img-fluid img-200 shadow-lg" src="{{ url('storage/img/labo/photos/'.$users->where('id', $personne->id)->get($personne->id -1)->labo->photo) }}" alt="poueeet">
+                <img class="img-fluid img-200 shadow-lg" src="{{ url('storage/img/labo/photos/'.$users->where('id', $personne->id)->first()->labo->photo) }}" alt="{{  $users->where('id', $personne->id)->first()->labo->photo }}">
 
                 <figcaption class="figure-caption pr-4">
-                  {{ $users->where('id', $personne->id)->get($personne->id -1)->name }}</br>
+                  {{ $users->where('id', $personne->id)->first()->name }}</br>
                   {{ $personne->texte }}
                 </figcaption>
 

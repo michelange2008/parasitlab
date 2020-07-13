@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Models\Labo;
 use App\Http\Traits\LitJson;
 
 class InfosController extends Controller
@@ -31,17 +32,9 @@ class InfosController extends Controller
   public function quisommesnous()
   {
     $users = User::all();
-    // dd($users->where('id', 1)->get(0)->name);
+
     $quisommesnous = $this->litJson('quisommesnous');
-    // foreach ($quisommesnous as $group) {
-    //   dump($group->groupe);
-    //   foreach ($group->personnes as $detail) {
-    //     // foreach ($groupe->personnes as $personne) {
-    //       dump($users->where('id', $detail->id)->get($detail->id - 1)->name);
-    //     // }
-    //   }
-    // }
-    // dd($quisommesnous->groupe1->groupe);
+
     return view('extranet.quisommesnous', [
       'menu' => $this->menu,
       'quisommesnous' => $quisommesnous,
