@@ -2,9 +2,9 @@
 
   <div class="card-body">
 
-    <h4>{{ __('accueil.en_pratique_resume') }}</h4>
+    <h4>{{ __('accueil.kit_envoi') }}.</h4>
 
-    <p>{{ __('accueil.kit_envoi') }}.</p>
+    <p>{{ __('accueil.en_pratique_resume') }}</p>
 
   </div>
 

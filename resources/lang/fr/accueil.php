@@ -13,13 +13,13 @@ return array (
     'veterinaires' =>
     array (
       'titre' => 'Vétérinaires',
-      'texte_1' => 'Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d\'éviter les traitements inutiles.',
+      'texte_1' => 'Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d\'affiner votre presciption.',
       'texte_2' => 'Vous voulez évaluer les risques pathogènes et l\'existence éventuelles de résistance aux anthelmintiques.',
     ),
     'eleveurs' =>
     array (
       'titre' => 'Eleveurs (-euses)',
-      'texte_1' => 'Vous souhaitez faire un suivi régulier et raisonné de l\'infestation de votre troupeau pour ne plus traiter en aveugle.',
+      'texte_1' => 'Vous souhaitez faire un suivi régulier et raisonné de l\'infestation de votre troupeau pour mieux cibler vos traitements antiparasitaires.',
       'texte_2' => 'Vous êtes à la recherche d\'un laboratoire vous fournissant des réponses rapides à vos questions sur le parasitisme d\'un animal ou de votre troupeau.',
     ),
     'cavalieres' =>
@@ -31,8 +31,8 @@ return array (
   ),
   'LaboParasito' => 'Un laboratoire d\'analyses parasitologiques pour les ruminants, les porcs et les chevaux',
   'situeDansLaDrome' => ' situé dans la Drôme au Pôle Bio sur l\'Écosite d\'Eurre.',
-  'creeEtGere' => 'Créé et géré par l\'antenne France du ',
-  'ceLaboratoire' => ', ce laboratoire accueille tous vos prélèvements destinés à des analyses parasitologiques.',
+  'creeEtGere' => 'Créé et géré par le ',
+  'ceLaboratoire' => ' France, ce laboratoire accueille tous vos prélèvements destinés à des analyses parasitologiques.',
   'limites' => 'Parasit\'Lab se consacre à la détection du parasitisme interne par le biais de coproscopies.',
   'ensavoirplus' => 'Pour en savoir plus ...',
   'pastilles' =>
@@ -62,6 +62,8 @@ return array (
       'texte_2' => 'Du fait de leur persistance dans la pature, ils détruisent les insectes coprophages qui dégradent les bouses, crottes et crottins.',
     ),
   ),
+  'kit_envoi' => 'D’un point de vue pratique, nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.',
+  'en_pratique_resume' => 'Pour toutes les questions que vous vous posez pour le choix des analyses, la réalisation des prélèvement et leur envoi, lisez nos pages dédiées à ces sujets.',
 
   'javascript' =>
   array (
