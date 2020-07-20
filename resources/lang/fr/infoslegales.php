@@ -53,7 +53,7 @@ F-26400 Eurre',
     array (
       'p1' => 'Le site parasitlab.org utilise uniquement des cookies indispensables au fonctionnement et à la sécurité du site',
       'p2' => 'Ces cookies sont constitués d\'une série de chiffres et de lettres et ne contiennent aucune information de nature à tracer l\'internaute. Ces cookies ont une durée de validité de 2 heures',
-      'p3' => 'Ces cookies servent à vérifier à chaque changement de page qu\'il n\'y a pas eu d\'intrusion des les échanges entre le serveur et l\'internaute. Lorsqu\'un utilisateur est connecté, un cookie permet d\'éviter que le site ne lui demande de se réidentifier à chaque changement de page.',
+      'p3' => 'Ces cookies servent à vérifier à chaque changement de page qu\'il n\'y a pas eu d\'intrusion dans les échanges entre le serveur et l\'internaute. Lorsqu\'un utilisateur est connecté, un cookie permet d\'éviter que le site ne lui demande de se réidentifier à chaque changement de page.',
     ),
   ),
   'bloc_6' =>
