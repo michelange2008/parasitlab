@@ -17,7 +17,7 @@
         {{ __('accueil.creeEtGere') }} <img style="vertical-align:baseline" src="{!! 'storage/fibl-logo.svg' !!}" alt="Logo du FiBL">{{ __('accueil.ceLaboratoire') }}
       </p>
 
-      <p class="my-0">@lang('accueil.limites')</p>
+      {{-- <p class="my-0">@lang('accueil.limites')</p> --}}
 
     </div>
 
