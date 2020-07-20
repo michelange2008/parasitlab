@@ -102,7 +102,7 @@
 
       <div class="col-md-11 col-lg-10 col-xl-9">
 
-        <div class="row">
+        {{-- <div class="row">
 
           <div class="col-md-7">
 
@@ -120,10 +120,10 @@
 
           </div>
 
-        </div>
+        </div> --}}
 
-        <h5>@lang('quisommesnous.fibl_parasito.soustitre')</h5>
-        @lang('quisommesnous.fibl_parasito.texte')
+        {{-- <h5>@lang('quisommesnous.fibl_parasito.soustitre')</h5>
+        @lang('quisommesnous.fibl_parasito.texte') --}}
 
         </div>
 

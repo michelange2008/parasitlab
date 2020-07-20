@@ -35,33 +35,33 @@ return array (
   'ceLaboratoire' => ' France, ce laboratoire accueille tous vos prélèvements de fécès destinés à des analyses parasitologiques.',
   'limites' => 'Parasit\'Lab se consacre à la détection du parasitisme interne par le biais de coproscopies.',
   'ensavoirplus' => 'Pour en savoir plus ...',
-  'pastilles' =>
-  array (
-    'coproscopies' =>
-    array (
-      'titre' => 'Coproscopies',
-      'texte_1' => 'Si l\'on souhaite gérer le parasitisme de son troupeau avec peu (ou pas) de traitements, il est indispensable de suivre les niveaux d\'infestation.',
-      'texte_2' => 'Les analyses coproscopiques sont une aide précieuse en complément de l\'observation des animaux.',
-    ),
-    'parasitisme' =>
-    array (
-      'titre' => 'Parasites',
-      'texte_1' => 'Les différents parasites des animaux d\'élevage ont tous des cycles bien définis, des localisations précises au sein de l\'organisme et des modes de survie variables selon les espèces.',
-      'texte_2' => 'En réponse à l\'infestation parasitaire, les animaux développent une immunité variable et plus ou moins durable.',
-    ),
-    'resistances' =>
-    array (
-      'titre' => 'Résistances',
-      'texte_1' => 'Le développement de résistances aux traitements antiparasitaires est un processus naturel inévitable. Les élevages caprins sont les premiers concernés.',
-      'texte_2' => 'C\'est une situation préoccupante qui peut être évitée par la pratique de traitements ciblés.',
-    ),
-    'biodiversite' =>
-    array (
-      'titre' => 'Biodiversité',
-      'texte_1' => 'Certains traitements anthelmintiques ont des propriétés insecticides et son rejetés avec les fécès des animaux.',
-      'texte_2' => 'Du fait de leur persistance dans la pature, ils détruisent les insectes coprophages qui dégradent les bouses, crottes et crottins.',
-    ),
-  ),
+  // 'pastilles' =>
+  // array (
+  //   'coproscopies' =>
+  //   array (
+  //     'titre' => 'Coproscopies',
+  //     'texte_1' => 'Si l\'on souhaite gérer le parasitisme de son troupeau avec peu (ou pas) de traitements, il est indispensable de suivre les niveaux d\'infestation.',
+  //     'texte_2' => 'Les analyses coproscopiques sont une aide précieuse en complément de l\'observation des animaux.',
+  //   ),
+  //   'parasitisme' =>
+  //   array (
+  //     'titre' => 'Parasites',
+  //     'texte_1' => 'Les différents parasites des animaux d\'élevage ont tous des cycles bien définis, des localisations précises au sein de l\'organisme et des modes de survie variables selon les espèces.',
+  //     'texte_2' => 'En réponse à l\'infestation parasitaire, les animaux développent une immunité variable et plus ou moins durable.',
+  //   ),
+  //   'resistances' =>
+  //   array (
+  //     'titre' => 'Résistances',
+  //     'texte_1' => 'Le développement de résistances aux traitements antiparasitaires est un processus naturel inévitable. Les élevages caprins sont les premiers concernés.',
+  //     'texte_2' => 'C\'est une situation préoccupante qui peut être évitée par la pratique de traitements ciblés.',
+  //   ),
+  //   'biodiversite' =>
+  //   array (
+  //     'titre' => 'Biodiversité',
+  //     'texte_1' => 'Certains traitements anthelmintiques ont des propriétés insecticides et son rejetés avec les fécès des animaux.',
+  //     'texte_2' => 'Du fait de leur persistance dans la pature, ils détruisent les insectes coprophages qui dégradent les bouses, crottes et crottins.',
+  //   ),
+  // ),
   'kit_envoi' => 'D’un point de vue pratique, nous fournissons des kits d’envoi postal permettant un acheminement rapide et sécurisé des prélèvements.',
   'en_pratique_resume' => 'Pour toutes les questions que vous vous posez pour le choix des analyses, la réalisation des prélèvement et leur envoi, lisez nos pages dédiées à ces sujets.',
 
