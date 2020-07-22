@@ -12,10 +12,10 @@
 
       <div class="card-body">
 
-        <h4 class="card-title">@lang('choisir.pourquoi_tant')</h4>
+        {{-- <h4 class="card-title">@lang('choisir.pourquoi_tant')</h4> --}}
           {{-- <p class="lead">@lang('choisir.meilleure_fiabilite')</p> --}}
 
-          <p class="card-text">@lang('choisir.nombreuses_analyses')</p>
+          <h4 class="card-text">@lang('choisir.nombreuses_analyses')</h4>
 
           <p class="card-text">@lang('choisir.techniques_adaptees')</p>
 
