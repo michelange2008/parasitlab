@@ -26,7 +26,7 @@ return array (
   'jouer' => "A vous de jouer !",
   'choisir_age' => "Choisir un âge",
 
-  'pourquoi_tant' => "Pourquoi tant d'analyses possibles ?",
+  'detail' => 'Détail des analyses et tarifs',
 
   'meilleure_fiabilite' => "Une meilleure fiabilité des résultats",
 

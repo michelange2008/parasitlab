@@ -62,7 +62,7 @@ class DonneesController extends Controller
 
     return json_encode($observations);
   }
-
+// Fonction transitoire pour tester la requete ajax "options" et destinée à afficher un formulaire avec les variables (espece, observations)
 public function essai()
 {
   return view('essai');
@@ -78,7 +78,7 @@ public function options(Request $request)
     // On crée une collection des anaactes permis par une espece ou un age donné
     $liste_anaactes_espece_age = Collect();
     // S'il n'y a pas de choix d'un age
-    $age_id = ($datas['age'] === null) ? null : $datas['age']; // On met une valeur fictive à l'age pour la requete sur les exclusion
+    $age_id = ($datas['age'] === null) ? null : $datas['age']; // si il n'y a pas de choix d'une age, on met null pour l'age_id
     if($age_id === null) {
       // On récupère l'espece
       $espece = Espece::find($datas['espece']);
@@ -109,10 +109,11 @@ public function options(Request $request)
       // ces trois id d'observation sont stockées dans la collection $observations
       $observations->push($datas['categorie_'.$i]);
     }
-    // Puis on recherches les options et les anaactes permis par les observations
+    // Puis on recherche les options et les anaactes permis par les observations
     $liste_options = Collect();
+    $liste_anatypes = Collect();
     $liste_anaactes = Collect();
-    $liste_exclusions = Collect(); // Liste de id des anaactes exclus par les observations retenues (par exemple: paturage humide exclue petite douve)
+    $liste_exclusions = Collect(); // Liste des id des anaactes exclus par les observations retenues (par exemple: paturage humide exclue petite douve)
     // On passe en revue la collection $observations
     foreach ($observations as $observation_id) {
       // Si cette observation n'est pas nulle
@@ -131,7 +132,6 @@ public function options(Request $request)
           if(isset($option->abbreviation)) {
             // on passe en revue les anaactes permis par cette option (table pivot anaacte_option)
             foreach($option->anaactes as $anaacte) {
-                // dump($anaacte->anatype->nom);
                 // on ajoute l'id de l'anaacte à la liste
                 $liste_anaactes->push($anaacte->id);
             }
@@ -152,10 +152,21 @@ public function options(Request $request)
     // On crée la collection qui sera transmise en réponse à la requête ajax
     $resultats = Collect();
     // On élimine les doublons (countBy), on trie en descendant(sort et inverse), et on garde que les deux premières clefs ( keys: n° option les plus fréquants)
-    $resultats->put("options", $liste_options->countBy()->sort()->reverse()->slice(0,2)->keys());
+    // $resultats->put("options", $liste_options->countBy()->sort()->reverse()->slice(0,2)->keys());
     // On ne garde que les anaactes de la liste $liste_anaactes qui sont aussi présents dans la liste des especes (intersect)
     // On élimine les doublons (countBy), on trie en descendant(sort et reverse), et on garde que les deux premières clefs ( keys: n° anaacte les plus fréquants)
-    $resultats->put("anaactes",$liste_anaactes->intersect($liste_anaactes_espece_age)->countBy()->sort()->reverse()->slice(0,2)->keys());
+    $anaactes_retenus = $liste_anaactes->intersect($liste_anaactes_espece_age)->countBy()->sort()->reverse()->slice(0,2)->keys();
+
+    foreach ($anaactes_retenus as $anaacte_id) {
+
+      $anaacte = Anaacte::find($anaacte_id);
+
+      $liste_anatypes->push($anaacte->anatype->id);
+
+    }
+
+    $resultats->put("anatypes", $liste_anatypes->countBy()->keys());
+    $resultats->put("anaactes", $anaactes_retenus);
 
     return json_encode($resultats);
 

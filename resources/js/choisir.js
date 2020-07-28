@@ -1,4 +1,4 @@
-// Intervient dans la page choisir (ExtranetDemandeController@choisir)
+// Intervient dans la page choisir (Technique\AnalysesController@choisir)
 // Quand on clique sur l'icone de l'espece, cela affiche la liste des questions que l'on peut se poser  sur le parasitisme de cette espece
 // via une requete ajax qui interroge la méthode ExtranetDemandeController@observationSelonEspece
 // On affiche cette liste dans la vue methodeChoixAnalyse
@@ -115,7 +115,7 @@ $('.espece').on('click', function() {
   })
 });
 
-// Fonction qui requete ajax avec l'espece_id (ExtranetDemandeController@observationSelonEspece)
+// Fonction qui requete ajax avec l'espece_id (Api\DonneesController@observationSelonEspece ou  observationSelonAge)
 // Et affiche le résultat sous la forme d'une liste d'observations avec trois propriétés quand on clique:
 // 1) ça met l'observation en couleur
 // 2) cela expand l'affichage pour montrer l'explication et les autres origines
@@ -183,7 +183,7 @@ $(".liste_observations").on('click', ".card", function() {
   if(estSelection == "oui") {
 
     inactiveObservation(id);
-    // On supprime cette valeur dui tableau selection
+    // On supprime cette valeur du tableau selection
     selection[id_categorie-1] = null;
 
   } else if(estSelection == "non") {
@@ -222,9 +222,35 @@ $('#avousdejouer').on('click', function() {
     window.scrollTo(200,250);
 
 })
+
+// Quand on clique sur le bouton "options et tarifs" on affiche ou masque les anaactes d'un anatype
+$(".optionstarifs").on('click', function() {
+
+  var anatype_id = $(this).attr('id').split('_')[1];
+
+  if($(this).attr('state') == 'opened') {
+
+    $('#listeanaactes_' + anatype_id).hide();
+
+    $('#optionstarifs_' + anatype_id).attr('state', 'closed');
+
+  } else {
+
+    $('.listeanaactes').hide();
+
+    $('.optionstarifs').attr('state', 'closed');
+
+    $(this).attr('state', 'opened');
+
+    $('#listeanaactes_' + anatype_id).fadeIn(2000);
+
+  }
+
+})
 //#####################################################################################
 // FONCTIONS //
 //######################################################################################
+
 // Fonction qui passe en display:block les options et les analyses sélectionnées
 function listeOptions() {
 
@@ -240,22 +266,22 @@ function listeOptions() {
     })
     .done(function(datas) {
       if(datas != null) { // Si des données sont revenues (ce qui doit être systématiquement le cas)
-        var options = JSON.parse(datas).options; // On récupère le tableau options (2 options max)
+        var anatypes = JSON.parse(datas).anatypes; // On récupère le tableau anatypes (2 anatypes max)
         var anaactes = JSON.parse(datas).anaactes; // on révupère le tableau anaactes (2 anaactes max)
 
         if(nombreSelections(selection) > 0) { // S'il y a au moins une sélection
 
-          if(options.length == 0) { // Mais que le tableau option est vide, on affiche un message qu'il n'y a pas d'analyse
+          if(anatypes.length == 0) { // Mais que le tableau anatypes est vide, on affiche un message qu'il n'y a pas d'analyse
 
             $('#aucune_option').show();
 
+          } else { // Mais si le tableau anatypes n'est pas vide, on affiche les anatypes correspondant (et aussi les anaactes qui restent cachés pour le moment)
 
-          } else { // Mais si le tableau option n'est pas vide, on affiche les options et anaactes correpondants
-
-            $.each(options, function(key, value) { // Affichage des options
-              $('#' + value + '.option').fadeIn();
+            $.each(anatypes, function(key, value) { // Affichage des anatypes
+              console.log(value);
+              $('#anatype_' + value).fadeIn();
             })
-            if(anaactes.length == 1) { // Affichage d'un titre d'analyses différent s'il y en a une ou deux
+            if(anatypes.length == 1) { // Affichage d'un titre d'analyses différent s'il y en a une ou deux
               $('#une').fadeIn();
             } else {
               $('#deux').fadeIn();
@@ -285,16 +311,19 @@ function listeOptions() {
       console.log(data);
     });
 }
-
+// Fonction qui efface tous les éléments du panneau de droite
 function videOptionsAnaaactes() {
 
   // On masque le panneau veto
   $("#penser_veto").hide();
   $("#autres_analyses").hide();
   $('#boutons').hide();
-  // On masque la liste d'options
-  $('.option').hide();
+  // On masque la liste d'anatypes, d'anaactes et la liste d'anaactes
+  $('.anatype').hide();
   $('.anaacte').hide();
+  $('.listeanaactes').hide();
+  // On passe tous les boutons options et tarifs à closed
+  $('.optionstarifs').attr('state', 'closed');
   // On masque le titre des analyses proposées
   $(".titre_analyses").hide();
   // On vide le 0 option

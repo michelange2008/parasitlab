@@ -6,6 +6,7 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Analyses\Anaacte;
+use App\Models\Analyses\Anatype;
 use App\Models\Categorie;
 use App\Models\Option;
 use App\Models\Espece;
@@ -42,6 +43,9 @@ class AnalysesController extends Controller
     {
       session()->put('choisirFirst', true);
 
+      // $anaactes =Anaacte::where('estAnalyse', true)->groupBy('anatype_id')->orderBy('num')->get();
+      $anatypes = Anatype::where('estAnalyse', true)->get();
+
       return view('extranet.analyses.choisir', [
         'menu' => $this->menu,
         'route' => 'analyses.choisir',
@@ -51,7 +55,8 @@ class AnalysesController extends Controller
         'categories' => Categorie::all(),
         // 'qui_quand' => $this->litJson('qui_quand'),
         'options' => Option::all(),
-        'anaactes' => Anaacte::where('estAnalyse', true)->orderBy('num')->get(),
+        // 'anaactes' => $anaactes,
+        'anatypes' => $anatypes,
       ]);
     }
 
