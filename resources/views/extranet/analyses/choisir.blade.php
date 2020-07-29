@@ -62,19 +62,19 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-12">
+      {{-- <div class="col-md-12"> --}}
 
+
+      {{-- </div> --}}
+
+      <div class="col-md-5">
         <h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')</h4>
-
-      </div>
-
-      <div class="col-md-4">
 
         @include('extranet.analyses.choisir.methodeChoixAnalyse')
 
       </div>
 
-      <div class="col-md-8">
+      <div class="col-md-7">
 
         @include('extranet.analyses.choisir.choisirTuto')
 

@@ -12,7 +12,7 @@
 
   @foreach ($anatypes as $anatype)
 
-    <div id="anatype_{{ $anatype->id }}" class="anatype card my-3" style="display:none" >
+    <div id="anatype_{{ $anatype->id }}" class="anatype card my-3" keep="false" style="display:none" >
       <div class="row no-gutters">
         <div class="col-md-2 m-auto">
           <img src="{{  url('storage/img/icones'.'/'.$anatype->icone->nom) }}" class="card-img img-65"  alt="{{ $anatype->icone }}">
@@ -20,9 +20,9 @@
         <div class="col-md-10">
           <div class="card-body">
             <h5 class="card-title">{!! ucfirst($anatype->nom) !!}</h5>
-            <div id="optionstarifs_{{ $anatype->id }}" class="optionstarifs btn btn-sm btn-secondary dropdown-toggle" state="closed">
+            <button id="optionstarifs_{{ $anatype->id }}" class="optionstarifs btn btn-sm btn-secondary dropdown-toggle" state="closed">
               @lang('choisir.detail')
-            </div>
+            </button>
           </div>
         </div>
         <div id="listeanaactes_{{ $anatype->id }}" class="listeanaactes" style="display:none">

@@ -17091,6 +17091,15 @@ hr {
   box-shadow: 4px 4px 17px black;
 }
 
+.estompe {
+  color: lightgray;
+}
+
+.btn-clair {
+  background: lightgray;
+  border: 0;
+}
+
 @media screen and (max-width: 992px) {
   .alert, .card-header {
     padding: 0.5rem 0.25rem;

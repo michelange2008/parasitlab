@@ -234,7 +234,13 @@ $(".optionstarifs").on('click', function() {
 
     $('#optionstarifs_' + anatype_id).attr('state', 'closed');
 
+    nonEstompeAnatypes();
+
   } else {
+
+    estompeAnatypes();
+
+    nonEstompeUnAnatype('#anatype_' + anatype_id);
 
     $('.listeanaactes').hide();
 
@@ -243,6 +249,10 @@ $(".optionstarifs").on('click', function() {
     $(this).attr('state', 'opened');
 
     $('#listeanaactes_' + anatype_id).fadeIn(2000);
+
+    $('#boutons').fadeIn(1000);
+
+    $('#penser_veto').fadeIn(3000); // Et le véto
 
   }
 
@@ -278,8 +288,8 @@ function listeOptions() {
           } else { // Mais si le tableau anatypes n'est pas vide, on affiche les anatypes correspondant (et aussi les anaactes qui restent cachés pour le moment)
 
             $.each(anatypes, function(key, value) { // Affichage des anatypes
-              console.log(value);
-              $('#anatype_' + value).fadeIn();
+
+              $('#anatype_' + value).attr('keep', 'true').fadeIn();
             })
             if(anatypes.length == 1) { // Affichage d'un titre d'analyses différent s'il y en a une ou deux
               $('#une').fadeIn();
@@ -291,9 +301,7 @@ function listeOptions() {
               $('#anaacte_' + value).fadeIn();
             })
 
-            $('#boutons').fadeIn(1000);
           }
-          $('#penser_veto').fadeIn(3000); // Et le véto
 
           if($("#input_espece").val()== 5 ) {
             $('#autres_analyses').fadeIn(2000);
@@ -353,4 +361,31 @@ function nombreSelections(selection) {
   });
 
   return longueur_selection;
+}
+
+function estompeAnatypes() {
+
+  $(".anatype[keep='true']").addClass('estompe');
+
+  $(".anatype[keep='true'] img").hide();
+
+  $(".anatype[keep='true'] button").addClass('btn-clair');
+}
+
+function nonEstompeAnatypes() {
+
+  $(".anatype[keep='true']").removeClass('estompe');
+
+  $(".anatype[keep='true'] img").show();
+
+  $(".anatype[keep='true'] button").removeClass('btn-clair');
+}
+
+function nonEstompeUnAnatype(id) {
+
+  $(id).removeClass('estompe');
+
+  $(id + " img").show();
+
+  $(id + " button").removeClass('btn-clair');
 }

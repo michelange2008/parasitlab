@@ -8,7 +8,7 @@
 
   <p>@lang('choisir.tuto_liste')</p>
 
-  <div class="col-6 offset-3">
+  <div class="col-8 offset-2">
 
     <ul class="list-group">
 

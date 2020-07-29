@@ -183,6 +183,15 @@ hr {
 	box-shadow: 4px 4px 17px black;
 }
 
+// Modification aspect anatype dans algorithme de choix d'analyses
+.estompe {
+	color: lightgray;
+}
+.btn-clair {
+	background: lightgray;
+	border: 0;
+}
+
 @media screen and (max-width: 992px) {
 
   .alert, .card-header {
