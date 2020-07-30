@@ -14,7 +14,7 @@ class CreateExclusionsTable extends Migration
     public function up()
     {
         Schema::dropIfExists('exclusions');
-        
+
         Schema::create('exclusions', function (Blueprint $table) {
 
           $table->increments('id');
@@ -25,8 +25,8 @@ class CreateExclusionsTable extends Migration
           $table->unsignedInteger('age_id')->nullable();
           $table->foreign('age_id')->references('id')->on('ages');
 
-          $table->unsignedInteger('anaacte_id');
-          $table->foreign('anaacte_id')->references('id')->on('anaactes');
+          $table->unsignedInteger('anatype_id');
+          $table->foreign('anatype_id')->references('id')->on('anatypes');
 
           $table->unsignedInteger('observation_id');
           $table->foreign('observation_id')->references('id')->on('observations');
