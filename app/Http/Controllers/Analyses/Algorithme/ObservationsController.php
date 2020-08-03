@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Observation;
 use App\Models\Categorie;
 use App\Models\Option;
-use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Anatype;
 use App\Models\Espece;
 use App\Models\Age;
@@ -56,8 +55,7 @@ class ObservationsController extends Controller
           'categories' => Categorie::all(),
           'especes' => Espece::all(),
           'ages' => Age::all(),
-          'anaactes' => Anaacte::where('estAnalyse', 1)->get(),
-          'anatypes' => Anatype::all(),
+          'anatypes' => Anatype::where('estAnalyse', 1)->get(),
         ]);
     }
 
@@ -97,9 +95,9 @@ class ObservationsController extends Controller
 
             $nouvelle_observation->ages()->attach(explode('_', $key)[1]);
 
-          } elseif (explode('_', $key)[0] === 'anaactes') {
+          } elseif (explode('_', $key)[0] === 'anatypes') {
 
-            $nouvelle_observation->anaactes()->attach(explode('_', $key)[1]);
+            $nouvelle_observation->anatypes()->attach(explode('_', $key)[1]);
 
           }
 
@@ -117,20 +115,22 @@ class ObservationsController extends Controller
     public function show($id)
     {
         $observation = Observation::find($id);
-        // Il faut tenir compte des doublons dans l'association observation/anaacte qui sont destinés
-        // à renforcer le poids d'un anaacte pour une observation
-        $anaactes = Collect();
+        // Il faut tenir compte des doublons dans l'association observation/anatype qui sont destinés
+        // à renforcer le poids d'un anatype pour une observation
+        $liste_anatypes = Collect();
 
-        foreach ($observation->anaactes as $anaacte) {
+        $anatypes = $observation->anatypes;
 
-          $anaactes->push(ucfirst($anaacte->anatype->nom) . ' ('. $anaacte->nom .')');
+        foreach($anatypes as $anatype) {
+
+          $liste_anatypes->push($anatype->nom);
 
         }
 
         return view('admin.algorithme.observationShow', [
           'menu' => $this->menu,
           'observation' => $observation,
-          'anaactes' => $anaactes->countBy()->sortDesc(),
+          'liste_anatypes' => $liste_anatypes->countBy(),
         ]);
     }
 
@@ -184,30 +184,29 @@ class ObservationsController extends Controller
     }
 
     /**
-     * Modification des associations entre observation et anaacte
+     * Modification des associations entre observation et anatype
      *
      * @param int $id id de l'observation
      * @return \Illuminate\Http\Response
      */
-    public function editAnaacte($id)
+    public function editAnatype($id)
     {
       $observation = Observation::find($id);
 
-      $anaactes_id = Collect();
+      $anatypes_id = Collect();
 
-      foreach ($observation->anaactes as $anaacte) {
+      foreach ($observation->anatypes as $anatype) {
 
-        $anaactes_id->push($anaacte->id);
+        $anatypes_id->push($anatype->id);
       }
 
-      $anaactesAvecPoids = $anaactes_id->countBy();
+      $anatypesAvecPoids = $anatypes_id->countBy();
 
-      return view('admin.algorithme.observationEditAnaacte' , [
+      return view('admin.algorithme.observationEditAnatype' , [
         'menu' => $this->menu,
         'observation' => $observation,
-        'anaactesAvecPoids' => $anaactesAvecPoids,
+        'anatypesAvecPoids' => $anatypesAvecPoids,
         'anatypes' => Anatype::where('estAnalyse', 1)->get(),
-        'anaactes' => Anaacte::all(),
         'poids' => 0,
       ]);
     }
@@ -241,9 +240,9 @@ class ObservationsController extends Controller
 
             break;
 
-          case 'anaacte':
+          case 'anatype':
             // Utilisation du trait ObservationEdit
-            $this->updateAnaacte($observation, $datas);
+            $this->updateanatype($observation, $datas);
             break;
 
           case 'observation':

@@ -29,6 +29,11 @@ class Observation extends Model
       return $this->belongsToMany(\App\Models\Analyses\Anaacte::class);
     }
 
+    public function anatypes()
+    {
+      return $this->belongsToMany(\App\Models\Analyses\Anatype::class);
+    }
+
     public function options()
     {
       return $this->belongsToMany(Option::class);
@@ -37,5 +42,10 @@ class Observation extends Model
     public function exclusion()
     {
       return $this->hasOne(Exclusion::class);
+    }
+
+    public function exclusionsAnaacte()
+    {
+      return $this->hasOne(ExclusionsAnaacte::class);
     }
 }

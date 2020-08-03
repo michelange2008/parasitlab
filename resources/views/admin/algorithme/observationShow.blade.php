@@ -73,30 +73,6 @@
 
           </div>
 
-          <div class="card">
-
-            <div class="card-body">
-
-              <h5 class="card-title text-secondary">@lang('algorithme.optionObsTitreAvec')</h5>
-
-              @foreach ($observation->options as $option)
-
-                <img src="{{ url('storage/img/algorithme/'.$option->icone) }}" alt="">
-
-                <p class="mb-1 ml-3 font-weight-bold">{{ $option->titre }}</p>
-
-              @endforeach
-
-            </div>
-
-            <div class="card-footer">
-
-              @boutonUser(['route' => 'observation.editOption', 'id' => $observation->id, 'couleur' => 'btn-bleu', 'fa' => 'fas fa-edit', 'intitule' => 'modifier'])
-
-            </div>
-
-          </div>
-
         </div>
 
       </div>
@@ -109,17 +85,17 @@
 
         <hr class="divider-court">
 
-          <p class="text-secondary">@lang('algorithme.anaacteObsTitreAvec')</p>
+          <p class="text-secondary">@lang('algorithme.anatypeObsTitreAvec')</p>
             <table class="table">
               <thead>
                 <th>@lang('tableaux.analyse')</th>
                 <th>@lang('algorithme.poids')</th>
               </thead>
               <tbody>
-                @foreach ($anaactes as $anaacte => $poids)
+                @foreach ($liste_anatypes as $anatype => $poids)
                 <tr>
                   <td>
-                    <p class="mb-0 ml-2">{{ $anaacte }}</p>
+                    <p class="mb-0 ml-2">{{ $anatype }}</p>
                   </td>
                   <td>
                     <p class="mb-0 ml-2">{{ $poids }}</p>
@@ -129,7 +105,7 @@
               </tbody>
             </table>
 
-            @boutonUser(['route' => 'observation.editAnaacte', 'id' => $observation->id, 'couleur' => 'btn-bleu', 'fa' => 'fas fa-edit', 'intitule' => 'modifier'])
+            @boutonUser(['route' => 'observation.editAnatype', 'id' => $observation->id, 'couleur' => 'btn-bleu', 'fa' => 'fas fa-edit', 'intitule' => 'modifier'])
 
       </div>
 

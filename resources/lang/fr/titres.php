@@ -55,6 +55,7 @@ return array (
   'algo_optionsIndex' => "Liste des explications d'une situation",
   'algo_addOption' => "Ajouter une nouvelle explication",
   'algo_exclusions' => "Liste des exclusions",
+  'algo_exclusion_anaactes' => "Liste des actes exclus",
   'algo_add_exclusion' => 'Ajouter une nouvelle exclusion',
 
   'icones_titre' => "Liste des icones disponibles",

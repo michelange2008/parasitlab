@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ExclusionSeeder extends Seeder
+class AnaactesExclusionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,9 @@ class ExclusionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('exclusions')->delete();
+        DB::table('anaactes_exclusions')->delete();
 
-        DB::table('exclusions')->insert([
+        DB::table('anaactes_exclusions')->insert([
 
           [ 'espece_id' => 2, 'age_id' => null, 'anaacte_id' => 5, 'observation_id' => 28,],
           [ 'espece_id' => 2, 'age_id' => null, 'anaacte_id' => 6, 'observation_id' => 28,],

@@ -10,7 +10,9 @@ use App\Models\Age;
 use App\Models\Categorie;
 use App\Models\Observation;
 use App\Models\Exclusion;
+use App\Models\ExclusionsAnaacte;
 use App\Models\Analyses\Anaacte;
+use App\Models\Analyses\Anatype;
 
 class DonneesController extends Controller
 {
@@ -66,6 +68,103 @@ class DonneesController extends Controller
 public function essai()
 {
   return view('essai');
+}
+
+/*
+* Méthode qui renvoie les anatypes et les analyses possibles en fonction du choix de l'espèce
+* et des observations sélectionnées - Même vue etjs que ci-dessus
+*/
+public function selectAnalyses(Request $request)
+{
+  $datas = $request->all();
+  // On crée une collection des anatypes permis par une espece ou un age donne
+  $liste_anatypes_espece_age = Collect();
+  // S'il n'y a pas de choix d'un age
+  $age_id = ($datas['age'] === null) ? null : $datas['age']; // si il n'y a pas de choix d'une age, on met null pour l'age_id
+  if($age_id === null) {
+    // On récupère l'espece
+    $espece = Espece::find($datas['espece']);
+    // On recherche d'abord les anatypes acceptés pour l'espece (table pivot anaacte_espece)
+    $anatypes = $espece->anatypes;
+
+    foreach ($anatypes as $anatype) {
+      $liste_anatypes_espece_age->push($anatype->id);
+
+    }
+    // S'il y a le choix d'un age
+  } else {
+
+    // On récupère l'age
+    $age = Age::find($datas['age']);
+    // On recherche d'abord les anaactes acceptés pour l'age (table pivot age_anaacte)
+    $anatypes = $age->anatypes;
+
+    foreach ($anatypes as $anatype) {
+      $liste_anatypes_espece_age->push($anatype->id);
+    }
+  }
+  // On récupère les observations dans une collection avec 3 item: 1 pour chaque catégorie d'observation
+  // (signe, action, situation) sachant qu'il peut y en avoir un ou deux null
+  $observations = Collect();
+  for ($i=1; $i < Categorie::count()+1  ; $i++) {
+    // ces trois id d'observation sont stockées dans la collection $observations
+    $observations->push($datas['categorie_'.$i]);
+  }
+  // Puis on recherche les anatypes permis par les observations
+  $liste_anatypes = Collect();
+  $liste_exclusions = Collect(); // Liste des id des anatypes exclus par les observations retenues (par exemple: paturage humide exclue petite douve)
+  $liste_exclusionsAnaacte = Collect(); // Liste des id des anaactes exclus par les observations (par exemple: analyse de mélange quand observation sur un animal)
+  // On passe en revue la collection $observations
+  foreach ($observations as $observation_id) {
+    // Si cette observation n'est pas nulle
+    if(isset($observation_id)) {
+      // On la recherche dans la base de donnée
+      $observation = Observation::find($observation_id);
+      // On recherche les anatypes exclus par cette observation
+      $exclusions = Exclusion::where('observation_id', $observation_id)->where('espece_id', $datas['espece'])->where('age_id', $age_id)->get();
+      // On recherche les anaactes exclus
+      $anaactes_exclus = ExclusionsAnaacte::where('observation_id', $observation_id)->where('espece_id', $datas['espece'])->where('age_id', $age_id)->get();
+      // On remplit la liste correspondante
+      foreach ($exclusions as $exclusion) {
+        $liste_exclusions->push($exclusion->anatype_id);
+      }
+      foreach ($anaactes_exclus as $anaacte_exclu) {
+        $liste_exclusionsAnaacte->push($anaacte_exclu->anaacte_id);
+      }
+      // On passe en revue tous les anatypes permis par l'observation (table pivot anatype_observation)
+      foreach ($observation->anatypes as $anatype) {
+          // Et on continue l'ajout dans la liste des anaactes
+          $liste_anatypes->push($anatype->id);
+      }
+    }
+  }
+  // On élimine des deux listes construites les id d'anaacte qui sont dans la liste d'exclusion
+  $liste_anatypes = $liste_anatypes->diff($liste_exclusions);
+  $liste_anatypes_espece_age = $liste_anatypes_espece_age->diff($liste_exclusions);
+  // On crée la collection qui sera transmise en réponse à la requête ajax
+  $resultats = Collect();
+  // On élimine les doublons (countBy), on trie en descendant(sort et inverse), et on garde que les deux premières clefs ( keys: n° option les plus fréquants)
+  // $resultats->put("options", $liste_options->countBy()->sort()->reverse()->slice(0,2)->keys());
+  // On ne garde que les anatypes de la liste $liste_anatypes qui sont aussi présents dans la liste des especes (intersect)
+  // On élimine les doublons (countBy), on trie en descendant(sort et reverse), et on garde que les deux premières clefs ( keys: n° anatype les plus fréquants)
+  $anatypes_retenus = $liste_anatypes->intersect($liste_anatypes_espece_age)->countBy()->sort()->reverse()->slice(0,2)->keys();
+// dd($anatypes_retenus);
+  //Constitution de la liste des anaactes à partir des anatypes plus de la liste d'exclusion spécifique des anaactes
+  $anaactes = DB::table('anaactes')->whereIn('anatype_id', $liste_anatypes)->get();
+
+
+  $liste_anaactes = collect();
+  foreach ($anaactes as $anaacte) {
+    $liste_anaactes->push($anaacte->id);
+  }
+
+  $anaactes_retenus = $liste_anaactes->diff($liste_exclusionsAnaacte);
+
+  $resultats->put("anatypes", $anatypes_retenus);
+  $resultats->put("anaactes", $anaactes_retenus->flip()->keys() );
+
+  return json_encode($resultats);
+
 }
 
 /*

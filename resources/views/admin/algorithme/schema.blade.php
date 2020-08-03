@@ -5,52 +5,23 @@
     d="m 50.661556,45 26.66165,45"
     style="stroke:#f3cd6c;stroke-width:2"
     />
+
   <path
-    id="especes_exclusions"
-    class="alg-ligne"
-    d="M 71,41.571713 120.6,54.808617"
-    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
-    />
-  <path
-    id="ages_exclusions"
-    class="alg-ligne"
-    d="M 123.6,72.7 97,90"
-    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
-     />
-  <path
-    id="anaactes_exclusions"
-    class="alg-ligne"
-    d="M 158,80 230,168"
-    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
-     />
-  <path
-    id="exclusions_observations"
-    class="alg-ligne"
-    d="M 130.40705,80.1 68,167"
-    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
-     />
-  <path
-     id="observations_options"
+     id="anatypes_anaactes"
      class="alg-ligne"
-     d="M 70,170 233,44"
-     style="stroke:#0a425a;stroke-width:2;"
-     />
-  <path
-     id="anaactes_options"
-     class="alg-ligne"
-     d="M 238,45 238,165"
+     d="M 238,70 238,165"
      style="stroke:#0a425a;stroke-width:2;"
      />
    <path
-      id="ages_anaactes"
+      id="ages_anatypes"
       class="alg-ligne"
-      d="M 99,107 210,166"
+      d="M 99,97 181,70"
       style="stroke:#0a425a;stroke-width:2;"
     />
     <path
-       id="anaactes_especes"
+       id="anatypes_especes"
        class="alg-ligne"
-       d="M 55.983908,44.625589 218,166"
+       d="M 60,35 218,74"
        style="stroke:#0a425a;stroke-width:2;"
     />
     <path
@@ -60,9 +31,9 @@
        style="stroke:#0a425a;stroke-width:2;"
     />
     <path
-       id="anaactes_observations"
+       id="anatypes_observations"
        class="alg-ligne"
-       d="M 93.5,173.5, 220,173.5"
+       d="M 93.5,173.5, 221,77"
        style="stroke:#0a425a;stroke-width:2;"
      />
      <path
@@ -136,40 +107,40 @@
       </text>
     </g>
     <g
-       id="options"
+       id="detail"
        type="route"
-       route="options"
+       route="detail"
        class="alg-bouton">
       <g
          >
         <rect
-           x="217"
-           y="27.2"
+           x="207"
+           y="165"
            width="65"
            height="18"
            style="fill:#f3cd6c;fill-opacity:1;" />
         <text
            id="text14-61-2"
-             x="223"
-             y="40"
+             x="225"
+             y="177"
              style="font-size:9.5px;fill:#0a425a">
-             Explications
+             Détails
         </text>
       </g>
     </g>
     <g
-       id="anaactes"
+       id="anatypes"
        class="alg-bouton">
       <rect
          x="180"
-         y="165"
+         y="60"
          width="102"
          height="18"
          style="fill:#f3cd6c;fill-opacity:1"
           />
       <text
            x="188"
-           y="177"
+           y="72"
            style="font-size:9.5px;fill:#0a425a">
              Analyses proposées
            </text>
@@ -185,15 +156,66 @@
            style="fill:#8f230a;fill-opacity:0.6"
            id="path1188"
            cx="144"
-           cy="61"
+           cy="110"
            r="24" />
         <text
              x="124"
-             y="63.5"
+             y="112.5"
              style="font-size:8.46667px;fill:#ffffff">
              Exclusions
         </text>
       </g>
     </g>
+    <g
+       id="exclusionsAnaactes"
+       class="alg-bouton"
+       type="route"
+       route="exclusionsAnaacte"
+      <g
+         id="g1208">
+        <circle
+           style="fill:#8f230a;fill-opacity:0.6"
+           id="path1189"
+           cx="180"
+           cy="140"
+           r="24" />
+        <text
+             x="160"
+             y="143.5"
+             style="font-size:8.46667px;fill:#ffffff">
+             Actes excl.
+        </text>
+      </g>
+    </g>
+    <path
+    id="especes_exclusions"
+    class="alg-ligne"
+    d="M 70,45 126,95"
+    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
+    />
+    <path
+    id="ages_exclusions"
+    class="alg-ligne"
+    d="M 120,106 101,102"
+    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
+    />
+    <path
+    id="anatypes_exclusions"
+    class="alg-ligne"
+    d="M 161,93 180,78"
+    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
+    />
+    <path
+    id="exclusions_observations"
+    class="alg-ligne"
+    d="M 126,126 71,165"
+    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
+    />
+    <path
+    id="exclusionsAnaacte_anaactes"
+    class="alg-ligne"
+    d="M 197,157 207,165"
+    style="stroke:#8f230a;stroke-width:2;stroke-dasharray:1.5, 1.5;"
+    />
   </g>
 </svg>

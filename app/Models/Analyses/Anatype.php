@@ -28,4 +28,23 @@ class Anatype extends Model
       return $this->hasMany(Analyse::class);
     }
 
+    public function observations()
+    {
+      return $this->belongsToMany(\App\Models\Observation::class);
+    }
+
+    public function options()
+    {
+      return $this->belongsToMany(\App\Models\Option::class);
+    }
+
+    public function ages()
+    {
+      return $this->belongsToMany(\App\Models\Age::class);
+    }
+
+    public function exclusion()
+    {
+      return $this->hasOne(\App\Models\Exclusion::class);
+    }
 }

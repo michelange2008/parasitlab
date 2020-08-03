@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   // Requete ajax pour sélectionner les options et analyses dans la procédure de choix des analyses
   Route::post('/options', ['uses' => 'Api\DonneesController@options', 'as' => 'api.options']);
+  Route::post('/options', ['uses' => 'Api\DonneesController@selectAnalyses', 'as' => 'api.selectAnalyses']);
 
   Route::get('/anaactes/{anatype_id}/{espece}', ['uses' => 'Api\DonneesController@anaacteSelonAnatypeEspece']);
 

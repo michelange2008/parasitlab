@@ -33,14 +33,9 @@ class Espece extends Model
       return $this->hasOne(Labo\Serie::class);
     }
 
-    public function Anatypes()
+    public function anatypes()
     {
       return $this->belongsToMany(Analyses\Anatype::class);
-    }
-
-    public function Anaactes()
-    {
-      return $this->belongsToMany(Analyses\Anaacte::class);
     }
 
     public function observations()
@@ -51,5 +46,10 @@ class Espece extends Model
     public function exclusion()
     {
       return $this->hasOne(Exclusion::class);
+    }
+    
+    public function exclusionsAnaacte()
+    {
+      return $this->hasOne(ExclusionsAnaacte::class);
     }
 }

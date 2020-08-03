@@ -3,7 +3,7 @@ namespace App\Http\Traits;
 
 /**
  * Reprise le fonction observation.edit qui est très longue à cause des différents cas
- * de mise à jour des associations entre observation, ages, especes, et anaactes
+ * de mise à jour des associations entre observation, ages, especes, et anatypes
  */
 trait ObservationEdit
 {
@@ -53,19 +53,20 @@ trait ObservationEdit
 
   }
 
-  public function updateAnaacte($observation, $datas)
+  public function updateAnatype($observation, $datas)
   {
-    $observation->anaactes()->detach();
+
+    $observation->anatypes()->detach();
 
     foreach ($datas as $key => $data) {
 
-      if(explode('_', $key)[0] == 'anaacte') {
+      if(explode('_', $key)[0] == 'anatype') {
 
-        $anaacte_id = explode('_', $key)[1];
+        $anatype_id = explode('_', $key)[1];
 
         for ($i=0; $i < $data ; $i++) {
 
-          $observation->anaactes()->attach($anaacte_id);
+          $observation->anatypes()->attach($anatype_id);
 
         }
 

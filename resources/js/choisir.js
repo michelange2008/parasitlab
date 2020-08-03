@@ -236,6 +236,10 @@ $(".optionstarifs").on('click', function() {
 
     nonEstompeAnatypes();
 
+    $('#boutons').hide();
+
+    $('#penser_veto').hide(); // Et le véto
+
   } else {
 
     estompeAnatypes();
@@ -248,11 +252,12 @@ $(".optionstarifs").on('click', function() {
 
     $(this).attr('state', 'opened');
 
-    $('#listeanaactes_' + anatype_id).fadeIn(2000);
+    $('#listeanaactes_' + anatype_id).fadeIn(1000);
 
-    $('#boutons').fadeIn(1000);
+    $('#boutons').fadeIn(1500);
 
     $('#penser_veto').fadeIn(3000); // Et le véto
+    window.scrollTo(200,250);
 
   }
 

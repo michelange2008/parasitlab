@@ -89,7 +89,7 @@
 
 {{-- ########################### NE PAS SUPPRIMER !!! #################################################### --}}
 {{-- FORMULAIRE CACHE qui permet la requetee ajax post:: il n'est pas affiché mais joue un role fondamental --}}
-<form id="choix_options" class="" action="{{ route('api.options') }}" method="post">
+<form id="choix_options" class="" action="{{ route('api.selectAnalyses') }}" method="post">
   @csrf
 
   <input id="input_espece" type="hidden" name="espece" value="">

@@ -10,7 +10,7 @@
 
   <div class="container-fluid">
 
-    <form action="{{ route('exclusions.store') }}" method="post">
+    <form action="{{ route('exclusionsAnaacte.store') }}" method="post">
 
       @csrf
 
@@ -80,23 +80,38 @@
 
           <hr class="divider-court">
 
-          <h5>@lang('form.choix_anatype_exclu')</h5>
+          <h5>@lang('form.choix_anaacte_exclu')</h5>
 
           @foreach ($anatypes as $anatype)
 
+              <div class="border my-3">
 
-                <div class="p-3">
+                <div class="bg-bleu text-white p-2">
 
-                  <div class="custom-control custom-radio custom-control-inline">
-
-                    <input type="radio" id="anatype_{{ $anatype->id }}" name="anatype" class="custom-control-input" value="{{ $anatype->id }}"" required>
-
-                    <label class="custom-control-label" for="anatype_{{ $anatype->id }}">{{ ucfirst($anatype->nom) }}</label>
-
-                  </div>
+                  <p class="lead mb-0">{{ ucfirst($anatypes->where('id', $anatype->id)->first()->nom) }}</p>
 
                 </div>
 
+              @foreach ($anaactes as $anaacte)
+
+                @if ($anaacte->anatype_id === $anatype->id)
+
+                  <div class="p-3">
+
+                    <div class="custom-control custom-checkbox custom-control-inline">
+
+                      <input type="checkbox" id="anaacte_{{ $anaacte->id }}" name="anaacte_{{ $anaacte->id }}" class="custom-control-input" value="{{ $anaacte->id }}" >
+                      <label class="custom-control-label" for="anaacte_{{ $anaacte->id }}">{{ ucfirst($anaacte->nom) }}</label>
+
+                    </div>
+
+                  </div>
+
+                @endif
+
+              @endforeach
+
+            </div>
 
           @endforeach
 
@@ -108,7 +123,7 @@
 
         <div class="col-md-11 col-lg-10 col-xl-9">
 
-          @enregistreAnnule(['route' => route('exclusions.index')])
+          @enregistreAnnule(['route' => route('exclusionsAnaacte.index')])
 
         </div>
 

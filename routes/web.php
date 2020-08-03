@@ -18,7 +18,8 @@
 
   Route::get('/essai', 'Api\DonneesController@essai');
 
-  Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
+  // Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
+  Route::post('/essai/store', 'Api\DonneesController@selectAnalyses')->name('essai.store');
 
   Route::get('/', 'AccueilController@index')->name('accueil');
 
@@ -213,7 +214,7 @@
     // Modification de l'association d'une observation avec des options
     Route::get('algorithme/observation/option/{observation_id}', 'Analyses\Algorithme\ObservationsController@editOption')->name('observation.editOption');
     // Modification de l'association d'une observation avec des anaactes
-    Route::get('algorithme/observation/anaacte/{observation_id}', 'Analyses\Algorithme\ObservationsController@editAnaacte')->name('observation.editAnaacte');
+    Route::get('algorithme/observation/anatype/{observation_id}', 'Analyses\Algorithme\ObservationsController@editAnatype')->name('observation.editAnatype');
     // Gestion des options (aka explications)
     Route::resource('algorithme/options',  'Analyses\Algorithme\OptionsController');
     // Liste de anaactes associés à un age
@@ -232,6 +233,8 @@
     Route::resource('algorithme/especesAlgo', 'Analyses\Algorithme\EspecesAlgoController');
 
     Route::resource('algorithme/exclusions', 'Analyses\Algorithme\ExclusionsController');
+
+    Route::resource('algorithme/exclusionsAnaacte', 'Analyses\Algorithme\ExclusionsAnaacteController');
 
   });
 

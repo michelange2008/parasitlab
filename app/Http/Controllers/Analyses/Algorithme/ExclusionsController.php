@@ -32,6 +32,7 @@ class ExclusionsController extends Controller
      */
     public function index()
     {
+
         return view('admin.algorithme.exclusionsIndex', [
           'menu' => $this->menu,
           'exclusions' => Exclusion::all()->groupBy(['espece_id', 'observation_id']),
@@ -54,7 +55,6 @@ class ExclusionsController extends Controller
           'especes' => Espece::all(),
           'ages' => Age::all(),
           'observations' => Observation::all(),
-          'anaactes' => Anaacte::where('estAnalyse', 1)->get()->groupBy('anatype_id'),
           'anatypes' => Anatype::where('estAnalyse', 1)->get(),
         ]);
     }
@@ -68,7 +68,6 @@ class ExclusionsController extends Controller
     public function store(Request $request)
     {
         $datas = $request->all();
-
         $age = null;
         $espece = null;
 
@@ -93,20 +92,21 @@ class ExclusionsController extends Controller
                 break;
 
               default:
-                // code...
+
                 break;
             }
 
           }
-          // code...
+
         }
 
         $donnees_nouvelles = [
           'espece_id' => $espece,
           'age_id' => $age,
           'observation_id' => $datas['observation'],
-          'anaacte_id' => $datas['anaacte']
+          'anatype_id' => $datas['anatype']
         ];
+
         // On vérifie si cette exclusion n'existe pas déjà
         if(Exclusion::where($donnees_nouvelles)->count() > 0) {
 
@@ -124,9 +124,6 @@ class ExclusionsController extends Controller
           return redirect()->route('exclusions.index')->with('message', 'exclusion_non_existe');
 
         }
-
-
-        dd($exclusion_nouvelle);
 
     }
 

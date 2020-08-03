@@ -15,7 +15,7 @@
       @csrf
       @method('put')
       {{-- Champs caché qui permet de savoir quel type demodification on apporte à l'observatin --}}
-      <input type="hidden" name="type" value="anaacte">
+      <input type="hidden" name="type" value="anatype">
 
       <div class="row my-3 justify-content-center">
 
@@ -31,21 +31,19 @@
 
         <div class="col-md-11 col-lg-10 col-xl-9">
 
-          @foreach ($anatypes as $anatype)
 
             <ul class="list-group">
 
-              <li class="list-group-item list-group-item-action list-group-item-dark rounded-0">{{ ucfirst($anatype->nom) }}</li>
 
-              @foreach ($anatype->anaactes as $anaacte)
+              @foreach ($anatypes as $anatype)
 
                 <li class="list-group-item rounded-0">
 
                   <div class="form-group row">
 
-                    @foreach ($anaactesAvecPoids as $anaacte_id => $frequence)
+                    @foreach ($anatypesAvecPoids as $anatype_id => $frequence)
 
-                      @if ($anaacte_id === $anaacte->id)
+                      @if ($anatype_id === $anatype->id)
 
                         @php $poids = $frequence @endphp
 
@@ -61,11 +59,11 @@
                     @else
                       font-weight-bold color-bleu
                     @endif
-                    ">{{ ucfirst($anaacte->nom) }}</label>
+                    ">{{ ucfirst($anatype->nom) }}</label>
 
                     <div class="col-sm-1">
 
-                      <input type="number" class="form-control" name="anaacte_{{ $anaacte->id }}" value="{{ $poids }}">
+                      <input type="number" class="form-control" name="anatype_{{ $anatype->id }}" value="{{ $poids }}">
 
                     </div>
 
@@ -78,7 +76,6 @@
 
             </ul>
 
-          @endforeach
         </div>
 
       </div>

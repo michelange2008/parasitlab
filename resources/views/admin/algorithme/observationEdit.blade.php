@@ -14,7 +14,7 @@
 
       @csrf
       @method('put')
-      {{-- Champs caché qui permet de savoir quel type demodification on apporte à l'observatin --}}
+      {{-- Champs caché qui permet de savoir quel type de modification on apporte à l'observation --}}
       <input type="hidden" name="type" value="observation">
 
 
