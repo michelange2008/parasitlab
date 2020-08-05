@@ -68,8 +68,8 @@ class ExclusionsAnaacteController extends Controller
   {
     $datas = $request->all();
 
-    $age = null;
-    $espece = null;
+    $age_id = null;
+    $espece_id = null;
 
     foreach ($datas as $key => $data) {
 
@@ -81,13 +81,15 @@ class ExclusionsAnaacteController extends Controller
 
           case 'age':
 
-          $age = $data_tab[1];
+          $age_id = $data_tab[1];
+          $age = Age::find($age_id);
+          $espece_id = $age->espece_id;
 
           break;
 
           case 'espece':
 
-          $espece = $data_tab[1];
+          $espece_id = $data_tab[1];
 
           break;
 
@@ -101,8 +103,8 @@ class ExclusionsAnaacteController extends Controller
     }
 
     $donnees_nouvelles = [
-    'espece_id' => $espece,
-    'age_id' => $age,
+    'espece_id' => $espece_id,
+    'age_id' => $age_id,
     'observation_id' => $datas['observation'],
     ];
 

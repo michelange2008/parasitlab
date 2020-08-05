@@ -49,7 +49,7 @@
 
                   <td>{{ $age->nom }}</td>
                   <td> <a href="{{ route('observations.age', $age->id) }}" data-toggle="tooltip" title="@lang('tooltips.voir_obs_age')"><i class="fas fa-eye"></i></a> </td>
-                  <td> <a href="{{ route('anaactes.age', $age->id) }}" data-toggle="tooltip" title="@lang('tooltips.voir_ana_age')"><i class="fas fa-microscope"></i></a> </td>
+                  <td> <a href="{{ route('anatypes.age', $age->id) }}" data-toggle="tooltip" title="@lang('tooltips.voir_ana_age')"><i class="fas fa-microscope"></i></a> </td>
 
                 </tr>
 
@@ -61,7 +61,7 @@
                 <td> <img class="img-50" src="{{ url('storage/img/icones/'.$espece->icone->nom) }}" alt="{{ $espece->icone->nom }}"> </td>
                 <td>{{ $espece->nom }}</td>
                 <td> <a href="{{ route('observations.espece', $espece->id) }}" data-toggle="tooltip" title="@lang('tooltips.voir_obs_esp')"><i class="fas fa-eye"></i></a> </td>
-                <td> <a href="{{ route('anaactes.espece', $espece->id) }}" data-toggle="tooltip" title="@lang('tooltips.voir_ana_esp')"><i class="fas fa-microscope"></i></a> </td>
+                <td> <a href="{{ route('anatypes.espece', $espece->id) }}" data-toggle="tooltip" title="@lang('tooltips.voir_ana_esp')"><i class="fas fa-microscope"></i></a> </td>
 
               </tr>
 

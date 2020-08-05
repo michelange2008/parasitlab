@@ -1,5 +1,3 @@
-
-
 <?php
 /*
 |--------------------------------------------------------------------------
@@ -213,18 +211,16 @@
     Route::get('algorithme/observation/animal/{observation_id}', 'Analyses\Algorithme\ObservationsController@editAnimal')->name('observation.editAnimal');
     // Modification de l'association d'une observation avec des options
     Route::get('algorithme/observation/option/{observation_id}', 'Analyses\Algorithme\ObservationsController@editOption')->name('observation.editOption');
-    // Modification de l'association d'une observation avec des anaactes
+    // Modification de l'association d'une observation avec des anatypes
     Route::get('algorithme/observation/anatype/{observation_id}', 'Analyses\Algorithme\ObservationsController@editAnatype')->name('observation.editAnatype');
     // Gestion des options (aka explications)
     Route::resource('algorithme/options',  'Analyses\Algorithme\OptionsController');
-    // Liste de anaactes associés à un age
-    Route::get('algorithme/options/anaacte/{option_id}', 'Analyses\Algorithme\OptionsController@editAnaacte')->name('option.editAnaacte');
-    // Renvoie à la liste des anaactes associés à un age
-    Route::get('algorithme/analyses/age/{age_id}', 'Analyses\AnaacteController@age')->name('anaactes.age');
-    // Renvoie à la liste des anaactes associés à une espece
-    Route::get('algorithme/analyses/espece/{espece_id}', 'Analyses\AnaacteController@espece')->name('anaactes.espece');
+    // Renvoie à la liste des anatypes associés à un age
+    Route::get('algorithme/analyses/age/{age_id}', 'Analyses\AnatypeController@age')->name('anatypes.age');
+    // Renvoie à la liste des anatypes associés à une espece
+    Route::get('algorithme/analyses/espece/{espece_id}', 'Analyses\AnatypeController@espece')->name('anatypes.espece');
 
-    Route::put('algorithme/analyses/animal/{id}', 'Analyses\AnaacteController@animalUpdate')->name('anaactes.animalUpdate');
+    Route::put('algorithme/analyses/animal/{id}', 'Analyses\AnatypeController@animalUpdate')->name('anatypes.animalUpdate');
 
     Route::resource('algorithme/options', 'Analyses\Algorithme\OptionsController');
 

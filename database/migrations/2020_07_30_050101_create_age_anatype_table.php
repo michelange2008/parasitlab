@@ -15,9 +15,9 @@ class CreateAgeAnatypeTable extends Migration
     {
         Schema::create('age_anatype', function (Blueprint $table) {
           $table->unsignedInteger('age_id');
-          $table->foreign('age_id')->references('id')->on('ages');
+          $table->foreign('age_id')->references('id')->on('ages')->onDelete('cascade');
           $table->unsignedInteger('anatype_id');
-          $table->foreign('anatype_id')->references('id')->on('anaactes');
+          $table->foreign('anatype_id')->references('id')->on('anaactes')->onDelete('cascade');
         });
     }
 

@@ -31,4 +31,5 @@ return array (
   'show_option' => "Voir le détail de cette option",
   'edit_option' => "Modification de l'explication (texte, image)",
   'editOptionAnaacte' => "Modification des analyses associées à cette explication",
+  'edit_anaacte' => 'Modifier cette analyse',
 );

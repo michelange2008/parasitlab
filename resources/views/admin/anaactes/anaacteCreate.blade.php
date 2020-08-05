@@ -20,6 +20,10 @@
 
     </div>
 
+    <form action="{{ route('anaactes.store')}}" method="post">
+
+      @csrf
+
     <div class="row justify-content-center">
 
       <div class="col-md-11 col-lg-10 col-xl-9">
@@ -109,6 +113,34 @@
 
         </div>
 
+        <div class="form-row">
+
+          <div class="col">
+
+            @include('admin.form.inputNumber', [
+              'label' => 'cout_anaacte',
+              'nom' => 'pu_ht',
+              'value' => 0,
+              'required' => true,
+              'placeholder' => "Indiquez le coût de l'analyse",
+            ])
+
+          </div>
+
+          <div class="col">
+
+            @inputText([
+              'nom' => 'num',
+              'label' => 'anaacte_num_nom',
+              'value' => '',
+              'placeholder' => 'anaacte_num_nom',
+              'required' => true
+            ])
+
+          </div>
+
+        </div>
+
         @include('admin.form.inputChoixIcone')
 
 
@@ -127,6 +159,8 @@
 
     </div>
 
-  </div>
+  </form>
+
+</div>
 
 @endsection

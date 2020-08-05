@@ -11,6 +11,8 @@ use App\Http\Traits\LitJson;
 use \App\Models\Analyses\Anatype;
 use \App\Models\Analyses\Anaitem;
 use \App\Models\Icone;
+use \App\Models\Espece;
+use \App\Models\Age;
 
 class AnatypeController extends Controller
 {
@@ -129,5 +131,61 @@ class AnatypeController extends Controller
         Anatype::destroy($id);
 
         return redirect()->back()->with('message', 'anatype_del');
+    }
+
+    public function age($age_id)
+    {
+      return view('admin.algorithme.animalAnatypesShow', [
+        'menu' => $this->menu,
+        'type' => 'age',
+        'ages' => Age::all(),
+        'especes' => Espece::all(),
+        'animal' => Age::find($age_id),
+        'anatypes' => Anatype::where('estAnalyse', 1)->get(),
+      ]);
+    }
+
+    public function espece($espece_id)
+    {
+
+      return view('admin.algorithme.animalAnatypesShow', [
+        'menu' => $this->menu,
+        'type' => 'espece',
+        'ages' => Age::all(),
+        'especes' => Espece::all(),
+        'animal' => Espece::find($espece_id),
+        'anatypes' => Anatype::where('estAnalyse', 1)->get(),
+      ]);
+    }
+
+    /**
+     * Modification des associations entre anaacte et espece ou age
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function animalUpdate(Request $request, $id)
+    {
+      $datas = $request->all();
+
+      $animal = ($datas['type'] === "age") ? Age::find($id) : Espece::find($id);
+
+      $anatypes_id = Collect();
+
+      foreach ($datas as $key => $data) {
+
+        if(explode('_', $key)[0] == "anatype") {
+
+          $anatypes_id->push(explode('_', $key)[1]);
+
+        }
+
+      }
+
+      $animal->anatypes()->detach();
+      $animal->anatypes()->attach($anatypes_id);
+
+      return redirect()->back()->with('message', 'animal_anatype_update');
     }
 }

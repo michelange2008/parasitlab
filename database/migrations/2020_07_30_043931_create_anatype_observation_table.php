@@ -15,9 +15,9 @@ class CreateAnatypeObservationTable extends Migration
     {
         Schema::create('anatype_observation', function (Blueprint $table) {
           $table->unsignedInteger('anatype_id');
-          $table->foreign('anatype_id')->references('id')->on('anaactes');
+          $table->foreign('anatype_id')->references('id')->on('anaactes')->onDelete('cascade');
           $table->unsignedInteger('observation_id');
-          $table->foreign('observation_id')->references('id')->on('observations');
+          $table->foreign('observation_id')->references('id')->on('observations')->onDelete('cascade');
         });
     }
 

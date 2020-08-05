@@ -20,16 +20,16 @@ class CreateExclusionsTable extends Migration
           $table->increments('id');
 
           $table->unsignedInteger('espece_id');
-          $table->foreign('espece_id')->references('id')->on('especes');
+          $table->foreign('espece_id')->references('id')->on('especes')->onDelete('cascade');
 
           $table->unsignedInteger('age_id')->nullable();
-          $table->foreign('age_id')->references('id')->on('ages');
+          $table->foreign('age_id')->references('id')->on('ages')->onDelete('cascade');
 
           $table->unsignedInteger('anatype_id');
-          $table->foreign('anatype_id')->references('id')->on('anatypes');
+          $table->foreign('anatype_id')->references('id')->on('anatypes')->onDelete('cascade');
 
           $table->unsignedInteger('observation_id');
-          $table->foreign('observation_id')->references('id')->on('observations');
+          $table->foreign('observation_id')->references('id')->on('observations')->onDelete('cascade');
         });
     }
 

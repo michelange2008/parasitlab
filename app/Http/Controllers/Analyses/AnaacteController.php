@@ -77,7 +77,25 @@ class AnaacteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datas = $request->all();
+
+        $anaacte_nouveau = new Anaacte();
+
+        $anaacte_nouveau->anatype_id = $datas['anatype'];
+        $anaacte_nouveau->num = $datas['num'];
+        $anaacte_nouveau->abbreviation = $datas['abbreviation'];
+        $anaacte_nouveau->nom = $datas['nom'];
+        $anaacte_nouveau->description = $datas['description'];
+        $anaacte_nouveau->estSerie = $datas['estSerie'];
+        $anaacte_nouveau->estAnalyse = $datas['estAnalyse'];
+        $anaacte_nouveau->estTarif = $datas['estTarif'];
+        $anaacte_nouveau->pu_ht = $datas['pu_ht'];
+        $anaacte_nouveau->icone_id = $datas['icone_id'];
+
+        $anaacte_nouveau->save();
+
+        return redirect()->route('anaactes.index')->with('messages', 'anaacte_store');
+
     }
 
     /**

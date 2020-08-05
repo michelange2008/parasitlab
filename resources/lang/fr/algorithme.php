@@ -9,7 +9,7 @@ return array(
   'suppr_observation_question' => 'Voulez-vous vraiment supprimer cette observation ?',
   'poids' => "Poids",
   'zero_autre' => "Pas d'autres causes pour cette observation",
-  'animal_anaactes_avec' => 'Analyses associées à cette espèce',
-  'animal_anaactes_sans' => 'Autres analyses disponibles',
+  'animal_anatypes_avec' => 'Analyses associées à cette espèce',
+  'animal_anatypes_sans' => 'Autres analyses disponibles',
 
 );
