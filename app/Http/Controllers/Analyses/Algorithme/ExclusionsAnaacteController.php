@@ -36,7 +36,7 @@ class ExclusionsAnaacteController extends Controller
       'exclusions' => ExclusionsAnaacte::all()->groupBy(['espece_id', 'observation_id']),
       'ages' => Age::all(),
       'especes' => Espece::all(),
-      'observations' => Observation::all(),
+      'observations' => Observation::orderBy('categorie_id', 'asc')->orderBy('ordre', 'asc')->get(),
       'anaactes' => Anaacte::all(),
     ]);
   }
@@ -52,7 +52,7 @@ class ExclusionsAnaacteController extends Controller
     'menu' => $this->menu,
     'especes' => Espece::all(),
     'ages' => Age::all(),
-    'observations' => Observation::all(),
+    'observations' => Observation::orderBy('categorie_id', 'asc')->orderBy('ordre', 'asc')->get(),
     'anatypes' => Anatype::where('estAnalyse', 1)->get(),
     'anaactes' => Anaacte::where('estAnalyse', 1)->get(),
     ]);
@@ -68,53 +68,55 @@ class ExclusionsAnaacteController extends Controller
   {
     $datas = $request->all();
 
-    $age_id = null;
-    $espece_id = null;
+    $nouvelles_donnees = Collect();
 
     foreach ($datas as $key => $data) {
 
-      if ($key === "animaux") {
+      $type_animal = explode('_', $key)[0];
 
-        $data_tab = explode('_', $data);
+      switch ($type_animal) {
 
-        switch ($data_tab[0]) {
+        case 'age':
 
-          case 'age':
+        $age_id = $data;
+        $age = Age::find($age_id);
+        $espece_id = $age->espece_id;
+        $nouvelles_donnees->push([
+          "espece_id" => $espece_id,
+          "age_id" => $age_id,
+          "observation_id" => $datas['observation']
+        ]);
 
-          $age_id = $data_tab[1];
-          $age = Age::find($age_id);
-          $espece_id = $age->espece_id;
+        break;
 
-          break;
+        case 'espece':
 
-          case 'espece':
+        $nouvelles_donnees->push([
+          "espece_id" => $data,
+          "age_id" => null,
+          "observation_id" => $datas['observation'],
+        ]);
 
-          $espece_id = $data_tab[1];
+        break;
 
-          break;
+        default:
 
-          default:
-
-          break;
-        }
-
+        break;
       }
 
     }
-
-    $donnees_nouvelles = [
-    'espece_id' => $espece_id,
-    'age_id' => $age_id,
-    'observation_id' => $datas['observation'],
-    ];
 
     foreach($datas as $key => $data) {
 
       if(explode('_', $key)[0] === 'anaacte') {
 
-        $donnees_nouvelles['anaacte_id'] = $data;
+        foreach ($nouvelles_donnees as $nouvelle_donnee) {
 
-        $exclusion_nouvelle = ExclusionsAnaacte::firstOrCreate($donnees_nouvelles);
+          $nouvelle_donnee['anaacte_id'] = $data;
+
+          $exclusion_nouvelle = ExclusionsAnaacte::firstOrCreate($nouvelle_donnee);
+
+        }
 
       }
 
