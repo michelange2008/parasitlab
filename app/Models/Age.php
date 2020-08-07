@@ -23,11 +23,6 @@ class Age extends Model
       return $this->belongsToMany(Observation::class);
     }
 
-    public function Anaactes()
-    {
-      return $this->belongsToMany(Analyses\Anaacte::class);
-    }
-
     public function anatypes()
     {
       return $this->belongsToMany(Analyses\Anatype::class);

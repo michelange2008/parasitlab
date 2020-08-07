@@ -1,6 +1,7 @@
 vendor/
 node_modules/
 npm-debug.log
+zpoubelle/
 
 # Laravel 5 & Lumen specific
 public/storage

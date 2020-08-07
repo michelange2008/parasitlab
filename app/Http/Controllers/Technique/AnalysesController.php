@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Anatype;
 use App\Models\Categorie;
-use App\Models\Option;
 use App\Models\Espece;
 use App\Models\Age;
 
@@ -53,9 +52,6 @@ class AnalysesController extends Controller
         'especes' => Espece::all(),
         'ages' => Age::all(),
         'categories' => Categorie::all(),
-        // 'qui_quand' => $this->litJson('qui_quand'),
-        'options' => Option::all(),
-        // 'anaactes' => $anaactes,
         'anatypes' => $anatypes,
       ]);
     }

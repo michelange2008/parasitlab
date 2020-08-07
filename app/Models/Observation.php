@@ -24,19 +24,9 @@ class Observation extends Model
       return $this->belongsToMany(Age::class);
     }
 
-    public function anaactes()
-    {
-      return $this->belongsToMany(\App\Models\Analyses\Anaacte::class);
-    }
-
     public function anatypes()
     {
       return $this->belongsToMany(\App\Models\Analyses\Anatype::class);
-    }
-
-    public function options()
-    {
-      return $this->belongsToMany(Option::class);
     }
 
     public function exclusion()

@@ -106,11 +106,7 @@
            Observations
       </text>
     </g>
-    <g
-       id="detail"
-       type="route"
-       route="detail"
-       class="alg-bouton">
+    <g id="detail">
       <g
          >
         <rect
@@ -128,9 +124,7 @@
         </text>
       </g>
     </g>
-    <g
-       id="anatypes"
-       class="alg-bouton">
+    <g id="anatypes">
       <rect
          x="180"
          y="60"

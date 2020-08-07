@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 use App\Models\Observation;
 use App\Models\Categorie;
-use App\Models\Option;
 use App\Models\Analyses\Anatype;
 use App\Models\Espece;
 use App\Models\Age;
@@ -38,7 +37,6 @@ class ObservationsController extends Controller
           'menu' => $this->menu,
           'observations' => Observation::all(),
           'categories' => Categorie::all(),
-          'options' => Option::where('nom', '<>', null)->get(),
         ]);
     }
 
@@ -167,23 +165,6 @@ class ObservationsController extends Controller
     }
 
     /**
-     * Modification des associations entre observation et option
-     *
-     * Undocumented function long description
-     *
-     * @param int $id id de l'observation
-     * @return \Illuminate\Http\Response
-     */
-    public function editOption($id)
-    {
-      return view('admin.algorithme.observationEditOption', [
-        'menu' => $this->menu,
-        'observation' => Observation::find($id),
-        'options' => Option::all(),
-      ]);
-    }
-
-    /**
      * Modification des associations entre observation et anatype
      *
      * @param int $id id de l'observation
@@ -231,12 +212,6 @@ class ObservationsController extends Controller
 
             // Utilisation du trait ObservationEdit
             $this->updateAnimal($observation, $datas);
-
-            break;
-
-          case 'option':
-            // Utilisation du trait ObservationEdit
-            $this->updateOption($observation, $datas);
 
             break;
 
