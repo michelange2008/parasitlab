@@ -4,7 +4,7 @@ return array (
 
   'site_title' => 'Parasit\'Lab - Laboratoire d\'analyse vétérinaire en parasitologie des ruminants,  porcs, chevaux, ânes en Drôme',
   'cavaliers' => 'cavalières et propriétaires de chevaux ou d\'ânes',
-  'copros' => 'Pourquoi des coproscopies&nbsp;?',
+  'copros' => 'Pourquoi des analyses parasitologiques&nbsp;?',
   'choisir_analyse' => 'Quelle analyse choisir&nbsp;?',
   'envoiPack' => 'Demande d\'envoi d\'un pack pré-affranchi',
   'tarifs' => 'Analyses proposées et tarifs',

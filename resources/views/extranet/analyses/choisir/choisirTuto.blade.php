@@ -8,6 +8,10 @@
 
   <p>@lang('choisir.tuto_liste')</p>
 
+  <p class="pr-2"><strong>@lang('choisir.tuto_choix') @lang('choisir.tuto_clic')</strong></p>
+
+  <p class="lead text-secondary">Catégories&nbsp;:</p>
+
   <div class="col-8 offset-2">
 
     <ul class="list-group">
@@ -28,11 +32,7 @@
 
   </div>
 
-  <p class="mt-3">@lang('choisir.tuto_clic')</p>
-
-  <p>@lang('choisir.tuto_choix')</p>
-
-  <div class="bg-rouge-tres-fonce p-3 text-white my-2">
+  <div class="bg-rouge-tres-fonce p-3 text-white my-3">
 
     <p class="ml-2 mb-1">@lang('choisir.tuto_veto')</p>
 

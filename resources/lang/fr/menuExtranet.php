@@ -1,76 +1,76 @@
 <?php
 
 return array (
-  'accueil' => 
+  'accueil' =>
   array (
     'nom' => 'Accueil',
     'tooltip' => 'Retour à l\'accueil',
   ),
-  'analyses' => 
+  'analyses' =>
   array (
     'nom' => 'Analyses',
     'tooltip' => 'Toutes les analyses que nous proposons',
-    'coproscopies' => 
+    'coproscopies' =>
     array (
-      'nom' => 'Pourquoi des coproscopies ?',
-      'tooltip' => 'Qu\'est-ce qu\'une coproscopie&nbsp;?',
+      'nom' => 'Pourquoi des analyses parasitologiques ?',
+      'tooltip' => 'Qu\'est-ce qu\'une analyse parasitologique&nbsp;?',
     ),
-    'choisir' => 
+    'choisir' =>
     array (
       'nom' => 'Quelle analyse choisir&nbsp;?',
       'tooltip' => 'Quel analyse, pour quel objectif&nbsp;?',
     ),
-    'enpratique' => 
+    'enpratique' =>
     array (
       'nom' => 'Comment prélever et envoyer&nbsp;?',
       'tooltip' => 'Comment faire pour ...',
     ),
-    'interpretation' => 
+    'interpretation' =>
     array (
       'nom' => 'Quelle interprétation&nbsp;?',
       'tooltip' => 'Comment faire pour ...',
     ),
   ),
-  'parasitisme' => 
+  'parasitisme' =>
   array (
     'nom' => 'Parasitisme ',
     'tooltip' => 'Tout ce que vous avez toujours voulu savoir',
   ),
-  'express' => 
+  'express' =>
   array (
     'nom' => 'Express',
     'tooltip' => 'Si vous êtes pressés !',
-    'tarifs' => 
+    'tarifs' =>
     array (
       'nom' => 'Voir les analyses et tarifs',
       'tooltip' => 'Liste de analyses proposées et des tarifs',
     ),
-    'telFormulaire' => 
+    'telFormulaire' =>
     array (
       'nom' => 'Télécharger un formulaire vierge',
       'tooltip' => 'Télécharger un formulaire vierge au format pdf',
     ),
-    'envoiPack' => 
+    'envoiPack' =>
     array (
       'nom' => 'Demander des packs d\'envoi',
       'tooltip' => 'Ces packs d\'envois sont préafranchis et vous permettront une expédition sûre de vos prélèvements',
     ),
   ),
-  'infos' => 
+  'infos' =>
   array (
     'nom' => 'Infos et aide',
     'tooltip' => 'Une questions, un problème, cliquez ici!',
-    'contact' => 
+    'contact' =>
     array (
       'nom' => 'Nous contacter',
       'tooltip' => 'un problème, une question ...',
     ),
-    'quisommesnous' => 
+    'quisommesnous' =>
     array (
       'nom' => 'Qui sommes-nous ?',
       'tooltip' => 'Un laboratoire de recherche sur le terrain',
     ),
-    'infoslegales' => 
+    'infoslegales' =>
     array (
       'nom' => 'Informations légales',
       'tooltip' => 'Crédits photo et vie privée',
