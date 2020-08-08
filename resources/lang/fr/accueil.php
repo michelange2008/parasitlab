@@ -5,7 +5,7 @@ return array (
   array (
     'maitrisez' => 'Maîtrisez le parasitisme interne de votre troupeau !',
     'evaluez' => 'Evaluez la situation de vos animaux !',
-    'limitez' => 'Limitez les résistances !',
+    'limitez' => 'Détectez et limitez les résistances !',
     'respectez' => 'Respectez la biodiversité !',
   ),
   'entetes' =>
