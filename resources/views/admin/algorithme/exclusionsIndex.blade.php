@@ -34,91 +34,152 @@
 
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-3">
 
       <div class="col-md-11 col-lg-10 col-xl-9">
-        {{-- on passe en revue le résultat de la requete sur les exclusion qui est un tableau hiérarchisé espece/observation/ --}}
-        @foreach ($exclusions as $espece_id => $niveau_espece)
-          {{-- On se retourve au niveau de l'espece et on vérifie si c'est une espece qui a des ages --}}
-          @if ($ages->contains('espece_id', $espece_id))
-            {{-- dans de cas on affiche l'age --}}
-            <div class="media my-3 bg-bleu-clair p-1 text-white">
 
-              <img class="img-50" src="{{ url('storage/img/icones/'.$ages->where('espece_id', $espece_id)->first()->icone->nom) }}" alt="{{ $ages->where('espece_id', $espece_id)->first()->icone->nom }}">
+        <table class="table">
 
-              <div class="media-body">
+          <tbody>
 
-                <h4 class="ml-3 mt-2">{{ $ages->where('espece_id', $espece_id)->first()->nom }}</h4>
+            @foreach ($observations as $observation)
+              {{-- Si cette observation est dans la liste des exclusions --}}
+              @if ($exclusions->where('observation_id', $observation->id)->count() > 0)
+                {{-- on l'affiche --}}
+                <tr class="bg-bleu-clair text-white">
 
-              </div>
+                  <td>
+                    <img class="img-50" src="{{ url('storage/img/icones/'.$observation->categorie->nom.'.svg') }}" alt="">
+                  </td>
 
-            </div>
-            {{-- sinon on affiche l'espece --}}
-          @else
+                  <td>
+                    <h5 class="mt-2">{{  $observation->intitule }}</h5>
+                  </td>
 
-            <div class="media my-3 bg-bleu-clair p-1 text-white">
+                  <td class="align-middle">
+                    {{-- suppression de toutes les exclusions liées à une observation --}}
+                    @supprExclusion([
+                    'exclusion_id' => 'formdestroyObservation_'.$observation->id,
+                    'route' => route('exclusions.destroyObservation', $observation->id),
+                    'color' => 'white',
+                    ])
+                  </td>
 
-              <img class="img-50" src="{{ url('storage/img/icones/'.$especes->where('id', $espece_id)->first()->icone->nom) }}" alt="{{ $especes->where('id', $espece_id)->first()->icone->nom }}">
+                </tr>
 
-              <div class="media-body">
+                {{-- puis on passe en revue toutes les especes --}}
+                @foreach ($especes as $espece)
+                  {{-- si l'espèce à des âges --}}
+                  @if ($liste_especes_avec_age->contains($espece->id))
+                    {{-- On passe en revue les ages de cette espèce --}}
+                    @foreach ($ages->where('espece_id', $espece->id) as $age)
+                      {{-- s'il y a une exclusion liée à cette observation, cet age --}}
+                      @if ($exclusions->where('observation_id', $observation->id)->where( 'age_id', $age->id)->count() > 0)
+                        {{-- dans de cas on affiche l'age --}}
+                        <tr>
 
-                <h4 class="ml-3 mt-2">{{ $especes->where('id', $espece_id)->first()->nom }}</h4>
+                          <td style="width:50px">
+                            <img class="img-50" src="{{ url( 'storage/img/icones/'.$age->icone->nom ) }}" alt="{{ $age->icone->nom }}">
+                          </td>
 
-              </div>
+                          <td>
+                            <h4 class="mt-2 color-bleu-tres-fonce">{{ $age->nom }}</h4>
+                          </td>
 
-            </div>
+                          <td class="align-middle">
+                            {{-- suppression de toutes les exclusions liées à une observation --}}
+                            @supprExclusion([
+                            'exclusion_id' => 'formDestroyAge_'.$observation->id.$age->id,
+                            'route' => route('exclusions.destroyAge', [ $observation->id, $age->id ]),
+                            'color' => '#0A425A',
+                            ])
+                          </td>
 
-          @endif
-          {{-- puis on passe au niveau suivant, celui de l'observation --}}
-          @foreach ($niveau_espece as $observation_id => $niveau_observation)
-            {{-- et on affiche l'observation --}}
-            <div class="media my-1">
+                        </tr>
 
-              <img class="img-25" src="{{ url('storage/img/icones/'.$observations->where('id', $observation_id)->first()->categorie->nom.'.svg') }}" alt="">
+                        {{-- et enfin on affiche la liste des anatypes --}}
+                        @foreach ($exclusions->where('observation_id', $observation->id)->where( 'age_id', $age->id) as $exclusion)
 
-              <div class="media-body color-bleu-tres-fonce">
+                          <tr>
+                            <td></td>
 
-                <h5>{{  $observations->where('id', $observation_id)->first()->intitule }}</h5>
+                            <td class="text-secondary">{{ ucfirst($exclusion->anatype->nom) }}</td>
 
-              </div>
+                            <td>
+                              @supprExclusion([
+                              'exclusion_id' => 'form_'.$exclusion->id,
+                              'route' => route('exclusions.destroy', $exclusion->id),
+                              'color' => 'gray',
+                              ])
+                            </td>
 
-            </div>
-            {{-- et enfin on affiche la liste des anatypes --}}
-            <table class="table">
+                          </tr>
 
-              <tbody>
+                        @endforeach
 
-                @foreach ($niveau_observation as $anatype_id => $exclusion)
+                      @endif
 
-                  <tr>
-                    <td></td>
-                    <td>{{ ucfirst($exclusion->anatype->nom) }}</td>
-                    <td class="text-right">
-                      <form id="form_{{ $exclusion->id }}" class="suppr"
-                        titre = "Suppression d'exclusion"
-                        texte = "Etes-vous sûr de supprimer cette exclusion ?"
-                        action = "{{ route('exclusions.destroy', $exclusion->id) }}"
-                        method="post">
+                    @endforeach
+                    {{-- mais si l'espece n'a pas d'age --}}
+                  @else
+                    {{-- et qu'il existe des exclusions avec cette observation et cette espece --}}
+                    @if ($exclusions->where('observation_id', $observation->id)->where('espece_id', $espece->id)->count() > 0)
+                      {{-- on affiche l'espèce --}}
+                      <tr>
 
-                        @csrf
-                        @method('delete')
+                        <td style="width:50px">
+                          <img class="img-50" src="{{ url('storage/img/icones/'.$espece->icone->nom) }}" alt="{{ $espece->icone->nom }}">
+                        </td>
 
-                        <a href="#"><i class="text-danger fas fa-trash-alt"></i></a>
-                      </form>
-                    </td>
+                        <td>
+                          <h4 class="mt-2 color-bleu-tres-fonce">{{ $espece->nom }}</h4>
+                        </td>
 
+                        <td class="align-middle">
+                          {{-- suppression de toutes les exclusions liées à une observation --}}
+                          @supprExclusion([
+                          'exclusion_id' => 'formDestroyEspece_'.$observation->id.$espece->id,
+                          'route' => route('exclusions.destroyEspece', [ $observation->id, $espece->id ]),
+                          'color' => '#0A425A',
+                          ])
+                        </td>
 
-                  </tr>
+                      </tr>
+
+                      {{-- et enfin on affiche la liste des anatypes --}}
+                      @foreach ($exclusions->where('observation_id', $observation->id)->where('espece_id', $espece->id) as $exclusion)
+
+                        <tr>
+
+                          <td></td>
+
+                          <td class="text-secondary">{{ ucfirst($exclusion->anatype->nom) }}</td>
+
+                          <td>
+                            @supprExclusion([
+                            'exclusion_id' => 'form_'.$exclusion->id,
+                            'route' => route('exclusions.destroy', $exclusion->id),
+                            'color' => 'gray',
+                            ])
+                          </td>
+
+                        </tr>
+
+                      @endforeach
+
+                    @endif
+
+                  @endif
 
                 @endforeach
 
-              </tbody>
+              @endif
 
-            </table>
+            @endforeach
 
-          @endforeach
+          </tbody>
 
-        @endforeach
+        </table>
 
       </div>
 

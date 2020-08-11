@@ -230,6 +230,12 @@
 
     Route::resource('algorithme/exclusions', 'Analyses\Algorithme\ExclusionsController');
 
+    Route::delete('algorithme/exclusions/destroyObservation/{observation_id}', 'Analyses\Algorithme\ExclusionsController@destroyObservation')->name('exclusions.destroyObservation');
+
+    Route::delete('algorithme/exclusions/destroyEspece/{observation_id}/{espece_id}', 'Analyses\Algorithme\ExclusionsController@destroyEspece')->name('exclusions.destroyEspece');
+
+    Route::delete('algorithme/exclusions/destroyAge/{observation_id}/{age_id}', 'Analyses\Algorithme\ExclusionsController@destroyAge')->name('exclusions.destroyAge');
+
     Route::resource('algorithme/exclusionsAnaacte', 'Analyses\Algorithme\ExclusionsAnaacteController');
 
   });

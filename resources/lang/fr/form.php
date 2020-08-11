@@ -116,7 +116,7 @@ return array (
   'choix_espece' => 'Choisissez une espèce ...',
   'choix_age' => 'Choisissez un âge ...',
   'choix_animal' => 'Choisissez un type d\'animal ...',
-  'choix_espece_age' => 'Choisissez une espèce ou un âge',
+  'choix_espece_age' => 'Choisissez une ou plusieurs espèces ou âges',
   'choix_observation' => 'Choisissez une observation',
   'choix_anaacte_exclu' => 'Choisissez l\'analyse qui sera exclu avec cette espèce/âge et cette observation',
   'choix_anatype_exclu' => 'Choisissez l\'analyse qui sera exclu avec cette espèce/âge et cette observation',
