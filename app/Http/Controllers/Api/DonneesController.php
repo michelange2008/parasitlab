@@ -350,5 +350,11 @@ public function estSerie($anaacte_id, $user_id)
   return json_encode($liste);
 }
 
+public function exclusionsObservation($observation_id)
+{
+  $exclusions = Exclusion::where('observation_id', $observation_id)->get();
+
+  return json_encode($exclusions);
+}
 
 }

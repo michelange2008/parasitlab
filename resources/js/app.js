@@ -13,6 +13,7 @@ require( './nbPrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
+require( './algo.js');
 
 require( 'jquery-confirm' );
 
