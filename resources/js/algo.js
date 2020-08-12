@@ -28,7 +28,7 @@ $('.observations').on('change', function() {
     console.log('erreur');
 
   }
-  console.log(url);
+  
   // On fait la requete ajax via une route api qui conduit à DonneesController@exclusionsObservation
   $.get({
 
