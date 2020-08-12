@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/listeIcones', 'IconesController@liste');
 
-  Route::get('/exclusionsObservation/{observation_id}', 'Api\DonneesController@exclusionsObservation');
+  Route::get('/exclusionsAnatypeObservation/{observation_id}', 'Api\DonneesController@exclusionsAnatypeObservation');
+
+  Route::get('/exclusionsAnaacteObservation/{observation_id}', 'Api\DonneesController@exclusionsAnaacteObservation');
 
 });

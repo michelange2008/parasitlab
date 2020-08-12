@@ -30,7 +30,7 @@
 
           <h5>@lang('form.choix_observation')</h5>
 
-          <select class="form-control" name="observation" required>
+          <select id="observationsAnaactes" class="form-control observations" name="observation" required>
 
             <option value="" selected>@lang('form.choix_observation')</option>
 
