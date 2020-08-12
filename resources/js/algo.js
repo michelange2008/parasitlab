@@ -14,7 +14,7 @@ $('.observations').on('change', function() {
   // On récupère l'url actuelle
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
   // Pour pouvoir la transformer en url  de requete ajax
-  // on crée la nouvelle url en fonction de la page où on est 
+  // on crée la nouvelle url en fonction de la page où on est
   if(observation_id == 'observationsAnatypes') {
 
     var url = url_actuelle.replace('laboratoire/algorithme/exclusions/create', 'api/exclusionsAnatypeObservation/' + option_id);
@@ -28,6 +28,7 @@ $('.observations').on('change', function() {
     console.log('erreur');
 
   }
+  console.log(url);
   // On fait la requete ajax via une route api qui conduit à DonneesController@exclusionsObservation
   $.get({
 
