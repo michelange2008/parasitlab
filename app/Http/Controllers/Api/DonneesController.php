@@ -357,4 +357,9 @@ public function exclusionsObservation($observation_id)
   return json_encode($exclusions);
 }
 
+public function exclusionsAnaacteObservation($observation_id)
+{
+  // code...
+}
+
 }
