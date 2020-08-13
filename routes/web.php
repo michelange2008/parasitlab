@@ -238,6 +238,12 @@
 
     Route::resource('algorithme/exclusionsAnaacte', 'Analyses\Algorithme\ExclusionsAnaacteController');
 
+    Route::delete('algorithme/exclusions/destroyObservation/{observation_id}', 'Analyses\Algorithme\ExclusionsAnaacteController@destroyObservation')->name('exclusionsAnaacte.destroyObservation');
+
+    Route::delete('algorithme/exclusions/destroyEspece/{observation_id}/{espece_id}', 'Analyses\Algorithme\ExclusionsAnaacteController@destroyEspece')->name('exclusionsAnaacte.destroyEspece');
+
+    Route::delete('algorithme/exclusions/destroyAge/{observation_id}/{age_id}', 'Analyses\Algorithme\ExclusionsAnaacteController@destroyAge')->name('exclusionsAnaacte.destroyAge');
+
   });
 
 // });

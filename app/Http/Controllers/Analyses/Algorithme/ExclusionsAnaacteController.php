@@ -12,10 +12,11 @@ use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Anaacte;
 
 use App\Http\Traits\LitJson;
+use App\Http\Traits\EspecesAyantAges;
 
 class ExclusionsAnaacteController extends Controller
 {
-  use LitJson;
+  use LitJson, EspecesAyantAges;
 
   protected $menu;
 
@@ -33,11 +34,12 @@ class ExclusionsAnaacteController extends Controller
   {
     return view('admin.algorithme.exclusionsAnaacteIndex', [
       'menu' => $this->menu,
-      'exclusions' => ExclusionsAnaacte::all()->groupBy(['espece_id', 'observation_id']),
+      'observations' => Observation::orderBy('categorie_id', 'asc')->orderBy('ordre', 'asc')->get(),
+      'exclusions' => ExclusionsAnaacte::all(),
       'ages' => Age::all(),
       'especes' => Espece::all(),
-      'observations' => Observation::orderBy('categorie_id', 'asc')->orderBy('ordre', 'asc')->get(),
       'anaactes' => Anaacte::all(),
+      'liste_especes_avec_age' => $this->especesAyantAges(),
     ]);
   }
 
@@ -138,5 +140,48 @@ class ExclusionsAnaacteController extends Controller
     ExclusionsAnaacte::destroy($id);
 
     return redirect()->back()->with('message', 'exclusion_del');
+  }
+
+  // Supprime un groupe d'exclusion correspondant à une observation (et plusieurs espèces et anaactes)
+  public function destroyObservation($observation_id)
+  {
+    $exclusions = ExclusionsAnaacte::where('observation_id', $observation_id)->get();
+
+    foreach ($exclusions as $exclusion) {
+
+      ExclusionsAnaacte::destroy($exclusion->id);
+
+    }
+
+    return redirect()->back()->with('message', 'exclusion_del');
+
+  }
+  // Supprime un groupe d'exclusion correspondant à une espèce (et plusieurs anaactes)
+  public function destroyEspece($observation_id, $espece_id)
+  {
+    $exclusions = ExclusionsAnaacte::where('observation_id', $observation_id)->where('espece_id', $espece_id)->get();
+
+    foreach ($exclusions as $exclusion) {
+
+      ExclusionsAnaacte::destroy($exclusion->id);
+
+    }
+
+    return redirect()->back()->with('message', 'exclusion_del');
+
+  }
+  // Supprime un groupe d'exclusion correspondant à un age (et plusieurs anaactes)
+  public function destroyAge($observation_id, $age_id)
+  {
+    $exclusions = ExclusionsAnaacte::where('observation_id', $observation_id)->where('age_id', $age_id)->get();
+
+    foreach ($exclusions as $exclusion) {
+
+      ExclusionsAnaacte::destroy($exclusion->id);
+
+    }
+
+    return redirect()->back()->with('message', 'exclusion_del');
+
   }
 }
