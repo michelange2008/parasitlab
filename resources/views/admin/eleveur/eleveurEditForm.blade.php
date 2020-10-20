@@ -14,6 +14,6 @@ NECESSITE 4 VARIABLES: user, vetos, pays -->
 
     @include('admin.form.infosEleveur')
 
-    @enregistreAnnule()
+    @enregistreAnnule(["route" => route('eleveurAdmin.show', $user->id)])
 
   {!! Form::close() !!}
