@@ -12,12 +12,20 @@ class ListeActesFournisseur extends ListeFournisseur
   public function creeliste($actes)
   {
     $this->liste = collect();
-
     foreach ($actes as $acte) {
 
       $description = [];
 
-      $eleveur = $this->lienFactory($acte->user->id, ucfirst($acte->user->name), 'eleveurAdmin.show', 'affiche_detail_eleveur');
+      if (!null == $acte->user) {
+        // code...
+        $eleveur = $this->lienFactory($acte->user->id, ucfirst($acte->user->name), 'eleveurAdmin.show', 'affiche_detail_eleveur');
+
+      } else {
+
+        $eleveur = "";
+
+      }
+
 
       $acte_nom = $this->lienFactory($acte->id, $acte->anaacte->nom, 'acte.show', ucfirst($acte->anaacte->description));
 
@@ -29,7 +37,7 @@ class ListeActesFournisseur extends ListeFournisseur
 
       if ($acte->facturee) {
 
-        $facture_id = $this->lienFactory($acte->facture->id, "n°".$acte->facture->id, 'home', 'affiche_facture');
+        $facture_id = $this->lienFactory($acte->facture->id, "n°".$acte->facture->id, 'factures.index', 'affiche_facture');
 
       }
 
