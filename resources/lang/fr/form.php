@@ -101,7 +101,7 @@ return array (
   'absence' => "Absence",
   'presence' => "Présence",
 
-  'result' => 'résultat',
+  'result' => 'saisir le résultat',
 
   'categories' => "Catégories",
   'obs_modif' => "Modifier l'observation",

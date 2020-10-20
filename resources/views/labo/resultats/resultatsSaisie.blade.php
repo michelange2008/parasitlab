@@ -77,6 +77,10 @@
 
                         @include('labo.resultats.inputResultatQuantitatif')
 
+                      @elseif($anaitem->unite->type == "semi-quantitatif")
+
+                        @include('labo.resultats.inputResultatSemiQuantitatif')
+
                       @else  {{-- Si les résulats sont qualitatifs "absence"/"présence" --}}
 
                         @include('labo.resultats.inputResultatQualitatif')
@@ -86,8 +90,8 @@
                     @endforeach
 
                   </tbody>
-                </table>
 
+                </table>
 
               </div>
 

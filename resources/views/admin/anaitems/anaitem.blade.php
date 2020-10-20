@@ -104,7 +104,7 @@
               <div class="col-md-12">
 
                 @inputImage( [
-                  'nouveau' => false,
+                  'nouveau' => $nouveau,
                   'image' => $anaitem->image ,
                   'chemin' => 'storage/img/icones/oeufs/',
                   'name' => 'image'

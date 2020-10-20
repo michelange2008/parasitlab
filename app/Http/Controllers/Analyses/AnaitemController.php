@@ -55,6 +55,7 @@ class AnaitemController extends Controller
           'menu' => $this->menu,
           'unites' => Unite::all(),
           'qtts' => Qtt::all(),
+          'nouveau' => true,
       ]);
     }
 
@@ -120,6 +121,7 @@ class AnaitemController extends Controller
           'anaitem' => Anaitem::find($id),
           'unites' => Unite::all(),
           'qtts' => Qtt::all(),
+          'nouveau' => false,
         ]);
     }
 

@@ -80,7 +80,6 @@ class ResultatController extends Controller
       foreach ($datas as $intitule => $valeur) {
         // ON EXPLODE CAR LES VALEURS SONT SOUS LA FORME resultat_id du prélèvement__id_de l'anaitem (ex: resultat_2_4)
         $tableau_valeur = explode('_', $intitule);
-
         // ON CONTROLE QU'IL SAGIT BIEN D'UN RESULTAT
         if (isset($tableau_valeur[0]) && $tableau_valeur[0] == "resultat") {
           // ON ASSOCIE LES VALEURS AU prelevement_id ET anaitem_id
@@ -88,7 +87,7 @@ class ResultatController extends Controller
 
           $anaitem_id = $tableau_valeur[2];
           // si cette valeur est supérieure à zéro ou vaut présence on la saisie dans le résultat (ou on la met à jour si elle existe)
-          if ($valeur === "presence" || intVal($valeur) > 0) {
+          if ($valeur === "presence" || intVal($valeur) > 0 || $valeur !== "-") {
 
             $resultat = DB::table('resultats')->updateOrInsert(['prelevement_id' => $prelevement_id, 'anaitem_id' => $anaitem_id], ['valeur' => $valeur]);
 
