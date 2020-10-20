@@ -8,7 +8,7 @@
     <option value=""></option>
 
     @foreach ($anatypes as $anatype)
-      {{-- Il faut au moins un anatype sélectionner pour que nouvelle_demande.js puisse remplir le champs anaacte --}}
+          {{-- Il faut au moins un anatype sélectionner pour que nouvelle_demande.js puisse remplir le champs anaacte --}}
       <option value={{ $anatype->id }} id="anatypes_{{ $anatype->id }}" class="liste_anatypes" required>{{mb_convert_case($anatype->nom, MB_CASE_TITLE)}}</option>
 
     @endforeach

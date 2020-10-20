@@ -13,7 +13,7 @@ $("select[name='userDemande']").change(function() {
 
   $('.listeSerie').remove(); // on enlève une éventuelle référence à une série
   $('#anatypeSelect').removeClass('is-invalid'); // Cas ou l'utilisateur a essayé de choisir un anatype sans choix préalable d'un user
-  $('#typeAlerte').hide();  
+  $('#typeAlerte').hide();
 
   if($("select[name='userDemande'] > option:selected").val() == "Nouveau") { // S'il sagit d'un nouvel éleveur
 
@@ -171,6 +171,9 @@ function anatypeSelonEspece(espece_nom) {
       $("#anatypes_"+value).show();
     })
 
+  })
+  .fail(function(data) {
+    console.log("il y a une erreur " + data);
   })
 
 

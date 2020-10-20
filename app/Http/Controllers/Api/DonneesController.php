@@ -288,20 +288,19 @@ public function options(Request $request)
   {
     $espece = Espece::where('nom', $espece_nom)->first();
 
-    $anaactes = $espece->anaactes;
+    // $anaactes = $espece->anaactes;
 
     $liste_anatype = Collect();
 
-    foreach ($anaactes as $anaacte) {
+    foreach ($espece->anatypes as $anatype) {
 
-      if($anaacte->estAnalyse) {
+      if($anatype->estAnalyse) {
 
-        $liste_anatype->push($anaacte->anatype->id);
+        $liste_anatype->push($anatype->id);
 
       }
 
     }
-
     return json_encode($liste_anatype->unique());
   }
 

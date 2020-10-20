@@ -6,7 +6,7 @@ var url_actuelle = window.location.protocol + "//" + window.location.host + wind
 var anatype_id = $("#anatypeSelect > option:selected").val();
 // On efface le bloc estSerie
 
-requeteAnaactes(anatype_id);
+// requeteAnaactes(anatype_id);
 
 $('#anatypeSelect').on('focus', function() {
   if($('#userSelect > option:selected').val() == '') {
@@ -21,7 +21,7 @@ $('#anatypeSelect').on('change', function() {
 
   var anatype_id = $(this).children("option:selected").val();
 
-  requeteAnaactes(anatype_id);
+  // requeteAnaactes(anatype_id);
 
   $(this).addClass('is-valid');
 
