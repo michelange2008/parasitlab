@@ -27,7 +27,7 @@
           <small>-> {!! ucfirst(__('form.vet')) !!}</small>
         </td>
         <td>
-          <small><a href="{{ route('vetoAdmin.show', $demande->veto_id)}}">
+          <small><a href="{{ route('vetoAdmin.show', $demande->veto->user->id)}}">
             {{ $demande->veto->user->name}}
           </a></small>
         </td>

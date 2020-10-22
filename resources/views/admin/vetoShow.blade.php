@@ -12,7 +12,7 @@
 
     <div class="col-md-3 bd-sidebar my-3 d-none d-md-block">
 
-      {{-- INFORMATIONS SUR L'ELEVEUR --}}
+      {{-- INFORMATIONS SUR Le vétérinaire --}}
 
       @include('admin.vetoDetail', ['personne' => $user->veto])
 

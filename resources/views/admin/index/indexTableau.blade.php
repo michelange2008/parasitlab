@@ -53,7 +53,7 @@
               <td>
                 @isset($detail->nom)
 
-                  {{ ucfirst(__($detail->nom)) }}
+                  {{ __($detail->nom) }}
 
                 @endisset
               </td>
