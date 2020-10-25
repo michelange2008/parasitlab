@@ -5,8 +5,11 @@ var url_actuelle = window.location.protocol + "//" + window.location.host + wind
 // on initialise la liste de anaactes avec l'anatype par défaut
 var anatype_id = $("#anatypeSelect > option:selected").val();
 // On efface le bloc estSerie
+if (anatype_id == null) {
 
-// requeteAnaactes(anatype_id);
+  requeteAnaactes(anatype_id);
+
+}
 
 $('#anatypeSelect').on('focus', function() {
   if($('#userSelect > option:selected').val() == '') {
@@ -21,7 +24,7 @@ $('#anatypeSelect').on('change', function() {
 
   var anatype_id = $(this).children("option:selected").val();
 
-  // requeteAnaactes(anatype_id);
+  requeteAnaactes(anatype_id);
 
   $(this).addClass('is-valid');
 
@@ -50,12 +53,11 @@ function requeteAnaactes(anatype_id) {
   .done(function(data) {
 
     var anaactes = JSON.parse(data);
-console.log(anaactes);
-    var option = '';
 
+    var option = '<option value="">Choisir une option ...</option>';
     $.each(anaactes, function(key, value) {
 
-      option += '<option value="' + value.anaacte_id + '">' + strUcFirst(value.nom) + '</option>'
+      option += '<option value="' + value.id + '">' + strUcFirst(value.nom) + '</option>'
 
     });
 
@@ -90,11 +92,10 @@ $("select[name='anaacte_id'] ").on('change', function() {
 // Fonction pour vérifier si l'anaacte correspond à une série
 function ajouterEstSerie(anaacte_id, user_id) {
 
-
   // l'adresse pour consulter la méthode estSerie de AnapackController est estserie/anapack_id/user_id
 
   var url_nouvelle = url_actuelle.replace('laboratoire/demandes/create', 'api/estSerie/'+anaacte_id+'/'+user_id);
-console.log(url_nouvelle);
+
   $.get({
 
     url : url_nouvelle,

@@ -278,8 +278,7 @@ public function options(Request $request)
 
     $anaactes = DB::table('anaactes')
                 ->where('anaactes.anatype_id', '=', $anatype_id)
-                ->join('anaacte_espece', 'anaacte_espece.anaacte_id', '=', 'anaactes.id')
-                ->where('anaacte_espece.espece_id', '=' , $espece_choisie->id)->get();
+                ->get();
 
     return json_encode($anaactes);
   }
@@ -316,6 +315,7 @@ public function options(Request $request)
 public function estSerie($anaacte_id, $user_id)
 {
   $anaacte = Anaacte::find($anaacte_id); // On récupère l'anaacte
+
   $liste["estSerie"] = $anaacte->estSerie; // On ajoute le booleen qui dit si cet anaacte correspond à une serie
 
   $listeDemandeSerieNonAcheve = []; // On crée le tableau dans lequel viendra les demandes de ce user, avec le
