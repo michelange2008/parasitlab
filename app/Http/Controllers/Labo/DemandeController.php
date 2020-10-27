@@ -105,7 +105,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-// dd($datas);
+
       session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
       $user = User::find($datas['userDemande']);
