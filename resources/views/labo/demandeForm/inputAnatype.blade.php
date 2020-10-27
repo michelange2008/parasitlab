@@ -5,7 +5,7 @@
 
   <select id="anatypeSelect" class="form-control mb-3" name="anatype" required>
 
-    <option value=""></option>
+    <option value="" disabled selected>Choisir un type d'analyse ...</option>
 
     @foreach ($anatypes as $anatype)
           {{-- Il faut au moins un anatype sélectionner pour que nouvelle_demande.js puisse remplir le champs anaacte --}}

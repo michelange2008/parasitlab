@@ -54,7 +54,7 @@ function requeteAnaactes(anatype_id) {
 
     var anaactes = JSON.parse(data);
 
-    var option = '<option value="" disabled>Choisir une option ...</option>';
+    var option = '<option value="" disabled selected>Choisir une option ...</option>';
     $.each(anaactes, function(key, value) {
 
       option += '<option value="' + value.id + '">' + strUcFirst(value.nom) + '</option>'

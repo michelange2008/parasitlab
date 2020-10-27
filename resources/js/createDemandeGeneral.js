@@ -80,7 +80,7 @@ $('#especeSelect').on('change', function() {
 
   } else { // Sinon
 
-    var espece_nom = $('#especeSelect > option:selected').attr('id'); // on récupère l'espce choisie dans la variable espece_nom
+    var espece_nom = $('#especeSelect > option:selected').attr('id'); // on récupère l'espece choisie dans la variable espece_nom
 
     $(this).addClass('is-valid');
 
