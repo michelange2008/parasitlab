@@ -55,7 +55,7 @@ class InfosController extends Controller
 
   public function rgpd()
   {
-    return response()->file(url('storage/pdf/rgpd.pdf'));
+    return response()->file('storage/pdf/rgpd.pdf');
   }
 
   public function aide()
