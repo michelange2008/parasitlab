@@ -67,6 +67,8 @@
   Route::get('infos/infos-legales', ['uses' => 'InfosController@infoslegales', 'as' => 'infos.infoslegales']);
 
   Route::get('infos/aide', ['uses' => 'InfosController@aide', 'as' => 'infos.aide']);
+
+  Route::get('infos/rgpd', ['uses' => 'InfosController@rgpd', 'as' => 'infos.rgpd']);
   // Non implémenté
   Route::get('presentation', ['uses' => 'PdfController@presentation', 'as' => 'presentation']);
 

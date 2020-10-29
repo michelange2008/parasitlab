@@ -75,6 +75,11 @@ return array (
       'nom' => 'Informations légales',
       'tooltip' => 'Crédits photo et vie privée',
     ),
+    'rgpd' =>
+    array (
+      'nom' => 'Protection des données personnelles',
+      'tooltip' => 'Respect du RGPD',
+    ),
   ),
   'teleForm' => 'Pour télécharger un formulaire vierge',
   'clicEspece' => 'cliquez sur l\'espèce correspondante',

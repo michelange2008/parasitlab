@@ -78,7 +78,12 @@
 				"id" : "legal",
 				"prefixe" : "menuExtranet.infos.infoslegales.",
         "route": "infos.infoslegales"
-      }
+      },
+			"rgpd": {
+				"id" : "rgpd",
+				"prefixe" : "menuExtranet.infos.rgpd.",
+				"route" : "infos.rgpd"
+			}
 
     }
 
