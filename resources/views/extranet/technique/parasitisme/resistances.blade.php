@@ -1,9 +1,10 @@
 <div class="col-md-6">
 
-  <div class="embed-responsive embed-responsive-16by9">
+  <video controls>
 
-    <iframe class="embed-responsive-item" src="{{ url('storage/img/parasitisme/resist/Resistance.mp4') }}" allowfullscreen></iframe>
+    <source src="{{ url('storage/img/parasitisme/resist/Resistance.mp4') }}" type="video/mp4">
 
-  </div>
-
+  </video>
+  <p>Si votre navigateur ne prend pas en charge les vidéos HTML5.
+     Voici <a href="{{ url('storage/img/parasitisme/resist/Resistance.mp4') }}">un lien pour télécharger la vidéo</a>.</p>
 </div>

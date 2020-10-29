@@ -14,7 +14,7 @@
     "theme" : "fondamentaux.2.theme",
     "titre" : "fondamentaux.2.titre",
     "soustitre" : "fondamentaux.2.soustitre",
-    "icone" : "test_resistance.svg",
+    "icone" : "resi.svg",
     "vue" : "resistances"
   }
 }
