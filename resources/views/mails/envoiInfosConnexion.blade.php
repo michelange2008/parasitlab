@@ -47,9 +47,15 @@
   <p>
     @lang('mails.envoiInfosConnexion.how_reset_mdp')&nbsp;
 
-    <a class="btn" href="{{ url('password/reset') }}">{{ __('Reset Password') }}</a>
+    <a class="btn btn-red" href="{{ url('password/reset') }}">{{ __('Reset Password') }}</a>
 
   </p>
+
+  <hr class="diviser">
+
+    @include('mails.rgpd_eleveur')
+
+  <hr class="diviser">
 
   <p>@lang('commun.contact_us'){{ config('laboInfos.email_contact')   }}</p>
   <br>

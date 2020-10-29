@@ -7,7 +7,7 @@
     .btn {
       display: inline-block;
       font-weight: 400;
-      background: #8F230A !important;
+
       color: white !important;
       text-align: center;
       vertical-align: middle;
@@ -27,6 +27,14 @@
     }
     .font-weight-bold {
       font-weight: bold;
+    }
+
+    .btn-red {
+      background: #8F230A !important;
+    }
+
+    .btn-light {
+      background: DarkBlue !important;
     }
 
     </style>
