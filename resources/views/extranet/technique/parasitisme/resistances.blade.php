@@ -1,6 +1,6 @@
 <div class="col-md-6">
 
-  <video controls>
+  <video controls width="800">
 
     <source src="{{ url('storage/img/parasitisme/resist/Resistance.mp4') }}" type="video/mp4">
 
