@@ -140,7 +140,20 @@ function listeObservations(type, id) {
   .done(function(datas) {
     if(datas != null) {
       lignes = JSON.parse(datas);
-      $('.categorie').fadeIn();
+      // On liste les catégories des observations
+      var cat = [];
+      $.each(lignes, function(key,ligne) {
+        // On les met dans un tableau
+        cat.push(ligne.categorie_id);
+      })
+      // On enlève les doublons
+      var cat_sans_doublon = Array.from(new Set(cat));
+      // On passe en revue le tableau
+      $.each(cat_sans_doublon, function(key, cat){
+        // Et on affiche la catégorie si elle est dans la liste des catégories correspondant aux observations
+        $("#cat_"+ cat).fadeIn();
+      })
+
       $.each(lignes, function(key, ligne) {
         // la creation de la variable autre est destinée à ne rien afficher quand la valeur de ligne.autres est null
         var autres = (ligne.autres == null) ? '': '<p class="ml-3 mb-0 p-1 pl-2 bordure-epaisse"><i>Autres causes&nbsp;: </i>' + ligne.autres + '</p>';

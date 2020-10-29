@@ -13,9 +13,9 @@ return array (
   'num_analyse' => 'Sur le formulaire à remplir, il s\'agit de l\'analyse n°',
   'tuto_titre' => "Un outil pour choisir l'analyse la plus adaptée à votre situation",
   'tuto_intro' => "Vous voyez maintenant une liste de situations s'afficher sur la gauche de l'écran",
-  "tuto_liste" => "Ces situations sont regroupées en 3 catégories:",
+  "tuto_liste" => "Ces situations sont regroupées en 3 catégories&nbsp;:",
   'obs' => "Observations",
-  'obs_texte' => "Il s'agit de ce que vous pouvez observer sur vos animaux: symptômes, baisse de production, mortalité, etc.",
+  'obs_texte' => "Il s'agit de ce que vous pouvez observer sur vos animaux&nbsp;: symptômes, baisse de production, mortalité, etc.",
   'act' => "Actions",
   'act_texte' => "C'est ce que vous êtes en train de faire ou que vous projetez de faire.",
   'situ' => "Situations",
@@ -34,5 +34,5 @@ return array (
 
   'techniques_adaptees' => "En effet, un comptage précis des oeufs des différents types de parasites nécessite d'avoir recours à des techniques adaptées à chaque cas.",
 
-  'outil_choix' => "Pour cette raisons, nous vous proposons un outil de <strong>choix de l'analyse la plus adaptée à votre situation</strong>."
+  'outil_choix' => "Pour cette raison, nous vous proposons un outil de <strong>choix de l'analyse la plus adaptée à votre situation</strong>."
 );

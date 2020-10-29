@@ -11,6 +11,10 @@ class AnaactesTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+      DB::table('anaactes')->truncate();
+      DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
       DB::table('anaactes')->insert([
         [
           'id' => 1,
@@ -31,7 +35,7 @@ class AnaactesTableSeeder extends Seeder
           'num' => "1.b",
           'abbreviation' => "mélange de 5",
           'nom' => "analyse de mélange (5 animaux maximum)",
-          'description' => "Une analyse de mélange, vous permettra d'évaluer la situation d'un groupe à moindre coût",
+          'description' => "Une analyse de mélange, vous permettra d'évaluer la situation d'un groupe à moindre coût.",
           'anatype_id' => 1,
           'estSerie' => false,
           'estAnalyse' => true,

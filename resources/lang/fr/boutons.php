@@ -34,7 +34,7 @@ return array (
   'new_blog' => "Ecrire un nouvel article",
 
   'tele_form' => "Télécharger un formulaire",
-  'prelevenvoi' => "En pratique: prélever/envoyer",
+  'prelevenvoi' => "En pratique&nbsp!: prélever/envoyer",
   'add_observation' => 'Nouvelle observation',
   'add_option' => 'Nouvelle explication',
   'algo_graph' => 'Retour au schéma',

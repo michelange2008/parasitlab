@@ -14,7 +14,7 @@ return array (
     array (
       'titre' => 'Vétérinaires',
       'texte_1' => 'Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d\'affiner votre presciption.',
-      'texte_2' => 'Vous voulez évaluer les risques pathogènes et l\'existence éventuelles de résistance aux anthelmintiques.',
+      'texte_2' => 'Vous voulez évaluer les risques pathogènes et l\'existence éventuelle de résistance aux anthelmintiques.',
     ),
     'eleveurs' =>
     array (

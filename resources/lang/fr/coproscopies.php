@@ -4,7 +4,7 @@ return array (
   'questcequecest' =>
   array (
     'titre' => 'Une évaluation de l\'infestation',
-    'texte_1' => 'C\'est un examen de laboratoire qui vise à compter les oeufs ou les larves de parasite présents dans les fèces.',
+    'texte_1' => 'C\'est un examen de laboratoire qui vise à compter les oeufs ou les larves de parasites présents dans les fèces.',
     'texte_2' => 'Le comptage des oeufs ou des larves rejetés dans les fèces permet de mettre en évidence la présence des parasites chez l\'animal et, pour certains parasites, d\'en évaluer la quantité.',
     'texte_3' => 'C\'est une analyse simple à mettre en oeuvre et qui ne demande pas de méthodes de prélèvement invasives.',
   ),
@@ -20,7 +20,7 @@ return array (
     'titre' => 'Valable pour certains parasites',
     'texte_1' => 'Les coproscopies ne sont valables que lorsqu\'il y a des parasites adultes qui pondent et que leurs oeufs ou leurs larves sont rejetés dans les fèces.',
     'texte_2' => 'C\'est le cas de tous les strongles gastro-intestinaux et respiratoires, des douves, des paramphistomes, des ténias et des ascaris.',
-    'texte_3' => 'Ce n\'est pas une analyse utilisable pour les infestations par des larves: oestres des petits ruminants, larves de strongles enkystées, gastérophiles des équidés.',
+    'texte_3' => 'Ce n\'est pas une analyse utilisable pour les infestations par des larves&nbsp;: oestres des petits ruminants, larves de strongles enkystées, gastérophiles des équidés.',
   ),
   'interpretation' =>
   array (
