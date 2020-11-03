@@ -50,7 +50,7 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
 
         <option value="absence">@lang('absence')</option>
 
-        <option value="presence">@lang('presence')</option>
+        <option value="presence" selected>@lang('presence')</option>
 
       @endif
 
