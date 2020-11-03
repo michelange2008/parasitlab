@@ -7,6 +7,7 @@
   <div class="col-2">
 
     <input class="form-control" type="number" name="nbPrelevements" value="1" min="1">
+    
   </div>
 
 
