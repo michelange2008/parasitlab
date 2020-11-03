@@ -10,7 +10,7 @@
 
     @foreach ($eleveurs as $eleveur)
 
-      @if (session()->has('user') && $eleveur->user->id == session('user')->id)
+      @if (session()->has('user') && $eleveur->user_id == session('user')->id)
 
         <option id="{{$eleveur->user_id}}" value="{{$eleveur->user_id}}" selected required>{{$eleveur->name}}</option>
 
