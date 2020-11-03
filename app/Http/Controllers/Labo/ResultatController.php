@@ -86,10 +86,11 @@ class ResultatController extends Controller
           $prelevement_id = $tableau_valeur[1];
 
           $anaitem_id = $tableau_valeur[2];
-          // si cette valeur est supérieure à zéro ou vaut présence on la saisie dans le résultat (ou on la met à jour si elle existe)
-          if ($valeur === "presence" || intVal($valeur) > 0 || $valeur !== "-") {
 
-            $resultat = DB::table('resultats')->updateOrInsert(['prelevement_id' => $prelevement_id, 'anaitem_id' => $anaitem_id], ['valeur' => $valeur]);
+          // si cette valeur est supérieure à zéro ou vaut présence on la saisie dans le résultat (ou on la met à jour si elle existe)
+          if ($valeur === "absence" || $valeur === null || $valeur === "-" || $valeur === "0") {
+
+            Resultat::where('prelevement_id', $prelevement_id)->where('anaitem_id', $anaitem_id)->delete();
 
           }
           /* Comme c'est un formulaire pour saisir ET modifier, si une valeur est null ou égale à 0
@@ -97,7 +98,7 @@ class ResultatController extends Controller
           */
           else {
 
-            Resultat::where('prelevement_id', $prelevement_id)->where('anaitem_id', $anaitem_id)->delete();
+            $resultat = DB::table('resultats')->updateOrInsert(['prelevement_id' => $prelevement_id, 'anaitem_id' => $anaitem_id], ['valeur' => $valeur]);
 
           }
 
