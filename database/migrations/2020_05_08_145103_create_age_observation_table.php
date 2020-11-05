@@ -17,7 +17,7 @@ class CreateAgeObservationTable extends Migration
           $table->unsignedInteger('age_id');
           $table->foreign('age_id')->references('id')->on('ages')->onDelete('cascade');
           $table->unsignedInteger('observation_id');
-          $table->foreign('observation_id')->references('id')->on('observations'->onDelete('cascade');
+          $table->foreign('observation_id')->references('id')->on('observations')->onDelete('cascade');
         });
     }
 
