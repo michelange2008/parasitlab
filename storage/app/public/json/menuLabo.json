@@ -111,6 +111,15 @@
         "icone" : "users.svg",
         "tooltip" : "Consulter tous les utilisateurs",
         "route" : "user.index"
+      },
+      "sousmenu_6" :
+      {
+        "id" : "troupeaux",
+        "prefixe" : "menuLabo.item_4.sousmenu_6.",
+        "nom" : "Tropupeaux",
+        "icone" : "troupeau.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des troupeaux",
+        "route" : "troupeau.index"
       }
     }
   },

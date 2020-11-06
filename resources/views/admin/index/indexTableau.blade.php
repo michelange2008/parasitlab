@@ -20,8 +20,8 @@
 <table   id="table"
   data-toggle = "table"
   data-locale = "fr-FR"
-  data-sort-name = {{ $datas->intitules->tri->colonne }}
-  data-sort-order = {{ $datas->intitules->tri->ordre }}
+  data-sort-name = {{ $datas->intitules->tri->colonne ?? "" }}
+  data-sort-order = {{ $datas->intitules->tri->ordre ?? "" }}
   data-toolbar = "#toolbar"
   data-show-button-icon = "true"
   data-show-pagination-switch="true"

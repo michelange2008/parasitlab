@@ -72,4 +72,9 @@ class User extends Authenticatable
       return $this->hasMany(Models\Parasitisme\Blog::class);
     }
 
+    public function troupeaus()
+    {
+      return $this->hasMany(Models\Troupeau::class);
+    }
+
 }

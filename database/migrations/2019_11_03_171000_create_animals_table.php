@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnimauxTable extends Migration
+class CreateAnimalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAnimauxTable extends Migration
      */
     public function up()
     {
-        Schema::create('animaux', function (Blueprint $table) {
+        Schema::create('animals', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->unsignedInteger('troupeau_id');
             $table->foreign('troupeau_id')->references('id')->on('troupeaux');
@@ -30,6 +30,6 @@ class CreateAnimauxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('animaux');
+        Schema::dropIfExists('animals');
     }
 }

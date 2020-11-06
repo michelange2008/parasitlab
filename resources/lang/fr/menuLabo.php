@@ -65,7 +65,12 @@ return array (
       'nom' => 'Tous',
       'tooltip' => 'Consulter tous les utilisateurs',
     ),
-  ),
+    'sousmenu_6' =>
+    array (
+      'nom' => 'Troupeaux',
+      'tooltip' => 'Consulter tous les troupeaux',
+    ),
+),
   'item_5' =>
   array (
     'nom' => 'Prestations',

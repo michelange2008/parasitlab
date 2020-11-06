@@ -165,6 +165,12 @@
 
     Route::resource('eleveurAdmin', 'Labo\EleveurAdminController');
 
+    Route::resource('troupeau', 'TroupeauController');
+
+    Route::resource('animal', 'AnimalController');
+
+    Route::resource('typeprod', 'TypeprodController');
+
     Route::resource('serie', 'Labo\SerieController');
 
     Route::get('usertypes', 'UsertypeController@liste')->name('usertypeJson');

@@ -47,9 +47,19 @@ class Espece extends Model
     {
       return $this->hasOne(Exclusion::class);
     }
-    
+
     public function exclusionsAnaacte()
     {
       return $this->hasOne(ExclusionsAnaacte::class);
+    }
+
+    public function typeprods()
+    {
+      return $this->hasMany(Typeprod::class);
+    }
+
+    public function troupeaus()
+    {
+      return $this->hasMany(Troupeau::class);
     }
 }
