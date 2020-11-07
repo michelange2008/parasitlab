@@ -1,0 +1,48 @@
+{
+  "tri" : {
+
+    "colonne" : "nom",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "name" : {
+      "id" : "nom",
+      "nom" : "form.nom",
+      "align" : "left",
+      "sortable" : true
+    },
+    "troupeau" : {
+      "id" : "troupeau",
+      "nom" : "form.troupeau",
+      "align" : "left",
+      "sortable" : false
+    },
+    "espece" : {
+      "id" : "espece",
+      "nom" : "form.espece",
+      "align" : "left",
+      "sortable" : true
+    },
+    "typeprod" : {
+      "id" : "typeprod",
+      "nom" : "form.typeprod",
+      "align" : "left",
+      "sortable" : true
+    },
+    "effectif" : {
+      "id" : "effectif",
+      "nom" : "form.effectif",
+      "align" : "center",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "form.del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}

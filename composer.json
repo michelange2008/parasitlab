@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "barryvdh/laravel-debugbar": "^3.5",
         "barryvdh/laravel-dompdf": "^0.8.5",
         "barryvdh/laravel-translation-manager": "^0.5.8",
         "caouecs/laravel-lang": "~4.0",
@@ -24,7 +25,6 @@
         "spatie/laravel-cookie-consent": "^2.11"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.5",
         "facade/ignition": "^2.0",
         "fzaninotto/faker": "^1.4",
         "laravel/ui": "^2.0",

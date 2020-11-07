@@ -21,21 +21,24 @@ class ListeTroupeausFournisseur extends ListeFournisseur
 
       $description = [];
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
-      $nom = $this->lienFactory($troupeau->id, $troupeau->nom, 'troupeau.show', 'affiche_troupeau');
+      $eleveur = $this->lienFactory($troupeau->user_id, $troupeau->user->name, 'user.show', 'affiche_user');
 
-      $eleveur = $this->lienFactory($troupeau->user_id, $troupeau->user_id, 'user.show', 'affiche_user');
+      $nom = $this->lienFactory($troupeau->id, $troupeau->nom, 'troupeau.show', 'affiche_troupeau');
 
       $typeprod = $this->itemFactory($troupeau->typeprod->nom);
 
       $espece = $this->itemFactory($troupeau->typeprod->espece->nom);
 
+      $effectif = $this->itemFactory($troupeau->animals->count());
+
       $suppr = $this->delFactory($troupeau->id, 'troupeau.destroy');
 
       $description = [
-        $nom,
         $eleveur,
-        $typeprod,
+        $nom,
         $espece,
+        $typeprod,
+        $effectif,
         $suppr,
       ];
 

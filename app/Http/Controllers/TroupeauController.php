@@ -39,7 +39,7 @@ class TroupeauController extends Controller
 
         $datas = $fournisseur->renvoieDatas($troupeaus, __('titres.list_troupeau'), 'troupeau.svg', 'tableauTroupeaus', 'troupeau.create', __('boutons.add'));
 
-        return view('admin.index.index', [
+        return view('admin.index.pageIndex', [
           "menu" => $this->menu,
           "datas" => $datas,
         ]);
@@ -74,7 +74,10 @@ class TroupeauController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.troupeau.troupeauShow', [
+          'menu' => $this->menu,
+          'troupeau' => Troupeau::find($id),
+        ]);
     }
 
     /**

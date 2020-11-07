@@ -2,6 +2,9 @@
 
 return array (
   'nom' => 'Nom',
+  'troupeau' => 'Troupeau',
+  'typeprod'=> 'Type de production',
+  'effectif' => 'Effectif',
   'email' => 'Adresse mail',
   'email_doublon' => "Cet adresse de courriel est déjà celle d'un autre utilisateur. Merci d'en proposer une autre.",
   'email_non_valide' => "Cette adresse email n'est pas valide&nbsp;!",

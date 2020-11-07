@@ -14,6 +14,7 @@ return array (
   'affiche_facture' => 'Cliquer pour afficher cette facture',
   'affiche_detail_acte' => 'Cliquer pour afficher la liste des actes',
   'create_facture' => 'Cliquer pour créer la facture',
+  'affiche_troupeau' => 'Affiche le troupeau',
   'edit_acte' => 'Cliquer pour modifier cet acte',
   'edit_analyse' => 'Cliquer pour modifier cette analyse',
   'edit_anaitem' => 'Cliquer pour modifier ce parasite',

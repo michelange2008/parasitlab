@@ -37,6 +37,7 @@ return array (
   'list_users' => 'Listes des utilisateurs',
   'list_factures' => 'Liste des factures',
   'list_labo' => 'Membres du laboratoire',
+  'list_troupeau' => 'Troupeaux',
 
   'saisie_resultats' => 'Saisie des résultats',
   'utilisateur_mesinfos' => "Voir / modifier mes informations personnelles",

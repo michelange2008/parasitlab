@@ -16,7 +16,7 @@ class CreateAnimalsTable extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->unsignedInteger('troupeau_id');
-            $table->foreign('troupeau_id')->references('id')->on('troupeaux');
+            $table->foreign('troupeau_id')->references('id')->on('troupeaus')->onDelete('cascade');
             $table->string('numero',20);
             $table->string('nom', 191)->nullable();
 
