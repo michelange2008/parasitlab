@@ -151,4 +151,12 @@ return array (
   'blog_intro_placeholder' => "Introduction ou court résumé",
 
   'cout_anaacte' => "Coût de cette analyse",
+  'suppr' => "Supprimer",
+  'modif' => "Modifier",
+  'addmodif' => "Ajouter/Modifier",
+
+  'choix_eleveur' => "Choisissez un éleveur",
+  'choix_nom_troupeau' => 'Choisissez un nom pour le troupeau',
+  'edit_nom_troupeau' => 'Nom du troupeau&nbsp;:',
+  'choix_typeprod' => "Choisissez un type de production",
 );

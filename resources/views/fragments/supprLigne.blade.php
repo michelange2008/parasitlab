@@ -1,6 +1,6 @@
 <!-- FRAGMENT DESTINE A FAIRE UN BOUTON suppr AVEC UNE CONFIRMATION PAR JQUERY
 ET UN ROUTAGE VERS LA METHODE destroy
-VARIABLES: id ET route
+VARIABLES: id ET route, texte et titre
 -->
 
 <form id="form_{{ $id }}" class="suppr" texte="@lang($texte)" titre="@lang($titre)"

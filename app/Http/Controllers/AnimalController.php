@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Animal;
 
 class AnimalController extends Controller
 {
@@ -34,7 +35,23 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datas = $request->all();
+
+        $animal = new Animal;
+
+        $animal->numero = $datas['numero'];
+
+        $animal->nom = $datas['nom'];
+
+        $animal->troupeau_id = $datas['troupeau_id'];
+
+        $animal->save();
+
+        return redirect()->back()->with('message', 'animal_add');
+
+
+
+
     }
 
     /**
@@ -68,7 +85,18 @@ class AnimalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datas = $request->all();
+
+        $animal = Animal::find($id);
+
+        $animal->numero = $datas['numero'];
+
+        $animal->nom = $datas['nom'];
+
+        $animal->save();
+
+        return redirect()->back()->with('message', 'animal_update');
+
     }
 
     /**
@@ -79,6 +107,8 @@ class AnimalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Animal::destroy($id);
+
+        return redirect()->back()->with('message', 'animal_del');
     }
 }

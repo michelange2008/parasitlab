@@ -39,6 +39,8 @@ return array (
   'list_labo' => 'Membres du laboratoire',
   'list_troupeau' => 'Troupeaux',
 
+  'troupeauCreate' => "Ajout d'un nouveau troupeau",
+
   'saisie_resultats' => 'Saisie des résultats',
   'utilisateur_mesinfos' => "Voir / modifier mes informations personnelles",
   'utilisateur_mesfactures' => "Factures",

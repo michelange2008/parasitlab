@@ -37,7 +37,9 @@ return array (
   'modifier' => 'Modifier',
   'type' => 'Type',
   'del' => 'Suppr.',
+  'suppr' => 'Supprimer',
   'Id' => 'Id',
   'vide' => 'Le tableau est vide',
   'envoyee' => 'Envoyée',
+  'num' => "Numéro",
 );

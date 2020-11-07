@@ -21,7 +21,7 @@ class CreateTroupeausTable extends Migration
             $table->unsignedInteger('espece_id');
             $table->foreign('espece_id')->references('id')->on('especes');
             $table->unsignedInteger('typeprod_id');
-            $table->foreign('typeprod_id')->references('id')->on('typeprods');
+            $table->foreign('typeprod_id')->references('id')->on('typeprods')->onDelete('no action');
         });
     }
 

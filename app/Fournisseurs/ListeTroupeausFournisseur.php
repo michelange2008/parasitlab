@@ -31,6 +31,8 @@ class ListeTroupeausFournisseur extends ListeFournisseur
 
       $effectif = $this->itemFactory($troupeau->animals->count());
 
+      $edit = $this->modifierFactory($troupeau->id, 'troupeau.edit');
+
       $suppr = $this->delFactory($troupeau->id, 'troupeau.destroy');
 
       $description = [
@@ -39,6 +41,7 @@ class ListeTroupeausFournisseur extends ListeFournisseur
         $espece,
         $typeprod,
         $effectif,
+        $edit,
         $suppr,
       ];
 

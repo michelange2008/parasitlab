@@ -28,4 +28,9 @@ return array (
   'anatype_add' => "Un nouveau type d'analyses a été ajouté",
   'anatype_del' => "Ce type d'analyses a été supprimé",
   'anaacte_update' => "Cette analyse a été modifiée",
+  'animal_add' => "Un nouvel animal a été ajouté à ce troupeau",
+  'animal_del' => "L'animal sélectionné a été supprimé",
+  'animal_update' => "L'animal a été modifié",
+  'troupeau_add' => "Un nouveau troupeau a été ajouté",
+  'troupeau_del' => "Le troupeau a été supprimé",
 );

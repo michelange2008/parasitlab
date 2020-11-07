@@ -38,6 +38,12 @@
       "align" : "center",
       "sortable" : false
     },
+    "edit" : {
+      "id" : "edit",
+      "nom" : "boutons.modifier",
+      "align" : "center",
+      "sortable" : false
+    },
     "suppr" : {
       "id" : "suppr",
       "nom" : "form.del",

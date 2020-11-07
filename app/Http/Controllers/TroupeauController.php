@@ -7,12 +7,17 @@ use DB;
 use App\Fournisseurs\ListeTroupeausFournisseur;
 
 use App\Models\Troupeau;
+use App\Models\Eleveur;
+use App\Models\Espece;
+use App\Models\Typeprod;
+
 use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
 
 
 class TroupeauController extends Controller
 {
-    use LitJson;
+    use LitJson, UserTypeOutil;
 
     protected $menu;
 
@@ -52,7 +57,13 @@ class TroupeauController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.troupeau.troupeauCreate', [
+          'menu' => $this->menu,
+          'eleveurs' => Eleveur::all(),
+          'especes' => Espece::all(),
+          'typeprods' => Typeprod::all(),
+
+        ]);
     }
 
     /**
@@ -63,8 +74,22 @@ class TroupeauController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+      $datas = $request->all();
+
+      $troupeau = New Troupeau;
+
+      $troupeau->nom = $datas['nom'];
+
+      $troupeau->user_id = $datas['user_id'];
+
+      $troupeau->espece_id = $datas['espece_id'];
+
+      $troupeau->typeprod_id = $datas['typeprod_id'];
+
+      $troupeau->save();
+
+      return redirect()->route('troupeau.index')->with('message', 'troupeau_add');
+      }
 
     /**
      * Display the specified resource.
@@ -88,7 +113,12 @@ class TroupeauController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.troupeau.troupeauEdit', [
+          'menu' => $this->menu,
+          'troupeau' => Troupeau::find($id),
+          'especes' => Espece::all(),
+          'typeprods' => Typeprod::all(),
+        ]);
     }
 
     /**
@@ -111,6 +141,8 @@ class TroupeauController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Troupeau::destroy($id);
+
+        return redirect()->back()->with('message', 'troupeau_del');
     }
 }
