@@ -31,9 +31,9 @@
 
           <div class="form-group row">
 
-            <label class="col-lg-5 col-form-label" for="nom">@lang('form.edit_nom_troupeau')</label>
+            <label class="col-lg-4 col-form-label" for="nom">@lang('form.edit_nom_troupeau')</label>
 
-            <div class="col-lg-7">
+            <div class="col-lg-8">
 
               <input class="form-control" type="text" name="nom" value={{ $troupeau->nom }}>
 
@@ -58,7 +58,15 @@
 
               @foreach ($especes as $espece)
 
-                <option value="{{ $espece->id }}">{{ $espece->nom }}</option>
+                @if ($espece->id === $troupeau->espece->id)
+
+                  <option selected value="{{ $espece->id }}">{{ $espece->nom }}</option>
+
+                @else
+
+                  <option value="{{ $espece->id }}">{{ $espece->nom }}</option>
+
+                @endif
 
               @endforeach
 
@@ -74,11 +82,17 @@
 
             <select class="form-control" name="typeprod_id" required>
 
-              <option selected disabled>@lang('form.choix_typeprod')</option>
-
               @foreach ($typeprods as $typeprod)
 
-                <option value="{{ $typeprod->id }}">{{ $typeprod->nom }}</option>
+                @if ($typeprod->id === $troupeau->typeprod->id)
+
+                  <option selected value="{{ $typeprod->id }}">{{ $typeprod->nom }}</option>
+
+                @else
+
+                  <option value="{{ $typeprod->id }}">{{ $typeprod->nom }}</option>
+
+                @endif
 
               @endforeach
 

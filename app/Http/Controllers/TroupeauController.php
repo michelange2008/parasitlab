@@ -130,7 +130,19 @@ class TroupeauController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datas = $request->all();
+
+        $troupeau = Troupeau::find($id);
+
+        $troupeau->nom = $datas['nom'];
+
+        $troupeau->espece_id = $datas['espece_id'];
+
+        $troupeau->typeprod_id = $datas['typeprod_id'];
+
+        $troupeau->save();
+
+        return redirect()->route('troupeau.index')->with('message', 'troupeau_update');
     }
 
     /**

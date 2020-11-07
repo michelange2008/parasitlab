@@ -33,4 +33,5 @@ return array (
   'animal_update' => "L'animal a été modifié",
   'troupeau_add' => "Un nouveau troupeau a été ajouté",
   'troupeau_del' => "Le troupeau a été supprimé",
+  'troupeau_update' => "Le troupeau a été modifié",
 );
