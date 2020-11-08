@@ -76,6 +76,10 @@
         "tooltip" : "Ajouter un nouvel utilisateur",
         "route" : "user.create"
       },
+      "sousmenu_8" :
+      {
+        "id" : "divider"
+      },
       "sousmenu_2" :
       {
         "id" : "eleveurs",
@@ -112,14 +116,27 @@
         "tooltip" : "Consulter tous les utilisateurs",
         "route" : "user.index"
       },
+      "sousmenu_7" :
+      {
+        "id" : "divider"
+      },
       "sousmenu_6" :
       {
         "id" : "troupeaux",
         "prefixe" : "menuLabo.item_4.sousmenu_6.",
-        "nom" : "Tropupeaux",
+        "nom" : "Troupeaux",
         "icone" : "troupeau.svg",
         "tooltip" : "Ajouter, modifier, supprimer des troupeaux",
         "route" : "troupeau.index"
+      },
+      "sousmenu_9" :
+      {
+        "id" : "typepord",
+        "prefixe" : "menuLabo.item_4.sousmenu_9.",
+        "nom" : "typeprod",
+        "icone" : "trypeprod.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des types de production",
+        "route" : "typeprod.index"
       }
     }
   },
@@ -153,6 +170,10 @@
         "id" : "items",
         "prefixe" : "menuLabo.item_5.sousmenu_3.",
         "route" : "anaitems.index"
+      },
+      "sousmenu_6" :
+      {
+        "id" : "divider"
       },
       "sousmenu_4" :
       {

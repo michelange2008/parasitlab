@@ -12,11 +12,19 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown_{{ $item->id }}">
             @foreach ($item->sousmenu as $sousmenu)
 
-              <a class="dropdown-item d-inline-flex justify-content-between {{ $sousmenu->id }}" href="{{ route($sousmenu->route) }}">
+              @if ($sousmenu->id === "divider")
 
-                @lang($sousmenu->prefixe."nom")
+                <div class="dropdown-divider"></div>
 
-              </a>
+              @else
+
+                <a class="dropdown-item d-inline-flex justify-content-between {{ $sousmenu->id }}" href="{{ route($sousmenu->route) }}">
+
+                  @lang($sousmenu->prefixe."nom")
+
+                </a>
+
+              @endif
 
             @endforeach
           </div>

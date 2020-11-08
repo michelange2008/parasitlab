@@ -34,4 +34,7 @@ return array (
   'troupeau_add' => "Un nouveau troupeau a été ajouté",
   'troupeau_del' => "Le troupeau a été supprimé",
   'troupeau_update' => "Le troupeau a été modifié",
+  'typeprod_add' => "Une nouveau type de production a été ajouté",
+  'typeprod_del' => "Le type de production sélectionné a été supprimé",
+  'typeprod_edit' => "Le type de production a été modifié",
 );

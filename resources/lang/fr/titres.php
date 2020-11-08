@@ -38,6 +38,7 @@ return array (
   'list_factures' => 'Liste des factures',
   'list_labo' => 'Membres du laboratoire',
   'list_troupeau' => 'Troupeaux',
+  'list_typeprod' => 'Types de production',
 
   'troupeauCreate' => "Ajout d'un nouveau troupeau",
 

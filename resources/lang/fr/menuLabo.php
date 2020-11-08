@@ -70,6 +70,12 @@ return array (
       'nom' => 'Troupeaux',
       'tooltip' => 'Consulter tous les troupeaux',
     ),
+    'sousmenu_9' =>
+    array (
+      'nom' => 'Type de production',
+      'tooltip' => 'Consulter tous les types de production',
+    ),
+
 ),
   'item_5' =>
   array (

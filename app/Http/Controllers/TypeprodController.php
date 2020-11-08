@@ -4,8 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Espece;
+use App\Models\Typeprod;
+
+use App\Http\Traits\LitJson;
+
 class TypeprodController extends Controller
 {
+  use LitJson;
+
+  protected $menu;
+
+  public function __construct()
+  {
+    $this->middleware('auth');
+    $this->middleware('labo');
+
+    $this->menu = $this->litJson('menuLabo');
+
+  }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +32,11 @@ class TypeprodController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.troupeau.typeprod', [
+          'menu' => $this->menu,
+          'typeprods' => Typeprod::all(),
+          'especes' => Espece::all(),
+        ]);
     }
 
     /**
@@ -34,7 +57,17 @@ class TypeprodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datas = $request->all();
+
+        $typeprod = new Typeprod;
+
+        $typeprod->nom = $datas['nom'];
+
+        $typeprod->espece_id = $datas['espece_id'];
+
+        $typeprod->save();
+
+        return redirect()->back()->with('message', 'typeprod_add');
     }
 
     /**
@@ -68,7 +101,17 @@ class TypeprodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $datas = $request->all();
+
+      $typeprod = Typeprod::find($id);
+
+      $typeprod->nom = $datas['nom'];
+
+      $typeprod->espece_id = $datas['espece_id'];
+
+      $typeprod->save();
+
+      return redirect()->back()->with('message', 'typeprod_edit');
     }
 
     /**
@@ -79,6 +122,8 @@ class TypeprodController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Typeprod::destroy($id);
+
+        return redirect()->back()->with('message', 'typeprod_del');
     }
 }
