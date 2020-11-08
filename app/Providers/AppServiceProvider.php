@@ -54,5 +54,8 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('admin.form.inputImage', 'inputImage');
       Blade::include('admin.form.inputOuiNon', 'inputOuiNon');
       Blade::include('admin.form.supprExclusion', 'supprExclusion');
+      Blade::include('admin.form.inputEspece', 'inputEspece');
+      Blade::include('admin.form.inputTypeprod', 'inputTypeprod');
+      Blade::include('admin.form.inputNomtroupeau', 'inputNomtroupeau');
     }
 }

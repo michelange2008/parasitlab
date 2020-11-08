@@ -24,9 +24,9 @@
 
       </div>
 
-      <div class="row justify-content-center">
+      <div class="row">
 
-        <div class="col-lg-4">
+        <div class="col-lg-8 offset-lg-2">
 
           <div class="form-group">
 
@@ -46,9 +46,13 @@
 
         </div>
 
-        <div class="col-lg-4">
+      </div>
 
-          <input class="form-control" type="text" name="nom" placeholder="@lang('form.choix_nom_troupeau')">
+      <div class="row my-3">
+
+        <div class="col-lg-8 offset-lg-2">
+
+          @inputNomtroupeau()
 
         </div>
 
@@ -58,42 +62,13 @@
 
         <div class="col-lg-4 offset-lg-2">
 
-          <div class="form-group">
-
-
-            <select class="form-control" name="espece_id" required>
-
-              <option selected disabled>@lang('form.choix_espece')</option>
-
-              @foreach ($especes as $espece)
-
-                <option value="{{ $espece->id }}">{{ $espece->nom }}</option>
-
-              @endforeach
-
-            </select>
-
-          </div>
+          @inputEspece()
 
         </div>
 
         <div class="col-lg-4">
 
-          <div class="form-group">
-
-            <select class="form-control" name="typeprod_id" required>
-
-              <option selected disabled>@lang('form.choix_typeprod')</option>
-
-              @foreach ($typeprods as $typeprod)
-
-                <option value="{{ $typeprod->id }}">{{ $typeprod->nom }}</option>
-
-              @endforeach
-
-            </select>
-
-          </div>
+          @inputTypeprod()
 
         </div>
 
