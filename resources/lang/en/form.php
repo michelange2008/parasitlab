@@ -28,6 +28,7 @@ return array (
   'champs_chiffres_max_3' => 'Ce champs ne doit comporter que des chiffres et pas plus de 3',
   'champs_chiffres_max_10' => 'Ce champs ne doit comporter que des chiffres (10 au maximum)',
   'date_prelevement' => 'Date du prélèvement',
+  'info_prelevement' => "Si vous souhaitez nous transmettre des informations: motifs de l'analyse (suivi, problèmes, etc.), état des animaux, mortalité, etc.",
   'date_reception' => 'Date de réception',
   'ana_demandee' => 'Analyse demandée',
   'type_acte' => 'Type d\'acte',

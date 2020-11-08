@@ -10,6 +10,7 @@ require( './createUser.js');
 require( './demandeShow.js');
 require( './envoi.js');
 require( './nbPrelevement.js');
+require('./createDemandeTypePrelevement.js');
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');

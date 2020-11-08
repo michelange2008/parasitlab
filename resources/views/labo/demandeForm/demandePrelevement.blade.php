@@ -10,13 +10,19 @@
 
 <div class="row justify-content-center mb-3 d-flex align-items-end">
 
+  <div class="col-md-4">
+
+    @include('labo.demandeForm.inputTypePrelevement')
+
+  </div>
+
   <div class="col-lg-1">
 
     @include('fragments.image', ['image' => 'prelevement.svg', 'class' => 'img-90'])
 
   </div>
 
-  <div class="col-md-9">
+  <div class="col-md-5">
 
     @include('labo.demandeForm.inputNbPrelevements')
 

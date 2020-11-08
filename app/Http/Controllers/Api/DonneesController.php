@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Espece;
 use App\Models\Age;
+use App\Models\Troupeau;
 use App\Models\Categorie;
 use App\Models\Observation;
 use App\Models\Exclusion;
@@ -32,6 +33,25 @@ class DonneesController extends Controller
   public function ages($espece_id)
   {
     return json_encode(Age::where('espece_id', $espece_id)->with('icone')->get());
+  }
+
+  public function troupeau($eleveur_id, $espece_nom)
+  {
+    $espece = Espece::where('nom', $espece_nom)->first();
+
+    $troupeau = Troupeau::where(['user_id' => $eleveur_id, 'espece_id' => $espece->id])->first();
+
+    if($troupeau != null) {
+
+      $animals =$troupeau->animals;
+
+      return json_encode($animals);
+
+    } else {
+
+      return null;
+    }
+
   }
 
   /*
