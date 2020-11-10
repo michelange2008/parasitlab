@@ -2,12 +2,12 @@ var i = $('#nbPrelevement').val();
 
 affichePrelevement(i);
 
+console.log(i);
 $('#nbPrelevement').on('change', function() {
 
   var i = $(this).val();
 
   affichePrelevement(i);
-
 })
 
 function affichePrelevement(i) {

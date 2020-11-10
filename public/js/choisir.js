@@ -104,7 +104,7 @@ eval("// Intervient dans la page choisir (Technique\\AnalysesController@choisir)
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /srv/parasitlab/resources/js/choisir.js */"./resources/js/choisir.js");
+module.exports = __webpack_require__(/*! C:\Users\michel.bouy\Serveur\parasitlab\resources\js\choisir.js */"./resources/js/choisir.js");
 
 
 /***/ })

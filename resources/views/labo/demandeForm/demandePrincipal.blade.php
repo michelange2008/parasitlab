@@ -67,6 +67,33 @@ ligne qui permet d'associer la nouvelle demande à cette série
 
   <div class="col-md-1 d-sm-none d-md-block">
 
+    @image(['image' => 'troupeau.svg'])
+
+  </div>
+
+  <div class="col-md-4 border-right">
+
+    {{-- SAISIE DES DATES DE PRELEVEMENT (NON REQUIS) OU DE RECEPTION (REQUIS) --}}
+    @include('labo.demandeForm.inputTroupeau')
+
+  </div>
+
+  <div class="col-md-5">
+
+    <div id="estSerie" class="d-none">
+
+      @include('labo.demandeForm.inputEstSerie')
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row justify-content-center mt-2">
+
+  <div class="col-md-1 d-sm-none d-md-block">
+
     @image(['image' => 'date.svg'])
 
   </div>
@@ -78,13 +105,16 @@ ligne qui permet d'associer la nouvelle demande à cette série
 
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-1">
 
-    <div id="estSerie" class="d-none">
+    @include('fragments.image', ['image' => 'prelevement.svg', 'class' => 'img-90'])
 
-      @include('labo.demandeForm.inputEstSerie')
+  </div>
 
-    </div>
+
+  <div class="col-md-4">
+
+    @include('labo.demandeForm.inputNbPrelevements')
 
   </div>
 

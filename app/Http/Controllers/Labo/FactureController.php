@@ -150,6 +150,7 @@ class FactureController extends Controller
       //
       // }
       $datas = $request->all();
+
       // Dans le cas où on passe par un user et une demande seulement, la case "rajouter un kit" a peut-être été cochée
       if(isset($datas['kit'])) {
         // Dans ce cas on rajoute un acte kit à ce user
@@ -180,8 +181,19 @@ class FactureController extends Controller
 
           $demande = Demande::find($element[1]); // on recherche cette demande avec la seconde partie de la clef
 
+          // Prévoir le cas d'un anaacte qui demande de multiplier le coût unitaire par la nombre de prelevement
+          if($demande->anaacte->propPrelev) {
+
+            $nb_ana_a_facturer = $demande->prelevements->count();
+
+          } else {
+
+            $nb_ana_a_facturer = 1;
+          }
+
             $nouvelle_facture->anaactes()->attach($demande->anaacte_id, [ // et on en saisit les donnnées dans la table pivot anaacte_facture
               'facture_id' => $nouvelle_facture->id,
+              'nombre' => $nb_ana_a_facturer,
               'pu_ht' => $demande->anaacte->pu_ht,
               'tva_id' => $demande->anaacte->tva_id,
               'date' => $demande->date_reception,

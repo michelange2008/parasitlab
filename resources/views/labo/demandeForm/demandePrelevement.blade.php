@@ -10,27 +10,15 @@
 
 <div class="row justify-content-center mb-3 d-flex align-items-end">
 
-  <div class="col-md-4">
+  <div class="col-md-10 bg-bleu-tres-clair pt-3 mx-auto">
 
     @include('labo.demandeForm.inputTypePrelevement')
 
   </div>
 
-  <div class="col-lg-1">
-
-    @include('fragments.image', ['image' => 'prelevement.svg', 'class' => 'img-90'])
-
-  </div>
-
-  <div class="col-md-5">
-
-    @include('labo.demandeForm.inputNbPrelevements')
-
-  </div>
-
 </div>
 
-@for ($i=1; $i < 16; $i++)
+@for ($i=1; $i < 100; $i++)
 
   @include('labo.demandeForm.demandeLignePrelevement', ['numero' => $i])
 
