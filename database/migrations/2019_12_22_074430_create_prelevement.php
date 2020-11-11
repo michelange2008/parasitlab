@@ -17,6 +17,11 @@ class CreatePrelevement extends Migration
           $table->increments('id');
           // IDENTIFICATION
           $table->string('identification', 191);
+          // ANIMAL
+          $table->unsignedInteger('animal_id')->nullable;
+          $table->foreign('animal_id')->references('id')->on('animals')->onDelete('cascade');
+          // MELANGE
+          $table->boolean('estMelange')->default(1);
           // DEMANDE
           $table->unsignedInteger('demande_id');
           $table->foreign('demande_id')->references('id')->on('demandes')->onDelete('cascade');

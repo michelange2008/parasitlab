@@ -1,33 +1,14 @@
 <div class="form-group type_coll input_type">
 
-  <label for="nomPrelevement_{{ $i }}">@lang('form.identif_prelev_coll', ['num' => $i])</label>
+  <label for="nomPrelevement_{{ $i }}">{{ ucfirst(__('form.identification')) }}</label>
 
-  @if ($i === 1)
+  <input class="form-control" type="text" name="identification_{{$i}}" placeholder="@lang('form.nom')">
 
-    <input class="form-control" type="text" name="identification_{{$i}}" placeholder="intitulé" required>
+  <input list="animal_num" class="type_indiv form-control" type="text" name="animal_{{$i}}" placeholder="@lang('form.num')">
 
-  @else
+  <datalist id="animal_num" class="">
 
-    <input class="identification form-control" type="text" name="identification_{{$i}}" placeholder="intitulé">
-
-  @endif
-
-
-</div>
-
-<div class="form-group type_indiv input_type">
-
-  <label for="nomPrelevement_{{ $i }}">@lang('form.identif_prelev_indiv', ['num' => $i])</label>
-
-  @if ($i === 1)
-
-    <input class="form-control" type="text" name="identification_{{$i}}" placeholder="intitulé" required>
-
-  @else
-
-    <input class="identification form-control" type="text" name="identification_{{$i}}" placeholder="intitulé">
-
-  @endif
+  </datalist>
 
 
 </div>

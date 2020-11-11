@@ -54,4 +54,9 @@ class Demande extends Model
     {
       return $this->belongsTo(Commentaire::class);
     }
+
+    public function troupeau()
+    {
+      return $this->belongsTo(\App\Models\Troupeau::class);
+    }
 }

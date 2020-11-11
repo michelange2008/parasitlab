@@ -21,27 +21,31 @@
     </div>
 
 
-    <form id="prelevementCreate" action="prelevement.storeOnDemande" method="post">
+    <form id="prelevementCreate" action="{{ route('storeOnDemande') }}" method="post">
 
       @csrf
-
+      {{-- Si c'est un nouveau troupeau on fait un formulaire de création --}}
       @if ($demande->troupeau_id == null)
 
         <div class="row">
 
           <div class="col offset-md-1">
 
-            <h5>Comme il s'agit d'un nouveau troupeau, il font en saisir les informations.</h5>
+            <h5>@lang('demandes.infos_nouv_troup')</h5>
 
           </div>
 
         </div>
 
         @include('admin.troupeau.troupeauCreateDetail')
-
+      {{-- sinon on affiche le troupeau correspondant --}}
       @else
 
-        <h5>{{ $demande->troupeau->nom }}</h5>
+        <div class="col-md-10 offset-md-1">
+
+          <h5>@lang('form.troupeau')&nbsp;: {{ $demande->troupeau->nom }} ({{ $demande->troupeau->typeprod->nom }})</h5>
+
+        </div>
 
       @endif
 
@@ -56,12 +60,22 @@
       </div>
 
       <div class="row">
-
+        {{-- On affiche autant de formulaire de prélèvement qu'il y a de prélèvements  --}}
         @for ($i=1; $i < $demande->nb_prelevement +1 ; $i++)
 
           @include('labo.demandeForm.demandeLignePrelevement')
 
         @endfor
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-11 offset-md-1">
+
+          @enregistreAnnule()
+
+        </div>
 
       </div>
 

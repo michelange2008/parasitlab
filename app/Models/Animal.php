@@ -14,6 +14,9 @@ class Animal extends Model
     return $this->belongsTo(Troupeau::class);
   }
 
-
+  public function prelevements()
+  {
+    return $this->hasMany(Productions\Prelevement::class);
+  }
 
 }

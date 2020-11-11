@@ -23,4 +23,5 @@ return array (
   'resend_veto' => 'Renvoyer les résultats au vétérinaire',
   'analyse' => "Analyse",
   'results' => 'Résultats',
+  'infos_nouv_troup' => 'Comme il s\'agit d\'un nouveau troupeau, il faut en saisir les informations:'
 );

@@ -58,6 +58,15 @@ class PrelevementController extends Controller
       ]);
     }
 
+    public function storeOnDemande(Request $request)
+    {
+
+      $datas = $request->all();
+
+      dd($datas);
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *

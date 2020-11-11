@@ -31,4 +31,9 @@ class Prelevement extends Model
     {
       return $this->belongsToMany(Signe::class);
     }
+
+    public function animal()
+    {
+      return $this->belongsTo(\App\Models\Animal::class);
+    }
 }

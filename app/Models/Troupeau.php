@@ -29,4 +29,9 @@ class Troupeau extends Model
     {
       return $this->hasMany(Animal::class);
     }
+
+    public function demandes()
+    {
+      return $this->hasMany(Production\Demande::class);
+    }
 }

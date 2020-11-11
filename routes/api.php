@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/troupeau/{eleveur_id}/{espece_nom}', ['uses' =>'Api\DonneesController@troupeau']);
 
+  Route::get('/animal/{troupeau_id}', ['uses' =>'Api\DonneesController@animal']);
+
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
   Route::get('/observations/especes/{espece_id}', ['uses' => 'Api\DonneesController@observationSelonEspece']);
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
