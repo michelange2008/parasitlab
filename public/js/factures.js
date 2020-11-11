@@ -104,7 +104,7 @@ eval("var choix = 0; // on initialise la variable choix à faux\n\n$('input:subm
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\michel.bouy\Serveur\parasitlab\resources\js\factures.js */"./resources/js/factures.js");
+module.exports = __webpack_require__(/*! /srv/parasitlab/resources/js/factures.js */"./resources/js/factures.js");
 
 
 /***/ })

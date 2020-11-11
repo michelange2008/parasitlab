@@ -2,6 +2,17 @@
 $('#userSelect').focus();
 $('.liste_anatypes').hide();
 
+if(!$('#userSelect').val()) {
+
+  $('#especeSelect').attr('disabled', 'disabled');
+  $('#troupeauSelect').attr('disabled', 'disabled');
+  $('#anatypeSelect').attr('disabled', 'disabled');
+  $('#anaacteSelect').attr('disabled', 'disabled');
+  $('#prelevement').attr('disabled', 'disabled');
+  $('#reception').attr('disabled', 'disabled');
+  $('#nbPrelevements').attr('disabled', 'disabled');
+}
+
 // On récupére l'url actuelle
 var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
@@ -33,7 +44,8 @@ $("select[name='userDemande']").change(function() {
           btnClass : 'btn-red',
           action : function() {
             window.location = url_nouvelle;
-          },
+            $('#especeSelect').removeAttr('disabled').focus();
+            },
         },
         non: function() {
         }
@@ -48,19 +60,7 @@ $("select[name='userDemande']").change(function() {
 
     $(this).removeClass('is-invalid').addClass('is-valid'); // On passe le rouge au vert
 
-    if(!choix_espece) { // Si l'espece n'a pas encore été choisie on met le focus sur elle
-
-      $('#especeSelect').focus();
-
-    } else { // sinon  on la passe en vert
-
-      $('#especeSelect').addClass('is-valid');
-
-      anatypeSelonEspece(choix_espece); // On remplit le champs anatype
-
-      $('#prelevement').focus(); // On passe le focus à la date de prélèvement
-
-    }
+    $('#especeSelect').removeAttr('disabled').focus();
 
   }
 
@@ -70,26 +70,29 @@ $("select[name='userDemande']").change(function() {
 // Puis à chaque changement d'espece on met à jour la liste tes types
 $('#especeSelect').on('change', function() {
 
+  var eleveur_id = $('#userSelect').val();
+
   choix_espece = $('#especeSelect > option:selected').attr('id');
-
-  if($('#userSelect > option:selected').val() == '') { // si l'utilisateur n'a pas été sélectionné on met le focus sur lui
-
-    $('#userSelect').focus().addClass('is-invalid');
-
-    $('.liste_anatypes').hide();
-
-  } else { // Sinon
 
     var espece_nom = $('#especeSelect > option:selected').attr('id'); // on récupère l'espece choisie dans la variable espece_nom
 
     $(this).addClass('is-valid');
 
-    $("#prelevement").focus(); // On saute à la date de prélèvement
+    $("#troupeauSelect").removeAttr('disabled').focus(); // On saute à la date de prélèvement
+    // On récupère la liste éventuelle des troupeaux
+    troupeauSelonEspece(eleveur_id, espece_nom);
 
     anatypeSelonEspece(espece_nom);
 
-  }
 })
+// A la sélection d'un troupeaux
+$('#troupeauSelect').on('change', function() {
+
+  $('#prelevement').removeAttr('disabled').focus();
+  $('#reception').removeAttr('disabled');
+
+})
+
 
 // A la sélection d'une date on passe au champs suivant
 $('#prelevement').on('change', function() {
@@ -110,6 +113,17 @@ $('#reception').on('change', function() {
   compareDate();
 })
 
+$('#anatypeSelect').on('change', function() {
+
+  $("#anaacteSelect").removeAttr('disabled').focus();
+
+})
+
+$('#anaacteSelect').on('change', function() {
+
+  $('#nbPrelevements').removeAttr('disabled').focus();
+})
+
 // Fonction destinée à valider les dates
 function validDate(dateChoix, id_actuel, id_next) {
 
@@ -127,7 +141,7 @@ function validDate(dateChoix, id_actuel, id_next) {
 
     $(id_actuel + '_ok').show();
 
-    $(id_next).focus(); // On passe au champs suivant
+    $(id_next).removeAttr('disabled').focus(); // On passe au champs suivant
 
   }
 
@@ -151,6 +165,37 @@ function compareDate() {
       $('.date_ok').show();
     }
   }
+
+}
+
+function troupeauSelonEspece(eleveur_id, espece_nom) {
+
+  var url = url_actuelle.replace('laboratoire/demandes/create', 'api/troupeau/'+eleveur_id + '/' + espece_nom);
+
+  $.get({
+
+    url: url
+
+  })
+  .done(function(datas) {
+
+    var valeurs = JSON.parse(datas);
+    $(".listeTroupeau").remove();
+    if(valeurs.length > 0) {
+      var liste = "";
+      $.each(valeurs, function(key, value) {
+        liste += '<option value="' + value.id +'" class="listeTroupeau" required>' +
+                  value.nom + '</option>'
+      });
+      $("#troupeauSelect").append(liste);
+    } else {
+      $('#troupeauSelect option[value="nouveau"]').prop('selected', true);
+      $('#troupeauSelect').trigger('change');
+    }
+
+  }).fail(function(datas) {
+    console.log(datas);
+  })
 
 }
 

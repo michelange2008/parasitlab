@@ -27,7 +27,7 @@ class ListeTroupeausFournisseur extends ListeFournisseur
 
       $typeprod = $this->itemFactory($troupeau->typeprod->nom);
 
-      $espece = $this->itemFactory($troupeau->typeprod->espece->nom);
+      $espece = $this->itemFactory($troupeau->espece->nom);
 
       $effectif = $this->itemFactory($troupeau->animals->count());
 

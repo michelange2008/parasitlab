@@ -1,4 +1,4 @@
-<div class="form-group type_coll input_type" style="display:none">
+<div class="form-group type_coll input_type">
 
   <label for="nomPrelevement_{{ $i }}">@lang('form.identif_prelev_coll', ['num' => $i])</label>
 
@@ -15,7 +15,7 @@
 
 </div>
 
-<div class="form-group type_indiv input_type" style="display:none">
+<div class="form-group type_indiv input_type">
 
   <label for="nomPrelevement_{{ $i }}">@lang('form.identif_prelev_indiv', ['num' => $i])</label>
 

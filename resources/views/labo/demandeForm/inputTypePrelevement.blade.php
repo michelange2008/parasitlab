@@ -4,11 +4,11 @@
 
   <div class="col-md">
 
-    <div class="form-check">
+    <div class="custom-control custom-radio custom-control-inline">
 
-      <input class="typeprelevement form-check-input" type="radio" name="typeprelevement" id="indiv" value="indiv" >
+      <input class="typeprelevement custom-control-input" type="radio" name="typeprelevement" id="indiv" value="indiv" >
 
-      <label class="form-check-label" for="gridRadios1">
+      <label class="custom-control-label" for="indiv">
 
         @lang('form.indiv')
 
@@ -16,11 +16,11 @@
 
     </div>
 
-    <div class="form-check">
+    <div class="custom-control custom-radio custom-control-inline">
 
-      <input class="typeprelevement form-check-input" type="radio" name="typeprelevement" id="coll" value="coll">
+      <input class="typeprelevement custom-control-input" type="radio" name="typeprelevement" id="coll" value="coll">
 
-      <label class="form-check-label" for="gridRadios2">
+      <label class="custom-control-label" for="coll">
 
         @lang('form.coll')
 

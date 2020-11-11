@@ -53,7 +53,7 @@ function requeteAnaactes(anatype_id) {
   .done(function(data) {
 
     var anaactes = JSON.parse(data);
-
+    console.log(anaactes.length);
     var option = '<option value="" disabled selected>Choisir une option ...</option>';
     $.each(anaactes, function(key, value) {
 
@@ -65,7 +65,7 @@ function requeteAnaactes(anatype_id) {
 
     if(anaactes.length == 1) {
 
-      $('#anaacteSelect').children().attr('selected', 'selected');
+      $('#anaacteSelect').children().attr('selected', 'selected').trigger('change');
 
       ajouterEstSerie($('#anaacteSelect > option:selected').val(), $("#userSelect > option:selected").attr('id'));
     }

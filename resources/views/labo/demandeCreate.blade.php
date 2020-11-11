@@ -26,7 +26,7 @@
 
   @include('labo.demandeForm.demandeInformations')
 
-  @include('labo.demandeForm.demandePrelevement')
+  {{-- @include('labo.demandeForm.demandePrelevement') --}}
 
   @include('labo.demandeForm.demandeEnvois')
 
@@ -34,7 +34,7 @@
 
     <div class="col-md-10">
 
-      @enregistreAnnule()
+      @enregistreAnnule(['nomBouton' => 'boutons.continuer'])
 
     </div>
 

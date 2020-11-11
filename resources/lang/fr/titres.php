@@ -24,6 +24,7 @@ return array (
 
 
   'nouvelle_demande' => "Nouvelle demande d'analyse",
+  'saisie_prelevements' => "Saisie des prélèvements",
   'demandes_analyses' => 'Liste des demandes d\'analyse',
   'list_anaactes' => 'Liste des analyses proposées',
   'list_analyses' => 'Liste des analyses',

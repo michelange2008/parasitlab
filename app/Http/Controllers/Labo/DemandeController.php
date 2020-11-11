@@ -105,7 +105,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-dd($datas);
+// dd($datas);
       session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
       $user = User::find($datas['userDemande']);
@@ -125,6 +125,8 @@ dd($datas);
         $serie_id = intVal($datas['serie']); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
 
       }
+      // Prise en compte du troupeau: soit il a une id soit c'est un nouveau troupeau
+      $troupeau_id =($datas['troupeau'] === 'nouveau') ? null : $datas['troupeau'];
 
       // Si la case à cocher "envoi au véto" es cochée, on recherche l'id du véto choisi
       if(isset($datas['toveto']))
@@ -146,6 +148,7 @@ dd($datas);
       $nouvelle_demande->user_id = $user->id;
       $nouvelle_demande->nb_prelevement = $datas['nbPrelevements'];
       $nouvelle_demande->espece_id = $espece->id;
+      $nouvelle_demande->troupeau_id = $troupeau_id;
       $nouvelle_demande->anaacte_id = $anaacte->id;
       $nouvelle_demande->serie_id = $serie_id;
       $nouvelle_demande->informations = $datas['informations'];
@@ -156,6 +159,7 @@ dd($datas);
 
       $nouvelle_demande->save();
 
+      return redirect()->route('prelevement.createOnDemande', $nouvelle_demande->id);
       // CREATION DES PRELEVEMENTS
         // on cherche d'abord toutes les analyses correspondant aux actes (anatype->anaactes)
         // certains anaactes correspondent à plusieurs analyses: ex: copro + identification haemonchus
@@ -273,7 +277,7 @@ dd($datas);
      */
     public function destroy($id)
     {
-
+dd($id);
       Demande::where('id', $id)->delete();
 
         return redirect()->route('demandes.index')->with('status', "La demande d'analyse a été supprimée");

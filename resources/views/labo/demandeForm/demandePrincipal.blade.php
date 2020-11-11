@@ -123,3 +123,10 @@ ligne qui permet d'associer la nouvelle demande à cette série
   </div>
 
 </div>
+
+
+  {{-- <div class="col-md-10 bg-bleu-tres-clair py-3 mx-auto mb-3">
+
+    @include('labo.demandeForm.inputTypePrelevement')
+
+  </div> --}}

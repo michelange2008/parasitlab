@@ -1,33 +1,3 @@
-//###################################################################################################
-// Modifie le nombre de ligne de prélèvement en fonction de la valeur de l'input
-var nbPrelevements = $("input[name='nbPrelevements']").val() // nombre de prélèvement
-
-// Boucle qui passe en revue chaque ligne est l'affiche si son index est inférieur au nombre de prélèvements
-$('.lignePrelevement').each(function(index) {
-  if(index < nbPrelevements) {
-    $('#lignePrelevement_'+(index+1)).removeClass('d-none').addClass('d-flex');
-    var identification = 'identification_'+(index+1);
-    $("input[name="+identification+"]").attr('required',true);
-  }
-});
-// Idem quand on change la valeur de l'input nb de prélèvements
-$("input[name='nbPrelevements']").on('change', function(e) {
-
-    nbPrelevements = $("input[name='nbPrelevements']").val();
-
-    $(".lignePrelevement").removeClass('d-flex').addClass('d-none');
-    $(".identification").attr('required',false);
-
-    $('.lignePrelevement').each(function(index) {
-      if(index < nbPrelevements) {
-        $('#lignePrelevement_'+(index+1)).removeClass('d-none').addClass('d-flex');
-        var identification = 'identification_'+(index+1);
-        $("input[name="+identification+"]").attr('required',true);
-      }
-    });
-});
-//##########################################################################################################
-
 //#########################################################################################################
 // Affiche la liste des vétos si sitch "envoi to véto" est sur emitter.on('event', (arguments) => {
 

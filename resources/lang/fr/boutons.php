@@ -44,4 +44,7 @@ return array (
 
   'icone_add' => 'Ajouter une icone',
   'icones_suppr' => "Supprimer une icone",
+
+  'del_demande' => 'Supprimer la demande',
+  'add_prel' => 'Saisir les prélèvements',
 );

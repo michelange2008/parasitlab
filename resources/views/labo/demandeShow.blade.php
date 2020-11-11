@@ -1,6 +1,6 @@
 {{-- ISSU DE  demandeController@show
 AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
- --}}
+--}}
 @extends('layouts.app')
 
 @section('menu')
@@ -49,53 +49,63 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
 
       {{-- RESULTATS D'ANALYSE --}}
       <div class="col-md-7">
+        {{-- Cas où une demande d'analyse a été saisie sans que les prélèvements correspondants aient été saisis --}}
+        @if ($demande->prelevements->count() == 0)
 
-        <div id="demande" class="card" acheve="{{ $demande->acheve }}" signe="{{ $demande->signe }}" envoye="{{ $demande->envoye }}" >
+          @include('labo.demandeSansPrelevement', ['demande_id' => $demande->id])
 
-          <div class="card-header">
+        @else
 
-            <div class="btn-group" role="group" aria-label="modif-signature-envoi">
+          <div id="demande" class="card" acheve="{{ $demande->acheve }}" signe="{{ $demande->signe }}" envoye="{{ $demande->envoye }}" >
 
-              @include('labo.demandeShow.saisie')
+            <div class="card-header">
 
-            @if ($demande->acheve)
+              <div class="btn-group" role="group" aria-label="modif-signature-envoi">
 
-                @include('labo.demandeShow.signature')
 
-                @include('labo.demandeShow.envoi')
+                @include('labo.demandeShow.saisie')
+
+
+                @if ($demande->acheve)
+
+                  @include('labo.demandeShow.signature')
+
+                  @include('labo.demandeShow.envoi')
+
+                @endif
+
+              </div>
+
+            </div>
+
+            <div class="card-body">
+
+              <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
+              @if ($demande->acheve)
+
+                @include('labo.resultatsAnalyse')
 
               @endif
 
             </div>
 
-          </div>
+            <div id="affiche_pdf" class="m-4" style="display:none">
 
-          <div class="card-body">
+              @bouton([
+              'type' => 'route',
+              'route' => 'routeurResultatsPdf',
+              'id' => $demande->id,
+              'couleur' => "btn-rouge",
+              'fa' => 'fas fa-file-pdf',
+              'intitule' => __('boutons.show_pdf'),
+              'target' => '_blank',
+              ])
 
-            <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
-            @if ($demande->acheve)
-
-              @include('labo.resultatsAnalyse')
-
-            @endif
-
-          </div>
-
-          <div id="affiche_pdf" class="m-4" style="display:none">
-
-            @bouton([
-            'type' => 'route',
-            'route' => 'routeurResultatsPdf',
-            'id' => $demande->id,
-            'couleur' => "btn-rouge",
-            'fa' => 'fas fa-file-pdf',
-            'intitule' => __('boutons.show_pdf'),
-            'target' => '_blank',
-            ])
+            </div>
 
           </div>
 
-        </div>
+        @endif
 
       </div>
 

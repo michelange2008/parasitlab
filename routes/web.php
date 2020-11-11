@@ -149,6 +149,10 @@
 
     route::resource('demandes', 'Labo\DemandeController');
 
+    route::resource('prelevement', 'Labo\PrelevementController');
+
+    route::get('prelevement/createOnDemande/{demande_id}', 'Labo\PrelevementController@createOnDemande')->name('prelevement.createOnDemande');
+
     route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
 
     route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');

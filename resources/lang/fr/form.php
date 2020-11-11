@@ -45,7 +45,7 @@ return array (
   'infos_diverses_placeholder' => 'Si vous souhaitez nous transmettre des informations: motifs de l\'analyse (suivi, problèmes, etc.), état des animaux, mortalité, etc.',
   'type_prelevement' => 'Type de prélèvement',
   'indiv' => "Individuel",
-  'coll' => "Collectif",
+  'coll' => "Mélange",
   'nb_prelevement' => 'Nombre de prélèvements',
   'prelev_nb' => 'Prélèvement n°',
   'nom_prelev' => 'nom du prélèvement',
@@ -160,6 +160,7 @@ return array (
   'addmodif' => "Ajouter/Modifier",
 
   'choix_eleveur' => "Choisissez un éleveur",
+  'choix_troupeau' => "Choisissez un troupeau ...",
   'choix_nom_troupeau' => 'Choisissez un nom pour le troupeau',
   'edit_nom_troupeau' => 'Nom du troupeau&nbsp;:',
   'choix_typeprod' => "Choisissez un type de production",

@@ -1,4 +1,4 @@
-<div id="lignePrelevement_{{ $i }}" class="lignePrelevement row justify-content-center d-none">
+<div id="lignePrelevement_{{ $i }}" class="lignePrelevement row justify-content-center">
 
     <div class="col-md-5">
 

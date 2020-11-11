@@ -39,18 +39,19 @@ class DonneesController extends Controller
   {
     $espece = Espece::where('nom', $espece_nom)->first();
 
-    $troupeau = Troupeau::where(['user_id' => $eleveur_id, 'espece_id' => $espece->id])->first();
+    $troupeau = Troupeau::where(['user_id' => $eleveur_id, 'espece_id' => $espece->id])->get();
 
-    if($troupeau != null) {
-
-      $animals =$troupeau->animals;
-
-      return json_encode($animals);
-
-    } else {
-
-      return null;
-    }
+    return json_encode($troupeau);
+    // if($troupeau != null) {
+    //
+    //   $animals =$troupeau->animals;
+    //
+    //   return json_encode($animals);
+    //
+    // } else {
+    //
+    //   return null;
+    // }
 
   }
 

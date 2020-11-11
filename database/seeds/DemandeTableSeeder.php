@@ -11,11 +11,16 @@ class DemandeTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+      DB::table('demandes')->truncate();
+      DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
         DB::table('demandes')->insert([
           [
             'id' => 1,
             'user_id' => 3,
             'espece_id' => 2,
+            'troupeau_id' => null,
             'nb_prelevement' => 3,
             'anaacte_id' => 1,
             'serie_id' => null,
@@ -40,6 +45,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 3,
             'nb_prelevement' => 2,
             'espece_id' => 3,
+            'troupeau_id' => null,
             'anaacte_id' => 5,
             'serie_id' => null,
             'informations' => null,
@@ -63,6 +69,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 3,
             'nb_prelevement' => 1,
             'espece_id' => 7,
+            'troupeau_id' => null,
             'anaacte_id' => 1,
             'serie_id' => null,
             'informations' => null,
@@ -86,6 +93,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 6,
             'nb_prelevement' => 1,
             'espece_id' => 2,
+            'troupeau_id' => null,
             'anaacte_id' => 13,
             'serie_id' => 1,
             'informations' => "Traitement avec du Panacur",
@@ -109,6 +117,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 7,
             'nb_prelevement' => 2,
             'espece_id' => 5,
+            'troupeau_id' => null,
             'anaacte_id' => 1,
             'serie_id' => null,
             'informations' => null,
@@ -132,6 +141,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 7,
             'nb_prelevement' => 3,
             'espece_id' => 3,
+            'troupeau_id' => null,
             'anaacte_id' => 2,
             'serie_id' => null,
             'informations' => null,
@@ -158,6 +168,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 6,
             'nb_prelevement' => 1,
             'espece_id' => 2,
+            'troupeau_id' => null,
             'anaacte_id' => 1,
             'serie_id' => null,
             'informations' => null,
@@ -181,6 +192,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 6,
             'nb_prelevement' => 1,
             'espece_id' => 2,
+            'troupeau_id' => null,
             'anaacte_id' => 2,
             'serie_id' => null,
             'informations' => null,
@@ -207,6 +219,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 3,
             'nb_prelevement' => 3,
             'espece_id' => 3,
+            'troupeau_id' => null,
             'anaacte_id' => 8,
             'serie_id' => 2,
             'toveto' => 1,
@@ -230,6 +243,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 3,
             'nb_prelevement' => 3,
             'espece_id' => 3,
+            'troupeau_id' => null,
             'anaacte_id' => 8,
             'serie_id' => 2,
             'informations' => null,
@@ -253,6 +267,7 @@ class DemandeTableSeeder extends Seeder
             'user_id' => 3,
             'nb_prelevement' => 3,
             'espece_id' => 3,
+            'troupeau_id' => null,
             'anaacte_id' => 8,
             'serie_id' => 2,
             'informations' => null,

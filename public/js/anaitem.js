@@ -104,7 +104,7 @@ eval("$(\"#unite\").on('click', function () {\n  if ($('#unite option:selected')
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\michel.bouy\Serveur\parasitlab\resources\js\anaitem.js */"./resources/js/anaitem.js");
+module.exports = __webpack_require__(/*! /srv/parasitlab/resources/js/anaitem.js */"./resources/js/anaitem.js");
 
 
 /***/ })
