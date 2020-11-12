@@ -54,6 +54,7 @@ class PrelevementController extends Controller
     {
       $demande = Demande::find($demande_id); // Reccherche de l'analyse correspondant à l'espèce et à l'anaacte de la demande
       $espece_id = $demande->espece->id;
+      $typeprods = Typeprod::->where('espece_id', $espece_id);
       $anatype_id = $demande->anaacte->anatype->id;
       $analyse = Analyse::where(['espece_id' => $espece_id, 'anatype_id' => $anatype_id])->first();
 
@@ -62,7 +63,7 @@ class PrelevementController extends Controller
         'demande' => $demande,
         'analyse_id' => $analyse->id,
         'especes' => Espece::all(),
-        'typeprods' => Typeprod::all(),
+        'typeprods' => $typeprods,
         'etats' => Etat::all(),
         'signes' => Signe::all(),
         'estParasite' => $this->litJson('estParasite'),
