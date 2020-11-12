@@ -1,6 +1,8 @@
 <div class="form-group">
 
-  <select class="form-control" name="espece_id" required>
+  <select class="form-control" name="espece_id" required
+
+    @if ($disabled ?? false) disabled @endif> {{-- Cas de la création d'un troupeau pendant la saisie d'une demande --}}
 
     <option selected disabled>@lang('form.choix_espece')</option>
 

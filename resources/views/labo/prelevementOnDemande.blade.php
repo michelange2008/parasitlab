@@ -1,3 +1,4 @@
+{{-- VUE AFFICHANT LE FORMULAIRE DE SAISIE DES PRELEVEMENTS APRES LA PAGE DE SAISIE D UNE DEMANDE D ANALYSE --}}
 @extends('layouts.app')
 
 @section('menu')
@@ -41,7 +42,10 @@
 
         </div>
 
-        @include('admin.troupeau.troupeauCreateDetail')
+        @include('admin.troupeau.troupeauCreateDetail', [
+          'espece_id_anterieure' => $demande->espece->id,
+          'disabled' => true,
+        ])
       {{-- sinon on affiche le troupeau correspondant --}}
       @else
 
