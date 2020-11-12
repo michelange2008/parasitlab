@@ -24,7 +24,7 @@
 
   <table class="table table-bordered pdf-table">
     <tr class="pdf-table-titre">
-      <td colspan="3" class="ligne1"><strong>{{ mb_strtoupper($prelevement->identification)}}</strong> (prelevement n°{{ $loop->index + 1}} -
+      <td colspan="3" class="ligne1"><strong>{{ mb_strtoupper($prelevement->identification) ?? ''}} {{ $prelevement->animal->numero ?? '' }}</strong> (prelevement n°{{ $loop->index + 1}} -
         <span class="lignes">
           @lang('form.etat_prelev'): <strong>{{ $prelevement->etat->nom }}</strong>
        </span>
