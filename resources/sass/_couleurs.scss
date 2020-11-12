@@ -120,7 +120,7 @@ $rouge-tres-fonce-transparent: #8F230A99;
 }
 
 .alert-bleu-tres-fonce {
-  background: $bleu-tres-fonce ;
+  background: $bleu-tres-fonce !important;
   color: $bleu-tres-clair;
 }
 

@@ -22,7 +22,7 @@ class Prelevement extends Model
       return $this->hasMany(Resultat::class);
     }
 
-    public function Etat()
+    public function etat()
     {
       return $this->belongsTo(Etat::class);
     }

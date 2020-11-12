@@ -54,7 +54,7 @@
 
             <div class="card">
               <div class="card-header alert-bleu-tres-fonce">
-                <h5>{{ ucfirst($prelevement->identification) }}</h5>
+                <h5 class="mb-0">{{ ucfirst($prelevement->identification) ?? '' }} {{ ucfirst($prelevement->animal->numero ?? '') }}</h5>
               </div>
               <div class="card-body">
 
