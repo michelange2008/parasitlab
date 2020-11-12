@@ -9,7 +9,7 @@ require( './bootstrap-table-locale-all.js');
 require( './createUser.js');
 require( './demandeShow.js');
 require( './envoi.js');
-require('./createPrelevement.js');
+
 require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');

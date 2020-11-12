@@ -77,7 +77,7 @@ class PrelevementController extends Controller
       $demande = Demande::find($datas['demande_id']);
 
       // Création d'un nouveau troupeau si besoin
-      if((boolean)$datas['nouveau_troupeau'] === "true") {
+      if($datas['nouveau_troupeau'] === "true") {
 
         $troupeau = new Troupeau;
 
