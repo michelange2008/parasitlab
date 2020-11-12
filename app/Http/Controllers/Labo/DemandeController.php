@@ -277,7 +277,7 @@ class DemandeController extends Controller
      */
     public function destroy($id)
     {
-dd($id);
+
       Demande::where('id', $id)->delete();
 
         return redirect()->route('demandes.index')->with('status', "La demande d'analyse a été supprimée");
