@@ -133,10 +133,6 @@ function validDate(dateChoix, id_actuel, id_next) {
 
     $(id_actuel + '_futur').show(); //On afiche une petit phrase
 
-  } else if (aujourdhui - dateChoix > 864000000) { // Si elle est plus ancienne que 10 jours
-
-    $(id_actuel + '_passe').show(); // On affiche une autre phrase
-
   } else { // Sinon
 
     $(id_actuel + '_ok').show();
