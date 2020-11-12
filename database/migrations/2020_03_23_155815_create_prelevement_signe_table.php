@@ -15,7 +15,7 @@ class CreatePrelevementSigneTable extends Migration
     {
         Schema::create('prelevement_signe', function (Blueprint $table) {
             $table->unsignedInteger('prelevement_id');
-            $table->foreign('prelevement_id')->references('id')->on('prelevements');
+            $table->foreign('prelevement_id')->references('id')->on('prelevements')->onDelete('cascade');
             $table->unsignedInteger('signe_id');
             $table->foreign('signe_id')->references('id')->on('signes');
         });

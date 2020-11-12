@@ -1,6 +1,6 @@
 <div id="lignePrelevement_{{ $i }}" class="lignePrelevement row justify-content-center">
 
-  <div class="col-md-10 bg-bleu pt-2">
+  <div class="col-md-10 alert-bleu-tres-fonce pt-2">
 
     <h4>{{ ucfirst(__('form.prelev', ['num' => $i])) }}</h4>
 

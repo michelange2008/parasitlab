@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Espece;
 use App\Models\Age;
 use App\Models\Troupeau;
+use App\Models\Animal;
 use App\Models\Categorie;
 use App\Models\Observation;
 use App\Models\Exclusion;
@@ -42,17 +43,14 @@ class DonneesController extends Controller
     $troupeau = Troupeau::where(['user_id' => $eleveur_id, 'espece_id' => $espece->id])->get();
 
     return json_encode($troupeau);
-    // if($troupeau != null) {
-    //
-    //   $animals =$troupeau->animals;
-    //
-    //   return json_encode($animals);
-    //
-    // } else {
-    //
-    //   return null;
-    // }
 
+  }
+
+  public function animal($troupeau_id)
+  {
+    $animals = Animal::where('troupeau_id', $troupeau_id)->get();
+
+    return json_encode($animals);
   }
 
   /*

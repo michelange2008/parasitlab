@@ -20,12 +20,16 @@
 
     </div>
 
-
     <form id="prelevementCreate" action="{{ route('storeOnDemande') }}" method="post">
 
       @csrf
+
+      <input type="hidden" name="demande_id" value="{{ $demande->id }}">
+      <input type="hidden" name="analyse_id" value="{{ $analyse_id }}">
       {{-- Si c'est un nouveau troupeau on fait un formulaire de création --}}
       @if ($demande->troupeau_id == null)
+
+        <input type="hidden" name="nouveau_troupeau" value=true>
 
         <div class="row">
 
@@ -41,9 +45,11 @@
       {{-- sinon on affiche le troupeau correspondant --}}
       @else
 
+        <input type="hidden" name="nouveau_troupeau" value=false>
+
         <div class="col-md-10 offset-md-1">
 
-          <h5>@lang('form.troupeau')&nbsp;: {{ $demande->troupeau->nom }} ({{ $demande->troupeau->typeprod->nom }})</h5>
+          <h5 id="troupeau" num="{{ $demande->troupeau->id }}">@lang('form.troupeau')&nbsp;: {{ $demande->troupeau->nom }} ({{ $demande->troupeau->typeprod->nom }})</h5>
 
         </div>
 

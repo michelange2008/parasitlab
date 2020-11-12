@@ -6,7 +6,7 @@
 
     @foreach ($etats as $etat)
 
-      <option>{{$etat->nom}}</option>
+      <option value="{{ $etat->id }}">{{$etat->nom}}</option>
 
     @endforeach
 
