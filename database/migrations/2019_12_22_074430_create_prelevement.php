@@ -16,9 +16,9 @@ class CreatePrelevement extends Migration
       Schema::create('prelevements', function (Blueprint $table) {
           $table->increments('id');
           // IDENTIFICATION
-          $table->string('identification', 191)->nullable;
+          $table->string('identification', 191)->nullable();
           // ANIMAL
-          $table->unsignedInteger('animal_id')->nullable;
+          $table->unsignedInteger('animal_id')->nullable();
           $table->foreign('animal_id')->references('id')->on('animals')->onDelete('cascade');
           // MELANGE
           $table->boolean('estMelange')->default(1);
