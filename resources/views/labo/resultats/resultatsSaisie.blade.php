@@ -45,7 +45,6 @@
 
       </div>
 
-
       @foreach ($prelevements as $prelevement)
 
         <div class="row justify-content-center my-3">

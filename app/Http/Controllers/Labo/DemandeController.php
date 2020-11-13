@@ -105,7 +105,7 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-// dd($datas);
+
       session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
       $user = User::find($datas['userDemande']);
@@ -160,42 +160,7 @@ class DemandeController extends Controller
       $nouvelle_demande->save();
 
       return redirect()->route('prelevement.createOnDemande', $nouvelle_demande->id);
-      // CREATION DES PRELEVEMENTS
-        // on cherche d'abord toutes les analyses correspondant aux actes (anatype->anaactes)
-        // certains anaactes correspondent à plusieurs analyses: ex: copro + identification haemonchus
 
-        $analyse = Analyse::where('analyses.anatype_id', $anaacte->anatype->id)
-                  ->where('analyses.espece_id', $espece->id)
-                  ->first();
-        // Puis pour chaque analyse
-        // Il faut créer les prélèvements
-
-        if ($analyse !== null) {
-
-
-          for ($i=1; $i <= $datas['nbPrelevements'] ; $i++) {
-            $etat = Etat::where('nom', $datas['etatPrelevement_'.$i])->first();
-
-            $nouveau_prelevement = new Prelevement;
-
-            $nouveau_prelevement->demande_id = $nouvelle_demande->id;
-            $nouveau_prelevement->analyse_id = $analyse->id;
-            $nouveau_prelevement->identification = $datas['identification_'.$i];
-            $nouveau_prelevement->etat_id = $etat->id;
-            $nouveau_prelevement->parasite = (isset($datas['parasite_'.$i])) ? $datas['parasite_'.$i] : null;
-
-            $nouveau_prelevement->save();
-            // Après sauvegarde du prélèvement on peut remplir la table pivot avec les signes (diarrhée, etc.)
-            foreach (Signe::all() as $signe) {
-              if(isset($datas['signe_'.$i.'_'.$signe->id])){
-                $nouveau_prelevement->signes()->attach($signe->id);
-
-              }
-            }
-          }
-        }
-
-      return redirect()->route('demandes.index');
     }
 
     /**

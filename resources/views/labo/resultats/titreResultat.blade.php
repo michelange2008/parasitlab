@@ -4,7 +4,7 @@
 
     <th colspan="2">
 
-      {{ ucfirst($prelevement->identification) }}
+      {{ ucfirst($prelevement->identification) }} {{ $prelevement->animal->numero ?? ''}}
 
       <small>(@lang('demandes.etat_prelevement') {{ $prelevement->etat->nom }})</small>
 
