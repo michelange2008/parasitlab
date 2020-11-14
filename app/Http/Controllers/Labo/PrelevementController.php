@@ -84,7 +84,7 @@ class PrelevementController extends Controller
 
         $troupeau->nom = $datas['nom'];
         $troupeau->user_id = $demande->user->id;
-        $troupeau->espece_id = $datas['espece_id'];
+        $troupeau->espece_id = $demande->espece->id;
         $troupeau->typeprod_id = $datas['typeprod_id'];
 
         $troupeau->save();

@@ -43,7 +43,8 @@ class VetoAdminController extends Controller
      */
     public function index()
     {
-        session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype']);
+        session()->forget(['creation']);
+        session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype', 'eleveurDemande', 'route_retour']);
 
         $users = User::where('usertype_id', $this->userTypeVeto()->id)->get();
 
@@ -68,10 +69,21 @@ class VetoAdminController extends Controller
     public function create()
     {
 
-      session(['usertype' => $this->userTypeVeto()]);
+      session(['creation.usertype' => $this->userTypeVeto()]);
 
       return redirect()->route('user.create');
 
+    }
+    /*
+    * Fonction appelée lors de la création d'un véto pendant la saisie
+    *d'une demande d'analyse destinée à ajouter une variable de session
+    */
+    public function createOnDemande()
+    {
+
+      session(['creation.veto_d_eleveur'=> true]);
+
+      return redirect()->route('vetoAdmin.create');
     }
 
     /**
@@ -89,8 +101,9 @@ class VetoAdminController extends Controller
         // si le formulaire n'est pas rempli juqu'au bout)
 
         // On le récupère par la variable de session.
-        $nouvel_user = session('nouvel_user');
+        $nouvel_user = session('creation.nouvel_user');
 
+        session()->forget(['creation.nouvel_user']);
         // On crée le mot de passe (maintenant et non dans UserController pour ne pas pas avoir à le stoker en session)
         $mdp = str_random(8);
         $nouvel_user->password = $mdp; // On stocke d'abord le mdp sous bcrypt pour pouvoir l'envoyer par mail
@@ -110,26 +123,28 @@ class VetoAdminController extends Controller
         $nouveau_veto = $this->vetoCreateDetail($datas, $nouvel_user->id);
 
         // CAS OU LA CREATION D'UN VETO SE FAIT À LA SUITE DE LA CREATION D'UN ELEVEUR
-        if (session('vetoDeleveur')) {
+        if (session('creation.veto_d_eleveur')) {
 
-          // On met à jour l'éleveur dont on vient de créer le véto
-          $modif = DB::table('eleveurs')->where('user_id', session('user')->id)->update(['veto_id' => $nouveau_veto->id]);
+          // Cas où la création du véto s'est faite dans la cadre de la création d'une nouvelle demande avant le choix d'un éleveur
 
-          // Cas où la création du véto s'est faite dans la cadre de la création d'un éleveur elle-meme dans la cadre d'une nouvelle demande
-          if (session('eleveurDemande')) {
+          if (session('creation.demande_en_cours')) {
 
+            session(['creation.nouveau_veto.id'=> $nouveau_veto->id, 'creation.nouveau_veto.name' => $nouveau_veto->user->name]);
             return redirect()->route('demandes.create');
 
           } else {
 
-            return redirect()->route('eleveurAdmin.show', session('user')->id);
+            // On met à jour l'éleveur dont on vient de créer le véto
+            $modif = DB::table('eleveurs')->where('user_id', session('creation.user')->id)->update(['veto_id' => $nouveau_veto->id]);
+
+            return redirect()->route('eleveurAdmin.show', session('creation.user')->id);
 
           }
 
         // CAS OU LA CREATION D'UN VETO EST PARTIE DE LA LISTE DES VETOS OU DES UTILISATEURS EN GÉNÉRAL
         } else {
 
-          return redirect()->route('vetoAdmin.show', $nouvel_user->id);
+          return redirect()->route('vetoAdmin.index');
 
         }
 
@@ -153,7 +168,7 @@ class VetoAdminController extends Controller
 
         $fournisseur = new ListeDemandesVetoFournisseur(); // voir class ListeFournisseur
 
-        $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandesVeto', 'laboAdmin.create', __('boutons.add_demande'));
+        $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandesVeto', 'demandes.create', __('boutons.add_demande'));
 
         return view('admin.vetoShow', [
           'menu' => $this->menu,

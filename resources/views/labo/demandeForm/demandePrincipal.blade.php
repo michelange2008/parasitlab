@@ -1,5 +1,27 @@
 {{-- PARTIE PRINCIPALE DE LA DEMANDE: DEMANDEUR,ESPECE, PACK, DATES--}}
 
+<div class="row">
+
+  <div class="col-md-1 d-sm-none d-md-block offset-md-1">
+
+    @image(['image' => 'veto.svg'])
+
+  </div>
+
+  <div class="col-md-5">
+
+    @include('labo.demandeForm.inputChoixVeto')
+
+  </div>
+
+  <div class="col-md-10 offset-md-1">
+
+    <hr class="divider">
+
+  </div>
+
+</div>
+
 <div class="row justify-content-center">
 
     <div class="col-md-1 d-sm-none d-md-block">

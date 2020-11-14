@@ -8,18 +8,9 @@
 
 </div>
 
-<div class="row justify-content-center">
+<div class="row">
 
-  <div class="col-md-5">
-
-    <!-- DOIT ON ENVOYER LES RESULTATS AU VETO -->
-    @include('labo.demandeForm.inputEnvoiVeto')
-
-    @include('labo.demandeForm.inputChoixVeto')
-
-</div>
-
-  <div class="col-md-5">
+  <div class="col-md-5 offset-md-1">
 
     <!-- CHOIX DU DESTINATAIRE DE LA FACTURE -->
     @include('labo.demandeForm.inputEnvoiFacture')

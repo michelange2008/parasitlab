@@ -33,4 +33,5 @@ return array (
   'edit_option' => "Modification de l'explication (texte, image)",
   'editOptionAnaacte' => "Modification des analyses associées à cette explication",
   'edit_anaacte' => 'Modifier cette analyse',
+  'add_new_vet' => 'Ajouter un nouveau vétérinaire',
 );

@@ -38,7 +38,7 @@ $(function() {
 
 	// Fonction d'appel d'une boite de dialogue quand on veut supprimer quelque chose (analyse, personne, etc.)
 	$('.suppr').on('click', function(event) {
-
+console.log("#"+$(this).attr('id'));
 		event.preventDefault();
 
 		var form_id = "#"+$(this).attr('id');

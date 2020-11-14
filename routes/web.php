@@ -167,6 +167,8 @@
 
     Route::resource('laboAdmin', 'Labo\LaboAdminController');
 
+    route::get('vetoAdmin/createOnDemande', 'Labo\VetoAdminController@createOnDemande')->name('vetoAdmin.createOnDemande');
+
     Route::resource('vetoAdmin', 'Labo\VetoAdminController');
 
     Route::resource('eleveurAdmin', 'Labo\EleveurAdminController');

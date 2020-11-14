@@ -53,7 +53,7 @@ class DemandeController extends Controller
 
       $demandes = Demande::all();
 
-      session()->forget('user');
+      session()->forget(['creation']);
 
       $fournisseur = new ListeDemandesFournisseur();
 
@@ -73,8 +73,9 @@ class DemandeController extends Controller
     public function create()
     {
         session([
-          'eleveurDemande' => true,
-          'usertype' => $this->userTypeEleveur(),
+          'creation.demande_en_cours' => true, // Permet de revenir au formulaire de création d'analyse dans le cas d'une création d'éleveur ou de vétérinaire
+          'creation.veto_d_eleveur' => false,
+          'creation.usertype' => $this->userTypeEleveur(), // En cas de création d'un user, permet de savoir que c'est un éleveur
         ]);
 
         $vetos = DB::table('vetos')->join('users', 'users.id', "=", 'vetos.user_id')->orderBy('users.name', 'asc')->get();
@@ -82,7 +83,7 @@ class DemandeController extends Controller
         $eleveurs = DB::table('eleveurs')->join('users', 'users.id', '=', 'eleveurs.user_id')->orderBy('users.name', 'asc')->get();
 
         $estParasite = $this->litJson('estParasite');
-// TODO: Ne pas oublier de vider les valeurs de session
+
         return view('labo.demandeCreate', [
           'menu' => $this->menu,
           'eleveurs' => $eleveurs,
@@ -106,7 +107,7 @@ class DemandeController extends Controller
     {
       $datas = $request->all();
 
-      session()->forget('eleveurDemande', 'usertype'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
+      session()->forget('creation'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
       $user = User::find($datas['userDemande']);
       $espece = Espece::where('nom', $datas['espece'])->first();
@@ -131,10 +132,19 @@ class DemandeController extends Controller
       // Si la case à cocher "envoi au véto" es cochée, on recherche l'id du véto choisi
       if(isset($datas['toveto']))
       {
-        $toveto = true;
-        $user_veto_id = $datas['veto_id'];
-        $user_veto = User::find($user_veto_id);
-        $veto_id = $user_veto->veto->id;
+        if($datas['veto_id'] == 0) {
+
+
+
+        } else {
+
+          $toveto = true;
+          $user_veto_id = $datas['veto_id'];
+          $user_veto = User::find($user_veto_id);
+          $veto_id = $user_veto->veto->id;
+
+        }
+
       }
       // Sinon le "veto_id" est passé à null
       else {
@@ -156,6 +166,7 @@ class DemandeController extends Controller
       $nouvelle_demande->veto_id = $veto_id;
       $nouvelle_demande->date_prelevement = $datas['prelevement'];
       $nouvelle_demande->date_reception = $datas['reception'];
+      $nouvelle_demande->user_dest_fact = ($datas['destinataireFacture'] == null) ? 1 : $datas['destinataireFacture'];
 
       $nouvelle_demande->save();
 

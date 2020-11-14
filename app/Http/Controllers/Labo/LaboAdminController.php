@@ -52,7 +52,7 @@ class LaboAdminController extends Controller
    */
   public function index()
   {
-    session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype']);
+    session()->forget(['creation']);
 
     $users = User::where('usertype_id', $this->userTypeLabo()->id)->get();
 
@@ -77,7 +77,7 @@ class LaboAdminController extends Controller
    */
   public function create()
   {
-      session(['usertype' => $this->userTypeLabo()]);
+      session(['creation.usertype' => $this->userTypeLabo()]);
 
       return redirect()->route('user.create');
   }
@@ -96,7 +96,9 @@ class LaboAdminController extends Controller
     // (méthode pour éviter de créer un user sans les users spécifiques (labo, veto, éleveur)
     // si le formulaire n'est pas rempli juqu'au bout)
     // On le récupère par la variable de session.
-    $nouvel_user = session('nouvel_user');
+    $nouvel_user = session('creation.nouvel_user');
+
+    session()->forget(['creation.nouvel_user']);
     // On crée le mot de passe (maintenant et non dans UserController pour ne pas pas avoir à le stoker en session)
     $mdp = str_random(8);
     $nouvel_user->password = $mdp; // On stocke d'abord le mdp sous bcrypt pour pouvoir l'envoyer par mail
@@ -125,6 +127,8 @@ class LaboAdminController extends Controller
    */
   public function show($id)
   {
+      session()->forget(['creation']);
+
       return view('admin.labo.laboShow', [
         'menu' => $this->menu,
         'user' => User::find($id),
@@ -142,7 +146,7 @@ class LaboAdminController extends Controller
       $user = User::where('id', $id)->first();
 
       //STOCKE EN SESSION L'ADRESSE DE RETOUR APRÈS LA MODIFICATION DE L'UTILISATEUR
-      session(['route_retour' => 'laboAdmin.index']);
+      session(['creation.route_retour' => 'laboAdmin.index']);
 
       return view('admin.labo.laboEdit', [
         'menu' => $this->menu,

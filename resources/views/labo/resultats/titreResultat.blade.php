@@ -1,15 +1,28 @@
-<thead class="thead-bleu">
 
-  <tr>
+<div class="card-header alert-bleu-tres-fonce d-flex justify-content-between">
 
-    <th colspan="2">
+  <h5 class="mb-0">{{ ucfirst($prelevement->identification) ?? '' }} {{ ucfirst($prelevement->animal->numero ?? '') }}</h5>
 
-      {{ ucfirst($prelevement->identification) }} {{ $prelevement->animal->numero ?? ''}}
+  <div class="d-flex">
 
-      <small>(@lang('demandes.etat_prelevement') {{ $prelevement->etat->nom }})</small>
+    <a class="mr-3" href="{{ route('prelevement.edit', $prelevement->id) }}">
+      <i class="fas fa-edit text-success"></i>
+    </a>
 
-    </th>
+    <form id="form_{{ $prelevement->id }}" class="suppr" action="{{ route('prelevement.destroy', $prelevement->id) }}" method="post">
 
-  </tr>
+      @csrf
 
-</thead>
+      @method('delete')
+
+      <button class="btn" type="submit">
+
+        <i class="fas fa-trash-alt text-danger"></i>
+
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

@@ -4,6 +4,7 @@ namespace App\Fournisseurs;
 use App\Fournisseurs\ListeFournisseur;
 
 use App\Models\Productions\Demande;
+use App\User;
 
 /**
  *  FOURNIT LES DATAS POUR L'AFFICHAGE DE LA LISTE DES DEMANDES DANS index.blade.php
@@ -19,7 +20,21 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $description = [];
 
-      $eleveur = $this->lienFactory($demande->user->id, ucfirst($demande->user->name), 'eleveurAdmin.show', 'affiche_detail_eleveur');
+      if (isset($demande->user)) {
+
+        $eleveur = $this->lienFactory($demande->user->id, ucfirst($demande->user->name), 'eleveurAdmin.show', 'affiche_detail_eleveur');
+
+      }
+
+      else {
+
+        $anonyme = User::find(0);
+
+        $eleveur = $this->lienFactory($anonyme->id, ucfirst($anonyme->name), 'eleveurAdmin.show', 'affiche_detail_eleveur');
+
+
+      }
+
 
       $analyse = $this->lienFactory($demande->id, $this->acteTypeCourt($demande->anaacte), 'demandes.show', 'affiche_detail_analyse');
 

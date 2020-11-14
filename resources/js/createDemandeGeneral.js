@@ -2,15 +2,16 @@
 $('#userSelect').focus();
 $('.liste_anatypes').hide();
 
+$('#troupeauSelect').attr('disabled', 'disabled');
+$('#anatypeSelect').attr('disabled', 'disabled');
+$('#anaacteSelect').attr('disabled', 'disabled');
+$('#prelevement').attr('disabled', 'disabled');
+$('#reception').attr('disabled', 'disabled');
+$('#nbPrelevements').attr('disabled', 'disabled');
+
 if(!$('#userSelect').val()) {
 
   $('#especeSelect').attr('disabled', 'disabled');
-  $('#troupeauSelect').attr('disabled', 'disabled');
-  $('#anatypeSelect').attr('disabled', 'disabled');
-  $('#anaacteSelect').attr('disabled', 'disabled');
-  $('#prelevement').attr('disabled', 'disabled');
-  $('#reception').attr('disabled', 'disabled');
-  $('#nbPrelevements').attr('disabled', 'disabled');
 }
 
 // On récupére l'url actuelle
@@ -23,8 +24,6 @@ var choix_espece = false;
 $("select[name='userDemande']").change(function() {
 
   $('.listeSerie').remove(); // on enlève une éventuelle référence à une série
-  $('#anatypeSelect').removeClass('is-invalid'); // Cas ou l'utilisateur a essayé de choisir un anatype sans choix préalable d'un user
-  $('#typeAlerte').hide();
 
   if($("select[name='userDemande'] > option:selected").val() == "Nouveau") { // S'il sagit d'un nouvel éleveur
 
@@ -217,5 +216,40 @@ function anatypeSelonEspece(espece_nom) {
     console.log("il y a une erreur " + data);
   })
 
+}
+
+//#################################################################################################
+//            Gestion du bouton envoi facture véto en fonctin de l'existence ou non d'un véto ####
+cacheVeto();
+
+$('select[name=veto_id]').on('change', function() {
+
+  cacheVeto();
+
+})
+
+function cacheVeto() {
+
+  if($('select[name=veto_id]').val() == 0) {
+
+    $("#type_veterinaire").hide();
+
+  } else {
+
+    $("#type_veterinaire").show();
+
+  }
 
 }
+
+//#############################################################################################################
+// Change le bouton radio de choix de l'envoi de la facture
+
+$('#radioBtn a').on('click', function(){
+    var sel = $(this).data('title');
+    var tog = $(this).data('toggle');
+    $('#'+tog).prop('value', sel);
+
+    $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+    $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+})

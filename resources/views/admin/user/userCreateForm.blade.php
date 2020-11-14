@@ -4,9 +4,9 @@
 
   <div class="col-md-12">
 
-    @if (session()->has('usertype'))
+    @if (session()->has('creation.usertype'))
 
-      @include('admin.form.inputUsertypeCache', ['usertype' => session('usertype')])
+      @include('admin.form.inputUsertypeCache', ['usertype' => session('creation.usertype')])
 
     @else
 

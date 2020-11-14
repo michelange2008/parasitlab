@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function index()
     {
-      session()->forget(['user_id', 'encreation', 'user', 'vetoDeleveur', 'usertype']);
+      session()->forget(['creation']); // on supprime les variables de sessions liées à la création d'une demande ou d'un user
 
       $users = User::all();
 
@@ -57,13 +57,14 @@ class UserController extends Controller
      */
     public function create()
     {
+
       $usertypes = Usertype::all();
 
       $pays = $this->litJson('pays');
 
       $vetos = Veto::all();
 
-      session(['route_retour' => 'usershow']);
+      session(['creation.route_retour' => 'usershow']);
 
       return view('admin.user.userCreate', [
         'menu' => $this->menu,
@@ -95,16 +96,16 @@ class UserController extends Controller
       }
       else { // cas de la création d'un utilisateur particulier au départ: éleveur, veto ou labo
 
-        $nouvel_user->usertype_id = session('usertype')->id; // on utilise la variable de SESSION
+        $nouvel_user->usertype_id = session('creation.usertype')->id; // on utilise la variable de SESSION
 
-        session()->forget('usertype');
+        session()->forget('creation.usertype');
 
       }
       // TODO: ENREGISTRER LE NOUVEL USER SEULEMENT JUSTE AVANT L ENREGISTREMENT DE VETO LABO OU ELEVEUR
       // $nouvel_user->save();
 
       session([
-        'nouvel_user' => $nouvel_user,
+        'creation.nouvel_user' => $nouvel_user,
       ]);
       // RENVOI DES INFORMATIONS POUR LA REQUETE ajax cf. create.js
       return ['usertype' => $nouvel_user->usertype];
@@ -119,6 +120,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
+      session()->forget(['creation']); // on supprime les variables de sessions liées à la création d'une demande ou d'un user
+      
       $user = User::select('usertype_id')->where('id', $id)->first();
 
       if($this->estVeto($user->usertype_id))
@@ -185,7 +188,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $datas = $request->all();
-// dd($datas);
+
         $user = User::find($id);
 
         DB::table('users')->where('id', $id)
@@ -202,14 +205,14 @@ class UserController extends Controller
         if($this->estEleveur($datas['usertype_id']) && $datas['veto_id'] === "0") // s'il faut créer un nouveau veto
         {
 
-          session(['vetoDeleveur' => true]);
+          session(['creation.veto_d_eleveur' => true]);
 
           return redirect()->route('vetoAdmin.create');
         }
 
         if(session()->has('route_retour') !== null) {
 
-          return redirect()->route(session('route_retour'), $id);
+          return redirect()->route(session('creation.route_retour'), $id);
         }
 
         else {

@@ -52,9 +52,9 @@
           <div class="col-md-10 col-lg-8">
 
             <div class="card">
-              <div class="card-header alert-bleu-tres-fonce">
-                <h5 class="mb-0">{{ ucfirst($prelevement->identification) ?? '' }} {{ ucfirst($prelevement->animal->numero ?? '') }}</h5>
-              </div>
+
+              @include('labo.resultats.titreResultat')
+
               <div class="card-body">
 
                 <table class="table table-bordered table-hover">
