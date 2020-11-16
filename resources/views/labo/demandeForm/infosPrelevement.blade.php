@@ -11,38 +11,49 @@
 
   <div class="col-md-7">
 
-    @foreach ($estParasite as $reponse)
+    @include('labo.demandeForm.inputEstParasite')
 
-      <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="{{ $reponse->id }}_{{ $i }}"
-                name="{{ $reponse->groupe }}_{{ $i }}"
-                class="custom-control-input"
-                value="{{ $reponse->value }}"
-                @if ($reponse->id == "saispas")
-                  checked="checked"
-                @endif >
-        <label class="custom-control-label" for="{{ $reponse->id }}_{{ $i }}">{!! ucfirst(__($reponse->texte)) !!}</label>
+  </div>
+
+</div>
+
+<div class="form-group row px-3 my-3">
+
+  <div class="col-md-4 ml-3">@lang('form.q_observation')</div>
+
+  <div class="col-md-7">
+
+    @foreach ($signes as $signe)
+
+      <div class="custom-control custom-checkbox custom-control-inline">
+
+        <input type="checkbox"
+
+        class="custom-control-input"
+
+        id="signe{{ $i.'_'.$signe->id }}"
+
+        name="signe{{ $i.'_'.$signe->id }}"
+
+        @isset($prelevement->signes)
+
+          @if ($prelevement->signes->contains($signe) == 1)
+
+            checked
+
+          @endif
+
+
+        @endisset
+
+        >
+
+        <label class="custom-control-label" for="signe{{ $i.'_'.$signe->id }}">@lang($signe->nom)</label>
+
       </div>
 
     @endforeach
 
   </div>
-
-</div>
-<div class="form-group row px-3 my-3">
-
-<div class="col-md-4 ml-3">@lang('form.q_observation')</div>
-
-<div class="col-md-7">
-
-  @foreach ($signes as $signe)
-
-    <div class="custom-control custom-checkbox custom-control-inline">
-      <input type="checkbox" class="custom-control-input" id="{{ $i.'_'.$signe->id }}" name="signe{{ $i.'_'.$signe->id }}">
-      <label class="custom-control-label" for="{{ $i.'_'.$signe->id }}">@lang($signe->nom)</label>
-    </div>
-
-  @endforeach
-</div>
 
 </div>

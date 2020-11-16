@@ -174,7 +174,14 @@ class PrelevementController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        return view('labo.prelevements.prelevementEdit', [
+          'menu' => $this->menu,
+          'prelevement' => Prelevement::find($id),
+          'etats' => Etat::all(),
+          'signes' => Signe::all(),
+          'estParasite' => $this->litJson('estParasite'),
+        ]);
     }
 
     /**
@@ -186,7 +193,50 @@ class PrelevementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datas = $request->all();
+
+        $prelevement = Prelevement::find($id);
+
+        $prelevement->identification = $datas['identification'];
+        $prelevement->etat_id = $datas['etatPrelevement_'.$id];
+
+        switch ($datas['parasite_'.$id]) {
+          case '0':
+
+              $prelevement->parasite = 0;
+
+            break;
+
+          case '1':
+
+            $prelevement->parasite = 1;
+
+          break;
+
+          default:
+
+            $prelevement->parasite = null;
+
+            break;
+
+        }
+
+        $prelevement->signes()->detach();
+
+        foreach ($datas as $key => $value) {
+
+          if(explode('_', $key)[0] == "signe".$id) {
+
+            $prelevement->signes()->attach(explode('_', $key)[1]);
+
+          }
+        }
+
+        $prelevement->save();
+
+
+        return redirect()->route('resultats.edit', $prelevement->demande->id)->with('message', __('prelev_edit'));
+
     }
 
     /**
@@ -197,6 +247,12 @@ class PrelevementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prelevement = Prelevement::find($id);
+
+        $demande_id = $prelevement->demande_id;
+
+        Prelevement::destroy($id);
+
+        return redirect()->route('demandes.show', $demande_id)->with('message', __('prelev_del'));
     }
 }

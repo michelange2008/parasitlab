@@ -4,6 +4,7 @@ VARIABLES: id ET route, texte et titre
 -->
 
 <form id="form_{{ $id }}" class="suppr" texte="@lang($texte)" titre="@lang($titre)"
+
   action="{{ route($route, $id) }}" method="POST">
 
   {{  csrf_field() }}

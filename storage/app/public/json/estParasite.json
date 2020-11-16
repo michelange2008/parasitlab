@@ -1,21 +1,21 @@
 {
   "oui" :
   {
-    "id" : "oui",
+    "id" : 1,
     "groupe" : "parasite",
     "texte" : "commun.oui",
     "value" : true
   },
   "non" :
   {
-    "id" : "non",
+    "id" : 0,
     "groupe" : "parasite",
     "texte" : "commun.non",
     "value" : false
   },
   "saispas" :
   {
-    "id" : "saispas",
+    "id" : null,
     "groupe" : "parasite",
     "texte" : "commun.saispas",
     "value" : null

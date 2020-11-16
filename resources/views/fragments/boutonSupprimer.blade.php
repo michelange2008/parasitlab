@@ -11,7 +11,7 @@
 
     title="@lang('boutons.del')">
 
-      <i class="{{ $fa ?? '' }}"></i> {{ __($intitule ?? 'boutons.del') }}
+      <i class="{{ $fa ?? 'fas fa-trash-alt' }}"></i> {{ __($intitule ?? 'boutons.del') }}
 
 
   </button>

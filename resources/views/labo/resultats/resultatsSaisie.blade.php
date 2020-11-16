@@ -23,6 +23,16 @@
 
     </div>
 
+    <div class="row">
+
+      <div class="col-md-8 offset-md-2">
+
+        @include('fragments.flash')
+
+      </div>
+
+    </div>
+
     <form action="{{ route('resultats.store')}}" method="post">
       @csrf
 
@@ -117,7 +127,7 @@
 
           <div class="col-md-10 col-lg-8">
 
-            @enregistreAnnule(['id' => $prelevement->demande->id ])
+            @enregistreAnnule(['id' => $prelevement->demande->id, "route" => route('demandes.show',$prelevement->demande->id) ])
 
           </div>
 

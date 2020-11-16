@@ -6,7 +6,10 @@
 
     <div class="custom-control custom-radio custom-control-inline">
 
-      <input class="typeprelevement indiv custom-control-input" type="radio" name="typeprelevement_{{ $i }}" id="indiv_{{ $i }}" value="indiv" >
+      <input class="typeprelevement indiv custom-control-input"
+              type="radio"
+              name="typeprelevement_{{ $i }}" id="indiv_{{ $i }}"
+              value="indiv">
 
       <label class="custom-control-label" for="indiv_{{ $i }}">
 
@@ -18,7 +21,10 @@
 
     <div class="custom-control custom-radio custom-control-inline">
 
-      <input class="typeprelevement coll custom-control-input" type="radio" name="typeprelevement_{{ $i }}" id="coll_{{ $i }}" value="coll">
+      <input class="typeprelevement coll custom-control-input"
+              type="radio"
+              name="typeprelevement_{{ $i }}" id="coll_{{ $i }}"
+              value="coll">
 
       <label class="custom-control-label" for="coll_{{ $i }}">
 

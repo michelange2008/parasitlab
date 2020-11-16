@@ -37,4 +37,6 @@ return array (
   'typeprod_add' => "Une nouveau type de production a été ajouté",
   'typeprod_del' => "Le type de production sélectionné a été supprimé",
   'typeprod_edit' => "Le type de production a été modifié",
+  'prelev_edit' => ' Le prélèvement a été modifié',
+  'prelev_del' => 'Le prélèvement a été supprimé',
 );
