@@ -58,8 +58,12 @@
 
                 <input type="hidden" name="troupeau_id" value="{{ $troupeau->id }}">
 
-                <td><input class="form-control" type="number" name="numero" required placeholder="Numéro du nouvel animal"></td>
-
+                <td><input id="animal_numero" class="form-control" type="number" name="numero" aria-described="animal_numero_doublon" required placeholder="Numéro du nouvel animal">
+                  <div id="animal_numero_doublon" class="invalid-feedback">
+                    Animal déjà présent dans le troupeau
+                  </div>
+                </td>
+                
                 <td><input class="form-control" type="text" name="nom" placeholder="Nom"></td>
 
                 <td class="text-center">
@@ -81,7 +85,7 @@
 
                 <tr>
 
-                  <td><input class="form-control-plaintext" type="number" name="numero" value="{{ $animal->numero }}" style="appearance:textfield"></td>
+                  <td><input class="animal_numero form-control-plaintext" type="number" name="numero" value="{{ $animal->numero }}" style="appearance:textfield"></td>
 
                   <td><input class="form-control-plaintext" type="text" name="nom" value="{{ $animal->nom }}"></td>
 

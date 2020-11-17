@@ -99,7 +99,7 @@ class TroupeauController extends Controller
      */
     public function show($id)
     {
-        return view('admin.troupeau.troupeauShow', [
+        return view('admin.troupeau.troupeauShowEditAnimal', [
           'menu' => $this->menu,
           'troupeau' => Troupeau::find($id),
         ]);
