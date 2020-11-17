@@ -125,6 +125,8 @@ class AnalyseController extends Controller
         $analyse->anaitems()->detach($anaitems_enleves);
 
         $analyse->anaitems()->attach($liste_anaitems_id);
+
+        return redirect()->route('anatypes.edit', $datas['anatype_id'])->with('message', 'anatype_update');
     }
 
     /**

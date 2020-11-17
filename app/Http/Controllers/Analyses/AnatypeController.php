@@ -117,7 +117,9 @@ class AnatypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datas = $request->all();
+
+        dd($datas);
     }
 
     /**

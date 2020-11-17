@@ -10,6 +10,16 @@
 
   <div class="container-fluid">
 
+    <div class="row justify-content-center mt-3">
+
+      <div class="col-md-9">
+
+        @include('fragments.flash')
+
+      </div>
+
+    </div>
+
     <div class="row my-3 justify-content-center">
 
       <div class="col-md-11 col-lg-10 col-xl-9">
@@ -38,6 +48,8 @@
               @csrf
               {{-- prefixe des names de cases à cocher --}}
               <input type="hidden" name="prefixe" value="anaitem">
+
+              <input type="hidden" name="anatype_id" value="{{ $anatype->id }}">
 
               <div class="col mb-4">
 
