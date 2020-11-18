@@ -167,6 +167,7 @@ return array (
   'choix_nom_troupeau' => 'Choisissez un nom pour le troupeau',
   'edit_nom_troupeau' => 'Nom du troupeau&nbsp;:',
   'choix_typeprod' => "Choisissez un type de production",
+  'animal_exist' => "Animal déjà présent dans le troupeau",
   'add_user' => 'ajout d\'un utilisateur',
   'create_user' => 'Création d\'un nouvel utilisateur',
 );
