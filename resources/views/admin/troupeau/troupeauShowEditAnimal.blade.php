@@ -58,17 +58,17 @@
 
                 <input type="hidden" name="troupeau_id" value="{{ $troupeau->id }}">
 
-                <td><input id="animal_numero" class="animal_numero form-control" type="text" name="numero" aria-described="animal_numero_doublon" required placeholder="Numéro du nouvel animal">
+                <td><input id="add_animal_numero" class="form-control" type="text" name="numero" aria-described="animal_numero_doublon" placeholder="Numéro du nouvel animal">
                   <div id="animal_numero_doublon" class="invalid-feedback">
                     @lang('form.animal_exist')
                   </div>
                 </td>
 
-                <td><input class="form-control" type="text" name="nom" placeholder="Nom"></td>
+                <td><input id="add_animal_nom" class="form-control" type="text" name="nom" placeholder="Nom"></td>
 
                 <td class="text-center">
 
-                  <button id="btn_animal_numero" class="btn btn_animal_edit" type="submit"><i class="fas fa-plus-circle text-success"></i></button>
+                  <button id="add_animal_btn" class="btn btn_animal_create" type="submit"><i class="fas fa-plus-circle text-success"></i></button>
 
                 </td>
 
@@ -98,7 +98,7 @@
 
                   </td>
 
-                  <td><input class="animal_existant animal_nom form-control-plaintext" type="text" name="nom" value="{{ $animal->nom }}"></td>
+                  <td><input id="animal_nom_{{ $animal->numero }}" class="animal_existant animal_nom form-control-plaintext" type="text" name="nom" value="{{ $animal->nom }}"></td>
 
                   <td class="text-center">
 
