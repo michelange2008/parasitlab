@@ -11,12 +11,11 @@ $(".animal_numero").each(function() {
 
 })
 
-console.log(liste_animaux);
 // Maintien le focus sur le nouvel animal d'un troupeau à saisir dans troupeauShowEditAnimal
 $("#add_animal_numero").focus();
 
 // Les bouton modif les animaux sont désactivés
-$(".btn_animal_edit").attr('disabled', 'disabled');
+$(".btn_animal_edit").hide();
 
 //############################################################################
 //                         SAISIE D'UN NOUVEL ANIMAL                         #
@@ -36,7 +35,7 @@ $("#add_animal_numero").on('keyup', function(e) {
     $(this).addClass('is-invalid');
     $("#add_animal_btn").attr('disabled', 'disabled');
 
-  // Sinon ça enlève le style d'erreur et réactive le bouton submit
+    // Sinon ça enlève le style d'erreur et réactive le bouton submit
   } else {
 
     $(this).removeClass('is-invalid');
@@ -53,7 +52,7 @@ $("#add_animal_numero").on('blur', function() {
     $(this).addClass('is-invalid').focus();
     $("#add_animal_btn").attr('disabled', 'disabled');
 
-  // Sinon ça enlève le style d'erreur et réactive le bouton submit
+    // Sinon ça enlève le style d'erreur et réactive le bouton submit
   } else {
 
     $(this).removeClass('is-invalid');
@@ -65,112 +64,77 @@ $("#add_animal_numero").on('blur', function() {
 // A la soumission du formulaire "ajouter un animal"
 var soumission = false; // variable pour éviter une boucle infinie
 $("#add_animal").on('submit', function(e) {
-
   if(!soumission) {
 
     e.preventDefault();
     // Si les deux champs sont vides
     if($("#add_animal_numero").val() == '' && $('#add_animal_nom').val() == '') {
 
-      $.alert({
-        theme : "dark",
-        type : "red",
-        title : "Attention",
-        content : "Il faut au moins saisir un nom ou un numéro",
-        buttons : {
-          OK : function() {
-            $("#add_animal_numero").focus();
+      alertChampVide();
 
-          }
-        }
-      })
-    // Si seul le champs numero est rempli
+      // Si seul le champs numero est rempli
     } else if ($("#add_animal_numero").val() != '' && $('#add_animal_nom').val() == '') {
-      // On teste si c'est un nombre
-      var test = estNum.test($("#add_animal_numero").val());
-      // Si oui on soumet le questionnaire
-      if(test) {
-        soumission = true;
-        $("#add_animal").submit();
-      // Si non on demande à l'user s'il veut vraiment saisir un nom à la place du numéro
-      } else {
 
-        $.confirm({
-          theme : "dark",
-          type : "green",
-          title : "Confirmation",
-          content : "Souhaitez-vous saisir juste un nom sans numéro ?",
-          buttons : {
-            OUI : function() {
-              soumission = true;
-              $("#add_animal").submit();
-            },
-            NON : function() {
-              $("#add_animal_numero").val('').focus();
+      alertAprèsTestNum();
 
-            }
-          }
-
-        })
-      }
-
-    // S'il y a seulement un numero
+      // S'il y a seulement un nom
     } else if ($("#add_animal_numero").val() == '' && $('#add_animal_nom').val() != '') {
 
-      alerte("seulement un nom")
+      confirmAnimalSansNum();
 
+      // Si les deux champs sont remplis on vérifie avec le champs num est un nombre
     } else {
 
-      alerte("les deux")
+      promptApresTestNum();
 
     }
   }
 
 })
 
+//#####################################################################
+//                     MODIFICATION D'UN ANIMAL                       #
+//#####################################################################
 
 // Quand le numéro de l'animal prend le focus
 $(".animal_numero").on('focus', function() {
-console.log('coucou');
+  var animal_id = $(this).attr('id');
   // On récupère ce  numéro
-  numero = $(this).attr('id').split('_')[2];
+  numero = animal_id.split('_')[2];
   // On enlève ce numéro de la liste des animaux
   liste_animaux.splice(liste_animaux.indexOf(numero), 1);
   // On construit l'id du bouton de validation de la modification pour le mettre disabled
-  var btn_id = "#btn_" + $(this).attr('id');
+  var btn_id = "#btn_" + animal_id;
 
+  $(btn_id).show();
 
   $(this).on('keyup', function(e) {
 
     if(e.which === 27) {
 
+      $(btn_id).hide();
+
       $(this).val(numero);
 
-      $(btn_id).removeAttr('disabled');
+      $(this).removeClass('is-invalid');
 
-      $(this).removeClass('is-invalid')
-
-    }
-
-    if($.inArray($(this).val(), liste_animaux) != -1) {
-
-      $(this).addClass('is-invalid');
-
-
-      $(this).on('blur', function() {
-
-        $(this).val(numero);
-
-        $(this).removeClass('is-invalid')
-
-        $(btn_id).removeAttr('disabled');
-      })
+      $(this).trigger('blur');
 
     } else {
 
-      $(this).removeClass('is-invalid')
+      if($.inArray($(this).val(), liste_animaux) != -1) {
 
-      $(btn_id).removeAttr('disabled');
+        doublon($(this), btn_id);
+
+        $(btn_id).hide();
+
+      } else {
+
+        $(this).removeClass('is-invalid');
+
+        $(btn_id).show();
+
+      }
 
     }
 
@@ -204,14 +168,143 @@ $(".animal_existant").on('blur', function() {
 
 })
 
+//##################### FONCTIONS #############################################
 
-function alerte(texte) {
+function alertAprèsTestNum() {
 
+  // On teste si c'est un nombre
+  var test = estNum.test($("#add_animal_numero").val());
+  // Si oui on soumet le questionnaire
+  if(test) {
+    soumission = true;
+    $("#add_animal").submit();
+    // Si non on demande à l'user s'il veut vraiment saisir un nom à la place du numéro
+  } else {
+
+    $.confirm({
+      theme : "dark",
+      type : "green",
+      title : "Attention",
+      content : "Souhaitez-vous saisir juste un nom sans numéro ?",
+      buttons : {
+        OUI : {
+          btnClass : 'btn-success',
+          keys : ['enter'],
+          action :function() {
+            if($.inArray($("#add_animal_nom").val(), liste_animaux) == -1) {
+              soumission = true;
+              $("#add_animal").submit();
+            } else {
+              doublon($("#add_animal_numero"), $("#add_animal_btn").attr('id'));
+              close();
+            }
+          }
+        },
+        NON : {
+          btnClass : 'btn-danger',
+          keys : ['esc'],
+          action : function() {
+            $("#add_animal_numero").val('').focus();
+          }
+        }
+      }
+    });
+  }
+}
+
+function promptApresTestNum() {
+  // On teste si c'est un nombre
+  var test = estNum.test($("#add_animal_numero").val());
+  // Si oui on soumet le questionnaire
+  if(test) {
+    soumission = true;
+    $("#add_animal").submit();
+    // Si non on demande à l'user s'il veut vraiment saisir un nom à la place du numéro
+  } else {
+
+    $.alert({
+      theme : "dark",
+      type : "green",
+      title : "Attention",
+      content : "Il faut saisir un nombre dans le champ 'numero' !",
+      buttons : {
+        ok : {
+          btnClass : 'btn-success',
+          keys : ['enter'],
+          action : function() {
+            $("#add_animal_numero").val('').focus();
+          }
+        }
+      }
+    });
+  }
+}
+
+function confirmAnimalSansNum() {
+
+  $.confirm({
+    theme : "dark",
+    type : "green",
+    title : "Confirmation",
+    content : "Vous confirmez que l'animal n'a pas de numéro !",
+    buttons : {
+      oui : {
+        btnClass : 'btn-success',
+        keys : ['enter'],
+        action :function() {
+          if($.inArray($("#add_animal_nom").val(), liste_animaux) == -1) {
+            $("#add_animal_numero").val($("#add_animal_nom").val());
+            $("#add_animal_nom").val('');
+            soumission = true;
+            $("#add_animal").submit();
+          } else {
+            console.log('toto');
+            doublon($("#add_animal_numero"), $("#add_animal_btn").attr('id'));
+          }
+        }
+      },
+      non : {
+        btnClass : 'btn-danger',
+        keys : ['esc'],
+        action : function() {
+          $("#add_animal_numero").focus();
+        }
+      }
+    }
+  })
+
+}
+
+function alertChampVide() {
   $.alert({
     theme : "dark",
     type : "red",
     title : "Attention",
-    content : texte,
+    content : "Il faut au moins saisir un nom ou un numéro",
+    buttons : {
+      OK : {
+        btnClass : "btn-success",
+        keys : ['enter'],
+        function() {
+          $("#add_animal_numero").focus();
+
+        }
+      }
+    }
+  })
+}
+
+function doublon(champ, bouton) {
+
+  $(champ).addClass('is-invalid');
+
+  $(champ).on('blur', function() {
+
+    $(champ).val(numero);
+
+    $(champ).removeClass('is-invalid')
+
+    $(bouton).removeAttr('disabled');
   })
 
 }

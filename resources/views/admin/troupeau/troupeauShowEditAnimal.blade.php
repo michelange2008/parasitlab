@@ -102,7 +102,7 @@
 
                   <td class="text-center">
 
-                    <button id="btn_animal_numero_{{ $animal->id }}" class="btn btn_animal_edit" type="submit"><i class="fas fa-edit text-secondary"></i></button>
+                    <button id="btn_animal_numero_{{ $animal->numero }}" class="btn btn_animal_edit" type="submit"><i class="fas fa-edit text-secondary"></i></button>
 
                   </td>
 

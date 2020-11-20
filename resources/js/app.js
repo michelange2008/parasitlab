@@ -53,14 +53,16 @@ console.log("#"+$(this).attr('id'));
 				oui: {
 					text : 'oui',
 					btnClass : 'btn-red',
+					keys : ['enter'],
 					action : function() {
 
 						$(form_id).submit();
 
 					},
 				},
-				non: function() {
-
+				non: {
+					btnClass : "btn-secondary",
+					keys : ['esc']
 				}
 			}
 		})
