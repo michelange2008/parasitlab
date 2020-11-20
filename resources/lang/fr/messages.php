@@ -27,6 +27,7 @@ return array (
   'icone_del' => "Cette icone a été supprimée",
   'anatype_add' => "Un nouveau type d'analyses a été ajouté",
   'anatype_del' => "Ce type d'analyses a été supprimé",
+  'anatype_update' => "Ce type d'analyse a été mis à jour",
   'anaacte_update' => "Cette analyse a été modifiée",
   'animal_add' => "Un nouvel animal a été ajouté à ce troupeau",
   'animal_del' => "L'animal sélectionné a été supprimé",
