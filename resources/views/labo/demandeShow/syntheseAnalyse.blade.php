@@ -21,15 +21,24 @@
         {{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}
       </td>
     </tr>
-    @if ($demande->toveto)
+    @if ($demande->tovetouser_id != null)
       <tr>
         <td>
           <small>-> {!! ucfirst(__('form.vet')) !!}</small>
         </td>
-        <td>
-          <small><a href="{{ route('vetoAdmin.show', $demande->veto->user->id)}}">
-            {{ $demande->veto->user->name}}
+        <td>{{-- ATTENTION DANS LE CAS D'UNE DEMANDE le véto destin est nommé par un user_id --}}
+          <small><a href="{{ route('vetoAdmin.show', $demande->tovetouser->id)}}">
+            {{ $demande->tovetouser->name}}
           </a></small>
+        </td>
+      </tr>
+    @endif
+
+    @if ($demande->informations != null)
+      <tr>
+        <td colspan=2>
+          <p><strong>@lang('demandes.analyse_infos')</strong></p>
+          <small>{{ $demande->informations }}</small>
         </td>
       </tr>
     @endif

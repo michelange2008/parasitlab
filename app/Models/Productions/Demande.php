@@ -30,9 +30,9 @@ class Demande extends Model
       return $this->belongsTo(Facture::class);
     }
 
-    public function veto()
+    public function tovetouser()
     {
-      return $this->belongsTo(\App\Models\Veto::class);
+      return $this->belongsTo(\App\User::class, 'tovetouser_id', 'id');
     }
 
     public function prelevements()
@@ -58,5 +58,9 @@ class Demande extends Model
     public function troupeau()
     {
       return $this->belongsTo(\App\Models\Troupeau::class);
+    }
+    public function userfact()
+    {
+      return $this->belongsTo(\App\User::class, 'userfact_id', 'id');
     }
 }

@@ -121,7 +121,7 @@ class UserController extends Controller
     public function show($id)
     {
       session()->forget(['creation']); // on supprime les variables de sessions liées à la création d'une demande ou d'un user
-      
+
       $user = User::select('usertype_id')->where('id', $id)->first();
 
       if($this->estVeto($user->usertype_id))
@@ -231,9 +231,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+
         User::destroy($id);
 
         return redirect()->route('user.index')->with('status', 'Cet utilisateur a été supprimé');
 
     }
+
+
 }

@@ -26,6 +26,7 @@ return array (
 
   'nouvelle_demande' => "Nouvelle demande d'analyse",
   'demandes_analyses' => 'Liste des demandes d\'analyse',
+  'demande_modif' => 'Modification d\'une demande d\'analyse',
   'list_anaactes' => 'Liste des analyses proposées',
   'list_analyses' => 'Liste des analyses',
   'list_types' => 'Liste des types d\'analyses proposées',

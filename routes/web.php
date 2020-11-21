@@ -125,6 +125,9 @@
 
     Route::get('routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
 
+    Route::get('deletemoi/{id}', 'RouteurController@deletemoi')->name('routeur.deletemoi');
+
+    Route::get('jemedelete/{id}', 'RouteurController@jemedelete')->name('routeur.jemedelete');
 
     Route::get('facturePdf/{id}', ['uses' => 'RouteurController@routeurFacturePdf', 'as' => 'routeurFacturePdf']);
 
@@ -146,6 +149,8 @@
     route::resource('anaitems', 'Analyses\AnaitemController');
 
     route::resource('unites', 'Analyses\UniteController');
+
+    route::get('demandes/modif/{demande_id}', 'Labo\DemandeController@modif')->name('demandes.modif');
 
     route::resource('demandes', 'Labo\DemandeController');
 

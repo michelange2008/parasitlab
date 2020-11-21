@@ -5,7 +5,7 @@
         <small>@lang('factures.dest')&nbsp;: </small>
       </td>
       <td>
-        {{ ($demande->user_dest_fact) ? $demande->user->name : $demande->veto->user->name}}
+        {{ $demande->userfact->name}}
       </td>
     </tr>
     <tr>
@@ -18,9 +18,10 @@
         </td>
       @elseif ($demande->acheve)
         <td class="color-rouge-tres-fonce text-left pl-0" colspan="2">
-          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createDemandeFromUser', [
-            ($demande->user_dest_fact) ? $demande->user->id : $demande->veto->user->id,
-            $demande->id,
+          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createDemandeFromUser',
+            [
+              $demande->userfact_id,
+              $demande->id,
             ]) }}">
             @lang('factures.faire_facture')
           </a>

@@ -15,7 +15,7 @@
     <div class="form-group">
 
       <textarea class="form-control" id="informations" name="informations" rows="3"
-        placeholder="@lang('form.info_prelevement')"></textarea>
+        placeholder="@lang('form.info_prelevement')">{{ $demande->informations ?? '' }}</textarea>
 
     </div>
 

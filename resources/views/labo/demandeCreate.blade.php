@@ -48,6 +48,6 @@
 
 @section('scripts')
 
-  <script src="{{url('js/createDemande.js')}}"></script>
+  <script src="{{url('js/demandeCreate.js')}}"></script>
 
 @endsection

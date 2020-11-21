@@ -79,7 +79,7 @@ class FactureController extends Controller
       session(['users_dnf' => $users_dnf]);
       // On établit une liste qui fusionne (merge) les id des users_anf et les id des users_dnf puis on ôte les doublons (unique)
       $users_a_facturer = $users_anf->keys()->merge($users_dnf->keys())->unique();
-      // Et on recherche le sutilisateurs de cette liste
+      // Et on recherche les utilisateurs de cette liste
       $users = User::find($users_a_facturer);
       // Pour pouvoir les choisirs
       return view('labo.factures.factureAEtablir', [
@@ -97,7 +97,7 @@ class FactureController extends Controller
       // On récupère l'user
       $user = User::find($user_id);
       // On récupère les demandes non facturées de cet user
-      $demandes = Demande::where('user_id', $user_id)->where('facturee', false)->where('signe', true)->get();
+      $demandes = Demande::where('userfact_id', $user_id)->where('facturee', false)->where('signe', true)->get();
 
       // Il s'agit d'anaactes qui ne correspondent pas à une analyse: pack envoi, déplacement, visite, etc.
       $actes = Acte::where('facturee', false)->where('user_id', $user_id)->get();

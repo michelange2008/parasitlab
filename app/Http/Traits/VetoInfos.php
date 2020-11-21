@@ -17,9 +17,9 @@ trait VetoInfos
   {
     $vetoInfos = collect();
 
-    $vetoInfos->nbDemandes = Demande::where('veto_id', $user->veto->id)->count();
+    $vetoInfos->nbDemandes = Demande::where('tovetouser_id', $user->id)->count();
 
-    $vetoInfos->listeDemandes = Demande::where('veto_id', $user->veto->id)->get();
+    $vetoInfos->listeDemandes = Demande::where('tovetouser_id', $user->id)->get();
 
     return $vetoInfos;
   }

@@ -164,7 +164,7 @@ class VetoAdminController extends Controller
 
         $vetoInfos = $this->vetoInfos($user); // Ajoute les nombres de demande (et plus tard peut-être d'autres infos)
 
-        $demandes = Demande::where('veto_id', $user->veto->id)->orderBy('date_reception', 'desc')->get();
+        $demandes = Demande::where('tovetouser_id', $user->id)->orderBy('date_reception', 'desc')->get();
 
         $fournisseur = new ListeDemandesVetoFournisseur(); // voir class ListeFournisseur
 

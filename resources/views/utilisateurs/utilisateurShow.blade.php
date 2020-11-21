@@ -64,6 +64,17 @@
 
             </form>
 
+            <hr class="divider">
+
+            @include('fragments.bouton', [
+              'type' => 'route',
+              'couleur' => 'btn-rouge',
+              'fa' => 'fas fa-trash-alt',
+              'id' => $user->id,
+              'route' => 'routeur.deletemoi',
+              'intitule' => "Supprimer mon compte",
+            ])
+
           </div>
 
           <div class="col-md-4">

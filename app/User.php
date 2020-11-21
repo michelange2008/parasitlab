@@ -76,5 +76,16 @@ class User extends Authenticatable
     {
       return $this->hasMany(Models\Troupeau::class);
     }
-
+    public function demandes()
+    {
+      return $this->hasMany(Models\Productions\Demande::class);
+    }
+    public function userfacts()
+    {
+      return $this->hasMany(Models\Productions\Demande::class, 'id', 'userfact_id');
+    }
+    public function tovetousers()
+    {
+      return $this->hasMany(Models\Productions\Demande::class, 'id', 'tovetouser_id');
+    }
 }

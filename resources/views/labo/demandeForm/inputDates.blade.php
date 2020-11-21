@@ -7,7 +7,7 @@
 
     <span id="prelevement_ok" class="text-success date_ok" style="display:none"><i class="fas fa-check"></i></span>
 
-    <input id="prelevement" type="date" name="prelevement" value="">
+    <input id="prelevement" type="date" name="prelevement" value="" date="{{ $demande->date_prelevement ?? '' }}" >
 
   </div>
 
@@ -27,7 +27,7 @@
 
     <span id="reception_ok" class="text-success date_ok" style="display:none"><i class="fas fa-check"></i></span>
 
-    <input id="reception" type="date" name="reception" value="" required>
+    <input id="reception" type="date" name="reception" value="" date="{{ $demande->date_reception ?? '' }}" required>
 
   </div>
 

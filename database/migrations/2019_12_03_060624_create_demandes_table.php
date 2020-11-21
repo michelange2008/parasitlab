@@ -60,7 +60,7 @@ class CreateDemandesTable extends Migration
             $table->foreign('labo_id')->references('id')->on('labos')
             ->onDelete('set null')->onUpdate('cascade');
 
-            $table->boolean('user_dest_fact')->default(true); // true si l'éleveur est le destinataire de la facture
+            $table->boolean('userfact_id')->default(true); // true si l'éleveur est le destinataire de la facture
 
             $table->boolean('facturee')->default(false);
             $table->unsignedInteger('facture_id')->nullable();

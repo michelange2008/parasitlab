@@ -16,12 +16,12 @@ use App\Http\Traits\SerieManager;
 
 use App\User;
 use App\Models\Eleveur;
+use App\Models\Veto;
 use App\Models\Espece;
 use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Analyse;
 use App\Models\Analyses\Anaitem;
-use App\Models\Veto;
 use App\Models\Usertype;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Facture;
@@ -39,10 +39,10 @@ class DemandeController extends Controller
 
     protected $menu;
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function __construct()
     {
       $this->menu = $this->litJson("menuLabo");
@@ -60,49 +60,51 @@ class DemandeController extends Controller
       $datas = $fournisseur->renvoieDatas($demandes, __('titres.list_demandes'), 'demandes.svg', 'tableauDemandes', 'demandes.create', __('boutons.add_demande'));
 
       return view('admin.index.pageIndex', [
-          "menu" => $this->menu,
-          'datas' => $datas,
-        ]);
+      "menu" => $this->menu,
+      'datas' => $datas,
+      ]);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
     public function create()
     {
-        session([
-          'creation.demande_en_cours' => true, // Permet de revenir au formulaire de création d'analyse dans le cas d'une création d'éleveur ou de vétérinaire
-          'creation.veto_d_eleveur' => false,
-          'creation.usertype' => $this->userTypeEleveur(), // En cas de création d'un user, permet de savoir que c'est un éleveur
-        ]);
+      session([
+      'creation.demande_en_cours' => true, // Permet de revenir au formulaire de création d'analyse dans le cas d'une création d'éleveur ou de vétérinaire
+      'creation.veto_d_eleveur' => false,
+      'creation.usertype' => $this->userTypeEleveur(), // En cas de création d'un user, permet de savoir que c'est un éleveur
+      ]);
 
-        $vetos = DB::table('vetos')->join('users', 'users.id', "=", 'vetos.user_id')->orderBy('users.name', 'asc')->get();
+      // $vetos = DB::table('vetos')->join('users', 'users.id', "=", 'vetos.user_id')->orderBy('users.name', 'asc')->get();
+      $vetos = Veto::all();
 
-        $eleveurs = DB::table('eleveurs')->join('users', 'users.id', '=', 'eleveurs.user_id')->orderBy('users.name', 'asc')->get();
+      $eleveurs = DB::table('eleveurs')->join('users', 'users.id', '=', 'eleveurs.user_id')->orderBy('users.name', 'asc')->get();
 
-        $estParasite = $this->litJson('estParasite');
+      $estParasite = $this->litJson('estParasite');
 
-        return view('labo.demandeCreate', [
-          'menu' => $this->menu,
-          'eleveurs' => $eleveurs,
-          'especes' => Espece::all(),
-          'anatypes' => Anatype::all(),
-          'vetos' => $vetos,
-          'usertypes' => Usertype::all(),
-          'etats' => Etat::all(),
-          'signes' => Signe::all(),
-          'estParasite' => $estParasite,
-        ]);
+      return view('labo.demandeCreate', [
+      'menu' => $this->menu,
+      'eleveurs' => $eleveurs,
+      'especes' => Espece::all(),
+      'anatypes' => Anatype::all(),
+      'vetos' => $vetos,
+      'usertypes' => Usertype::all(),
+      'etats' => Etat::all(),
+      'signes' => Signe::all(),
+      'estParasite' => $estParasite,
+      'type_dest_fact' => $this->userTypeEleveur()->route,
+      ]);
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
       $datas = $request->all();
@@ -115,73 +117,51 @@ class DemandeController extends Controller
       // GESTION DE LA SERIE
       if ($datas['serie'] == "null" || $datas['serie'] == 0) { // Si l'anaacte ne correspond pas à une série
 
-        $serie_id = null; // $serie_id est null
+      $serie_id = null; // $serie_id est null
 
-      } elseif ($datas['serie'] === 'premier') { // Si c'est le premier prélèvement d'une série
+    } elseif ($datas['serie'] === 'premier') { // Si c'est le premier prélèvement d'une série
 
-        $serie_id = $this->serieStore($user->id, $espece->id, $anaacte->id)->id; // On crée la série et on retourne l'id
+    $serie_id = $this->serieStore($user->id, $espece->id, $anaacte->id)->id; // On crée la série et on retourne l'id
 
-      } else {
+    } else {
 
-        $serie_id = intVal($datas['serie']); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
+      $serie_id = intVal($datas['serie']); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
 
-      }
-      // Prise en compte du troupeau: soit il a une id soit c'est un nouveau troupeau
-      $troupeau_id =($datas['troupeau'] === 'nouveau') ? null : $datas['troupeau'];
-
-      // Si la case à cocher "envoi au véto" es cochée, on recherche l'id du véto choisi
-      if(isset($datas['toveto']))
-      {
-        if($datas['veto_id'] == 0) {
+    }
+    // Prise en compte du troupeau: soit il a une id soit c'est un nouveau troupeau
+    $troupeau_id =($datas['troupeau'] === 'nouveau') ? null : $datas['troupeau'];
 
 
 
-        } else {
+    // Puis créer la demande
+    $nouvelle_demande = new Demande();
+    $nouvelle_demande->user_id = $user->id;
+    $nouvelle_demande->nb_prelevement = $datas['nbPrelevements'];
+    $nouvelle_demande->espece_id = $espece->id;
+    $nouvelle_demande->troupeau_id = $troupeau_id;
+    $nouvelle_demande->anaacte_id = $anaacte->id;
+    $nouvelle_demande->serie_id = $serie_id;
+    $nouvelle_demande->informations = $datas['informations'];
+    $nouvelle_demande->tovetouser_id = ($datas['tovetouser_id'] == 0) ? null : $datas['tovetouser_id'];
+    $nouvelle_demande->date_prelevement = $datas['prelevement'];
+    $nouvelle_demande->date_reception = $datas['reception'];
+    $nouvelle_demande->userfact_id = ($datas['destinataireFacture'] == null) ? 1 : $datas['destinataireFacture'];
 
-          $toveto = true;
-          $user_veto_id = $datas['veto_id'];
-          $user_veto = User::find($user_veto_id);
-          $veto_id = $user_veto->veto->id;
+    $nouvelle_demande->save();
 
-        }
-
-      }
-      // Sinon le "veto_id" est passé à null
-      else {
-        $toveto = false;
-        $user_veto_id = null;
-        $veto_id = null;
-      }
-
-      // Puis créer la demande
-      $nouvelle_demande = new Demande();
-      $nouvelle_demande->user_id = $user->id;
-      $nouvelle_demande->nb_prelevement = $datas['nbPrelevements'];
-      $nouvelle_demande->espece_id = $espece->id;
-      $nouvelle_demande->troupeau_id = $troupeau_id;
-      $nouvelle_demande->anaacte_id = $anaacte->id;
-      $nouvelle_demande->serie_id = $serie_id;
-      $nouvelle_demande->informations = $datas['informations'];
-      $nouvelle_demande->toveto = $toveto;
-      $nouvelle_demande->veto_id = $veto_id;
-      $nouvelle_demande->date_prelevement = $datas['prelevement'];
-      $nouvelle_demande->date_reception = $datas['reception'];
-      $nouvelle_demande->user_dest_fact = ($datas['destinataireFacture'] == null) ? 1 : $datas['destinataireFacture'];
-
-      $nouvelle_demande->save();
-
-      return redirect()->route('prelevement.createOnDemande', $nouvelle_demande->id);
+    return redirect()->route('prelevement.createOnDemande', $nouvelle_demande->id);
 
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
+      session()->forget(['creation']);
 
       $demande = Demande::find($id);
 
@@ -204,21 +184,21 @@ class DemandeController extends Controller
       }
 
       return view('labo.demandeShow', [
-        'menu' => $this->menu,
-        'demande' => $demande,
-        'facture' => $facture,
-        'user' => $user,
-        'eleveurInfos' => $this->eleveurInfos($user),
+      'menu' => $this->menu,
+      'demande' => $demande,
+      'facture' => $facture,
+      'user' => $user,
+      'eleveurInfos' => $this->eleveurInfos($user),
       ]);
 
     }
 
     /**
-     * Saisie des résulats d'une analyse
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Saisie des résulats d'une analyse
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function edit($demande_id)
     {
       $demande = Demande::find($demande_id);
@@ -226,37 +206,72 @@ class DemandeController extends Controller
       $prelevements = Prelevement::where('demande_id', $demande_id)->get();
 
       return view('labo.resultats.resultatsSaisie', [
-        'menu' => $this->menu,
-        'prelevements' => $prelevements,
+      'menu' => $this->menu,
+      'prelevements' => $prelevements,
+      ]);
+    }
+
+    // Modification des caractéristiques d'une demande (et non pas des résultats)
+    public function modif($demande_id)
+    {
+      session([
+      'creation.demande_modif' => true, // permet d'afficher des informations propres au demandeur
+      'creation.demande_en_cours' => true, // Permet de revenir au formulaire de création d'analyse dans le cas d'une création d'éleveur ou de vétérinaire
+      'creation.veto_d_eleveur' => false,
+      ]);
+      $demande = Demande::find($demande_id);
+
+      $type_dest_fact = $demande->userfact->usertype->route;
+
+      $vetos = Veto::all();
+
+      return view('labo.demandeModif', [
+      'menu' => $this->menu,
+      'demande' => $demande,
+      'type_dest_fact' => $type_dest_fact,
+      'usertypes' => Usertype::all(),
+      'vetos' => $vetos,
+
       ]);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Modifie les caractéristiques d'une demande d'analyse (retour de la fontion modif)
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
 
-      dd($request->all());
+      $datas = $request->all();
 
+      $demande = Demande::find($id);
+      $demande->date_prelevement = $datas['prelevement'];
+      $demande->date_reception = $datas['reception'];
+      $demande->tovetouser_id = ($datas['tovetouser_id'] == 0) ? null : $datas['tovetouser_id'];
+      $demande->userfact_id = $datas['destinataireFacture'];
+      $demande->informations = $datas['informations'];
+
+      // dd($demande);
+      $demande->save();
+
+      return redirect()->route('demandes.show', $id)->with('message', 'mise à jour');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    *
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
 
       Demande::where('id', $id)->delete();
 
-        return redirect()->route('demandes.index')->with('status', "La demande d'analyse a été supprimée");
+      return redirect()->route('demandes.index')->with('status', "La demande d'analyse a été supprimée");
 
     }
 
@@ -266,11 +281,10 @@ class DemandeController extends Controller
       $demande = Demande::find($demande_id);
 
       DB::table('demandes')->where('id', $demande_id)->update([
-        'signe' => true,
-        'date_signature' => \Carbon\Carbon::now(),
-        'labo_id' => auth()->user()->id,
+      'signe' => true,
+      'date_signature' => \Carbon\Carbon::now(),
+      'labo_id' => auth()->user()->id,
       ]);
-
 
     }
 

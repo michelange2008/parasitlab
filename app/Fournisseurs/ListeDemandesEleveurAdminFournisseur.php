@@ -36,7 +36,7 @@ class ListeDemandesEleveurAdminFournisseur extends ListeFournisseur
 
       if ($demande->toveto) {
 
-        $toveto = $this->lienFactory($demande->veto->user->id, $demande->veto->user->name, 'vetoAdmin.show', 'affiche_veto');
+        $toveto = $this->lienFactory($demande->tovetouser->id, $demande->tovetouser->name, 'vetoAdmin.show', 'affiche_veto');
 
       }
       else {

@@ -21,27 +21,23 @@ trait FactureFactory
   */
   function clientsDemandesAFacturer()
   {
-    $demandes_non_facturees = Demande::select('id','user_id', 'veto_id', 'user_dest_fact')
+    $demandes_non_facturees = Demande::select('id','user_id', 'tovetouser_id', 'userfact_id')
                               ->where('signe', true)
                               ->where('facturee', false)->get();
 
-    // Manipulation pour associer au user_id le destinatire de la facture
+    // Manipulation pour associer au user_id le destinataire de la facture
     $udnf = Collect();
 
     foreach ($demandes_non_facturees as $demande_non_facturee) {
 
-      if(!$demande_non_facturee->user_dest_fact && $demande_non_facturee->veto_id !== null) { // si l'éleveur n'est pas le destinaire de la facture et qu'il y a un veto_id
-
-        $dest_fact_id = Veto::find($demande_non_facturee->veto_id); // le user_id prend la veleur du veto user_id
-
-        $demande_non_facturee->user_id = $dest_fact_id->user_id;
-      }
-
-      $udnf->push(["user_id" => $demande_non_facturee->user_id, "demande_id" => $demande_non_facturee->id]);
+      $udnf->push(["user_id" => $demande_non_facturee->userfact_id, "demande_id" => $demande_non_facturee->id]);
 
     }
+
     $users_dnf = $udnf->mapToGroups(function ($item, $key) {
+
         return [$item['user_id'] => $item['demande_id']];
+
     });
 
     return $users_dnf;

@@ -24,4 +24,14 @@
 
   @include('labo.demandeShow.syntheseRenvoiFacture', ['route' => "#"])
 
+  <div class="card-body">
+
+    @bouton([
+      'type' => 'route',
+      'route' => 'demandes.modif',
+      'id' => $demande->id,
+      'intitule' => __('boutons.demandeModif')
+    ])
+  </div>
+
 </div>

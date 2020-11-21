@@ -1,2 +1,112 @@
-!function(e){var t={};function a(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,a),o.l=!0,o.exports}a.m=e,a.c=t,a.d=function(e,t,n){a.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},a.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},a.t=function(e,t){if(1&t&&(e=a(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(a.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)a.d(n,o,function(t){return e[t]}.bind(null,o));return n},a.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return a.d(t,"a",t),t},a.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},a.p="/",a(a.s=30)}({30:function(e,t,a){e.exports=a(31)},31:function(e,t,a){a(32),a(33)},32:function(e,t){$("#userSelect").focus(),$(".liste_anatypes").hide(),$("#troupeauSelect").attr("disabled","disabled"),$("#anatypeSelect").attr("disabled","disabled"),$("#anaacteSelect").attr("disabled","disabled"),$("#prelevement").attr("disabled","disabled"),$("#reception").attr("disabled","disabled"),$("#nbPrelevements").attr("disabled","disabled"),$("#userSelect").val()||$("#especeSelect").attr("disabled","disabled");var a=window.location.protocol+"//"+window.location.host+window.location.pathname;function n(e,t,a){$(".date_alerte").hide(),Date.now()-e<0?$(t+"_futur").show():($(t+"_ok").show(),$(a).removeAttr("disabled").focus())}function o(){if(""!==$("#prelevement").val()&&""!==$("#reception").val()){var e=Date.parse($("#prelevement").val());Date.parse($("#reception").val())-e<0?($(".date_ok").hide(),$("#reception_prelevement").show()):$(".date_ok").show()}}function i(){0==$("select[name=veto_id]").val()?$("#type_veterinaire").hide():$("#type_veterinaire").show()}$("select[name='userDemande']").change((function(){if($(".listeSerie").remove(),"Nouveau"==$("select[name='userDemande'] > option:selected").val()){var e=$("select[name='userDemande'] > option:selected"),t=a.replace("demandes","user");$.confirm({theme:"dark",type:"red",typeAnimated:"true",title:e.attr("titre"),content:e.attr("texte"),buttons:{oui:{text:"oui",btnClass:"btn-red",action:function(){window.location=t,$("#especeSelect").removeAttr("disabled").focus()}},non:function(){}}})}else $("#userSelect > options:selected").attr("id"),$(this).removeClass("is-invalid").addClass("is-valid"),$("#especeSelect").removeAttr("disabled").focus()})),$("#especeSelect").on("change",(function(){var e=$("#userSelect").val();$("#especeSelect > option:selected").attr("id");var t=$("#especeSelect > option:selected").attr("id");$(this).addClass("is-valid"),$("#troupeauSelect").removeAttr("disabled").focus(),function(e,t){var n=a.replace("laboratoire/demandes/create","api/troupeau/"+e+"/"+t);$.get({url:n}).done((function(e){var t=JSON.parse(e);if($(".listeTroupeau").remove(),t.length>0){var a="";$.each(t,(function(e,t){a+='<option value="'+t.id+'" class="listeTroupeau" required>'+t.nom+"</option>"})),$("#troupeauSelect").append(a)}else $('#troupeauSelect option[value="nouveau"]').prop("selected",!0),$("#troupeauSelect").trigger("change")})).fail((function(e){console.log(e)}))}(e,t),function(e){var t=a.replace("laboratoire/demandes/create","api/anatypes/"+e);$.get({url:t}).done((function(e){var t=JSON.parse(e);$(".liste_anatypes").hide(),$.each(t,(function(e,t){$("#anatypes_"+t).show()}))})).fail((function(e){console.log("il y a une erreur "+e)}))}(t)})),$("#troupeauSelect").on("change",(function(){$("#prelevement").removeAttr("disabled").focus(),$("#reception").removeAttr("disabled")})),$("#prelevement").on("change",(function(){$(".date_alerte").hide(),id_actuel="#"+$(this).attr("id"),n(Date.parse($(this).val()),id_actuel,"#reception"),o()})),$("#reception").on("change",(function(){$(".date_alerte").hide(),id_actuel="#"+$(this).attr("id"),n(Date.parse($(this).val()),id_actuel,"#anatypeSelect"),o()})),$("#anatypeSelect").on("change",(function(){$("#anaacteSelect").removeAttr("disabled").focus()})),$("#anaacteSelect").on("change",(function(){$("#nbPrelevements").removeAttr("disabled").focus()})),i(),$("select[name=veto_id]").on("change",(function(){i()})),$("#radioBtn a").on("click",(function(){var e=$(this).data("title"),t=$(this).data("toggle");$("#"+t).prop("value",e),$('a[data-toggle="'+t+'"]').not('[data-title="'+e+'"]').removeClass("active").addClass("notActive"),$('a[data-toggle="'+t+'"][data-title="'+e+'"]').removeClass("notActive").addClass("active")}))},33:function(e,t){var a=window.location.protocol+"//"+window.location.host+window.location.pathname,n=$("#anatypeSelect > option:selected").val();function o(e){$("#premierPrelevementSerie").val(null),$("#estSerie").addClass("d-none"),$(".listeSerie").remove();var t=$("#especeSelect").children("option:selected").attr("id"),n=a.replace("laboratoire/demandes/create","api/anaactes/"+e+"/"+t);$("#anaacteSelect").children().remove(),$.get({url:n}).done((function(e){var t=JSON.parse(e);console.log(t.length);var a='<option value="" disabled selected>Choisir une option ...</option>';$.each(t,(function(e,t){var n;a+='<option value="'+t.id+'">'+(((n=t.nom)+"").charAt(0).toUpperCase()+n.substr(1)+"</option>")})),$("#anaacteSelect").append(a),1==t.length&&($("#anaacteSelect").children().attr("selected","selected").trigger("change"),i($("#anaacteSelect > option:selected").val(),$("#userSelect > option:selected").attr("id")))}))}function i(e,t){var n=a.replace("laboratoire/demandes/create","api/estSerie/"+e+"/"+t);$.get({url:n,data_type:"json"}).done((function(e){$("#premier").empty();var t=JSON.parse(e);if(1==t.estSerie)if($("#estSerie").removeClass("d-none"),$("#premierPrelevementSerie").val("premier"),0!=t.nbDemandes){$("#pas_de_serie").hide(),$("#y_a_serie").show();for(var a=0;a<t.nbDemandes;a++)$("#premier").append('<div class="form-check"><input type="radio" class="form-check-input"  id="premierPrelevementSerie" name="serie" value="null" checked ><label class="form-check-label" for="premierPrelevementSerie">'+$("#premier_envoi").attr("texte")+'</label></div><div class="form-check mt-2"><input type="radio" class="form-check-input" id="serie_'+t[a].id+'" name="serie" value="'+t[a].id+'"><label class="form-check-label" for="demande_id">'+$("#autre").attr("texte")+" "+t[a].date_reception+"</label></div>")}else $("#y_a_serie").hide(),$("#pas_de_serie").show();else $("#premierPrelevementSerie").val(null),$("#estSerie").addClass("d-none"),$(".listeSerie").remove()})).fail((function(e){console.log(e)}))}null==n&&o(n),$("#anatypeSelect").on("focus",(function(){""==$("#userSelect > option:selected").val()&&($(this).addClass("is-invalid"),$("#typeAlerte").show(),$("#userSelect").focus())})),$("#anatypeSelect").on("change",(function(){o($(this).children("option:selected").val()),$(this).addClass("is-valid"),$("#anaacteSelect").focus()})),$("select[name='anaacte_id'] ").on("change",(function(){$(".listeSerie").remove(),i($("#anaacteSelect > option:selected").val(),$("#userSelect > option:selected").attr("id"))}))}});
-//# sourceMappingURL=createDemande.js.map
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./resources/js/createDemande.js":
+/*!***************************************!*\
+  !*** ./resources/js/createDemande.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nError: ENOENT: no such file or directory, open '/srv/parasitlab/resources/js/createDemande.js'\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuL3Jlc291cmNlcy9qcy9jcmVhdGVEZW1hbmRlLmpzLmpzIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/createDemande.js\n");
+
+/***/ }),
+
+/***/ 5:
+/*!******************************************!*\
+  !*** multi ./resources/js/createDemande ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /srv/parasitlab/resources/js/createDemande */"./resources/js/createDemande.js");
+
+
+/***/ })
+
+/******/ });

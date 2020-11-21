@@ -48,4 +48,5 @@ return array (
   'del_demande' => 'Supprimer la demande',
   'add_prel' => 'Saisir les prélèvements',
   'saisie_modif_result' => "Saisir ou modifier les résultats",
+  'demandeModif' => "Modifier",
 );

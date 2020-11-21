@@ -18,6 +18,11 @@
 
         @include('utilisateurs.boutonModifInfos')
 
+        <div class="text-right">
+
+
+      </div>
+
       </div>
 
       <div class="col-md-9">
