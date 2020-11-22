@@ -23,5 +23,7 @@ return array (
   'resend_veto' => 'Renvoyer les résultats au vétérinaire',
   'analyse' => "Analyse",
   'results' => 'Résultats',
-  'infos_nouv_troup' => 'Comme il s\'agit d\'un nouveau troupeau, il faut en saisir les informations:'
+  'infos_nouv_troup' => 'Comme il s\'agit d\'un nouveau troupeau, il faut en saisir les informations:',
+  'demande_sans_prelevement' => 'Cette demande d\'analyse n\'a encore aucun prélèvement&nbsp;!',
+  'saisir_prelev_ou_del' => 'Que souhaitez-vous faire: saisir les prélèvements ou supprimer cette demande&nbsp;?',
 );

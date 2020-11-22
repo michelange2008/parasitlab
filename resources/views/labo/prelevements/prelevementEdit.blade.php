@@ -72,7 +72,7 @@
               </div>
 
             </div>
-            
+
           @endif
 
         </div>
@@ -104,22 +104,5 @@
       <hr class="divider">
 
     </div>
-
-    <div class="col-md-auto offset-md-1">
-
-      <p class="lead">Suppression du prélèvement</p>
-
-    </div>
-
-    <div class="col-md-4">
-
-      @include('fragments.boutonSupprimer', [
-      'id' => $prelevement->id,
-      'route' => 'prelevement.destroy',
-      ])
-
-    </div>
-
-  </div>
 
 @endsection

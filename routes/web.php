@@ -154,6 +154,8 @@
 
     route::resource('demandes', 'Labo\DemandeController');
 
+    route::get('prelevement/suppr/{prelevement_id}', 'Labo\PrelevementController@prelevdel')->name('prelevement.prelevdel');
+
     route::resource('prelevement', 'Labo\PrelevementController');
 
     route::get('prelevement/createOnDemande/{demande_id}', 'Labo\PrelevementController@createOnDemande')->name('prelevement.createOnDemande');

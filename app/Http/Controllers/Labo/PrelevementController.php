@@ -240,6 +240,17 @@ class PrelevementController extends Controller
     }
 
     /**
+    * Methode de confirmation de suppression d'un prélévement
+    */
+    public function prelevdel($prelevement_id)
+    {
+
+      return view('labo.prelevements.prelevdel', [
+        'prelevement_id' => $prelevement_id,
+      ]);
+
+    }
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
@@ -247,6 +258,7 @@ class PrelevementController extends Controller
      */
     public function destroy($id)
     {
+
         $prelevement = Prelevement::find($id);
 
         $demande_id = $prelevement->demande_id;

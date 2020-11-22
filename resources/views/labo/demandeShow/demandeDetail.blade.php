@@ -26,12 +26,20 @@
 
   <div class="card-body">
 
+  @if (!$demande->facturee)
+
     @bouton([
       'type' => 'route',
       'route' => 'demandes.modif',
       'id' => $demande->id,
+      'fa' => "fas fa-edit",
       'intitule' => __('boutons.demandeModif')
     ])
+
+  @endif
+
+  @retour(['route' => 'demandes.index'])
+
   </div>
 
 </div>
