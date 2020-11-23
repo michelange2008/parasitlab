@@ -51,7 +51,7 @@ class ExpressController extends Controller
       'menu' => $this->menu,
       'pays' => $this->litJson('pays'),
       'user' => auth()->user(),
-      'personne' => $this->personne(),
+      'personne' => $this->personne(auth()->user()),
       'cout_pack' => $cout_pack,
     ]);
   }

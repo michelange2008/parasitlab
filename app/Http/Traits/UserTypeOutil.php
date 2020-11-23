@@ -42,22 +42,19 @@ trait UserTypeOutil {
     return UserType::where('route', 'laboratoire')->first();
   }
 
-  public function personne()
+  public function personne($user)
   {
-
-    if(auth()->user() !== null) {
-
-      switch (auth()->user()->usertype->route) {
+      switch ($user->usertype->route) {
         case 'laboratoire':
-          $personne = auth()->user()->labo;
+          $personne = $user->labo;
           break;
 
         case 'eleveur':
-          $personne = auth()->user()->eleveur;
+          $personne = $user->eleveur;
           break;
 
         case 'veterinaire':
-          $personne = auth()->user()->veto;
+          $personne = $user->veto;
           break;
 
         default:
@@ -67,6 +64,5 @@ trait UserTypeOutil {
 
       return $personne;
 
-    }
   }
 }
