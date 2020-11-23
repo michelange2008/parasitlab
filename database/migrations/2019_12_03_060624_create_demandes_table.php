@@ -39,10 +39,8 @@ class CreateDemandesTable extends Migration
 
             $table->mediumText('informations')->nullable();
 
-            $table->boolean('toveto');
-
-            $table->unsignedInteger('veto_id')->default(4)->nullable();
-            $table->foreign('veto_id')->references('id')->on('vetos')
+            $table->unsignedInteger('tovetouser_id')->nullable();
+            $table->foreign('tovetouser_id')->references('id')->on('users')
             ->onDelete('set null')->onUpdate('cascade');
 
             $table->timestamp('date_prelevement')->nullable();
@@ -60,7 +58,10 @@ class CreateDemandesTable extends Migration
             $table->foreign('labo_id')->references('id')->on('labos')
             ->onDelete('set null')->onUpdate('cascade');
 
-            $table->boolean('userfact_id')->default(true); // true si l'éleveur est le destinataire de la facture
+            $table->unsignedInteger('userfact_id')->nullable();
+
+            $table->foreign('userfact_id')->references('id')->on('users')
+            ->onDelete('set null')->onUpdate('cascade');
 
             $table->boolean('facturee')->default(false);
             $table->unsignedInteger('facture_id')->nullable();
