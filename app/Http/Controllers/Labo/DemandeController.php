@@ -34,9 +34,8 @@ use App\Models\Productions\Signe;
 
 class DemandeController extends Controller
 {
-    use LitJson, EleveurInfos, DemandeFactory, FactureFactory, SerieManager;
-    use UserTypeOutil ;
-
+    use LitJson, EleveurInfos, DemandeFactory, UserTypeOutil, FactureFactory, SerieManager;
+    
     protected $menu;
     /**
     * Display a listing of the resource.
