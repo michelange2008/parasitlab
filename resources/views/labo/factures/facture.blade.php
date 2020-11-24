@@ -75,6 +75,8 @@
         'couleur' => 'btn-bleu',
         'fa' => 'fas fa-paper-plane',
       ])
+      
+      @retour(['route' => 'factures.index'])
       <hr class="divider-court">
     </div>
 
@@ -93,16 +95,6 @@
         @include('labo.factures.reglement')
 
       @endif
-
-    </div>
-
-  </div>
-
-  <div class="row justify-content-center mb-3">
-
-    <div class="col-md-10 d-flex justify-content-end">
-
-      @retour(['route' => 'factures.index'])
 
     </div>
 

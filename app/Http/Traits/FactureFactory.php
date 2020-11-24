@@ -8,11 +8,13 @@ use App\Models\Veto;
 use App\Models\Analyses\Tva;
 use App\Models\Productions\Anaacte_Facture;
 
+use App\Http\Traits\UserTypeOutil;
 /**
  * Ensemble de méthodes permettant d'établir une facture
  */
 trait FactureFactory
 {
+  use UserTypeOutil;
   /**
   * Méthode pour la liste des users qui ont de demandes non facturées (manipulation due au fait que certaines demandes
   * d'analyses ne sont pas à facturer au propriétaire des animaux)
@@ -183,11 +185,14 @@ trait FactureFactory
     // En effet, il est indispensable de mettre à chaque fois le montant de l'acte au cas où cette valeur change ultérieurement
     // (augmentation des tarifs ou changement du taux de tva)
     $anaactes_factures = Anaacte_Facture::where('facture_id', $facture_id)->get();
+    // Ajout de l'user dans sans forme de soustype pour avoir son adresse et autres infos grâce à UserTypeOutil
+    $personne = $this->personne($facture->user_id);
 
     $demandes = Demande::where('facture_id', $facture_id)->get();
 
     $elementDeFacture->facture = $facture_completee;
     $elementDeFacture->demandes = $demandes;
+    $elementDeFacture->personne = $personne;
     $elementDeFacture->anaactes_factures = $anaactes_factures;
 
     // QUESTION: Pourquoi ces données en session ? C'est pour les récupérer quand on veut éditer une facture en pdf via le PdfController

@@ -5,11 +5,16 @@
   <div style="margin-left:280px; border: 1px solid black; padding-left:20px">
 
     <p class="adresse font-weight-bold mt-1">{{ $elementDeFacture->facture->user->name }}</p>
-    <p class="adresse">{{ $elementDeFacture->facture->user->eleveur->address_1 }} - {{ $elementDeFacture->facture->user->eleveur->address_2 }}</p>
-    <p class="adresse mb-1">{{ $elementDeFacture->facture->user->eleveur->cp }} {{ $elementDeFacture->facture->user->eleveur->commune }}</p>
+    <p class="adresse">{{ $elementDeFacture->personne->address_1 }}
+      @if ($elementDeFacture->personne->address_2)
+
+        - {{ $elementDeFacture->personne->address_2}}</p>
+      @endif
+
+    <p class="adresse mb-1">{{ $elementDeFacture->personne->cp }} {{ $elementDeFacture->personne->commune }}</p>
 
   </div>
-
+  <br/>
   <p class="font-weight-bold lead">@lang('factures.facture')&nbsp;n°{{ $elementDeFacture->facture->num }} @lang('commun.du')&nbsp;{{ Carbon\Carbon::parse($elementDeFacture->facture->faite_date)->isoFormat('LL') }}</p>
 
   @foreach ($elementDeFacture->demandes as $demande)

@@ -2,6 +2,8 @@
 namespace App\Http\Traits;
 
 use App\Models\Usertype;
+use App\Models\Eleveur;
+use App\Models\Veto;
 
 trait UserTypeOutil {
 
@@ -42,27 +44,20 @@ trait UserTypeOutil {
     return UserType::where('route', 'laboratoire')->first();
   }
 
-  public function personne($user)
+  public function personne($user_id)
   {
-      switch ($user->usertype->route) {
-        case 'laboratoire':
-          $personne = $user->labo;
-          break;
 
-        case 'eleveur':
-          $personne = $user->eleveur;
-          break;
-
-        case 'veterinaire':
-          $personne = $user->veto;
-          break;
-
-        default:
-          $personne = '';
-          break;
-      }
-
+    if($personne = Veto::where('user_id' ,$user_id)->first()) {
       return $personne;
+    }
+
+    elseif($personne = Eleveur::where('user_id' ,$user_id)->first()) {
+      return $personne;
+    }
+
+    else {
+      return Labo::where('user_id', $user_id)->first();
+    }
 
   }
 }

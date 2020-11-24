@@ -73,7 +73,7 @@ class PdfController extends Controller
   {
     // code...
   }
-
+  // Affiche la facture en pdf
   public function facture($facture_id)
   {
     // utilisation de la fonction elementDeFacture du trait FactureFactory
