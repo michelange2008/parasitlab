@@ -4,6 +4,7 @@ namespace App\Http\Traits;
 use App\Models\Usertype;
 use App\Models\Eleveur;
 use App\Models\Veto;
+use App\Models\Labo;
 
 trait UserTypeOutil {
 
@@ -55,8 +56,12 @@ trait UserTypeOutil {
       return $personne;
     }
 
+    elseif($personne = Labo::where('user_id', $user_id)->first()) {
+      return $personne;
+    }
+
     else {
-      return Labo::where('user_id', $user_id)->first();
+      return null;
     }
 
   }
