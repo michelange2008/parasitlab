@@ -133,6 +133,10 @@
 
     Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@routeurResultatsPdf', 'as' => 'routeurResultatsPdf']);
 
+    Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
+
+    Route::post('exports/csv', 'ExportsController@exportcsv')->name('exports.csv');
+
   });
 
   // ROUTES INTERNES AU LABORATOIRE

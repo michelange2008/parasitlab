@@ -189,6 +189,11 @@
       }
     }
   },
+  "item_8" : {
+    "id" : "exports",
+    "prefixe" : "menuLabo.item_8",
+    "route" : "exports.choix"
+  },
   "item_7" :
   {
     "id" : "traductions",
