@@ -113,4 +113,8 @@ return array (
     'nom' => 'Traductions',
     'tooltip' => 'Accès à l\'outil de traduction',
   ),
-);
+  'item_8' =>
+  array (
+    'nom' => 'Exports',
+    'tooltip' => 'Outils d\'exportation des données',
+  ),);

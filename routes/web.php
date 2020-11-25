@@ -135,7 +135,9 @@
 
     Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
 
-    Route::post('exports/csv', 'ExportsController@exportcsv')->name('exports.csv');
+    Route::post('exports/export', 'ExportsController@export')->name('exports.export');
+
+    Route::get('exports/csv', 'ExportsController@exportcsv')->name('exports.exportcsv');
 
   });
 

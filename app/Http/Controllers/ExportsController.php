@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Traits\LitJson;
+
 use App\User;
 use App\Models\Espece;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Resultat;
 use App\Models\Analyses\Anaitem;
+
+use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
 
 class ExportsController extends Controller
 {
-  use LitJson;
+  use LitJson, UserTypeOutil;
 
   protected $menu;
   /**
@@ -30,16 +34,34 @@ class ExportsController extends Controller
 
       $users = User::all();
       $demandes = Demande::all();
-      $especes = Espece::all();
-      $anaitems = Anaitem::all();
+      $especes = Espece::orderBy('nom')->get();
+      $anaitems = Anaitem::orderBy('nom')->get();
+      $formats = $this->litJson('formats_export');
 
       return view('exports.choix', [
         'menu' => $this->menu,
+        'formats' => $formats,
+        'especes' => $especes,
+        'users' => $users,
+        'eleveurs' => User::where('usertype_id', $this->userTypeEleveur()->id)->orderBy('name')->get(),
+        'vetos' => User::where('usertype_id', $this->userTypeVeto()->id)->orderBy('name')->get(),
+        'anaitems' => $anaitems,
       ]);
 
     }
 
-    public function exportcsv(Request $request)
+    public function export(Request $request)
+    {
+      $datas = $request->all();
+
+      $personne = $datas['personne'];
+
+      $demande = Demande::where('user_id', 'like', '%')->get();
+
+      dd($demande);
+    }
+
+    public function exportcsv($export)
     {
 
 
