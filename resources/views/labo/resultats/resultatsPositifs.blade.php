@@ -1,6 +1,9 @@
 <table class="table table-bordered table-hover">
 
-  @include('labo.resultats.titreResultat')
+  @include('labo.resultats.titreResultat', [
+    'titre' => $prelevement->animal->nom,
+    'soustitre' => $prelevement->animal->numero,
+  ])
 
   <tbody>
     @foreach ($prelevement->resultats as $resultat)

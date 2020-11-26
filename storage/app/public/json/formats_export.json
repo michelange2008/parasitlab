@@ -2,6 +2,8 @@
   "csv" :
   {
     "id" : "csv",
-    "nom" : "Fichier .csv (Libroffice calc, Microsoft excel, etc.)"
+    "nom" : "Fichier .csv (LibreOffice calc, Microsoft excel, etc.)",
+    "fonction" : "exportcsv"
   }
+
 }

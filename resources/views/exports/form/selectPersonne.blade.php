@@ -1,8 +1,8 @@
-<label for="personne">{{ $type }}</label>
+<label for="{{ $name }}">{{ $type }}</label>
 
-<select class="form-control" name="personne" id="personne">
+<select class="form-control" name="{{ $name }}" id="personne">
 
-  <option value="tous" selected>Tous</option>
+  <option value="%" selected>Tous</option>
 
   @foreach ($personnes as $personne)
 

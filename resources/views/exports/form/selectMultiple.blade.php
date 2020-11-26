@@ -1,8 +1,8 @@
-<label for="{{ $for }}">{{ $intitule }} <small>(maintenir le bouton Ctrl pour une sélection multiple)</small></label>
+<label for="{{ $for }}">{{ $intitule }} <small>(maintenir le bouton Ctrl ou Maj pour une sélection multiple)</small></label>
 
-<select multiple class="form-control" name="{{ $for }}[]" id="{{ $for }}" size={{ $datas->count() + 1 }}>
+<select multiple class="form-control" name="{{ $for }}[]" id="{{ $for }}" size={{ $datas->count() }}>
 
-  <option value="tous" selected>Tous</option>
+  {{-- <option value="all" disabled>Choisissez une ou plusieurs lignes</option> --}}
 
   @foreach ($datas as $data)
 

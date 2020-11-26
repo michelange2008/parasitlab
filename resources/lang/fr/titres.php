@@ -25,6 +25,7 @@ return array (
 
   'nouvelle_demande' => "Nouvelle demande d'analyse",
   'saisie_prelevements' => "Saisie des prélèvements",
+  'saisie_un_prelevement' => "Renseignement des information pour un prélèvement",
   'edit_prelevement' => 'Modification d\'un prélèvement',
   'demandes_analyses' => 'Liste des demandes d\'analyse',
   'list_anaactes' => 'Liste des analyses proposées',

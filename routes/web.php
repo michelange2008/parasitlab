@@ -135,9 +135,15 @@
 
     Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
 
-    Route::post('exports/export', 'ExportsController@export')->name('exports.export');
+    Route::get('exports/anaitemsFromEspece/{especes}', 'ExportsController@anaitemsFromEspece')->name('exports.anaitemsFromEspece');
 
-    Route::get('exports/csv', 'ExportsController@exportcsv')->name('exports.exportcsv');
+    Route::post('exports/comptage','ExportsController@comptage' )->name('exports.comptage');
+
+    Route::post('exports/export','ExportsController@export' )->name('exports.export');
+
+    Route::get('exports/resultats', 'ExportsController@resultats')->name('exports.resultat');
+
+    Route::get('exports/csv/{export}', 'ExportsController@exportcsv')->name('exports.exportcsv');
 
   });
 
@@ -164,7 +170,11 @@
 
     route::resource('prelevement', 'Labo\PrelevementController');
 
+    route::get('prelevement/createOne/{demande_id}/{rang}', 'Labo\PrelevementController@createOne')->name('prelevement.createOne');
+
     route::get('prelevement/createOnDemande/{demande_id}', 'Labo\PrelevementController@createOnDemande')->name('prelevement.createOnDemande');
+
+    route::post('prelevement/storeOne', 'Labo\PrelevementController@storeOne')->name('storeOne');
 
     route::post('prelevement/storeOnDemande', 'Labo\PrelevementController@storeOnDemande')->name('storeOnDemande');
 

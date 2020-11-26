@@ -20,7 +20,7 @@
 
     </div>
 
-    <form class="" action="{{ route('exports.export') }}" method="post">
+    <form id="choix" class="" action="{{ route('exports.comptage') }}" method="post">
 
       @csrf
 
@@ -53,7 +53,7 @@
 
             <label for="de">Depuis</label>
 
-            <input class="form-control" type="month" name="de" value="">
+            <input class="form-control" type="date" name="de" value="{{ $de }}" min="{{ $de }}" max="{{ $a }}">
 
           </div>
 
@@ -65,7 +65,7 @@
 
             <label for="a">Jusqu'à</label>
 
-            <input class="form-control" type="month" name="a" value="">
+            <input class="form-control" type="date" name="a" value="{{ $a }}" min="{{ $de }}" max="{{ $a }}">
 
           </div>
 
@@ -94,6 +94,7 @@
               @include('exports.form.selectPersonne', [
               'type' => 'Eleveur.euse',
               'personnes' => $eleveurs,
+              'name' => 'eleveur',
               ])
 
             </div>
@@ -103,6 +104,7 @@
               @include('exports.form.selectPersonne', [
               'type' => 'Vétérinaires',
               'personnes' => $vetos,
+              'name' => 'veto',
               ])
 
             </div>
@@ -113,11 +115,20 @@
 
         <div class="col-md-5 my-3">
 
-          @include('exports.form.selectMultiple', [
-          'datas' => $anaitems,
-          'for' => 'parasites',
-          'intitule' => 'Parasites',
-          ])
+          <div class="row">
+
+            <div class="col-md-12">
+
+              @include('exports.form.selectMultiple', [
+              'datas' => $anaitems,
+              'for' => 'anaitems',
+              'intitule' => 'Parasites',
+              ])
+
+            </div>
+
+
+          </div>
 
         </div>
 
@@ -125,11 +136,18 @@
 
       <div class="row">
 
-        <div class="col-auto offset-md-1">
+        <div class="col-md-5 offset-md-1">
 
           @enregistreAnnule(['nomBouton' => "Exporter", 'fa' => 'fas fa-file-export'])
 
         </div>
+
+        <div class="col-md-5" id="nb_enregistrements">
+
+
+
+        </div>
+
 
       </div>
 
