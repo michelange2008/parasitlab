@@ -41,7 +41,7 @@
         <div class="col-md-11 col-lg-10 col-xl-9">
 
           <button id='iconeCreate' class="btn btn-bleu" type="button" name="button">@lang('boutons.save')</button>
-          @retour(['route' => 'icones.index'])
+          @retour(['route' => route('icones.index')])
         </div>
 
       </div>

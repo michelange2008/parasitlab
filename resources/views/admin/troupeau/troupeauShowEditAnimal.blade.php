@@ -131,7 +131,7 @@
 
       <div class="col-lg-8 offset-lg-2">
 
-        @retour(['route' => 'troupeau.index'])
+        @retour(['route' => route('troupeau.index')])
 
       </div>
 

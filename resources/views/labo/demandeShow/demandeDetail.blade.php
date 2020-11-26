@@ -38,7 +38,7 @@
 
   @endif
 
-  @retour(['route' => 'demandes.index'])
+  @retour(['route' => route('demandes.index')])
 
   </div>
 

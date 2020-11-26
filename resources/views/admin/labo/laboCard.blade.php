@@ -24,7 +24,7 @@
       'couleur' => 'btn-bleu',
       ])
 
-    @retour(['route' => 'laboAdmin.index'])
+    @retour(['route' => route('laboAdmin.index')])
 
   </div>
 
