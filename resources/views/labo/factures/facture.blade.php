@@ -75,8 +75,8 @@
         'couleur' => 'btn-bleu',
         'fa' => 'fas fa-paper-plane',
       ])
-      
-      @retour(['route' => 'factures.index'])
+
+      @retour(['route' => route('factures.index')])
       <hr class="divider-court">
     </div>
 

@@ -64,7 +64,7 @@
       <div class="col-md-10">
         <hr class="divider">
 
-        @retour(['route' => 'accueil'])
+        @retour(['route' => route('accueil')])
 
       </div>
 

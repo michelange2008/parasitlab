@@ -3,9 +3,9 @@
 
   <button type="button" class="btn btn-secondary" name="reset">
 
-    <i class="fas fa-undo"></i> 
+    <i class="fas fa-undo"></i>
 
-    @lang('boutons.annule')
+    {{ $nomAnnule ?? __('boutons.annule')}}
 
   </button>
 
