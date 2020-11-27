@@ -15,12 +15,13 @@ use App\Models\Analyses\Analyse;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ResultatsExport;
 use App\Http\Traits\LitJson;
+use App\Http\Traits\Personne;
 use App\Http\Traits\UserTypeOutil;
 use Carbon\Carbon;
 
 class ExportsController extends Controller
 {
-  use LitJson, UserTypeOutil;
+  use LitJson, UserTypeOutil, Personne;
 
   protected $menu;
   protected $formats;
@@ -73,19 +74,18 @@ class ExportsController extends Controller
 
       $resultats = $this->resultats($datas);
 
-      $export = [];
       foreach ($resultats as $resultat) {
-
-        $export[] =[
-          "nom" => $resultat->prelevement->demande->user->name,
-          "parasite" => $resultat->anaitem->nom,
-          "valeur" => $resultat->valeur,
-        ];
-
+        $signes = "";
+        if($resultat->prelevement->signes->count() > 0) {
+          foreach ($resultat->prelevement->signes as $signe) {
+            $signes = $signes." ".__($signe->nom);
+          }
+          dump($resultat->id);
+        }
+        dump(trim($signes));
       }
-// dd($export);
+      dd('');
       foreach ($this->formats as $format) {
-
         switch ($datas['format']) {
           case 'csv':
 
@@ -99,28 +99,42 @@ class ExportsController extends Controller
           "Expires"             => "0"
           );
 
-          $columns = array("nom", "date_prelevement", "parasite", "résultat");
+          $columns = array("nom", "cp", "commune", "espece", "demande_id", "date_prelevement", "estParasite", "parasite", "résultat");
 
           $callback = function() use($resultats, $columns) {
 
             $file = fopen('php://output', 'w');
             fputcsv($file, $columns);
 
-            foreach ($resultats as $ligne) {
+            foreach ($resultats as $resultat) {
 
-              $row['nom'] = $ligne->prelevement->demande->user->name;
-              $row['date_prelevement'] = $ligne->prelevement->demande->date_prelevement;
-              $row['parasite'] = $ligne->anaitem->nom;
-              $row['résultats'] = $ligne->valeur;
+              $row['nom'] = $resultat->prelevement->demande->user->name;
+              $row['cp'] = $this->personne($resultat->prelevement->demande->user->id)->cp;
+              $row['commune'] = $this->personne($resultat->prelevement->demande->user->id)->commune;
+              $row['espece'] = $resultat->prelevement->demande->espece->nom;
+              $row['demande_id'] = $resultat->prelevement->demande->id;
+              $row['date_prelevement'] = $resultat->prelevement->demande->date_prelevement;
+              $row['estParasite'] = $resultat->prelevement->parasite;
+              $row['parasite'] = $resultat->anaitem->nom;
+              $row['résultats'] = $resultat->valeur;
 
-              fputcsv($file, array($row['nom'], $row['date_prelevement'], $row['parasite'], $row['résultats']));
+              fputcsv($file, array(
+                $row['nom'],
+                $row['cp'],
+                $row['commune'],
+                $row['espece'],
+                $row['demande_id'],
+                $row['date_prelevement'],
+                $row['estParasite'],
+                $row['parasite'],
+                $row['résultats'],
+              ));
             }
 
             fclose($file);
 
           };
           return response()->stream($callback, 200, $headers);
-            
 
             break;
 

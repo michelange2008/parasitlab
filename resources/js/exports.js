@@ -2,7 +2,7 @@
 
 var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-$('button[type=submit]').attr('disabled', 'disabled'); // On passe le bouton exporter à "inactif" tant qu'il n'y a pas un choix d'espece et de parasite
+$('form#choix button[type=submit]').attr('disabled', 'disabled'); // On passe le bouton exporter à "inactif" tant qu'il n'y a pas un choix d'espece et de parasite
 $("#anaitems").empty(); // On vide la liste des parasites en attendant que l'on ait cliqué sur l'espece
 
 

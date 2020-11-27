@@ -102,6 +102,7 @@ return array (
   'change' => 'Changer',
   'browse' => 'Ouvrir',
   "demande_serie" => 'Cette demande d\'analyse fait partie d\'un pack qui compte 3 séries de prélèvement',
+  'q_observation' => 'Avez-vous observé&nbsp;:',
 
   'abbr' => 'Abbréviation',
   'choisir' => "Choisir ...",
