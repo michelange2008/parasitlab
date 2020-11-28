@@ -173,4 +173,9 @@ return array (
   'animal_exist' => "Animal déjà présent dans le troupeau",
   'add_user' => 'ajout d\'un utilisateur',
   'create_user' => 'Création d\'un nouvel utilisateur',
+
+  'format_export' => 'Format de fichier à l\'export',
+  'from' => 'Depuis',
+  'to' => 'Jusqu\'à',
+  'all' => 'Toute la liste des ',
 );

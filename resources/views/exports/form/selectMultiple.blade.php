@@ -1,8 +1,14 @@
 <label for="{{ $for }}">{{ $intitule }} <small>(maintenir le bouton Ctrl ou Maj pour une sélection multiple)</small></label>
 
-<select multiple class="form-control" name="{{ $for }}[]" id="{{ $for }}" size={{ $datas->count() }}>
+<div class="form-check">
 
-  {{-- <option value="all" disabled>Choisissez une ou plusieurs lignes</option> --}}
+  <input id="all_{{ $for }}" class="all form-check-input" type="checkbox" name="all_{{ $for }}" value="">
+
+  <label for="all_{{ $for }}">@lang('form.all'){{ strtolower($intitule) }}</label>
+
+</div>
+
+<select multiple class="multiple form-control" name="{{ $for }}[]" id="{{ $for }}" size={{ $datas->count() }}>
 
   @foreach ($datas as $data)
 

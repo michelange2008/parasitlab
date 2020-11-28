@@ -26,15 +26,31 @@
 
   <div class="card-body">
 
-  @if (!$demande->facturee)
+  @if (!$demande->acheve)
 
     @bouton([
       'type' => 'route',
       'route' => 'demandes.modif',
       'id' => $demande->id,
       'fa' => "fas fa-edit",
-      'intitule' => __('boutons.demandeModif')
+      'intitule' => __('boutons.demandeModif'),
+      'title' => "Modifier les caractéristiques de la demande d'analyse",
     ])
+
+  @endif
+
+  @if ($demande->acheve)
+
+    @bouton([
+      'type' => 'route',
+      'route' => 'exports.demande',
+      'id' => $demande->id,
+      'fa' => "fas fa-table",
+      'couleur' => "btn-success",
+      'intitule' => __('boutons.exporter'),
+      'title' => "Exporter en fichier excel",
+    ])
+
 
   @endif
 

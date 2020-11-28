@@ -9,6 +9,7 @@ use App\Models\Espece;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Resultat;
+use App\Models\Productions\Export;
 use App\Models\Analyses\Anaitem;
 use App\Models\Analyses\Analyse;
 
@@ -44,8 +45,14 @@ class ExportsController extends Controller
     $demandes = Demande::all();
     $especes = Espece::orderBy('nom')->get();
     $anaitems = Anaitem::orderBy('nom')->get();
-    $de = new Carbon(Demande::min('date_prelevement'));
-    $a = new Carbon(Demande::max('date_prelevement'));
+    $de = (new Carbon(Demande::min('date_prelevement')))->toDateString();
+    $a = (new Carbon(max([
+      Demande::max('date_prelevement'),
+      Demande::max('date_reception'),
+      Demande::max('date_resultat'),
+      Demande::max('date_envoi'),
+      Demande::max('date_signature'),
+      ])))->toDateString();
 
     return view('exports.choix', [
       'menu' => $this->menu,
@@ -55,9 +62,33 @@ class ExportsController extends Controller
       'eleveurs' => User::where('usertype_id', $this->userTypeEleveur()->id)->orderBy('name')->get(),
       'vetos' => User::where('usertype_id', $this->userTypeVeto()->id)->orderBy('name')->get(),
       'anaitems' => $anaitems,
-      'de' => $de->toDateString(),
-      'a' => $a->toDateString(),
+      'de' => $de,
+      'a' => $a,
       ]);
+
+    }
+
+    public function demande($demande_id)
+    {
+      $demande = Demande::find($demande_id);
+
+      $prelevements = Prelevement::where('demande_id', $demande_id)->get();
+
+      Export::truncate();
+
+      foreach ($prelevements as $prelevement) {
+
+        $resultats = Resultat::where('prelevement_id', $prelevement->id)->get();
+
+        foreach ($resultats as $resultat) {
+
+          $this->exportFactory($resultat);
+
+        }
+
+        return Excel::download(new ResultatsExport, 'copro.xlsx');
+
+      }
 
     }
 
@@ -74,78 +105,16 @@ class ExportsController extends Controller
 
       $resultats = $this->resultats($datas);
 
+      Export::truncate();
+
       foreach ($resultats as $resultat) {
-        $signes = "";
-        if($resultat->prelevement->signes->count() > 0) {
-          foreach ($resultat->prelevement->signes as $signe) {
-            $signes = $signes." ".__($signe->nom);
-          }
-          dump($resultat->id);
-        }
-        dump(trim($signes));
+        // Crée un objet export et le sauve en base de donnée
+        $this->exportFactory($resultat);
+
       }
-      dd('');
-      foreach ($this->formats as $format) {
-        switch ($datas['format']) {
-          case 'csv':
 
-          $nom_fichier = "export_copro.csv";
+      return Excel::download(new ResultatsExport, 'copro.'.$datas['format']);
 
-          $headers = array(
-          "Content-type"        => "text/csv",
-          "Content-Disposition" => "attachment; filename=$nom_fichier",
-          "Pragma"              => "no-cache",
-          "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
-          "Expires"             => "0"
-          );
-
-          $columns = array("nom", "cp", "commune", "espece", "demande_id", "date_prelevement", "estParasite", "parasite", "résultat");
-
-          $callback = function() use($resultats, $columns) {
-
-            $file = fopen('php://output', 'w');
-            fputcsv($file, $columns);
-
-            foreach ($resultats as $resultat) {
-
-              $row['nom'] = $resultat->prelevement->demande->user->name;
-              $row['cp'] = $this->personne($resultat->prelevement->demande->user->id)->cp;
-              $row['commune'] = $this->personne($resultat->prelevement->demande->user->id)->commune;
-              $row['espece'] = $resultat->prelevement->demande->espece->nom;
-              $row['demande_id'] = $resultat->prelevement->demande->id;
-              $row['date_prelevement'] = $resultat->prelevement->demande->date_prelevement;
-              $row['estParasite'] = $resultat->prelevement->parasite;
-              $row['parasite'] = $resultat->anaitem->nom;
-              $row['résultats'] = $resultat->valeur;
-
-              fputcsv($file, array(
-                $row['nom'],
-                $row['cp'],
-                $row['commune'],
-                $row['espece'],
-                $row['demande_id'],
-                $row['date_prelevement'],
-                $row['estParasite'],
-                $row['parasite'],
-                $row['résultats'],
-              ));
-            }
-
-            fclose($file);
-
-          };
-          return response()->stream($callback, 200, $headers);
-
-            break;
-
-          default:
-
-            return redirect()->route('exports.choix');
-
-            break;
-        }
-
-    }
   }
 
     public function resultats($datas)
@@ -208,46 +177,38 @@ class ExportsController extends Controller
       return $resultats;
     }
 
-    public function exportxlsx($export)
+    public function exportFactory($resultat)
     {
-      dd($export);
-      return Excel::download(new ResultatsExport, 'resultats.xlsx');
-    }
 
-    public function exportcsv($resultats)
-    {
-      $nom_fichier = "export_copro.csv";
+      $export = new Export;
+      $export->resultat_id = $resultat->id;
+      $export->nom = $resultat->prelevement->demande->user->name;
+      $export->cp = $this->personne($resultat->prelevement->demande->user->id)->cp;
+      $export->commune = $this->personne($resultat->prelevement->demande->user->id)->commune;
+      $export->espece = $resultat->prelevement->demande->espece->nom;
+      $export->troupeau = $resultat->prelevement->demande->troupeau->nom;
+      $export->demande_id = $resultat->prelevement->demande->id;
+      $export->resultat_id = $resultat->id;
+      $export->animal_numero = $resultat->prelevement->animal->numero;
+      $export->animal_nom = $resultat->prelevement->animal->nom;
+      $export->date_prelevement = $resultat->prelevement->demande->date_prelevement;
+      $export->date_resultat = $resultat->prelevement->demande->date_resultat;
+      $export->parasite = $resultat->anaitem->nom;
+      $export->valeur = $resultat->valeur;
+      $export->estParasite = $resultat->prelevement->parasite;
 
-      $headers = array(
-      "Content-type"        => "text/csv",
-      "Content-Disposition" => "attachment; filename=$nom_fichier",
-      "Pragma"              => "no-cache",
-      "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
-      "Expires"             => "0"
-      );
-
-      $columns = array("nom", "date_prelevement", "parasite", "résultat");
-
-      $callback = function() use($resultats, $columns) {
-
-        $file = fopen('php://output', 'w');
-        fputcsv($file, $columns);
-
-        foreach ($resultats as $ligne) {
-
-          $row['nom'] = $ligne->prelevement->demande->user->name;
-          $row['date_prelevement'] = $ligne->prelevement->demande->date_prelevement;
-          $row['parasite'] = $ligne->anaitem->nom;
-          $row['résultats'] = $ligne->valeur;
-
-          fputcsv($file, array($row['nom'], $row['date_prelevement'], $row['parasite'], $row['résultats']));
+      $signes = "";
+      if($resultat->prelevement->signes->count() > 0) {
+        foreach ($resultat->prelevement->signes as $signe) {
+          $signes = $signes.",".__($signe->nom);
         }
+      }
+      $export->signes = substr($signes, 1);
 
-        fclose($file);
+      $export->save();
 
-      };
-      return response()->stream($callback, 200, $headers);
     }
+
     /**
     * Requête ajax dans la page choix pour afficher uniquement les parasites d'une espece donnée.
     */

@@ -68,4 +68,6 @@ return array (
   'icones_titre' => "Liste des icones disponibles",
   'icone_create' => "Enregistrer une nouvelle icone",
   'icones_suppr' => "Suppression d'une icone",
+
+  'export_result' => 'Exportation de résultats',
 );

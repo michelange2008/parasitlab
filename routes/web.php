@@ -135,6 +135,8 @@
 
     Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
 
+    Route::get('exports/demande/{demande_id}', 'ExportsController@demande')->name('exports.demande');
+
     Route::get('exports/anaitemsFromEspece/{especes}', 'ExportsController@anaitemsFromEspece')->name('exports.anaitemsFromEspece');
 
     Route::post('exports/comptage','ExportsController@comptage' )->name('exports.comptage');
@@ -142,8 +144,6 @@
     Route::post('exports/export','ExportsController@export' )->name('exports.export');
 
     Route::get('exports/resultats', 'ExportsController@resultats')->name('exports.resultat');
-
-    Route::get('exports/csv/{export}', 'ExportsController@exportcsv')->name('exports.exportcsv');
 
   });
 

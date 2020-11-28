@@ -14,7 +14,7 @@
 
       <div class="col-md-10 offset-md-1">
 
-        @titre(['titre' => 'Exportation de résultats', 'icone' => 'export.svg'])
+        @titre(['titre' => __('titres.export_result'), 'icone' => 'export.svg'])
 
       </div>
 
@@ -31,13 +31,13 @@
 
           <div class="form-group">
 
-            <label for="format">Format de fichier à l'export</label>
+            <label for="format">@lang('form.format_export')</label>
 
             <select idea="format" class="form-control" name="format">
 
               @foreach ($formats as $format)
 
-                <option value="{{ $format->id }}">{{ $format->nom }}</option>
+                <option value="{{ $format->extension }}">{{ $format->nom }}</option>
 
               @endforeach
 
@@ -51,7 +51,7 @@
 
           <div class="form-group">
 
-            <label for="de">Depuis</label>
+            <label for="de">@lang('form.from')</label>
 
             <input class="form-control" type="date" name="de" value="{{ $de }}" min="{{ $de }}" max="{{ $a }}">
 
@@ -63,7 +63,7 @@
 
           <div class="form-group">
 
-            <label for="a">Jusqu'à</label>
+            <label for="a">@lang('form.to')</label>
 
             <input class="form-control" type="date" name="a" value="{{ $a }}" min="{{ $de }}" max="{{ $a }}">
 
@@ -138,7 +138,7 @@
 
         <div class="col-md-5 offset-md-1">
 
-          @enregistreAnnule(['nomBouton' => "Exporter", 'fa' => 'fas fa-file-export'])
+          @enregistreAnnule(['nomBouton' => "Exporter", 'fa' => 'fas fa-file-export', 'route' => route('laboratoire')])
 
         </div>
 
