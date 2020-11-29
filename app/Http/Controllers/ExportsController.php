@@ -143,20 +143,59 @@ class ExportsController extends Controller
 
         $liste_especes = $datas['especes'];
       }
-
+      // J'AVAIS TROUVE UN SUPER SYSTEME POUR TOUT FAIRE EN UNE LIGNE MAIS CA MARCHE PAS CHEZ OVH !
+      // TODO: A AMELIORER 
       // $demandes = Demande::select('id')->where('user_id', 'like', $datas['eleveur'])
       // ->where('tovetouser_id', 'like', $datas['veto'])
       // ->whereIn('espece_id', $liste_especes)
       // ->where('date_prelevement', '>=', $datas['de'])
       // ->where('date_prelevement', '<=', $datas['a'])
       // ->get();
-      $demandes = Demande::select('id')
-      ->where('tovetouser_id', 'like', $datas['veto'])
-      ->whereIn('espece_id', $liste_especes)
-      ->where('date_prelevement', '>=', $datas['de'])
-      ->where('date_prelevement', '<=', $datas['a'])
-      ->get();
-      dd($demandes);
+      if($datas['eleveur'] == "%"){
+
+        if($datas['veto']== "%") {
+
+          $demandes = Demande::select('id')
+          ->whereIn('espece_id', $liste_especes)
+          ->where('date_prelevement', '>=', $datas['de'])
+          ->where('date_prelevement', '<=', $datas['a'])
+          ->get();
+
+        } else {
+
+          $demandes = Demande::select('id')
+          ->where('tovetouser_id', $datas['veto'])
+          ->whereIn('espece_id', $liste_especes)
+          ->where('date_prelevement', '>=', $datas['de'])
+          ->where('date_prelevement', '<=', $datas['a'])
+          ->get();
+
+        }
+
+      } else {
+
+        if($datas['veto'] == "%") {
+
+          $demandes = Demande::select('id')
+          ->where('user_id', $datas['eleveur'])
+          ->whereIn('espece_id', $liste_especes)
+          ->where('date_prelevement', '>=', $datas['de'])
+          ->where('date_prelevement', '<=', $datas['a'])
+          ->get();
+
+        } else {
+
+          $demandes = Demande::select('id')
+          ->where('tovetouser_id', $datas['veto'])
+          ->where('user_id', $datas['eleveur'])
+          ->whereIn('espece_id', $liste_especes)
+          ->where('date_prelevement', '>=', $datas['de'])
+          ->where('date_prelevement', '<=', $datas['a'])
+          ->get();
+
+        }
+      }
+
       $prelevements = collect();
 
       foreach ($demandes as $demande) {
