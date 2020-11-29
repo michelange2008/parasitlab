@@ -151,6 +151,7 @@ class ExportsController extends Controller
       ->where('date_prelevement', '<=', $datas['a'])
       ->get();
 
+      dd($demandes);
       $prelevements = collect();
 
       foreach ($demandes as $demande) {
@@ -182,7 +183,6 @@ class ExportsController extends Controller
         ->get();
         $resultats = $resultats->concat($resultats_par_prelevement);
       }
-dd($prelevements);
       return $resultats;
     }
 
