@@ -144,14 +144,19 @@ class ExportsController extends Controller
         $liste_especes = $datas['especes'];
       }
 
+      // $demandes = Demande::select('id')->where('user_id', 'like', $datas['eleveur'])
+      // ->where('tovetouser_id', 'like', $datas['veto'])
+      // ->whereIn('espece_id', $liste_especes)
+      // ->where('date_prelevement', '>=', $datas['de'])
+      // ->where('date_prelevement', '<=', $datas['a'])
+      // ->get();
       $demandes = Demande::select('id')->where('user_id', 'like', $datas['eleveur'])
       ->where('tovetouser_id', 'like', $datas['veto'])
       ->whereIn('espece_id', $liste_especes)
       ->where('date_prelevement', '>=', $datas['de'])
       ->where('date_prelevement', '<=', $datas['a'])
       ->get();
-
-      dd($datas);
+      dd($demandes);
       $prelevements = collect();
 
       foreach ($demandes as $demande) {
