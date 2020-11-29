@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="100px"
+   width="100px"
+   fill="#000000"
+   data-name="Layer 1"
+   viewBox="0 0 100 100"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg16"
+   sodipodi:docname="saisie_cloturee.svg"
+   inkscape:version="1.0.1 (1.0.1+r74)">
+  <g
+     id="g851">
+    <g
+       id="g8"
+       transform="matrix(1.1188004,0,0,1.1188004,-3.7024179,-1.8788459)">
+      <g
+         id="g853"
+         style="fill:#0a425a;fill-opacity:1">
+        <g
+           id="g847"
+           style="fill:#0a425a;fill-opacity:1">
+          <path
+             d="M 20.162,41.749 V 87.5 H 75.838 L 75.837,41.749 Z M 48,74 c -5.169,0 -9.375,-4.206 -9.375,-9.375 0,-5.169 4.206,-9.375 9.375,-9.375 5.169,0 9.375,4.206 9.375,9.375 C 57.375,69.794 53.169,74 48,74 Z"
+             id="path2"
+             style="fill:#0a425a;fill-opacity:1" />
+          <path
+             d="M 61.149,13.955 C 57.633,10.438 52.963,8.5 48.001,8.5 37.742,8.5 29.397,16.847 29.397,27.105 v 14.907385 h 7.44 V 27.105 c 0,-6.156 5.008,-11.164 11.164,-11.164 6.155,0 11.163,5.008 11.163,11.164 v 15.120703 h 7.439 V 27.105 c 0.001,-4.961 -1.936,-9.631 -5.454,-13.15 z"
+             id="path4"
+             sodipodi:nodetypes="sssccssscccs"
+             style="fill:#0a425a;fill-opacity:1" />
+        </g>
+        <path
+           d="M 55.375,64.625 C 55.375,68.691 52.066,72 48,72 c -4.066,0 -7.375,-3.309 -7.375,-7.375 0,-4.066 3.309,-7.375 7.375,-7.375 4.066,0 7.375,3.309 7.375,7.375 z m -10.25,-1 c -0.552,0 -1,0.448 -1,1 0,0.552 0.448,1 1,1 h 6.25 c 0.552,0 1,-0.448 1,-1 0,-0.552 -0.448,-1 -1,-1 z"
+           id="path6"
+           style="fill:#000000;fill-opacity:0" />
+      </g>
+    </g>
+    <path
+       d="m 58.336956,70.584376 c 0,-4.551612 -3.704203,-8.255815 -8.255815,-8.255815 -4.551613,0 -8.255816,3.704203 -8.255816,8.255815 0,4.551613 3.704203,8.255816 8.255816,8.255816 4.551612,0 8.255815,-3.704203 8.255815,-8.255816 z m -11.474184,1.119433 c -0.617927,0 -1.119433,-0.501506 -1.119433,-1.119433 0,-0.617926 0.501506,-1.119432 1.119433,-1.119432 h 6.996454 c 0.617926,0 1.119432,0.501506 1.119432,1.119432 0,0.617927 -0.501506,1.119433 -1.119432,1.119433 z"
+       id="path6-3"
+       style="fill:#aa0000;fill-opacity:1;stroke-width:1.11943" />
+  </g>
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Untitled-2-24</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="18.88"
+     inkscape:cx="50.039083"
+     inkscape:cy="88.69778"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16"
+     inkscape:document-rotation="0"
+     inkscape:snap-global="false" />
+  <title
+     id="title2">Untitled-2-24</title>
+</svg>
