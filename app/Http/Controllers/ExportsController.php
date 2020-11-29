@@ -95,7 +95,9 @@ class ExportsController extends Controller
       return Excel::download(new ResultatsExport, 'copro.xlsx');
 
     }
-
+    /**
+    * Renvoie le nombre d'enregistrement en fonction des critères: especes, parasites, éleveur, veterinaire, dates
+    */
     public function comptage(Request $request)
     {
       $resultats = $this->resultats($request->all());
@@ -121,6 +123,9 @@ class ExportsController extends Controller
 
   }
 
+  /**
+  * Fait la requete pour connnaitres les enregistrements correspondant aux critères
+  */
     public function resultats($datas)
     {
       // Si on choisit toutes les especes, il faut aller chercher la totalité de id
@@ -177,7 +182,7 @@ class ExportsController extends Controller
         ->get();
         $resultats = $resultats->concat($resultats_par_prelevement);
       }
-
+dd($resultats);
       return $resultats;
     }
 
