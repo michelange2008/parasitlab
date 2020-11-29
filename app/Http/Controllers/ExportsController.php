@@ -76,19 +76,23 @@ class ExportsController extends Controller
 
       Export::truncate();
 
+      $liste_resultats = collect();
+
       foreach ($prelevements as $prelevement) {
 
         $resultats = Resultat::where('prelevement_id', $prelevement->id)->get();
 
-        foreach ($resultats as $resultat) {
-
-          $this->exportFactory($resultat);
-
-        }
-
-        return Excel::download(new ResultatsExport, 'copro.xlsx');
+        $liste_resultats = $liste_resultats->concat($resultats);
 
       }
+
+      foreach ($liste_resultats as $resultat) {
+
+        $this->exportFactory($resultat);
+
+      }
+
+      return Excel::download(new ResultatsExport, 'copro.xlsx');
 
     }
 
@@ -181,7 +185,7 @@ class ExportsController extends Controller
     {
 
       $export = new Export;
-      $export->resultat_id = $resultat->id;
+
       $export->nom = $resultat->prelevement->demande->user->name;
       $export->cp = $this->personne($resultat->prelevement->demande->user->id)->cp;
       $export->commune = $this->personne($resultat->prelevement->demande->user->id)->commune;
