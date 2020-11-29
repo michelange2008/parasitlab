@@ -151,7 +151,7 @@ class ExportsController extends Controller
       ->where('date_prelevement', '<=', $datas['a'])
       ->get();
 
-      dd($demandes);
+      dd($datas);
       $prelevements = collect();
 
       foreach ($demandes as $demande) {
