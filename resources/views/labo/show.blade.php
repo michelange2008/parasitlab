@@ -62,7 +62,7 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR: SOIT UNE DEMANDE SIMPLE SOIT UNE SER
 
         <hr class="divider">
 
-        @retour(['route' => 'laboratoire'])
+        @retour(['route' => route('laboratoire')])
 
       </div>
 

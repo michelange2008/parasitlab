@@ -35,7 +35,7 @@ use App\Models\Productions\Signe;
 class DemandeController extends Controller
 {
     use LitJson, EleveurInfos, DemandeFactory, UserTypeOutil, FactureFactory, SerieManager;
-    
+
     protected $menu;
     /**
     * Display a listing of the resource.
@@ -252,7 +252,7 @@ class DemandeController extends Controller
       $demande->tovetouser_id = ($datas['tovetouser_id'] == 0) ? null : $datas['tovetouser_id'];
       $demande->userfact_id = $datas['destinataireFacture'];
       $demande->informations = $datas['informations'];
-
+      $demande->nb_prelevement = $datas['nb_prelevement'];
       // dd($demande);
       $demande->save();
 

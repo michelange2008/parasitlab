@@ -1,0 +1,29 @@
+{
+  "csv" :
+  {
+    "extension" : "csv",
+    "nom" : "Fichier .csv (Toutes applications)",
+    "type" : "CSV"
+  },
+
+  "ods" :
+  {
+    "extension" : "ods",
+    "nom" : "Fichier .ods (LibreOffice Calc)",
+    "type" : "ODS"
+  },
+
+  "xlsx" :
+  {
+    "extension" : "xlsx",
+    "nom" : "Fichier .xlsx (Microsoft excel 2007-2020)",
+    "type" : "XLSX"
+  },
+
+  "xls" :
+  {
+    "extension" : "xls",
+    "nom" : "Fichier .xls (Microsoft excel 95-2003)",
+    "type" : "XLS"
+  }
+}

@@ -102,6 +102,7 @@ return array (
   'change' => 'Changer',
   'browse' => 'Ouvrir',
   "demande_serie" => 'Cette demande d\'analyse fait partie d\'un pack qui compte 3 séries de prélèvement',
+  'q_observation' => 'Avez-vous observé&nbsp;:',
 
   'abbr' => 'Abbréviation',
   'choisir' => "Choisir ...",
@@ -172,4 +173,9 @@ return array (
   'animal_exist' => "Animal déjà présent dans le troupeau",
   'add_user' => 'ajout d\'un utilisateur',
   'create_user' => 'Création d\'un nouvel utilisateur',
+
+  'format_export' => 'Format de fichier à l\'export',
+  'from' => 'Depuis',
+  'to' => 'Jusqu\'à',
+  'all' => 'Toute la liste des ',
 );

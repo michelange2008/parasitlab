@@ -28,7 +28,7 @@
 
         @boutonUser(['route' => 'exclusionsAnaacte.create', 'intitule' => 'add_exclusion', 'fa' => 'fas fa-plus-square'])
 
-        @retour(['route' => 'algorithme.index', 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
+        @retour(['route' => retour('algorithme.index'), 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
 
       </div>
 
@@ -193,7 +193,7 @@
 
         @boutonUser(['route' => 'exclusionsAnaacte.create', 'intitule' => 'add_exclusion', 'fa' => 'fas fa-plus-square'])
 
-        @retour(['route' => 'algorithme.index', 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
+        @retour(['route' => retour('algorithme.index'), 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
 
       </div>
 

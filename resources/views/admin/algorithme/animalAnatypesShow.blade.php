@@ -39,7 +39,7 @@
 
             @enregistreAnnule(['route' => route('especesAlgo.index')])
 
-            @retour(['route' => 'algorithme.index', 'fa' => 'fas fa-project-diagram', 'intitule' => 'algo_graph'])
+            @retour(['route' => route('algorithme.index'), 'fa' => 'fas fa-project-diagram', 'intitule' => 'algo_graph'])
 
           </div>
 

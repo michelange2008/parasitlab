@@ -52,7 +52,7 @@
 
         <div class="my-3 text-right">
 
-          @retour(['route' => 'factures.index'])
+          @retour(['route' => route('factures.index')])
 
         </div>
 

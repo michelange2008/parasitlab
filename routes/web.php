@@ -133,6 +133,18 @@
 
     Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@routeurResultatsPdf', 'as' => 'routeurResultatsPdf']);
 
+    Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
+
+    Route::get('exports/demande/{demande_id}', 'ExportsController@demande')->name('exports.demande');
+
+    Route::get('exports/anaitemsFromEspece/{especes}', 'ExportsController@anaitemsFromEspece')->name('exports.anaitemsFromEspece');
+
+    Route::post('exports/comptage','ExportsController@comptage' )->name('exports.comptage');
+
+    Route::post('exports/export','ExportsController@export' )->name('exports.export');
+
+    Route::get('exports/resultats', 'ExportsController@resultats')->name('exports.resultat');
+
   });
 
   // ROUTES INTERNES AU LABORATOIRE
@@ -158,7 +170,11 @@
 
     route::resource('prelevement', 'Labo\PrelevementController');
 
+    route::get('prelevement/createOne/{demande_id}/{rang}', 'Labo\PrelevementController@createOne')->name('prelevement.createOne');
+
     route::get('prelevement/createOnDemande/{demande_id}', 'Labo\PrelevementController@createOnDemande')->name('prelevement.createOnDemande');
+
+    route::post('prelevement/storeOne', 'Labo\PrelevementController@storeOne')->name('storeOne');
 
     route::post('prelevement/storeOnDemande', 'Labo\PrelevementController@storeOnDemande')->name('storeOnDemande');
 

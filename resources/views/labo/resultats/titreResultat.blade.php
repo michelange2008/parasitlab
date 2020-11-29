@@ -1,30 +1,51 @@
 
+
 <div class="card-header alert-bleu-tres-fonce d-flex justify-content-between">
 
-{{-- Titre du prélèvement avec le numéro et le nom de l'animal --}}
-  <h5 class="">{{ ucfirst($prelevement->identification) ?? '' }} {{ ucfirst($prelevement->animal->numero ?? '') }}</h5>
+  {{-- Titre du prélèvement avec le numéro et le nom de l'animal --}}
+  <h5 class="">{{ ucfirst($titre ?? '') }} {{ ucfirst($soustitre ?? '') }}</h5>
 
-{{-- Boutons de modification et suppression du prélèvement si analyse non signée--}}
-@if (!$prelevement->demande->signe)
+  {{-- Boutons de modification et suppression du prélèvement si analyse non signée--}}
+  @if (!$prelevement->demande->signe) {{-- si la demande de prélèvement n'a pas été signée, possibilité de modifier les prélèvements --}}
 
-  <div class="d-flex">
+    <div class="d-flex">
 
-    <a class="mr-3"  href="{{ route('prelevement.edit', $prelevement->id) }}">
+      @isset ($nouveau) {{-- si c'est un prélèvement non renseigné, affichage d'un bouton + --}}
 
-      <i class="fas fa-edit text-success"></i>
+        @if($nouveau)
+          
+          <a class="mr-3"  href="{{ route('prelevement.createOne', [$prelevement->demande->id, $rang]) }}">
 
-    </a>
+            <i class="fas fa-plus-square text-warning"></i>
 
+          </a>
 
-    <a class="mr-3"  href="{{ route('prelevement.prelevdel', $prelevement->id) }}">
+          <a class="mr-3"  href="{{ route('prelevement.prelevdel', $prelevement->id) }}">
 
-      <i class="fas fa-trash-alt text-danger"></i>
+            <i class="fas fa-trash-alt text-danger"></i>
 
-    </a>
+          </a>
 
+        @else {{-- sinon affichage d'un bouton edit --}}
+
+          <a class="mr-3"  href="{{ route('prelevement.edit', $prelevement->id) }}">
+
+            <i class="fas fa-edit text-success"></i>
+
+          </a>
+
+          <a class="mr-3"  href="{{ route('prelevement.prelevdel', $prelevement->id) }}">
+
+            <i class="fas fa-trash-alt text-danger"></i>
+
+          </a>
+
+        @endif
+
+      @endisset
+
+    </div>
 
   </div>
-
-</div>
 
 @endif

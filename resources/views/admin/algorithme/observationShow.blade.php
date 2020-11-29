@@ -118,7 +118,7 @@
 
       <div class="mx-auto col-md-11 col-lg-10 col-xl-9">
 
-        @retour(['route' => 'observations.index'])
+        @retour(['route' => route('observations.index')])
 
       </div>
 

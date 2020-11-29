@@ -25,6 +25,7 @@ return array (
 
   'nouvelle_demande' => "Nouvelle demande d'analyse",
   'saisie_prelevements' => "Saisie des prélèvements",
+  'saisie_un_prelevement' => "Renseignement des information pour un prélèvement",
   'edit_prelevement' => 'Modification d\'un prélèvement',
   'demandes_analyses' => 'Liste des demandes d\'analyse',
   'list_anaactes' => 'Liste des analyses proposées',
@@ -67,4 +68,6 @@ return array (
   'icones_titre' => "Liste des icones disponibles",
   'icone_create' => "Enregistrer une nouvelle icone",
   'icones_suppr' => "Suppression d'une icone",
+
+  'export_result' => 'Exportation de résultats',
 );

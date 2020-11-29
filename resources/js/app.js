@@ -14,7 +14,7 @@ require( './enpratique.js');
 require( './blog.js');
 require( './telFormulaire.js');
 require( './algo.js');
-
+require( './exports.js');
 require( 'jquery-confirm' );
 
 $(function() {

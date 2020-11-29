@@ -33,6 +33,26 @@
 
     </div>
 
+    <div class="row my-3">
+
+      <div class="col-md-auto offset-md-2">
+
+        @bouton([
+          'type' => 'route',
+          'route' => 'prelevement.createOne',
+          'id' => [$demande->id, 1],
+          'intitule' => 'boutons.add_one_prel',
+          'fa' => "fas fa-plus-square"
+        ])
+
+        @retour([
+          'route' => route('demandes.show', $demande->id),
+        ])
+
+      </div>
+
+    </div>
+
     <form action="{{ route('resultats.store')}}" method="post">
       @csrf
 
@@ -63,7 +83,11 @@
 
             <div class="card">
 
-              @include('labo.resultats.titreResultat')
+              @include('labo.resultats.titreResultat', [
+                'nouveau' => false,
+                'titre' => $prelevement->identification,
+                'soustitre' => $prelevement->animal->numero,
+              ])
 
               <div class="card-body">
 
@@ -72,9 +96,9 @@
                   <thead>
 
                     <tr>
-                       <th>@lang('form.parasite')</th>
-                       <th>@lang('form.qtt')</th>
-                       <th>@lang('form.unit')</th>
+                      <th>@lang('form.parasite')</th>
+                      <th>@lang('form.qtt')</th>
+                      <th>@lang('form.unit')</th>
                     </tr>
                   </thead>
 
@@ -111,29 +135,56 @@
 
         </div>
 
-        @endforeach
+      @endforeach
 
-        <div class="row justify-content-center">
+      {{-- Prélèvement non encore renséignés --}}
+      @if ($demande->nb_prelevement > $prelevements->count())
 
-          <div class="col-md-10 col-lg-8">
+        @for ($nb_prelevement = $prelevements->count() + 1; $nb_prelevement <= $demande->nb_prelevement; $nb_prelevement++)
 
-            @include('labo.resultats.inputCommentaire')
+          <div class="row">
+
+            <div class="col-md-8 offset-md-2 my-1">
+
+              @include('labo.resultats.titreResultat', [
+                'nouveau' => true,
+                'titre' => 'Prélèvement n° '.$nb_prelevement,
+                'soustitre' => 'Informations non renseignées',
+                'rang' => $nb_prelevement,
+              ])
+
+            </div>
 
           </div>
+        @endfor
+
+      @endif
+
+      <div class="row justify-content-center">
+
+        <div class="col-md-10 col-lg-8">
+
+          @include('labo.resultats.inputCommentaire')
 
         </div>
 
-        <div class="row justify-content-center">
+      </div>
 
-          <div class="col-md-10 col-lg-8">
+      <div class="row justify-content-center">
 
-            @enregistreAnnule(['id' => $prelevement->demande->id, "route" => route('demandes.show',$prelevement->demande->id) ])
+        <div class="col-md-10 col-lg-8">
 
-          </div>
+          @enregistreAnnule([
+            'id' => $prelevement->demande->id,
+            "route" => route('demandes.show',$prelevement->demande->id),
+            'nomAnnule' => __('boutons.retour')
+           ])
 
         </div>
 
-      </form>
+      </div>
+
+    </form>
 
   </div>
 

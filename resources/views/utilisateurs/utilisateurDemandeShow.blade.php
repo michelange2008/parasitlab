@@ -46,7 +46,7 @@
 
       <div class="col-md-11 text-center">
 
-        @retour(['route' => 'routeurPersonnel'])
+        @retour(['route' => route('routeurPersonnel')])
 
       </div>
 

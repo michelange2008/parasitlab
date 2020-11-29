@@ -50,11 +50,30 @@
 
         <div class="col-md-4 offset-md-1">
 
-          <p class="lead pl-3 bg-bleu-tres-fonce text-white">@lang('form.dates')</p>
+          <div class="row">
 
-          @include('labo.demandeForm.inputDates')
+            <div class="col-md-12">
+
+              <p class="lead pl-3 bg-bleu-tres-fonce text-white">@lang('form.dates')</p>
+
+              @include('labo.demandeForm.inputDates')
+
+            </div>
+
+            <div class="col-md-12">
+
+              <p class="lead pl-3 bg-bleu-tres-fonce text-white">@lang('form.nb_prelevement')</p>
+
+              <input id="n_bPrelevement" class="form-control" type="number" name="nb_prelevement" value="{{ $demande->nb_prelevement }}" min="{{ $demande->nb_prelevement}}">
+
+
+            </div>
+
+
+          </div>
 
         </div>
+
 
         <div class="col-md-5 offset-md-1">
 
