@@ -49,6 +49,8 @@ return array (
   'add_prel' => 'Saisir les prélèvements',
   'add_one_prel' => 'Ajouter un prélèvement',
   'saisie_modif_result' => "Saisir ou modifier les résultats",
+  'saisie_a_cloturer' => 'Cloturer la saisie',
+  'saisie_cloturee' => 'Saisie cloturée',
   'demandeModif' => "Modifier",
   'exporter' => "Exporter",
 );

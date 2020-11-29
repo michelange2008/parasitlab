@@ -40,4 +40,5 @@ return array (
   'typeprod_edit' => "Le type de production a été modifié",
   'prelev_edit' => ' Le prélèvement a été modifié',
   'prelev_del' => 'Le prélèvement a été supprimé',
+  'resultats_clotures' => 'Cette demande d\'analyse a été cloturée',
 );

@@ -60,7 +60,7 @@
 
       <div class="row justify-content-center my-3">
 
-        <div class="col-md-10 col-lg-8">
+        {{-- <div class="col-md-10 col-lg-8">
 
           <div class="form-check">
 
@@ -71,7 +71,7 @@
 
           </div>
 
-        </div>
+        </div> --}}
 
       </div>
 
@@ -84,9 +84,9 @@
             <div class="card">
 
               @include('labo.resultats.titreResultat', [
-                'nouveau' => false,
-                'titre' => $prelevement->identification,
-                'soustitre' => $prelevement->animal->numero,
+              'nouveau' => false,
+              'titre' => $prelevement->identification,
+              'soustitre' => $prelevement->animal->numero,
               ])
 
               <div class="card-body">
@@ -132,33 +132,19 @@
 
           </div>
 
-
         </div>
 
       @endforeach
 
-      {{-- Prélèvement non encore renséignés --}}
-      @if ($demande->nb_prelevement > $prelevements->count())
+      <div class="row mb-3 justify-content-center">
 
-        @for ($nb_prelevement = $prelevements->count() + 1; $nb_prelevement <= $demande->nb_prelevement; $nb_prelevement++)
+        <div class="col-md-10 col-lg-8">
 
-          <div class="row">
+          @include('labo.prelevements.prelevementNonRenseigne')
 
-            <div class="col-md-8 offset-md-2 my-1">
+        </div>
 
-              @include('labo.resultats.titreResultat', [
-                'nouveau' => true,
-                'titre' => 'Prélèvement n° '.$nb_prelevement,
-                'soustitre' => 'Informations non renseignées',
-                'rang' => $nb_prelevement,
-              ])
-
-            </div>
-
-          </div>
-        @endfor
-
-      @endif
+      </div>
 
       <div class="row justify-content-center">
 
@@ -175,10 +161,10 @@
         <div class="col-md-10 col-lg-8">
 
           @enregistreAnnule([
-            'id' => $prelevement->demande->id,
-            "route" => route('demandes.show',$prelevement->demande->id),
-            'nomAnnule' => __('boutons.retour')
-           ])
+          'id' => $prelevement->demande->id,
+          "route" => route('demandes.show',$prelevement->demande->id),
+          'nomAnnule' => __('boutons.retour')
+          ])
 
         </div>
 

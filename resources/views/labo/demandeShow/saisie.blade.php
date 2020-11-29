@@ -1,6 +1,6 @@
 @if ($demande->acheve)
 
-  <a id="acheve_non_signe" class="icone-cadre mx-3" href="{{ route('resultats.edit', $demande->id )}}">
+  <a id="acheve_non_signe" class="mx-3" href="{{ route('resultats.edit', $demande->id )}}">
 
     <img class="img-40 d-block"
     src="{{ url('storage/img/icones/saisie_faite.svg')}}"
@@ -9,7 +9,7 @@
 
   </a>
 
-  <div id = "acheve_signe" class="icone-cadre mx-3" href="{{ route('resultats.edit', $demande->id )}}">
+  <div id = "acheve_signe" class="mx-3" href="{{ route('resultats.edit', $demande->id )}}">
 
     <img class="img-40 d-block"
     src="{{ url('storage/img/icones/saisie_faite_signee.svg')}}"
@@ -20,7 +20,7 @@
 
 @else
 
-  <a id = "non_acheve" class="icone-cadre mx-3" href="{{ route('resultats.edit', $demande->id )}}">
+  <a id = "non_acheve" class="mx-3" href="{{ route('resultats.edit', $demande->id )}}">
 
     <img class="img-40 d-block"
     src="{{ url('storage/img/icones/saisie_non_faite.svg')}}"

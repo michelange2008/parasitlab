@@ -57,25 +57,6 @@ class ResultatController extends Controller
 
       $datas = $request->all();
 
-      // ON RECUPERE L'ID DE LA DEMANDE POUR LA MARQUER ACHEVE OU NON
-      if (isset($datas['demande_id'])) {
-
-        $demande_id = $datas['demande_id'];
-
-      }
-      // SI IL Y A UN INDEX ACHEVE C'EST QUE LE SWITCH EST SUR ON - ON MET A JOUR LA DEMANDE
-      if(isset($datas['acheve'])) {
-
-        DB::table('demandes')->where('id', $demande_id)->update(['acheve' => true, 'date_resultat' => date("Y-m-d H:i:s")]);
-
-      }
-      // SINON C'EST QU'IL EST SUR OFF - ON MET A JOUR LA DEMANDE
-      else {
-
-        DB::table('demandes')->where('id', $demande_id)->update(['acheve' => false]);
-
-      }
-
       // ON PASSE EN REVUE LA VARIABLE DATAS POUR EN EXTRAIRE TOUTES LES VALEURS SAISIES
       foreach ($datas as $intitule => $valeur) {
         // ON EXPLODE CAR LES VALEURS SONT SOUS LA FORME resultat_id du prélèvement__id_de l'anaitem (ex: resultat_2_4)
@@ -114,7 +95,17 @@ class ResultatController extends Controller
 
       }
 
-      return redirect()->route('demandes.show', $demande_id);
+      return redirect()->route('demandes.show', $datas['demande_id']);
+
+    }
+
+    // Cloture d'une saisie de résultats quand elle est achevée (bouton cloture dans demandeShow)
+    public function cloture($demande_id)
+    {
+
+        DB::table('demandes')->where('id', $demande_id)->update(['acheve' => true, 'date_resultat' => date("Y-m-d H:i:s")]);
+
+        return redirect()->back()->with('message', 'resultats_clotures');
 
     }
 }

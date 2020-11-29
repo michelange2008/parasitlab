@@ -3,6 +3,7 @@
   @include('labo.resultats.titreResultat', [
     'titre' => $prelevement->animal->nom,
     'soustitre' => $prelevement->animal->numero,
+    'nouveau' => false,
   ])
 
   <tbody>
