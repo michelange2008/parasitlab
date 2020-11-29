@@ -17,11 +17,11 @@
    enable-background="new 0 0 100 100"
    xml:space="preserve"
    id="svg16"
-   sodipodi:docname="veto-rond.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
+   sodipodi:docname="veto_rond.svg"
+   inkscape:version="1.0.1 (1.0.1+r74)"><metadata
      id="metadata22"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></metadata><defs
      id="defs20" /><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -41,7 +41,8 @@
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg16" /><circle
+     inkscape:current-layer="svg16"
+     inkscape:document-rotation="0" /><circle
      style="fill:#b3b3b3;fill-opacity:0.94117647;stroke-width:0.99999994"
      id="path815"
      cx="50"
@@ -49,7 +50,7 @@
      r="50.002552" /><g
      id="g825"
      style="fill:#0a425a;fill-opacity:1"
-     transform="matrix(0.81540669,0,0,0.81540669,9.2296655,9.2292578)"><path
+     transform="matrix(0.84479113,0,0,0.84479113,7.7604433,7.7600209)"><path
        style="fill:#0a425a;fill-opacity:1"
        id="path2"
        d="m 47.903,16.65 0.569,30.712 c 0.979,-0.304 2.012,-0.549 3.07,-0.759 L 52.097,16.65 c 1.292,-0.734 2.173,-2.106 2.173,-3.698 0,-2.358 -1.911,-4.27 -4.27,-4.27 -2.359,0 -4.27,1.912 -4.27,4.27 0,1.592 0.881,2.964 2.173,3.698 z"
