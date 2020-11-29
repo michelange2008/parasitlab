@@ -182,7 +182,7 @@ class ExportsController extends Controller
         ->get();
         $resultats = $resultats->concat($resultats_par_prelevement);
       }
-dd($resultats);
+dd($prelevements);
       return $resultats;
     }
 
