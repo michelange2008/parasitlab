@@ -150,8 +150,7 @@ class ExportsController extends Controller
       // ->where('date_prelevement', '>=', $datas['de'])
       // ->where('date_prelevement', '<=', $datas['a'])
       // ->get();
-      $demandes = Demande::select('id')->where('user_id', 'like', $datas['eleveur'])
-      ->where('tovetouser_id', 'like', $datas['veto'])
+      $demandes = Demande::select('id')
       ->whereIn('espece_id', $liste_especes)
       ->where('date_prelevement', '>=', $datas['de'])
       ->where('date_prelevement', '<=', $datas['a'])
