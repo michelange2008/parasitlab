@@ -59,28 +59,7 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
 
         @else
 
-          <div id="demande" class="card" acheve="{{ $demande->acheve }}" signe="{{ $demande->signe }}" envoye="{{ $demande->envoye }}" >
-
-            <div class="card-header">
-
-              <div class="btn-group" role="group" aria-label="modif-signature-envoi">
-
-
-                @include('labo.demandeShow.saisie')
-
-                @include('labo.demandeShow.clotureSaisie')
-
-                @if ($demande->acheve)
-
-                  @include('labo.demandeShow.signature')
-
-                  @include('labo.demandeShow.envoi')
-
-                @endif
-
-              </div>
-
-            </div>
+          @include('labo.demandeShow.boutonsSaisie')
 
             <div class="card-body">
 

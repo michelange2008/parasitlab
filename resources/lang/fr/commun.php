@@ -31,4 +31,5 @@ return array (
 
   'terminee' => 'terminée',
   'analyse' => 'analyse',
+  'prelev_n' => 'prélèvement n°',
 );

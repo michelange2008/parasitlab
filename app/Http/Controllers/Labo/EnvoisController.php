@@ -80,7 +80,6 @@ class EnvoisController
         $this->envoie($veto->user->email, $demande);
       }
 
-
     }
 
     public function envoie($email, $demande)

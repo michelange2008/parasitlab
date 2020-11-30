@@ -5,6 +5,7 @@ return array (
   'date_reception' => 'Reçue le',
   'date_faite' => 'Date',
   'date_payee' => 'Date paiement',
+  'date_signature' => 'Date de signature',
   'date_envoi' => 'Date d\'envoi',
   'date_resultat' => "Date des résultats",
   'nom_client' => 'Nom du client',

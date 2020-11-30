@@ -16,7 +16,7 @@ $('.a-envoyer').on('click', function() {
   else {
     alertProblem()
   }
-console.log(type);
+
   $.confirm({
     theme : 'dark',
     type : 'green',
@@ -37,26 +37,9 @@ console.log(type);
           })
           .done(function(data) {
             $('#envoi-spinner').hide();
-            $.confirm({
-              theme : 'dark',
-              type : 'green',
-              typeAnimated: 'true',
-              title: "C'est fait !",
-              content : "Le mail est bien parti.",
-              buttons : {
-                ok : {
-                  text : 'ok',
-                  keys : ['enter', 'escape'],
-                }
-              }
-            });
-            $('#a-envoyer').hide();
-            $('#envoye').fadeIn();
+            location.reload();
           })
           .fail(function(data) {
-            $('#envoi-spinner').hide();
-            $('#envoye').hide();
-            $('#a-envoyer').show();
             alertProblem();
           });
 

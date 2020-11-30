@@ -60,19 +60,6 @@
 
       <div class="row justify-content-center my-3">
 
-        {{-- <div class="col-md-10 col-lg-8">
-
-          <div class="form-check">
-
-            <div class="custom-control custom-checkbox">
-              <input class="custom-control-input" type="checkbox" name="acheve" id="acheve" checked>
-              <label class="custom-control-label" for="acheve">@lang('form.estFinie')</label>
-            </div>
-
-          </div>
-
-        </div> --}}
-
       </div>
 
       @foreach ($prelevements as $prelevement)

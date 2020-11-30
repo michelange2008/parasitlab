@@ -2,11 +2,17 @@
 
   <!-- AFFICHAGE DES DONNEES ANALYSE -->
   <!-- TITRE ANALYSE-->
-  <h5 class="card-title alert-secondary p-3 ">@lang('demandes.analyse')</h5>
+  <h5 class="card-title d-flex alert-secondary px-3 py-1 justify-content-between align-items-center">
+
+    @lang('demandes.analyse')
+
+    @include('labo.demandeShow.etatSaisie')
+
+  </h5>
 
   <!-- DETAIL ANALYSE-->
 
-  @include('labo.demandeShow.syntheseAnalyse', ['demande' => $demande])
+  @include('labo.demandeShow.syntheseAnalyse')
 
   <!-- LIENS POUR RENVOYER ANALYSE ET FACTURE-->
   @include('labo.demandeShow.syntheseRenvoiAnalyse')
@@ -20,7 +26,7 @@
 
 
   <!-- DETAIL FACTURE-->
-  @include('labo.demandeShow.syntheseFacture', ['demande' => $demande])
+  @include('labo.demandeShow.syntheseFacture')
 
   @include('labo.demandeShow.syntheseRenvoiFacture', ['route' => "#"])
 
