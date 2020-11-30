@@ -94,6 +94,8 @@
 
           @else
 
+            <div class="lead color-bleu-tres-fonce"><i class="fas fa-smile-wink"></i> @lang('commun.termine')&nbsp;!</div>
+
           @endif
 
         @endif
