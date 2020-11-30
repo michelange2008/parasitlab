@@ -2,9 +2,17 @@
 
 @foreach ($demande->prelevements as $prelevement)
 
-  @if ($prelevement->toutNegatif)
+  @if ($demande->acheve)
 
-    @include('labo.resultats.resultatsNegatifs')
+    @if ($prelevement->toutNegatif)
+
+      @include('labo.resultats.resultatsNegatifs')
+
+    @else
+
+      @include('labo.resultats.resultatsPositifs')
+
+    @endif
 
   @else
 
@@ -12,6 +20,10 @@
 
   @endif
 
+
 @endforeach
+
+@include('labo.prelevements.prelevementNonRenseigne')
+
 
 @include('labo.resultats.commentaire')

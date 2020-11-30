@@ -5,7 +5,7 @@
 
   <h3>{{ucfirst($demande->user->name)}}&nbsp;: {{ucfirst($demande->anaacte->anatype->abbreviation  )}} - {{ ucfirst($demande->anaacte->abbreviation) }}
 
-    <small>(analyse @if (!$demande->acheve) non @endif terminée)</small>
+    <small>(@lang('commun.analyse') @if (!$demande->acheve) @lang('commun.nom') @endif @lang('commun.terminee'))</small>
 
   </h3>
 

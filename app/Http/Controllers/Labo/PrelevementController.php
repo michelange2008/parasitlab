@@ -363,4 +363,15 @@ class PrelevementController extends Controller
 
         return redirect()->route('resultats.edit', $demande_id)->with('message', __('prelev_del'));
     }
+
+    // Effacement d'un prélèvement non renseigné présent uniquement en prélèvements
+    // surnuméraire dans la table "demandes" à la colonne "nb_prelevement"
+    public function efface($demande_id)
+    {
+      $demande = Demande::find($demande_id);
+      $demande->nb_prelevement = $demande->nb_prelevement - 1;
+      $demande->save();
+
+      return redirect()->back()->with('message', __('prelev_del'));
+    }
 }

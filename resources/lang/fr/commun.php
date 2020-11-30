@@ -28,4 +28,8 @@ return array (
   'eleveur' => 'ELEVEUR',
 
   'question_del' => 'Faut-il vraiment effectuer cette suppression ?',
+
+  'terminee' => 'terminée',
+  'analyse' => 'analyse',
+  'prelev_n' => 'prélèvement n°',
 );

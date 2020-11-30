@@ -144,7 +144,7 @@ class ExportsController extends Controller
         $liste_especes = $datas['especes'];
       }
       // J'AVAIS TROUVE UN SUPER SYSTEME POUR TOUT FAIRE EN UNE LIGNE MAIS CA MARCHE PAS CHEZ OVH !
-      // TODO: A AMELIORER 
+      // TODO: A AMELIORER CETTE HIDEUSE DOUBLE BOUCLE IF ELSE
       // $demandes = Demande::select('id')->where('user_id', 'like', $datas['eleveur'])
       // ->where('tovetouser_id', 'like', $datas['veto'])
       // ->whereIn('espece_id', $liste_especes)

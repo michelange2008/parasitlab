@@ -49,6 +49,9 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
 
       {{-- RESULTATS D'ANALYSE --}}
       <div class="col-md-7">
+
+        @include('fragments.flash')
+
         {{-- Cas où une demande d'analyse a été saisie sans que les prélèvements correspondants aient été saisis --}}
         @if ($demande->prelevements->count() == 0)
 
@@ -56,36 +59,12 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
 
         @else
 
-          <div id="demande" class="card" acheve="{{ $demande->acheve }}" signe="{{ $demande->signe }}" envoye="{{ $demande->envoye }}" >
-
-            <div class="card-header">
-
-              <div class="btn-group" role="group" aria-label="modif-signature-envoi">
-
-
-                @include('labo.demandeShow.saisie')
-
-
-                @if ($demande->acheve)
-
-                  @include('labo.demandeShow.signature')
-
-                  @include('labo.demandeShow.envoi')
-
-                @endif
-
-              </div>
-
-            </div>
+          @include('labo.demandeShow.boutonsSaisie')
 
             <div class="card-body">
 
-              <!-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT -->
-              @if ($demande->acheve)
-
-                @include('labo.resultatsAnalyse')
-
-              @endif
+              {{-- DETAIL DE L ANALYSE DE CHAQUE PRELEVEMENT --}}
+              @include('labo.resultatsAnalyse')
 
             </div>
 

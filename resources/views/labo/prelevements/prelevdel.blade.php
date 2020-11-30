@@ -2,31 +2,27 @@
 
 @section('content')
 
-  <div class="container-fluid">
+  <div class="jumbotron jumbotron-fluid">
 
-    <div class="row my-3 justify-content-center">
+    <div class="container">
 
-      <h4>Etes-vous sûr de vouloir supprimer ce prélèvement ?</h4>
+      <h1 class="display-4" >Etes-vous sûr de vouloir supprimer ce prélèvement ?</h1>
 
-    </div>
+      <p class="lead">Une fois supprimé, ce prélèvement n'existera plus et devra être recréé.</p>
 
-    <div class="row my-3 justify-content-center">
+      <hr class="my-4">
 
-      <div class="col-auto">
+      <form class="" action="{{ route('prelevement.destroy', $prelevement_id) }}" method="post">
 
-        <form class="" action="{{ route('prelevement.destroy', $prelevement_id) }}" method="post">
+        @csrf
+        @method('delete')
 
-          @csrf
-          @method('delete')
+        @enregistreAnnule([
+          'nomBouton' => __("boutons.del"),
+          'couleur' => 'btn-rouge',
+        ])
 
-          @enregistreAnnule([
-            'nomBouton' => __("boutons.del"),
-            'couleur' => 'btn-rouge',
-          ])
-
-        </form>
-
-      </div>
+      </form>
 
     </div>
 

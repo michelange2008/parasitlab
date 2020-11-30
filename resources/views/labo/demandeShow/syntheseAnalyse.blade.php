@@ -48,14 +48,24 @@
         <small>@lang('tableaux.date_resultat')&nbsp;: </small>
       </td>
       <td>
-        @if ($demande->date_resultat !== null)
+        @if ($demande->acheve)
           {{ \Carbon\Carbon::parse($demande->date_resultat)->isoFormat('LL') }}
         @else
           <span id="inacheve" class="color-rouge-tres-fonce">@lang('demandes.analyse_non_finie')</span>
         @endif
       </td>
     </tr>
-    @if ($demande->date_resultat !== null)
+    @if ($demande->signe)
+      <tr>
+        <td>
+          <small>@lang('tableaux.date_signature')&nbsp;: </small>
+        </td>
+        <td>
+          {{ \Carbon\Carbon::parse($demande->date_signature)->isoFormat('LL') }}
+        </td>
+      </tr>
+    @endif
+    @if ($demande->envoye)
       <tr>
         <td>
           <small>@lang('tableaux.date_envoi')&nbsp;: </small>

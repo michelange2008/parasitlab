@@ -48,7 +48,12 @@ return array (
   'del_demande' => 'Supprimer la demande',
   'add_prel' => 'Saisir les prélèvements',
   'add_one_prel' => 'Ajouter un prélèvement',
+  'saisie_encours' => "Analyse en cours de saisie",
   'saisie_modif_result' => "Saisir ou modifier les résultats",
+  'saisie_faite' => "Saisie des résultats terminée",
+  'saisie_a_cloturer' => 'Cloturer la saisie',
+  'saisie_cloturee' => 'Saisie cloturée',
+  'saisie_signee' => "Les résultats d'analyse ont été signés",
   'demandeModif' => "Modifier",
   'exporter' => "Exporter",
 );

@@ -285,6 +285,8 @@ class DemandeController extends Controller
       'labo_id' => auth()->user()->id,
       ]);
 
+      return redirect()->back();
+
     }
 
 }

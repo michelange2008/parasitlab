@@ -168,6 +168,8 @@
 
     route::get('prelevement/suppr/{prelevement_id}', 'Labo\PrelevementController@prelevdel')->name('prelevement.prelevdel');
 
+    route::get('prelevement/efface/{demande_id}', 'Labo\PrelevementController@efface')->name('prelevement.efface');
+
     route::resource('prelevement', 'Labo\PrelevementController');
 
     route::get('prelevement/createOne/{demande_id}/{rang}', 'Labo\PrelevementController@createOne')->name('prelevement.createOne');
@@ -205,6 +207,10 @@
     Route::resource('serie', 'Labo\SerieController');
 
     Route::get('usertypes', 'UsertypeController@liste')->name('usertypeJson');
+
+    Route::get('resultats/cloture/{demande_id}', 'Labo\ResultatController@cloture')->name('resultats.cloture');
+
+    Route::get('resultats/rouvrir/{demande_id}', 'Labo\ResultatController@rouvrir')->name('resultats.rouvrir');
 
     Route::resource('resultats', 'Labo\ResultatController');
 
