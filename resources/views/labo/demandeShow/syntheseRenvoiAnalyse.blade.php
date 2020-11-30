@@ -1,5 +1,5 @@
-@if ($demande->date_resultat !== null)
-  <table id="renvoyer_resultats" class="table" style="display:none">
+@if ($demande->signe)
+  <table id="renvoyer_resultats" class="table">
 
     <thead>
       <tr>
