@@ -10,6 +10,38 @@
 
   </p>
 
+  <div class="d-flex my-3">
+
+    <div class="mr-3">
+
+      @bouton([
+        'type' => 'route',
+        'route' => 'routeurResultatsPdf',
+        'id' => $demande->id,
+        'couleur' => 'btn-rouge',
+        'fa' => 'fas fa-file-pdf',
+        'intitule' => 'boutons.show_pdf',
+        'target' => '_blank',
+      ])
+
+    </div>
+
+    <div class="">
+
+      @bouton([
+        'type' => 'route',
+        'route' => 'exports.demande',
+        'id' => $demande->id,
+        'fa' => "fas fa-table",
+        'couleur' => "btn-success",
+        'intitule' => __('boutons.exporter'),
+        'title' => "Exporter en fichier excel",
+      ])
+
+    </div>
+
+  </div>
+
 </div>
 
 <div class="col-md-7">
@@ -18,18 +50,5 @@
 
   @include('labo.resultatsAnalyse')
 
-  <div class="my-3">
-
-    @bouton([
-      'type' => 'route',
-      'route' => 'routeurResultatsPdf',
-      'id' => $demande->id,
-      'couleur' => 'btn-rouge',
-      'fa' => 'fas fa-file-pdf',
-      'intitule' => 'boutons.show_pdf',
-      'target' => '_blank',
-    ])
-
-  </div>
 
 </div>
