@@ -45,7 +45,6 @@
 
     @endif
 
-
     @if ($demande->signe)
 
         @bouton([
@@ -59,7 +58,6 @@
         ])
 
     @endif
-
 
     @if ($demande->acheve)
 
