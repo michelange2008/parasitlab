@@ -5,29 +5,40 @@
     <p>
       <a class="btn btn-sm btn-secondary" data-toggle="collapse" href="#nonDetecte{{ $prelevement->id }}" role="button"
                 aria-expanded="false" aria-controls="nonDetecte{{ $prelevement->id }}" title="@lang('demandes.affiche_non_detecte')">
+
         @lang('demandes.voir_non_detecte') <i class="fas fa-angle-double-down"></i>
+
       </a>
+
     </p>
+
     <div class="collapse"  id="nonDetecte{{ $prelevement->id }}">
 
-      <span class="font-italic">@lang('demandes.non_detecte')</span>
-      @foreach ($prelevement->nonDetecte as $nonDetecte)
+      <span class="font-italic"><small>@lang('demandes.non_detecte')</small></span>
 
-        @if ($loop->first)
+      <br>
 
-          {{ ucfirst($nonDetecte) }},
+      <span class="color-bleu-tres-fonce">
 
-        @elseif ($loop->last)
+        @foreach ($prelevement->nonDetecte as $nonDetecte)
 
-          {{ $nonDetecte }}.
+          @if ($loop->first)
 
-        @else
+            {{ ucfirst($nonDetecte->anaitem->nom) }},
 
-          {{ $nonDetecte }},
+          @elseif ($loop->last)
 
-        @endif
+            {{ $nonDetecte->anaitem->nom }}.
 
-      @endforeach
+          @else
+
+            {{ $nonDetecte->anaitem->nom }},
+
+          @endif
+
+        @endforeach
+
+      </span>
 
     </div>
 
