@@ -2,6 +2,7 @@
 namespace App\Http\Traits;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Resultat;
 use App\Models\Productions\Commentaire;
 
 use App\Http\Traits\ListeNomParasites;
@@ -35,32 +36,14 @@ trait DemandeFactory
 
     foreach ($demande->prelevements as $prelevement) {
 
-      $toutNegatif = ($prelevement->resultats->count() == 0) ? true : false;
+      $nb_resultats = Resultat::where('prelevement_id', $prelevement->id)->count();
 
-      $prelevement->toutNegatif = $toutNegatif;
+      $resultats_negatifs = Resultat::where('prelevement_id', $prelevement->id)
+                            ->where('positif', false)->get();
 
-      $listeNomParasites = $this->listeNomParasites($prelevement);
+      $prelevement->toutNegatif = ($nb_resultats === $resultats_negatifs->count()) ? true : false;
 
-      $nonDetecte = [];
-
-      $detecte = [];
-
-      foreach ($prelevement->resultats as $resultat) {
-
-        $detecte[] = $resultat->anaitem->nom;
-      }
-
-      foreach ($listeNomParasites as $nomParasite) {
-
-        if(!in_array($nomParasite, $detecte)) {
-
-          $nonDetecte[] = $nomParasite;
-
-        }
-      }
-
-
-      $prelevement->nonDetecte = $nonDetecte;
+      $prelevement->nonDetecte = $resultats_negatifs;
     }
 
     return $demande;

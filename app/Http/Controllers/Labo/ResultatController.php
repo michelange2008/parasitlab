@@ -56,7 +56,7 @@ class ResultatController extends Controller
   {
 
     $datas = $request->all();
-
+// dd($datas);
     // ON PASSE EN REVUE LA VARIABLE DATAS POUR EN EXTRAIRE TOUTES LES VALEURS SAISIES
     foreach ($datas as $intitule => $valeur) {
       // ON EXPLODE CAR LES VALEURS SONT SOUS LA FORME resultat_id du prélèvement__id_de l'anaitem (ex: resultat_2_4)
@@ -71,7 +71,9 @@ class ResultatController extends Controller
         // si cette valeur est supérieure à zéro ou vaut présence on la saisie dans le résultat (ou on la met à jour si elle existe)
         if ($valeur === "absence" || $valeur === null || $valeur === "-" || $valeur === "0") {
 
-          Resultat::where('prelevement_id', $prelevement_id)->where('anaitem_id', $anaitem_id)->delete();
+          $valeur = ($valeur === null) ? 0 : $valeur ;
+
+          $resultat = Resultat::updateOrCreate(['prelevement_id' => $prelevement_id, 'anaitem_id' => $anaitem_id], ['valeur' => $valeur, 'positif' => '0']);
 
         }
         /* Comme c'est un formulaire pour saisir ET modifier, si une valeur est null ou égale à 0
@@ -79,7 +81,7 @@ class ResultatController extends Controller
         */
         else {
 
-          $resultat = DB::table('resultats')->updateOrInsert(['prelevement_id' => $prelevement_id, 'anaitem_id' => $anaitem_id], ['valeur' => $valeur]);
+          $resultat = Resultat::updateOrCreate(['prelevement_id' => $prelevement_id, 'anaitem_id' => $anaitem_id], ['valeur' => $valeur, 'positif' => '1']);
 
         }
 
