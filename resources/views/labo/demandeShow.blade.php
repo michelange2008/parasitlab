@@ -68,17 +68,21 @@ AFFICHE UN RESULTAT D'ANALYSE D'UN ELEVEUR:
 
             </div>
 
-            <div id="affiche_pdf" class="m-4" style="display:none">
+            @if ($demande->signe)
 
-              @bouton([
-              'type' => 'route',
-              'route' => 'routeurResultatsPdf',
-              'id' => $demande->id,
-              'couleur' => "btn-rouge",
-              'fa' => 'fas fa-file-pdf',
-              'intitule' => __('boutons.show_pdf'),
-              'target' => '_blank',
-              ])
+              <div id="affiche_pdf" class="m-4">
+
+                @bouton([
+                  'type' => 'route',
+                  'route' => 'routeurResultatsPdf',
+                  'id' => $demande->id,
+                  'couleur' => "btn-rouge",
+                  'fa' => 'fas fa-file-pdf',
+                  'intitule' => __('boutons.show_pdf'),
+                  'target' => '_blank',
+                ])
+
+            @endif
 
             </div>
 
