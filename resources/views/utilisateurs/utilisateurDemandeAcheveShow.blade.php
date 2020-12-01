@@ -12,8 +12,6 @@
 
   <div class="d-flex my-3">
 
-    <div class="mr-3">
-
       @bouton([
         'type' => 'route',
         'route' => 'routeurResultatsPdf',
@@ -23,10 +21,6 @@
         'intitule' => 'boutons.show_pdf',
         'target' => '_blank',
       ])
-
-    </div>
-
-    <div class="">
 
       @bouton([
         'type' => 'route',
@@ -38,7 +32,8 @@
         'title' => "Exporter en fichier excel",
       ])
 
-    </div>
+    @retour(['route' => route('routeurPersonnel')])
+
 
   </div>
 

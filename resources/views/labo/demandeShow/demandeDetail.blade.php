@@ -32,22 +32,38 @@
 
   <div class="card-body">
 
-  @if (!$demande->acheve)
+    @if (!$demande->acheve)
 
-    @bouton([
-      'type' => 'route',
-      'route' => 'demandes.modif',
-      'id' => $demande->id,
-      'fa' => "fas fa-edit",
-      'intitule' => __('boutons.demandeModif'),
-      'title' => "Modifier les caractéristiques de la demande d'analyse",
-    ])
+      @bouton([
+        'type' => 'route',
+        'route' => 'demandes.modif',
+        'id' => $demande->id,
+        'fa' => "fas fa-edit",
+        'intitule' => __('boutons.demandeModif'),
+        'title' => "Modifier les caractéristiques de la demande d'analyse",
+      ])
 
-  @endif
+    @endif
 
-  @if ($demande->acheve)
 
-    @bouton([
+    @if ($demande->signe)
+
+        @bouton([
+        'type' => 'route',
+        'route' => 'routeurResultatsPdf',
+        'id' => $demande->id,
+        'couleur' => "btn-rouge",
+        'fa' => 'fas fa-file-pdf',
+        'intitule' => __('boutons.show_pdf'),
+        'target' => '_blank',
+        ])
+
+    @endif
+
+
+    @if ($demande->acheve)
+
+      @bouton([
       'type' => 'route',
       'route' => 'exports.demande',
       'id' => $demande->id,
@@ -55,12 +71,12 @@
       'couleur' => "btn-success",
       'intitule' => __('boutons.exporter'),
       'title' => "Exporter en fichier excel",
-    ])
+      ])
 
 
-  @endif
+    @endif
 
-  @retour(['route' => route('demandes.index')])
+    @retour(['route' => route('demandes.index')])
 
   </div>
 
