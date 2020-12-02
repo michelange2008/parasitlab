@@ -23,11 +23,13 @@ class CreateExportsTable extends Migration
             $table->string('troupeau', 191)->nullable();
             $table->unsignedInteger('demande_id');
             $table->unsignedInteger('resultat_id');
+            $table->boolean('estMelange')->nullable();
             $table->string('animal_numero', 191)->nullable();
             $table->string('animal_nom', 191)->nullable();
             $table->date('date_prelevement')->nullable();
             $table->date('date_resultat')->nullable();
             $table->string('parasite', 191)->nullable();
+            $table->boolean('positif')->nullable();
             $table->string('valeur', 191)->nullable();
             $table->boolean('estParasite')->nullable();
             $table->text('signes', 191)->nullable();

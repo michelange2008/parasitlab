@@ -1,6 +1,9 @@
 <table class="table table-bordered">
 
-  @include('labo.resultats.titreResultat')
+  @include('labo.resultats.titreResultat', [
+    'titre' => $prelevement->animal->nom ?? $prelevement->identification,
+    'soustitre' => $prelevement->animal->numero ?? '',
+  ])
 
   <tbody>
 

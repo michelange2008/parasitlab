@@ -88,7 +88,7 @@ class ExportsController extends Controller
 
       foreach ($liste_resultats as $resultat) {
 
-        $this->exportFactory($resultat);
+          $this->exportFactory($resultat);
 
       }
 
@@ -110,7 +110,6 @@ class ExportsController extends Controller
       $datas = $request->all();
 
       $resultats = $this->resultats($datas);
-
       Export::truncate();
 
       foreach ($resultats as $resultat) {
@@ -227,6 +226,7 @@ class ExportsController extends Controller
         ->get();
         $resultats = $resultats->concat($resultats_par_prelevement);
       }
+
       return $resultats;
     }
 
@@ -242,11 +242,13 @@ class ExportsController extends Controller
       $export->troupeau = $resultat->prelevement->demande->troupeau->nom;
       $export->demande_id = $resultat->prelevement->demande->id;
       $export->resultat_id = $resultat->id;
-      $export->animal_numero = $resultat->prelevement->animal->numero;
-      $export->animal_nom = $resultat->prelevement->animal->nom;
+      $export->estMelange = $resultat->prelevement->estMelange;
+      $export->animal_numero = $resultat->prelevement->animal->numero ?? $resultat->prelevement->identification;
+      $export->animal_nom = $resultat->prelevement->animal->nom ?? '';
       $export->date_prelevement = $resultat->prelevement->demande->date_prelevement;
       $export->date_resultat = $resultat->prelevement->demande->date_resultat;
       $export->parasite = $resultat->anaitem->nom;
+      $export->positif = $resultat->positif;
       $export->valeur = $resultat->valeur;
       $export->estParasite = $resultat->prelevement->parasite;
 
