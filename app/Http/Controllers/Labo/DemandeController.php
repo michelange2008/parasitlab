@@ -252,11 +252,10 @@ class DemandeController extends Controller
       $demande->tovetouser_id = ($datas['tovetouser_id'] == 0) ? null : $datas['tovetouser_id'];
       $demande->userfact_id = $datas['destinataireFacture'];
       $demande->informations = $datas['informations'];
-      $demande->nb_prelevement = $datas['nb_prelevement'];
-      // dd($demande);
+
       $demande->save();
 
-      return redirect()->route('demandes.show', $id)->with('message', 'mise à jour');
+      return redirect()->route('demandes.show', $id)->with('message', 'demande_updated');
     }
 
     /**

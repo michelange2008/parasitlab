@@ -168,8 +168,6 @@
 
     route::get('prelevement/suppr/{prelevement_id}', 'Labo\PrelevementController@prelevdel')->name('prelevement.prelevdel');
 
-    route::get('prelevement/efface/{demande_id}', 'Labo\PrelevementController@efface')->name('prelevement.efface');
-
     route::resource('prelevement', 'Labo\PrelevementController');
 
     route::get('prelevement/createOne/{demande_id}/{rang}', 'Labo\PrelevementController@createOne')->name('prelevement.createOne');

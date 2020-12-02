@@ -64,7 +64,7 @@
 
               <p class="lead pl-3 bg-bleu-tres-fonce text-white">@lang('form.nb_prelevement')</p>
 
-              <input id="n_bPrelevement" class="form-control" type="number" name="nb_prelevement" value="{{ $demande->nb_prelevement }}" min="{{ $demande->nb_prelevement}}">
+              <p class="lead text-center">{{ $demande->prelevements->count() }}</p>
 
 
             </div>

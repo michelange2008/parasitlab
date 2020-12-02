@@ -49,8 +49,9 @@ class PrelevementController extends Controller
     {
         //
     }
+
     /**
-     * Montre le formulaire pour renseigné 1 seul prélèvement d'une demande
+     * Montre le formulaire pour renseigner 1 seul prélèvement d'une demande
      *
      * @return \Illuminate\Http\Response
      */
@@ -227,10 +228,7 @@ class PrelevementController extends Controller
           }
         }
 
-        $demande->nb_prelevement = $demande->nb_prelevement + 1;
-        $demande->save();
-
-      return redirect()->route('resultats.edit', $demande->id);
+        return redirect()->route('resultats.edit', $demande->id);
 
     }
 
@@ -364,14 +362,4 @@ class PrelevementController extends Controller
         return redirect()->route('resultats.edit', $demande_id)->with('message', __('prelev_del'));
     }
 
-    // Effacement d'un prélèvement non renseigné présent uniquement en prélèvements
-    // surnuméraire dans la table "demandes" à la colonne "nb_prelevement"
-    public function efface($demande_id)
-    {
-      $demande = Demande::find($demande_id);
-      $demande->nb_prelevement = $demande->nb_prelevement - 1;
-      $demande->save();
-
-      return redirect()->back()->with('message', __('prelev_del'));
-    }
 }

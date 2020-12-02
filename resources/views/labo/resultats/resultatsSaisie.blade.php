@@ -70,11 +70,12 @@
 
             <div class="card">
 
-              @include('labo.resultats.titreResultat', [
-              'nouveau' => false,
-              'titre' => $prelevement->identification,
-              'soustitre' => $prelevement->animal->numero,
-              ])
+              <div class="card-header alert-bleu-tres-fonce d-flex justify-content-between">
+
+                {{-- Titre du prélèvement avec le numéro et le nom de l'animal --}}
+                <h5 class="">{{ ucfirst($prelevement->animal->nom ?? $prelevement->identification) }} {{ ucfirst($prelevement->animal->numero ?? '') }}</h5>
+
+              </div>
 
               <div class="card-body">
 

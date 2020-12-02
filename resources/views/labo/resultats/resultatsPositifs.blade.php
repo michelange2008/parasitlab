@@ -1,8 +1,8 @@
 <table class="table table-bordered table-hover">
 
   @include('labo.resultats.titreResultat', [
-    'titre' => $prelevement->animal->nom,
-    'soustitre' => $prelevement->animal->numero,
+    'titre' => $prelevement->animal->nom ?? $prelevement->identification,
+    'soustitre' => $prelevement->animal->numero ?? '',
     'nouveau' => false,
   ])
 

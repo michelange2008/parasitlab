@@ -41,4 +41,5 @@ return array (
   'prelev_edit' => ' Le prélèvement a été modifié',
   'prelev_del' => 'Le prélèvement a été supprimé',
   'resultats_clotures' => 'Cette demande d\'analyse a été cloturée',
+  'demande_updated' => "La demande d'analyse a été mise à jour.",
 );
