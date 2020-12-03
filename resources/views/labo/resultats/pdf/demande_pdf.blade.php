@@ -64,15 +64,15 @@
 
         @if ($loop->first)
 
-          {{ucfirst($nondetecte)}},
+          {{ucfirst($nondetecte->anaitem->nom)}},
 
         @elseif ($loop->last)
 
-          {{$nondetecte}}.
+          {{$nondetecte->anaitem->nom}}.
 
         @else
 
-          {{$nondetecte}},
+          {{$nondetecte->anaitem->nom}},
 
         @endif
 
