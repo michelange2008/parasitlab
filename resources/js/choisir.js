@@ -34,6 +34,7 @@ $('.espece').on('click', function() {
   $("#age").empty();
   // On vide le champs input ages
   $("#input_age").val('');
+  $("#explication_observation").empty();
 
   // On réinitialise le bouton de téléchargement de fichier
   $('#bouton_pdf').attr('href', href_initial);
@@ -243,7 +244,8 @@ $('#avousdejouer').on('click', function() {
 })
 
 // Quand on clique sur le bouton "options et tarifs" on affiche ou masque les anaactes d'un anatype
-$(".optionstarifs").on('click', function() {
+$(".optionstarifs").on('click', function(e) {
+  var pos_y = e.pageY;
 
   var anatype_id = $(this).attr('id').split('_')[1];
 
@@ -253,7 +255,7 @@ $(".optionstarifs").on('click', function() {
 
     $('#optionstarifs_' + anatype_id).attr('state', 'closed');
 
-    nonEstompeAnatypes();
+    // nonEstompeAnatypes();
 
     $('#boutons').hide();
 
@@ -261,7 +263,7 @@ $(".optionstarifs").on('click', function() {
 
   } else {
 
-    estompeAnatypes();
+    // estompeAnatypes();
 
     nonEstompeUnAnatype('#anatype_' + anatype_id);
 
@@ -276,11 +278,13 @@ $(".optionstarifs").on('click', function() {
     $('#boutons').fadeIn(1500);
 
     $('#penser_veto').fadeIn(3000); // Et le véto
-    window.scrollTo(200,250);
+    window.scrollTo(200, pos_y - 280);
 
   }
 
+
 })
+
 //#####################################################################################
 // FONCTIONS //
 //######################################################################################
@@ -360,7 +364,7 @@ function videOptionsAnaaactes() {
   $(".titre_analyses").hide();
   // On vide le 0 option
   $('#aucune_option').hide();
-
+  // On vide la description de l'observation
 }
 
 function inactiveObservation(id) {
