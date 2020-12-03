@@ -41,17 +41,23 @@
 
 
   @foreach ($prelevement->resultats as $resultat)
-    <tr>
-      <td class="ligne1">
-        {{$resultat->anaitem->nom}}
-      </td>
-      <td class="lignes text-right">
-        {{$resultat->valeur}}
-      </td>
-      <td class="lignes">
-        @lang($resultat->anaitem->unite->nom)
-      </td>
-    </tr>
+
+    @if ($resultat->positif)
+
+      <tr>
+        <td class="ligne1">
+          {{$resultat->anaitem->nom}}
+        </td>
+        <td class="lignes text-right">
+          {{$resultat->valeur}}
+        </td>
+        <td class="lignes">
+          @lang($resultat->anaitem->unite->nom)
+        </td>
+      </tr>
+
+    @endif
+
   @endforeach
 
 @endif
