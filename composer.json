@@ -30,8 +30,7 @@
         "facade/ignition": "^2.0",
         "laravel/ui": "^2.0",
         "mockery/mockery": "^1.0",
-        "nunomaduro/collision": "^4.1",
-        "phpunit/phpunit": "^8.5"
+        "nunomaduro/collision": "^4.1"
     },
     "config": {
         "optimize-autoloader": true,
