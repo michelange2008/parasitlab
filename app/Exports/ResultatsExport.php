@@ -14,33 +14,22 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithColumnFormatting;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithStrictNullComparison;
 
-class ResultatsExport implements FromQuery, WithHeadings,  WithColumnFormatting, WithMapping, ShouldAutoSize
+class ResultatsExport implements FromQuery, WithHeadings,  WithColumnFormatting, WithMapping, ShouldAutoSize, WithStrictNullComparison
 {
     use exportable;
 
+    protected $headings;
+
+    public function __construct($headings)
+    {
+      $this->headings = $headings;
+    }
+
     public function headings(): array
     {
-      return [
-        'id',
-        'nom',
-        'cp',
-        'commune',
-        'espèce',
-        'troupeau',
-        'demande_id',
-        'resultat_id',
-        'melange',
-        'animal_numero',
-        'animal_nom',
-        'date_prelevement',
-        'date_resultat',
-        'parasite',
-        'positif',
-        'valeur',
-        'estParasite',
-        'signes',
-      ];
+      return $this->headings;
     }
     public function map($export): array
     {

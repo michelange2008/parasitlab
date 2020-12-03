@@ -22,7 +22,7 @@
 
     @endforeach
 
-    @if (count($prelevement->nonDetecte) > 0)
+    @if ($prelevement->nonDetecte->count() > 0)
 
       @include('labo.resultats.listeNonDetecte')
 

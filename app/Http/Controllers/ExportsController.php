@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 use App\User;
 use App\Models\Espece;
@@ -10,11 +12,13 @@ use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Resultat;
 use App\Models\Productions\Export;
+use App\Models\Productions\Exportation;
 use App\Models\Analyses\Anaitem;
 use App\Models\Analyses\Analyse;
 
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ResultatsExport;
+use App\Exports\ResultatsExportation;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\Personne;
 use App\Http\Traits\UserTypeOutil;
@@ -68,31 +72,77 @@ class ExportsController extends Controller
 
     }
 
+    public function entetes($demande)
+    {
+
+      $analyse = Analyse::where('espece_id', $demande->espece_id)
+      ->where('anatype_id', $demande->anaacte->anatype_id)
+      ->first();
+
+      $anaitems = $analyse->anaitems;
+
+      $entete[] = 'Identification';
+      $entete[] = 'Nom';
+
+      foreach ($anaitems as $anaitem) {
+
+        $entete[] = $anaitem->nom.' ('. $anaitem->unite->nom .')';
+
+      }
+
+      $entete[] = "Troupeau";
+      $entete[] = "Espece";
+      $entete[] = "Date de prelevement";
+      $entete[] = "Date d'analyse";
+      $entete[] = "Mélange";
+      $entete[] = "Semble parasité";
+
+      return $entete;
+    }
+
+    /**
+    * Exportation d'une demande d'analyse seule (disponible dans demandeShow)
+    */
     public function demande($demande_id)
     {
       $demande = Demande::find($demande_id);
 
       $prelevements = Prelevement::where('demande_id', $demande_id)->get();
 
-      Export::truncate();
+      $entetes = $this->entetes($demande);
 
-      $liste_resultats = collect();
+      $resultats = Collect();
 
       foreach ($prelevements as $prelevement) {
 
-        $resultats = Resultat::where('prelevement_id', $prelevement->id)->get();
+        $resultat = [];
+        $resultat['identification'] = $prelevement->animal->numero ?? $prelevement->identification;
+        $resultat['nom'] = $prelevement->animal->nom ?? '';
 
-        $liste_resultats = $liste_resultats->concat($resultats);
+        foreach ($prelevement->analyse->anaitems as $anaitem) {
 
-      }
+          $valeur = Resultat::where('prelevement_id', $prelevement->id)
+                              ->where('anaitem_id', $anaitem->id)->first();
 
-      foreach ($liste_resultats as $resultat) {
+          $resultat[$anaitem->nom] = $valeur->valeur;
 
-          $this->exportFactory($resultat);
+        }
+        $resultat['troupeau'] = $prelevement->demande->troupeau->nom ?? '';
+        $resultat['espece'] = $prelevement->demande->espece->nom;
 
-      }
+        $resultat['date_prelevement'] = (new Carbon($prelevement->demande->date_prelevement))->toDateString();
+        $resultat['date_resultat'] = (new Carbon($prelevement->demande->date_resultat))->toDateString();
 
-      return Excel::download(new ResultatsExport, 'copro.xlsx');
+        $resultat['melange'] = ($prelevement->estMelange) ? 'oui' : 'non';
+        $resultat['estParasite'] = ($prelevement->parasite) ? 'oui' : 'non';
+
+        $resultats->push($resultat);
+
+       }
+
+      $resultatsExport = new ResultatsExportation($entetes, $resultats);
+
+      return Excel::download($resultatsExport, 'copro.xlsx');
 
     }
     /**
