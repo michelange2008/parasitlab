@@ -75,16 +75,20 @@
 
             @foreach ($groupes->personnes as $personne)
 
-              <figure class="figure m-3">
+              <div class="col-3">
 
-                <img class="img-fluid img-200 shadow-lg" src="{{ url('storage/img/labo/photos/'.$users->where('id', $personne->id)->first()->labo->photo) }}" alt="{{  $users->where('id', $personne->id)->first()->labo->photo }}">
+                <figure class="figure m-3">
 
-                <figcaption class="figure-caption pr-4">
-                  {{ $users->where('id', $personne->id)->first()->name }}</br>
-                  {{ $personne->texte }}
-                </figcaption>
+                  <img class="img-fluid img-200 shadow-lg" style src="{{ url('storage/img/labo/photos/'.$users->where('id', $personne->id)->first()->labo->photo) }}" alt="{{  $users->where('id', $personne->id)->first()->labo->photo }}">
 
-              </figure>
+                  <figcaption class="figure-caption pr-4">
+                    {{ $users->where('id', $personne->id)->first()->name }}</br>
+                    {{ $personne->texte }}
+                  </figcaption>
+
+                </figure>
+
+              </div>
 
             @endforeach
 

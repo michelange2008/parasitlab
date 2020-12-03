@@ -1,27 +1,4 @@
 {
-  "groupe1" : {
-    "groupe" : "parasitologues",
-    "personnes" : {
-      "pers1" : {
-        "id" : "9",
-        "texte" : "Parasitologue vétérinaire - 20 ans d’expérience sur le sujet"
-      },
-      "pers3" : {
-        "id" : "15",
-        "texte" : "Responsable du laboratoire de parasitologie vétérinaire du FiBL Suisse"
-      }
-    }
-  },
-  "groupe2" :
-  {
-    "groupe" : "vétérinaire",
-    "personnes" : {
-      "pers1" : {
-        "id" : "1",
-        "texte" : "Vétérinaire praticien dans la Drôme"
-      }
-    }
-  },
   "groupe3" :
   {
     "groupe" : "responsables de laboratoire",
@@ -37,6 +14,23 @@
       "pers3" : {
         "id" : "10",
         "texte" : "Technicienne de laboratoire"
+      }
+    }
+  },
+  "groupe1" : {
+    "groupe" : "parasitologues",
+    "personnes" : {
+      "pers1" : {
+        "id" : "9",
+        "texte" : "Parasitologue vétérinaire - 20 ans d’expérience sur le sujet"
+      },
+      "pers2" : {
+        "id" : "1",
+        "texte" : "Vétérinaire praticien dans la Drôme"
+      },
+      "pers3" : {
+        "id" : "15",
+        "texte" : "Responsable du laboratoire de parasitologie vétérinaire du FiBL Suisse"
       }
     }
   }
