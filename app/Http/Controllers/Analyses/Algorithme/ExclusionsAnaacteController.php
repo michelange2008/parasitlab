@@ -32,6 +32,7 @@ class ExclusionsAnaacteController extends Controller
   */
   public function index()
   {
+
     return view('admin.algorithme.exclusionsAnaacteIndex', [
       'menu' => $this->menu,
       'observations' => Observation::orderBy('categorie_id', 'asc')->orderBy('ordre', 'asc')->get(),

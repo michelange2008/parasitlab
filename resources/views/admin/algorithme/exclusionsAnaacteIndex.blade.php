@@ -28,7 +28,7 @@
 
         @boutonUser(['route' => 'exclusionsAnaacte.create', 'intitule' => 'add_exclusion', 'fa' => 'fas fa-plus-square'])
 
-        @retour(['route' => retour('algorithme.index'), 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
+        @retour(['route' => route('algorithme.index'), 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
 
       </div>
 
@@ -154,8 +154,8 @@
                           <td></td>
 
                           <td class="text-secondary">
-                            <span class="color-bleu font-weight-bold">{{ $exclusion->anaacte->anatype->abbreviation }}: </span>
-                            {{ ucfirst($exclusion->anaacte->nom) }}</td>
+                            <span class="color-bleu font-weight-bold">{{ $exclusion->anaacte->anatype->abbreviation ?? '' }}: </span>
+                            {{ ucfirst($exclusion->anaacte->nom ?? '') }}</td>
 
                           <td>
                             @supprExclusion([
@@ -193,7 +193,7 @@
 
         @boutonUser(['route' => 'exclusionsAnaacte.create', 'intitule' => 'add_exclusion', 'fa' => 'fas fa-plus-square'])
 
-        @retour(['route' => retour('algorithme.index'), 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
+        @retour(['route' => route('algorithme.index'), 'intitule' => 'algo_graph', 'fa' => 'fas fa-project-diagram' ])
 
       </div>
 
