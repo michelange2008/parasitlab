@@ -26,7 +26,7 @@
     <tr class="pdf-table-titre">
       <td colspan="3" class="ligne1"><strong>{{ mb_strtoupper($prelevement->identification) ?? ''}} {{ $prelevement->animal->numero ?? '' }}</strong> ( @lang('commun.prelev_n') {{ $loop->index + 1}}) -
         <span class="lignes">
-          @lang('form.etat_prelev'): <strong>{{ $prelevement->etat->nom }}</strong>
+          @lang('form.etat_prelev')&nbsp;: <strong>{{ $prelevement->etat->nom }}</strong>
        </span>
      </td>
     </tr>
