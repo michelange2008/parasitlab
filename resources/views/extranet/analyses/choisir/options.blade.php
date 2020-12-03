@@ -5,6 +5,9 @@
 
 </div>
 
+<div id="explication_observation" class="">
+
+</div>
 <h4 id="une" class="titre_analyses" class="mb-3"  style="display:none">@lang('choisir.analyse_prop_une')</h4>
 <h4 id="deux" class="titre_analyses" class="mb-3"  style="display:none">@lang('choisir.analyse_prop_deux')</h4>
 

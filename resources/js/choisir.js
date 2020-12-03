@@ -163,12 +163,16 @@ function listeObservations(type, id) {
             '<div id="observation_' + ligne.id + '" class="card-header observation list-group-item list-group-item-action disabled pointeur" selection="non" >' +
                   ligne.intitule +
             '</div>' +
-            '<div id="explication_' + ligne.id + '" class="collapse bg-bleu-tres-clair">' +
-              '<div class="card-body small">' +
-                '<p class="ml-3 mb-0 p-1 pl-2 bordure-epaisse">' + ligne.explication + '</p>' +
-                autres +
-              '</div>' +
-            '</div>' +
+          '</div>'
+        );
+
+        $("#explication_observation").append(
+          '<div id="explication_' + ligne.id + '" class="collapse bg-bleu-tres-clair my-3">' +
+          '<div class="card-body">' +
+          '<p class="lead">Explications:</p>' +
+          '<p class="ml-3 mb-0 p-1 pt-0">' + ligne.explication + '</p>' +
+          autres +
+          '</div>' +
           '</div>'
         );
       });
