@@ -168,7 +168,28 @@ class ExportsController extends Controller
 
       }
 
-      return Excel::download(new ResultatsExport, 'copro.'.$datas['format']);
+      $entetes = [
+        'id',
+        'nom',
+        'cp',
+        'commune',
+        'espece',
+        'troupeau',
+        'demande_id',
+        'resultat_id',
+        'estMelange',
+        'animal_numero',
+        'animal_nom',
+        'date_prelevement',
+        'date_resultat',
+        'parasite',
+        'positif',
+        'valeur',
+        'estParasite',
+        'signes',
+      ];
+
+      return Excel::download(new ResultatsExport($entetes), 'copro.'.$datas['format']);
 
   }
 
