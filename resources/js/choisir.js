@@ -169,7 +169,9 @@ function listeObservations(type, id) {
         $("#explication_observation").append(
           '<div id="explication_' + ligne.id + '" class="collapse bg-bleu-tres-clair my-3">' +
           '<div class="card-body">' +
-          '<p class="lead">Explications:</p>' +
+          '<p class="lead">'+
+          ligne.intitule +
+          '</p>' +
           '<p class="ml-3 mb-0 p-1 pt-0">' + ligne.explication + '</p>' +
           autres +
           '</div>' +

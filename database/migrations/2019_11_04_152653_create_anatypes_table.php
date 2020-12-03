@@ -22,6 +22,7 @@ class CreateAnatypesTable extends Migration
             $table->string('abbreviation', 50);
             $table->string('nom', 191);
             $table->string('technique', 191);
+            $table->mediumText('remarque')->nullable();
             $table->boolean('estAnalyse')->default(true);
             $table->unsignedInteger('icone_id');
             $table->foreign('icone_id')->references('id')->on('icones');

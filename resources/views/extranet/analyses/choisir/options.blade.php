@@ -23,6 +23,10 @@
         <div class="col-md-10">
           <div class="card-body">
             <h5 class="card-title">{!! ucfirst($anatype->nom) !!}</h5>
+            @if ($anatype->remarque !== null)
+
+              <p class="text-secondary"><i class="fas fa-exclamation-triangle"></i> {{ $anatype->remarque }}</p>
+            @endif
             <button id="optionstarifs_{{ $anatype->id }}" class="optionstarifs btn btn-sm btn-secondary dropdown-toggle" state="closed">
               @lang('choisir.detail')
             </button>
