@@ -323,7 +323,7 @@ class PrelevementController extends Controller
         $prelevement->save();
 
 
-        return redirect()->route('resultats.edit', $prelevement->demande->id)->with('message', __('prelev_edit'));
+        return redirect()->route('demandes.show', $prelevement->demande->id)->with('message', __('prelev_edit'));
 
     }
 
