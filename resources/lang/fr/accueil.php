@@ -13,7 +13,7 @@ return array (
     'veterinaires' =>
     array (
       'titre' => 'Vétérinaires',
-      'texte_1' => 'Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d\'affiner votre presciption.',
+      'texte_1' => 'Vous souhaitez proposer à vos éleveurs et clients un suivi parasitologique afin d\'affiner votre prescription.',
       'texte_2' => 'Vous voulez évaluer les risques pathogènes et l\'existence éventuelle de résistance aux anthelmintiques.',
     ),
     'eleveurs' =>
