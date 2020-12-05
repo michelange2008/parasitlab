@@ -14,10 +14,17 @@
 
   @include('labo.demandeShow.syntheseAnalyse')
 
+  @if ($demande->acheve)
+
+    @include('labo.resultats.commentaire')
+
+  @endif
+
   <!-- LIENS POUR RENVOYER ANALYSE ET FACTURE-->
   @include('labo.demandeShow.syntheseRenvoiAnalyse')
 
 
+  <hr class="divider">
   <!-- AFFICHAGE DES DONNEES FACTURE-->
 
   <!-- TITRE FACTURE-->

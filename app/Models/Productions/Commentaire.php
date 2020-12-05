@@ -8,6 +8,8 @@ class Commentaire extends Model
 {
     public $timestamps = false;
 
+    protected $guarded = [];
+
     public function Demande()
     {
       return $this->belongsTo(Demande::class);

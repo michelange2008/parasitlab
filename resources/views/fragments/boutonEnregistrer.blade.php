@@ -1,4 +1,4 @@
-<button class="btn {{$couleur ?? 'btn-bleu'}} my-3 mr-1" type="submit">
+<button class="btn {{$couleur ?? 'btn-bleu'}} {{ $css ?? '' }} my-3 mr-1" type="submit">
 
   <i class="{{ $fa ?? 'fas fa-save' }}"></i>
 

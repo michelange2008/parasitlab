@@ -124,21 +124,10 @@
 
       @endforeach
 
-      <div class="row mb-3 justify-content-center">
-
-        <div class="col-md-10 col-lg-8">
-
-          @include('labo.prelevements.prelevementNonRenseigne')
-
-        </div>
-
-      </div>
-
       <div class="row justify-content-center">
 
         <div class="col-md-10 col-lg-8">
 
-          @include('labo.resultats.inputCommentaire')
 
         </div>
 

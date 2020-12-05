@@ -1,29 +1,50 @@
-@if ($demande->commentaire->commentaire !== null)
+@if ($demande->signe)
 
-  <div class="card">
+  @if ($demande->commentaire->commentaire !== null)
 
-    <div class="card-body">
+    <div class="card">
 
-      <p class="card-title lead">
+      <div class="card-body">
 
-        @lang('demandes.commentaire') {{ \Carbon\Carbon::parse($demande->commentaire->date_commentaire)->isoFormat('LL') }}
+        <p class="card-title lead">
 
-        @if($demande->commentaire->labo_id !== null)
+          @lang('demandes.commentaire') {{ \Carbon\Carbon::parse($demande->commentaire->date_commentaire)->isoFormat('LL') }}
 
-          (@lang('commun.par') {{ $demande->commentaire->labo->user->name }})
+          @if($demande->commentaire->labo_id !== null)
 
-        @endif
+            (@lang('commun.par') {{ $demande->commentaire->labo->user->name }})
 
-      </p>
+          @endif
 
-      <p class="card-text">
+        </p>
 
-        {!! nl2br($demande->commentaire->commentaire) !!}
+        <p class="card-text">
 
-      </p>
+          {!! nl2br($demande->commentaire->commentaire) !!}
+
+        </p>
+
+      </div>
 
     </div>
 
-  </div>
+
+  @else
+
+    <div class="card">
+
+      <div class="card-body">
+
+        <p class="card-title">@lang('form.no_comment')</p>
+
+      </div>
+
+    </div>
+
+  @endif
+
+@else
+
+  @include('labo.resultats.inputCommentaire')
 
 @endif

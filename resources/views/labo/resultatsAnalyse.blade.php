@@ -24,6 +24,3 @@
 @endforeach
 
 @include('labo.prelevements.prelevementNonRenseigne')
-
-
-@include('labo.resultats.commentaire')

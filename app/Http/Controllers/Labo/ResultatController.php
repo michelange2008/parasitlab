@@ -89,16 +89,20 @@ class ResultatController extends Controller
 
     }
     // On stocke le commentaire dans la table correspondante
-    if(isset($datas['commentaire'])) {
-
-      $commentaire = new CommentaireController($datas['demande_id']);
-
-      $commentaire->store($datas['commentaire']);
-
-    }
+    // if(isset($datas['commentaire'])) {
+    //
+    //   $commentaire = new CommentaireController($datas['demande_id']);
+    //
+    //   $commentaire->store($datas['commentaire']);
+    //
+    // }
 
     return redirect()->route('demandes.show', $datas['demande_id']);
 
+  }
+
+  public function commentaire(Request $request)
+  {
   }
 
   // Cloture d'une saisie de résultats quand elle est achevée (bouton cloture dans demandeShow)

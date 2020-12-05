@@ -76,6 +76,7 @@ return array (
   'estFinie' => 'Analyse terminée (décocher si ce n\'est pas le cas)',
   'espece' => 'Espèce',
   'comment' => "Commentaire",
+  'no_comment' => 'Pas de commentaire',
   'description' => "Description",
 
   'user_guide_title' => "Mode d'emploi",

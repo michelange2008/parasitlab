@@ -5,20 +5,13 @@ namespace App\Http\Controllers\Labo;
 use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Productions\Commentaire;
 
 use Carbon\Carbon;
 
 class CommentaireController extends Controller
 {
 
-    protected $demande_id;
-
-    public function __construct($demande_id)
-    {
-
-      $this->demande_id = $demande_id;
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -45,22 +38,21 @@ class CommentaireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($commentaire)
+    public function store(Request $request)
     {
-      
-        DB::table('commentaires')->updateOrInsert(
-          [
-            'demande_id' => $this->demande_id,
-          ],
-          [
-          'demande_id' => $this->demande_id,
-          'commentaire' => $commentaire,
-          'date_commentaire' => Carbon::now(),
-          'labo_id' => auth()->user()->labo->id,
-          ]
-        );
+      $datas = $request->all();
 
-    }
+      $commentaire = Commentaire::updateOrCreate(
+                    ['demande_id'=> $datas['demande_id']],
+                    [
+                      'commentaire' => $datas['commentaire'],
+                      'date_commentaire' => Carbon::now(),
+                      'labo_id' => auth()->user()->id,
+                    ]);
+
+      return redirect()->back()->with('comment', 'Commentaire enregistré');
+
+      }
 
     /**
      * Display the specified resource.

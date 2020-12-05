@@ -56,4 +56,5 @@ return array (
   'saisie_signee' => "Les résultats d'analyse ont été signés",
   'demandeModif' => "Modifier",
   'exporter' => "Exporter",
+  'save_commentaire' => "Enregistrer le commentaire",
 );

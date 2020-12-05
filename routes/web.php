@@ -210,6 +210,8 @@
 
     Route::get('resultats/rouvrir/{demande_id}', 'Labo\ResultatController@rouvrir')->name('resultats.rouvrir');
 
+    Route::resource('commentaire', 'Labo\CommentaireController');
+
     Route::resource('resultats', 'Labo\ResultatController');
 
     Route::get('resultatPdf/labo/{demande_id}', ['uses' => 'PdfController@resultatsPdfLabo', 'as' => 'resultatspdf.labo']);
