@@ -1,4 +1,11 @@
 {
+  "xlsx" :
+  {
+    "extension" : "xlsx",
+    "nom" : "Fichier .xlsx (Microsoft excel 2007-2020)",
+    "type" : "XLSX"
+  },
+
   "csv" :
   {
     "extension" : "csv",
@@ -11,13 +18,6 @@
     "extension" : "ods",
     "nom" : "Fichier .ods (LibreOffice Calc)",
     "type" : "ODS"
-  },
-
-  "xlsx" :
-  {
-    "extension" : "xlsx",
-    "nom" : "Fichier .xlsx (Microsoft excel 2007-2020)",
-    "type" : "XLSX"
   },
 
   "xls" :
