@@ -50,7 +50,7 @@ class CommentaireController extends Controller
                       'labo_id' => auth()->user()->id,
                     ]);
 
-      return redirect()->back()->with('comment', 'Commentaire enregistré');
+      return redirect()->back()->with('comment', 'comment_store');
 
       }
 
