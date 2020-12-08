@@ -1,10 +1,10 @@
-<label for="{{ $for }}">{{ $intitule }} <small>(maintenir le bouton Ctrl ou Maj pour une sélection multiple)</small></label>
+<label for="{{ $for }}">{{ ucfirst($intitule) }} <small>(@lang('form.selection_multiple'))</small></label>
 
 <div class="form-check">
 
   <input id="all_{{ $for }}" class="all form-check-input" type="checkbox" name="all_{{ $for }}" value="">
 
-  <label for="all_{{ $for }}">@lang('form.all'){{ strtolower($intitule) }}</label>
+  <label for="all_{{ $for }}">@lang('form.all'){{ $intitule }}</label>
 
 </div>
 

@@ -84,7 +84,7 @@
               @include('exports.form.selectMultiple', [
               'datas' => $especes,
               'for' => 'especes',
-              'intitule' => 'Espèces',
+              'intitule' => 'espèces',
               ])
 
             </div>
@@ -122,7 +122,7 @@
               @include('exports.form.selectMultiple', [
               'datas' => $anaitems,
               'for' => 'anaitems',
-              'intitule' => 'Parasites',
+              'intitule' => 'parasites',
               ])
 
             </div>

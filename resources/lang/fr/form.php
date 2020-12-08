@@ -179,4 +179,5 @@ return array (
   'from' => 'Depuis',
   'to' => 'Jusqu\'à',
   'all' => 'Toute la liste des ',
+  'selection_multiple' => 'maintenir le bouton Ctrl ou Maj pour une sélection multiple',
 );
