@@ -201,7 +201,7 @@ class ExportsController extends Controller
     // On va chercher la liste des parasites concernés
     $anaitems = $this->anaitemsFromForm($datas);
     // Si on choisit toutes les especes, il faut aller chercher la totalité de id
-    if ($datas['especes'][0] == "all") {
+    if ($datas['especes_export'][0] == "all") {
 
       $especes = Espece::all();
 
@@ -213,7 +213,7 @@ class ExportsController extends Controller
 
     } else {
 
-      $liste_especes = $datas['especes'];
+      $liste_especes = $datas['especes_export'];
     }
 
 
@@ -365,7 +365,7 @@ class ExportsController extends Controller
 
   public function anaitemsFromForm($datas) : Collection
   {
-    if($datas['anaitems'][0] == "all") {
+    if($datas['anaitems_export'][0] == "all") {
 
       $anaitems = Anaitem::all();
 
@@ -377,7 +377,7 @@ class ExportsController extends Controller
 
     } else {
 
-      $liste_anaitems = $datas['anaitems'];
+      $liste_anaitems = $datas['anaitems_export'];
 
     }
     // Liste des parasites

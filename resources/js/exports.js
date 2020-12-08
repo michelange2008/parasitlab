@@ -2,35 +2,43 @@
 var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
 $('form#choix button[type=submit]').prop('disabled', true); // On passe le bouton exporter à "inactif" tant qu'il n'y a pas un choix d'espece et de parasite
-$("#anaitems").empty(); // On vide la liste des parasites en attendant que l'on ait cliqué sur l'espece
+$("#anaitems_export").empty(); // On vide la liste des parasites en attendant que l'on ait cliqué sur l'espece
 $("#all_anaitems").prop('disabled', true);
 
 // Quand on clique sur une espece et que la case all_especes est cochée, cela décoche la case all_especes
 // et ça décoche la case all_anaitems et ça déselect tous les especes (sauf la sélectionnée) et tous les parasites
-$("#especes").on('click', function() {
+$("#especes_export").on('click', function() {
 
-  var id_checkbox = "#all_" + $(this).attr('id');
+  var especes = $(this).val().toString();
 
-  if($(id_checkbox).prop('checked', true)) {
+  console.log($(this).val());
+  // Si la case à cocher toutes especes est cochée
+  if($("#all_especes").prop('checked', true)) {
 
-    $(id_checkbox).prop('checked', false); // on décoche la case
-    var id_multiple = "#" + $(this).attr('id'); // on récupère l'id de la select
-    var option = $(id_multiple).val().toString(); // on récupère l'item sélectionné
+    $("#all_especes").prop('checked', false); // on décoche la case
 
-    $(id_multiple + ' option').prop('selected', false); // On passe tous à désélctionné
-    $(id_multiple + ' option[value=' + option + ']').prop('selected', true); // sauf celui sur lequel on a cliqué
-
-    if($("#all_anaitems").prop('checked', true)) {
-
-      $("#all_anaitems").prop('checked', false);
-      $("#anaitems option").prop('selected', false);
-
-    }
   }
+
+  var option = $("#especes_export").val(); // on récupère l'item sélectionné
+
+  option.forEach((espece, i) => {
+
+    // $("#especes_export" + ' option[value=' + espece + ']').prop('selected', true); // sauf celui sur lequel on a cliqué
+  });
+
+  if($("#all_anaitems").prop('checked', true)) {
+
+    $("#all_anaitems").prop('checked', false);
+    $("#anaitems_export option").prop('selected', false);
+
+  }
+  anaitemsFromEspece(especes);
+
+  $("#nb_enregistrements").empty();
 
 })
 // Quand on clique sur un anaitem et que la case tous les anaitems est cochée, cela la décoche
-$("#anaitems").on('click', function() {
+$("#anaitems_export").on('click', function() {
 
   var id = "#all_" + $(this).attr('id');
 
@@ -46,83 +54,89 @@ $("#anaitems").on('click', function() {
 
   }
 })
-// Quand une des chekbox (tout) change
-$(".all").on('change', function() {
+// Quand la checkbox toutes espece change
+$("#all_especes_export").on('change', function() {
 
-  var id_multiple = "#" + $(this).attr('id').split('_')[1];
-  // Si la case à cocher est cochée
   if($(this).prop('checked')) {
 
-    $(id_multiple + ' option').prop('selected', true).trigger('change');
     $("#all_anaitems").prop('disabled', false);
+    $('#especes_export option').prop('selected', true).trigger('change');
+    anaitemsFromEspece($("#especes_export").val());
+
+  } else {
+
+    $('#especes_export option').prop('selected', false).trigger('change');
+    $("#anaitems_export").empty();
+    $("#all_anaitems_export").prop('checked', false);
+    $("#nb_enregistrements").empty();
+
+  }
+
+})
+// Quand la chekbox tous les parasites change
+$("#all_anaitems_export").on('change', function() {
+
+  if($(this).prop('checked')) {
+
+    $('#anaitems_export option').prop('selected', true).trigger('change');
+    $("#all_anaitems_export").prop('disabled', false);
 
 
   } else {
 
-    $(id_multiple + ' option').prop('selected', false).trigger('change');
-    $("#all_anaitems").prop('checked', false).prop('disabled', false);
+    $('#anaitems_export option').prop('selected', false).trigger('change');
+    $("#all_anaitems").prop('checked', false);
+    $("#nb_enregistrements").empty();
 
   }
 })
 
-// AU changement d'espèce on récupère la liste des parasites correspondants
+// Fonction pour récupérer la liste des parasites correspondants au clic sur une espece
+function anaitemsFromEspece(especes) {
 
-$("#especes").on('change', function() {
+  url = url_actuelle.replace('choix', 'anaitemsFromEspece/' + especes);
 
-  var especes = $(this).val().toString();
+  $.get({
 
-  if(especes == "") {
+    url : url,
+    data : especes,
 
-    $("#anaitems").empty();
+  })
+  .done(function(datas) {
+    var anaitems = JSON.parse(datas);
 
-  } else {
+    var options = "";
+    var anaitem_present = false; // On considère que la nouvelle espèce ne possède pas les parasites sélectionnés avant
+    $.each(anaitems, function(key, value) {
 
-    $("#nb_enregistrements").empty;
+      if($("#anaitems_export").val().includes(value.id.toString())) {
 
-    url = url_actuelle.replace('choix', 'anaitemsFromEspece/' + especes);
+        anaitem_present = true; //Mais si c'est le cas, on met la variable à true
 
-    $.get({
+        options += '<option value="' + value.id + '" selected>' + value.nom + '</option>'
 
-      url : url,
-      data : especes,
+      } else {
 
-    })
-    .done(function(datas) {
-      var anaitems = JSON.parse(datas);
-
-      var options = "";
-      var anaitem_present = false; // On considère que la nouvelle espèce ne possède pas les parasites sélectionnés avant
-      $.each(anaitems, function(key, value) {
-
-        if($("#anaitems").val().includes(value.id.toString())) {
-
-          anaitem_present = true; //Mais si c'est le cas, on met la variable à true
-
-          options += '<option value="' + value.id + '" selected>' + value.nom + '</option>'
-
-        } else {
-
-          options += '<option value="' + value.id + '">' + value.nom + '</option>'
-
-        }
-
-      })
-      $("#anaitems").empty().append(options);
-      if(!anaitem_present) {
-
-        $("#anaitems").val('');
-        $("#nb_enregistrements").html('');
+        options += '<option value="' + value.id + '">' + value.nom + '</option>'
 
       }
+
     })
+    $("#anaitems_export").empty().append(options);
+    if(!anaitem_present) {
 
-  }
+      $("#anaitems_export").val('');
+      $("#nb_enregistrements").html('');
 
-})
+    }
+  })
+
+
+};
 // Pour n'importe quel changement dans le formulaire
 $("form#choix").on('change', function(e) {
-
-  if($("#especes").val().length != 0 && $("#anaitems").val().length != 0) {
+console.log($("#especes_export").val().length !== 0 && $("#anaitems_export").val().length !== 0);
+  if($("#especes_export").val().length !== 0 && $("#anaitems_export").val().length !== 0) {
 
     var data = $(this).serialize();
     url = url_actuelle.replace('choix', 'comptage');
