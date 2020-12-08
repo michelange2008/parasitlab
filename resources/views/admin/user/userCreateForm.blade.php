@@ -33,7 +33,7 @@
 
   <div class="col-md-12">
 
-    @enregistreAnnule(['nomBouton' => __('boutons.continuer')])
+    @enregistreAnnule(['nomBouton' => __('boutons.continuer'), 'route' => route('user.index')])
 
   </div>
 
