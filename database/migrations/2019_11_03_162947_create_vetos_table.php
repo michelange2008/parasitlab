@@ -22,7 +22,7 @@ class CreateVetosTable extends Migration
             $table->string('num')->nullable();
             $table->string('address_1', 191);
             $table->string('address_2', 191)->nullable(true);
-            $table->string('cp', 5);
+            $table->string('cp', 10);
             $table->string('commune', 191);
             $table->string('pays', 191)->default('France');
             $table->string('indicatif', 3)->default('33');
