@@ -107,6 +107,6 @@ class CommentaireController extends Controller
 
       Mail::to('pythie@parasitlab.org')->send(new Pythie($commentaire));
 
-      return redirect()->back()->with('message', "J'ai contacté l'Oracle");
+      return redirect()->back()->with('message', 'pythie');
     }
 }

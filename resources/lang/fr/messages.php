@@ -43,4 +43,5 @@ return array (
   'resultats_clotures' => 'Cette demande d\'analyse a été cloturée',
   'demande_updated' => "La demande d'analyse a été mise à jour.",
   'comment_store' => "Le commentaire a été enregistré",
+  'pythie' => "J'ai contacté l'Oracle...",
 );
