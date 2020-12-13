@@ -104,9 +104,9 @@ class CommentaireController extends Controller
     public function pythie($commentaire_id)
     {
       $commentaire = Commentaire::find($commentaire_id);
-return new Pythie($commentaire);
-      // Mail::to('pythie@parasitlab.org')->send(new Pythie($commentaire));
-      //
-      // return redirect()->back()->with('message', "J'ai contacté l'Oracle");
+
+      Mail::to('pythie@parasitlab.org')->send(new Pythie($commentaire));
+
+      return redirect()->back()->with('message', "J'ai contacté l'Oracle");
     }
 }
