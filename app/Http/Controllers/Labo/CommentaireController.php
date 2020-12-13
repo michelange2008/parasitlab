@@ -6,6 +6,8 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productions\Commentaire;
+use App\Mail\Pythie;
+use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
 
@@ -97,5 +99,14 @@ class CommentaireController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function pythie($commentaire_id)
+    {
+      $commentaire = Commentaire::find($commentaire_id);
+return new Pythie($commentaire);
+      // Mail::to('pythie@parasitlab.org')->send(new Pythie($commentaire));
+      //
+      // return redirect()->back()->with('message', "J'ai contacté l'Oracle");
     }
 }

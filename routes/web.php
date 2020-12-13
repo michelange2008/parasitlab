@@ -210,6 +210,8 @@
 
     Route::get('resultats/rouvrir/{demande_id}', 'Labo\ResultatController@rouvrir')->name('resultats.rouvrir');
 
+    Route::get('pythie/{commentaire_id}', 'Labo\CommentaireController@pythie')->name('commentaire.pythie');
+
     Route::resource('commentaire', 'Labo\CommentaireController');
 
     Route::resource('resultats', 'Labo\ResultatController');
