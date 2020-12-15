@@ -33,10 +33,10 @@ class ResultatsExportation implements FromCollection, WithHeadings, ShouldAutoSi
 {
     $sheet->getStyle(1)->getFont()->setBold(true);
     $sheet->getStyle("A")->getAlignment()->applyFromArray(
-      ['horizontal' => "left"],
+      ['horizontal' => "left"]
     );
     $sheet->getStyle("B")->getAlignment()->applyFromArray(
-      ['horizontal' => "left"],
+      ['horizontal' => "left"]
     );
 
 }

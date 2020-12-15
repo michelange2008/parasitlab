@@ -305,6 +305,7 @@ class ExportsController extends Controller
       $resultat['date_prelevement'] = $prelevement->demande->date_prelevement;
       $resultat['date_resultat'] = $prelevement->demande->date_resultat;
       $resultat['estParasite'] = ($prelevement->parasite) ? "oui" : "non";
+      $resultat['signes'] = '';
       $resultat['nom'] = $prelevement->demande->user->name;
       $resultat['cp'] = $this->personne($prelevement->demande->user->id)->cp;
       $resultat['commune'] = $this->personne($prelevement->demande->user->id)->commune;
