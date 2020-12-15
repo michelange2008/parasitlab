@@ -10,19 +10,34 @@
 
     <textarea class="form-control" id="commentaire" name="commentaire" rows="8">@if ($demande->commentaire !== null){{ $demande->commentaire->commentaire}}@endif</textarea>
 
-  </div>
-
-  @if (session('comment'))
-
-    <div class="alert alert-success">
-
-      {!! __('messages.'.session('comment')) !!}
-
     </div>
 
-  @endif
+    @if (session('comment'))
+
+      <div class="alert alert-success">
+
+        {!! __('messages.'.session('comment')) !!}
+
+      </div>
+
+    @endif
 
 
-  @include('fragments.boutonEnregistrer',['nomBouton' => 'boutons.save_commentaire', 'css' => 'btn-sm'])
+    @include('fragments.boutonEnregistrer',['nomBouton' => 'boutons.save_commentaire', 'css' => 'btn-sm'])
 
-</form>
+    @if ($demande->commentaire->commentaire != null)
+
+      @bouton([
+        'type' => 'route',
+        'route' => 'commentaire.pythie',
+        'id' => $demande->commentaire->id,
+        'bouton_id' => 'pythie',
+        'couleur' => 'btn-rouge',
+        'taille' => 'btn-sm',
+        'fa' => "fas fa-question-circle",
+        'intitule' => 'Help',
+      ])
+
+    @endif
+
+  </form>
