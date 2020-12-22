@@ -125,7 +125,7 @@ class ExportsController extends Controller
         ->where('anaitem_id', $anaitem->id)->first();
 
         $resultat[$anaitem->nom] = $valeur->valeur;
-
+\Log::debug($anaitem->nom." - ".$valeur);
       }
       $resultat['troupeau'] = $prelevement->demande->troupeau->nom ?? '';
       $resultat['espece'] = $prelevement->demande->espece->nom;
