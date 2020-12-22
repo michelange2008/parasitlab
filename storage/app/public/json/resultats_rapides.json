@@ -1,0 +1,26 @@
+{
+  "amenez" :
+  {
+    "icone" : "marcheur.svg",
+    "prefixe" : "resultats_rapides.",
+    "titre" : "amenez",
+    "resultats" : "soir",
+    "texte_1" : "amenez_texte",
+    "moment_arrivee" : "amenez_jours",
+    "moment_resultats" : "resultats_soir",
+    "route" : "infos.contact",
+    "intitule" : "comment_venir"
+  },
+  "envoyez" :
+  {
+    "icone" : "enveloppe.svg",
+    "prefixe" : "resultats_rapides.",
+    "titre" : "envoyez",
+    "resultats" : "fin_semaine",
+    "texte_1" : "envoyez_texte",
+    "moment_arrivee" : "envoyez_jours",
+    "moment_resultats" : "resultats_fin_semaine",
+    "route" : "express.envoiPack",
+    "intitule" : "demander_kits"
+  }
+}

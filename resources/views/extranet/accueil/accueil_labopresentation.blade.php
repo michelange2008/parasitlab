@@ -2,9 +2,9 @@
 
 <div class="row">
 
-  <div class="col-md-12 col-lg-10 col-xl-8 mx-auto d-md-flex flex-row">
+  <div class="col-md-10 mx-auto d-md-flex justify-content-between">
 
-    <div class="col-md-7 text-left">
+    <div class="col-xl-8 col-md-7 text-left">
 
       <img class="img-50" src="{!! 'storage/logo.svg' !!}" alt="Pôle Bio">
 
@@ -21,9 +21,9 @@
 
     </div>
 
-    <div class="col-md-5">
+    <div class="col">
 
-      <img src="{{ 'storage/img/accueil/polebio.jpg' }}" alt="Pole BIO">
+      <img class="img-fluid" src="{{ 'storage/img/accueil/polebio.jpg' }}" alt="Pole BIO">
 
     </div>
 
