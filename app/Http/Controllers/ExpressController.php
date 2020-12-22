@@ -14,12 +14,12 @@ use App\Mail\EnvoiPack;
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Anatype;
 
-use App\Http\Traits\UserTypeOutil;
+use App\Http\Traits\Personne;
 use App\Http\Traits\LitJson;
 
 class ExpressController extends Controller
 {
-  use LitJson, UserTypeOutil;
+  use LitJson, Personne;
 
   protected $menu;
 
@@ -46,7 +46,7 @@ class ExpressController extends Controller
   {
 
     $cout_pack = Anaacte::select('pu_ht')->where('abbreviation', 'kit envoi')->first()->pu_ht;
-
+// TODO: problème avec la personne
     return view('extranet.analyses.enpratique.envoiPack', [
       'menu' => $this->menu,
       'pays' => $this->litJson('pays'),

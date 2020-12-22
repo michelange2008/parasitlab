@@ -36,6 +36,7 @@ class AccueilController extends Controller
         'menu' => $this->menu,
         'accueilEntetes' => $this->litJson('accueilEntetes'),
         'carousel' => $this->litJson('carousel'),
+        'resultats_rapides' => $this->litJson('resultats_rapides'), 
       ]);
     }
 
