@@ -30,7 +30,7 @@ return array (
 
   'meilleure_fiabilite' => "Une meilleure fiabilité des résultats",
 
-  'nombreuses_analyses' => "Parasit'Lab propose de nombreuses analyses coproscopiques différentes afin d'<strong>améliorer la fiabilité des résultats</strong>.",
+  'nombreuses_analyses' => "Parasit'Lab propose de nombreuses analyses coproscopiques différentes <strong>adaptées aux différents parasites recherchés.</strong>",
 
   'techniques_adaptees' => "En effet, un comptage précis des oeufs des différents types de parasites nécessite d'avoir recours à des techniques adaptées à chaque cas.",
 
