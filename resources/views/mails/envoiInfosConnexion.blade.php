@@ -8,7 +8,7 @@
 
   <div class="">
 
-    <a href="{{ url('login') }}">
+    <a href="{!! url('login') !!}">
 
       <img class="img-90" src="{!! url('storage/logo.svg') !!}" alt="Parasit'Lab">
 
