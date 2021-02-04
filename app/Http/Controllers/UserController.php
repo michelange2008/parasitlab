@@ -243,6 +243,9 @@ class UserController extends Controller
 
       $datas = $request->all();
 
-      return $datas['user_id'];
+      $user_id = $datas['user_id'];
+      $consentement = $datas['consentement'];
+
+      
     }
 }
