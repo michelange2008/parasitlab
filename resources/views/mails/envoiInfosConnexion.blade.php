@@ -10,7 +10,7 @@
 
     <a href="{!! url('login') !!}">
 
-      <img class="img-90" src="{!! url('storage/logo.svg') !!}" alt="Parasit'Lab">
+      <img class="img-90" src="{!! asset('storage/logo.svg') !!}" alt="Parasit'Lab">
 
     </a>
 
