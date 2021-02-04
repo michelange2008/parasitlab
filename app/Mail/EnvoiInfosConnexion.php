@@ -39,6 +39,6 @@ class EnvoiInfosConnexion extends Mailable
         return $this->from(config('app.mail'))
                     ->subject('Informations de connexion')
                     ->view('mails.envoiInfosConnexion')
-                    ->with(['user' => $this->user, 'estVeto' => $estVeto, 'estEleveur' => $estEleveur]);
+                    ->with(['user' => $this->user, 'estVeto' => $estVeto, 'estEleveur' => $estEleveur, 'message' => $this]);
     }
 }
