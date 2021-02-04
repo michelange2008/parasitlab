@@ -18,6 +18,8 @@
 
         @include('utilisateurs.boutonModifInfos')
 
+        @include('utilisateurs.consentement')
+
         <div class="text-right">
 
 

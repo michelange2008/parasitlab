@@ -238,5 +238,11 @@ class UserController extends Controller
 
     }
 
+    public function consentement(Request $request)
+    {
 
+      $datas = $request->all();
+
+      return $datas['user_id'];
+    }
 }

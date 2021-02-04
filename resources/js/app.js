@@ -15,6 +15,7 @@ require( './blog.js');
 require( './telFormulaire.js');
 require( './algo.js');
 require( './exports.js');
+require('./consentement.js');
 require( 'jquery-confirm' );
 
 $(function() {

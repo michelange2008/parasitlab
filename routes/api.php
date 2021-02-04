@@ -50,4 +50,5 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/exclusionsAnaacteObservation/{observation_id}', 'Api\DonneesController@exclusionsAnaacteObservation');
 
+
 });

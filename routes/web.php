@@ -15,6 +15,7 @@
 // MENU ACCUEIL
 
   Route::get('/essai', 'Api\DonneesController@essai');
+  Route::post('/consentement', 'UserController@consentement')->name('consentement');
 
   // Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
   Route::post('/essai/store', 'Api\DonneesController@selectAnalyses')->name('essai.store');
