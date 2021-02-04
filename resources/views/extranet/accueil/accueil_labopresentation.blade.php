@@ -24,6 +24,7 @@
     <div class="col">
 
       <img class="img-fluid" src="{{ 'storage/img/accueil/polebio.jpg' }}" alt="Pole BIO">
+      <img src="{!! public_path().'/storage/logo.svg' !!}" alt="">
 
     </div>
 
