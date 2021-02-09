@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('usertype_id')->unsigned();
             $table->foreign('usertype_id')->references('id')->on('usertypes');
+            $table->boolean('suivre')->default(false);
+            $table->boolean('recevoir')->default(false);
 
             $table->rememberToken();
             $table->timestamps();

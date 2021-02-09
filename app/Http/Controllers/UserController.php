@@ -246,6 +246,12 @@ class UserController extends Controller
       $user_id = $datas['user_id'];
       $consentement = $datas['consentement'];
 
-      
+      $user = User::find($user_id);
+      $etat = abs($user->$consentement -1);
+      $user->$consentement = $etat;
+      $user->save();
+
+      return $user->$consentement;
+
     }
 }

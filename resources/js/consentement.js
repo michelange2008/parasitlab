@@ -9,16 +9,28 @@ $(".consentement").on('change', function() {
     url: url_nouvelle,
     data: datas
   })
-  .done(function(datas) {
+  .done(function(data) {
+    if(data == 1) {
+      var text = "Merci de votre choix."
+    } else {
+      var text = "Nous avons pris note de votre choix."
+    }
     $.alert({
+      animation: 'opacity',
+      closeAnimation: 'opacity',
       theme: 'dark',
       type: 'green',
-      title: "Modification de mes préférences",
-      content: datas
-    })
+      title: "Vos préférences",
+      content: text,
+      buttons: {
+        OK: {
+          keys: ['enter', 'esc'],
+        }
+      }
   })
-  .fail(function(datas) {
-    console.log(datas);
-  })
+})
+.fail(function(data) {
+  console.log(data);
+})
 
 })

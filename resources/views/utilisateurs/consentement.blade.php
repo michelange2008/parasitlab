@@ -8,11 +8,11 @@
         <form class="" action="index.html" method="post">
           @csrf
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input consentement" id="suivre" user="{{ $user->id }}">
+            <input type="checkbox" class="custom-control-input consentement" id="suivre" @if ($user->suivre) checked @endif user="{{ $user->id }}">
             <label class="custom-control-label" for="suivre">@lang('consentement.suivre')</label>
           </div>
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input consentement" id="recevoir" user="{{ $user->id }}">
+            <input type="checkbox" class="custom-control-input consentement" id="recevoir" @if ($user->recevoir) checked @endif user="{{ $user->id }}">
             <label class="custom-control-label" for="recevoir">@lang('consentement.recevoir')</label>
           </div>
         </form>
