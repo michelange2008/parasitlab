@@ -13,6 +13,7 @@ use App\Mail\EnvoiPack;
 
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Anatype;
+use App\Models\Espece;
 
 use App\Http\Traits\Personne;
 use App\Http\Traits\LitJson;
@@ -53,6 +54,7 @@ class ExpressController extends Controller
       'user' => auth()->user(),
       'personne' => $this->personne(auth()->user()),
       'cout_pack' => $cout_pack,
+      'especes' => Espece::all(),
     ]);
   }
 
@@ -63,7 +65,7 @@ class ExpressController extends Controller
   {
 
     $demande = $request->validated();
-
+dd($demande);
     $mail = Mail::to(config('mail')['from']['address'])->send(new EnvoiPack($demande));
 
     return view('extranet.analyses.enpratique.envoiPackOk');

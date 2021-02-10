@@ -34,7 +34,7 @@ class FormulaireEnvoiPack extends FormRequest
             'indicatif' => 'string|required|max:3',
             'tel' => 'string|required|max:10',
             'nb_pack' => 'integer|required|between:1,10',
-
+            'espece' => 'required',
         ];
     }
 }

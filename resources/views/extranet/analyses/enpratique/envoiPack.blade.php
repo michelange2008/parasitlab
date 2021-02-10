@@ -53,10 +53,25 @@
           <div class="form-inline lead my-3">
 
             <label for="nb_pack" >{!! __('formulaires.envoiPack_1') !!}</label>
-            
+
             <input id="nb_pack" class="form-control mx-3 text-center" type="number" name="nb_pack" value="1" min="1" max="10" step="1">
 
           </div>
+
+          <div class="">
+
+
+              @foreach ($especes as $espece)
+                <div class="custom-control custom-checkbox custom-control-inline lead d-flex justify-content-between">
+
+                <input id="espece_{{ $espece->nom }}" type="checkbox" name="espece_{{ $espece->id }}" value="{{ $espece->id }}" class="custom-control-input">
+                <label class="custom-control-label" for="espece_{{ $espece->nom }}">{{ $espece->nom }}</label>
+
+              </div>
+              @endforeach
+
+          </div>
+
 
           @enregistreAnnule(["nomBouton" => "valider"])
 
@@ -65,6 +80,8 @@
       </div>
 
     </div>
+
+    <br>
 
   </div>
 
