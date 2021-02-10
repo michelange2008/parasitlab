@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EnvoiPack extends Mailable
+class EnvoiKit extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,8 +32,8 @@ class EnvoiPack extends Mailable
     public function build()
     {
         return $this->from($this->demande['email'])
-          ->subject("Demande de pack d'envoi")
-          ->view('mails.envoiPackMail')
+          ->subject("Demande de kit d'envoi")
+          ->view('mails.envoiKitMail')
           ->with(['demande' => $this->demande]);
     }
 }

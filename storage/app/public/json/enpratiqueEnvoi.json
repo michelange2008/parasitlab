@@ -6,7 +6,7 @@
     {
       "prefixe" : "pack-envoi-vide.",
       "type" : "route",
-      "route" : "express.envoiPack",
+      "route" : "express.envoiKit",
       "id" : "pack"
     },
     "formulaire_vierge" :

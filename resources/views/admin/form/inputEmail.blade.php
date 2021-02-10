@@ -2,7 +2,6 @@
 
   <label class="col-form-label"  for="email">@lang('form.email')&nbsp;:</label>
   <div class="input-group">
-  <span class="input-group-text" id="prepend_email">@</span>
 
   <input id="champ_mail" class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{ $user->email ?? old('email') }}" placeholder="email" required>
 

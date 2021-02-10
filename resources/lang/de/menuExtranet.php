@@ -50,7 +50,7 @@ return array (
       'nom' => 'Ein leeres Formular herunterladen',
       'tooltip' => 'Ein leeres Formular im pdf-Format herunterladen',
     ),
-    'envoiPack' => 
+    'envoikit' => 
     array (
       'nom' => 'Versandpakete anfordern',
       'tooltip' => 'Diese Versandverpackungen sind vorfrankiert und ermöglichen Ihnen den sicheren Versand Ihrer Proben.',

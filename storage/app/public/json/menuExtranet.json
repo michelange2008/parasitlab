@@ -51,10 +51,10 @@
 				"prefixe" : "menuExtranet.express.telFormulaire.",
 				"route" : "especes"
 			},
-			"envoiPack" : {
-				"id" : "envoiPack",
-				"prefixe" : "menuExtranet.express.envoiPack.",
-				"route" : "express.envoiPack"
+			"envoiKit" : {
+				"id" : "envoiKit",
+				"prefixe" : "menuExtranet.express.envoiKit.",
+				"route" : "express.envoiKit"
 			}
 		}
 	},

@@ -54,9 +54,9 @@
 
   Route::get('express/tarifs', ['uses' => 'ExpressController@tarifs', 'as' => 'express.tarifs']);
 
-  Route::get('express/envoiPack', ['uses' => 'ExpressController@envoiPack', 'as' => "express.envoiPack"]);
+  Route::get('express/envoiKit', ['uses' => 'ExpressController@envoiKit', 'as' => "express.envoiKit"]);
 
-  Route::post('express/envoiPackStore', ['uses' => 'ExpressController@envoiPackStore', 'as' => "express.envoiPackStore"]);
+  Route::post('express/envoiKitStore', ['uses' => 'ExpressController@envoiKitStore', 'as' => "express.envoiKitStore"]);
 
   //##############################################################################
   // MENU CONTACT INFORMATIONS MENTIONS LEGALES

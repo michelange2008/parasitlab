@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\FormulaireEnvoiPack;
+use App\Http\Requests\FormulaireEnvoiKit;
 use Carbon\Carbon;
 
 use Mail;
 use Illuminate\Mail\Mailer;
-use App\Mail\EnvoiPack;
+use App\Mail\EnvoiKit;
 
 
 use App\Models\Analyses\Anaacte;
@@ -41,19 +41,19 @@ class ExpressController extends Controller
   }
 
   /*
-  * Page de formulaire de demande d'envoi d'un pack
+  * Page de formulaire de demande d'envoi d'un kit
   */
-  public function envoiPack()
+  public function envoiKit()
   {
 
-    $cout_pack = Anaacte::select('pu_ht')->where('abbreviation', 'kit envoi')->first()->pu_ht;
+    $cout_kit = Anaacte::select('pu_ht')->where('abbreviation', 'kit envoi')->first()->pu_ht;
 // TODO: problème avec la personne
-    return view('extranet.analyses.enpratique.envoiPack', [
+    return view('extranet.analyses.enpratique.envoiKit', [
       'menu' => $this->menu,
       'pays' => $this->litJson('pays'),
       'user' => auth()->user(),
       'personne' => $this->personne(auth()->user()),
-      'cout_pack' => $cout_pack,
+      'cout_kit' => $cout_kit,
       'especes' => Espece::all(),
     ]);
   }
@@ -61,14 +61,14 @@ class ExpressController extends Controller
   /*
   * Récupération des données du formulaire ci-dessus
   */
-  public function envoiPackStore(FormulaireEnvoiPack $request)
+  public function envoiKitStore(FormulaireEnvoiKit $request)
   {
 
     $demande = $request->validated();
-dd($demande);
-    $mail = Mail::to(config('mail')['from']['address'])->send(new EnvoiPack($demande));
 
-    return view('extranet.analyses.enpratique.envoiPackOk');
+    $mail = Mail::to(config('mail')['from']['address'])->send(new EnvoiKit($demande));
+
+    return view('extranet.analyses.enpratique.envoiKitOk');
 
   }
 

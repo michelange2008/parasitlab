@@ -55,7 +55,7 @@ return array (
   'sontparasites' => 'Pensez-vous qu\'ils sont parasités&nbsp;?',
   'q_observation' => 'Avez-vous observé&nbsp;:',
   'form_download' => 'Télécharger un formulaire',
-  'ask_for_pack' => 'Demander des packs d\'envoi',
+  'ask_for_pack' => 'Demander des kits d\'envoi',
   'envoi_facture' => 'Envois et facture',
   'prelev' => "prélèvement n°:num",
   'identification' => "identification",
@@ -180,4 +180,6 @@ return array (
   'to' => 'Jusqu\'à',
   'all' => 'Toute la liste des ',
   'selection_multiple' => 'maintenir le bouton Ctrl ou Maj pour une sélection multiple',
+
+  'toutes_especes' => "Toutes espèces",
 );

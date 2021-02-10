@@ -50,10 +50,10 @@ return array (
       'nom' => 'Télécharger un formulaire vierge',
       'tooltip' => 'Télécharger un formulaire vierge au format pdf',
     ),
-    'envoiPack' =>
+    'envoiKit' =>
     array (
-      'nom' => 'Demander des packs d\'envoi',
-      'tooltip' => 'Ces packs d\'envois sont préafranchis et vous permettront une expédition sûre de vos prélèvements',
+      'nom' => 'Demander des kits d\'envoi',
+      'tooltip' => 'Ces kits d\'envois sont préafranchis et vous permettront une expédition sûre de vos prélèvements',
     ),
   ),
   'infos' =>

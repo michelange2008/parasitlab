@@ -1,5 +1,7 @@
 <h4>@lang('commun.envoyer_pack', ['nb_pack' => $demande['nb_pack']])</h4>
 
+<h5>@lang('commun.espece') : {{ $demande['espece'] }}</h5>
+
 <p>{{ $demande['name'] }}</p>
 
 <p>{{ $demande['address_1'] }}

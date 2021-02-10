@@ -39,7 +39,7 @@ return array (
   'sontparasites' => 'Pensez-vous qu\'ils sont parasités&nbsp;?',
   'q_observation' => 'Avez-vous observé&nbsp;:',
   'form_download' => 'Télécharger un formulaire',
-  'ask_for_pack' => 'Demander des packs d\'envoi',
+  'ask_for_pack' => 'Demander des kits d\'envoi',
   'envoi_facture' => 'Envois et facture',
   'prelevements' => 'Prélèvements',
   'demandeur' => 'Demandeur',

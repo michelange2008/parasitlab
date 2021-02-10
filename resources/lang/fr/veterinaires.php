@@ -21,10 +21,12 @@ return array (
   'resist' => 'test de résistance vis-à-vis des anthelminthiques',
   'comment_faire' => 'Comment faire ?',
   'kit_envoi_1' => 'Nous fournissons des kits d’envoi préaffranchis permettant un acheminement rapide et sécurisé des prélèvements.',
-  'kit_envoi_2' => 'Chaque kit contient une fiche de procédure de prélèvement, un formulaire de demande d\'analyses, des sachets et des gants de prélèvement et une enveloppe préaffranchie.',
+  'kit_envoi_2' => 'Chaque kit contient une fiche de procédure de prélèvement, un formulaire de demande d\'analyses, des sachets et des gants de prélèvement et une enveloppe préaffranchie.
+                    Un kit permet de faire jusqu\'à <strong>trois analyses individuelles ou de mélange</strong>',
   'kit_envoi_3' => 'N\'hésitez pas à nous les commander pour les proposer aux éleveurs à qui vous conseillez de réaliser des examens coproscopiques. Nous vous les envoyons gratuitement.',
   'kit_envoi_prix_1' => 'Le coût de ces kits d\'envoi est de ',
   'kit_envoi_prix_2' => '&nbsp;€ qui sera facturé en même temps que l\'analyse (au destinataire de la facture de l\'analyse demandée).',
+  'kit_envoi_info_1' => '<strong>Attention ! Il faut utiliser 1 kit par espèce.</strong> Si vous souhaitez faire des coproscopies sur plusieurs espèces, demandez autant de kit.',
   'repondre_question_1' => 'N\'hésitez pas à nous contacter si vous avez des questions sur les services que nous proposons et leurs modalités de mise en oeuvre.',
   'repondre_question_2' => 'Nous pouvons vous apporter toutes les informations nécessaires sur les techniques utilisées au laboratoire.',
 );

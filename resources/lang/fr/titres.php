@@ -6,7 +6,7 @@ return array (
   'cavaliers' => 'cavalières et propriétaires de chevaux ou d\'ânes',
   'copros' => 'Pourquoi des analyses parasitologiques&nbsp;?',
   'choisir_analyse' => 'Quelle analyse choisir&nbsp;?',
-  'envoiPack' => 'Demande d\'envoi d\'un pack pré-affranchi',
+  'envoikit' => 'Demande d\'envoi d\'un kit pré-affranchi',
   'tarifs' => 'Analyses proposées et tarifs',
   'enpratique' => 'Comment prélever et envoyer dans les meilleures conditions&nbsp;?',
   'parasitisme' =>
