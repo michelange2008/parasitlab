@@ -33,7 +33,7 @@
 
           <h5 class="font-weight-bold">Especes associées à cette analyse</h5>
 
-          @foreach ($anaacte->especes as $espece)
+          @foreach ($anaacte->anatype->especes as $espece)
 
             <img class="img-90" src="{{ url('storage/img/icones/'.$espece->icone->nom) }}" alt="$espece->icone->nom">
 
