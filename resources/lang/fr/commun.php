@@ -32,6 +32,5 @@ return array (
   'terminee' => 'terminée',
   'analyse' => 'analyse',
   'prelev_n' => 'prélèvement n°',
-
-  'espece' => 'espèce',
+  'obs' => 'observateur',
 );

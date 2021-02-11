@@ -7,6 +7,7 @@ use PDF;
 use App\Http\Controllers\Labo\EnvoisController;
 
 use App\Models\Productions\Demande;
+use App\Models\Productions\Prelevement;
 use App\Models\Productions\Facture;
 use App\Models\Analyses\Anatype;
 use App\Models\Espece;
@@ -92,6 +93,20 @@ class PdfController extends Controller
     $pdf = PDF::loadview('labo.factures.pdf.facturePDF', compact('elementDeFacture'));
 
     return $pdf;
+  }
+  // Fonction qui produit une fiche vierge de paillasse avec les infos correspondant à une demande d'analyse
+  public function fichePaillasse($demande_id)
+  {
+    // Pour récupérer les infos sur la demande d'analyse (sans faire du code tordu avec les prélèvements)
+    $demande = Demande::find($demande_id);
+    // Pour récupérer la liste des animaux
+    $prelevements = Prelevement::where('demande_id', $demande_id)->get();
+    // Liste des anaitems pour pouvoir construire la liste des parasites
+    $anaitems = $demande->anaacte->anatype->analyses->where('espece_id', $demande->espece_id)->first()->anaitems;
+    // On construit le pdf
+    $pdf = PDF::loadview('labo.paillasse.paillassePDF', compact('prelevements', 'demande', 'anaitems'));
+
+    return $pdf->stream('paillasse.pdf');
   }
 
 }

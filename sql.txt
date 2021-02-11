@@ -1,1 +1,5 @@
+Ajouer deux colonnes à la table users pour la RGPD
 ALTER TABLE `LAB_users` ADD `suivre` BOOLEAN NOT NULL DEFAULT FALSE AFTER `usertype_id`, ADD `recevoir` BOOLEAN NOT NULL DEFAULT FALSE AFTER `suivre`; 
+
+Ajouter une colonne à la table anaitems pour l'affichage d'une feuille de paillasse
+ALTER TABLE `LAB_anaitems` ADD `paillasse` VARCHAR(191) NOT NULL AFTER `abbreviation`; 

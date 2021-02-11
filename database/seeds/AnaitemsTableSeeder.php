@@ -11,6 +11,10 @@ class AnaitemsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        DB::table('anaitems')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
         DB::table('anaitems')->insert([
           [
             'id' => 1,
@@ -32,23 +36,23 @@ class AnaitemsTableSeeder extends Seeder
             'id' => 3,
             "abbreviation" => "TRIC",
             "nom" => "trichuris",
-            "unite_id" => "1",
-            "qtt_id" => "1",
+            "unite_id" => "5",
+            "qtt_id" => "3",
             "image" => "TRIC.png",
           ],
           [
             'id' => 4,
             "abbreviation" => "STRY",
             "nom" => "strongyloïdes",
-            "unite_id" => "1",
-            "qtt_id" => "1",
+            "unite_id" => "5",
+            "qtt_id" => "3",
             "image" => "STRY.png",
           ],
           [
             'id' => 5,
             "abbreviation" => "COCC",
             "nom" => "coccidies",
-            "unite_id" => "2",
+            "unite_id" => "6",
             "qtt_id" => "2",
             "image" => "COCC.png",
           ],

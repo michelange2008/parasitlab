@@ -179,6 +179,8 @@
 
     route::post('prelevement/storeOnDemande', 'Labo\PrelevementController@storeOnDemande')->name('storeOnDemande');
 
+    route::get('demandes/{demande_id}/paillasse', 'PdfController@fichePaillasse')->name('paillasse');
+
     route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
 
     route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');

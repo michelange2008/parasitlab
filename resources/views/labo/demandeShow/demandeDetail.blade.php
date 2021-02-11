@@ -4,7 +4,19 @@
   <!-- TITRE ANALYSE-->
   <h5 class="card-title d-flex alert-secondary px-3 py-1 justify-content-between align-items-center">
 
-    @lang('demandes.analyse')
+    <div class="">
+
+      @if (Auth::user()->usertype->route == 'laboratoire')
+
+          <a href="{{ route('paillasse', $demande->id)}}" title="Télécharger la fiche de paillasse">
+            <img class="img-40" src="{{ url('storage/img/icones/paillasse.svg') }}" alt="paillasse">
+          </a>
+
+      @endif
+
+      @lang('demandes.analyse')
+
+    </div>
 
     @include('labo.demandeShow.etatSaisie')
 

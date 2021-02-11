@@ -27,7 +27,7 @@ class AnatypesTableSeeder extends Seeder
           ],
           [
             'id' => 2,
-            'abbreviation' => "SGI + DICR",
+            'abbreviation' => "SGI_DICR",
             'nom' => "parasites gastro-intestinaux + petite douve",
             'technique' => 'méthode quantitative McMaster - ZnCl2',
             'remarque' => "Concernant la petite douve, il s'agit seulement de résultats qualitatifs (présence/absence)",
@@ -45,7 +45,7 @@ class AnatypesTableSeeder extends Seeder
           ],
           [
             'id' => 4,
-            'abbreviation' => "GD + PARAM",
+            'abbreviation' => "GD_PARAM",
             'nom' => "grande douve et paramphistome",
             'technique' => 'méthode qualitative de sédimentation',
             'remarque' => "Pour des questions de fiabilité, cette analyse nécessite de prélever le même animal matin, midi et soir.",

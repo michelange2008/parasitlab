@@ -41,6 +41,7 @@ return array (
   'dates' => "Choix des dates",
   'date_prelevement' => 'Date du prélèvement',
   'date_reception' => 'Date de réception',
+  'date_analyse' => 'Date d\'analyse',
   'ana_demandee' => 'Analyse demandée',
   'type_acte' => 'Type d\'acte',
   'infos_diverses' => 'Informations (motifs de l\'analyse, état des animaux, etc.)',
