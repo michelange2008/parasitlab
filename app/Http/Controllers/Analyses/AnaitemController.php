@@ -136,8 +136,7 @@ class AnaitemController extends Controller
     {
         $datas = $request->all();
         $file = $request->file('image_nouvelle');
-        // dd(url('storage/img/icones/oeufs/'.$datas['image_default']));
-        // dd($datas['abbreviation']);
+
         if($file === null) {
 
           $image_nouvelle = $datas['image_default'];

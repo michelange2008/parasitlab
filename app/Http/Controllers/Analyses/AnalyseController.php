@@ -86,7 +86,7 @@ class AnalyseController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Met à jour les associations entre analyse et anaitem.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -95,37 +95,27 @@ class AnalyseController extends Controller
     public function update(Request $request, $id)
     {
         $datas = $request->all();
-
+        // On récupère le préfixe qui permet de repérer les anaitems
         $prefixe = $datas['prefixe'];
-
+        // On crée une collection vide
         $liste_anaitems_id = [];
 
         foreach ($datas as $key => $element) {
-
+          // On explose les datas
           if(explode('_', $key)[0] === $prefixe) {
-
+            // Pour ne récupérer que celles conernant les anaitems qu'on ajoute à la liste
             $liste_anaitems_id[] = $element;
 
           }
 
         }
-
+        // On récupère l'analyse
         $analyse = Analyse::find($id);
-
-        $liste_origine_anaitems_id = [];
-
-        foreach ($analyse->anaitems as $anaitem) {
-
-          $liste_origine_anaitems_id[] = $anaitem->id;
-
-        }
-
-        $anaitems_enleves = array_diff($liste_origine_anaitems_id, $liste_anaitems_id);
-
-        $analyse->anaitems()->detach($anaitems_enleves);
-
+        // On enlève toutes les associations entre cette analyse et les anaitems
+        $analyse->anaitems()->detach($analyse->anaitems);
+        // On recrée ces mêmes associations avec la nouvelle liste
         $analyse->anaitems()->attach($liste_anaitems_id);
-
+        // Et on renvoie à la même page
         return redirect()->route('anatypes.edit', $datas['anatype_id'])->with('message', 'anatype_update');
     }
 
