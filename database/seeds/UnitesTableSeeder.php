@@ -11,12 +11,17 @@ class UnitesTableSeeder extends Seeder
      */
     public function run()
     {
+      DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+      DB::table('unites')->truncate();
+      DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
       DB::table("unites")->insert([
-        [ 'id' => 1, "type" => "unites.qttf", "nom" => "unites.opg" ],
-        [ 'id' => 2, "type" => "unites.qttf", 'nom' => "unites.ookystes" ],
-        ['id' => 3, "type" => "unites.qttf", "nom" => "unites.larves" ],
-        ['id' => 4, "type" => "unites.qttf", "nom" => "unites.percent" ],
-        ['id' => 5, "type" => "unites.qltf", "nom" => "" ],
+        [ 'id' => 1, "type" => "quantitatif", "nom" => "opg" ],
+        [ 'id' => 2, "type" => "quantitatif", 'nom' => "ookystes" ],
+        ['id' => 3, "type" => "quantitatif", "nom" => "larves" ],
+        ['id' => 4, "type" => "quantitatif", "nom" => "%" ],
+        ['id' => 5, "type" => "qualitatif", "nom" => "+/-" ],
+        ['id' => 6, "type" => "qualitatif", "nom" => "-/+/++/+++" ],
       ]);
     }
 }
