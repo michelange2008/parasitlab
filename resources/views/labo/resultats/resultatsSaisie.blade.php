@@ -91,7 +91,7 @@
                   </thead>
 
                   <tbody>
-
+{{ $prelevement->analyse->anaitems }}
                     @foreach ($prelevement->analyse->anaitems as $anaitem)
 
                       @if ($anaitem->unite->type == "quantitatif") {{-- SI la résultats sont des valeurs ou des pourcentages --}}
