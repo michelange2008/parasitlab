@@ -19,7 +19,7 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
     @php
 
       $valeur = $resultat->valeur;
-      $class = "resultatExiste";
+      $class = "resultatExiste"; // destiné à faire une mise en forme particulière pour les résultats non négatifs
 
     @endphp
 
@@ -38,21 +38,16 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
   <td>
 
     <select class="form-control" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}">
+      {{-- en fonction de $valeur, cad d'un résultat préexistant on selectionne l'option --}}
+        <option value="absence"
+          @if ($valeur == "absence") selected="selected" @endif>
+            @lang('absence')
+        </option>
 
-      @if ($valeur === null)
-
-        <option value="absence">@lang('absence')</option>
-
-        <option value="presence">@lang('presence')</option>
-
-
-      @else
-
-        <option value="absence">@lang('absence')</option>
-
-        <option value="presence" selected>@lang('presence')</option>
-
-      @endif
+        <option value="presence"
+          @if ($valeur == "presence") selected="selected" @endif>
+            @lang('presence')
+        </option>
 
     </select>
 

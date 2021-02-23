@@ -88,14 +88,6 @@ class ResultatController extends Controller
       }
 
     }
-    // On stocke le commentaire dans la table correspondante
-    // if(isset($datas['commentaire'])) {
-    //
-    //   $commentaire = new CommentaireController($datas['demande_id']);
-    //
-    //   $commentaire->store($datas['commentaire']);
-    //
-    // }
 
     return redirect()->route('demandes.show', $datas['demande_id']);
 
