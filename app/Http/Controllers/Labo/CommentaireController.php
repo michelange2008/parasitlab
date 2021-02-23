@@ -49,7 +49,7 @@ class CommentaireController extends Controller
                     [
                       'commentaire' => $datas['commentaire'],
                       'date_commentaire' => Carbon::now(),
-                      'labo_id' => auth()->user()->id,
+                      'labouser_id' => auth()->user()->id,
                     ]);
 
       return redirect()->back()->with('comment', 'comment_store');
