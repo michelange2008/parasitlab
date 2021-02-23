@@ -18,7 +18,7 @@
 
 </strong></blockquote>
 
-  <p>Signé: {{ $commentaire->labouser->name }}</p>
+  <p>Signé: {{ auth()->user()->name }}</p>
 
   <a href="{{ url(route('demandes.show', $commentaire->demande_id)) }}" class="btn btn-red">Voir</a>
 
