@@ -278,11 +278,22 @@ class DemandeController extends Controller
 
       $demande = Demande::find($demande_id);
 
-      DB::table('demandes')->where('id', $demande_id)->update([
-      'signe' => true,
-      'date_signature' => \Carbon\Carbon::now(),
-      'labo_id' => auth()->user()->id,
-      ]);
+      try {
+
+        $labo_id = auth()->user()->labo->id;
+
+        DB::table('demandes')->where('id', $demande_id)->update([
+          'signe' => true,
+          'date_signature' => \Carbon\Carbon::now(),
+          'labo_id' => $labo_id,
+        ]);
+
+      } catch (\Exception $e) {
+
+        abort(404, 'Vous n\'êtes pas autorisés à signer cette analyse');
+
+      }
+
 
       return redirect()->back();
 
