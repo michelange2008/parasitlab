@@ -101,8 +101,9 @@
 <div class="text-right">
 
   <p class="lignes">
-    @lang('demandes.signe_le') {{ \Carbon\Carbon::parse($demande->date_signature)->isoFormat('DD/MM/Y') }} par {{ $demande->labo->user->name }}
+    @lang('demandes.signe_le') {{ \Carbon\Carbon::parse($demande->date_signature)->isoFormat('DD/MM/Y') }} par {{ $signataire->name }}
   </p>
-  <img width="250px" src="{!! 'storage/img/labo/signatures/'.$demande->labo->signature !!}" alt="signature">
+  <br>
+  <img width="250px" src="{!! 'storage/img/labo/signatures/'.$signataire->labo->signature !!}" alt="signature">
 
 </div>

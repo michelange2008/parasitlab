@@ -11,6 +11,7 @@ use App\Models\Productions\Prelevement;
 use App\Models\Productions\Facture;
 use App\Models\Analyses\Anatype;
 use App\Models\Espece;
+use App\User;
 
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\FactureFactory;
@@ -51,7 +52,9 @@ class PdfController extends Controller
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
-    $pdf = PDF::loadview('labo.resultats.pdf.'.$vue, compact('demande'));
+    $signataire = User::where('name', "Michel BOUY")->first();
+
+    $pdf = PDF::loadview('labo.resultats.pdf.'.$vue, compact('demande', 'signataire'));
 
     $name = $demande->user->name."_".$demande->anaacte->anatype->nom."_".$demande->date_resultat.".pdf";
 
