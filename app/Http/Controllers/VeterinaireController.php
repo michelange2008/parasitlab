@@ -38,7 +38,7 @@ class VeterinaireController extends Controller
     {
       $user = User::find(auth()->user()->id);
 
-      $demandes = Demande::where('veto_id', auth()->user()->veto->id)->get();
+      $demandes = Demande::where('tovetouser_id', auth()->user()->veto->id)->get();
 
       foreach ($demandes as $demande) {
 
@@ -55,6 +55,7 @@ class VeterinaireController extends Controller
         'demandes' => $demandes,
         'route' => $user->usertype->route,
         'datas' => $datas,
+        'user' => auth()->user(),
       ]);
 
     }
