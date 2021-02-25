@@ -5,6 +5,7 @@ return array (
   'ou' => 'ou',
   'par' => 'par',
   'du' => 'du',
+  'ici' => 'ici',
   'ilya' => 'Il y a',
   'know_more' => 'En savoir plus',
   'contact_us_short' => 'nous contacter',

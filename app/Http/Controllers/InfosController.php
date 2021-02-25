@@ -6,21 +6,43 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Models\Labo;
 use App\Http\Traits\LitJson;
-
+/**
+ * Fournit les méthodes pour l'affichage des infos (menu Infos)
+ *
+ */
 class InfosController extends Controller
 {
 
   use LitJson;
-
+  /**
+   * permet d'afficher le menu: lecture du json moment de la construction du controller
+   *
+   * @var menu
+   */
   protected $menu;
 
+  /**
+   * constructeur du controlleur
+   *
+   * Uniquement destiné à créer la variable menu par lecture du json menuExtranet
+   * pour l'affichage dans les templates
+   *
+   * @return array $menu
+   */
   public function __construct()
   {
     $this->menu = $this->litJson('menuExtranet');
   }
 
-
-
+  /**
+   * Renvoi la vue contact
+   *
+   * Undocumented function long description
+   *
+   * @return view extranet.contact
+   * @var array this->menu 
+   * @var arry contacts: données lues à partir du fichier contacts.json
+   */
   public function contact()
   {
     return view('extranet.contact', [

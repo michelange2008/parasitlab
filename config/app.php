@@ -56,7 +56,7 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
-    'mail' => env('MAIL_FROM_ADDRESS'),
+    'mail' => env('MAIL_FROM_ADDRESS', 'contact@parasitlab.org'),
 
     /*
     |--------------------------------------------------------------------------
