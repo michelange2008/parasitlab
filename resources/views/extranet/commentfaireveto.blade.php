@@ -17,7 +17,7 @@
     @bouton([
       'fa' => 'fas fa-at',
       "type" => "route",
-      "route" => "express.envoikit",
+      "route" => "express.envoiKit",
       "intitule" => "form.ask_for_pack",
     ])
 

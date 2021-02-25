@@ -1,3 +1,5 @@
+{{-- présentation du fibl france et de l'équipe
+Est renvoyée par app\Http\Controllers\InfosController@quisommesnous.php --}}
 @extends('layouts.app')
 
 @section('menu')

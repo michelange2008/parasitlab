@@ -1,3 +1,5 @@
+{{-- template qui construit le mail d'envoi des infos de connexion.
+Est appelé par app\Mail\EnvoiInfosConnexion.php --}}
 @extends('layouts.mail')
 
 @section('content')
