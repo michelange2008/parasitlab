@@ -12,6 +12,7 @@
         "barryvdh/laravel-dompdf": "^0.8.5",
         "barryvdh/laravel-translation-manager": "^0.5.8",
         "fideloper/proxy": "^4.0",
+        "graphp/graphviz": "^0.2.2",
         "guzzlehttp/guzzle": "^6.5",
         "intervention/image": "^2.5",
         "laravel-lang/lang": "~7.0",
