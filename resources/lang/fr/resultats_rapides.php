@@ -9,7 +9,7 @@ return array (
   'resultats_soir' => 'le soir-même.',
   'envoyez' => 'Vous envoyez vos prélèvements&nbsp;?',
   'fin_semaine' => 'Résultats en fin de semaine !',
-  'comment_venir' => 'comment venir ?',
+  'comment_venir' => 'Comment venir ?',
   'envoyez_texte' => 'Si vous nous envoyez les prélèvements ',
   'envoyez_jours' => 'en début de semaine (lundi ou mardi)',
   'resultats_fin_semaine' => 'en fin de semaine.',
