@@ -4,6 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Espèce animale élevée est sur les prélèvement de laquelle sont faites les analyses
+ *
+ * Est lié à de nombreux autres modèles
+ * - Icone (belongsTo): une espèce à une Icone
+ * - Age (hasMany): une espèce peut avoir différents Age (jeunes, adultes, ...)
+ * - Analyses (hasMany): une espèce est concernée par plusieurs analyses possibles
+ * - Demande (hasMany): dans une demande d'analyse, l'espèce est toujours définie
+ * - Serie (hasMany): une série est une demande d'analyse qui se répète (test de résistance par ex)
+ * - Anatype:
+ * - Observation:
+ * - Exclusion:
+ * - ObservationAnaacte
+ * - Typeprod:
+ */
 class Espece extends Model
 {
     public $timestamps = false;
