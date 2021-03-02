@@ -53,13 +53,13 @@ class AnaacteController extends Controller
       ]);
 
     }
-
+    /** TODO: le formulaire de création d'un nouvel anaacte ne fonctionne pas */ 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+     public function create()
     {
       return view('admin.anaactes.anaacteCreate', [
         'menu' => $this->menu,
@@ -86,6 +86,7 @@ class AnaacteController extends Controller
         $anaacte_nouveau->abbreviation = $datas['abbreviation'];
         $anaacte_nouveau->nom = $datas['nom'];
         $anaacte_nouveau->description = $datas['description'];
+        $anaacte_nouveau->estActif = $datas['estActif'];
         $anaacte_nouveau->estSerie = $datas['estSerie'];
         $anaacte_nouveau->estAnalyse = $datas['estAnalyse'];
         $anaacte_nouveau->estTarif = $datas['estTarif'];
@@ -144,6 +145,7 @@ class AnaacteController extends Controller
         $anaacte->abbreviation = $request->abbreviation;
         $anaacte->nom = $request->nom;
         $anaacte->description = $request->description;
+        $anaacte->estActif = $request->estActif;
         $anaacte->estSerie = $request->estSerie;
         $anaacte->estAnalyse = $request->estAnalyse;
         $anaacte->estTarif = $request->estTarif;

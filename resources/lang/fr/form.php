@@ -146,6 +146,7 @@ return array (
   'anatype' => 'Type d\'analyse',
   'anatype_abbreviation' => "Abbreviation (10 car. max)",
   'anatype_technique' => "Description de la technique",
+  'estActif' => "Est-ce une analyse proposée ?",
   'estAnalyse' => 'Est-ce une analyse ?',
   'estTarif' => "Est-ce affiché dans les tarifs ?",
    'oui' => 'Oui',

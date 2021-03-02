@@ -86,8 +86,19 @@
             <div class="col border mx-1 p-3">
 
               @inputOuiNon([
+              'name' => 'estActif',
+              'intitule' => "estActif",
+              'checked' => $anaacte->estActif,
+              ])
+
+            </div>
+
+            <div class="col border mx-1 p-3">
+
+              @inputOuiNon([
               'name' => 'estSerie',
               'intitule' => "estSerie",
+              'checked' => $anaacte->estSerie,
               ])
 
             </div>
@@ -97,6 +108,7 @@
               @inputOuiNon([
               'name' => 'estAnalyse',
               'intitule' => "estAnalyse",
+              'checked' => $anaacte->estAnalyse,
               ])
 
             </div>
@@ -106,6 +118,7 @@
               @inputOuiNon([
               'name' => 'estTarif',
               'intitule' => "estTarif",
+              'checked' => $anaacte->estTarif,
               ])
 
             </div>

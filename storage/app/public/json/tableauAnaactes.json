@@ -32,6 +32,12 @@
       "align" : "left",
       "sortable" : false
     },
+    "estActif" : {
+      "id" : "astActif",
+      "nom" : "Actif",
+      "align" : "center",
+      "sortable" : true
+    },
     "pu_ht" : {
       "id" : "pu_ht",
       "nom" : "pu_ht",

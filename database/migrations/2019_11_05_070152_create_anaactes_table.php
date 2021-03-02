@@ -23,6 +23,7 @@ class CreateAnaactesTable extends Migration
           $table->foreign('anatype_id')->references('id')->on('anatypes')->onDelete('set null');
           $table->boolean('estSerie')->default(false);
           $table->boolean('propPrelev')->default(false); // coût proportionnel au nombre de prélèvements
+          $table->boolean('estActif')->default(false);
           $table->boolean('estAnalyse');
           $table->boolean('estTarif');
           $table->unsignedInteger('icone_id')->default(1)->nullable();

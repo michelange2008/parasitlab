@@ -72,8 +72,8 @@ class AnatypesTableSeeder extends Seeder
           ],
           [
             'id' => 7,
-            'abbreviation' => "PACK",
-            'nom' => "Pack",
+            'abbreviation' => "KIT",
+            'nom' => "Kit",
             'technique' => '',
             'remarque' => null,
             'estAnalyse' => false,

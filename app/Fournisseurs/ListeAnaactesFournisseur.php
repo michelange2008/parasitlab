@@ -36,6 +36,8 @@ class ListeAnaactesFournisseur extends ListeFournisseur
 
       $acte = $this->lienFactory($anaacte->id, $anaacte->nom, 'anaactes.edit', 'edit.anaacte');
 
+      $estActif = $this->ouinonFactory($anaacte->id, $anaacte->estActif);
+
       $pu_ht = $this->itemFactory($anaacte->pu_ht);
 
       $tva = $this->itemFactory($anaacte->tva->taux);
@@ -47,6 +49,7 @@ class ListeAnaactesFournisseur extends ListeFournisseur
         $num,
         $type,
         $acte,
+        $estActif,
         $pu_ht,
         $tva,
         $suppr,
