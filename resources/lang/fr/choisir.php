@@ -26,8 +26,6 @@ return array (
   'jouer' => "A vous de jouer !",
   'choisir_age' => "Choisir un âge",
 
-  'detail' => 'Détail des analyses et tarifs',
-
   'meilleure_fiabilite' => "Une meilleure fiabilité des résultats",
 
   'nombreuses_analyses' => "Parasit'Lab propose de nombreuses analyses coproscopiques différentes <strong>adaptées aux différents parasites recherchés.</strong>",

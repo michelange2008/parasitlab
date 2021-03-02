@@ -42,7 +42,7 @@ $('.espece').on('click', function() {
   $(".espece").css('filter', 'opacity(20%)');
   $(this).css('filter', 'blur(0px)');
   // On vide la colonne d'options
-  videOptionsAnaaactes();
+  videOptions();
   // On efface les intertitres correspondant aux categories
   $('.categorie').hide();
   // On vide la liste d'observation
@@ -217,10 +217,11 @@ $(".liste_observations").on('click', ".card", function() {
     // Puis on inscrit la nouvelle obbservation cliquée dans le tableau selection
     selection[id_categorie-1] = id; // Le "-1" est dû au fait que les id des catégories commencent à 1 tandis que l'index du tableau à 0
     activeObservation(id);
+
   }
 
   // ON EFFACE TOUTE LA COLONNE OPTIONS:
-  videOptionsAnaaactes();
+  videOptions();
 
   // On stocke la sélection dans les input pour la transmission ajax
   $.each(selection, function(key,value) {
@@ -230,6 +231,7 @@ $(".liste_observations").on('click', ".card", function() {
 
   // On appelle la fonction listeOptions qui fait une requete post du formulaire caché (ExtranetDemandeController@optionsSelonObservations)
   listeOptions();
+
   // Et on remonte le scroll juste sous la ligne des especes
   window.scrollTo(200,250);
 });
@@ -305,7 +307,6 @@ function listeOptions() {
     .done(function(datas) {
       if(datas != null) { // Si des données sont revenues (ce qui doit être systématiquement le cas)
         var anatypes = JSON.parse(datas).anatypes; // On récupère le tableau anatypes (2 anatypes max)
-        var anaactes = JSON.parse(datas).anaactes; // on révupère le tableau anaactes (2 anaactes max)
 
         if(nombreSelections(selection) > 0) { // S'il y a au moins une sélection
 
@@ -324,12 +325,8 @@ function listeOptions() {
             } else {
               $('#deux').fadeIn();
             }
-
-            $.each(anaactes, function(key, value) { // Affichage des analyses
-              $('#anaacte_' + value).fadeIn();
-            })
-
           }
+          $('#penser_veto').fadeIn(3000); // Et le véto
 
           if($("#input_espece").val()== 5 ) {
             $('#autres_analyses').fadeIn(2000);
@@ -337,7 +334,7 @@ function listeOptions() {
 
         } else { // Si il n'y aucune observation séléctionnée, on efface tout
 
-          videOptionsAnaaactes();
+          videOptions();
         }
 
       }
@@ -348,7 +345,7 @@ function listeOptions() {
     });
 }
 // Fonction qui efface tous les éléments du panneau de droite
-function videOptionsAnaaactes() {
+function videOptions() {
 
   // On masque le panneau veto
   $("#penser_veto").hide();
@@ -356,10 +353,10 @@ function videOptionsAnaaactes() {
   $('#boutons').hide();
   // On masque la liste d'anatypes, d'anaactes et la liste d'anaactes
   $('.anatype').hide();
-  $('.anaacte').hide();
-  $('.listeanaactes').hide();
-  // On passe tous les boutons options et tarifs à closed
-  $('.optionstarifs').attr('state', 'closed');
+  // $('.anaacte').hide();
+  // $('.listeanaactes').hide();
+  // // On passe tous les boutons options et tarifs à closed
+  // $('.optionstarifs').attr('state', 'closed');
   // On masque le titre des analyses proposées
   $(".titre_analyses").hide();
   // On vide le 0 option

@@ -27,27 +27,7 @@
 
               <p class="text-secondary"><i class="fas fa-exclamation-triangle"></i> {{ $anatype->remarque }}</p>
             @endif
-            <button id="optionstarifs_{{ $anatype->id }}" class="optionstarifs btn btn-sm btn-secondary dropdown-toggle" state="closed">
-              @lang('choisir.detail')
-            </button>
           </div>
-        </div>
-        <div id="listeanaactes_{{ $anatype->id }}" class="listeanaactes" style="display:none">
-
-          @foreach ($anatype->anaactes as $anaacte)
-
-            <div id="anaacte_{{ $anaacte->id }}" class="anaacte ml-3 py-3 border-top border-bottom" style="display:none">
-
-              <p class="card-text">{!! ucfirst($anaacte->nom) !!}
-                <span class="card-text"><small class="text-muted">{!! ucfirst($anaacte->pu_ht) !!}&nbsp;&euro;&nbsp;HT</small></span>
-              </p>
-              <p class="card-text text-secondary pl-3 bordure-epaisse">{!! ucfirst($anaacte->description) !!}</p>
-              <p class="text-muted">@lang('choisir.num_analyse')&nbsp;<span class="badge badge-bleu-tres-fonce">{!! $anaacte->num !!}</span></p>
-
-            </div>
-
-          @endforeach
-
         </div>
       </div>
     </div>
@@ -69,7 +49,7 @@
   </div>
 
   {{-- recommandation pour le véto --}}
-  <div id="penser_veto" class="media border px-3 py-2 mb-2  bg-rouge-clair" style="display:none">
+  <div id="penser_veto" class="media border px-3 py-2 mb-2 " style="display:none">
     <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/veto.svg') !!}" alt="veto.svg">
     <div class="media-body">
       <h5 class="mt-0">
