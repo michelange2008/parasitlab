@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 * Routes destinées aux requêtes ajax
 *
 */
-
 Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/especes', ['uses' => 'Api\DonneesController@especes', 'as' => 'especes']);

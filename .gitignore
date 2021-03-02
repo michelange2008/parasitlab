@@ -15,6 +15,9 @@ storage/*.key
 phpDocumentor.phar
 build/
 .phpdoc/
+config/apidoc.php
+public/docs/
+resources/docs/
 Homestead.yaml
 Homestead.json
 
