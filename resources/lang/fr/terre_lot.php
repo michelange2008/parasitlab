@@ -8,7 +8,7 @@ return array (
                   Il est possible de ramasser au sol quand on voit l\'animal en train de faire&nbsp;: dans ce cas on est sûr de l\'identité et de la fraîcheur.<br>
                   Dans la mesure du possible, il est préférable de faire le prélèvement directement dans le rectum.<br>
                   Il ne faut en aucun cas ramasser des fèces par-terre si l\'on ne sait pas quel animal les a fait et quand&nbsp;!<br>
-                  Pour plus d\'informations, consultez la fiche technique correspondante <a href=\'#\'><i class=\'fas fa-external-link-alt\'></i></a>',
+                  Pour plus d\'informations, consultez les fiches techniques correspondantes',
     'remarque' => '<i class=\'fas fa-exclamation-circle text-danger\'></i> Une coproscopie se fait avec une petite poignée de crottes. Il n\'est donc pas utile de nous envoyer des quantités importantes.',
   ),
   'lot' =>
