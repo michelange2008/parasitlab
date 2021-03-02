@@ -38,16 +38,16 @@ class DatabaseSeeder extends Seeder
       $this->call(Anaitem_analyseTableSeeder::class);
       $this->call(PrelevementsTableSeeder::class);
       $this->call(ResultatsTableSeeder::class);
-      $this->call(OptionsTableSeeder::class);
+      // $this->call(OptionsTableSeeder::class);
       $this->call(CategoriesTableSeeder::class);
       $this->call(ObservationsTableSeeder::class);
-      $this->call(Espece_ObservationTableSeeder::class);
-      $this->call(ObservationOptionTableSeeder::class);
-      $this->call(Anaacte_ObservationTableSeeder::class);
-      $this->call(AnacteOptionTableSeeder::class);
-      $this->call(AnaacteEspeceTableSeeder::class);
-      $this->call(Age_ObservationTableSeeder::class);
-      $this->call(Age_AnaacteTableSeeder::class);
+      // $this->call(Espece_ObservationTableSeeder::class);
+      // $this->call(ObservationOptionTableSeeder::class);
+      // $this->call(Anaacte_ObservationTableSeeder::class);
+      // $this->call(AnacteOptionTableSeeder::class);
+      // $this->call(AnaacteEspeceTableSeeder::class);
+      // $this->call(Age_ObservationTableSeeder::class);
+      // $this->call(Age_AnaacteTableSeeder::class);
       // $this->call(BlogsTableSeeder::class);
 
     }

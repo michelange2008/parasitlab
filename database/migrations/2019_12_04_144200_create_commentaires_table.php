@@ -20,7 +20,7 @@ class CreateCommentairesTable extends Migration
             $table->foreign('demande_id')->on('demandes')->references('id')
                       ->onDelete('cascade')->onUpdate('cascade');
 
-            $table->unsignedInteger('labo_id')->nullable();
+            $table->unsignedInteger('labouser_id')->nullable();
             $table->foreign('labouser_id')->on('users')->references('id')
                       ->onDelete('cascade')->onUpdate('cascade');
 

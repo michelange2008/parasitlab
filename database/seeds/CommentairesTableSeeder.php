@@ -19,7 +19,7 @@ class CommentairesTableSeeder extends Seeder
         $datas[] = [
           'id' => $i,
           'demande_id' => $i,
-          'labo_id' => null,
+          'labouser_id' => null,
           'commentaire' => null,
           'date_commentaire' => null,
         ];
@@ -29,5 +29,5 @@ class CommentairesTableSeeder extends Seeder
       DB::table('commentaires')->insert($datas);
 
     }
-    
+
 }
