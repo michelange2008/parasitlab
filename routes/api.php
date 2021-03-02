@@ -2,20 +2,11 @@
 
 use Illuminate\Http\Request;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
+/**
+* Routes destinées aux requêtes ajax
+*
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/especes', ['uses' => 'Api\DonneesController@especes', 'as' => 'especes']);
@@ -28,7 +19,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
   Route::get('/observations/especes/{espece_id}', ['uses' => 'Api\DonneesController@observationSelonEspece']);
-  
+
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
   Route::get('/observations/ages/{age_id}', ['uses' => 'Api\DonneesController@observationSelonAge']);
 
