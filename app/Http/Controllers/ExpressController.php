@@ -34,7 +34,7 @@ class ExpressController extends Controller
 
     return view('extranet.analyses.tarifs', [
       'menu' => $this->menu,
-      'anaactes' => Anaacte::all(),
+      'anaactes' => Anaacte::where('estActif', true)->get(),
       'anatypes' => Anatype::all(),
       'date' => Carbon::now()->year,
     ]);
