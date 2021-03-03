@@ -3,7 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+/**
+ * Icone associée à n'importe quel élément qui doit être illustré
+ *
+ * Le choix de faire un model Icone est lié à la création d'une banque d'icone
+ * pour pouvoir télécharger et utiliser facilement les icones.
+ * Dans la majorité des cas, les icones sont liées par une relation de type hasOne
+ * Sauf pour les Analyse
+ * La table icone compte deux champs: id et nom (nom complet avec extension)
+ * Toutes les icones sont en svg sauf quelques exceptions
+ */
 class Icone extends Model
 {
   public $timestamps = false;
