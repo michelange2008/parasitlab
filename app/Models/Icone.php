@@ -8,9 +8,14 @@ use Illuminate\Database\Eloquent\Model;
  *
  * Le choix de faire un model Icone est lié à la création d'une banque d'icone
  * pour pouvoir télécharger et utiliser facilement les icones.
- * Dans la majorité des cas, les icones sont liées par une relation de type hasOne
- * Sauf pour les Analyse
- * La table icone compte deux champs: id et nom (nom complet avec extension)
+ *
+ * Dans la majorité des cas, les icones sont liées par une relation de type __hasOne__
+ * Sauf pour les Analyse où c'est __hasMany__ (je ne sais plus pourquoi).
+ *
+ * __La table icone compte deux champs:__
+ * + id
+ * + nom (nom complet avec extension)
+ *
  * Toutes les icones sont en svg sauf quelques exceptions
  */
 class Icone extends Model
