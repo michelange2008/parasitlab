@@ -1,3 +1,4 @@
+          'positif' => 1,
 <?php
 
 use Illuminate\Database\Seeder;
@@ -21,36 +22,28 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => "2350",
-            
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
           [
             'prelevement_id' => 10,
 
             'anaitem_id' => 2,
             'valeur' => "50",
-
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
           [
             'prelevement_id' => 10,
 
             'anaitem_id' => 4,
             'valeur' => "50",
-
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
           [
             'prelevement_id' => 10,
 
             'anaitem_id' => 5,
             'valeur' => "200",
-
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
           /*
           // DEMANDE 6 PRELEVEMENT 2/3
@@ -60,27 +53,21 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 1,
             'valeur' => "1050",
-
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
           [
             'prelevement_id' => 11,
 
             'anaitem_id' => 4,
             'valeur' => "150",
-
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
           [
             'prelevement_id' => 11,
 
             'anaitem_id' => 5,
             'valeur' => "800",
-
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
 
           /*
@@ -91,9 +78,7 @@ class ResultatsTableSeeder extends Seeder
 
             'anaitem_id' => 2,
             'valeur' => "350",
-
-            'created_at' => "2019-11-06 00:00:00",
-            'updated_at' => "2019-11-08 00:00:00"
+            'positif' => 1,
           ],
         /*
         // DEMANDE 7 PRELEVEMENT 13 1/1
@@ -103,36 +88,28 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "2350",
-
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
+          'positif' => 1,
         ],
         [
           'prelevement_id' => 13,
 
           'anaitem_id' => 2,
           'valeur' => "50",
-
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
+          'positif' => 1,
         ],
         [
           'prelevement_id' => 13,
 
           'anaitem_id' => 4,
           'valeur' => "50",
-
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
+          'positif' => 1,
         ],
         [
           'prelevement_id' => 13,
 
           'anaitem_id' => 5,
           'valeur' => "200",
-
-          'created_at' => "2019-11-06 00:00:00",
-          'updated_at' => "2019-11-08 00:00:00"
+          'positif' => 1,
         ],
 //######################################################################################
 //                    SUIVI DE CAMPAGNE                                                #
@@ -147,9 +124,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "450",
-
-          'created_at' => "2019-06-15 00:00:00",
-          'updated_at' => "2019-06-17 00:00:00"
+          'positif' => 1,
         ],
         /*
         // DEMANDE 9 PRELEVEMENT 16 2/3
@@ -159,27 +134,21 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "150",
-
-          'created_at' => "2019-06-15 00:00:00",
-          'updated_at' => "2019-06-17 00:00:00"
+          'positif' => 1,
         ],
         [
           'prelevement_id' => 16,
 
           'anaitem_id' => 4,
           'valeur' => "50",
-
-          'created_at' => "2019-06-15 00:00:00",
-          'updated_at' => "2019-06-17 00:00:00"
+          'positif' => 1,
         ],
         [
           'prelevement_id' => 16,
 
           'anaitem_id' => 5,
           'valeur' => "300",
-
-          'created_at' => "2019-06-15 00:00:00",
-          'updated_at' => "2019-06-17 00:00:00"
+          'positif' => 1,
         ],
         /*
         // DEMANDE 9 PRELEVEMENT 17 3/3
@@ -189,9 +158,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "50",
-
-          'created_at' => "2019-06-15 00:00:00",
-          'updated_at' => "2019-06-17 00:00:00"
+          'positif' => 1,
         ],
 // DEUXIEME SERIE ///////////////////////////////////////////////////////////////////////
         /*
@@ -202,9 +169,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "1450",
-
-          'created_at' => "2019-07-20 00:00:00",
-          'updated_at' => "2019-07-20 00:00:00",
+          'positif' => 1,
         ],
         /*
         // DEMANDE 9 PRELEVEMENT 19 2/3
@@ -214,27 +179,21 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "850",
-
-          'created_at' => "2019-07-20 00:00:00",
-          'updated_at' => "2019-07-20 00:00:00",
+          'positif' => 1,
         ],
         [
           'prelevement_id' => 19,
 
           'anaitem_id' => 4,
           'valeur' => "50",
-
-          'created_at' => "2019-07-20 00:00:00",
-          'updated_at' => "2019-07-20 00:00:00",
+          'positif' => 1,
         ],
         [
           'prelevement_id' => 19,
 
           'anaitem_id' => 5,
           'valeur' => "300",
-
-          'created_at' => "2019-07-20 00:00:00",
-          'updated_at' => "2019-07-20 00:00:00",
+          'positif' => 1,
         ],
         /*
         // DEMANDE 9 PRELEVEMENT 20 3/3
@@ -244,9 +203,7 @@ class ResultatsTableSeeder extends Seeder
 
           'anaitem_id' => 1,
           'valeur' => "150",
-
-          'created_at' => "2019-07-20 00:00:00",
-          'updated_at' => "2019-07-20 00:00:00",
+          'positif' => 1,
         ],
 
 // TROISIEME SERIE ///////////////////////////////////////////////////////////////////////
@@ -258,9 +215,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 1,
         'valeur' => "2050",
-
-        'created_at' => "2019-09-03 00:00:00",
-        'updated_at' => "2019-09-04 00:00:00",
+        'positif' => 1,
       ],
       /*
       // DEMANDE 9 PRELEVEMENT 22 2/3
@@ -270,27 +225,21 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 1,
         'valeur' => "1000",
-
-        'created_at' => "2019-09-03 00:00:00",
-        'updated_at' => "2019-09-04 00:00:00",
+        'positif' => 1,
       ],
       [
         'prelevement_id' => 22,
 
         'anaitem_id' => 4,
         'valeur' => "50",
-
-        'created_at' => "2019-09-03 00:00:00",
-        'updated_at' => "2019-09-04 00:00:00",
+        'positif' => 1,
       ],
       [
         'prelevement_id' => 22,
 
         'anaitem_id' => 5,
         'valeur' => "300",
-
-        'created_at' => "2019-09-03 00:00:00",
-        'updated_at' => "2019-09-04 00:00:00",
+        'positif' => 1,
       ],
       /*
       // DEMANDE 9 PRELEVEMENT 23 3/3
@@ -300,9 +249,7 @@ class ResultatsTableSeeder extends Seeder
 
         'anaitem_id' => 1,
         'valeur' => "550",
-
-        'created_at' => "2019-09-03 00:00:00",
-        'updated_at' => "2019-09-04 00:00:00",
+        'positif' => 1,
       ],
     ]);
   }

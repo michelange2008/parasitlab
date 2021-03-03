@@ -24,7 +24,7 @@ class CreateResultatsTable extends Migration
             // RESULTAT
             $table->string('valeur', 191)->nullable()->default(null);
             // DATES
-            $table->timestamps();
+            $table->boolean('positif')->default(0);
         });
     }
 
