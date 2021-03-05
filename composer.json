@@ -29,7 +29,6 @@
         "spatie/laravel-cookie-consent": "^2.11"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.5",
         "facade/ignition": "^2.0",
         "laravel/ui": "^2.0",
         "mockery/mockery": "^1.0",
