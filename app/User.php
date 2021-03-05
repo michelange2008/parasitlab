@@ -14,8 +14,6 @@ use Illuminate\Notifications\Notifiable;
 * Les utilisateurs de type eleveur et veterinaire n'ont accès qu'à leur
 * page personnelle
 *
-* @param type var Description
-* @return return type
 */
 class User extends Authenticatable
 {

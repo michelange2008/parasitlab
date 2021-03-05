@@ -21,6 +21,8 @@ use App\User;
  *
  * Les champs de la table sont les suivants: id, user_id, signature (nom d'un fichier image),
  * fonction (texte), est_signataire (booléen), timestamps)
+ *
+ * @category user
  */
 class Labo extends Model
 {
