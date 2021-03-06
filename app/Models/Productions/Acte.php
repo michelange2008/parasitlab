@@ -3,7 +3,9 @@
 namespace App\Models\Productions;
 
 use Illuminate\Database\Eloquent\Model;
-
+/**
+ * @package Productions
+ */
 class Acte extends Model
 {
   protected $guarded = [];

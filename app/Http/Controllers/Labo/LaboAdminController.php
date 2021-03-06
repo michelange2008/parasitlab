@@ -20,9 +20,8 @@ use App\Http\Traits\ImagesManager;
 
 /**
 * Controller destiné à gérer tout ce qui a trait à l'administration du site
+* @package Utilisateurs
 */
-
-
 class LaboAdminController extends Controller
 {
 

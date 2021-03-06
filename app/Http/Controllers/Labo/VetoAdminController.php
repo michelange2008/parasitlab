@@ -19,6 +19,11 @@ use App\Http\Traits\VetoInfos;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\UserCreateDetail;
 
+/**
+ * [VetoAdminController description]
+ *
+ * @package Utilisateurs
+ */
 class VetoAdminController extends Controller
 {
 

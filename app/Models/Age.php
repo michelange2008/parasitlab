@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * Il s'agit d'un age par classe d'age: jeune, adulte. C'est valable surtout
  * pour les bovins et pour le choix d'une analyse par l'algorithme
  *
+ * @package Animaux
  */
 class Age extends Model
 {

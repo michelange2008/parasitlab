@@ -17,7 +17,11 @@ use App\User;
 
 use App\Fournisseurs\ListeDemandesVetoFournisseur;
 
-
+/**
+ * [VeterinaireController description]
+ *
+ * @package Utilisateurs
+ */
 class VeterinaireController extends Controller
 {
 

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * Cet animal possède les attributs suivants: troupeau_id, numero et nom (nullable)
  *
+ * @package Animaux
  */
 class Animal extends Model
 {

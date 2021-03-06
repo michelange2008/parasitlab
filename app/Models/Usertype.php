@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * + __vétérinaire:__ accès à page perso (avec analyses de ses éleveurs) _ model Veto
  *
  * _On pourrait imaginer rajouter un model Admin (avec moins de droits sur le model Labo)_
+ * @package Utilisateurs
  */
 class Usertype extends Model
 {

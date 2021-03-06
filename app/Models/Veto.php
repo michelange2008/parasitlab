@@ -26,7 +26,7 @@ use App\User;
  * + tel: varchar(10)
  * + timestamps
  *
- * @category user
+ * @package Utilisateurs
  */
 class Veto extends Model
 {

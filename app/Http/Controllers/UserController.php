@@ -15,6 +15,10 @@ use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\UserUpdateDetail;
 
+/**
+ *
+ * @package Utilisateurs
+ */
 class UserController extends Controller
 {
     use LitJson, UserTypeOutil, UserUpdateDetail;

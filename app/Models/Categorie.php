@@ -10,8 +10,9 @@ use Illuminate\Database\Eloquent\Model;
  * rangés dans trois catégories différentes:
  *  - observations: ce qu'on observe sur un animal ou un troupeau
  *  - actions: actions faites sur le troupau/animal: entrée en bâtiment, mise à l'herbe
- *  - situations: au sens géographiques --> zones humides, méditerranéenne, + saisies d'abattoir 
+ *  - situations: au sens géographiques --> zones humides, méditerranéenne, + saisies d'abattoir
  *
+ * @package Algorithme
  */
 class Categorie extends Model
 {

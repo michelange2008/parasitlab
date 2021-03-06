@@ -21,6 +21,11 @@ use App\Http\Traits\EleveurInfos;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FactureFactory;
 
+/**
+ * [EleveurController description]
+ *
+ * @package Utilisateurs
+ */
 class EleveurController extends Controller
 {
 

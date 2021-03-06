@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Models\Usertype;
 
+/**
+ * [UsertypeController description]
+ * @package Utilisateurs
+ */
 class UsertypeController extends Controller
 {
   public function liste()

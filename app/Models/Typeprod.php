@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 /**
- * Type de production: brebise laitières, vaches allaitantes, etc.
+ * Type de production: brebis laitières, vaches allaitantes, etc.
  *
  * Un typeprod appartient à une espèce et possède des troupeaus
  *
@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * + idea
  * + nom (vachar)
  * + espece_id
+ * @package Animaux
  */
 class Typeprod extends Model
 {

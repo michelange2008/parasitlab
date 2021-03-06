@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  * L'algorithme de choix des analyses fontionne par association d'Analyses
  * à certaines observations, espèces et ages. Mais il est aussi nécessaire de définir
  * des exclusions: c'est le rôle de ce modèle.
+ * @package Algorithme
  */
 class Exclusion extends Model
 {

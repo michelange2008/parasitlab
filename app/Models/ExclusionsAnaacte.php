@@ -3,7 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+/**
+ * [ExclusionsAnaacte description]
+ * @deprecated Probablement à supprimer
+ * @package Algorithme
+ */
 class ExclusionsAnaacte extends Model
 {
     protected $table = "exclusionsanaacte";

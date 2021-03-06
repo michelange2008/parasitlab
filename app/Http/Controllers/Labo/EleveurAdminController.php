@@ -26,8 +26,8 @@ use App\Http\Traits\UserCreateDetail;
 *
 * CLASSE DE GESTION DES ELEVEURS (CRUD)
 *
+* @package Utilisateurs
 */
-
 class EleveurAdminController extends Controller
 {
   use LitJson, EleveurInfos, UserTypeOutil, UserCreateDetail;

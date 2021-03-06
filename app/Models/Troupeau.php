@@ -16,6 +16,7 @@ use App\User;
  * + user_id
  * + espece_id
  * + typeprod_id
+ * @package Animaux
  */
 class Troupeau extends Model
 {

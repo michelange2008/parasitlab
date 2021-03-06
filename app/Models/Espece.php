@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * - Exclusion:
  * - ObservationAnaacte
  * - Typeprod:
+ * @package Animaux
  */
 class Espece extends Model
 {

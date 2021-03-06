@@ -28,6 +28,7 @@ use App\User;
  * + veto_id
  * + timestamps
  *
+ * @package Utilisateurs
  */
 class Eleveur extends Model
 {

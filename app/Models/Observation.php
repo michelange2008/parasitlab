@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * **Les champs de la table sont:** *id*, *intitulé* (varchar), *explication* (mediumtext),
  * *autres* (varchar -> autres causes possibles pour cette observation), *categorie_id*,
  * *ordre* (int -> permet de définir l'ordre dans l'affichage de la liste)
+ * @package Algorithme
  */
 class Observation extends Model
 {
