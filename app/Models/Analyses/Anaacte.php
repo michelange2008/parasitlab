@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @see \App\Models\Productions\Serie
  * @see \App\Models\Icone
  * @see Tva
+ * @package Analyses
  */
 class Anaacte extends Model
 {

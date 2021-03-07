@@ -35,42 +35,74 @@ class Anatype extends Model
      */
     public $timestamps = false;
 
-
+    /**
+     * Plusieurs anaactes ont un même anatype
+     * @return hasMany
+     */
     public function anaactes()
     {
       return $this->hasMany(Anaacte::class);
     }
 
+    /**
+     * Plusieurs analyses ont un même anatype
+     * @return hasMany
+     */
     public function analyses()
     {
       return $this->hasMany(Analyse::class);
     }
 
+    /**
+     * Les anatypes concernent plusieurs espèces qui peuvent correspondre à différents anatypes
+     * @return belongsToMany
+     */
     public function especes()
     {
       return $this->belongsToMany(\App\Models\Espece::class);
     }
 
+    /**
+     * Les anatypes concernent plusieurs ages qui peuvent correspondre à différents anatypes
+     * @return belongsToMany
+     */
     public function ages()
     {
       return $this->belongsToMany(\App\Models\Age::class);
     }
 
+    /**
+     * Les anatypes concernent plusieurs observations qui peuvent correspondre à différents anatypes
+     * @return belongsToMany
+     */
     public function observations()
     {
       return $this->belongsToMany(\App\Models\Observation::class);
     }
 
+    /**
+     * Les anatypes concernent plusieurs options qui peuvent correspondre à différents anatypes
+     * @return belongsToMany
+     */
     public function options()
     {
       return $this->belongsToMany(\App\Models\Option::class);
     }
 
+    /**
+     * Une exclusion est définie par l'anatype auquel elle s'applique
+     * @see \App\Models\Exclusion
+     * @return hasOne
+     */
     public function exclusion()
     {
       return $this->hasOne(\App\Models\Exclusion::class);
     }
 
+    /**
+     * Tout anatype est caractérisé par une icone qui ne lui est pas exclusive
+     * @return belongsTo
+     */
     public function icone()
     {
       return $this->belongsTo(\App\Models\Icone::class);

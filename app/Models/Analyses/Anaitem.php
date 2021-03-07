@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @see Unite
  * @see Qtt
  *
+ * @package Analyses
  */
 class Anaitem extends Model
 {

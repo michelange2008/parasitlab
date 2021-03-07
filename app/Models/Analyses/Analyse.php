@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @see Anatype
  * @see \App\Models\Espece
  * @see \App\Models\Icone
+ * @package Analyses
  */
 class Analyse extends Model
 {
