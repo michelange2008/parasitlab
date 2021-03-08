@@ -101,20 +101,31 @@ return array (
       'nom' => 'Algorithme',
       'tooltip' => 'Modifier le comportement de l\'algorithme de choix des analyses',
     ),
-    'sousmenu_5' =>
+
+  ),
+  'outils' =>
+  array (
+    'nom' => 'Outils',
+    'tooltip' => 'Liste des différents outils',
+    'traductions' =>
+    array (
+      'nom' => 'Traductions',
+      'tooltip' => 'Accès à l\'outil de traduction',
+    ),
+    'exports' =>
+    array (
+      'nom' => 'Exports',
+      'tooltip' => 'Outils d\'exportation des données',
+    ),
+    'icones' =>
     array (
       'nom' => 'Icones',
       'tooltip' => 'Gérer les icones',
     ),
-
+    'doc' =>
+    array (
+      'nom' => 'Documentation',
+      'tooltip' => 'Information sur le site ',
+    ),
   ),
-  'item_7' =>
-  array (
-    'nom' => 'Traductions',
-    'tooltip' => 'Accès à l\'outil de traduction',
-  ),
-  'item_8' =>
-  array (
-    'nom' => 'Exports',
-    'tooltip' => 'Outils d\'exportation des données',
-  ),);
+);

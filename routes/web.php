@@ -236,6 +236,8 @@
     Route::get('icones/suppression', 'IconesController@suppr')->name('icones.suppr');
 
     Route::resource('icones', 'IconesController');
+
+    Route::get('documentation', 'DocController@index')->name('doc.index');
     //###########################
     // GESTION DE L'ALGORITME DE CHOIX
     Route::get('algorithme', 'Analyses\Algorithme\BaseController@index')->name('algorithme.index');
