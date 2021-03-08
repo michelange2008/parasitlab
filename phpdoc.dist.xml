@@ -6,7 +6,7 @@
         xsi:noNamespaceSchemaLocation="https://docs.phpdoc.org/latest/phpdoc.xsd"
 >
     <paths>
-        <output>DOC</output>
+        <output>storage/app/public/doc</output>
         <cache>.phpdoc/cache</cache>
     </paths>
     <version number="3.0.0">
