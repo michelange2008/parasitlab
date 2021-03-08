@@ -1,5 +1,5 @@
 {
-  "item_1" :
+  "extranet" :
   {
     "id" : "extranet",
     "prefixe" : "menuLabo.item_1.",
@@ -7,7 +7,7 @@
     "tooltip" : "Retour à l'accueil général (extranet)",
     "route" : "accueil"
   },
-  "item_1b" :
+  "laboratoire" :
   {
     "id" : "laboratoire",
     "prefixe" : "menuLabo.item_1b.",
@@ -15,7 +15,7 @@
     "tooltip" : "Liste de toutes les analyses",
     "route" : "laboratoire"
   },
-  "item_2" :
+  "productions" :
   {
     "id" : "productions",
     "prefixe" : "menuLabo.item_2.",
@@ -50,7 +50,7 @@
       }
     }
   },
-  "item_6" :
+  "factures" :
   {
     "id" : "factures",
     "prefixe" : "menuLabo.item_6.",
@@ -58,7 +58,7 @@
     "tooltip" : "Liste de factures",
     "route" : "factures.index"
   },
-  "item_4" :
+  "utilisateurs" :
   {
     "id" : "utilisateurs",
     "prefixe" : "menuLabo.item_4.",
@@ -140,7 +140,7 @@
       }
     }
   },
-  "item_5" :
+  "prestations" :
   {
     "id" : "prestations",
     "prefixe" : "menuLabo.item_5.",
@@ -171,33 +171,48 @@
         "prefixe" : "menuLabo.item_5.sousmenu_3.",
         "route" : "anaitems.index"
       },
-      "sousmenu_6" :
-      {
-        "id" : "divider"
-      },
       "sousmenu_4" :
       {
         "id" : "items",
         "prefixe" : "menuLabo.item_5.sousmenu_4.",
         "route" : "algorithme.index"
-      },
-      "sousmenu_5" :
-      {
-        "id" : "items",
-        "prefixe" : "menuLabo.item_5.sousmenu_5.",
-        "route" : "icones.index"
       }
     }
   },
-  "item_8" : {
-    "id" : "exports",
-    "prefixe" : "menuLabo.item_8.",
-    "route" : "exports.choix"
-  },
-  "item_7" :
-  {
-    "id" : "traductions",
-    "prefixe" : "menuLabo.item_7.",
-    "route" : "traductions"
+  "outil" : {
+    "id" : "outils",
+    "prefixe" : "menuLabo.outils.",
+    "nom" : "Outils",
+    "tooltip" : "Utilitaires et infos",
+    "route" : "accueil",
+    "sousmenu" : {
+      "export" : {
+        "id" : "exports",
+        "prefixe" : "menuLabo.outils.exports.",
+        "route" : "exports.choix"
+      },
+      "traductions" :
+      {
+        "id" : "traductions",
+        "prefixe" : "menuLabo.outils.traductions.",
+        "route" : "traductions"
+      },
+      "icones" :
+      {
+        "id" : "items",
+        "prefixe" : "menuLabo.outils.icones.",
+        "route" : "icones.index"
+      },
+      "divider" :
+      {
+        "id" : "divider"
+      },
+      "doc" :
+      {
+        "id": "doc",
+        "prefixe": "menuLabo.outils.doc.",
+        "route": "doc.index"
+      }
+    }
   }
 }
