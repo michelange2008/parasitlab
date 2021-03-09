@@ -51,8 +51,8 @@ class PdfController extends Controller
     $demande = Demande::find($demande_id);
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
-
-    $signataire = User::where('name', "Michel BOUY")->first();
+/* TODO: arranger cette merde de codage en dur du nom du signataire */
+    $signataire = User::where('email', "michel.bouy@fibl.org")->first();
 
     $pdf = PDF::loadview('labo.resultats.pdf.'.$vue, compact('demande', 'signataire'));
 
@@ -65,10 +65,12 @@ class PdfController extends Controller
   public function attachPdfResultats($demande_id)
   {
     $demande = Demande::find($demande_id);
+    
+    $signataire = User::where('email', "michel.bouy@fibl.org")->first();
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
 
-    $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande'));
+    $pdf = PDF::loadview('labo.resultats.pdf.eleveurPdf', compact('demande', 'signataire'));
 
     return $pdf;
   }

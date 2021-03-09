@@ -40,6 +40,8 @@ $('.a-envoyer').on('click', function() {
             location.reload();
           })
           .fail(function(data) {
+            $('#envoi-spinner').hide();
+            console.log(data);
             alertProblem();
           });
 
