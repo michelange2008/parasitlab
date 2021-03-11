@@ -12,8 +12,8 @@ use App\Models\Espece;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Resultat;
-use App\Models\Productions\Export;
-use App\Models\Productions\Exportation;
+// use App\Models\Productions\Export;
+// use App\Models\Productions\Exportation;
 use App\Models\Analyses\Anaitem;
 use App\Models\Analyses\Analyse;
 
@@ -124,8 +124,16 @@ class ExportsController extends Controller
         $valeur = Resultat::where('prelevement_id', $prelevement->id)
         ->where('anaitem_id', $anaitem->id)->first();
 
-        $resultat[$anaitem->nom] = $valeur->valeur;
-\Log::debug($anaitem->nom." - ".$valeur);
+        if($valeur != null) {
+
+          $resultat[$anaitem->nom] = $valeur->valeur;
+
+        } else {
+
+          $resultat[$anaitem->nom] = "0";
+
+        }
+
       }
       $resultat['troupeau'] = $prelevement->demande->troupeau->nom ?? '';
       $resultat['espece'] = $prelevement->demande->espece->nom;
