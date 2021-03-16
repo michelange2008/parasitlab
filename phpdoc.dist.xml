@@ -16,12 +16,10 @@
             </source>
             <ignore hidden="true" symlinks="true">
               <path>vendor</path>
-              <path>public</path>
-              <path>ressources</path>
               <path>bootstrap/cache</path>
               <path>database</path>
-              <path>tes*</path>
-              <path>test/**/*</path>
+              <path>storage/framework</path>
+              <path>resources/lang</path>
             </ignore>
         </api>
     </version>

@@ -1,8 +1,20 @@
 <?php
 namespace App\Http\Traits;
 
+/**
+ * Possède une seule méthode qui renvoie un array à partir d'un fichier json
+ *
+ * @package Menus
+ */
 trait LitJson {
 
+    /**
+     * TRAIT: Méthode qui lit un fichier json et renvoie un array.
+     *
+     *
+     * @param  string $json nom du fichier json présent dans _storage/json/_ sans l'extension
+     * @return array       tableau issu du json
+     */
     public function litJson($json)
     {
       $context = stream_context_create(

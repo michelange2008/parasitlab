@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-/**
-* Controller destiné à gérer tout ce qui est public
-*/
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -17,55 +14,84 @@ use App\Models\Espece;
 
 use App\Http\Traits\LitJson;
 
+/**
+* Controleur destiné à afficher la page d'accueil
+*
+* Controleur destiné à afficher la page d'accueil et les pages de présentation
+* de parasitlab pour les vétérinaires, les éleveurs et les propriétaires de chevaux.
+*
+* @package Public
+*/
 class AccueilController extends Controller
 {
 
     use LitJson;
 
+    /**
+     * Tableau avec les éléments du menu en accès public
+     * @var array
+     */
     protected $menu;
 
+    /**
+     * Constructeur qui remplit la variable $menu avec le tableau issu du json
+     */
     public function __construct()
     {
       $this->menu = $this->litJson('menuExtranet');
     }
 
+    /**
+     * Page d'accueil du site
+     *
+     * @return \Illuminate\View\View extranet\accueil
+     */
     public function index()
     {
 
       return view('extranet.accueil', [
-        'menu' => $this->menu,
-        'accueilEntetes' => $this->litJson('accueilEntetes'),
-        'carousel' => $this->litJson('carousel'),
-        'resultats_rapides' => $this->litJson('resultats_rapides'), 
+        'menu' => $this->menu, //éléments du menu pour l'accès public
+        'accueilEntetes' => $this->litJson('accueilEntetes'), // éléments pour les cartouches et la présentation
+        'carousel' => $this->litJson('carousel'), // éléments pour le carrousel de la page d'accueil (photos, texte)
+        'resultats_rapides' => $this->litJson('resultats_rapides'),// éléments pour la partie basse de la page d'accueil
       ]);
     }
 
+    /**
+     * Page d'accueil destinée aux vétérinaires
+     *
+     * @return @return \Illuminate\View\View extranet\veterinaires
+     */
     public function veterinaires()
     {
-      $anatypes = Anatype::all();
-
       return view('extranet.veterinaires', [
         "menu" => $this->menu,
-        "contenu" => $this->litJson('veterinaires'),
-        "anatypes" => $anatypes,
+        "contenu" => $this->litJson('veterinaires'), // Contenu de la page
+        "anatypes" => Anatype::all(), // Liste des anatypes
       ]);
     }
 
+    /**
+     * Page d'accueil pour les éleveurs
+     * @return \Illuminate\View\View extranet\eleveurs
+     */
     public function eleveurs()
     {
-      $elements = $this->LitJson('eleveurs');
-
       return view('extranet.eleveurs', [
         "menu" => $this->menu,
-        'elements' => $elements,
+        'elements' => $this->LitJson('eleveurs'), // texte et photos pour éleveurs
       ]);
     }
 
+    /**
+     * Page d'accueil pour les cavaliers
+     * @return \Illuminate\View\View extranet\cavaliers
+     */
     public function cavaliers()
     {
       return view('extranet.cavaliers', [
         "menu" => $this->menu,
-        "contenu" => $this->litJson('cavaliers'),
+        "contenu" => $this->litJson('cavaliers'), // texte et images pour les cavaliers
       ]);
     }
 

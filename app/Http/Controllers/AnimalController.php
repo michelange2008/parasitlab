@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Animal;
 
+/**
+ * Controleur qui gère l'objet Animal
+ *
+ * @see \App\Models\Animal
+ *
+ * @package Animaux
+ */
 class AnimalController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * NON IMPLEMENTE: affiche la liste des animaux
      *
-     * @return \Illuminate\Http\Response
+     * Sans objet car, pour l'instant les animaux ont comme seule utilité de
+     * renseigner le prélèvement
      */
     public function index()
     {
@@ -18,9 +26,10 @@ class AnimalController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * NON IMPLEMENTE: renvoie le formulaire pour créer un animal
      *
-     * @return \Illuminate\Http\Response
+     * En fait cette fonction n'est pas implémenté car c'est pas la saisie d'un
+     * prélèvement que l'on crée un nouvel animal.
      */
     public function create()
     {
@@ -28,7 +37,7 @@ class AnimalController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Enregistre le nouvel animal créé
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -55,10 +64,9 @@ class AnimalController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * NON IMPLEMENTE: affiche l'animal
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -66,7 +74,7 @@ class AnimalController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * NON IMPLEMENTE: renvoie un formulaire pour modifier un animal
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -77,11 +85,10 @@ class AnimalController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Met à jour un animal modifié
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id id de l'animal à mettre à jour
      */
     public function update(Request $request, $id)
     {
@@ -100,9 +107,9 @@ class AnimalController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Destiné à mettre à supprimer un animal
      *
-     * @param  int  $id
+     * @param  int  $id id de l'animal à détruire
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
