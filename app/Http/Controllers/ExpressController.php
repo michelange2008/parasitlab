@@ -18,17 +18,39 @@ use App\Models\Espece;
 use App\Http\Traits\Personne;
 use App\Http\Traits\LitJson;
 
+/**
+ * Gère l'affichage de la partie Express du site, accessible sans authentification
+ *
+ * Dans le menu Extranet, le menu Express permet d'avoir accès à trois sousmenus:
+ * + Analyses proposées et tarifs
+ * + Téléchargement d'un formulaire
+ * + Demande d'un kit d'envoi
+ *
+ * @package Public
+ */
 class ExpressController extends Controller
 {
   use LitJson, Personne;
 
-  protected $menu;
+ /**
+ * Tableau avec les éléments du menu en accès public
+ * @var array
+ */
+ protected $menu;
 
+  /**
+  * Constructeur qui remplit la variable $menu avec le tableau issu du json
+  */
   public function __construct()
   {
     $this->menu = $this->litJson('menuExtranet');
   }
 
+  /**
+   * Renvoie la vue avec les tarifs (extranet/analyses/tarifs)
+   *
+   * @return \Illuminate\View\View extranet/analyses/tarifs
+   */
   public function tarifs()
   {
 
@@ -40,8 +62,15 @@ class ExpressController extends Controller
     ]);
   }
 
-  /*
+  /**
   * Page de formulaire de demande d'envoi d'un kit
+  *
+  * Ce formulaire demande les infos suivantes:
+  * + Nom et coordonnées du demandeur
+  * + Nombre de kits demandés
+  * + Espèce concernée
+  *
+  * @return \Illuminate\View\View extranet/analyses/enpratique/envoiKit
   */
   public function envoiKit()
   {
@@ -58,8 +87,16 @@ class ExpressController extends Controller
     ]);
   }
 
-  /*
-  * Récupération des données du formulaire ci-dessus
+  /**
+  * Récupération des données du formulaire de demande d'envoi de kit
+  *
+  * Envoi un mail à contact@parasitlab.org pour prévenir de la demande
+  * Puis renvoie une page qui dit que la demande est bien arrivée
+  *
+  * @param App\Http\Requests\FormulaireEnvoiKit $request
+  * @return \Illuminate\View\View extranet/analyses/enpratique/envoiKitOk
+  * @see \App\Http\Requests\FormulaireEnvoiKit
+  * @see \App\Mail\EnvoiKit
   */
   public function envoiKitStore(FormulaireEnvoiKit $request)
   {

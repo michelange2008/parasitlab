@@ -9,20 +9,36 @@ use App\Models\Icone;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\ImagesManager;
 
+/**
+ * Gère les icones utilisées dans le site
+ *
+ * Permet d'ajouter et supprimer des icones disponibles
+ *
+ * @see \App\Http\Traits\ImagesManager
+ * @package Interne
+ */
 class IconesController extends Controller
 {
     use LitJson, ImagesManager;
 
+    /**
+     * Données pour l'affichage du menu
+     * @var [type]
+     */
     protected $menu;
 
+    /**
+     * Peuple la variable menu avec les infos de menuLabo.json et le Trait LitJson
+     */
     public function __construct()
     {
       $this->menu = $this->litJson('menuLabo');
     }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return @return \Illuminate\View\View admin/icones/iconesIndex
      */
     public function index()
     {
@@ -35,7 +51,7 @@ class IconesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View admin/icones/iconeCreate
      */
     public function create()
     {
@@ -48,15 +64,12 @@ class IconesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response redirect vers la methode index()
      */
     public function store(Request $request)
     {
         $icones = Icone::all();
 
-        // $datas = $request->validate([
-        //   'nom' => 'required|alphanum|max:191',
-        // ]);
         $file = $request->file('icone_nouvelle');
 
         $extension = $file->extension();
@@ -76,10 +89,9 @@ class IconesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * NON INMPLEMENTE: Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -87,10 +99,9 @@ class IconesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * NON IMPLEMENTE: Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -98,11 +109,10 @@ class IconesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * NON IMPLEMENTE: Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
@@ -112,6 +122,7 @@ class IconesController extends Controller
     /**
      * affiche la liste des icone pour suppression en cliquant dessus
      *
+     * @return \Illuminate\View\View admin/icones/iconeSuppr
      */
     public function suppr()
     {
@@ -126,7 +137,7 @@ class IconesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response redirect vers index()
      */
     public function destroy($id)
     {
@@ -139,7 +150,13 @@ class IconesController extends Controller
         return redirect()->route('icones.index')->with('message', 'icone_del');
     }
 
-    // Function pour la requete ajax pour vérifier que l'on ne crée pas de doublon
+    /**
+     * Function pour la requete ajax pour vérifier que l'on ne crée pas de doublon
+     *
+     * @see App\resources\js\inputImage.js
+     *
+     * @return json
+     */
     public function liste()
     {
       $icones = Icone::select('nom')->get();

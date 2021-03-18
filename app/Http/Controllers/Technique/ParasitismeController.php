@@ -20,8 +20,15 @@ class ParasitismeController extends Controller
 
       use LitJson, FormatDate, BlogManager, UserTypeOutil;
 
-      protected $menu;
+      /**
+       * Tableau avec les éléments du menu en accès public
+       * @var array
+       */
+       protected $menu;
 
+       /**
+        * Constructeur qui remplit la variable $menu avec le tableau issu du json
+        */
       public function __construct()
       {
         $this->menu = $this->litJson('menuExtranet');

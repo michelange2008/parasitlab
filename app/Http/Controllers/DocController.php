@@ -17,12 +17,18 @@ class DocController extends Controller
 
     protected $menu;
 
+    /**
+     * Constructeur qui remplit la variable $menu avec le tableau issu du json
+     */
     public function __construct()
     {
         $this->menu = $this->litJson('menuLabo');
     }
 
-
+    /**
+     * Affiche la page admin/doc.blade.php pour accès à la documentation du site
+     * @return \Illuminate\View\View admin/doc
+     */
     function index()
     {
       return view('admin.doc',[

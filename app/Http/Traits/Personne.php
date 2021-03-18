@@ -7,9 +7,17 @@ use App\Models\Eleveur;
 
 /**
  * Renvoie le soususer (véto, éleveur ou labo) à partir de l'id de l'User
+ *
+ * En fait, il aurait fallu faire une classe Personne abstraite dont les classes
+ * Labo, Eleveur et Veto hériteraient :)
  */
 trait Personne
 {
+  /**
+   * Renvoie le soususer (Veto, Eleveur ou Labo) à partir de l'id de l'User
+   * @param  int $user_id id de l'utilisateur dont on veut le soususer
+   * @return \App\Models\Model Veto ou Eleveur ou Labo
+   */
   public function personne($user_id)
   {
 

@@ -11,7 +11,6 @@ $("#especes_export").on('click', function() {
 
   var especes = $(this).val().toString();
 
-  console.log($(this).val());
   // Si la case à cocher toutes especes est cochée
   if($("#all_especes").prop('checked', true)) {
 
@@ -20,11 +19,6 @@ $("#especes_export").on('click', function() {
   }
 
   var option = $("#especes_export").val(); // on récupère l'item sélectionné
-
-  option.forEach((espece, i) => {
-
-    // $("#especes_export" + ' option[value=' + espece + ']').prop('selected', true); // sauf celui sur lequel on a cliqué
-  });
 
   if($("#all_anaitems").prop('checked', true)) {
 
@@ -133,12 +127,14 @@ function anaitemsFromEspece(especes) {
 
 
 };
+// Requête Ajax pour connaître le nombre de résultats en fonction des choix espèce/anaitems
 // Pour n'importe quel changement dans le formulaire
 $("form#choix").on('change', function(e) {
-console.log($("#especes_export").val().length !== 0 && $("#anaitems_export").val().length !== 0);
+  // S'il y a au moins une espèce et un anaitem choisi
   if($("#especes_export").val().length !== 0 && $("#anaitems_export").val().length !== 0) {
-
+    // on sérialize le formulaire
     var data = $(this).serialize();
+    // On interroge ExportsController@comptage pour connaître le nombre d'enregistrements
     url = url_actuelle.replace('choix', 'comptage');
 
     $.post({
@@ -191,7 +187,7 @@ console.log($("#especes_export").val().length !== 0 && $("#anaitems_export").val
         }
 
         $('button[type=submit]').removeAttr('disabled');
-
+        // On modifie l'attribut du formulaire de la vue export/choix pour router vers la méthode ExportsController@export
         $('form').attr('action', url_actuelle.replace('choix', 'export'))
 
       }

@@ -1,3 +1,4 @@
+{{-- Page issue de ExportsController@choix --}}
 @extends('layouts.app')
 
 @section('menu')
@@ -19,7 +20,8 @@
       </div>
 
     </div>
-
+    {{-- dans un premier temps, l'attribut action du fomulaire est exports.comptage.
+    Quand les choix font qu'il y a au moins 1 résultat à exporter, exports.js modifie cet attribue en exports.export --}}
     <form id="choix" class="" action="{{ route('exports.comptage') }}" method="post">
 
       @csrf

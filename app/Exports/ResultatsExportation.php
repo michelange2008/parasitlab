@@ -2,7 +2,6 @@
 
 namespace App\Exports;
 
-// use App\Models\Productions\Exportation;
 use Carbon\Carbon;
 
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
@@ -11,6 +10,7 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithStyles;
+
 
 class ResultatsExportation implements FromCollection, WithHeadings, ShouldAutoSize, WithStyles
 {

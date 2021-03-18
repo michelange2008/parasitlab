@@ -12,8 +12,6 @@ use App\Models\Espece;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Resultat;
-// use App\Models\Productions\Export;
-// use App\Models\Productions\Exportation;
 use App\Models\Analyses\Anaitem;
 use App\Models\Analyses\Analyse;
 
@@ -24,14 +22,37 @@ use App\Http\Traits\Personne;
 use App\Http\Traits\UserTypeOutil;
 use Carbon\Carbon;
 
+/**
+ * Gestion des exports xlsx, libreoffice.
+ *
+ * Il y a deux façon d'exporter les résultats d'analyses dans un format de tableur:
+ * + _Export global_ de l'ensemble des résultats avec des filtres possibles. Ce mode
+ * d'export est réserver aux _usertype_ laboratoire
+ * + _Export des résultats d'une analyse_: disponible pour tous les utilisateurs
+ * authentifiés: exporte uniquement le résultats d'une analyse. Le bouton est sur la page
+ * d'affichage des résultats d'analyses.
+ *
+ * Oui je sais, ça fait 500 lignes de code !!! Mais y a beaucoup de documentation :)
+ */
 class ExportsController extends Controller
 {
   use LitJson, UserTypeOutil, Personne;
 
+  /**
+   * Array avec la liste des éléments pour afficher le menu à partir de la lecture
+   * d'un fichier json (menuLabo)
+   * @var Array
+   */
   protected $menu;
+
+  /**
+   * Array avec la liste des formats d'exportation. Permet de modifier ces formats
+   * sans toucher au code du controleur
+   * @var array
+   */
   protected $formats;
   /**
-  * Display a listing of the resource.
+  * Récupère les données des fichiers json pour les variable menu et formats
   *
   * @return \Illuminate\Http\Response
   */
@@ -41,7 +62,11 @@ class ExportsController extends Controller
     $this->formats = $this->litJson('formats_export');
   }
 
-
+  /**
+   * Prépare les données pour le formulaire de choix des résultats à exporter
+   *
+   * @return \Illuminate\View\View exports/choix
+   */
   public function choix()
   {
 
@@ -49,14 +74,14 @@ class ExportsController extends Controller
     $demandes = Demande::all();
     $especes = Espece::orderBy('nom')->get();
     $anaitems = Anaitem::orderBy('nom')->get();
-    $de = (new Carbon(Demande::min('date_prelevement')))->toDateString();
+    $de = (new Carbon(Demande::min('date_prelevement')))->toDateString(); // permet d'avoir les dates de 1ère
     $a = (new Carbon(max([
     Demande::max('date_prelevement'),
     Demande::max('date_reception'),
     Demande::max('date_resultat'),
     Demande::max('date_envoi'),
     Demande::max('date_signature'),
-    ])))->toDateString();
+    ])))->toDateString(); // et dernière analyse
 
     return view('exports.choix', [
     'menu' => $this->menu,
@@ -72,6 +97,12 @@ class ExportsController extends Controller
 
   }
 
+  /**
+   * Crée le fichier d'en-tête des colonnes pour une demande d'analyse
+   *
+   * @param  \App\Models\Productions\Demande $demande Objet demande d'analyse
+   * @return array          Liste de en-têtes de colonne
+   */
   public function entetesDemande($demande)
   {
 
@@ -85,7 +116,7 @@ class ExportsController extends Controller
     $entete[] = 'Nom';
 
     foreach ($anaitems as $anaitem) {
-
+      // Il faut faire une entete de colonne pour chaque type de parasite (= anaitem) mesuré
       $entete[] = ($anaitem->unite->nom === '') ? $anaitem->nom : $anaitem->nom.' ('. $anaitem->unite->nom .')';
 
     }
@@ -102,6 +133,12 @@ class ExportsController extends Controller
 
   /**
   * Exportation d'une demande d'analyse seule (disponible dans demandeShow)
+  *
+  * Crée un tableau avec une ligne pour la demande d'analyse
+  *
+  * @param int id de la demande
+  * @return file fichier à télécharger
+  * @see \App\Exports\ResultatsExportation.php
   */
   public function demande($demande_id)
   {
@@ -111,23 +148,23 @@ class ExportsController extends Controller
 
     $entetes = $this->entetesDemande($demande);
 
-    $resultats = Collect();
+    $resultats = Collect(); // ensemble des résultats exportés
 
     foreach ($prelevements as $prelevement) {
 
-      $resultat = [];
+      $resultat = []; // Un résultat = une ligne dans le fichier tableur
       $resultat['identification'] = $prelevement->animal->numero ?? $prelevement->identification;
       $resultat['nom'] = $prelevement->animal->nom ?? '';
-
+      // Il faut récupérer autant de colonne qu'il y a de parasites (= anaitem) à rechercher
       foreach ($prelevement->analyse->anaitems as $anaitem) {
-
+        // On récupère le résultat pour le parasite
         $valeur = Resultat::where('prelevement_id', $prelevement->id)
         ->where('anaitem_id', $anaitem->id)->first();
-
+        // Normalement $valeur ne peut pas être null car même les résultats négatifs font une colonne
         if($valeur != null) {
 
           $resultat[$anaitem->nom] = $valeur->valeur;
-
+        // Mais si c'était le cas on attribue 0 à cette valeur
         } else {
 
           $resultat[$anaitem->nom] = "0";
@@ -135,6 +172,7 @@ class ExportsController extends Controller
         }
 
       }
+      // On rajoute les autres informations de l'analyse
       $resultat['troupeau'] = $prelevement->demande->troupeau->nom ?? '';
       $resultat['espece'] = $prelevement->demande->espece->nom;
 
@@ -147,14 +185,19 @@ class ExportsController extends Controller
       $resultats->push($resultat);
 
     }
-
+    // On fait une variable de type ResultatsExportation qui hérite de plusieurs classes
     $resultatsExport = new ResultatsExportation($entetes, $resultats);
-
+    // On renvoie un fichier à télécharger
     return Excel::download($resultatsExport, 'copro.xlsx');
 
   }
+
   /**
   * Renvoie le nombre d'enregistrement en fonction des critères: especes, parasites, éleveur, veterinaire, dates
+  *
+  * Ce nombre est demandé par une requête ajax de type post depuis Export.js
+  * @param Illuminate\Http\Request issu du formulaire de la page exports/choix (cf. méthode __choix__)
+  * @return int nombre d'enregistrements correspondant au choix
   */
   public function comptage(Request $request)
   {
@@ -163,6 +206,15 @@ class ExportsController extends Controller
     return $resultats->count();
   }
 
+  /**
+   * Récupère les informations du formulaire de la vue export/choix et renvoie un fichier tableur
+   *
+   * Il s'agit là d'une exportation de plusieurs résultats d'analyses.
+   *
+   * Cette méthode construite d'une part les en-têtes de colonne avec la méthode _anaitemsEntete_
+   * @param  Request $request contenu du formulaire de la vue exports/choix avec les espèces et anaitems
+   * @return file           fichier de tableur
+   */
   public function export(Request $request)
   {
     $datas = $request->all();
@@ -201,7 +253,16 @@ class ExportsController extends Controller
   }
 
   /**
+  * Renvoie les résultats d'analyse sous forme d'une collection dont chaque ligne est analyse
+  *
   * Fait la requete pour connnaitres les enregistrements correspondant aux critères
+  * issus du formulaire de la vue export/choix
+  *
+  * Chaque ligne correspondant aux résultats d'un prélèvement
+  *
+  * @param array $datas données issues du formulaire
+  * @return Collect $resultats : collection de $resultats qui sont des tableaux avec toutes les
+  * informations sur chaque analyse.
   */
   public function resultats($datas)
   {
@@ -224,6 +285,7 @@ class ExportsController extends Controller
       $liste_especes = $datas['especes_export'];
     }
 
+    // requetes pour connaître les demandes d'analyse correspondant aux choix
 
     // J'AVAIS TROUVE UN SUPER SYSTEME POUR TOUT FAIRE EN UNE LIGNE MAIS CA MARCHE PAS CHEZ OVH !
     // TODO: A AMELIORER CETTE HIDEUSE DOUBLE BOUCLE IF ELSE
@@ -277,39 +339,45 @@ class ExportsController extends Controller
 
       }
     }
-
+    // On initialise une collection
     $prelevements = collect();
-
+    // A partir des demandes on fait la liste des prélèvements
     foreach ($demandes as $demande) {
       $prelevement_par_demande = Prelevement::where('demande_id', $demande->id)->get();
       $prelevements = $prelevements->concat($prelevement_par_demande);
     }
-
-
+/** INFO: la manipulation ci-dessous peut paraitre complexe mais elle tient compte du faire que
+* l'on fait un tableau avec des analyses différentes. Dans pour certains prélèvements
+* le parasite n'est pas toujours susceptible d'être recherché et donc il n'y pas de
+* résultat (même pas un résultat nul) --> d'où la création de cette variable _$existe_un_prelevement_
+*
+*/
     $resultats = collect();
-
+    // On initialise une variable
     $existe_un_prelevement = false;
-
+    // On passe en revue tous les prélèvements
     foreach ($prelevements as $prelevement) {
-
+      // On récupère les informations sur l'animal ou le lot prélevé
       $resultat['animal_numero'] = $prelevement->animal->numero ?? $prelevement->identification;
       $resultat['animal_nom'] = $prelevement->animal->nom ?? '';
-
+      // On passe en revue tous les anaitems listés dans le formulaire de exports/choix
       foreach ($anaitems as $anaitem) {
-
+        // On recherche un résultat pour ce prélèvement et cet anaitem
         $resultat_du_prelevement = Resultat::where('prelevement_id', $prelevement->id)->where('anaitem_id', $anaitem->id)->first();
-
+        // SI ce résultat existe
         if($resultat_du_prelevement !== null) {
-
+          // On bascule la variable
           $existe_un_prelevement = true;
+          // Et on rajoute la valeur du résultat pour cet anaitem
           $resultat[$anaitem->nom] = $resultat_du_prelevement->valeur;
 
         } else {
-
+          // Sinon on lui attribue une valeur NA
           $resultat[$anaitem->nom] = 'NA';
         }
 
       }
+      // PUis on remplit le tableau résultats
       $resultat['date_prelevement'] = $prelevement->demande->date_prelevement;
       $resultat['date_resultat'] = $prelevement->demande->date_resultat;
       $resultat['estParasite'] = ($prelevement->parasite) ? "oui" : "non";
@@ -321,10 +389,10 @@ class ExportsController extends Controller
       $resultat['troupeau'] = $prelevement->demande->troupeau->nom;
       $resultat['demande_id'] = $prelevement->demande->id;
       $resultat['estMelange'] = ($prelevement->estMelange === true) ? "oui" : "non";
-
+      // Et on l'ajoute à la collection
       $resultats->push($resultat);
     }
-
+    // Si au bout du compte, il n'y avait vraiment pas de résultat, on renvoie une collection vide
     $resultats = ($existe_un_prelevement) ? $resultats : collect();
 
     return $resultats;
@@ -332,6 +400,8 @@ class ExportsController extends Controller
 
   /**
   * Requête ajax dans la page choix pour afficher uniquement les parasites d'une espece donnée.
+  *
+  * voir le fichier javascript exports.js
   */
   public function anaitemsFromEspece($especes)
   {
@@ -358,6 +428,9 @@ class ExportsController extends Controller
 
   /**
   * Crée un array avec une liste d'anaitems pour pouvoir faire les entetes de colonnes
+  *
+  * @param array anaitems (Objet)
+  * @return array[str] nom des parasites avec unité éventuellement
   */
   public function anaitemsEntete($anaitems) : Array
   {
@@ -372,6 +445,13 @@ class ExportsController extends Controller
 
   }
 
+  /**
+   * Récupère la liste des parasites (= anaitems) à partir des données issues du formulaire
+   * mais pas directement : par l'intermédiaire des méthodes _resultats_ et _exports_
+   *
+   * @param  array     $datas données issues du formulaire de la vue exports/choix
+   * @return Collection        requete sur les anaitems sélectionnés par le formulaire
+   */
   public function anaitemsFromForm($datas) : Collection
   {
     if($datas['anaitems_export'][0] == "all") {
