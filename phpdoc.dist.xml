@@ -21,6 +21,10 @@
               <path>storage/framework</path>
               <path>resources/lang</path>
             </ignore>
+            <markers>
+              <marker>TODO</marker>
+              <marker>FIXME</marker>
+            </markers>
         </api>
     </version>
 </phpdocumentor>
