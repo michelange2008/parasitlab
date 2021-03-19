@@ -138,7 +138,7 @@ class ExportsController extends Controller
   *
   * @param int id de la demande
   * @return file fichier à télécharger
-  * @see \App\Exports\ResultatsExportation.php
+  * @see \App\Exports\ResultatsExportation
   */
   public function demande($demande_id)
   {

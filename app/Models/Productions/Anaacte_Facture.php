@@ -43,8 +43,8 @@ class Anaacte_Facture extends Model
     }
 
     /**
-     * [anaacte description]
-     * @return [type] [description]
+     * Une facture est forcément en lien avec un Anaacte
+     * @return belongsTo
      */
     public function anaacte()
     {

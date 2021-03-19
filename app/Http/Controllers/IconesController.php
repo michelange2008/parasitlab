@@ -23,7 +23,7 @@ class IconesController extends Controller
 
     /**
      * Données pour l'affichage du menu
-     * @var [type]
+     * @var array
      */
     protected $menu;
 
@@ -38,7 +38,7 @@ class IconesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return @return \Illuminate\View\View admin/icones/iconesIndex
+     * @return \Illuminate\View\View admin/icones/iconesIndex
      */
     public function index()
     {
@@ -153,7 +153,7 @@ class IconesController extends Controller
     /**
      * Function pour la requete ajax pour vérifier que l'on ne crée pas de doublon
      *
-     * @see App\resources\js\inputImage.js
+     * @see App\resources\js\inputImage
      *
      * @return json
      */

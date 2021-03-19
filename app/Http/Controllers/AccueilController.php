@@ -44,6 +44,7 @@ class AccueilController extends Controller
     /**
      * Page d'accueil du site
      *
+     * @link https://parasitlab.org
      * @return \Illuminate\View\View extranet\accueil
      */
     public function index()
@@ -60,7 +61,8 @@ class AccueilController extends Controller
     /**
      * Page d'accueil destinée aux vétérinaires
      *
-     * @return @return \Illuminate\View\View extranet\veterinaires
+     * @link https://parasitlab.org/veterinaires
+     * @return \Illuminate\View\View extranet\veterinaires
      */
     public function veterinaires()
     {
@@ -73,6 +75,7 @@ class AccueilController extends Controller
 
     /**
      * Page d'accueil pour les éleveurs
+     * @link https://parasitlab.org/eleveurs
      * @return \Illuminate\View\View extranet\eleveurs
      */
     public function eleveurs()
@@ -85,6 +88,7 @@ class AccueilController extends Controller
 
     /**
      * Page d'accueil pour les cavaliers
+     * @link https://parasitlab.org/cavaliers
      * @return \Illuminate\View\View extranet\cavaliers
      */
     public function cavaliers()

@@ -21,6 +21,7 @@ use App\Fournisseurs\ListeDemandesVetoFournisseur;
  * [VeterinaireController description]
  *
  * @package Utilisateurs
+ * @subpackage Vetos
  */
 class VeterinaireController extends Controller
 {
