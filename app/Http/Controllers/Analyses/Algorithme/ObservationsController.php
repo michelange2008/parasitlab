@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Analyses\Algorithme;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Observation;
-use App\Models\Categorie;
+use App\Models\Algorithme\Observation;
+use App\Models\Algorithme\Categorie;
 use App\Models\Analyses\Anatype;
 use App\Models\Espece;
 use App\Models\Age;

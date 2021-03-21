@@ -101,7 +101,7 @@ class Anaacte extends Model
      */
     public function observations()
     {
-      return $this->belongsToMany(\App\Models\Observation::class);
+      return $this->belongsToMany(\App\Models\Algorithme\Observation::class);
     }
 
     /**

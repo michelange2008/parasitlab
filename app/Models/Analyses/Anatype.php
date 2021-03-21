@@ -77,7 +77,7 @@ class Anatype extends Model
      */
     public function observations()
     {
-      return $this->belongsToMany(\App\Models\Observation::class);
+      return $this->belongsToMany(\App\Models\Algorithme\Observation::class);
     }
 
     /**
@@ -91,12 +91,12 @@ class Anatype extends Model
 
     /**
      * Une exclusion est définie par l'anatype auquel elle s'applique
-     * @see \App\Models\Exclusion
+     * @see \App\Models\Algorithme\Exclusion
      * @return hasOne
      */
     public function exclusion()
     {
-      return $this->hasOne(\App\Models\Exclusion::class);
+      return $this->hasOne(\App\Models\Algorithme\Exclusion::class);
     }
 
     /**

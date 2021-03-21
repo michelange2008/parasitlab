@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Algorithme;
 
 use Illuminate\Database\Eloquent\Model;
 /**
@@ -16,7 +16,7 @@ class ExclusionsAnaacte extends Model
 
     public function observation()
     {
-      return $this->belongsTo(\App\Models\Observation::class);
+      return $this->belongsTo(\App\Models\Algorithme\Observation::class);
     }
 
     public function anaacte()
