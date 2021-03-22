@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-/*
-* CONTROLLER DESTINE A RÉAIGUILLER UN LIEN VERS UNE VUE EN FONCTION DU TYPE D'UITLISATEUR (LABO, ELEVEUR, VETO)
-*/
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Traits\UserTypeOutil;
@@ -17,15 +14,24 @@ use App\User;
 use App\Models\Eleveur;
 use App\Models\Veterinaire;
 
+/**
+* Controleur destiné à réaiguiller vers un controleur ou une route spécifique en
+* fonction du type d'utilisateur: Labo, Veto, Eleveur.
+*
+* @package Utilisateurs
+*/
 class RouteurController extends Controller
 {
 
   use UserTypeOutil;
   use LitJson;
 
+  /**
+   * @var array
+   */
   protected $menu;
   /**
-   * Display a listing of the resource.
+   * Peuple le menu
    *
    * @return \Illuminate\Http\Response
    */
@@ -34,6 +40,16 @@ class RouteurController extends Controller
     $this->menu = $this->litJson("menuLabo");
   }
 
+  /**
+   * Renvoi à un controleur différent selon le type d'User authentifié
+   *
+   * Correspond à la route __/personnel__
+   * Renvoi aux routes __/laboratoire__ ou __/veterinaire__ ou __/eleveur__
+   *
+   * SI aucune User authentifié, renvoie à la page de connexion
+   *
+   * @return redirect route
+   */
   public function routeurPersonnel()
   {
 
@@ -61,7 +77,14 @@ class RouteurController extends Controller
 
 
 
-// METHODE QUI EST APPELLEE PAR LES LIENS DATE DE DEMANDE SUR LA VUE labo.serieShow.detailIdentique
+/**
+* Méthode qui reroute vers une vue demandeShow différente en fonction du type d'User
+*
+* Correspond à la route /routeur/demande/{demande_id}
+*
+* @return \Illuminate\View\View xxx.demandeShow ou demandes.show selon le type d'User
+*
+*/
   public function routeurDemande($demande_id)
   {
 
@@ -91,7 +114,14 @@ class RouteurController extends Controller
 
   }
 
-  public function routeurSerie($serie_id)
+  /**
+  * Méthode qui reroute vers une vue serieShow différente en fonction du type d'User
+  *
+  * Correspond à la route /routeur/serie/{serie_id}
+  *
+  * @return \Illuminate\View\View xxx.serieShow ou serie.show selon le type d'User
+  *
+  */  public function routeurSerie($serie_id)
   {
 
     $serie = Serie::find($serie_id);
@@ -121,6 +151,22 @@ class RouteurController extends Controller
 
   }
 
+  /**
+  * Méthode qui reroute vers le fichier pdf de la facture correspondant à l'id sous les conditions
+  * suivantes:
+  * + Soit l'User est Labo et la rédirection ne pose pas de problème
+  * + Soit l'User n'est pas Labo. Il faut rechercher la facture correspondante à
+  * l'id puis vérifier que l'User authentifier est destinataire de cette facture
+  * et dans ce cas on peu l'afficher.
+  *
+  * Sinon retour vers l'accueil.
+  *
+  * Correspond à la route /facturePdf/{id}
+  *
+  * @param int id de la facture
+  * @return \Illuminate\View\View facture.pdf ou accueil
+  *
+  */
   public function routeurFacturePdf($facture_id)
   {
     if($this->estLabo(auth()->user()->usertype_id)) {
@@ -144,6 +190,17 @@ class RouteurController extends Controller
     return redirect()->route('accueil');
   }
 
+  /**
+   * Renvoie vers un fichier pdf de résultats d'analyses différente selon le type d'User
+   * authentifié.
+   *
+   * Il s'agit d ela route resultatsPdf/{id}
+   *
+   * TODO: ajouter la condition que l'User authentifier est bien destinataire des résultats
+   *
+   * @param  int $demande_id id de la demande d'analyse
+   * @return \Illuminate\View\View resultatsPdf.xxx (selon User)
+   */
   public function routeurResultatsPdf($demande_id)
   {
 
@@ -171,6 +228,12 @@ class RouteurController extends Controller
 
   }
 
+  /**
+   * Méthode pour afficher la page de confirmation d'autodestruction d'un compte perso
+   * @param  int $id Id de l'User
+   * @return \Illuminate\View\View     utilisateurs.deletemoi Page qui affiche la demande de confirmation
+   * de suppression de l'utilisateur avec un formulaire qui renvoie à __jemedelete()__
+   */
   public function deletemoi($id)
   {
 
@@ -180,6 +243,19 @@ class RouteurController extends Controller
     ]);
   }
 
+  /**
+   * Méthode pour qu'un utilisateur puisse s'autosupprimer
+   *
+   * Appelée par la vue _utilisateurs.deletemoi_
+   *
+   * En fait, ça ne supprime pas l'utilisateur, ça ne fait que l'anonymiser pour
+   * que le laboratoire ne perde pas les résultats d'analyses?
+   *
+   * TODO: comment on fait avec l'email
+   *
+   * @param  int $id Id de l'User
+   * @return \Illuminate\View\View\ accueil
+   */
   public function jemedelete($id)
   {
     $user = User::find($id);

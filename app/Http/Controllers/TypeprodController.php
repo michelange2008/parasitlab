@@ -9,6 +9,12 @@ use App\Models\Typeprod;
 
 use App\Http\Traits\LitJson;
 
+/**
+ * Contrôleur CRUD pour gérer le modèle Typeprod (Type de production: brebis laitières,
+ * brebis allaitaintes, etc.)
+ *
+ * @package Animaux
+ */
 class TypeprodController extends Controller
 {
   use LitJson;

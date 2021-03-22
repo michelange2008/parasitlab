@@ -14,7 +14,11 @@ use App\Models\Typeprod;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 
-
+/**
+ * Contrôleur CRUD pour gérer le moèle Troupeau
+ *
+ * @package Animaux
+ */
 class TroupeauController extends Controller
 {
     use LitJson, UserTypeOutil;
