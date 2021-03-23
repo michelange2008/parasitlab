@@ -33,6 +33,7 @@ use Carbon\Carbon;
  * d'affichage des résultats d'analyses.
  *
  * Oui je sais, ça fait 500 lignes de code !!! Mais y a beaucoup de documentation :)
+ * @todo: A AMELIORER CETTE HIDEUSE DOUBLE BOUCLE IF ELSE
  */
 class ExportsController extends Controller
 {
@@ -101,7 +102,7 @@ class ExportsController extends Controller
    * Crée le fichier d'en-tête des colonnes pour une demande d'analyse
    *
    * @param  \App\Models\Productions\Demande $demande Objet demande d'analyse
-   * @return array          Liste de en-têtes de colonne
+   * @return str[]          Liste de en-têtes de colonne
    */
   public function entetesDemande($demande)
   {
@@ -286,9 +287,9 @@ class ExportsController extends Controller
     }
 
     // requetes pour connaître les demandes d'analyse correspondant aux choix
+    // TODO: A AMELIORER CETTE HIDEUSE DOUBLE BOUCLE IF ELSE
 
     // J'AVAIS TROUVE UN SUPER SYSTEME POUR TOUT FAIRE EN UNE LIGNE MAIS CA MARCHE PAS CHEZ OVH !
-    // TODO: A AMELIORER CETTE HIDEUSE DOUBLE BOUCLE IF ELSE
     // $demandes = Demande::select('id')->where('user_id', 'like', $datas['eleveur'])
     // ->where('tovetouser_id', 'like', $datas['veto'])
     // ->whereIn('espece_id', $liste_especes)
@@ -430,7 +431,7 @@ class ExportsController extends Controller
   * Crée un array avec une liste d'anaitems pour pouvoir faire les entetes de colonnes
   *
   * @param array anaitems (Objet)
-  * @return array[str] nom des parasites avec unité éventuellement
+  * @return array nom des parasites avec unité éventuellement
   */
   public function anaitemsEntete($anaitems) : Array
   {

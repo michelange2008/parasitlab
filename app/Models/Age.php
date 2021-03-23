@@ -49,7 +49,7 @@ class Age extends Model
     */
     public function observations()
     {
-      return $this->belongsToMany(Observation::class);
+      return $this->belongsToMany(\App\Models\Algorithme\Observation::class);
     }
 
     /**
@@ -75,7 +75,7 @@ class Age extends Model
      */
     public function exclusion()
     {
-      return $this->hasOne(Exclusion::class);
+      return $this->hasOne(\App\Models\Algorithme\Exclusion::class);
     }
 
     /**
@@ -88,7 +88,7 @@ class Age extends Model
      */
     public function exclusionsAnaacte()
     {
-      return $this->hasOne(ExclusionsAnaacte::class);
+      return $this->hasOne(\App\Models\Algorithme\ExclusionsAnaacte::class);
     }
 
 }

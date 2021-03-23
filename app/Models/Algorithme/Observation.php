@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Algorithme;
 
 use Illuminate\Database\Eloquent\Model;
 /**
@@ -27,7 +27,7 @@ class Observation extends Model
      */
     public function categorie()
     {
-      return $this->belongsTo(Categorie::class);
+      return $this->belongsTo(\App\Models\Algorithme\Categorie::class);
     }
 
     /**
@@ -36,7 +36,7 @@ class Observation extends Model
      */
     public function especes()
     {
-      return $this->belongsToMany(Espece::class);
+      return $this->belongsToMany(\App\Models\Espece::class);
     }
 
    /**
@@ -45,7 +45,7 @@ class Observation extends Model
    */
     public function ages()
     {
-      return $this->belongsToMany(Age::class);
+      return $this->belongsToMany(\App\Models\Age::class);
     }
 
     /**
@@ -63,11 +63,11 @@ class Observation extends Model
      */
     public function exclusion()
     {
-      return $this->hasOne(Exclusion::class);
+      return $this->hasOne(\App\Models\Algorithme\Exclusion::class);
     }
 
     public function exclusionsAnaacte()
     {
-      return $this->hasOne(ExclusionsAnaacte::class);
+      return $this->hasOne(\App\Models\Algorithme\ExclusionsAnaacte::class);
     }
 }

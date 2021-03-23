@@ -5,10 +5,10 @@ use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\Exclusion;
+use App\Models\Algorithme\Exclusion;
 use App\Models\Age;
 use App\Models\Espece;
-use App\Models\Observation;
+use App\Models\Algorithme\Observation;
 use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Anaacte;
 

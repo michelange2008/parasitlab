@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Algorithme;
 
 use Illuminate\Database\Eloquent\Model;
 /**
@@ -20,7 +20,7 @@ class Categorie extends Model
 
   public function observations()
   {
-    return $this->hasMany(Observation::class);
+    return $this->hasMany(\App\Models\Algorithme\Observation::class);
   }
 
 }

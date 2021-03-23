@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Anatype;
-use App\Models\Categorie;
+use App\Models\Algorithme\Categorie;
 use App\Models\Espece;
 use App\Models\Age;
 

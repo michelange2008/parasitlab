@@ -9,16 +9,16 @@ use App\Models\Espece;
 use App\Models\Age;
 use App\Models\Troupeau;
 use App\Models\Animal;
-use App\Models\Categorie;
-use App\Models\Observation;
-use App\Models\Exclusion;
-use App\Models\ExclusionsAnaacte;
+use App\Models\Algorithme\Categorie;
+use App\Models\Algorithme\Observation;
+use App\Models\Algorithme\Exclusion;
+use App\Models\Algorithme\ExclusionsAnaacte;
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Anatype;
 
 class DonneesController extends Controller
 {
-  /*
+  /**
   * Méthode pour fournir la liste d'espèce dans la fenêtre de coix d'un formulaire à télécharger
   * utilisee dans telFormulaire.js
   */
@@ -27,7 +27,7 @@ class DonneesController extends Controller
     return json_encode(Espece::all());
   }
 
-  /*
+  /**
   * Méthode pour fournir la liste des ages en fonction d'une espèce dans la fenêtre de choix d'analyse
   * utilisee dans telFormulaire.js
   */
@@ -53,7 +53,7 @@ class DonneesController extends Controller
     return json_encode($animals);
   }
 
-  /*
+  /**
   * Méthode pour fournir les observations correspondant à une espèce dans le choix de l'analyse
   * Vue: choisir.blade
   * JS: choisir.js
@@ -69,7 +69,7 @@ class DonneesController extends Controller
     return json_encode($observations);
   }
 
-  /*
+  /**
   * Méthode pour fournir les observations correspondant à un age d'une espece dans le choix de l'analyse
   * Vue: choisir.blade
   * JS: choisir.js
@@ -83,13 +83,13 @@ class DonneesController extends Controller
 
     return json_encode($observations);
   }
-// Fonction transitoire pour tester la requete ajax "options" et destinée à afficher un formulaire avec les variables (espece, observations)
+/** Fonction transitoire pour tester la requete ajax "options" et destinée à afficher un formulaire avec les variables (espece, observations) */
 public function essai()
 {
   return view('essai');
 }
 
-/*
+/**
 * Méthode qui renvoie les anatypes et les analyses possibles en fonction du choix de l'espèce
 * et des observations sélectionnées - Même vue etjs que ci-dessus
 */

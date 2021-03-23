@@ -9,6 +9,7 @@ use App\Http\Traits\LitJson;
 /**
  * Fournit les méthodes pour l'affichage des infos (menu Infos)
  *
+ * @package Public
  */
 class InfosController extends Controller
 {
@@ -39,9 +40,9 @@ class InfosController extends Controller
    *
    * Undocumented function long description
    *
-   * @return view extranet.contact
-   * @var array this->menu 
-   * @var arry contacts: données lues à partir du fichier contacts.json
+   * @return \Illuminate\View\View extranet.contact
+   * @var array this->menu
+   * @var array contacts: données lues à partir du fichier contacts.json
    */
   public function contact()
   {
@@ -51,6 +52,11 @@ class InfosController extends Controller
     ]);
   }
 
+  /**
+   * Renvoie la vue quisommesnous
+   * @return \Illuminate\View\View extranet/quisommesnous
+   * @return [type] [description]
+   */
   public function quisommesnous()
   {
     $users = User::all();
@@ -64,6 +70,10 @@ class InfosController extends Controller
     ]);
   }
 
+  /**
+   * Renvoie la vue infolégales
+   * @return \Illuminate\View\View extranet.infoslegales
+   */
   public function infoslegales()
   {
 
@@ -75,6 +85,10 @@ class InfosController extends Controller
     ]);
   }
 
+  /**
+   * Affiche le fichier pdf avec les infos RGPD
+   * @return file storage/pdf/rgpd.pdf
+   */
   public function rgpd()
   {
     return response()->file('storage/pdf/rgpd.pdf');

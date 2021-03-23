@@ -56,17 +56,17 @@ class Espece extends Model
 
     public function observations()
     {
-      return $this->belongsToMany(Observation::class);
+      return $this->belongsToMany(Algorithme\Observation::class);
     }
 
     public function exclusion()
     {
-      return $this->hasOne(Exclusion::class);
+      return $this->hasOne(\App\Models\Algorithme\Exclusion::class);
     }
 
     public function exclusionsAnaacte()
     {
-      return $this->hasOne(ExclusionsAnaacte::class);
+      return $this->hasOne(\App\Models\Algorithme\ExclusionsAnaacte::class);
     }
 
     public function typeprods()

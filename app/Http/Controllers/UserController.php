@@ -16,6 +16,17 @@ use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\UserUpdateDetail;
 
 /**
+ * Contrôleur pour le modèle User
+ *
+ * En théorie, ce devrait être un contrôler CRUD de base.
+ *
+ * En pratique c'est beaucoup plus compliqué pour plusieurs raisons:
+ * + __A la création__: Lors qu'un nouvel User est créé, il faut aussi créer le
+ * usertype correspondant: labo, veterinaire ou eleveur.
+ * + __A la suppression__: Le User n'est pas supprimer mais anonymiser de façon à
+ * ne pas perdre les résultats d'analyses.
+ *
+ * @see RouteurController
  *
  * @package Utilisateurs
  */
@@ -23,6 +34,9 @@ class UserController extends Controller
 {
     use LitJson, UserTypeOutil, UserUpdateDetail;
 
+    /**
+     * @var array éléments pour le menu à afficher
+     */
     protected $menu;
     /**
      * Display a listing of the resource.
@@ -35,6 +49,11 @@ class UserController extends Controller
     }
     /**
      * Display a listing of the resource.
+     *
+     * C'est assez classique à part le recours (comme pour les tous affichages
+     * d'une resource) à un Fournisseur, dans ce cas ListeUsersFournisseur qui
+     * produit les données.
+     * @see \App\Fournisseurs\ListeUsersFournisseur
      *
      * @return \Illuminate\Http\Response
      */
@@ -79,7 +98,12 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Stockage d'un nouvel utilisateur.
+     *
+     * Mais en fait, il s'agit simplement de stocker les informations et de
+     * les renvoyer à la requête Ajax pour continuer la création du User.
+     *
+     * @see \resources\js\createUser.js
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -117,10 +141,11 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Affiche les infos sur le User mais renvoie une vue différente en fonction
+     * du Usertype.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id de l'User
+     * @return \Illuminate\View\View xxxAdmin.show
      */
     public function show($id)
     {
@@ -151,10 +176,11 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Permet de modifier l'User en renvoyant une vue mais cette vue dépend du
+     * Usertype
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id de l'User
+     * @return \Illuminate\View\View xxxAdmin.edit
      */
     public function edit($id)
     {
@@ -183,8 +209,11 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Stocke la modification faite sur l'User
      *
+     * Si l'User est un éleveur est que la modification se traduit par la création
+     * d'un nouveau vétérinaire, il faut renvoyer la vue correspondantes
+     * 
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -214,14 +243,14 @@ class UserController extends Controller
           return redirect()->route('vetoAdmin.create');
         }
 
-        if(session()->has('route_retour') !== null) {
+        if(session()->has('creation.route_retour') !== null) { // S'il existe une variable de session route_retour
 
-          return redirect()->route(session('creation.route_retour'), $id);
+          return redirect()->route(session('creation.route_retour'), $id); // on y va
         }
 
         else {
 
-          return redirect()->route('user.index');
+          return redirect()->route('user.index'); // sinon on revient à la liste utilisateurs
 
         }
 
@@ -229,6 +258,8 @@ class UserController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * TODO: alors pourquoi l'anonymisation dans RouteurController@jemedelete()
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -242,6 +273,11 @@ class UserController extends Controller
 
     }
 
+    /**
+     * Route post pour recueillir le consentement des User sur leur page perso
+     * @param  Request $request [description]
+     * @return [type]           [description]
+     */
     public function consentement(Request $request)
     {
 
