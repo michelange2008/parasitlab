@@ -18,7 +18,13 @@ use App\User;
 use App\Fournisseurs\ListeDemandesVetoFournisseur;
 
 /**
- * [VeterinaireController description]
+ * Contrôleur destiné à gérer les page perso des vétérinaires (par eux-mêmes)
+ *
+ * Ce n'est pas un contrôler CRUD du modèle Veto. Pour cela voir la classe VetoAdminController
+ * @see Labo\VetoAdminController
+ *
+ * A différencier du contrôler VetoAdminController destiné à gérer les vétérinaires
+ * par des membres de Labo.
  *
  * @package Utilisateurs
  * @subpackage Vetos
@@ -46,6 +52,16 @@ class VeterinaireController extends Controller
 
     }
 
+    /**
+     * Renvoie une page qui liste l'ensemble des demandes d'analyse concernant le
+     * veterinaire authentifié
+     *
+     * Utiise la classe ListeDemandesVetoFournisseur qui est elle-même héritée de
+     * la classe abstraite ListeFournisseurs
+     * @see \App\Fournisseurs\ListeDemandesVetoFournisseur
+     *
+     * @return \Illuminate\View\View utilisateurs/index.blade.php
+     */
     public function index()
     {
       $user = User::find(auth()->user()->id);
@@ -72,6 +88,21 @@ class VeterinaireController extends Controller
 
     }
 
+    /**
+     * Met à jour les informations personnelles du vétérinaire
+     *
+     * Cette fonction est appelée par une fonction javascript: js/infosPerso_modif.js
+     * Cette fonction renvoie le les données du formulaire dans une requête Ajax POST
+     * et attends juste qu'il n'y ai pas d'erreur dans le retour. Cette erreur pouvant
+     * provenir d'un doublon dans les emails.
+     *
+     * Utilisation de VetoStore pour valider le forumaire
+     *
+     * @see \App\Requests\VetoStore
+     *
+     * @param  VetoStore $request [description]
+     * @return [type]             [description]
+     */
     public function update(VetoStore $request)
     {
       $datas = $request->validated();

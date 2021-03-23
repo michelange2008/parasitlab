@@ -15,7 +15,7 @@ use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 
 /**
- * Contrôleur CRUD pour gérer le moèle Troupeau
+ * Contrôleur CRUD pour gérer le modèle Troupeau
  *
  * @package Animaux
  */

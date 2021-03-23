@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Usertype;
 
 /**
- * [UsertypeController description]
+ * Contrôleur très simple qui ne fait que renvoyer la liste des routes des Usertypes
+ *
+ * @deprecated ?
  * @package Utilisateurs
  */
 class UsertypeController extends Controller
 {
+
   public function liste()
   {
     $usertypes = Usertype::select('route')->get();
