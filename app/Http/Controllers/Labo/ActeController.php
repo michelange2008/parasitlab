@@ -58,7 +58,9 @@ class ActeController extends Controller
     {
         $estLabo = $this->userTypeLabo();
 
-        $users = User::where('usertype_id', '<>', $estLabo->id)->get();
+        $users = User::where('usertype_id', '<>', $estLabo->id)
+                ->orderBy('name')
+                ->get();
 
         $anaactes = Anaacte::where('estAnalyse', false)->get();
 
