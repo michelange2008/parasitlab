@@ -27,7 +27,7 @@ class ListeAnalysesFournisseur extends ListeFournisseur
 
       $espece = $this->iconeFactory($analyse->espece->icone);
 
-      $acte = $this->lienFactory($analyse->anaacte->id, $analyse->anaacte->nom, 'anaactes.show', 'affiche_detail_acte');
+      $type = $this->lienFactory($analyse->anatype->id, $analyse->anatype->nom, 'anatypes.show', 'affiche_detail_type');
 
       $suppr = $this->delFactory($analyse->id, 'analyses.destroy');
 
@@ -36,7 +36,7 @@ class ListeAnalysesFournisseur extends ListeFournisseur
         $anatype,
         $nom,
         $espece,
-        $acte,
+        $type,
         $suppr,
       ];
 

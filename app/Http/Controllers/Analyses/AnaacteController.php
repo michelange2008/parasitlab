@@ -18,6 +18,11 @@ use App\Models\Icone;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\AnaacteOutil;
 
+/**
+ * Controller CRUD pour gérer la classe Anaacte (unité de facturation)
+ *
+ * @package Analyses
+ */
 class AnaacteController extends Controller
 {
     use LitJson, AnaacteOutil;
@@ -31,7 +36,10 @@ class AnaacteController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * Utilisation d'une classe ListeAnaactesFournisseur qui hérite de ListeFournisseur
+     * destinée à mettre en forme les données pour l'affichage avec une vue unique
+     *
+     * @return \Illuminate\View\View amdin.index.pageIndex
      */
     public function index()
     {
@@ -53,11 +61,10 @@ class AnaacteController extends Controller
       ]);
 
     }
-    /** TODO: le formulaire de création d'un nouvel anaacte ne fonctionne pas */ 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View admin\anaactes\anaacteCreate
      */
      public function create()
     {
@@ -73,7 +80,7 @@ class AnaacteController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function store(Request $request)
     {
@@ -135,7 +142,7 @@ class AnaacteController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Redirect vers la méthode index
      */
     public function update(Request $request, $id)
     {
@@ -162,6 +169,10 @@ class AnaacteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * NON ENCORE IMPLEMENTE !!!
+     *
+     * TODO: A FAIRE
+     *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -182,6 +193,13 @@ class AnaacteController extends Controller
       ]);
     }
 
+    /**
+     * Méthode associée à l'algorithme
+     * @deprecated : Jamais utilisée ???
+     * TODO à supprimer ?
+     * @param  int $espece_id Id de l'Espece choisie
+     * @return \Illuminate\View\View admin/algorithme/animalAnaactesShow
+     */
     public function espece($espece_id)
     {
       return view('admin.algorithme.animalAnaactesShow', [
@@ -197,6 +215,10 @@ class AnaacteController extends Controller
     /**
      * Modification des associations entre anaacte et espece ou age
      *
+     * Outil de gestion de l'Algorithme
+     *
+     * @deprecated N'est peut-être plus utilisée depuis la modification de l'algorithme
+     * TODO: A supprimer ?
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response

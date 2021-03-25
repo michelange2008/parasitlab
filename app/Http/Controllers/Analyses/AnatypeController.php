@@ -14,6 +14,18 @@ use \App\Models\Icone;
 use \App\Models\Espece;
 use \App\Models\Age;
 
+/**
+ * Controleur de la classe Anatype (Analyse choisie par le demandeur)
+ *
+ * Contrôleur CRUD avec quelques particularités:
+ * + La méthode _show_ n'est pas implémentée car fusionnée avec edit
+ * + La méthode _update_ est implémentée par la méthode update de AnalyseController
+ * + Trois méthodes supplémentaires existent: _age_, _espece_, _animalUpdate_
+ * associées au paramétrage de l'algorithme.
+ *
+ *
+ * @package Analyses
+ */
 class AnatypeController extends Controller
 {
 
@@ -28,7 +40,10 @@ class AnatypeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * Utilise (comme dans tous les index) une classe héritée de ListeFournisseur (ListeAnaTypesFournisseur)
+     * @see App\Fournisseurs\ListeAnaTypesFournisseur
+     *
+     * @return \Illuminate\View\View admin/index/pageIndex
      */
     public function index()
     {
@@ -47,7 +62,7 @@ class AnatypeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View admin/anatypes/anatypeCreate
      */
     public function create()
     {
@@ -62,7 +77,7 @@ class AnatypeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Redirect index
      */
     public function store(Request $request)
     {
@@ -83,10 +98,7 @@ class AnatypeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémentée: Display the specified resource.
      */
     public function show($id)
     {
@@ -97,7 +109,7 @@ class AnatypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View admin/anatypes/anatype
      */
     public function edit($id)
     {
@@ -109,11 +121,14 @@ class AnatypeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Non implémentée: Update the specified resource in storage.
      *
+     * La vue formulaire appelée par edit renvoie à AnalyseController@update
+     *
+     * TODO: peut-être faudrat-il implémenter entièrement les méthodes de ce
+     * contrôleur mais il faudra revoir la relation avec AnalyseController.
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id de l'Anatype
      */
     public function update(Request $request, $id)
     {
@@ -126,7 +141,7 @@ class AnatypeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Redirect index
      */
     public function destroy($id)
     {
@@ -135,6 +150,17 @@ class AnatypeController extends Controller
         return redirect()->back()->with('message', 'anatype_del');
     }
 
+    /**
+     * Méthode utilisée pour le paramétrage de l'algorithme de choix et qui renvoie
+     * une vue formulaire
+     *
+     * Permet de modifier les anatypes associées à âge donné
+     *
+     * Route _algorithme/analyses/age/{age id}_
+     *
+     * @param  [type] $age_id Id de l'Age
+     * @return \Illuminate\View\View admin/algorithme/animalAnatypesShow
+     */
     public function age($age_id)
     {
       return view('admin.algorithme.animalAnatypesShow', [
@@ -147,6 +173,17 @@ class AnatypeController extends Controller
       ]);
     }
 
+    /**
+     * Méthode utilisée pour le paramétrage de l'algorithme de choix et qui renvoie
+     * une vue formulaire
+     *
+     * Permet de modifier les anatypes associées à une espèce donnée
+     *
+     * Route _algorithme/analyses/espece/{espece id}_
+     *
+     * @param  [type] $age_id Id de l'Espece
+     * @return \Illuminate\View\View admin/algorithme/animalAnatypesShow
+     */
     public function espece($espece_id)
     {
 
@@ -161,11 +198,14 @@ class AnatypeController extends Controller
     }
 
     /**
-     * Modification des associations entre anaacte et espece ou age
+     * Modification des associations entre Anatype et Espece ou Age
+     *
+     * Cela explique le recours à la dénomination animalUpdate qui peut paraître
+     * introduire de la confusion car il n'y a aucun rapport avec le modèle Animal
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id de l'Espece ou de l'Age
+     * @return Redirect back (AnatypeController@age ou AnatypeController@espece)
      */
     public function animalUpdate(Request $request, $id)
     {

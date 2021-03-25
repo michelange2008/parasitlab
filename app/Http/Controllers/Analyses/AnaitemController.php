@@ -14,6 +14,15 @@ use App\Fournisseurs\ListeAnaitemsFournisseur;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\ImagesManager;
 
+/**
+ * Controller CRUD de la classe Anaitem (unité de parasite)
+ *
+ * La seule particularité est la gestion de l'image de l'oeuf de parasite.
+ * Nécessité de supprimer l'image existante avant d'en enregistrer une nouvelle
+ * Recours au trait ImageManager
+ *
+ * @package Analyses
+ */
 class AnaitemController extends Controller
 {
     use LitJson, ImagesManager;
@@ -27,7 +36,10 @@ class AnaitemController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * Comme beaucoup de fonctions __index__ recours à une classe héritée de
+     * _ListeFournisseurs_ à savoir dans ce cas _ListeAnaitemsFournisseur.
+     *
+     * @return \Illuminate\View\View admin/index/pageIndex
      */
     public function index()
     {
@@ -47,7 +59,7 @@ class AnaitemController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View admin/anaitems/anaitemCreate
      */
     public function create()
     {
@@ -63,7 +75,7 @@ class AnaitemController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Redirect index
      */
     public function store(Request $request)
     {
@@ -100,8 +112,9 @@ class AnaitemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Pas d'implémentation car utilisation du formulaire edit pour voir les détails
+     * d'un anaitem
+     *
      */
     public function show($id)
     {
@@ -112,7 +125,7 @@ class AnaitemController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View admin/anaitems/anaitem
      */
     public function edit($id)
     {
@@ -130,7 +143,7 @@ class AnaitemController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Redirect index
      */
     public function update(Request $request, $id)
     {

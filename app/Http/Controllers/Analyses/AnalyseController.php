@@ -10,6 +10,18 @@ use App\Models\Analyses\Analyse;
 
 use App\Http\Traits\LitJson;
 
+/**
+ * Controleur pour la classe Analyse: association d'un anatype et d'une espèce.
+ *
+ * En fait c'est normalement un contrôleur CRUD mais il n'a pas été implémenté
+ * complètement: Seule la méthode index fonctionne (mais il n'y a pas d'item de
+ * menu qui y conduit).
+ *
+ * Par contre la méthode update est utilisée pour la mise jour des associations
+ * anatype - espèce.
+ *
+ * @package Analyses
+ */
 class AnalyseController extends Controller
 {
   use LitJson;
@@ -23,11 +35,17 @@ class AnalyseController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * Non utilisé (pas de memu qui y mène) même si ça fonctionne.
+     *
+     * A recours à une classe héritée de ListeFournisseur comme pour tous les
+     * affichages de ce type.
+     *
+     * @return \Illuminate\View\View admin.page.pageIndex
      */
     public function index()
     {
         $analyses = Analyse::all();
+
 
         $fournisseur = new ListeAnalysesFournisseur(); // voir class ListeFournisseur
 
@@ -41,7 +59,7 @@ class AnalyseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Non implémenté: Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
@@ -52,10 +70,7 @@ class AnalyseController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Non implémenté: Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
@@ -63,10 +78,7 @@ class AnalyseController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté: Display the specified resource.
      */
     public function show($id)
     {
@@ -74,10 +86,7 @@ class AnalyseController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté: Show the form for editing the specified resource.
      */
     public function edit($id)
     {
@@ -88,9 +97,9 @@ class AnalyseController extends Controller
     /**
      * Met à jour les associations entre analyse et anaitem.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Cette méthode est appelée par la vue admin/anatypes/anatype.blade.php qui
+     * un formulaire pour modifier l'association entre un anatype et une espèce.
+     *
      */
     public function update(Request $request, $id)
     {
@@ -120,10 +129,7 @@ class AnalyseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté: Remove the specified resource from storage.
      */
     public function destroy($id)
     {

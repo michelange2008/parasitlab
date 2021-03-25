@@ -100,8 +100,9 @@ class VeterinaireController extends Controller
      *
      * @see \App\Requests\VetoStore
      *
-     * @param  VetoStore $request [description]
-     * @return [type]             [description]
+     * @param  VetoStore $request validation du formulaire
+     * @return $veto + $user = résultat de la mise à jour de l'User de de son Usertype.
+     * En cas de problème avec cette mise à jour, la méthode renvoie une erreur au js
      */
     public function update(VetoStore $request)
     {
@@ -139,6 +140,15 @@ class VeterinaireController extends Controller
       return $user + $veto;
     }
 
+    /**
+     * Renvoie l'affichage d'une vue qui présente les infos perso au véto
+     *
+     * L'utilisation de la variable _$personne_ permet de n'utiliser les mêmes vues
+     * pour Veto que pour Eleveur.
+     *
+     * @param  int $id Id de l'User
+     * @return \Illuminate\View\View utilisateurs/utilisateurShow
+     */
     public function show($id)
     {
       $user = User::find($id);
@@ -157,6 +167,13 @@ class VeterinaireController extends Controller
       ]);
     }
 
+    /**
+     * Renvoie une vue avec la demande d'analyse dont l'Id est fournie à condition
+     * qu'elle existe
+     *
+     * @param  int $demande_id Id de la demande d'analyse
+     * @return \Illuminate\View\View utilisateurs.utilisateurDemandeShow
+     */
     public function demandeShow($demande_id)
     {
 
@@ -176,6 +193,14 @@ class VeterinaireController extends Controller
       ]);
     }
 
+
+    /**
+     * Renvoie une vue avec la serie d'analyse dont l'Id est fournie à condition
+     * qu'elle existe
+     *
+     * @param  int $demande_id Id de la serie d'analyse
+     * @return \Illuminate\View\View utilisateurs.utilisateurSerieShow
+     */
     public function serieShow($serie_id)
     {
 
