@@ -8,7 +8,7 @@
 
       @if (Auth::user()->usertype->route == 'laboratoire')
 
-          <a href="{{ route('paillasse', $demande->id)}}" title="Télécharger la fiche de paillasse">
+          <a href="{{ route('paillasse', $demande->id)}}" title="Télécharger la fiche de paillasse" target="blank">
             <img class="img-40" src="{{ url('storage/img/icones/paillasse.svg') }}" alt="paillasse">
           </a>
 
