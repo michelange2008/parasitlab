@@ -27,4 +27,5 @@
             </markers>
         </api>
     </version>
+    <template name="default"/>
 </phpdocumentor>

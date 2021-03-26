@@ -14,12 +14,27 @@ use App\Fournisseurs\ListeActesFournisseur;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 
+/**
+ * Contrôleur de la classe Acte: prestation (cad Anaacte) mais qui n'est pas une analyse
+ *
+ * C'est une sorte de contrôleur CRUD mais sans les méthode show, edit et update.
+ * @example Quand on envoie un kit de prélèvement à un éleveur, on crée l'acte correspondant
+ * à son nom.
+ *
+ * @package Productions
+ */
 class ActeController extends Controller
 {
     use LitJson, UserTypeOutil;
 
+    /**
+     * @var array
+     */
     protected $menu;
 
+    /**
+     * Constructeur pour passer les middleware auth et labo et peupler le menu
+     */
     public function __construct()
     {
       $this->middleware('auth');
