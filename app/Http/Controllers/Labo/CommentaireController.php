@@ -11,13 +11,24 @@ use Illuminate\Support\Facades\Mail;
 
 use Carbon\Carbon;
 
+/**
+ * Contrôleur de la classe Commentaire: commentaire fait sur le résultat d'une analyse
+ *
+ * Ce n'est pas vraiment un contrôler CRUD car un commentaire n'existe pas sans être
+ * attaché à un résultat d'analyse.
+ *
+ * Pour cette raison, il n'y a que la méthode _store_ qui est implémentée.
+ *
+ * Par contre, il possède une méthdoe particulière _pythie_ destinée à envoyer
+ * un mail si besoin
+ *
+ * @package Productions
+ */
 class CommentaireController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function index()
     {
@@ -25,9 +36,7 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function create()
     {
@@ -35,10 +44,13 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Enregistreun nouveau commentaire sur une demande d'analyse (en fait surtout
+     * concernant son résultat)
+     *
+     * Methode appelée par formulaire de la vue labo/resultats/inputCommentaire.blade.php
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Redirect demandes/{demande_id}
      */
     public function store(Request $request)
     {
@@ -57,10 +69,7 @@ class CommentaireController extends Controller
       }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function show($id)
     {
@@ -68,10 +77,7 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function edit($id)
     {
@@ -79,11 +85,7 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function update(Request $request, $id)
     {
@@ -91,16 +93,22 @@ class CommentaireController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function destroy($id)
     {
         //
     }
 
+    /**
+     * Methode destinée à envoyer un mail à pythie@parasitlab.org pour demander
+     * de l'aide.
+     *
+     * appelée par le bouton help de la vue labo/resultats/inputCommentaire.blade.php
+     *
+     * @param  int Id du Commentaire
+     * @return redirect back to demandes/{demande_id}
+     */
     public function pythie($commentaire_id)
     {
       $commentaire = Commentaire::find($commentaire_id);

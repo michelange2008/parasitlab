@@ -32,21 +32,39 @@ use App\Models\Productions\Resultat;
 use App\Models\Productions\Commentaire;
 use App\Models\Productions\Signe;
 
+/**
+ * Contrôleur central de gestion des demandes d'analyse (le coeur du métier !)
+ *
+ * A la base c'est un contrôleur CRUD mais la classe Demande a des particularités:
+ *
+ * + Quand on crée une nouvelle demande, cela entraîne en cascade la création d'autres
+ * nouveaux objets: Prelevement surtout, mais aussi éventuellement Animal, Troupeau
+ * + La modification d'une demande par la méthode _edit_ vise à saisir les résultats
+ * de la demande d'analyse (Classe Resultat)
+ *
+ * Il y a en plus une méthode spécifique _signer_ visant à signer les résultats de cette
+ * demande d'analyse.
+ *
+ * @package Productions
+ */
 class DemandeController extends Controller
 {
     use LitJson, EleveurInfos, DemandeFactory, UserTypeOutil, FactureFactory, SerieManager;
 
     protected $menu;
-    /**
-    * Display a listing of the resource.
-    *
-    * @return \Illuminate\Http\Response
-    */
+
     public function __construct()
     {
       $this->menu = $this->litJson("menuLabo");
     }
 
+    /**
+    * Affiche l'ensemble des démandes d'analyse
+    *
+    * Comme pour les autres cas, recours à une classe hérité de ListeFournisseur: ListeDemandesFournisseur
+    *
+    * @return \Illuminate\View\View admin/index/pageIndex
+    */
     public function index()
     {
 
@@ -63,11 +81,15 @@ class DemandeController extends Controller
       'datas' => $datas,
       ]);
     }
-// TODO: Modification sur les signatures/cloture analyse
+
     /**
-    * Show the form for creating a new resource.
+    * Affiche une vue avec un formulaire de création d'une nouvelle demande d'analyse
     *
-    * @return \Illuminate\Http\Response
+    * Formulaire complexe avec possibilité via js de créer un nouveau Veto, un nouvel Eleveur,
+    * un nouveau Prelevement.
+    * @see \resources\js\demandeCreate.js
+    *
+    * @return \Illuminate\View\View labo/demandeCreate
     */
     public function create()
     {
@@ -99,10 +121,13 @@ class DemandeController extends Controller
     }
 
     /**
-    * Store a newly created resource in storage.
+    * Enregistre la nouvelle demande d'analyse
+    *
+    * Une fois la demande enregistrer, il faut enregistrer le ou les prélèvements
+    * d'où le return redirect prelevement.createOnDemande
     *
     * @param  \Illuminate\Http\Request  $request
-    * @return \Illuminate\Http\Response
+    * @return redirect prelevement.createOnDemande
     */
     public function store(Request $request)
     {
@@ -116,21 +141,19 @@ class DemandeController extends Controller
       // GESTION DE LA SERIE
       if ($datas['serie'] == "null" || $datas['serie'] == 0) { // Si l'anaacte ne correspond pas à une série
 
-      $serie_id = null; // $serie_id est null
+        $serie_id = null; // $serie_id est null
 
-    } elseif ($datas['serie'] === 'premier') { // Si c'est le premier prélèvement d'une série
+      } elseif ($datas['serie'] === 'premier') { // Si c'est le premier prélèvement d'une série
 
-    $serie_id = $this->serieStore($user->id, $espece->id, $anaacte->id)->id; // On crée la série et on retourne l'id
+        $serie_id = $this->serieStore($user->id, $espece->id, $anaacte->id)->id; // On crée la série et on retourne l'id
 
-    } else {
+      } else {
 
-      $serie_id = intVal($datas['serie']); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
+        $serie_id = intVal($datas['serie']); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
 
     }
     // Prise en compte du troupeau: soit il a une id soit c'est un nouveau troupeau
     $troupeau_id =($datas['troupeau'] === 'nouveau') ? null : $datas['troupeau'];
-
-
 
     // Puis créer la demande
     $nouvelle_demande = new Demande();
@@ -153,10 +176,16 @@ class DemandeController extends Controller
     }
 
     /**
-    * Display the specified resource.
+    * Affiche la demande d'analyse
+    *
+    * Les particularités sont les suivantes:
+    * + utilisation du trait eleveurFormatNumber pour la mise en forme des numéros
+    * + utilisation du trait demandeFactory qui rajoute des attributs _toutNegatif_ et
+    * _nonDetecté aux prélèvements.
+    * + Recherche d'une facture correspondante et mise en forme si elle existe
     *
     * @param  int  $id
-    * @return \Illuminate\Http\Response
+    * @return \Illuminate\View\View lab/demandeShow
     */
     public function show($id)
     {
@@ -196,7 +225,7 @@ class DemandeController extends Controller
     * Saisie des résulats d'une analyse
     *
     * @param  int  $id
-    * @return \Illuminate\Http\Response
+    * @return \Illuminate\View\View labo.resultats/resultatsSaisie
     */
     public function edit($demande_id)
     {
@@ -210,7 +239,11 @@ class DemandeController extends Controller
       ]);
     }
 
-    // Modification des caractéristiques d'une demande (et non pas des résultats)
+    /**
+     * Modification des caractéristiques d'une demande (et non pas des résultats)
+     * @param  int demande_id Id de la demande
+     * @return  \Illuminate\View\View labo/demandeModif
+     */
     public function modif($demande_id)
     {
       session([
@@ -235,11 +268,11 @@ class DemandeController extends Controller
     }
 
     /**
-    * Modifie les caractéristiques d'une demande d'analyse (retour de la fontion modif)
+    * Enregistre la modification des caractéristiques d'une demande d'analyse (retour de la fontion modif)
     *
     * @param  \Illuminate\Http\Request  $request
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
+    * @param  int  $id Id de la demande
+    * @return redirect demandes.show
     */
     public function update(Request $request, $id)
     {
@@ -259,10 +292,10 @@ class DemandeController extends Controller
     }
 
     /**
-    * Remove the specified resource from storage.
+    * Supprime une demande d'analyse
     *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
+    * @param  int  $id Id de la demande à supprimer
+    * @return redirect demandes.index
     */
     public function destroy($id)
     {
@@ -273,6 +306,22 @@ class DemandeController extends Controller
 
     }
 
+    /**
+     * Signature d'une demande d'analyse
+     *
+     * Quand les résultats ont été saisi, il est indispensable que la demande soit signée
+     * avant d'être envoyer au destinaire.
+     * Cette signature ne peut être faire que par User Labo et à comme effet de:
+     * + passer la valeur signe à true
+     * + ajouter la date de signature
+     * + indiquer l'Id du signataire
+     *
+     * TODO: il avait été défini des User Labo signataires ou non signataire, cette
+     * propriété n'est pas reprise ici --> à supprimer ?
+     *
+     * @param  int $id Id de la demande
+     * @return redirect back ou App::abort(404, 'message') si signataire non autorisé
+     */
     public function signer($demande_id)
     {
 

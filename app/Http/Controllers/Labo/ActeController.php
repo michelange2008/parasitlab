@@ -16,8 +16,10 @@ use App\Http\Traits\UserTypeOutil;
 
 /**
  * Contrôleur de la classe Acte: prestation (cad Anaacte) mais qui n'est pas une analyse
+ * et qui est attribuée à un User
  *
- * C'est une sorte de contrôleur CRUD mais sans les méthode show, edit et update.
+ * C'est un contrôleur CRUD sans méthode show, edit et update.
+ *
  * @example Quand on envoie un kit de prélèvement à un éleveur, on crée l'acte correspondant
  * à son nom.
  *
@@ -45,9 +47,9 @@ class ActeController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Liste des actes attribués à des User
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View labo/actes
      */
     public function index()
     {
@@ -65,9 +67,9 @@ class ActeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Affiche un formulaire pour attirbuer un Anaacte à un User
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View labo/actes/acteCreate
      */
     public function create()
     {
@@ -87,10 +89,10 @@ class ActeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Enregistre le nouvel acte attribué à un User
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Redirect ActeController@index
      */
     public function store(Request $request)
     {
@@ -120,10 +122,7 @@ class ActeController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function show($id)
     {
@@ -131,10 +130,7 @@ class ActeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function edit($id)
     {
@@ -142,11 +138,7 @@ class ActeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function update(Request $request, $id)
     {
@@ -154,7 +146,7 @@ class ActeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprime l'acté associé à un User
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
