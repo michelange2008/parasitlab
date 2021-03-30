@@ -7,13 +7,13 @@ Est appelé par app\Mail\EnvoiInfosConnexion.php --}}
   <h4>{{ __('Hello!') }}</h4>
 
   <p>@lang('mails.envoiInfosConnexion.intro')</p>
-{{-- <p>{!! $message->embed(url('storage/logo.svg')) !!}</p> --}}
+
   <div class="">
 
     <a href="{!! url('login') !!}">
 
-      {{-- <img class="img-90" src="{!! $message->embed(asset('storage/logo.svg')) !!}" alt="Parasit'Lab"> --}}
-<img src="{{ url('storage/logo.svg') }}" alt="">
+      <img class="img-90" src="{!! $message->embed(asset('storage/logo.svg')) !!}" alt="Parasit'Lab">
+
     </a>
 
   </div>

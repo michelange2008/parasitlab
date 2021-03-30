@@ -14,6 +14,8 @@
 
           placeholder="{{ $placeholder ?? '' }}"
 
+          step = "0.1"
+
           >
 
           @error( $nom )
