@@ -31,8 +31,9 @@ return array (
   ),
   'LaboParasito' => 'Un laboratoire d\'analyses parasitologiques pour les ruminants, les porcs et les chevaux',
   'situeDansLaDrome' => ' situé dans la Drôme au Pôle Bio sur l\'Écosite d\'Eurre.',
-  'creeEtGere' => 'Créé et géré par le ',
-  'ceLaboratoire' => ' France, ce laboratoire accueille tous vos prélèvements de fécès destinés à des analyses parasitologiques.',
+  'creeEtGere' => 'Créé et géré par le',
+  'fibl' => ' FiBL France',
+  'ceLaboratoire' => ', ce laboratoire accueille tous vos prélèvements de fèces destinés à des analyses parasitologiques.',
   'limites' => 'Parasit\'Lab se consacre à la détection du parasitisme interne par le biais de coproscopies.',
   'ensavoirplus' => 'Pour en savoir plus ...',
   // 'pastilles' =>
