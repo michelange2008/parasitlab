@@ -24,9 +24,23 @@ use App\Http\Traits\UserCreateDetail;
 
 /**
 *
-* CLASSE DE GESTION DES ELEVEURS (CRUD)
+* Contrôleur CRUD de gestion de la classe Eleveur
+*
+* L'intitulé ELeveurAdmin est destiné à différencier ce contrôleur de EleveurController.
+* Ce dernier sert à l'affichage de la page perso Eleveur.
+*
+* Par rapport à un contrôler CRUD classique, celui-ci présente quelques particularités.
+* La création, la suppression et la modification d'un objet Eleveur se fait en
+* relation avec l'objet de la classe User auquel il est attaché:
+* + __create__: Renvoie à UserController@create
+* + __store__: Provient de la sous-vue admin/eleveur/eleveurCreateForm.blade.php qui s'afficha
+* à la création de l'User en fonction du Usertype créé. il existe de la même façon
+* un admin/veto/vetoCreateForm et un admin/labo/laboCreateForm (voir admin/user/userCreate.blade.php)
+* + __update__ : la méthode n'est pas implémentées car se fait via UserController@update.
+* + __destroy__ : la méthode appelle User::destroy() et la cascade fait le reste.
 *
 * @package Utilisateurs
+* @subpackage Eleveur
 */
 class EleveurAdminController extends Controller
 {
@@ -48,9 +62,11 @@ class EleveurAdminController extends Controller
   }
 
   /**
-  * Display a listing of the resource.
+  * Affiche la liste des eleveurs
   *
-  * @return \Illuminate\Http\Response
+  * Recours comme dans tous les cas à une classe héritée de ListeFournisseur
+  *
+  * @return \Illuminate\View\View admin/index/pageIndex
   */
   public function index()
   {
@@ -73,9 +89,10 @@ class EleveurAdminController extends Controller
   }
 
   /**
-  * Show the form for creating a new resource.
+  * Renvoie à UserController@create après avoir créer des variables de session pour
+  * savoir quel type d'User on crée
   *
-  * @return \Illuminate\Http\Response
+  * @return redirect UserController@create
   */
   public function create()
   {
@@ -90,10 +107,17 @@ class EleveurAdminController extends Controller
   }
 
   /**
-  * Store a newly created resource in storage.
+  * Enregistrement de Eleveur après préparation de l'enregistrement de User
+  * (cf. admin/eleveur/eleveurCreateForm.blade.php)
+  *
+  * On commence par enregistrer le nouvel User sur la base des variables de session
+  * Puis on fait appel au trait eleveurCreateDetail pour enregistrer l'Eleveur.
+  * Et on envoie aussi un mail au nouvel eleveur créé pour l'informer de sa création
+  * et lui transmettre son mot de passe.
   *
   * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
+  * @return dépend des variables de sessions qui disent dans quel contexte le nouvel
+  * Eleveur a été créé: création d'un User, creation d'une Demande ou s'il faut aussi créer un Veto
   */
   public function store(Request $request)
   {
@@ -151,10 +175,13 @@ class EleveurAdminController extends Controller
   }
 
   /**
-  * Display the specified resource.
+  * Affiche les données synthétiques de l'éleveur et l'ensemble de ses demandes d'analyse
   *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
+  * D'où le recours à ListeDemandesEleveurAdminFournisseur qui permet de faire le
+  * tableau des demandes d'analyses d'une éleveur donné
+  *
+  * @param  int  $id Id de l'User correspondant à cet éleveur (et non id de l'objet Eleveur)
+  * @return \Illuminate\View\View admin/eleveurShow
   */
   public function show($id)
   {
@@ -184,10 +211,10 @@ class EleveurAdminController extends Controller
   }
 
   /**
-  * Show the form for editing the specified resource.
+  * Affiche un formulaire pour modifier l'Eleveur
   *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
+  * @param  int  $id Id du User correspondant
+  * @return \Illuminate\View\View admin/eleveur/eleveurShow
   */
   public function edit($id)
   {
@@ -209,22 +236,17 @@ class EleveurAdminController extends Controller
   }
 
   /**
-  * Update the specified resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
+  * ON IMPLEMENTEE CAR UTILISATION DE user.update + le trait UserUpdateDetail
   */
   public function update(Request $request, $id)
   {
-    // NON IMPLEMENTEE CAR UTILISATION DE user.update + le trait UserUpdateDetail
-
+    //
   }
   /**
-  * Remove the specified resource from storage.
+  * Supprimer l'User correspondant à l'Eleveur
   *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
+  * @param  int  $id Id de l'User
+  * @return redirect EleveurAdminController@index
   */
   public function destroy($id)
   {

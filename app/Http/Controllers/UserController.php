@@ -23,7 +23,7 @@ use App\Http\Traits\UserUpdateDetail;
  * En pratique c'est beaucoup plus compliqué pour plusieurs raisons:
  * + __A la création__: Lors qu'un nouvel User est créé, il faut aussi créer le
  * usertype correspondant: labo, veterinaire ou eleveur.
- * + __A la suppression__: Le User n'est pas supprimer mais anonymiser de façon à
+ * + __A la suppression__: Le User n'est pas supprimé mais anonymiser de façon à
  * ne pas perdre les résultats d'analyses.
  *
  * @see RouteurController
@@ -213,7 +213,7 @@ class UserController extends Controller
      *
      * Si l'User est un éleveur est que la modification se traduit par la création
      * d'un nouveau vétérinaire, il faut renvoyer la vue correspondantes
-     * 
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
