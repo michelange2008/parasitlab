@@ -2,7 +2,7 @@
 
   @include('admin.index.indexBouton')
 
-{{-- SI IL N Y A AUCUNE DEMANDE D ANALYSE POUR CET ELEVEUR --}}
+{{-- SI IL N Y A AUCUNE LIGNE DANS LE TABLEAU --}}
 @if (count($datas->liste) === 0)
 
 <div class="row my-3">

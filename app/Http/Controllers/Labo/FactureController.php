@@ -21,6 +21,23 @@ use App\Http\Traits\LitJson;
 use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\FactureFactory;
 
+/**
+ * Contröleur pour la classe Facture
+ *
+ * C'est un contrôleur CRUD modifié. La particularité est qu'une facture dépend
+ * d'abord d'un ou plusieurs actes, et donc dans la majorité des cas d'une demande
+ * d'analyse.
+ *
+ * Cela explique que les méthodes _create_, _edit_ et _update_ ne soient pas
+ * implémentées.
+ * La méthode _create_ est remplacée par deux méthodes: _createFromUser_ et
+ * _createDemandeFromUser_ qui s'appliquent dans des contexte différents.
+ * Une méthode _etablir_ utilise le trait __FactureFactory__ pour établir une facture.
+ * Enfin, une méthode _paiement_ est là pour envregistrer le statut d'une facture
+ * vis à vis du paiement.
+ *
+ * @package Productions
+ */
 class FactureController extends Controller
 {
 
@@ -38,9 +55,13 @@ class FactureController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Affiche la liste des factures
      *
-     * @return \Illuminate\Http\Response
+     * Utilisation d'une classe héritée de ListeFournisseur (ListeFacturesFournisseur).
+     * Et recalcule du montant de la facture à chaque fois. Le prix unitaire des
+     * actes est stocké avec le Modèle Acte.
+     *
+     * @return \Illuminate\View\View labo/factures
      */
     public function index()
     {
@@ -55,7 +76,7 @@ class FactureController extends Controller
       $fournisseur = new ListeFacturesFournisseur();
       // methode de ListeFournisseur (classe abstraite) : données du tableau, titre du tableau, icone du titre, nom du json avec les entetes de colonne, route du bouton, intitulé du bouton
       $datas = $fournisseur->renvoieDatas($factures, __('titres.list_factures'), "factures.svg", 'tableauFactures', 'factures.etablir', __('boutons.facture_add'));
-
+      // Texte pour le cas où le tableau est vide
       $tableau_vide = 'factures.zero_facture';
 
       return view('labo.factures', [
@@ -67,6 +88,11 @@ class FactureController extends Controller
 
     /**
     * Fonction pour lister les factures à établir
+    *
+    * Utilisation du trait __FactureFactory__ avec des méthodes établissant des
+    * listes d'éleveurs à facturer.
+    *
+    * @return \Illuminate\View\View labo/factures/factureAEtablir;
     */
     public function etablir()
     {
@@ -90,6 +116,9 @@ class FactureController extends Controller
 
     /**
     * Fonction pour créer une facture après avoir choisi le destinataire
+    *
+    * @param int $user_id Id de l'User
+    * @return \Illuminate\View\View labo/factures/factureCreate
     */
     public function createFromUser($user_id)
     {
@@ -112,6 +141,10 @@ class FactureController extends Controller
 
     /**
     * Fonction pour créer une facture après avoir choisi le destinataire et la demande
+    *
+    * @param int $user_id Id de l'User
+    * @param int $demande_id Id de la demande
+    * @return \Illuminate\View\View labo/factures/factureCreateDemandeFromUser
     */
     public function createDemandeFromUser($user_id, $demande_id)
     {
@@ -126,7 +159,6 @@ class FactureController extends Controller
     /**
      * Non utilisé à cause de la spéficité de l'établissement d'une facture: la création d'une facture dépend toujours d'un utilisateur
      * Il s'agit donc de la fonction etablir ou createFromUser
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -137,18 +169,11 @@ class FactureController extends Controller
      * Fonction appelée par la vue factureAEtablir issue de FactureController@etablir
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return redirect FactureController@show
      */
     public function store(Request $request)
     {
-      // QUESTION: Est-ce utile ?
-      // Cas où on reprend une session sans passer par factures.etablir
-      // Il n'y a pas de tableau users_dnf stocké.
-      // if (!session()->has('users_dnf')) {
-      //
-      //   return redirect()->route('factures.etablir');
-      //
-      // }
+
       $datas = $request->all();
 
       // Dans le cas où on passe par un user et une demande seulement, la case "rajouter un kit" a peut-être été cochée
@@ -165,7 +190,6 @@ class FactureController extends Controller
 
       }
 
-      // dd($datas);
       $nouvelle_facture = new Facture();
       $nouvelle_facture->user_id = $datas['destinataire'];
       $nouvelle_facture->faite_date = Carbon::now();
@@ -199,7 +223,7 @@ class FactureController extends Controller
               'date' => $demande->date_reception,
             ]);
 
-          // On marque la demande comme facturés
+          // On marque la demande comme facturés (utilisation de DB car la façade Laravel update ne marche pas)
           DB::table('demandes')->where('id', $demande->id)
                 ->update([
                   'facturee' => true,
@@ -236,10 +260,12 @@ class FactureController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Affiche une facture
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Utilisation de la méthode _prepareFacture_ du trait FactureFactory
+     *
+     * @param  int  $id Id de la facture
+     * @return \Illuminate\View\View labo/factures/facture
      */
     public function show($id)
     {
