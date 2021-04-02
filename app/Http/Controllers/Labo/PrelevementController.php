@@ -18,7 +18,23 @@ use App\Models\Analyses\Analyse;
 
 use App\Http\Traits\LitJson;
 
-
+/**
+ * Contrôleur pour la class Prelevement
+ *
+ * Il s'agit d'un contrôleur CRUD très modifié car un prélèvement est toujours lié
+ * à une demande d'analyse:
+ * + Les méthodes _index_, _create_, _store_ et _show_ ne sont pas implémentées.
+ * Cela  n'a aucun sens d'afficher tous les prélèvements qui sont seulement affiché
+ * avec la demande correspondantes.
+ * + Il y deux méthodes _create_ en fonction du contexte de création d'un prélèvement:
+ * Soit on en ajouter un seul (_createOne_), soit on ajoute tous les prélèvements
+ * d'une demande (_createOnDemande_).
+ * + Pour enregistrer, c'est la même chose: _storeOne_ ou _storeOnDemande_
+ * + Une méthode _prelevdel_ est destinée à afficher une vue de confirmation de
+ * suppression de la demande.
+ *
+ * @package Productions
+ */
 class PrelevementController extends Controller
 {
     use LitJson;
@@ -31,9 +47,7 @@ class PrelevementController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function index()
     {
@@ -41,9 +55,7 @@ class PrelevementController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function create()
     {
@@ -53,7 +65,7 @@ class PrelevementController extends Controller
     /**
      * Montre le formulaire pour renseigner 1 seul prélèvement d'une demande
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View labo/prelevements/prelevementCreateOne
      */
 
     public function createOne($demande_id, $rang)
@@ -80,7 +92,7 @@ class PrelevementController extends Controller
     /**
      * Montre le formulaire pour renseigner TOUS les prélèvements d'une demande
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View labo/prelevementOnDemande
      */
 
     public function createOnDemande($demande_id)
@@ -104,6 +116,9 @@ class PrelevementController extends Controller
     }
     /**
     * Enregistre les données de l'ensemble des prélèvements d'une demande
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return Redirect DemandeController@show
     */
     public function storeOnDemande(Request $request)
     {
@@ -178,6 +193,9 @@ class PrelevementController extends Controller
     }
     /**
     * Enregistre les données d'un SEUL prélèvement d'une demande (prélèvement non encore renseigné)
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return Redirect ResultatController@edit
     */
 
     public function storeOne(Request $request)
@@ -233,10 +251,7 @@ class PrelevementController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * Non implémenté
      */
     public function store(Request $request)
     {
@@ -244,10 +259,7 @@ class PrelevementController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    * Non implémenté
      */
     public function show($id)
     {
@@ -255,10 +267,10 @@ class PrelevementController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Affiche un formulaire pour modifier un prélèvement
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id du prélèvement
+     * @return \Illuminate\View\View labo/prelevements/prelevementEdit
      */
     public function edit($id)
     {
@@ -273,11 +285,11 @@ class PrelevementController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Met à jour le prélèvement modifié
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id ud prélèvement
+     * @return redirect DemandeController@show
      */
     public function update(Request $request, $id)
     {
@@ -287,7 +299,8 @@ class PrelevementController extends Controller
 
         $prelevement->identification = $datas['identification'];
         $prelevement->etat_id = $datas['etatPrelevement_'.$id];
-
+        // Prendre en compte le choix fait sur l'état parasité ou non de l'animal
+        // correspondant au prélèvement (boutons radio)
         switch ($datas['parasite_'.$id]) {
           case '0':
 
@@ -329,6 +342,9 @@ class PrelevementController extends Controller
 
     /**
     * Methode de confirmation de suppression d'un prélévement
+    *
+    * @param int $prelevement_id Id du prélèvement
+    * @return \Illuminate\View\View labo/prelevements/prelevdel
     */
     public function prelevdel($prelevement_id)
     {
@@ -341,8 +357,8 @@ class PrelevementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id du prélèvement
+     * @return redirect ResultatController@edit
      */
     public function destroy($id)
     {

@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
 * + _date_reglement_: timestamp NULL DEFAULT NULL
 *
 * @package Productions
+* @subpackage Factures
  */
 class Reglement extends Model
 {

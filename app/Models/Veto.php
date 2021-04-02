@@ -27,6 +27,7 @@ use App\User;
  * + timestamps
  *
  * @package Utilisateurs
+ * @subpackage Veto
  */
 class Veto extends Model
 {

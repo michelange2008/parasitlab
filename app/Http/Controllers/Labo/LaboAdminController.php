@@ -19,8 +19,15 @@ use App\Http\Traits\UserCreateDetail;
 use App\Http\Traits\ImagesManager;
 
 /**
-* Controller destiné à gérer tout ce qui a trait à l'administration du site
+* Controller destiné à gérer la classe Labo: User avec tous les droits
+*
+* Contrôleur CRUD avec quelques particularités liées au fait que un Labo est d'abord
+* un User avec un Usertype _laboratoire_
+*
+* @see \App\Models\Labo
+*
 * @package Utilisateurs
+* @subpackage Labo
 */
 class LaboAdminController extends Controller
 {
@@ -45,9 +52,11 @@ class LaboAdminController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Affiche la liste des User de usertype Labo
    *
-   * @return \Illuminate\Http\Response
+   * Recours à une classe héritée de ListeFournisseur (ListeLabosFournisseur)
+   *
+   * @return \Illuminate\View\View admin/index/pageIndex
    */
   public function index()
   {
@@ -70,9 +79,10 @@ class LaboAdminController extends Controller
   }
 
   /**
-   * Show the form for creating a new resource.
+   * Renvoie à UserController@create avec une variable de session pour expliquer
+   * qu'il s'agit d'un usertype laboratoire.
    *
-   * @return \Illuminate\Http\Response
+   * @return redirect UserController@create
    */
   public function create()
   {
@@ -82,10 +92,16 @@ class LaboAdminController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
+  * Enregistrement de Labo après préparation de l'enregistrement de User
+  * (cf. admin/eleveur/laboCreateForm.blade.php)
+  *
+  * On commence par enregistrer le nouvel User sur la base des variables de session
+  * Puis on fait appel au trait __UserCreateDetail@aboCreateDetail__ pour enregistrer le labo.
+  * Et on envoie aussi un mail au nouvel labo créé pour l'informer de sa création
+  * et lui transmettre son mot de passe.
+  *
+  * @param  \Illuminate\Http\Request  $request
+  * @return redirect LaboAdminController@index
    */
   public function store(Request $request)
   {
@@ -119,10 +135,10 @@ class LaboAdminController extends Controller
 
   }
   /**
-   * Display the specified resource.
+   * Affiche le détail d'un Labo
    *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
+   * @param  int  $id Id de l'User (et non du Labo)
+   * @return \Illuminate\View\View admin/show/laboShow
    */
   public function show($id)
   {
@@ -135,10 +151,10 @@ class LaboAdminController extends Controller
   }
 
   /**
-   * Show the form for editing the specified resource.
+   * Affichel le formulaie pour la modification d'un Labo
    *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
+   * @param  int  $id Id de l'User
+   * @return \Illuminate\View\View admin/labo/laboEdit
    */
   public function edit($id)
   {
@@ -154,11 +170,7 @@ class LaboAdminController extends Controller
   }
 
   /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
+   * NON IMPLEMENTEE CAR UTILISATION DE user.update + le trait UserUpdateDetail
    */
   public function update(Request $request, $id)
   {
@@ -168,10 +180,16 @@ class LaboAdminController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Suppression d'un Labo
    *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
+   * Cela se fait pas suppression de l'User (et impact de la cascade liée à la
+   * relation dans la BDD) mais il faut avant cela effacer le fichier image
+   * correspondant pour éviter les accumulations.
+   *
+   * @see \App\Traits\ImageManager
+   *
+   * @param  int  $id Id de l'User
+   * @return redirect LaboAdminController@index
    */
   public function destroy($id)
   {

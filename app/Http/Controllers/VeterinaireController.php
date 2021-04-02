@@ -27,7 +27,7 @@ use App\Fournisseurs\ListeDemandesVetoFournisseur;
  * par des membres de Labo.
  *
  * @package Utilisateurs
- * @subpackage Vetos
+ * @subpackage Veto
  */
 class VeterinaireController extends Controller
 {

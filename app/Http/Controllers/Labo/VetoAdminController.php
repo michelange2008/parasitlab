@@ -23,6 +23,7 @@ use App\Http\Traits\UserCreateDetail;
  * [VetoAdminController description]
  *
  * @package Utilisateurs
+ * @subpackage Veto
  */
 class VetoAdminController extends Controller
 {

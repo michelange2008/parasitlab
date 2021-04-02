@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * + _deleted_at_ timestamp NULL DEFAULT NULL
  *
  * @package Productions
+ * @subpackage Factures
  */
 class Facture extends Model
 {

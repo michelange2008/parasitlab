@@ -23,6 +23,7 @@ use App\User;
  * fonction (texte), est_signataire (booléen), timestamps)
  *
  * @package Utilisateurs
+ * @subpackage Labo
  */
 class Labo extends Model
 {

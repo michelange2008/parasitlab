@@ -25,6 +25,7 @@ use App\Http\Traits\FactureFactory;
  * [EleveurController description]
  *
  * @package Utilisateurs
+ * @subpackage Eleveur
  */
 class EleveurController extends Controller
 {

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * + _icone_id_ int(10) UNSIGNED NOT NULL DEFAULT 1
  *
  * @package Productions
+ * @subpackage Factures
  */
 class Modereglement extends Model
 {

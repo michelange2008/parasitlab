@@ -29,6 +29,7 @@ use App\User;
  * + timestamps
  *
  * @package Utilisateurs
+ * @subpackage Eleveur
  */
 class Eleveur extends Model
 {

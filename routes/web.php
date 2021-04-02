@@ -221,7 +221,7 @@
 
     Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
-    Route::post('facture/paiement', 'Labo\FactureController@paiement')->name('facture.paiement');
+    // Route::post('facture/paiement', 'Labo\FactureController@paiement')->name('facture.paiement');
 
     Route::resource('factures', 'Labo\FactureController');
 

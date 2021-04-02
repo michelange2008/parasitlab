@@ -33,10 +33,9 @@ use App\Http\Traits\FactureFactory;
  * La méthode _create_ est remplacée par deux méthodes: _createFromUser_ et
  * _createDemandeFromUser_ qui s'appliquent dans des contexte différents.
  * Une méthode _etablir_ utilise le trait __FactureFactory__ pour établir une facture.
- * Enfin, une méthode _paiement_ est là pour envregistrer le statut d'une facture
- * vis à vis du paiement.
  *
  * @package Productions
+ * @subpackage Factures
  */
 class FactureController extends Controller
 {
@@ -283,10 +282,8 @@ class FactureController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Non implémenté car on ne modifie pas une facture. EN cas de problème, on
+     * la supprime.
      */
     public function edit($id)
     {
@@ -294,11 +291,8 @@ class FactureController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    * Non implémenté car on ne modifie pas une facture. EN cas de problème, on
+    * la supprime.
      */
     public function update(Request $request, $id)
     {
@@ -306,10 +300,10 @@ class FactureController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Suppression de la facture
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id Id de la Facture
+     * @return redirect back FactureController@index
      */
     public function destroy($id)
     {
@@ -322,19 +316,23 @@ class FactureController extends Controller
       return redirect()->back()->with('message', 'facture_delete');
     }
 
+    /**
+     *
+     * @deprecated Apparemment méthode fantôme qui a été crée puis oublié sans être utile
+     */
     public function paiement(Request $request)
     {
       $datas = $request->all();
 
-      // dd($datas);
-      $facture = Facture::find($datas['facture_id']);
-
-      $facture->payee = true;
-      $facture->reglement_id = $datas['reglement_id'];
-      $facture->payee_date = $datas['payee_date'];
-
-      $facture->save();
-
-      return redirect()->route('factures.show', $datas['facture_id']);
+      dd($datas);
+      // $facture = Facture::find($datas['facture_id']);
+      //
+      // $facture->payee = true;
+      // $facture->reglement_id = $datas['reglement_id'];
+      // $facture->payee_date = $datas['payee_date'];
+      //
+      // $facture->save();
+      //
+      // return redirect()->route('factures.show', $datas['facture_id']);
     }
 }
