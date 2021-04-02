@@ -30,7 +30,7 @@ return array (
     'titre' => 'Comment choisir les animaux ?',
     'texte' => 'Au sein d’un troupeau, le parasitisme est inégalement réparti.
                   Tous les animaux ne sont pas parasités de la même façon, quelques-uns le sont beaucoup, d’autres pas du tout.</p>
-                <p>C’est ce qu’on appelle la surdispersion du parasitisme (<a href=\'parasitisme/surdispersion\'><i>&nbsp;en savoir plus </i><i class=\'fas fa-book-reader\'></i></a>&nbsp;).</p>
+                <p>C’est ce qu’on appelle la surdispersion du parasitisme.</p>
                 <p>Généralement, les plus jeunes (veau en première année de pâture, agneaux,…) sont les plus parasités et donc les plus à risque.
                   Ils sont à suivre en priorité.</p>
                 <p>Dans un troupeau de chèvres, les adultes aussi sont susceptibles d’être fortement infestés.</p>

@@ -37,7 +37,7 @@ class AnatypesTableSeeder extends Seeder
           [
             'id' => 3,
             'abbreviation' => "SGResp",
-            'nom' => "strongles pulmonaires",
+            'nom' => "strongles respiratoires",
             'technique' => 'méthode semi-quantitative de Baermann',
             'remarque' => null,
             'estAnalyse' => true,

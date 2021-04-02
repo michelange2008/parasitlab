@@ -27,6 +27,6 @@ return array (
     'titre' => 'A replacer dans le contexte de l\'élevage',
     'texte_1' => 'Comme tout examen de laboratoire, les coproscopies ne peuvent être analysées qu\'à la lumière des observations du troupeau.',
     'texte_2' => 'Elles ne fournissent qu\'une évaluation du taux d\'infestation, et il existe de nombreux facteurs de variation du niveau de ponte des parasites.',
-    'texte_3' => 'Certains parasites pondent peu ou de façon cyclique (grande et petite douve). Pour d\'autres parasites la comptage n\'a pas de sens (taenia) et ou ne peut être que semi-quantitatif (strongles pulmonaires). Le niveau immunitaire des animaux hôtes influe aussi sur la capacité des parasites à pondre.',
+    'texte_3' => 'Certains parasites pondent peu ou de façon cyclique (grande et petite douve). Pour d\'autres parasites la comptage n\'a pas de sens (taenia) et ou ne peut être que semi-quantitatif (strongles respiratoires). Le niveau immunitaire des animaux hôtes influe aussi sur la capacité des parasites à pondre.',
   ),
 );

@@ -22,8 +22,8 @@ return array (
   'comment_faire' => 'Comment faire ?',
   'kit_envoi_1' => 'Nous fournissons des kits d’envoi préaffranchis permettant un acheminement rapide et sécurisé des prélèvements.',
   'kit_envoi_2' => 'Chaque kit contient une fiche de procédure de prélèvement, un formulaire de demande d\'analyses, des sachets et des gants de prélèvement et une enveloppe préaffranchie.
-                    Un kit permet de faire jusqu\'à <strong>trois analyses individuelles ou de mélange</strong>',
-  'kit_envoi_3' => 'N\'hésitez pas à nous les commander pour les proposer aux éleveurs à qui vous conseillez de réaliser des examens coproscopiques. Nous vous les envoyons gratuitement.',
+                    Un kit permet de faire jusqu\'à trois analyses individuelles ou de mélange',
+  'kit_envoi_3' => 'N\'hésitez pas à nous les commander pour les proposer aux éleveurs à qui vous conseillez de réaliser des examens coproscopiques.',
   'kit_envoi_prix_1' => 'Le coût de ces kits d\'envoi est de ',
   'kit_envoi_prix_2' => '&nbsp;€ qui sera facturé en même temps que l\'analyse (au destinataire de la facture de l\'analyse demandée).',
   'kit_envoi_info_1' => '<strong>Attention ! Il faut utiliser 1 kit par espèce.</strong> Si vous souhaitez faire des coproscopies sur plusieurs espèces, demandez autant de kit.',
