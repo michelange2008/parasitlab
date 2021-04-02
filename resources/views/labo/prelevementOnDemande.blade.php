@@ -1,3 +1,4 @@
+{{-- issu de PrelevementController@createOnDemande --}}
 {{-- VUE AFFICHANT LE FORMULAIRE DE SAISIE DES PRELEVEMENTS APRES LA PAGE DE SAISIE D UNE DEMANDE D ANALYSE --}}
 @extends('layouts.app')
 
@@ -14,6 +15,7 @@
     <div class="row my-3">
 
       <div class="col-md-11 mx-auto">
+        @flash(['couleur' => "alert-danger"]) {{-- Cas où aucune identification n'est faite --}}
 
         @titre(['titre' => __('titres.saisie_prelevements'), 'icone' => 'prelevement.svg'])
 
@@ -27,6 +29,7 @@
 
       <input type="hidden" name="demande_id" value="{{ $demande->id }}">
       <input type="hidden" name="analyse_id" value="{{ $analyse_id }}">
+      <input type="hidden" name="nb_prelevement" value="{{ $demande->nb_prelevement }}">
       {{-- Si c'est un nouveau troupeau on fait un formulaire de création --}}
       @if ($demande->troupeau_id == null)
 

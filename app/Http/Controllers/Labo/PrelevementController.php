@@ -122,8 +122,17 @@ class PrelevementController extends Controller
     */
     public function storeOnDemande(Request $request)
     {
-
       $datas = $request->all();
+
+      $nb_prelevement = intval($datas["nb_prelevement"]);
+
+      for($i = 1; $i <= $nb_prelevement; $i++ ) {
+        $numero = $datas['animal_'.$i];
+        $nom = $datas['identification_'.$i];
+        if($numero == null && $nom == null) {
+          return redirect()->back()->with('message', 'abs_identification');
+        }
+      }
 
       $demande = Demande::find($datas['demande_id']);
 

@@ -1,6 +1,6 @@
 @if (session('message'))
 
-    <div class="alert alert-success">
+    <div class="alert {{ $couleur ?? 'alert-success'}} ">
 
         {!! __('messages.'.session('message')) !!}
 

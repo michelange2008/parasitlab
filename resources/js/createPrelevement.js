@@ -19,7 +19,7 @@ $(".typeprelevement").on('change', function() {
   // Sinon
   } else {
     // On vide et on inactive la ligne num
-    $('#numero_animal_' + i).val('').attr("required", false).attr('disabled', 'disabled');
+      $('#numero_animal_' + i).val('').attr("required", false).attr('disabled', 'disabled');
     // On met le focus sur le nom
     $('#nom_animal_' + i).attr("required", true).focus();
   }

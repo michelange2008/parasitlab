@@ -44,4 +44,5 @@ return array (
   'demande_updated' => "La demande d'analyse a été mise à jour.",
   'comment_store' => "Le commentaire a été enregistré",
   'pythie' => "J'ai contacté l'Oracle...",
+  'abs_identification' => "Attention, un animal n'a ni nom ni numéro",
 );
