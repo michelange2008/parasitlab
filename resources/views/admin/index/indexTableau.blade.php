@@ -14,7 +14,6 @@
   </div>
 
 </div>
-
 @else
 
 <table   id="table"

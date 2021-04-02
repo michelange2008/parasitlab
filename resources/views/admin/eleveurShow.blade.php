@@ -1,3 +1,4 @@
+{{-- Issu de EleveurAdminController@show --}}
 @extends('layouts.app')
 
 @section('menu')
