@@ -59,6 +59,7 @@ return array (
   'ask_for_pack' => 'Demander des kits d\'envoi',
   'envoi_facture' => 'Envois et facture',
   'prelev' => "prélèvement n°:num",
+  'prel' => "prélèv.",
   'identification' => "identification",
   'prelevements' => 'Prélèvements',
   'demandeur' => 'Demandeur',

@@ -13,7 +13,7 @@
 
           <label class="custom-control-label my-1" for="demande_{{ $demande->id }}">
             <p class="font-weight-bold mb-0">{{ $demande->user->name }} : {!! ucfirst($demande->anaacte->anatype->nom) !!}</p>
-            <p class="mb-0">{!! ucfirst($demande->anaacte->nom) !!}</p>
+            <p class="mb-0">{!! ucfirst($demande->anaacte->nom) !!} - {{ $demande->nb_prelevement}} @lang('form.prel')</p>
             <p class="mb-0 font-italic">{{ \Carbon\Carbon::parse($demande->date_reception)->isoFormat('LL') }}</p>
           </label>
 
