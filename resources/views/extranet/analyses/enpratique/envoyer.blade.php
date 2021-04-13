@@ -57,7 +57,7 @@
 
           <div class="card bg-rouge-tres-clair mb-3" style="min-width:300px">
             <div class="card-header alert-secondary">
-              <img class='img-90 align-self-start' src="{!! url('storage/img/icones/'.$element->prefixe.'svg') !!}" alt="icon">
+              <img class='img-90' src="{!! url('storage/img/icones/'.$element->prefixe.'svg') !!}" alt="icon">
             </div>
             <div class="card-body">
               <h4>@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'h4')</h4>

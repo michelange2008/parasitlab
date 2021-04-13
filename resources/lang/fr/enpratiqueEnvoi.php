@@ -5,7 +5,7 @@ return array (
   array (
     'h4' => 'Un moyen simple pour envoyer vos prélèvements',
     'p' => 'Le kit d\'envoi est constitué d\'une enveloppe préaffranchie, de trois sachets plastiques et d\'un formulaire papier.<br>
-            Il est facturé 9,00€ en plus du coût de l\'analyse.',
+            Il est facturé 5,50€ en plus du coût de l\'analyse.',
     'libelle' => 'Demandez un kit pré-affranchi',
   ),
   'formulaire_vierge' =>
