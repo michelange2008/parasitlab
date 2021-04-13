@@ -49,7 +49,7 @@
   </div>
 
   {{-- recommandation pour le véto --}}
-  <div id="penser_veto" class="media border px-3 py-2 mb-2 " style="display:none">
+  <div id="penser_veto" class="media border px-3 py-2 mb-2 bg-orange-tres-clair" style="display:none">
     <img class="mr-3 d-none d-md-block" src="{!! url('storage/img/icones/veto.svg') !!}" alt="veto.svg">
     <div class="media-body">
       <h5 class="mt-0">
@@ -59,6 +59,21 @@
 
     </div>
 
+  </div>
+
+  {{-- Bouton pour la suite --}}
+  <div id="bouton_suite" class="media border px-3 py-2 " style="display:none">
+
+    <div class="media-body">
+      <h5>En pratique: prélever et envoyer</h5>
+      <p>Une fois l'analyse choisie, il faut réaliser le prélèvement et l'envoyer (ou l'apporter) au laboratoire</p>
+      @bouton([
+        'type' => 'link',
+        'lien' => route('analyses.enpratique'),
+        'intitule' => 'cliquez pour continuer',
+        'fa' => 'fas fa-angle-double-right',
+      ])
+    </div>
   </div>
 
 </div>

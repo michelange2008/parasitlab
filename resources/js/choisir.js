@@ -327,7 +327,7 @@ function listeOptions() {
             }
           }
           $('#penser_veto').fadeIn(3000); // Et le véto
-
+          $('#bouton_suite').fadeIn(5000); // Et le bouton
           if($("#input_espece").val()== 5 ) {
             $('#autres_analyses').fadeIn(2000);
           }
@@ -349,6 +349,8 @@ function videOptions() {
 
   // On masque le panneau veto
   $("#penser_veto").hide();
+  // On masque le bouton suite
+  $("#bouton_suite").hide();
   $("#autres_analyses").hide();
   $('#boutons').hide();
   // On masque la liste d'anatypes, d'anaactes et la liste d'anaactes
