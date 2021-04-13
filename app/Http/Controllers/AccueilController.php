@@ -49,7 +49,10 @@ class AccueilController extends Controller
      */
     public function index()
     {
-
+/**
+ * TODO mettre le prix du kit dans le texte en tant que variable et non en dur
+ * dans le fichier enpratiqueEnvoi.php
+ */
       return view('extranet.accueil', [
         'menu' => $this->menu, //éléments du menu pour l'accès public
         'accueilEntetes' => $this->litJson('accueilEntetes'), // éléments pour les cartouches et la présentation
