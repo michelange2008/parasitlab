@@ -127,7 +127,15 @@ class PrelevementController extends Controller
       $nb_prelevement = intval($datas["nb_prelevement"]);
 
       for($i = 1; $i <= $nb_prelevement; $i++ ) {
-        $numero = $datas['animal_'.$i];
+        // On tete l'existence d'un numéro d'animal (en cas de mélange il n'y a pas de numéro)
+        if (isset($datas['animal_'.$i])) {
+
+          $numero = $datas['animal_'.$i];
+        }
+        else {
+          $numero = null;
+        }
+
         $nom = $datas['identification_'.$i];
         if($numero == null && $nom == null) {
           return redirect()->back()->with('message', 'abs_identification');
