@@ -36,8 +36,8 @@ class ListeTroupeausFournisseur extends ListeFournisseur
       $suppr = $this->delFactory($troupeau->id, 'troupeau.destroy');
 
       $description = [
-        $eleveur,
         $nom,
+        $eleveur,
         $espece,
         $typeprod,
         $effectif,

@@ -8,17 +8,17 @@
 
   "liste" : {
 
-    "name" : {
-      "id" : "nom",
-      "nom" : "form.nom",
-      "align" : "left",
-      "sortable" : true
-    },
     "troupeau" : {
       "id" : "troupeau",
       "nom" : "form.troupeau",
       "align" : "left",
       "sortable" : false
+    },
+    "name" : {
+      "id" : "nom",
+      "nom" : "form.nom",
+      "align" : "left",
+      "sortable" : true
     },
     "espece" : {
       "id" : "espece",
