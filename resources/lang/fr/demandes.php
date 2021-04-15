@@ -26,4 +26,6 @@ return array (
   'infos_nouv_troup' => 'Comme il s\'agit d\'un nouveau troupeau, il faut en saisir les informations:',
   'demande_sans_prelevement' => 'Cette demande d\'analyse n\'a encore aucun prélèvement&nbsp;!',
   'saisir_prelev_ou_del' => 'Que souhaitez-vous faire: saisir les prélèvements ou supprimer cette demande&nbsp;?',
+  'del_prel_confirm_titre' => 'Etes-vous sûr de vouloir supprimer ce prélèvement ?',
+  'del_prel_confirm_texte' => 'Une fois supprimé, ce prélèvement n\'existera plus et devra être recréé.',
 );

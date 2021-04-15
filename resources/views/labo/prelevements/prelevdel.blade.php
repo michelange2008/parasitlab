@@ -6,9 +6,9 @@
 
     <div class="container">
 
-      <h1 class="display-4" >Etes-vous sûr de vouloir supprimer ce prélèvement ?</h1>
+      <h1 class="display-4" >@lang('demandes.del_prel_confirm_titre')</h1>
 
-      <p class="lead">Une fois supprimé, ce prélèvement n'existera plus et devra être recréé.</p>
+      <p class="lead">@lang('demandes.del_prel_confirm_texte')</p>
 
       <hr class="my-4">
 

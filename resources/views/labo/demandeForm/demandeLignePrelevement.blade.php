@@ -7,15 +7,13 @@
 
   </div>
 
-  <div class="col-md-5 my-3">
+  <div class="col-md-10 my-3">
 
     @include('labo.demandeForm.inputTypePrelevement')
 
   </div>
 
-  <div class="col-md-5">
 
-  </div>
 
   <div class="col-md-5">
 

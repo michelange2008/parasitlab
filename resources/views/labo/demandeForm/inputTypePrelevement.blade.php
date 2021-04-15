@@ -1,38 +1,31 @@
+{{-- Issu de resources/views/labo/demandeForm/demandeLignePrelevement.blade.php
+      ou resources/views/labo/demandeForm/demandePrincipal.blade.php --}}
 <div class="form-group row">
 
-  <legend class="col-form-label col-md pt-0">@lang('form.type_prelevement')</legend>
+  <legend class="col-form-label col-md-4 pt-0">@lang('form.type_prelevement')</legend>
 
   <div class="col-md">
 
-    <div class="custom-control custom-radio custom-control-inline">
+    @foreach ($typesprelevement as $type) {{-- un type de prélèvement est un prélèvement individuel, collectif ou collectif avec des individus --}}
 
-      <input class="typeprelevement indiv custom-control-input"
-              type="radio"
-              name="typeprelevement_{{ $i }}" id="indiv_{{ $i }}"
-              value="indiv">
+      <div class="custom-control custom-radio custom-control-inline">
 
-      <label class="custom-control-label" for="indiv_{{ $i }}">
+        <input class="typeprelevement {{ $type }} custom-control-input"
+                type="radio"
+                name="typeprelevement_{{ $i }}" id="{{ $type }}_{{ $i }}"
+                value="{{ $type }}"
+                @if ($type == 'collindiv') disabled @endif
+                >
 
-        @lang('form.indiv')
+        <label class="custom-control-label" for="{{ $type }}_{{ $i }}">
 
-      </label>
+          @lang('form.'.$type)
 
-    </div>
+        </label>
 
-    <div class="custom-control custom-radio custom-control-inline">
+      </div>
 
-      <input class="typeprelevement coll custom-control-input"
-              type="radio"
-              name="typeprelevement_{{ $i }}" id="coll_{{ $i }}"
-              value="coll">
-
-      <label class="custom-control-label" for="coll_{{ $i }}">
-
-        @lang('form.coll')
-
-      </label>
-
-    </div>
+  @endforeach
 
   </div>
 

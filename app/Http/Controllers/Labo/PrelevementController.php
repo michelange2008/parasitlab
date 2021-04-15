@@ -62,6 +62,17 @@ class PrelevementController extends Controller
         //
     }
 
+    public function definitNbPrelev(Request $request)
+    {
+      $datas = $request->all();
+
+      $demande = Demande::find($datas['demande_id']);
+      $demande->nb_prelevement = intval($datas['nb_prelevement']);
+      $demande->save();
+
+      return redirect()->route('prelevement.createOnDemande', $demande->id);
+    }
+
     /**
      * Montre le formulaire pour renseigner 1 seul prélèvement d'une demande
      *
@@ -86,6 +97,7 @@ class PrelevementController extends Controller
         'etats' => Etat::all(),
         'signes' => Signe::all(),
         'estParasite' => $this->litJson('estParasite'),
+        'typesprelevement' => ['indiv', 'coll', 'collindiv'],
       ]);
     }
 
@@ -97,7 +109,8 @@ class PrelevementController extends Controller
 
     public function createOnDemande($demande_id)
     {
-      $demande = Demande::find($demande_id); // Reccherche de l'analyse correspondant à l'espèce et à l'anaacte de la demande
+      $demande = Demande::find($demande_id); // Recherche de l'analyse correspondant à l'espèce et à l'anaacte de la demande
+
       $espece_id = $demande->espece->id;
       $typeprods = Typeprod::where('espece_id', $espece_id)->get();
       $anatype_id = $demande->anaacte->anatype->id;
@@ -112,28 +125,35 @@ class PrelevementController extends Controller
         'etats' => Etat::all(),
         'signes' => Signe::all(),
         'estParasite' => $this->litJson('estParasite'),
+        'typesprelevement' => ['indiv', 'coll', 'collindiv'],
       ]);
     }
     /**
     * Enregistre les données de l'ensemble des prélèvements d'une demande
-    *
+    * Appeler par la vue resources/views/labo/prelevementOnDemande.blade.php
     * @param  \Illuminate\Http\Request  $request
     * @return Redirect DemandeController@show
     */
     public function storeOnDemande(Request $request)
     {
       $datas = $request->all();
-
       $nb_prelevement = intval($datas["nb_prelevement"]);
-
+      // dd($datas);
       for($i = 1; $i <= $nb_prelevement; $i++ ) {
-        // On tete l'existence d'un numéro d'animal (en cas de mélange il n'y a pas de numéro)
-        if (isset($datas['animal_'.$i])) {
+
+        // prélèvement individuel
+        if ($datas['typeprelevement_'.$i] == 'indiv' ) {
 
           $numero = $datas['animal_'.$i];
-        }
-        else {
+        // prélèvement collectif²
+        } elseif ($datas['typeprelevement_'.$i] == 'coll') {
+
           $numero = null;
+        // TODO: à faire
+        // prélèvement collectif avec individus précis
+        } else {
+
+
         }
 
         $nom = $datas['identification_'.$i];
@@ -392,7 +412,7 @@ class PrelevementController extends Controller
 
         Prelevement::destroy($id);
 
-        return redirect()->route('resultats.edit', $demande_id)->with('message', __('prelev_del'));
+        return redirect()->route('demandes.show', $demande_id)->with('message', __('prelev_del'));
     }
 
 }

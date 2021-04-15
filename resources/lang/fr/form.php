@@ -49,6 +49,7 @@ return array (
   'type_prelevement' => 'Type de prélèvement',
   'indiv' => "Individuel",
   'coll' => "Mélange",
+  'collindiv' => "Mélange avec identification des animaux",
   'nb_prelevement' => 'Nombre de prélèvements',
   'prelev_nb' => 'Prélèvement n°',
   'nom_prelev' => 'nom du prélèvement',
@@ -75,6 +76,8 @@ return array (
   'etat_prelev' => 'Etat du prélèvement',
   'prelev_coll' => 'Prélèvement de mélange',
   'prelev_indiv' => 'Prélèvement individuel',
+
+  'add_prelev'=> 'Ajouter des prélèvements',
   'estFinie' => 'Analyse terminée (décocher si ce n\'est pas le cas)',
   'espece' => 'Espèce',
   'comment' => "Commentaire",
