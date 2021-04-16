@@ -53,6 +53,28 @@
 
         </div>
 
+        <div class="col-md-12 my-3">
+
+          @foreach ($choisir_2 as $espece)
+
+            @foreach ($espece->parasites as $parasite)
+
+              <div class="media my-3 alert-success">
+                <div class="media-left media-top m-3">
+                  <img src="{{ url('storage/img/icones/'.$parasite->icone) }}" alt="">
+                </div>
+                <div class="media-body m-3">
+                  <p>
+                    {{ __("choisir_2".$espece->nom.$parasite->nom.".texte") }}
+                  </p>
+                </div>
+              </div>
+            @endforeach
+
+          @endforeach
+
+        </div>
+
         @include('extranet.analyses.choisir.listeAges')
 
       </div>
@@ -68,7 +90,7 @@
       {{-- </div> --}}
 
       <div class="col-md-5">
-        
+
         <h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')</h4>
 
         @include('extranet.analyses.choisir.methodeChoixAnalyse')

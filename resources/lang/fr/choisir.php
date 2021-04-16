@@ -26,11 +26,9 @@ return array (
   'jouer' => "A vous de jouer !",
   'choisir_age' => "Choisir un âge",
 
-  'meilleure_fiabilite' => "Une meilleure fiabilité des résultats",
-
   'nombreuses_analyses' => "Parasit'Lab propose de nombreuses analyses coproscopiques différentes <strong>adaptées aux différents parasites recherchés.</strong>",
 
   'techniques_adaptees' => "En effet, un comptage précis des oeufs des différents types de parasites nécessite d'avoir recours à des techniques adaptées à chaque cas.",
 
-  'outil_choix' => "Pour cette raison, nous vous proposons un outil de <strong>choix de l'analyse la plus adaptée à votre situation</strong>."
+  'outil_choix' => "Pour cette raison, nous vous proposons un outil de <strong>choix de l'analyse la plus adaptée à votre situation</strong>.",
 );
