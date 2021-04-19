@@ -1,0 +1,56 @@
+{
+  "caprins" :
+  {
+    "nom" : ".caprins",
+    "parasites" :
+    {
+      "sgin" :
+      {
+        "nom" : ".sgin",
+        "icone" : "copr.svg"
+      },
+      "resp" :
+      {
+        "nom" : ".resp",
+        "icone" : "baer.svg"
+      },
+      "dicro" :
+      {
+        "nom" : ".dicro",
+        "icone" : "dicr.svg"
+      },
+      "GD" :
+      {
+        "nom" : ".GD",
+        "icone" : "fasc.svg"
+      }
+    }
+  },
+  "ovins" :
+  {
+    "nom" : ".ovins",
+    "parasites" :
+    {
+      "sgin" :
+      {
+        "nom" : ".sgin",
+        "icone" : "copr.svg"
+      },
+      "resp" :
+      {
+        "nom" : ".resp",
+        "icone" : "baer.svg"
+      },
+      "dicro" :
+      {
+        "nom" : ".dicro",
+        "icone" : "dicr.svg"
+      },
+      "GDPARAM" :
+      {
+        "nom" : ".GD",
+        "icone" : "fasc.svg"
+      }
+    }
+  }
+}
