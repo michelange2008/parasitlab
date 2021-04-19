@@ -31,7 +31,7 @@
 
         <div class="col-md-11 col-lg-10 col-xl-9">
 
-          <h5 class="font-weight-bold">Especes associées à cette analyse</h5>
+          <h5 class="font-weight-bold">@lang('form.esp_analyse')</h5>
 
           @foreach ($anaacte->anatype->especes as $espece)
 
@@ -45,7 +45,7 @@
 
         <div class="col-md-11 col-lg-10 col-xl-9">
 
-          <h5 class="mb-3 font-weight-bold">Paramètres de cette analyse</h5>
+          <h5 class="mb-3 font-weight-bold">@lang('form.param_analyse')</h5>
 
           <div class="form-row">
 

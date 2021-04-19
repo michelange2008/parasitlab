@@ -188,4 +188,6 @@ return array (
   'selection_multiple' => 'maintenir le bouton Ctrl ou Maj pour une sélection multiple',
 
   'toutes_especes' => "Toutes espèces",
+  'esp_analyse' => "Especes associées à cette analyse",
+  'param_analyse' => "Paramètres de cette analyse",
 );
