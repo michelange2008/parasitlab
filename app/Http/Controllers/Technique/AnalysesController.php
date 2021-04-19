@@ -42,9 +42,8 @@ class AnalysesController extends Controller
     {
       session()->put('choisirFirst', true);
 
-      // $anaactes =Anaacte::where('estAnalyse', true)->groupBy('anatype_id')->orderBy('num')->get();
       $anatypes = Anatype::where('estAnalyse', true)->get();
-// dd($this->litJson('choisir_2'));
+
       return view('extranet.analyses.choisir', [
         'menu' => $this->menu,
         'route' => 'analyses.choisir',
