@@ -20,11 +20,12 @@
       "align" : "left",
       "sortable" : false
     },
-    "serie" : {
-      "id" : "serie",
-      "nom" : "tableaux.serie",
-      "align" : "center",
-      "sortable" : true
+    "informations" : {
+      "id" : "informations",
+      "nom" : "tableaux.informations",
+      "align" : "left",
+      "width" : "300",
+      "sortable" : false
     },
     "espece" : {
       "id" : "espece",

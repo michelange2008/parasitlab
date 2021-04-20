@@ -48,6 +48,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
         $serie = $this->itemFactory('');
 
       }
+      $information = $this->itemFactory($demande->informations);
 
       $espece = $this->iconeFactory($demande->espece->icone);
 
@@ -89,7 +90,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
       $description = [
         $eleveur,
         $analyse,
-        $serie,
+        $information,
         $espece,
         $toveto,
         $reception,
