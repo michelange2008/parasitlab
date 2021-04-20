@@ -176,6 +176,7 @@ public function selectAnalyses(Request $request)
 
     $anaactes = DB::table('anaactes')
                 ->where('anaactes.anatype_id', '=', $anatype_id)
+                ->where('anaactes.estActif', '=', true)
                 ->get();
 
     return json_encode($anaactes);
