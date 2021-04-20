@@ -64,6 +64,7 @@
                   <img src="{{ url('storage/img/icones/'.$parasite->icone) }}" alt="">
                 </div>
                 <div class="media-body m-3">
+                  <h4>{{ __("choisir_2".$espece->nom.$parasite->nom.".analyse") }}</h4>
                   <p>
                     {{ __("choisir_2".$espece->nom.$parasite->nom.".texte") }}
                   </p>

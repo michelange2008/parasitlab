@@ -17,6 +17,7 @@ return array (
     'dicro' => [
       'texte' => "La recherche de petite douve est possible mais donne uniquement des résultats qualitatif: Absence/Présence. Cette analyse
       donne des résultats souvent peu utilisables pour décider de la mise en oeuvre d'un traitement anthelmintique.",
+      'analyse' => "Strongles gastro-intestinaux + petit douve",
       ],
     'GD' => [
       'texte' => "Si les animaux pâturent dans des prés humides, il peuvent être infestés par la grande douve et le paramphistome (douve du rumen).
@@ -39,6 +40,7 @@ return array (
         'dicro' => [
           'texte' => "La recherche de petite douve est possible mais donne uniquement des résultats qualitatif: Absence/Présence. Cette analyse
           donne des résultats souvent peu utilisables pour décider de la mise en oeuvre d'un traitement anthelmintique.",
+          'analyse' => "Strongles gastrointestinaux + petite douve",
           ],
         'GD' => [
           'texte' => "Si les animaux pâturent dans des prés humides, il peuvent être infestés par la grande douve et le paramphistome (douve du rumen).
