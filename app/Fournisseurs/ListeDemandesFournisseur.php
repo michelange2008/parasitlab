@@ -51,6 +51,8 @@ class ListeDemandesFournisseur extends ListeFournisseur
 
       $espece = $this->iconeFactory($demande->espece->icone);
 
+      $informations = $this->itemFactory($demande->informations);
+
       if ($demande->tovetouser_id != null) {
 
         $toveto = $this->lienFactory($demande->tovetouser_id, ucfirst($demande->tovetouser->name), 'vetoAdmin.show', 'affiche_veto');
@@ -89,7 +91,7 @@ class ListeDemandesFournisseur extends ListeFournisseur
       $description = [
         $eleveur,
         $analyse,
-        $serie,
+        $informations,
         $espece,
         $toveto,
         $reception,

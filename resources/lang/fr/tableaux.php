@@ -22,6 +22,7 @@ return array (
   'description' => 'Description',
   'analyse' => 'Analyse',
   'serie' => 'Série',
+  'informations' => 'Informations',
   'esp' => 'Esp.',
   'toveto' => '-> Vétérinaire',
   'achevee' => 'Terminée',
