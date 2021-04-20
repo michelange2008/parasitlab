@@ -40,10 +40,11 @@
         <th data-halign="{{ $intitule->align }}" data-align="{{ $intitule->align }}" data-field="{{ $intitule->id }}"
           data-sortable="{{ $intitule->sortable}}"
           @isset($intitule->width)
-          data-width="{{$intitule->width}}"  
+          data-width="{{$intitule->width}}"
           @endisset
            >{!! ucfirst(__($intitule->nom)) !!}</th>
       @endforeach
+      {{-- dans de rare cas la largeur de la colonne est précisée pour éviter qu'elle ne soit trop large --}}
     </tr>
   </thead>
   <tbody>
