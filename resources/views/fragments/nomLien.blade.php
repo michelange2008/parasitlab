@@ -6,6 +6,10 @@ VARIABLES: id, route, nom -->
   title="{{ __($tooltip ?? 'tooltips.affiche_infos') }}"
   class="">
   {{ $before ?? ''}}
-  {!! $nom !!} {!! $icone ?? '<i class="color-bleu-tres-tres-clair fas fa-eye"></i>' !!}
+  {!! $nom !!}
+  @if ($nom != '')
+
+    {!! $icone ?? '<i class="color-bleu-tres-tres-clair fas fa-eye"></i>' !!}
+  @endif
   {{ $after ?? '' }}
 </a>

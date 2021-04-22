@@ -3,8 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Animal;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
+use App\Models\Animal;
+use App\Models\Productions\Demande;
+use App\Models\Productions\Prelevement;
+use App\Models\Troupeau;
+use App\User;
+
+use App\Fournisseurs\ListeAnimalsFournisseur;
+use App\Http\Traits\LitJson;
+use App\Http\Traits\UserTypeOutil;
 /**
  * Controleur qui gère l'objet Animal
  *
@@ -14,6 +24,18 @@ use App\Models\Animal;
  */
 class AnimalController extends Controller
 {
+    use LitJson, UserTypeOutil;
+
+    protected $menu;
+
+    /**
+     * Constructeur qui remplit la variable $menu avec le tableau issu du json
+     */
+    public function __construct()
+    {
+      $this->menu = $this->litJson('menuLabo');
+    }
+
     /**
      * NON IMPLEMENTE: affiche la liste des animaux
      *
@@ -22,7 +44,16 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+      $animals = Animal::all();
+
+      $fournisseur = new ListeAnimalsFournisseur();
+
+      $datas = $fournisseur->renvoieDatas($animals, __('titres.list_animals'), 'tout.svg', 'tableauAnimals', 'animal.create', __('boutons.add_animal'));
+
+      return view('admin.animals', [
+        'menu' => $this->menu,
+        'datas' => $datas,
+      ]);
     }
 
     /**
@@ -33,7 +64,17 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+
+        $usertype_eleveur = $this->userTypeEleveur();
+        $eleveurs = User::where('usertype_id', $usertype_eleveur->id)
+                          ->orderBy('name')
+                          ->get();
+
+        return view('admin.animals.animal_create', [
+          'menu' => $this->menu,
+          'eleveurs' => $eleveurs,
+          'troupeaus' => Troupeau::all(),
+  ]);
     }
 
     /**
@@ -44,27 +85,37 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        $datas = $request->all();
+        // Règle pour s'assurer qu'un élément au moins est remplit: numéro ou nom
+        $validator = Validator::make($request->all(), [
+          'numero' => 'required_without_all:nom',
+          'nom' => 'required_without_all:numero',
+        ]);
 
-        $animal = new Animal;
+        if ($validator->fails()) {
+          return redirect()->back()->with([
+            'message' => 'numero_nom_null',
+            'couleur' => 'alert-danger',
+          ]);
+        } else {
+          $datas = $request->all();
 
-        $animal->numero = $datas['numero'];
+          $animal = new Animal;
 
-        $animal->nom = $datas['nom'];
+          $animal->numero = $datas['numero'];
 
-        $animal->troupeau_id = $datas['troupeau_id'];
+          $animal->nom = $datas['nom'];
 
-        $animal->save();
+          $animal->troupeau_id = $datas['troupeau_id'];
 
-        return redirect()->back()->with('message', 'animal_add');
+          $animal->save();
 
-
-
+          return redirect()->back()->with('message', 'animal_add');
+        }
 
     }
 
     /**
-     * NON IMPLEMENTE: affiche l'animal
+     * NON IMPLEMENTE: affiche l'animal car page unique show et edit
      *
      * @param  int  $id
      */
@@ -81,7 +132,15 @@ class AnimalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $animal = Animal::find($id);
+
+        $prelevements = Prelevement::where('animal_id', $id)->get();
+
+        return view('admin.animals.animal_edit', [
+          'menu' => $this->menu,
+          'animal' => $animal,
+          'prelevements' => $prelevements,
+        ]);
     }
 
     /**
@@ -102,7 +161,7 @@ class AnimalController extends Controller
 
         $animal->save();
 
-        return redirect()->back()->with('message', 'animal_update');
+        return redirect()->route('animal.index')->with('message', 'animal_update');
 
     }
 
@@ -116,6 +175,6 @@ class AnimalController extends Controller
     {
         Animal::destroy($id);
 
-        return redirect()->back()->with('message', 'animal_del');
+        return redirect()->route('animal.index')->with('message', 'animal_del');
     }
 }

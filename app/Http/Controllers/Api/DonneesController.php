@@ -35,7 +35,14 @@ class DonneesController extends Controller
   {
     return json_encode(Age::where('espece_id', $espece_id)->with('icone')->get());
   }
-
+  /**
+   * Renvoit la liste des troupeaux d'une éleveur et d'une espèce
+   * (création d'une demande d'analyse)
+   *
+   * @param  int $eleveur_id
+   * @param  int $espece_nom
+   * @return json
+   */
   public function troupeau($eleveur_id, $espece_nom)
   {
     $espece = Espece::where('nom', $espece_nom)->first();
@@ -43,6 +50,20 @@ class DonneesController extends Controller
     $troupeau = Troupeau::where(['user_id' => $eleveur_id, 'espece_id' => $espece->id])->get();
 
     return json_encode($troupeau);
+
+  }
+
+  /**
+   * Renvoie la liste des troupeaux d'un éleveur
+   * creation d'un animal
+   * @param  int $user_id id de l'user dont on veut les troupeaux
+   * @return json liste des troupeaux
+   */
+  public function troupeaus_un_eleveur($user_id) {
+
+    $troupeaus = Troupeau::where('user_id', $user_id)->orderBy('nom')->get();
+
+    return json_encode($troupeaus);
 
   }
 

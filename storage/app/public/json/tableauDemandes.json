@@ -37,6 +37,7 @@
       "id" : "toveto",
       "nom" : "tableaux.toveto",
       "align" : "left",
+      "width" : "200",
       "sortable" : true
     },
     "reception" : {

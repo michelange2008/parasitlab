@@ -11,6 +11,8 @@ return array (
   'add_vet' => "Ajouter un vétérinaire",
   'add_user' => "Ajouter un nouvel utilisateur",
   'add_demande' => "Ajouter une demande d'analyse",
+  'add_animal' => "Ajouter un animal",
+  'add_troupeau' => "Ajouter un troupeau",
 
   'facture_add' => 'Ajouter une facture',
   'facturer' => 'Facturer',

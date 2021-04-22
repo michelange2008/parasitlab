@@ -72,9 +72,19 @@ return array (
     ),
     'sousmenu_9' =>
     array (
-      'nom' => 'Type de production',
+      'nom' => 'Types de production',
       'tooltip' => 'Consulter tous les types de production',
     ),
+    'sousmenu_10' =>
+    array(
+      'nom' => 'Animaux',
+      'tooltip' => 'Consulter la liste des animaux',
+    ),
+    'sousmenu_11' =>
+    array(
+      'nom' => 'Prélèvements de mélange',
+      'tooltip' => 'Consulter la liste des mélanges',
+    )
 
 ),
   'item_5' =>

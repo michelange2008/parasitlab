@@ -120,6 +120,15 @@
       {
         "id" : "divider"
       },
+      "sousmenu_9" :
+      {
+        "id" : "typeprod",
+        "prefixe" : "menuLabo.item_4.sousmenu_9.",
+        "nom" : "typeprod",
+        "icone" : "trypeprod.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des types de production",
+        "route" : "typeprod.index"
+      },
       "sousmenu_6" :
       {
         "id" : "troupeaux",
@@ -129,14 +138,23 @@
         "tooltip" : "Ajouter, modifier, supprimer des troupeaux",
         "route" : "troupeau.index"
       },
-      "sousmenu_9" :
+      "sousmenu_10" :
       {
-        "id" : "typepord",
-        "prefixe" : "menuLabo.item_4.sousmenu_9.",
-        "nom" : "typeprod",
-        "icone" : "trypeprod.svg",
-        "tooltip" : "Ajouter, modifier, supprimer des types de production",
-        "route" : "typeprod.index"
+        "id" : "animaux",
+        "prefixe" : "menuLabo.item_4.sousmenu_10.",
+        "nom" : "Animaux",
+        "icone" : "tout.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des animaux",
+        "route" : "animal.index"
+      },
+      "sousmenu_11" :
+      {
+        "id" : "melanges",
+        "prefixe" : "menuLabo.item_4.sousmenu_11.",
+        "nom" : "melange",
+        "icone" : "mela.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des prélèvements de mélange",
+        "route" : "melange.index"
       }
     }
   },

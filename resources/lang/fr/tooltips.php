@@ -6,6 +6,7 @@ return array (
   'affiche_eleveur' => 'Cliquer pour afficher cet éleveur',
   'affiche_veto' => 'Cliquer pour afficher ce vétérinaire',
   'affiche_demande' => 'Cliquer pour afficher la demande',
+  'affiche_animal' => 'Cliquer pour afficher et modifier cet animal',
   'affiche_all_type' => 'Cliquer pour voir tous les utilisateurs de ce type',
   'affiche_detail_demande' => 'Cliquer pour voir le détail de cette demande d\'analyse',
   'affiche_detail_eleveur' => 'Cliquer pour afficher le détail de cet éleveur',
