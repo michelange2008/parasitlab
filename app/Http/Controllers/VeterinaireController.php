@@ -177,7 +177,7 @@ class VeterinaireController extends Controller
     public function demandeShow($demande_id)
     {
 
-      $demande = Demande::where('id', $demande_id)->where('veto_id', auth()->user()->veto->id)->first();
+      $demande = Demande::where('id', $demande_id)->where('tovetouser_id', auth()->user()->id)->first();
 
       if(!isset($demande)) {
 
