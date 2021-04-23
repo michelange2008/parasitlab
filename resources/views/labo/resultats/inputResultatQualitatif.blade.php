@@ -39,13 +39,13 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
 
     <select class="form-control" name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}">
       {{-- en fonction de $valeur, cad d'un résultat préexistant on selectionne l'option --}}
-        <option value="absence"
-          @if ($valeur == "absence") selected="selected" @endif>
+        <option value="@lang('form.absence')"
+          @if ($valeur == __('form.absence')) selected="selected" @endif>
             @lang('form.absence')
         </option>
 
-        <option value="presence"
-          @if ($valeur == "presence") selected="selected" @endif>
+        <option value="@lang('form.presence')"
+          @if ($valeur == __('form.presence')) selected="selected" @endif>
             @lang('form.presence')
         </option>
 
