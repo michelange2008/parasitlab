@@ -41,12 +41,12 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
       {{-- en fonction de $valeur, cad d'un résultat préexistant on selectionne l'option --}}
         <option value="absence"
           @if ($valeur == "absence") selected="selected" @endif>
-            @lang('absence')
+            @lang('form.absence')
         </option>
 
         <option value="presence"
           @if ($valeur == "presence") selected="selected" @endif>
-            @lang('presence')
+            @lang('form.presence')
         </option>
 
     </select>
