@@ -76,8 +76,8 @@
 
         <div class="form-group col-md-4">
 
-          <label for="num">@lang('form.num')</label>
-          <input id="num_animal_create" class="form-control" type="text" name="numero" value="">
+          <label for="num">@lang('form.num') <small>@lang('form.no_num')</small> </label>
+          <input id="num_animal_create" class="form-control" type="text" name="numero" value="" required>
 
         </div>
 

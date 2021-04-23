@@ -87,8 +87,7 @@ class AnimalController extends Controller
     {
         // Règle pour s'assurer qu'un élément au moins est remplit: numéro ou nom
         $validator = Validator::make($request->all(), [
-          'numero' => 'required_without_all:nom',
-          'nom' => 'required_without_all:numero',
+          'numero' => 'required|alpha_num',
         ]);
 
         if ($validator->fails()) {

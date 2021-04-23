@@ -45,5 +45,5 @@ return array (
   'comment_store' => "Le commentaire a été enregistré",
   'pythie' => "J'ai contacté l'Oracle...",
   'abs_identification' => "Attention, un animal n'a ni nom ni numéro",
-  'numero_nom_null' => "Attention, il faut au moins un numéro ou un nom",
+  'numero_nom_null' => "Attention, le numéro doit être composé de chiffres et/ou de lettres",
 );

@@ -190,4 +190,6 @@ return array (
   'toutes_especes' => "Toutes espèces",
   'esp_analyse' => "Especes associées à cette analyse",
   'param_analyse' => "Paramètres de cette analyse",
+
+  'no_num' => "(s'il y a seulement un nom sans numéro, le noter dans le champs ci-dessous)",
 );
