@@ -65,7 +65,7 @@ class PdfController extends Controller
   public function attachPdfResultats($demande_id)
   {
     $demande = Demande::find($demande_id);
-    
+
     $signataire = User::where('email', "michel.bouy@fibl.org")->first();
 
     $demande = $this->demandeFactory($demande); // Trait DemandeFactory : ajoute attributs toutNegatif et nonDetecte aux prélèvements et met les dates à un format lisible
