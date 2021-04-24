@@ -154,7 +154,7 @@
         "nom" : "melange",
         "icone" : "mela.svg",
         "tooltip" : "Ajouter, modifier, supprimer des prélèvements de mélange",
-        "route" : "melange.index"
+        "route" : "animal.index"
       }
     }
   },
