@@ -111,7 +111,7 @@ return array (
   'q_observation' => 'Avez-vous observé&nbsp;:',
 
   'abbr' => 'Abbréviation',
-  'choisir' => "Choisir ...",
+  'choisir' => "Choisir...",
   'choisir_image' => 'Choisir une image',
   'type_unite' => "Type de donnée",
   'unites' => "Unités",

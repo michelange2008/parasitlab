@@ -8,7 +8,7 @@
 //##############################################################################
 // MENU ACCUEIL
 
-  Route::get('/essai', 'Api\DonneesController@essai');
+  Route::get('/essai/{id}', 'Api\DonneesController@observationSelonEspece');
   Route::post('/consentement', 'UserController@consentement')->name('consentement');
 
   // Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
@@ -198,6 +198,8 @@
     Route::resource('troupeau', 'TroupeauController');
 
     Route::resource('animal', 'AnimalController');
+
+    Route:: post('melange/createAvecTroupeau', 'Labo\MelangeController@createAvecTroupeau')->name('melange.createAvecTroupeau');
 
     Route::resource('melange', 'Labo\MelangeController');
 

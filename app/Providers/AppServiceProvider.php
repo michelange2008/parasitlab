@@ -58,5 +58,9 @@ class AppServiceProvider extends ServiceProvider
       Blade::include('admin.form.inputEspece', 'inputEspece');
       Blade::include('admin.form.inputTypeprod', 'inputTypeprod');
       Blade::include('admin.form.inputNomtroupeau', 'inputNomtroupeau');
+      Blade::include('admin.form.inputChoixEleveur', 'inputChoixEleveur');
+      Blade::include('admin.form.inputChoixTroupeau', 'inputChoixTroupeau');
+
+
     }
 }

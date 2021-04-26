@@ -61,4 +61,9 @@ class Prelevement extends Model
     {
       return $this->belongsTo(\App\Models\Animal::class);
     }
+
+    public function melange()
+    {
+      return $this->belongsTo(Melange::class);
+    }
 }

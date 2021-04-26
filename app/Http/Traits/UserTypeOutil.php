@@ -2,6 +2,7 @@
 namespace App\Http\Traits;
 
 use App\Models\Usertype;
+use App\User;
 use App\Models\Eleveur;
 use App\Models\Veto;
 use App\Models\Labo;
@@ -74,6 +75,16 @@ trait UserTypeOutil {
   public function userTypeLabo()
   {
     return UserType::where('route', 'laboratoire')->first();
+  }
+
+  /**
+   * Trait qui renvoie une liste de user qui sont usertype eleveur
+   */
+  public function listeEleveurs()
+  {
+    return User::where('usertype_id', $this->userTypeEleveur()->id)
+                  ->orderBy('name')
+                  ->get();
   }
 
 }

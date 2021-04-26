@@ -75,6 +75,15 @@ class DonneesController extends Controller
   }
 
   /**
+   * Ajoute un animal dans la base de données avec le formulaire de création d'une mélange
+   * voir MelangeController@create
+   * Appeler par la requete ajax de animalCreate.js dans le formulaire melangeCreate.blade.php
+   */
+   public function addAnimal(Request $request)
+   {
+     return $data;
+   }
+  /**
   * Méthode pour fournir les observations correspondant à une espèce dans le choix de l'analyse
   * Vue: choisir.blade
   * JS: choisir.js

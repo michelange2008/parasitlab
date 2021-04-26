@@ -16,7 +16,6 @@ require( './telFormulaire.js');
 require( './algo.js');
 require( './exports.js');
 require('./consentement.js');
-require('./animal_add.js');
 require( 'jquery-confirm' );
 
 $(function() {

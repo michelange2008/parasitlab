@@ -1,9 +1,18 @@
 <table class="table table-bordered table-hover">
 
-  @include('labo.resultats.titreResultat', [
-    'titre' => $prelevement->animal->nom ?? $prelevement->identification,
-    'soustitre' => $prelevement->animal->numero ?? '',
-  ])
+  @if ($prelevement->estMelange)
+
+    @include('labo.resultats.titreResultat', [
+      'titre' => $prelevement->melange->nom
+    ])
+
+  @else
+
+    @include('labo.resultats.titreResultat', [
+      'titre' => $prelevement->animal->nom ?? $prelevement->animal->numero
+    ])
+
+  @endif
 
   <tbody>
     @foreach ($prelevement->resultats as $resultat)

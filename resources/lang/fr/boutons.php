@@ -13,6 +13,9 @@ return array (
   'add_demande' => "Ajouter une demande d'analyse",
   'add_animal' => "Ajouter un animal",
   'add_troupeau' => "Ajouter un troupeau",
+  'add_melange' => "Ajouter un mélange",
+
+  'choisir' => "Choisir",
 
   'facture_add' => 'Ajouter une facture',
   'facturer' => 'Facturer',

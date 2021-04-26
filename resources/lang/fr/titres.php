@@ -43,6 +43,7 @@ return array (
   'list_troupeau' => 'Troupeaux',
   'list_typeprod' => 'Types de production',
   'list_animals' => 'Liste des animaux',
+  'list_melanges' => 'Liste des Mélanges',
 
   'troupeauCreate' => "Ajout d'un nouveau troupeau",
 
@@ -71,4 +72,8 @@ return array (
   'icones_suppr' => "Suppression d'une icone",
 
   'export_result' => 'Exportation de résultats',
+
+  'melange_create' => 'Créer un nouveau mélange',
+  'melange_create_suite' => 'Créer un nouveau mélange (suite)',
+
 );

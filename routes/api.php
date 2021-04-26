@@ -17,6 +17,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   Route::get('/animal/{troupeau_id}', ['uses' =>'Api\DonneesController@animal']);
 
+  Route::post('melange/addAnimal', ['uses' =>'Api\DonneesController@addAnimal']);
+
   // Requete pour sélecetionner les troupeaus d'un éleveur quelque soit l'espece
   Route::get('/troupeaus_un_eleveur/{eleveur_id}', ['uses' => 'Api\DonneesController@troupeaus_un_eleveur']);
 

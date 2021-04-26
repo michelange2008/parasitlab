@@ -8,6 +8,7 @@ return array (
   'date_signature' => 'Date de signature',
   'date_envoi' => 'Date d\'envoi',
   'date_resultat' => "Date des résultats",
+  'date_misajour' => "Mise à jour le",
   'nom_client' => 'Nom du client',
   'eleveur' => 'Eleveur',
   'acte' => 'Acte',
@@ -55,4 +56,7 @@ return array (
   'date_reception_analyse' => "Date de réception ou d'analyse",
   'estMelange' =>"Prélèvement de mélange",
   'resultat_analyse' => "Résultat de l'analyse",
+  'nom_melange' => 'Intitulé du mélange',
+  'animaux' => 'Avec animaux identifiés',
+  'add_to_melange' => "Ajouter au mélange",
 );
