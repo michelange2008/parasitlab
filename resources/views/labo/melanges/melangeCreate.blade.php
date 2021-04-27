@@ -46,15 +46,17 @@
 
           <hr class="divider">
           <p class="font-weight-bold" colspan="3">Ajouter un nouvel animal</p>
-          <form id="form_addAnimal" action="index.html" method="post">
+          <form id="form_addAnimal" action="{{ route('melange.addAnimal') }}" method="post">
 
             @csrf
+
+            <input id="troupeau_id" type="hidden" name="troupeau_id" value="{{ $troupeau->id }}">
 
             <table class="table">
               <tbody>
                 <tr>
                   <td>
-                    <input id="numero" class="form-control" type="text" name="numero" value="" placeholder="@lang('tableaux.num')">
+                    <input id="numero" class="form-control" type="text" name="numero" value="" placeholder="@lang('tableaux.num')" required>
                   </td>
                   <td>
                     <input id="nom" class="form-control" type="text" name="nom" value="" placeholder="@lang('tableaux.nom')">
@@ -67,6 +69,7 @@
                 </tr>
 
               </tbody>
+
             </table>
 
           </form>
@@ -115,7 +118,7 @@
 
         <div class="form-group col-md-10 offset-md-1">
 
-          <label for="nom_melange">Nom du mélange</label>
+          <label for="nom_melange" class="font-weight-bold">Nom du mélange</label>
           <input id="troupeau_id" type="hidden" name="troupeau_id" value="{{ $troupeau->id }}">
           <input id="nom_melange" class="form-control" type="text" name="nom_melange" required>
 

@@ -81,7 +81,12 @@ class DonneesController extends Controller
    */
    public function addAnimal(Request $request)
    {
-     return $data;
+     // return $request->all();
+
+     $animal = Animal::where('numero', $request->numero)->where('troupeau_id', $request->troupeau_id)->get();
+
+     dd($animal);
+
    }
   /**
   * Méthode pour fournir les observations correspondant à une espèce dans le choix de l'analyse
