@@ -1,8 +1,8 @@
-<div class="form-group">
+<div class="form-inline">
 
   <label for="etatPrelevement_{{ $i }}">@lang('form.etat_prelev')</label>
 
-  <select class="form-control" id="etatPrelevement_{{ $i }}" name="etatPrelevement_{{ $i }}">
+  <select class="form-control mx-3" id="etatPrelevement_{{ $i }}" name="etatPrelevement_{{ $i }}">
 
     @foreach ($etats as $etat)
       {{-- Si on est dans le cadre de la modification d'un prélèvement, on met en selected l'état du prélèvement --}}

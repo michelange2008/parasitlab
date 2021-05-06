@@ -33,7 +33,7 @@
       {{-- Si c'est un nouveau troupeau on fait un formulaire de création --}}
       @if ($demande->troupeau_id == null)
 
-        <input type="hidden" name="nouveau_troupeau" value=true>
+        <input type="hidden" name="nouveau_troupeau" value=1>
 
         <div class="row">
 
@@ -52,7 +52,7 @@
       {{-- sinon on affiche le troupeau correspondant --}}
       @else
 
-        <input type="hidden" name="nouveau_troupeau" value=false>
+        <input type="hidden" name="nouveau_troupeau" value=0>
 
         <div class="col-md-10 offset-md-1">
 

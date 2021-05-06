@@ -67,4 +67,12 @@ class Troupeau extends Model
     {
       return $this->hasMany(Production\Demande::class);
     }
+
+    /**
+     * Possède plusieurs mélanges
+     */
+    public function melanges()
+    {
+      return $this->hasMany(Production\Melange::class);
+    }
 }

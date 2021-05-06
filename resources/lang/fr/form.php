@@ -192,5 +192,9 @@ return array (
   'param_analyse' => "Paramètres de cette analyse",
 
   'no_num' => "(s'il y a seulement un nom sans numéro, le noter dans le champs ci-dessous)",
-
+  'add_new_animal' => "Ajouter un nouvel animal",
+  'add_animal' => "Ajouter des animaux déjà enregistrés",
+  'nom_melange' => 'Nom du mélange',
+  'animaux' => 'animaux',
+  'melange' => "Mélange",
 );

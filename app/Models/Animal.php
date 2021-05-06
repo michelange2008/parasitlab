@@ -42,4 +42,12 @@ class Animal extends Model
     return $this->hasMany(Productions\Prelevement::class);
   }
 
+  /**
+   * Un animal peut être dans plusieurs mélanges
+   */
+  public function melanges()
+  {
+    return $this->belongsToMany(Productions\Melange::class);
+  }
+
 }

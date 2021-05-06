@@ -65,27 +65,31 @@ return array (
       'nom' => 'Tous',
       'tooltip' => 'Consulter tous les utilisateurs',
     ),
-    'sousmenu_6' =>
-    array (
-      'nom' => 'Troupeaux',
-      'tooltip' => 'Consulter tous les troupeaux',
-    ),
-    'sousmenu_9' =>
+  ),
+  'animaux' =>
+  array(
+    'nom' => "Animaux",
+    'tooltip' => "Tout ce qui concerne les troupeaux et les animaux",
+    'typeprod' =>
     array (
       'nom' => 'Types de production',
       'tooltip' => 'Consulter tous les types de production',
     ),
-    'sousmenu_10' =>
+    'troupeaux' =>
+    array (
+      'nom' => 'Troupeaux',
+      'tooltip' => 'Consulter tous les troupeaux',
+    ),
+    'animaux' =>
     array(
       'nom' => 'Animaux',
       'tooltip' => 'Consulter la liste des animaux',
     ),
-    'sousmenu_11' =>
+    'melanges' =>
     array(
-      'nom' => 'Prélèvements de mélange',
+      'nom' => 'Tous les mélanges',
       'tooltip' => 'Consulter la liste des mélanges',
-    )
-
+    ),
 ),
   'item_5' =>
   array (

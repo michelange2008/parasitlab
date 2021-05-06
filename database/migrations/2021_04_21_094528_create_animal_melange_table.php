@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableAnimalMelange extends Migration
+class CreateAnimalMelangeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTableAnimalMelange extends Migration
      */
     public function up()
     {
-        Schema::create('table_animal_melange', function (Blueprint $table) {
+        Schema::create('animal_melange', function (Blueprint $table) {
             $table->unsignedInteger('animal_id');
             $table->foreign('animal_id')->references('id')->on('animals')->onDelete('cascade');
             $table->unsignedInteger('melange_id');

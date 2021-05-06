@@ -9,6 +9,7 @@ use App\Models\Espece;
 use App\Models\Age;
 use App\Models\Troupeau;
 use App\Models\Animal;
+use App\Models\Productions\Melange;
 use App\Models\Algorithme\Categorie;
 use App\Models\Algorithme\Observation;
 use App\Models\Algorithme\Exclusion;
@@ -67,6 +68,18 @@ class DonneesController extends Controller
 
   }
 
+  /**
+   * Renvoie la liste des mélanges d'un troupeau
+   * @param  int $troupeau_id [description]
+   * @return json liste des mélanges
+   */
+  public function melanges($troupeau_id)
+  {
+    $melanges = Melange::where('troupeau_id', $troupeau_id)->orderBy('nom')->get();
+
+    return json_encode($melanges);
+  }
+
   public function animal($troupeau_id)
   {
     $animals = Animal::where('troupeau_id', $troupeau_id)->get();
@@ -81,11 +94,15 @@ class DonneesController extends Controller
    */
    public function addAnimal(Request $request)
    {
-     // return $request->all();
+     $animal = new Animal();
 
-     $animal = Animal::where('numero', $request->numero)->where('troupeau_id', $request->troupeau_id)->get();
+     $animal->troupeau_id = $request->troupeau_id;
+     $animal->numero = $request->numero_nouveau;
+     $animal->nom = $request->nom_nouveau;
 
-     dd($animal);
+     $animal->save();
+
+     return $animal->id;
 
    }
   /**

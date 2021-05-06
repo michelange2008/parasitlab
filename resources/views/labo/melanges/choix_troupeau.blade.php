@@ -1,3 +1,6 @@
+{{-- appelée par MelangeController@create()
+  renvoie à MelangeController@sotre()
+ --}}
 @extends('layouts.app')
 
 @section('menu')
@@ -10,9 +13,11 @@
 
   <div class="container-fluid">
 
-    <form id="createAvecTroupeau" action="{{ route('melange.createAvecTroupeau') }}" method="post">
+    <form id="createAvecTroupeau" action="#" method="get">
 
       @csrf
+
+      <p id="route" class="collapse">{{ route('troupeaus_un_eleveur', 'user_id') }}</p>
 
       <div class="row my-3">
 
@@ -41,7 +46,17 @@
 
       <div class="col-md-10 offset-md-1">
 
-        @enregistreAnnule(['nomBouton' => 'boutons.choisir', 'fa' => 'fas fa-check-double'])
+        {{-- @enregistreAnnule(['nomBouton' => 'boutons.choisir', 'fa' => 'fas fa-check-double']) --}}
+        @bouton([
+          'type' => 'route',
+          'bouton_id' => 'choix_troupeau',
+          'couleur' => 'btn-bleu',
+          'route' => 'melange.createAvecTroupeau',
+          'id' => '',
+          'title' => 'Choisir ce troupeau',
+          'fa' => 'fas fa-check-double',
+          'intitule' => 'boutons.choisir',
+        ])
 
       </div>
 
@@ -56,11 +71,12 @@
     <div class="row my-3">
 
       <div class="col-md-8 mx-auto">
-
+{{-- Information sur la nécessité d'avoir d'abord créé l'éleveur et
+le troupeau avant de pouvoir créer un nouveau mélange --}}
         <div class="card">
-          <div class="card-header alert-danger">
+          <div class="card-header alert-primary">
             <h5>
-              <i class="fas fa-radiation"></i>
+              <i class="fas fa-info-circle"></i>
               @lang('melange.melange_create_info_titre')
             </h5>
           </div>

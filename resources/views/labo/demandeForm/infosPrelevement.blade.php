@@ -1,5 +1,5 @@
 {{-- issu de infosAnalyseDemandee.blade --}}
-<div class="form-group row px-3 my-3">
+<div class="form-group row my-3">
 
   <div class="col-md-12 mb-3">
 
@@ -31,9 +31,11 @@
 
         class="custom-control-input"
 
-        id="signe{{ $i.'_'.$signe->id }}"
+        id="signe_{{ $i.'_'.$signe->id }}"
 
-        name="signe{{ $i.'_'.$signe->id }}"
+        name="signe_{{ $i }}[]"
+
+        value="{{ $signe->id }}"
 
         @isset($prelevement->signes)
 
@@ -48,7 +50,7 @@
 
         >
 
-        <label class="custom-control-label" for="signe{{ $i.'_'.$signe->id }}">@lang($signe->nom)</label>
+        <label class="custom-control-label" for="signe_{{ $i.'_'.$signe->id }}">@lang($signe->nom)</label>
 
       </div>
 

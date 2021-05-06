@@ -115,45 +115,54 @@
         "icone" : "users.svg",
         "tooltip" : "Consulter tous les utilisateurs",
         "route" : "user.index"
-      },
-      "sousmenu_7" :
-      {
-        "id" : "divider"
-      },
-      "sousmenu_9" :
+      }
+    }
+  },
+  "animaux" : {
+    "id" : "animaux",
+    "prefixe" : "menuLabo.animaux.",
+    "nom" : "Animaux",
+    "tooltip" : "Liste des animaux et troupeaux",
+    "route" : "laboratoire",
+    "sousmenu" :
+    {
+      "typeprod" :
       {
         "id" : "typeprod",
-        "prefixe" : "menuLabo.item_4.sousmenu_9.",
+        "prefixe" : "menuLabo.animaux.typeprod.",
         "nom" : "typeprod",
         "icone" : "trypeprod.svg",
         "tooltip" : "Ajouter, modifier, supprimer des types de production",
         "route" : "typeprod.index"
       },
-      "sousmenu_6" :
+      "troupeaux" :
       {
         "id" : "troupeaux",
-        "prefixe" : "menuLabo.item_4.sousmenu_6.",
+        "prefixe" : "menuLabo.animaux.troupeaux.",
         "nom" : "Troupeaux",
         "icone" : "troupeau.svg",
         "tooltip" : "Ajouter, modifier, supprimer des troupeaux",
         "route" : "troupeau.index"
       },
-      "sousmenu_10" :
+      "animaux" :
       {
         "id" : "animaux",
-        "prefixe" : "menuLabo.item_4.sousmenu_10.",
+        "prefixe" : "menuLabo.animaux.animaux.",
         "nom" : "Animaux",
         "icone" : "tout.svg",
         "tooltip" : "Ajouter, modifier, supprimer des animaux",
         "route" : "animal.index"
       },
-      "sousmenu_11" :
+      "divider" : {
+        "id": "divider"
+      },
+      "melanges" :
       {
         "id" : "melanges",
-        "prefixe" : "menuLabo.item_4.sousmenu_11.",
-        "nom" : "melange",
-        "icone" : "mela.svg",
-        "tooltip" : "Ajouter, modifier, supprimer des prélèvements de mélange",
+        "prefixe" : "menuLabo.animaux.melanges.",
+        "nom" : "melanges",
+        "icone" : "tout.svg",
+        "tooltip" : "Ajouter, modifier, supprimer des mélanges",
         "route" : "melange.index"
       }
     }

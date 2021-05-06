@@ -3,6 +3,8 @@ namespace App\Fournisseurs;
 
 use App\Fournisseurs\ListeFournisseur;
 
+use App\Models\Productions\Prelevement;
+
 use App\Models\Eleveur;
 
 use App\Http\Traits\FormatNum;
@@ -15,26 +17,44 @@ class ListeMelangesFournisseur extends ListeFournisseur
 
   use FormatNum;
 
-    public function creeListe($prelevements_melange)
+    public function creeListe($melanges)
     {
 
       $this->liste = collect();
 
-      foreach ($prelevements_melange as $prelevement_melange) {
+      foreach ($melanges as $melange) {
+
+        $prelevement = Prelevement::where('melange_id', $melange->id)->first();
+
+
 
         $description = [];
 
-        $nom = $this->lienFactory($prelevement_melange->melange->id, $prelevement_melange->melange->nom, 'melange.edit', 'affiche_melange');
+        $nom = $this->lienFactory($melange->id, $melange->nom, 'melange.edit', 'affiche_melange');
 
-        $animaux = $this->ouinonFactory($prelevement_melange->melange->id, $prelevement_melange->melange->animaux);
+        $animaux = $this->ouinonFactory($melange->id, $melange->animaux);
 
-        $espece = $this->iconeFactory($prelevement_melange->demande->espece->icone);
+        $espece = $this->iconeFactory($melange->troupeau->espece->icone);
 
-        $user = $this->lienFactory($prelevement_melange->demande->user->id, $prelevement_melange->demande->user->name, 'user.show', 'affiche_user');
+        $user = $this->lienFactory($melange->troupeau->user->id, $melange->troupeau->user->name, 'user.show', 'affiche_user');
 
-        $date_demande = $this->dateFactory($prelevement_melange->demande->date_reception);
+        if($prelevement !== null) {
 
-        $demande = $this->lienFactory($prelevement_melange->demande->id, 'n°'.$prelevement_melange->demande->id, 'demandes.show', 'affiche_demande');
+          $date_demande = $this->dateFactory($prelevement->demande->date_reception);
+
+          $demande = $this->lienFactory($prelevement->demande->id, 'n°'.$prelevement->demande->id, 'demandes.show', 'affiche_demande');
+
+          $suppr = $this->itemFactory('-');
+
+        } else {
+
+          $date_demande = $this->itemFactory('-');
+
+          $demande = $this->itemFactory('-');
+
+          $suppr = $this->delFactory($melange->id, 'melange.destroy');
+
+        }
 
         $description = [
           $nom,
@@ -43,9 +63,10 @@ class ListeMelangesFournisseur extends ListeFournisseur
           $user,
           $demande,
           $date_demande,
+          $suppr,
         ];
 
-        $this->liste->put($prelevement_melange->id , $description);
+        $this->liste->put($melange->id , $description);
 
 
       }
