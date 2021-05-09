@@ -4,18 +4,18 @@
     "id" : 1,
     "groupe" : "parasite",
     "texte" : "commun.oui",
-    "value" : true
+    "value" : 1
   },
   "non" :
   {
     "id" : 0,
     "groupe" : "parasite",
     "texte" : "commun.non",
-    "value" : false
+    "value" : 0
   },
   "saispas" :
   {
-    "id" : null,
+    "id" : -1,
     "groupe" : "parasite",
     "texte" : "commun.saispas",
     "value" : null
