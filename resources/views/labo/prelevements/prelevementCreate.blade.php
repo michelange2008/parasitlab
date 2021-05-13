@@ -1,5 +1,5 @@
-{{-- issu de PrelevementController@createOnDemande --}}
-{{-- VUE AFFICHANT LE FORMULAIRE DE SAISIE DES PRELEVEMENTS APRES LA PAGE DE SAISIE D UNE DEMANDE D ANALYSE --}}
+{{-- issu de PrelevementController@create --}}
+{{-- VUE AFFICHANT LE FORMULAIRE DE SAISIE DES PRELEVEMENTS --}}
 @extends('layouts.app')
 
 @section('menu')
@@ -23,13 +23,13 @@
 
     </div>
 
-    <form id="prelevementCreate" action="{{ route('storeOnDemande') }}" method="post">
+    <form id="prelevementCreate" action="{{ route('prelevement.store') }}" method="post">
 
       @csrf
 
       <input type="hidden" name="demande_id" value="{{ $demande->id }}">
       <input type="hidden" name="analyse_id" value="{{ $analyse_id }}">
-      <input type="hidden" name="nb_prelevement" value="{{ $demande->nb_prelevement }}">
+      <input type="hidden" name="nb_prelevement_a_saisir" value="{{ $nb_prelevement_a_saisir }}">
       {{-- Si c'est un nouveau troupeau on fait un formulaire de création --}}
       @if ($demande->troupeau_id == null)
 
@@ -74,7 +74,7 @@
 
       <div class="row">
         {{-- On affiche autant de formulaire de prélèvement qu'il y a de prélèvements  --}}
-        @for ($i=1; $i < $demande->nb_prelevement +1 ; $i++)
+        @for ($i=1; $i <= $nb_prelevement_a_saisir ; $i++)
 
           @include('labo.demandeForm.demandeLignePrelevement')
 

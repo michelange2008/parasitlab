@@ -37,14 +37,6 @@
 
       <div class="col-md-auto offset-md-2">
 
-        @bouton([
-          'type' => 'route',
-          'route' => 'prelevement.createOne',
-          'id' => [$demande->id, 1],
-          'intitule' => 'boutons.add_one_prel',
-          'fa' => "fas fa-plus-square"
-        ])
-
         @retour([
           'route' => route('demandes.show', $demande->id),
         ])

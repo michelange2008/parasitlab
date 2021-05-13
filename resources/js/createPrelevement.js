@@ -86,7 +86,7 @@ $(function() {
 
     var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-    var anc ='laboratoire/prelevement/createOnDemande/' + demande_id;
+    var anc ='laboratoire/prelevement/create/' + demande_id;
 
     var nouv =  'api/animal/' + troupeau_id;
 
@@ -138,7 +138,7 @@ $(function() {
 
     var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
-    var anc ='laboratoire/prelevement/createOnDemande/' + demande_id;
+    var anc ='laboratoire/prelevement/create/' + demande_id;
 
     var nouv =  'api/melanges/' + troupeau_id;
 

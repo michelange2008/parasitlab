@@ -23,7 +23,7 @@
     <input  id="numero_animal_{{$i}}"
     list="animal_num_{{ $i }}"
     class="identif indiv numero_animal form-control"
-    type="text" name="animal_{{$i}}"
+    type="text" name="numeroAnimal_{{$i}}"
     placeholder="@lang('form.num')"
     required
     >
@@ -36,7 +36,7 @@
 
     <input id="nom_animal_{{ $i }}"
     class="identif coll nom_animal form-control"
-    type="text" name="identification_{{$i}}"
+    type="text" name="nomAnimal_{{$i}}"
     placeholder="@lang('form.nom')">
 
   </div>

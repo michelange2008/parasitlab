@@ -47,4 +47,5 @@ return array (
   'abs_identification' => "Attention, un animal n'a ni nom ni numéro",
   'numero_nom_null' => "Attention, le numéro doit être composé de chiffres et/ou de lettres",
   'melange_updated' => "Le mélange a été modifié",
+  'pb_nb_prelevement' => "Il y a eu un problème dans le nombre de prélèvements. Veuillez réessayer.",
 );

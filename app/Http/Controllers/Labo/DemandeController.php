@@ -123,11 +123,11 @@ class DemandeController extends Controller
     /**
     * Enregistre la nouvelle demande d'analyse
     *
-    * Une fois la demande enregistrer, il faut enregistrer le ou les prélèvements
-    * d'où le return redirect prelevement.createOnDemande
+    * Une fois la demande enregistrée, il faut enregistrer le ou les prélèvements
+    * d'où le return redirect prelevement.create
     *
     * @param  \Illuminate\Http\Request  $request
-    * @return redirect prelevement.createOnDemande
+    * @return redirect prelevement.create
     */
     public function store(Request $request)
     {
@@ -171,7 +171,7 @@ class DemandeController extends Controller
 
     $nouvelle_demande->save();
 
-    return redirect()->route('prelevement.createOnDemande', $nouvelle_demande->id);
+    return redirect()->route('prelevement.create', $nouvelle_demande->id);
 
     }
 

@@ -158,7 +158,7 @@ class MelangeController extends Controller
 
         $melange->animals()->detach();
         $melange->animals()->attach($request->choix);
-        
+
         // Mise à jour de l'état du mélange: avec ou sans animaux
         $melange->animaux = ($request->choix == null) ? 0 : 1;
         $melange->save();
