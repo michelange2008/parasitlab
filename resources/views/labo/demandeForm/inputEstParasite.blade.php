@@ -18,7 +18,7 @@
 
                 @endif
             {{-- Sinon on met l'état par défaut à "ne sais pas" cad null --}}
-            @elseif ($reponse->id === null)
+          @elseif ($reponse->id === -1)
 
               checked="checked"
 

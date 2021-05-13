@@ -43,7 +43,7 @@ return array (
   'list_troupeau' => 'Troupeaux',
   'list_typeprod' => 'Types de production',
   'list_animals' => 'Liste des animaux',
-  'list_melanges' => 'Liste des Mélanges',
+  'list_melanges' => 'Liste des mélanges',
 
   'troupeauCreate' => "Ajout d'un nouveau troupeau",
 

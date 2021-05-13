@@ -11,6 +11,7 @@ use App\Models\Productions\Melange;
 use App\Models\Productions\Prelevement;
 
 use App\Fournisseurs\ListeMelangesFournisseur;
+use App\Fournisseurs\ListePrelevementsMelangesFournisseur;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 /**
@@ -44,29 +45,31 @@ class MelangeController extends Controller
      */
     public function index()
     {
-      // On n'utiliser pas la modèle Melange mais le modèle Prelevement pour avoir toutes les infos associées
-      $prelevements_melange = Prelevement::where('estMelange', true)->get();
+
+      $melanges = Melange::all();
 
       $fournisseur = new ListeMelangesFournisseur();
 
-      $datas = $fournisseur->renvoieDatas($prelevements_melange, __('titres.list_melanges'), 'mela.svg', 'tableauMelanges', 'melange.create',  __('boutons.add_melange'));
+      $datas = $fournisseur->renvoieDatas($melanges, __('titres.list_melanges'), 'mela.svg', 'tableauMelanges', 'melange.choix_troupeau',  __('boutons.add_melange'));
 
       return view('labo.melange', [
         'menu' => $this->menu,
         'datas' => $datas,
       ]);
     }
+
     /**
-     * Affiche un formulaire intermédiaire pour choisir l'éleveur et le troupeau
+     * Lors de la création d'un nouveau mélange, cette méthode
+     * affiche un formulaire intermédiaire pour choisir l'éleveur et le troupeau
      * Ce formulaire renvoie ensuite àla fonction createAvecTroupeau
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function choix_troupeau()
     {
         $eleveurs = $this->listeEleveurs(); // fonction issue du trait UserTypeOutil
 
-        return view('labo.melanges.melangeCreateChoixTroupeau', [
+        return view('labo.melanges.choix_troupeau', [
           'menu' => $this->menu,
           'eleveurs' => $eleveurs,
         ]);
@@ -75,13 +78,15 @@ class MelangeController extends Controller
     /**
     * Fonction destinée à créer un nouveau mélange une fois le troupeau choisi
     * vient après la précédent méthode
+    * Mais peut être appelée par une autre voie.
     */
-    public function createAvecTroupeau(Request $request)
+    public function createAvecTroupeau($troupeau_id)
     {
+
       return view('labo.melanges.melangeCreate',[
         'menu' => $this->menu,
-        'troupeau' => Troupeau::find($request->troupeau_id),
-        'animals' => Animal::where('troupeau_id', $request->troupeau_id)->orderBy('numero')->get(),
+        'troupeau' => Troupeau::find($troupeau_id),
+        'animals' => Animal::where('troupeau_id', $troupeau_id)->orderBy('numero')->get(),
       ]);
     }
 
@@ -93,18 +98,33 @@ class MelangeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+
+        $melange = new Melange();
+        $melange->nom = $request->nom_melange;
+        $melange->troupeau_id = $request->troupeau_id;
+        // S'il n'y au moins un animal dans le mélange, on passe le booléen animaux à true
+        if ($request->choix !== null) {
+
+          $melange->animaux = true;
+
+        }
+
+        $melange->save();
+        $melange->animals()->attach($request->choix);
+
+        return redirect()->route('melange.index')->with('message', 'melange_add');
+
     }
 
     /**
-     * Display the specified resource.
+     * Un seul affichage show et edit
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return route('melange.edit', $id);
     }
 
     /**
@@ -115,7 +135,14 @@ class MelangeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $melange = Melange::find($id);
+
+        return view('labo.melanges.melangeEdit', [
+          'menu' => $this->menu,
+          'melange' => $melange,
+          'troupeau' => Troupeau::find($melange->troupeau_id),
+          'animals' => Animal::where('troupeau_id', $melange->troupeau_id)->orderBy('numero')->get()
+        ]);
     }
 
     /**
@@ -127,7 +154,16 @@ class MelangeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $melange = Melange::find($id);
+
+        $melange->animals()->detach();
+        $melange->animals()->attach($request->choix);
+
+        // Mise à jour de l'état du mélange: avec ou sans animaux
+        $melange->animaux = ($request->choix == null) ? 0 : 1;
+        $melange->save();
+
+        return redirect()->route('melange.index')->with('message', 'melange_updated');
     }
 
     /**
@@ -138,6 +174,8 @@ class MelangeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Melange::destroy($id);
+
+        return redirect()->back()->with('message', 'melange_destroy');
     }
 }

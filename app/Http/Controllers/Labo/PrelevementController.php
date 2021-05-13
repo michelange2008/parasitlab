@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Labo;
 
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
@@ -12,6 +13,7 @@ use App\Models\Espece;
 use App\Models\Animal;
 use App\Models\Troupeau;
 use App\Models\Typeprod;
+use App\Models\Productions\Melange;
 use App\Models\Productions\Etat;
 use App\Models\Productions\Signe;
 use App\Models\Analyses\Analyse;
@@ -23,13 +25,10 @@ use App\Http\Traits\LitJson;
  *
  * Il s'agit d'un contrôleur CRUD très modifié car un prélèvement est toujours lié
  * à une demande d'analyse:
- * + Les méthodes _index_, _create_, _store_ et _show_ ne sont pas implémentées.
+ * + Les méthodes _index_ et _show_ ne sont pas implémentées.
  * Cela  n'a aucun sens d'afficher tous les prélèvements qui sont seulement affiché
  * avec la demande correspondantes.
- * + Il y deux méthodes _create_ en fonction du contexte de création d'un prélèvement:
- * Soit on en ajouter un seul (_createOne_), soit on ajoute tous les prélèvements
- * d'une demande (_createOnDemande_).
- * + Pour enregistrer, c'est la même chose: _storeOne_ ou _storeOnDemande_
+ *
  * + Une méthode _prelevdel_ est destinée à afficher une vue de confirmation de
  * suppression de la demande.
  *
@@ -55,13 +54,13 @@ class PrelevementController extends Controller
     }
 
     /**
-     * Non implémenté
+     * Fonction appelée quand on veut mettre des prélèvements dans une demande
+     * sans prélèvement
+     * Appelée par la vue resources/views/labo/demandeSansPrelevement.blade.php
+     *
+     * @param  Request $request demande_id , nb_prelevement
+     * @return \Illuminate\View\View labo/prelevements/prelevementCreate
      */
-    public function create()
-    {
-        //
-    }
-
     public function definitNbPrelev(Request $request)
     {
       $datas = $request->all();
@@ -70,102 +69,75 @@ class PrelevementController extends Controller
       $demande->nb_prelevement = intval($datas['nb_prelevement']);
       $demande->save();
 
-      return redirect()->route('prelevement.createOnDemande', $demande->id);
-    }
-
-    /**
-     * Montre le formulaire pour renseigner 1 seul prélèvement d'une demande
-     *
-     * @return \Illuminate\View\View labo/prelevements/prelevementCreateOne
-     */
-
-    public function createOne($demande_id, $rang)
-    {
-      $demande = Demande::find($demande_id); // Reccherche de l'analyse correspondant à l'espèce et à l'anaacte de la demande
-      $espece_id = $demande->espece->id;
-      $typeprods = Typeprod::where('espece_id', $espece_id)->get();
-      $anatype_id = $demande->anaacte->anatype->id;
-      $analyse = Analyse::where(['espece_id' => $espece_id, 'anatype_id' => $anatype_id])->first();
-
-      return view('labo.prelevements.prelevementCreateOne', [
-        'menu' => $this->menu,
-        'demande' => $demande,
-        'rang' => $rang,
-        'analyse_id' => $analyse->id,
-        'especes' => Espece::all(),
-        'typeprods' => $typeprods,
-        'etats' => Etat::all(),
-        'signes' => Signe::all(),
-        'estParasite' => $this->litJson('estParasite'),
-        'typesprelevement' => ['indiv', 'coll', 'collindiv'],
-      ]);
+      return redirect()->route('prelevement.create', $demande->id);
     }
 
     /**
      * Montre le formulaire pour renseigner TOUS les prélèvements d'une demande
      *
-     * @return \Illuminate\View\View labo/prelevementOnDemande
+     * @return \Illuminate\View\View labo/prelevements/prelevementCreate
      */
 
-    public function createOnDemande($demande_id)
+    public function create($demande_id)
     {
       $demande = Demande::find($demande_id); // Recherche de l'analyse correspondant à l'espèce et à l'anaacte de la demande
+
+      if ($demande->nb_prelevement > $demande->prelevements->count()) {
+
+        $nb_prelevement_a_saisir = $demande->nb_prelevement;
+
+      } elseif ($demande->nb_prelevement == $demande->prelevements->count()) {
+
+        $nb_prelevement_a_saisir = 1;
+
+      } else {
+
+        Log::error("Problème de nombre dans la saisie de prélèvements: demande n°".$demande->id.'('.auth()->user()->name.')');
+        $demande->nb_prelevement = $demande->prelevements->count();
+        $demande->save();
+        return redirect()->route('demandes.show', $demande->id)->with(['message' => 'pb_nb_prelevement', 'couleur' => 'alert-danger']);
+
+      }
+
+      $troupeau = Troupeau::find($demande->troupeau_id);
+
+      $animals = Animal::where('troupeau_id', $troupeau->id)->get();
 
       $espece_id = $demande->espece->id;
       $typeprods = Typeprod::where('espece_id', $espece_id)->get();
       $anatype_id = $demande->anaacte->anatype->id;
       $analyse = Analyse::where(['espece_id' => $espece_id, 'anatype_id' => $anatype_id])->first();
 
-      return view('labo.prelevementOnDemande', [
+      return view('labo.prelevements.prelevementCreate', [
         'menu' => $this->menu,
         'demande' => $demande,
+        'troupeau' => $troupeau,
+        'animals' => $animals,
         'analyse_id' => $analyse->id,
         'especes' => Espece::all(),
         'typeprods' => $typeprods,
         'etats' => Etat::all(),
         'signes' => Signe::all(),
         'estParasite' => $this->litJson('estParasite'),
-        'typesprelevement' => ['indiv', 'coll', 'collindiv'],
+        'typesprelevement' => ['indiv', 'coll'],
+        'nb_prelevement_a_saisir' => $nb_prelevement_a_saisir,
       ]);
     }
     /**
     * Enregistre les données de l'ensemble des prélèvements d'une demande
-    * Appeler par la vue resources/views/labo/prelevementOnDemande.blade.php
+    * Appeler par la vue resources/views/labo/prelevements/prelevementCreate.blade.php
     * @param  \Illuminate\Http\Request  $request
     * @return Redirect DemandeController@show
     */
-    public function storeOnDemande(Request $request)
+    public function store(Request $request)
     {
+
       $datas = $request->all();
-      $nb_prelevement = intval($datas["nb_prelevement"]);
-      // dd($datas);
-      for($i = 1; $i <= $nb_prelevement; $i++ ) {
-
-        // prélèvement individuel
-        if ($datas['typeprelevement_'.$i] == 'indiv' ) {
-
-          $numero = $datas['animal_'.$i];
-        // prélèvement collectif²
-        } elseif ($datas['typeprelevement_'.$i] == 'coll') {
-
-          $numero = null;
-        // TODO: à faire
-        // prélèvement collectif avec individus précis
-        } else {
-
-
-        }
-
-        $nom = $datas['identification_'.$i];
-        if($numero == null && $nom == null) {
-          return redirect()->back()->with('message', 'abs_identification');
-        }
-      }
-
-      $demande = Demande::find($datas['demande_id']);
+      // on récupère la demande car ses paramètres vont être nécessaires
+      $demande = Demande::find($request->demande_id);
 
       // Création d'un nouveau troupeau si besoin
-      if($datas['nouveau_troupeau'] === "true") {
+      if(boolval($request->nouveau_troupeau)) {
 
         $troupeau = new Troupeau;
 
@@ -182,121 +154,78 @@ class PrelevementController extends Controller
 
       }
 
-      // On passe en revue les différents prélèvements
-      for ($i=1; $i <= $demande->nb_prelevement ; $i++) {
+      $nb_prelevement_a_saisir = intval($request->nb_prelevement_a_saisir);
 
-        // S'il s'agit d'un prélèvement individuel
-        if($datas['typeprelevement_'.$i] === "indiv") {
+      for($i = 1; $i <= $nb_prelevement_a_saisir; $i++ ) {
 
-          // Création d'un nouvel animal si besoin
-          $animal = DB::table('animals')->updateOrInsert([
-            'numero' => $datas['animal_'.$i],
-            'nom' => $datas['identification_'.$i],
-            'troupeau_id' => $demande->troupeau->id,
-          ]);
-          // récupération de l'id de l'animal qui vient d'être créé
-          $animal = Animal::where('numero', $datas['animal_'.$i])
-          ->where('troupeau_id', $demande->troupeau_id)
-          ->first();
+        // On crée un nouveau prélèvement et on y ajoute les paramètres simples
+        $prelevement = new Prelevement;
+        $prelevement->demande_id = $request->demande_id;
+        $prelevement->analyse_id = $request->analyse_id;
+        $prelevement->etat_id = $datas['etatPrelevement_'.$i];
+
+        //Si c'est prélèvement individuel
+        if ($datas['typeprelevement_'.$i] == 'indiv' ) {
+
+          $estMelange = false;
+          $numero = $datas['numeroAnimal_'.$i];
+          $nom = $datas['nomAnimal_'.$i];
+
+          $animal = Animal::firstOrCreate(
+            ['numero' => $numero],
+            ['troupeau_id' => $demande->troupeau_id, 'nom' => $nom]
+          );
+
+          $prelevement->animal_id = $animal->id;
+          $prelevement->melange_id = null;
+          $prelevement->estMelange = false;
+
+        // Si c'est un prélèvement collectif²
+        } elseif ($datas['typeprelevement_'.$i] == 'coll') {
+
+          $estMelange = true;
+          $numero = null;
+          $nom = null;
+
+          $melange = Melange::firstOrCreate(
+            [ 'nom' => $datas['nom_melange_'.$i] ],
+            [ 'troupeau_id' => $demande->troupeau_id ]
+          );
+
+          $prelevement->animal_id = null;
+          $prelevement->melange_id = $melange->id;
+          $prelevement->estMelange = true;
 
         }
-        //Création du nouveau prélèvement
-        $prelevement = new Prelevement;
 
-        $prelevement->identification = $datas['identification_'.$i] ;
-        $prelevement->animal_id = ($datas['typeprelevement_'.$i] === "indiv") ? $animal->id : null;
-        $prelevement->estMelange = ($datas['typeprelevement_'.$i] === "coll") ? 1 : 0;
-        $prelevement->demande_id = $datas['demande_id'];
-        $prelevement->analyse_id = $datas['analyse_id'];
-        $prelevement->etat_id = $datas['etatPrelevement_'.$i];
-        $prelevement->parasite = ($datas['parasite_'.$i] == null) ? 0 : 1 ;
+        $prelevement->parasite = $datas['parasite_'.$i];
 
         $prelevement->save();
+
         // On associe les signes de parasitismes cochés à ce nouveau prélèvement
-        foreach ($datas as $clef => $data) {
+        $prelevement->signes()->detach();
 
-          if(explode('_', $clef)[0] == "signe".$i) {
+        if(array_key_exists('signe_'.$i, $datas))
+        {
 
-            $signe_id = explode('_', $clef)[1];
+          $prelevement->signes()->attach($datas['signe_'.$i]);
 
-            $prelevement->signes()->attach($signe_id);
-
-          }
         }
+
+
+
       }
+      // On met à jour le nombre de prélèvement de la demande en fonction du nombre de prélèvement existants
+      $demande->nb_prelevement = $demande->prelevements->count();
+      $demande->save();
 
       return redirect()->route('demandes.show', $demande->id);
 
     }
-    /**
-    * Enregistre les données d'un SEUL prélèvement d'une demande (prélèvement non encore renseigné)
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return Redirect ResultatController@edit
-    */
 
-    public function storeOne(Request $request)
-    {
-
-      $datas = $request->all();
-
-      $demande = Demande::find($datas['demande_id']);
-
-      $rang = $datas['rang'];
-
-        // S'il s'agit d'un prélèvement individuel
-        if($datas['typeprelevement_'.$rang] === "indiv") {
-
-          // Création d'un nouvel animal si besoin
-          $animal = DB::table('animals')->updateOrInsert([
-            'numero' => $datas['animal_'.$rang],
-            'nom' => $datas['identification_'.$rang],
-            'troupeau_id' => $demande->troupeau->id,
-          ]);
-          // récupération de l'id de l'animal qui vient d'être créé
-          $animal = Animal::where('numero', $datas['animal_'.$rang])
-          ->where('troupeau_id', $demande->troupeau_id)
-          ->first();
-
-        }
-        //Création du nouveau prélèvement
-        $prelevement = new Prelevement;
-
-        $prelevement->identification = $datas['identification_'.$rang] ;
-        $prelevement->animal_id = ($datas['typeprelevement_'.$rang] === "indiv") ? $animal->id : null;
-        $prelevement->estMelange = ($datas['typeprelevement_'.$rang] === "coll") ? 1 : 0;
-        $prelevement->demande_id = $datas['demande_id'];
-        $prelevement->analyse_id = $datas['analyse_id'];
-        $prelevement->etat_id = $datas['etatPrelevement_'.$rang];
-        $prelevement->parasite = ($datas['parasite_'.$rang] == null) ? 0 : 1 ;
-
-        $prelevement->save();
-        // On associe les signes de parasitismes cochés à ce nouveau prélèvement
-        foreach ($datas as $clef => $data) {
-
-          if(explode('_', $clef)[0] == "signe".$rang) {
-
-            $signe_id = explode('_', $clef)[1];
-
-            $prelevement->signes()->attach($signe_id);
-
-          }
-        }
-
-        return redirect()->route('resultats.edit', $demande->id);
-
-    }
 
     /**
-     * Non implémenté
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-    * Non implémenté
+    * Non implémenté car inutile
      */
     public function show($id)
     {
@@ -330,48 +259,20 @@ class PrelevementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datas = $request->all();
-
         $prelevement = Prelevement::find($id);
 
-        $prelevement->identification = $datas['identification'];
-        $prelevement->etat_id = $datas['etatPrelevement_'.$id];
-        // Prendre en compte le choix fait sur l'état parasité ou non de l'animal
-        // correspondant au prélèvement (boutons radio)
-        switch ($datas['parasite_'.$id]) {
-          case '0':
-
-              $prelevement->parasite = 0;
-
-            break;
-
-          case '1':
-
-            $prelevement->parasite = 1;
-
-          break;
-
-          default:
-
-            $prelevement->parasite = null;
-
-            break;
-
-        }
+        $prelevement->etat_id = $request->etatPrelevement;
+        $prelevement->parasite = $request->parasite;
 
         $prelevement->signes()->detach();
+        // Il faut d'abord vérifier si des cases ont été cochées
+        if (key_exists('signe', $request->all())) {
 
-        foreach ($datas as $key => $value) {
+          $prelevement->signes()->attach($request->signe);
 
-          if(explode('_', $key)[0] == "signe".$id) {
-
-            $prelevement->signes()->attach(explode('_', $key)[1]);
-
-          }
         }
 
         $prelevement->save();
-
 
         return redirect()->route('demandes.show', $prelevement->demande->id)->with('message', __('prelev_edit'));
 

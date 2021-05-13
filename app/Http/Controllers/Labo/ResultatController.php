@@ -69,7 +69,7 @@ class ResultatController extends Controller
         $anaitem_id = $tableau_valeur[2];
 
         // si cette valeur est supérieure à zéro ou vaut présence on la saisie dans le résultat (ou on la met à jour si elle existe)
-        if ($valeur === "absence" || $valeur === null || $valeur === "-" || $valeur === "0") {
+        if ($valeur === "Absence" || $valeur === null || $valeur === "-" || $valeur === "0") {
 
           $valeur = ($valeur === null) ? 0 : $valeur ;
 

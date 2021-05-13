@@ -7,7 +7,13 @@
 
   </div>
 
-  <div class="col-md-10 my-3">
+  <div class="col-md-10 py-3 border-left border-right">
+
+    @include('labo.demandeForm.inputEtatPrelevement')
+
+  </div>
+
+  <div class="col-md-10 py-3 border-left border-right">
 
     @include('labo.demandeForm.inputTypePrelevement')
 
@@ -15,25 +21,18 @@
 
 
 
-  <div class="col-md-5">
+  <div class="col-md-10 py-3 alert-bleu">
 
-      @include('labo.demandeForm.inputIdentificationPrelevement')
-
-    </div>
-
-    <div class="col-md-5 etat_prelevement">
-
-      @include('labo.demandeForm.inputEtatPrelevement')
-
-    </div>
-
-
-    <div class="col-md-10 infos_prelevement">
-
-      @include('labo.demandeForm.infosPrelevement')
-
-      <div class="col-md-10 my-3 border-bottom"></div>
-
-    </div>
+    @include('labo.demandeForm.inputIdentificationPrelevement')
 
   </div>
+
+  <div class="col-md-10 mb-3 infos_prelevement border">
+
+    @include('labo.demandeForm.infosPrelevement')
+
+
+
+  </div>
+
+</div>

@@ -15,12 +15,14 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
   // Requête pour sélectionner les troupeaus d'un éleveur et d'une espece
   Route::get('/troupeau/{eleveur_id}/{espece_nom}', ['uses' =>'Api\DonneesController@troupeau']);
 
+  Route::get('/melanges/{troupeau_id}', ['uses' =>'Api\DonneesController@melanges']);
+
   Route::get('/animal/{troupeau_id}', ['uses' =>'Api\DonneesController@animal']);
 
   Route::post('melange/addAnimal', ['uses' =>'Api\DonneesController@addAnimal'])->name('melange.addAnimal');
 
   // Requete pour sélecetionner les troupeaus d'un éleveur quelque soit l'espece
-  Route::get('/troupeaus_un_eleveur/{eleveur_id}', ['uses' => 'Api\DonneesController@troupeaus_un_eleveur']);
+  Route::get('/troupeaus_un_eleveur/{eleveur_id}', ['uses' => 'Api\DonneesController@troupeaus_un_eleveur'])->name('troupeaus_un_eleveur');
 
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
   Route::get('/observations/especes/{espece_id}', ['uses' => 'Api\DonneesController@observationSelonEspece']);
