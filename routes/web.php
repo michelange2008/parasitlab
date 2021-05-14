@@ -164,11 +164,12 @@
     route::get('prelevement/suppr/{prelevement_id}', 'Labo\PrelevementController@prelevdel')->name('prelevement.prelevdel');
 
     route::resource('prelevement', 'Labo\PrelevementController');
+
     // Permet de définir le nombre de prélèvements pour une demande déjà saisie mais avec 0 prélèvements
     route::post('prelevement/definitNbPrelev', 'Labo\PrelevementController@definitNbPrelev')->name('prelevement.definitNbPrelev');
     // Crée des nouveaux prélèvements soit au moment de la saisie de la demande soit après être passé par definitNbPrelev soit en ajoutant un nouveau prélèvement
     // Il faut redéfinir la fonction create car la création d'un prélèvement nécessite sytématiquement l'id de la demande correspondante
-    route::get('prelevement/create/{demande_id}', 'Labo\PrelevementController@create')->name('prelevement.create');
+    route::get('prelevement/create_prelev/{demande_id}', 'Labo\PrelevementController@create')->name('prelevement.create_prelev');
 
     route::get('demandes/{demande_id}/paillasse', 'PdfController@fichePaillasse')->name('paillasse');
 

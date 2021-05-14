@@ -69,7 +69,7 @@ class PrelevementController extends Controller
       $demande->nb_prelevement = intval($datas['nb_prelevement']);
       $demande->save();
 
-      return redirect()->route('prelevement.create', $demande->id);
+      return redirect()->route('prelevement.create_prelev', $demande->id);
     }
 
     /**
