@@ -1,0 +1,56 @@
+{
+  "tri" : {
+
+    "colonne" : "num",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "nom" : {
+      "id" : "nom",
+      "width" : "400",
+      "nom" : "tableaux.nom_melange",
+      "align" : "left",
+      "sortable" : true
+    },
+    "animaux" : {
+      "id" : "animaux",
+      "width" : 100,
+      "nom" : "tableaux.animaux",
+      "align" : "center",
+      "sortable" : true
+    },
+    "espece" : {
+      "id" : "espece",
+      "nom" : "tableaux.espece",
+      "align" : "center",
+      "sortable" : false
+    },
+    "user" : {
+      "id" : "user",
+      "nom" : "tableaux.eleveur",
+      "align" : "left",
+      "sortable" : true
+    },
+    "demande" : {
+      "id" : "demande",
+      "nom" : "tableaux.demande_analyse",
+      "align" : "center",
+      "sortable" : true
+    },
+    "date_demande" : {
+      "id" : "date_demande",
+      "nom" : "tableaux.date_reception",
+      "align" : "center",
+      "sortable" : true
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "tableaux.del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}
