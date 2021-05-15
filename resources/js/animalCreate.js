@@ -1,3 +1,7 @@
+// Crée un nouvel animal dans un mélange
+// On récupére l'url actuelle
+var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
+
 $("#add_animal").on("click", function() {
   var numero_nouveau = $("#numero_nouveau").val();
   var nom_nouveau = $("#nom_nouveau").val();
@@ -69,7 +73,14 @@ $("#add_animal").on("click", function() {
 })
 
 function formsubmit() {
-  var url = window.location.protocol + "//" + window.location.host + '/parasitlab/public/api/melange/addAnimal'
+  // comme les url sont différente en local (avec /public/) et en distant
+  // et que il y deux façon de créer un nouvel animal dans un mélange (melange.create et melange.edit)
+  // Il faut repérer le position du mot laboratoire et modifier l'url en conséquence
+  var cesure = url_actuelle.search('laboratoire');
+  // cesure est la position de la lettre l dans l'url actuelle
+  // url_actuelle.sustring(cesure) est le fragment d'url à partir du l de laboratoire
+  url = url_actuelle.replace( url_actuelle.substring(cesure), 'api/melange/addAnimal');
+
   $("#numero_nouveau").attr('value', $("#numero_nouveau").val());
 
   $.post({
