@@ -57,6 +57,6 @@ return array (
   'estMelange' =>"Prélèvement de mélange",
   'resultat_analyse' => "Résultat de l'analyse",
   'nom_melange' => 'Intitulé du mélange',
-  'animaux' => 'Avec animaux identifiés',
+  'animaux' => 'Nombre d\'animaux',
   'add_to_melange' => "Ajouter au mélange",
 );

@@ -32,7 +32,7 @@ class ListeMelangesFournisseur extends ListeFournisseur
 
         $nom = $this->lienFactory($melange->id, $melange->nom, 'melange.edit', 'affiche_melange');
 
-        $animaux = $this->ouinonFactory($melange->id, $melange->animaux);
+        $animaux = $this->itemFactory(($melange->animals()->count() == 0) ? "-" :$melange->animals()->count());
 
         $espece = $this->iconeFactory($melange->troupeau->espece->icone);
 
