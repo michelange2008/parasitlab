@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Analyses;
 
-use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -94,13 +93,15 @@ class AnaitemController extends Controller
 
         $anaitem = new Anaitem();
 
-        $anaitem->abbreviation = $datas['abbreviation'];
+        $anaitem->abbreviation = $request->abbreviation;
 
-        $anaitem->nom = $datas['nom'];
+        $anaitem->nom = $request->nom;
 
-        $anaitem->unite_id = $datas['unite'];
+        $anaitem->unite_id = $request->unite;
 
-        $anaitem->qtt_id = $datas['qtt'];
+        $anaitem->qtt_id = $request->qtt;
+
+        $anaitem->multiple = $request->multiple;
 
         $anaitem->image = $image_nouvelle;
 
@@ -129,11 +130,14 @@ class AnaitemController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.anaitems.anaitem', [
+        $qtt_valeur = Qtt::where('nom', 'valeur')->first(); // variable pour connaitre l'objet valeur du modèle Qtt
+
+        return view('admin.anaitems.anaitemEdit', [
           'menu' => $this->menu,
           'anaitem' => Anaitem::find($id),
           'unites' => Unite::all(),
           'qtts' => Qtt::all(),
+          'qtt_valeur' => $qtt_valeur,
           'nouveau' => false,
         ]);
     }
@@ -147,28 +151,30 @@ class AnaitemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datas = $request->all();
         $file = $request->file('image_nouvelle');
 
         if($file === null) {
 
-          $image_nouvelle = $datas['image_default'];
+          $image_nouvelle = $request->image_default;
 
         } else {
 
-          $image_nouvelle = $datas['abbreviation'].'.'.$file->extension();
+          $image_nouvelle = $request->abbreviation.'.'.$file->extension();
 
-          $this->supprImage('storage/img/icones/oeufs/'.$datas['image_default']);
+          $this->supprImage('storage/img/icones/oeufs/'.$request->image_default);
 
           $image = Image::make($file)->fit(200, 200)->save('storage/img/icones/oeufs/'.$image_nouvelle);
 
         }
 
-        DB::table('anaitems')->where('id', $id)->update([
-          'abbreviation' => $datas['abbreviation'],
-          'nom' => $datas['nom'],
-          'unite_id' => $datas['unite'],
-          'qtt_id' => $datas['qtt'],
+        $qtt_valeur = Qtt::where('nom', 'valeur')->first(); // variable pour connaitre l'objet valeur du modèle Qtt
+
+        Anaitem::where('id', $id)->update([
+          'abbreviation' => $request->abbreviation,
+          'nom' => $request->nom,
+          'unite_id' => $request->unite,
+          'qtt_id' => $request->qtt,
+          'multiple' => ($request->qtt == $qtt_valeur->id) ? $request->multiple : null,
           'image' => $image_nouvelle,
         ]);
 

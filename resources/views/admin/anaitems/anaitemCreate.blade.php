@@ -22,7 +22,7 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-7 col-lg-6 col-xl-5">
+      <div class="col-md-11 col-lg-9 col-xl-9">
 
         <form action="{{ route('anaitems.store') }}" method="post"  enctype="multipart/form-data">
 
@@ -40,6 +40,7 @@
             <div class="form-group col-md-8">
               {{-- champs nom --}}
               <label for="nom">@lang('form.nom')</label>
+
               <input type="text" class="form-control" name="nom" value="{{ old('nom') }}">
 
             </div>
@@ -48,17 +49,19 @@
 
           <div class="form-row">
             {{-- champs unite --}}
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
+
               <label for="unite">@lang('form.unites')</label>
+
               <select id="unite" name="unite" class="form-control">
+
+                <option value="" disabled selected>@lang('form.choisir')</option>
 
                 @foreach ($unites as $unite)
 
                   <option value = "{{ $unite->id }}" >@lang($unite->type) : @lang($unite->nom)</option>
 
                 @endforeach
-                {{-- Possibilité de créer une nouvelle unité via anaitem.js --}}
-                <option id="new_unite" value = "0" >@lang('form.new')</option>
 
               </select>
 
@@ -68,7 +71,10 @@
             <div class="form-group col-md-4">
               {{-- type d'unité valeur, estimation, presence  --}}
               <label for="qtt">@lang('form.valeurs')</label>
+
               <select id="qtt" name="qtt" class="form-control">
+
+                <option value="" disabled selected>@lang('form.choisir')</option>
 
                 @foreach ($qtts as $qtt)
 
@@ -77,6 +83,14 @@
                 @endforeach
 
               </select>
+
+            </div>
+
+            <div id='multiple' class="form-group col collapse">
+
+              <label for="multiple">Multiple pour obtenir les opg</label>
+
+              <input class="form-control" type="number" min=1 step=1 name="multiple" value="null">
 
             </div>
 
@@ -105,7 +119,11 @@
 
     </div>
 
-    <div class="col-md-4 col-lg-4 col-xl-4 border-left">
+  </div>
+
+  <div class="row justify-content-center my-3">
+
+    <div class="col-md-4 col-lg-4 col-xl-4 bg-light">
 
       @include('admin.anaitems.uniteCreate')
 

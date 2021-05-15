@@ -86,11 +86,15 @@
 
                     @foreach ($prelevement->analyse->anaitems as $anaitem)
 
-                      @if ($anaitem->unite->type == "quantitatif") {{-- SI la résultats sont des valeurs ou des pourcentages --}}
+                      @if ($anaitem->qtt->nom == "valeur") {{-- SI la résultats sont des valeurs ou des pourcentages --}}
 
-                        @include('labo.resultats.inputResultatQuantitatif')
+                        @include('labo.resultats.inputResultatValeur')
 
-                      @elseif($anaitem->unite->type == "semi-quantitatif")
+                      @elseif ($anaitem->qtt->nom == "pourcentage")
+
+                        @include('labo.resultats.inputResultatPourcentage')
+
+                      @elseif($anaitem->qtt->nom == "estimation")
 
                         @include('labo.resultats.inputResultatSemiQuantitatif')
 

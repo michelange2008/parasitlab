@@ -31,6 +31,8 @@ class ListeAnaitemsFournisseur extends ListeFournisseur
 
       $valeur = $this->itemFactory($anaitem->qtt->nom);
 
+      $multiple = $this->itemFactory($anaitem->multiple);
+
       $suppr = $this->delFactory($anaitem->id, 'anaitems.destroy');
 
       $description = [
@@ -40,6 +42,7 @@ class ListeAnaitemsFournisseur extends ListeFournisseur
         $type_unite,
         $unite,
         $valeur,
+        $multiple,
         $suppr,
       ];
 

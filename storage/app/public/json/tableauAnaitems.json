@@ -44,6 +44,12 @@
       "align" : "left",
       "sortable" : false
     },
+    "multiple" : {
+      "id" : "multiple",
+      "nom" : "Multiple",
+      "align" : "center",
+      "sortable" : false
+    },
     "suppr" : {
       "id" : "suppr",
       "nom" : "del",

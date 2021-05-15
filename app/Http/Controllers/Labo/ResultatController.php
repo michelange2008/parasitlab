@@ -9,15 +9,17 @@ use DB;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\LitCsv;
+use App\Http\Traits\QttValeur;
 
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Resultat;
 use App\Models\Productions\Commentaire;
+use App\Models\Analyses\Anaitem;
 
 class ResultatController extends Controller
 {
-  use LitJson, LitCsv;
+  use LitJson, LitCsv, QttValeur;
 
   protected $menu;
 
@@ -56,7 +58,6 @@ class ResultatController extends Controller
   {
 
     $datas = $request->all();
-// dd($datas);
     // ON PASSE EN REVUE LA VARIABLE DATAS POUR EN EXTRAIRE TOUTES LES VALEURS SAISIES
     foreach ($datas as $intitule => $valeur) {
       // ON EXPLODE CAR LES VALEURS SONT SOUS LA FORME resultat_id du prélèvement__id_de l'anaitem (ex: resultat_2_4)
@@ -80,6 +81,15 @@ class ResultatController extends Controller
         * il faut vérifier si elle n'existe pas déjà dans le tableau des résultats
         */
         else {
+
+          // Il faut regarder si c'est un anaitem qui a une qtt valeur pour appliquer le multipl
+          $anaitem = Anaitem::find($anaitem_id);
+
+          if($anaitem->qtt == $this->qttValeur()) {
+            // Dans ce cas, il faut faire l'opération avant de saisir la valeur
+            $valeur *= $anaitem->multiple;
+
+          }
 
           $resultat = Resultat::updateOrCreate(['prelevement_id' => $prelevement_id, 'anaitem_id' => $anaitem_id], ['valeur' => $valeur, 'positif' => '1']);
 

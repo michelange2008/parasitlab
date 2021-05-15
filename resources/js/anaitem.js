@@ -1,68 +1,24 @@
+// Affiche l'input multiple quand on choisit valeur comme Qtt (label valeurs)
 
-$("#unite").on('click', function() {
+showhideMultiple(); // Au démarrage on affiche multiple si valeur est sélectionnée
 
-  if($('#unite option:selected').attr('value') == "0") {
+// Aux changements on vérifie si c'est valeur ou non qui est sélectionnée
+$("#qtt").on('click', function() {
 
-    $("#para_unite").show();
+  showhideMultiple();
 
-    $("#anaitem_enregistre").hide();
+});
 
-    $("#form_unite").on('submit', function(e) {
+function showhideMultiple() {
 
-      e.preventDefault();
+  if($('#qtt option:selected').attr('value') == '1') {
 
-      var saisie = $(this).serialize();
-
-      var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
-
-      const regex = /anaitems\/[0-9]*\/edit/gi;
-
-      var url = url_actuelle.replace(regex, 'unites'); // remplace cette adresse par l'adresse correspondant à la méthode store
-
-      console.log(url);
-
-      $.post({ // envoi une requete ajax pour stocker les données communes du nouvel utilisateur
-
-        url: url,
-        data: saisie,
-      })
-      .done(function(datas) {
-        var unite = JSON.parse(datas);
-
-        var nouvelle_option = '<option value="' + unite.id + '">' + unite.type + ' : ' + unite.nom + '</option>';
-
-        $("#unite").append(nouvelle_option);
-
-        $('#unite option[value=' + unite.id +']').attr('selected', 'selected');
-
-        $("#anaitem_enregistre").show();
-
-        $('#para_unite').hide();
-
-      })
-      .fail(function(datas) {
-        console.log(datas);
-      });
-
-    });
-
-    $('a').on('click', function(e) {
-
-        e.preventDefault();
-
-        $("#anaitem_enregistre").show();
-
-        $('#para_unite').hide();
-
-    })
+    $('#multiple').show();
 
   } else {
 
-    $("#anaitem_enregistre").show();
-
-    $('#para_unite').hide();
+    $('#multiple').hide();
 
   }
 
-
-});
+}
