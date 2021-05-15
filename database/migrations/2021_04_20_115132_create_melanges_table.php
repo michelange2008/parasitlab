@@ -17,6 +17,8 @@ class CreateMelangesTable extends Migration
             $table->increments('id');
             $table->string('nom', 191);
             $table->boolean('animaux')->default(false);
+            $table->unsignedInteger('troupeau_id');
+            $table->foreign('troupeau_id')->references('id')->on('troupeaus')->onDelete('restrict');
         });
     }
 
