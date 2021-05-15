@@ -42,67 +42,89 @@ un suffixe (n° du préèvement) ce qui complique la méthode update --}}
 
         <div class="col-md-10 offset-md-1 mb-3">
 
+          @if ($prelevement->estMelange)
 
-            @if ($prelevement->estMelange)
+            <h5>@lang('form.prelev_coll')
 
-              <h5>@lang('form.prelev_coll')
-
-                @if ($prelevement->melange->animaux)
-
-
-                  @foreach ($prelevement->melange->animals as $animal)
-
-                    @if ($loop->first)
-
-                      (n°{{ $animal->numero }},
-
-                    @elseif ($loop->last)
-
-                      {{ $animal->numero }})
-
-                    @else
-
-                      {{ $animal->numero }},
-
-                    @endif
-
-                  @endforeach
-
-                @else
-
-                   @lang('melange.sans_animaux')
-
-                @endif
-
-              </h5>
+              @if ($prelevement->melange->animaux)
 
 
-            @else
+                @foreach ($prelevement->melange->animals as $animal)
 
-              <h5 for="numero">@lang('form.prelev_indiv')</h5>
+                  @if ($loop->first)
+
+                    (n°{{ $animal->numero }},
+
+                  @elseif ($loop->last)
+
+                    {{ $animal->numero }})
+
+                  @else
+
+                    {{ $animal->numero }},
+
+                  @endif
+
+                @endforeach
+
+              @else
+
+                @lang('melange.sans_animaux')
+
+              @endif
+
+            </h5>
+
+
+          @else
+
+            <h5 for="numero">@lang('form.prelev_indiv')</h5>
 
           @endif
 
-          <hr class="divider">
-
         </div>
 
+        @if ($prelevement->estMelange)
 
-      <div class="offset-md-1 col-md-10">
+          <div class="offset-md-1 col-md-10 mb-3">
 
-        <div class="form-inline">
+            @bouton([
+              'type' => 'route',
+              'route' => 'melange.edit',
+              'id' => $prelevement->melange->id,
+              'couleur' => 'btn-bleu',
+              'fa' => 'fas fa-edit',
+              'intitule' => __('melange.animaux'),
+            ])
 
-          <label for="etatPrelevement">@lang('form.etat_prelev')</label>
+          </div>
 
-          <select class="form-control mx-3" id="etatPrelevement" name="etatPrelevement">
 
-            @foreach ($etats as $etat)
+        @endif
 
-              @if(isset($prelevement))
+        <div class="offset-md-1 col-md-10">
 
-                @if ($prelevement->etat_id == $etat->id)
+          <hr class="divider">
 
-                  <option value="{{ $etat->id }}" selected>{{$etat->nom}}</option>
+          <div class="form-inline">
+
+            <label for="etatPrelevement">@lang('form.etat_prelev')</label>
+
+            <select class="form-control mx-3" id="etatPrelevement" name="etatPrelevement">
+
+              @foreach ($etats as $etat)
+
+                @if(isset($prelevement))
+
+                  @if ($prelevement->etat_id == $etat->id)
+
+                    <option value="{{ $etat->id }}" selected>{{$etat->nom}}</option>
+
+                  @else
+
+                    <option value="{{ $etat->id }}">{{$etat->nom}}</option>
+
+                  @endif
 
                 @else
 
@@ -110,121 +132,115 @@ un suffixe (n° du préèvement) ce qui complique la méthode update --}}
 
                 @endif
 
-              @else
+              @endforeach
 
-                <option value="{{ $etat->id }}">{{$etat->nom}}</option>
-
-              @endif
-
-            @endforeach
-
-          </select>
-
-        </div>
-      </div>
-
-      <div class="offset-md-1 col-md-10">
-
-        <div class="form-group row my-3">
-
-          <div class="col-md-12 mb-3">
-
-            <span class="font-weight-bold">@lang('form.ax_prelev')</span>
+            </select>
 
           </div>
-
-          <div class="col-md-4 ml-3">@lang('form.sontparasites')</div>
-
-          <div class="col-md-7">
-
-            @foreach ($estParasite as $reponse)
-
-              <div class="custom-control custom-radio custom-control-inline">
-
-                <input type="radio" id="{{ $reponse->id }}"
-
-                        name="{{ $reponse->groupe }}"
-
-                        class="custom-control-input"
-
-                        value="{{ $reponse->value }}"
-
-                        {{-- il faut mettre son état parasite --}}
-                        @if ($reponse->id === $prelevement->parasite)
-
-                          checked="checked"
-
-                        @endif
-
-                    >
-
-                <label class="custom-control-label" for="{{ $reponse->id }}">{!! ucfirst(__($reponse->texte)) !!}</label>
-
-              </div>
-
-            @endforeach
-
-          </div>
-
         </div>
 
-        <div class="form-group row px-3 my-3">
+        <div class="offset-md-1 col-md-10">
 
-          <div class="col-md-4 ml-3">@lang('form.q_observation')</div>
+          <div class="form-group row my-3">
 
-          <div class="col-md-7">
+            <div class="col-md-12 mb-3">
 
-            @foreach ($signes as $signe)
+              <span class="font-weight-bold">@lang('form.ax_prelev')</span>
 
-              <div class="custom-control custom-checkbox custom-control-inline">
+            </div>
 
-                <input type="checkbox"
+            <div class="col-md-4 ml-3">@lang('form.sontparasites')</div>
 
-                class="custom-control-input"
+            <div class="col-md-7">
 
-                id="signe_{{ $signe->id }}"
+              @foreach ($estParasite as $reponse)
 
-                name="signe[]"
+                <div class="custom-control custom-radio custom-control-inline">
 
-                value="{{ $signe->id }}"
+                  <input type="radio" id="{{ $reponse->id }}"
 
-                @isset($prelevement->signes)
+                  name="{{ $reponse->groupe }}"
 
-                  @if ($prelevement->signes->contains($signe) == 1)
+                  class="custom-control-input"
 
-                    checked
+                  value="{{ $reponse->value }}"
+
+                  {{-- il faut mettre son état parasite --}}
+                  @if ($reponse->id === $prelevement->parasite)
+
+                    checked="checked"
 
                   @endif
 
+                  >
 
-                @endisset
+                  <label class="custom-control-label" for="{{ $reponse->id }}">{!! ucfirst(__($reponse->texte)) !!}</label>
 
-                >
+                </div>
 
-                <label class="custom-control-label" for="signe_{{ $signe->id }}">@lang($signe->nom)</label>
+              @endforeach
 
-              </div>
+            </div>
 
-            @endforeach
+          </div>
+
+          <div class="form-group row px-3 my-3">
+
+            <div class="col-md-4 ml-3">@lang('form.q_observation')</div>
+
+            <div class="col-md-7">
+
+              @foreach ($signes as $signe)
+
+                <div class="custom-control custom-checkbox custom-control-inline">
+
+                  <input type="checkbox"
+
+                  class="custom-control-input"
+
+                  id="signe_{{ $signe->id }}"
+
+                  name="signe[]"
+
+                  value="{{ $signe->id }}"
+
+                  @isset($prelevement->signes)
+
+                    @if ($prelevement->signes->contains($signe) == 1)
+
+                      checked
+
+                    @endif
+
+
+                  @endisset
+
+                  >
+
+                  <label class="custom-control-label" for="signe_{{ $signe->id }}">@lang($signe->nom)</label>
+
+                </div>
+
+              @endforeach
+
+            </div>
 
           </div>
 
         </div>
 
-      </div>
+        <div class="col-md-10 offset-md-1">
+
+          @enregistreAnnule()
+
+        </div>
+
+      </form>
 
       <div class="col-md-10 offset-md-1">
 
-        @enregistreAnnule()
+        <hr class="divider">
 
       </div>
 
-    </form>
-
-    <div class="col-md-10 offset-md-1">
-
-      <hr class="divider">
-
-    </div>
-
-@endsection
+    @endsection

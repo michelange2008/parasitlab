@@ -240,10 +240,16 @@ class PrelevementController extends Controller
      */
     public function edit($id)
     {
+      $prelevement =Prelevement::find($id);
+
+      session([
+        'route_retour' => 'prelevement.edit',
+        'prelevement_id' => $id,
+      ]);
 
         return view('labo.prelevements.prelevementEdit', [
           'menu' => $this->menu,
-          'prelevement' => Prelevement::find($id),
+          'prelevement' => $prelevement,
           'etats' => Etat::all(),
           'signes' => Signe::all(),
           'estParasite' => $this->litJson('estParasite'),

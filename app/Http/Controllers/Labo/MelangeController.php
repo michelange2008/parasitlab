@@ -46,6 +46,9 @@ class MelangeController extends Controller
     public function index()
     {
 
+      session()->forget('route_retour'); // On vide les infos de session pour éviter des retours liés à la modif d'un mélange d'un prélèvement
+      session()->forget('prelevement_id');
+
       $melanges = Melange::all();
 
       $fournisseur = new ListeMelangesFournisseur();
@@ -162,8 +165,16 @@ class MelangeController extends Controller
         // Mise à jour de l'état du mélange: avec ou sans animaux
         $melange->animaux = ($request->choix == null) ? 0 : 1;
         $melange->save();
+// dd(session('retour'));
+        if (session()->has('route_retour') && session()->has('prelevement_id')) {
 
-        return redirect()->route('melange.index')->with('message', 'melange_updated');
+          return redirect()->route(session('route_retour'), session('prelevement_id'))->with('message', 'melange_updated');
+
+        } else {
+
+          return redirect()->route('melange.index')->with('message', 'melange_updated');
+
+        }
     }
 
     /**

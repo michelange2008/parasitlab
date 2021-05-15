@@ -7,4 +7,6 @@ return [
   'melange_create_info_create_troupeau' => 'Ajouter un troupeau à un éleveur',
   'animal_to_add' => 'Animaux à ajouter au mélange',
   'sans_animaux' => 'sans animaux identifiés',
+  'edit' => "modifier le mélange",
+  'animaux' => "Animaux du mélange",
 ];
