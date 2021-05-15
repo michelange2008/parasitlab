@@ -171,7 +171,7 @@ class DemandeController extends Controller
 
     $nouvelle_demande->save();
 
-    return redirect()->route('prelevement.create_prelev', $nouvelle_demande->id);
+    return redirect()->route('prelevement.create', $nouvelle_demande->id);
 
     }
 

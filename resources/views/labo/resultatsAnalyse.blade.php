@@ -6,7 +6,7 @@
 
     @bouton([
       'type' => 'route',
-      'route' => 'prelevement.create_prelev',
+      'route' => 'prelevement.create',
       'id' => $demande->id,
       'intitule' => 'boutons.add_one_prel',
       'fa' => "fas fa-plus-square"
