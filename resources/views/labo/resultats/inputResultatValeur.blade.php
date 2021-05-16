@@ -53,7 +53,7 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
 
       <input id="result_{{ $prelevement->id }}-{{ $anaitem->id }}"
         class="result {{ $class }} form-control col-3 mx-3 d-none d-md-block"
-        type="number" min=0
+        type="text" min=0
         name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}"
         @if (is_int($valeur) && $valeur > 0)
           value="{{ $valeur }}"
