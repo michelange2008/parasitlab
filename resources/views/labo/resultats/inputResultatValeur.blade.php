@@ -37,24 +37,45 @@ aussi bien dans inputResultatQuantitatif que inputResultatQualitatif
   </td>
 
   <td>
-    @if (is_int($valeur))
+    <div class="form-group row px-3 justify-content-left">
 
-      <input class="{{ $class }} form-control" type="number" min=0 name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}"
-              value="{{ $valeur/$anaitem->multiple }}" placeholder="@lang('form.result')">
+      <input id="saisie_{{ $prelevement->id }}-{{ $anaitem->id }}"
+        class="saisie {{ $class }} form-control col-md-7 mr-3"
+        type="number" min=0
+        name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}"
+        mult="{{ $anaitem->multiple }}"
+        @if (is_int($valeur) && $valeur > 0)
+          value="{{ $valeur/$anaitem->multiple }}"
+        @else
+          value=""
+        @endif
+        placeholder="@lang('form.result')">
 
-    @else
+      <input id="result_{{ $prelevement->id }}-{{ $anaitem->id }}"
+        class="result {{ $class }} form-control col-3 mx-3 d-none d-md-block"
+        type="number" min=0
+        name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}"
+        @if (is_int($valeur) && $valeur > 0)
+          value="{{ $valeur }}"
+        @else
+          value=""
+        @endif
+        disabled>
 
-      <input class="{{ $class }} form-control" type="number" min=0 name="resultat_{{ $prelevement->id }}_{{ $anaitem->id }}"
-      value="" placeholder="@lang('form.result')">
-
-    @endif
+    </div>
 
   </td>
 
   <td class="text-right">
 
-          {{ $valeur }} @lang($anaitem->unite->nom)
+          @lang($anaitem->unite->nom)
 
   </td>
 
 </tr>
+
+@section('scripts')
+
+<script src="{{url('js/inputResultatValeur.js')}}"></script>
+
+@endsection

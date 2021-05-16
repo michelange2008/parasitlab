@@ -22,6 +22,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/animalAdd', 'public/js')
     .js('resources/js/melangeAdd', 'public/js')
     .js('resources/js/animalCreate', 'public/js')
+    .js('resources/js/inputResultatValeur', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
    .options({
       processCssUrls: false
