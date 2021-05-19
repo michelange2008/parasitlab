@@ -46,7 +46,7 @@ un suffixe (n° du préèvement) ce qui complique la méthode update --}}
 
             <h5>@lang('form.prelev_coll')
 
-              @if ($prelevement->melange->animaux)
+              @if ($prelevement->melange->animals->count() > 0)
 
 
                 @foreach ($prelevement->melange->animals as $animal)

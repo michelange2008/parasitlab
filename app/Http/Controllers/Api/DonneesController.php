@@ -80,6 +80,11 @@ class DonneesController extends Controller
     return json_encode($melanges);
   }
 
+  /**
+   * renvoie la liste des animaux d'un troupeau
+   * @param  [type] $troupeau_id [description]
+   * @return [type]              [description]
+   */
   public function animal($troupeau_id)
   {
     $animals = Animal::where('troupeau_id', $troupeau_id)->get();
@@ -90,7 +95,7 @@ class DonneesController extends Controller
   /**
    * Ajoute un animal dans la base de données avec le formulaire de création d'une mélange
    * voir MelangeController@create
-   * Appeler par la requete ajax de animalCreate.js dans le formulaire melangeCreate.blade.php
+   * Appeler par la requete ajax de melangeManager.js dans le formulaire melangeCreate.blade.php
    */
    public function addAnimal(Request $request)
    {
@@ -102,9 +107,33 @@ class DonneesController extends Controller
 
      $animal->save();
 
-     return $animal->id;
+     return json_encode($animal);
 
    }
+
+   /**
+    * Ajoute un animal au mélange (appelé par melangeManager.js)
+    */
+    public function addtomelange(Request $request)
+    {
+      $melange= Melange::find($request->melange_id);
+      $melange->animals()->attach($request->animal_id);
+
+      return $request->animal_id;
+
+    }
+
+    /**
+     * En lève un animal du mélange (appelé par melangeManager.js)
+     */
+    public function deltomelange(Request $request)
+    {
+      $melange= Melange::find($request->melange_id);
+      $melange->animals()->detach($request->animal_id);
+
+      return $request->animal_id;
+    }
+
   /**
   * Méthode pour fournir les observations correspondant à une espèce dans le choix de l'analyse
   * Vue: choisir.blade

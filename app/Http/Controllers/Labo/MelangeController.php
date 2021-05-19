@@ -105,12 +105,6 @@ class MelangeController extends Controller
         $melange = new Melange();
         $melange->nom = $request->nom_melange;
         $melange->troupeau_id = $request->troupeau_id;
-        // S'il n'y au moins un animal dans le mélange, on passe le booléen animaux à true
-        if ($request->choix !== null) {
-
-          $melange->animaux = true;
-
-        }
 
         $melange->save();
         $melange->animals()->attach($request->choix);
@@ -162,10 +156,8 @@ class MelangeController extends Controller
         $melange->animals()->detach();
         $melange->animals()->attach($request->choix);
 
-        // Mise à jour de l'état du mélange: avec ou sans animaux
-        $melange->animaux = ($request->choix == null) ? 0 : 1;
         $melange->save();
-// dd(session('retour'));
+
         if (session()->has('route_retour') && session()->has('prelevement_id')) {
 
           return redirect()->route(session('route_retour'), session('prelevement_id'))->with('message', 'melange_updated');
