@@ -159,10 +159,10 @@ function updateMelange(animal_id, addOrdel) {
     data: data,
   })
   .done(function(datas) {
-    console.log(datas);
+    console.log("Ok tout va bien");
   })
   .fail(function(errors) {
-    console.log(errors);
+    console.log('ERREURS': + errors);
   })
 
 }
