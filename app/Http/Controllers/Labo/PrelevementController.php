@@ -98,10 +98,21 @@ class PrelevementController extends Controller
         return redirect()->route('demandes.show', $demande->id)->with(['message' => 'pb_nb_prelevement', 'couleur' => 'alert-danger']);
 
       }
+      try {
 
-      $troupeau = Troupeau::find($demande->troupeau_id);
+        $troupeau = Troupeau::find($demande->troupeau_id);
 
-      $animals = Animal::where('troupeau_id', $troupeau->id)->get();
+        $animals = Animal::where('troupeau_id', $troupeau->id)->get();
+
+      } catch (\Exception $e) {
+
+        $troupeau = null;
+
+        $animals = null;
+
+      }
+
+
 
       $espece_id = $demande->espece->id;
       $typeprods = Typeprod::where('espece_id', $espece_id)->get();
