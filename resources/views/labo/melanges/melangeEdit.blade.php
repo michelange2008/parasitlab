@@ -8,62 +8,83 @@
 
 @section('animaux')
 
-  <form action="{{ route('melange.update', $melange->id) }}" method="post">
-
-    @csrf
-    @method('put')
 
     <div class="form-row">
 
-      <div class="col-md-10 offset-md-1">
+      <div class="col-md-4 offset-md-1">
 
+        <p class="font-weight-bold" colspan="3">@lang('form.animal_dans_melange')</p>
+
+        <div id="liste-in" melange="{{ $melange->id }}" troupeau="{{ $melange->troupeau->id }}" class="list-group liste-animals">
+
+          @foreach ($animals as $animal)
+
+
+              <div id="animalIn_{{ $animal->id }}" class="animal-melange in-melange
+                @if (!$melange->animals->contains($animal->id))
+                  collapse
+                @endif
+                ">
+
+                <button type="button" id='animal_{{ $animal->id }}' class="m-1 p-3 border btn btn-info text-left w-100" title="{{ $animal->id }}">
+                  {{ $animal->numero }}
+                  @isset($animal->nom)
+                    ({{ $animal->nom }})
+                  @endisset
+                </button>
+
+              </div>
+
+
+          @endforeach
+
+        </div>
+
+      </div>
+
+      <div class="offset-md-1 col-md-4">
         <p class="font-weight-bold" colspan="3">@lang('form.add_animal')</p>
 
-        <table class="table table-hover">
+        <div id="liste-out" class="list-group liste-animals">
 
-          <thead>
+          @foreach ($animals as $animal)
 
-            <th>@lang('tableaux.num')</th>
-            <th>@lang('tableaux.nom')</th>
-            <th>@lang('tableaux.add_to_melange')</th>
 
-          </thead>
+              <div id="animalOut_{{ $animal->id }}" class="animal-melange in-melange
+                @if ($melange->animals->contains($animal->id))
+                  collapse
+                @endif
+                ">
 
-          <tbody id="listeAnimals">
-            @foreach ($animals as $animal)
+                <button type="button" id='animal_{{ $animal->id }}' class="m-1 p-3 border btn btn-light text-left w-100" title="{{ $animal->id }}">
+                  {{ $animal->numero }}
+                  @isset($animal->nom)
+                    {{ $animal->nom }})
+                  @endisset
+                </button>
 
-              <tr>
-                <td><label class='animal_numero' for="choix_{{ $animal->id }}">{{ $animal->numero }}</label></td>
-                <td><label for="choix_{{ $animal->id }}">{{ $animal->nom }}</label></td>
-                <td>
+              </div>
 
-                  @if ($melange->animals->contains($animal->id))
 
-                    <input id="choix_{{ $animal->id }}" type="checkbox" name="choix[]" value="{{ $animal->id }}" checked>
+          @endforeach
 
-                  @else
+        </div>
 
-                    <input id="choix_{{ $animal->id }}" type="checkbox" name="choix[]" value="{{ $animal->id }}">
-
-                  @endif
-                </td>
-              </tr>
-
-            @endforeach
-          </tbody>
-
-        </table>
 
       </div>
 
       <div class="col-md-10 offset-md-1">
 
-        @enregistreAnnule()
+        @include('fragments.boutonAnnule', ['nomAnnule' => __('boutons.fermer')])
 
       </div>
 
     </div>
 
-  </form>
+@endsection
+
+@section('scripts')
+
+  <script src="{{url('js/melangeManager.js')}}"></script>
 
 @endsection

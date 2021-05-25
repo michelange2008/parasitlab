@@ -16,7 +16,7 @@ require( './telFormulaire.js');
 require( './algo.js');
 require( './exports.js');
 require('./consentement.js');
-require('./animalCreate.js');
+// require('./melangeManager.js');
 require( 'jquery-confirm' );
 
 $(function() {

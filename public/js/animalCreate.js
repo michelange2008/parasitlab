@@ -1,2 +1,101 @@
-!function(e){var n={};function t(o){if(n[o])return n[o].exports;var a=n[o]={i:o,l:!1,exports:{}};return e[o].call(a.exports,a,a.exports,t),a.l=!0,a.exports}t.m=e,t.c=n,t.d=function(e,n,o){t.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:o})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,n){if(1&n&&(e=t(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(t.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var a in e)t.d(o,a,function(n){return e[n]}.bind(null,a));return o},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},t.p="/",t(t.s=47)}({2:function(e,n){var t=window.location.protocol+"//"+window.location.host+window.location.pathname;function o(){var e=t.search("laboratoire");url=t.replace(t.substring(e),"api/melange/addAnimal"),$("#numero_nouveau").attr("value",$("#numero_nouveau").val()),$.post({url:url,data:$("#form_addAnimal").serialize()}).done((function(e){var n=e,t=$("#numero_nouveau").val(),o=$("#nom_nouveau").val();$("#listeAnimals").prepend('<tr><td><label class="animal_numero" for="choix_'+n+'">'+t+'</label></td><td><label for="choix_'+n+'">'+o+'</label></td><td><input id="choix_'+n+'" type="checkbox" name="choix[]" value="'+n+'" checked="true"></td></tr>'),$("#numero_nouveau").val(""),$("#nom_nouveau").val("")})).fail((function(e){alert("il y a un problème !")}))}$("#add_animal").on("click",(function(){var e=$("#numero_nouveau").val();$("#nom_nouveau").val();if(""==e)$.alert({title:"Attention !",content:"Il faut saisir au moins une valeur dans le champs numéro",theme:"dark",type:"red",icon:"fas fa-exclamation-triangle",buttons:{OK:{btnClass:"btn-success"}}});else{var n=!1;$(".animal_numero").each((function(){$(this).html()==e&&(n=!0)})),n?$.confirm({title:"Attention !",content:"Cet animal semble déjà exister, voulez-vous quand même l'enregistrer",theme:"dark",type:"orange",icon:"fas fa-exclamation-triangle",buttons:{oui:{btnClass:"btn-blue",keys:["enter"],action:function(){o()}},non:{btnClass:"btn-secondary",keys:["esc"],action:function(){$("#numero_nouveau").focus()}}}}):o()}}))},47:function(e,n,t){e.exports=t(2)}});
-//# sourceMappingURL=animalCreate.js.map
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 10:
+/*!*****************************************!*\
+  !*** multi ./resources/js/animalCreate ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!(function webpackMissingModule() { var e = new Error("Cannot find module '/srv/parasitlab/resources/js/animalCreate'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
+
+/***/ })
+
+/******/ });

@@ -59,4 +59,5 @@ return array (
   'nom_melange' => 'Intitulé du mélange',
   'animaux' => 'Nombre d\'animaux',
   'add_to_melange' => "Ajouter au mélange",
+  'in_melange' => "Enlever du mélange",
 );

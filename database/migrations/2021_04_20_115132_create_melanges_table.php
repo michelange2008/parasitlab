@@ -16,7 +16,6 @@ class CreateMelangesTable extends Migration
         Schema::create('melanges', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom', 191);
-            $table->boolean('animaux')->default(false);
             $table->unsignedInteger('troupeau_id');
             $table->foreign('troupeau_id')->references('id')->on('troupeaus')->onDelete('restrict');
         });
