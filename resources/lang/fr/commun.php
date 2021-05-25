@@ -34,4 +34,5 @@ return array (
   'analyse' => 'analyse',
   'prelev_n' => 'prélèvement n°',
   'obs' => 'observateur',
+  'al_mel' => 'Animal / Mélange',
 );

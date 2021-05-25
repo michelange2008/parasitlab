@@ -27,7 +27,7 @@
 <table style="width:100%;border:solid 1px black;">
   <tr style=" background-color:lightgrey; text-align:center; border-bottom:solid 1px black">
 
-    <td style="border-right:solid 0.5px black; text-align:left">Animal</td>
+    <td style="border-right:solid 0.5px black; text-align:left">@lang('commun.al_mel')</td>
 
     @foreach ($anaitems as $anaitem)
 
@@ -42,11 +42,7 @@
       @endif
 
     @endforeach
-    {{-- <td style="border-right:solid 0.5px black">OPG_SGI</td>
-    <td style="border-right:solid 0.5px black">OPG Nemato</td>
-    <td style="border-right:solid 0.5px black">Moniezia (+/-)</td>
-    <td style="border-right:solid 0.5px black">Eimeria <br>(-/+/++/+++)</td>
-    <td style="">Strongyloïdes (-/+)</td> --}}
+
   </tr>
 
   @foreach ($prelevements as $prelevement)
