@@ -10,7 +10,7 @@
 
     @else
 
-      <input class="form-control" type="text" name="nom" placeholder="@lang('form.choix_nom_troupeau')">
+      <input class="form-control" type="text" name="nom" placeholder="@lang('form.choix_nom_troupeau')" required>
 
     @endisset
 

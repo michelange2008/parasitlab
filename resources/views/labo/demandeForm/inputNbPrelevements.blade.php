@@ -6,6 +6,6 @@
 
   <div class="col-md-auto">
 
-    <input id="nbPrelevements" class="form-control" type="number" name="nbPrelevements" value="1" min="1">
+    <input id="nbPrelevements" class="form-control" type="number" name="nbPrelevements" value="0" min="0" required>
 
   </div>

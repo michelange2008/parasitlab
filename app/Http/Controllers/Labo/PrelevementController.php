@@ -98,6 +98,7 @@ class PrelevementController extends Controller
         return redirect()->route('demandes.show', $demande->id)->with(['message' => 'pb_nb_prelevement', 'couleur' => 'alert-danger']);
 
       }
+      // cas où aucun troupeau n'a encore été attribué à ce prélèvement
       try {
 
         $troupeau = Troupeau::find($demande->troupeau_id);
