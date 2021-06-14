@@ -44,7 +44,7 @@
 
               <div class="media">
 
-                <img class="img-100px" src="{{ url('storage/img/icones/'.$howone->icone) }}" alt="{{ $howone->name }}">
+                <img class="img-100px m-2" src="{{ url('storage/img/icones/'.$howone->icone) }}" alt="{{ $howone->name }}">
 
                 <div class="media-body p-3">
 

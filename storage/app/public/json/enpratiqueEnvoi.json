@@ -15,6 +15,13 @@
       "type" : "route",
       "route" : "especes",
       "id" : "telFormulaire"
+    },
+    "howto" :
+    {
+      "prefixe" : "howto.",
+      "type" : "route",
+      "route" : "express.howto",
+      "id" : "howto"
     }
 
   }
