@@ -1,0 +1,14 @@
+{
+  "rum" :
+  {
+    "name" : "Ruminants",
+    "icone" : "rum.svg",
+    "file" : "fiche_prelev_rum.pdf"
+  },
+  "equ" :
+  {
+    "name" : "Equidés",
+    "icone" : "equides.svg",
+    "file" : "fiche_prelev_equ.pdf"
+  }
+}

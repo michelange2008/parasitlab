@@ -50,6 +50,11 @@ return array (
       'nom' => 'Télécharger un formulaire vierge',
       'tooltip' => 'Télécharger un formulaire vierge au format pdf',
     ),
+    'howto' =>
+    array (
+      'nom' => 'Prélèvements: mode d\'emploi',
+      'tooltip' => 'Télécharger un mode d\emploi pour le prélèvement',
+    ),
     'envoiKit' =>
     array (
       'nom' => 'Demander des kits d\'envoi',

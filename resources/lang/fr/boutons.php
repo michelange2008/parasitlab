@@ -39,6 +39,7 @@ return array (
   'new_blog' => "Ecrire un nouvel article",
 
   'tele_form' => "Télécharger un formulaire",
+  'tele_howto' => "Mode d'emploi",
   'prelevenvoi' => "En pratique&nbsp;: prélever/envoyer",
   'add_observation' => 'Nouvelle observation',
   'add_option' => 'Nouvelle explication',

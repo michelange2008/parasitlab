@@ -51,6 +51,11 @@
 				"prefixe" : "menuExtranet.express.telFormulaire.",
 				"route" : "especes"
 			},
+      "howto" : {
+				"id" : "howto",
+				"prefixe" : "menuExtranet.express.howto.",
+				"route" : "express.howto"
+			},
 			"envoiKit" : {
 				"id" : "envoiKit",
 				"prefixe" : "menuExtranet.express.envoiKit.",
