@@ -12,7 +12,29 @@
 
     <div class="row my-3">
 
-      <div class="m-auto col">
+      <div class="m-auto col-xl-7 col-lg-8">
+
+        <div class="h2">
+
+          @lang('formulaires.tele_howto')
+
+        </div>
+
+        <div class="lead">
+
+          @lang('formulaires.text_howto')
+
+        </div>
+
+        <hr class="divider">
+
+      </div>
+
+    </div>
+
+    <div class="row my-3">
+
+      <div class="m-auto col-xl-7 col-lg-8">
 
         <div class="card-deck">
 
@@ -32,7 +54,7 @@
                     'type' => 'link',
                     'lien' => 'storage/pdf/'.$howone->file,
                     'target' => '_blank',
-                    'intitule' => 'boutons.tele_howto',
+                    'intitule' => '',
                     'fa' => "fas fa-file-download"
                   ])
 
