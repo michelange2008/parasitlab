@@ -2,7 +2,7 @@
 
   <select class="form-control" name="typeprod_id" required>
 
-    <option selected disabled>@lang('form.choix_typeprod')</option>
+    <option value="" selected disabled>@lang('form.choix_typeprod')</option>
 
     @foreach ($typeprods as $typeprod)
 

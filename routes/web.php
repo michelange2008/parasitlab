@@ -52,6 +52,8 @@
 
   Route::post('express/envoiKitStore', ['uses' => 'ExpressController@envoiKitStore', 'as' => "express.envoiKitStore"]);
 
+  Route::get('express/howto', ['uses' => 'ExpressController@howto', 'as' => "express.howto"]);
+
   //##############################################################################
   // MENU CONTACT INFORMATIONS MENTIONS LEGALES
 

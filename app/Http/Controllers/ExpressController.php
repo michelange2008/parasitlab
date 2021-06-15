@@ -63,6 +63,22 @@ class ExpressController extends Controller
   }
 
   /**
+   * menu pour télécharger mode d'emploi
+   *
+   *
+   * @return return type
+   */
+  public function howto()
+  {
+    $howto = $this->litJson('howto');
+
+    return view('extranet.accueil.howto', [
+      'menu' => $this->menu,
+      'howto' => $howto,
+    ]);
+  }
+
+  /**
   * Page de formulaire de demande d'envoi d'un kit
   *
   * Ce formulaire demande les infos suivantes:

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Labo;
 
 use Illuminate\Http\Request;
@@ -135,45 +134,54 @@ class DemandeController extends Controller
 
       session()->forget('creation'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
-      $user = User::find($datas['userDemande']);
-      $espece = Espece::where('nom', $datas['espece'])->first();
-      $anaacte = Anaacte::find($datas['anaacte_id']);
+      $user = User::find($request->userDemande);
+      $espece = Espece::where('nom', $request->espece)->first();
+      $anaacte = Anaacte::find($request->anaacte_id);
       // GESTION DE LA SERIE
-      if ($datas['serie'] == "null" || $datas['serie'] == 0) { // Si l'anaacte ne correspond pas à une série
+      if ($request->serie == "null" || $request->serie == 0) { // Si l'anaacte ne correspond pas à une série
 
         $serie_id = null; // $serie_id est null
 
-      } elseif ($datas['serie'] === 'premier') { // Si c'est le premier prélèvement d'une série
+      } elseif ($request->serie === 'premier') { // Si c'est le premier prélèvement d'une série
 
         $serie_id = $this->serieStore($user->id, $espece->id, $anaacte->id)->id; // On crée la série et on retourne l'id
 
       } else {
 
-        $serie_id = intVal($datas['serie']); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
+        $serie_id = intVal($request->serie); // Si c'est une demande pour la suite d'une série existante, on prend l'id de la série
 
     }
     // Prise en compte du troupeau: soit il a une id soit c'est un nouveau troupeau
-    $troupeau_id =($datas['troupeau'] === 'nouveau') ? null : $datas['troupeau'];
+    $troupeau_id =($request->troupeau === 'nouveau') ? null : $request->troupeau;
 
     // Puis créer la demande
     $nouvelle_demande = new Demande();
     $nouvelle_demande->user_id = $user->id;
-    $nouvelle_demande->nb_prelevement = $datas['nbPrelevements'];
+    $nouvelle_demande->nb_prelevement = $request->nbPrelevements;
     $nouvelle_demande->espece_id = $espece->id;
     $nouvelle_demande->troupeau_id = $troupeau_id;
     $nouvelle_demande->anaacte_id = $anaacte->id;
     $nouvelle_demande->serie_id = $serie_id;
-    $nouvelle_demande->informations = $datas['informations'];
-    $nouvelle_demande->tovetouser_id = ($datas['tovetouser_id'] == 0) ? null : $datas['tovetouser_id'];
-    $nouvelle_demande->date_prelevement = $datas['prelevement'];
-    $nouvelle_demande->date_reception = $datas['reception'];
-    $nouvelle_demande->userfact_id = ($datas['destinataireFacture'] == null) ? 1 : $datas['destinataireFacture'];
+    $nouvelle_demande->informations = $request->informations;
+    $nouvelle_demande->tovetouser_id = ($request->tovetouser_id == 0) ? null : $request->tovetouser_id;
+    $nouvelle_demande->date_prelevement = $request->prelevement;
+    $nouvelle_demande->date_reception = $request->reception;
+    $nouvelle_demande->userfact_id = ($request->destinataireFacture == null) ? 1 : $request->destinataireFacture;
 
     $nouvelle_demande->save();
 
-    return redirect()->route('prelevement.create', $nouvelle_demande->id);
+    if($request->nbPrelevements > 0) {
+
+      return redirect()->route('prelevement.create', $nouvelle_demande->id);
+
+    } else {
+
+      return redirect()->route('demandes.show', $nouvelle_demande->id);
 
     }
+
+  }
+
 
     /**
     * Affiche la demande d'analyse
@@ -280,11 +288,11 @@ class DemandeController extends Controller
       $datas = $request->all();
 
       $demande = Demande::find($id);
-      $demande->date_prelevement = $datas['prelevement'];
-      $demande->date_reception = $datas['reception'];
-      $demande->tovetouser_id = ($datas['tovetouser_id'] == 0) ? null : $datas['tovetouser_id'];
-      $demande->userfact_id = $datas['destinataireFacture'];
-      $demande->informations = $datas['informations'];
+      $demande->date_prelevement = $request->prelevement;
+      $demande->date_reception = $request->reception;
+      $demande->tovetouser_id = ($request->tovetouser_id == 0) ? null : $request->tovetouser_id;
+      $demande->userfact_id = $request->destinataireFacture;
+      $demande->informations = $request->informations;
 
       $demande->save();
 

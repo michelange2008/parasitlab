@@ -23,4 +23,12 @@ return array (
             Le formulaire sera prérempli.',
     'libelle' => 'Remplissez le formulaire en ligne',
   ),
+  'howto' =>
+  array (
+    'h4' => 'Une mode d\'emploi pour les prélèvements',
+    'p' => 'Un fiche pratique pour savoir comment prélever des fèces dans les meilleures conditions.<br>
+            Un prélèvement réalisé correctement est indispensable pour assurer la fiabilité des résultats.',
+
+    'libelle' => 'Choisissez un mode d\'emploi',
+  ),
 );
