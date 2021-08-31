@@ -19,7 +19,7 @@ return array (
   'mode_reglement' => "Le réglement de la facture peut se faire par chèque ou par virement",
   'num_date' => 'facture n°:num du :date',
   'paiement' => 'Paiement de la facture',
-  'pay_to_fibl' => 'par chèque à l\'ordre du Fibl France ou par virement.',
+  'pay_to_fibl' => 'par chèque à l\'ordre du FiBL France ou par virement.',
   'ref' => 'Référence dossier',
   'reglee' => 'Facture réglée le :date par :mode',
   'reglementDel' => 'Supprimer le règlement',
