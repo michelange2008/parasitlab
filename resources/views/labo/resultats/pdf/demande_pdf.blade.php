@@ -24,7 +24,22 @@
 
   <table class="table table-bordered pdf-table">
     <tr class="pdf-table-titre">
-      <td colspan="3" class="ligne1"><strong>{{ mb_strtoupper($prelevement->identification) ?? ''}} {{ $prelevement->animal->numero ?? '' }}</strong> ( @lang('commun.prelev_n') {{ $loop->index + 1}}) -
+      @if (!$prelevement->estMelange)
+        <td colspan="3" class="ligne1"><strong>{{ $prelevement->animal->numero ?? '' }}</strong> ( @lang('commun.prelev_n') {{ $loop->index + 1}}) -
+      @else
+        <td colspan="3" class="ligne1">
+          <strong>{{ $prelevement->melange->nom ?? '' }} (
+            @foreach ($prelevement->melange->animals as $animal)
+              {{ $animal->numero }}
+              @if($loop->last)
+
+              @else
+              , 
+              @endif
+            @endforeach
+            )
+          </strong> ( @lang('commun.prelev_n') {{ $loop->index + 1}}) -
+      @endif
         <span class="lignes">
           @lang('form.etat_prelev')&nbsp;: <strong>{{ $prelevement->etat->nom }}</strong>
        </span>
