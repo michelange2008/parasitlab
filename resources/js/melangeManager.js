@@ -162,7 +162,7 @@ function updateMelange(animal_id, addOrdel) {
     console.log("Ok tout va bien");
   })
   .fail(function(errors) {
-    console.log('ERREURS': + errors);
+    console.log('ERREURS:' + errors);
   })
 
 }

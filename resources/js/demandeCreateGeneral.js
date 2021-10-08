@@ -22,13 +22,13 @@ var choix_user = false; // On initialise ces deux variables qui serviron à savo
 var choix_espece = false;
 
 // Fonction destinée a renvoyer vers la page de création d'un utilisateur si la ligne"nouveau" est choisie
-$("select[name='userDemande']").change(function() {
+$("select[name='user_id']").change(function() {
 
   $('.listeSerie').remove(); // on enlève une éventuelle référence à une série
 
-  if($("select[name='userDemande'] > option:selected").val() == "Nouveau") { // S'il sagit d'un nouvel éleveur
+  if($("select[name='user_id'] > option:selected").val() == "Nouveau") { // S'il sagit d'un nouvel éleveur
 
-    var option = $("select[name='userDemande'] > option:selected");
+    var option = $("select[name='user_id'] > option:selected");
 
     var url_nouvelle = url_actuelle.replace('demandes', 'user');
 
@@ -166,7 +166,7 @@ function anatypeSelonEspece(espece_nom) {
 //            Gestion du bouton envoi facture véto en fonctin de l'existence ou non d'un véto ####
 cacheVeto();
 
-$('select[name=veto_id]').on('change', function() {
+$('select[name=tovetouser_id]').on('change', function() {
 
   cacheVeto();
 
@@ -174,26 +174,15 @@ $('select[name=veto_id]').on('change', function() {
 
 function cacheVeto() {
 
-  if($('select[name=veto_id]').val() == 0) {
+  if($('select[name=tovetouser_id]').val() == 0) {
 
-    $("#type_veterinaire").hide();
+    console.log("coucou");
+    $("#destfact_3").hide();
 
   } else {
 
-    $("#type_veterinaire").show();
+    $("#destfact_3").show();
 
   }
 
 }
-
-//#############################################################################################################
-// Change le bouton radio de choix de l'envoi de la facture
-
-$('#choixDestFact a').on('click', function(){
-    var sel = $(this).data('title');
-    var tog = $(this).data('toggle');
-    $('#'+tog).prop('value', sel);
-
-    $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
-    $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
-})

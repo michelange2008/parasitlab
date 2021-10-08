@@ -115,7 +115,7 @@ class DemandeController extends Controller
       'etats' => Etat::all(),
       'signes' => Signe::all(),
       'estParasite' => $estParasite,
-      'type_dest_fact' => $this->userTypeEleveur()->route,
+      'type_dest_fact' => $this->userTypeEleveur()->code,
       ]);
     }
 
@@ -131,10 +131,10 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
       $datas = $request->all();
-
+// dd($datas);
       session()->forget('creation'); // On supprime le cookie permettait de revenir à demande.create en cas de création d'une nouvel éleveur
       // On recherche les _id des différentes variables de la demande
-      $user = User::find($request->userDemande);
+      $user = User::find($request->user_id);
       $espece = Espece::where('nom', $request->espece)->first();
       $anaacte = Anaacte::find($request->anaacte_id);
       // GESTION DE LA SERIE
@@ -166,7 +166,9 @@ class DemandeController extends Controller
     $nouvelle_demande->tovetouser_id = ($request->tovetouser_id == 0) ? null : $request->tovetouser_id;
     $nouvelle_demande->date_prelevement = $request->prelevement;
     $nouvelle_demande->date_reception = $request->reception;
-    $nouvelle_demande->userfact_id = ($request->destinataireFacture == null) ? 1 : $request->destinataireFacture;
+    // On attribue à la variable $destinataireFacture l'id du destinataire en fonction de son type
+    // avec la fonction correspondante en bas du programme
+    $nouvelle_demande->userfact_id = $this->destinataireFacture($request);
 
     $nouvelle_demande->save();
 
@@ -261,7 +263,9 @@ class DemandeController extends Controller
       ]);
       $demande = Demande::find($demande_id);
 
-      $type_dest_fact = $demande->userfact->usertype->route;
+      $tovetouser = User::find($demande->tovetouser_id);
+
+      $type_dest_fact = ($demande->userfact_id == null) ? "" : $demande->userfact->usertype->code;
 
       $vetos = Veto::all();
 
@@ -271,7 +275,7 @@ class DemandeController extends Controller
       'type_dest_fact' => $type_dest_fact,
       'usertypes' => Usertype::all(),
       'vetos' => $vetos,
-
+      'tovetouser' => $tovetouser,
       ]);
     }
 
@@ -286,12 +290,12 @@ class DemandeController extends Controller
     {
 
       $datas = $request->all();
-
+// dd($datas);
       $demande = Demande::find($id);
       $demande->date_prelevement = $request->prelevement;
       $demande->date_reception = $request->reception;
       $demande->tovetouser_id = ($request->tovetouser_id == 0) ? null : $request->tovetouser_id;
-      $demande->userfact_id = $request->destinataireFacture;
+      $demande->userfact_id = $this->destinataireFacture($request);
       $demande->informations = $request->informations;
 
       $demande->save();
@@ -354,6 +358,19 @@ class DemandeController extends Controller
 
       return redirect()->back();
 
+    }
+
+    public function destinataireFacture(Request $request)
+    {
+      if($request->destinataireFacture  == $this->userTypeLabo()->id) {
+        $destinataireFacture = 0;
+      } elseif($request->tovetouser_id != 0 && $request->destinataireFacture == $this->userTypeVeto()->id) {
+        $destinataireFacture = $request->tovetouser_id;
+      } else {
+        $destinataireFacture = $request->user_id;
+      }
+
+      return $destinataireFacture;
     }
 
 }
