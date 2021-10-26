@@ -179,7 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        App\Providers\PaperTrailServiceProvider::class,
+        // App\Providers\PaperTrailServiceProvider::class,
     ],
 
     /*
