@@ -20,7 +20,7 @@ return array (
       'titre' => 'Appelez-nous',
       'texte_1' => 'Vous souhaitez juste une information sur une analyse en cours, un prélèvement à envoyer, une facture...',
       'texte_2' => 'Le téléphone est un bon moyen pour avoir une réponse rapide.',
-      'intitule' => '04 75 25 41 75',
+      'intitule' => '04 75 25 41 55',
     ),
     'voir' =>
     array (

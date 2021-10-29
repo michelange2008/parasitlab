@@ -2,7 +2,7 @@
 
   <label for="userSelect">@lang('form.demandeur')</label>
 
-  <select class="form-control" id="userSelect" name="userDemande" required>
+  <select class="form-control" id="userSelect" name="user_id" required>
 
     <option required></option>
 

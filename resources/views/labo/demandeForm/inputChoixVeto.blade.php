@@ -20,17 +20,9 @@
         {{-- Dans le cas où on modifie la demande --}}
         @elseif (Session::has('creation.demande_modif'))
           {{-- Et qu'un véto est déjà associé à cette demande --}}
-          @if($demande->toveto)
+          @if($demande->tovetouser_id != null)
             {{-- on le met en premier --}}
-            <option value="{{ $demande->tovetouser->id}}">{{ $demande->tovetouser->name }}</option>
-          {{-- sinon --}}
-          @else
-            {{-- si l'éleveur a déjà un véto attitré --}}
-            @isset($demande->user->eleveur->veto->user->id)
-              {{-- on le met  --}}
-              <option value="{{ $demande->user->eleveur->veto->user->id}}">{{ $demande->user->eleveur->veto->user->name }}</option>
-
-            @endisset
+            <option value="{{ $demande->tovetouser_id}}">{{ $demande->tovetouser->name }}</option>
 
           @endif
         {{-- SI c'est dans le cadre de la création d'un nouveau véto --}}
