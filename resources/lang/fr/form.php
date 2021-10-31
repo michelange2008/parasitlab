@@ -197,5 +197,8 @@ return array (
   'nom_melange' => 'Nom du mélange',
   'animaux' => 'animaux',
   'melange' => "Mélange",
-  'animal_dans_melange' => "Animaux du troupeau déjà dans le mélange"
+  'animal_dans_melange' => "Animaux du troupeau déjà dans le mélange",
+
+  'nom_espece' => "Nom de l'espèce",
+  'abbreviation_espece' => "Abbréviation de l'espèce",
 );

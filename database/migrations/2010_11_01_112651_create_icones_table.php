@@ -16,6 +16,7 @@ class CreateIconesTable extends Migration
         Schema::create('icones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom', 191)->default("default.svg");
+            $table->string('type', 191)->default("divers");
         });
     }
 

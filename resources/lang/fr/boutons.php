@@ -14,6 +14,7 @@ return array (
   'add_animal' => "Ajouter un animal",
   'add_troupeau' => "Ajouter un troupeau",
   'add_melange' => "Ajouter un mélange",
+  'add_espece' => "Ajouter une espèce",
 
   'choisir' => "Choisir",
 
@@ -62,4 +63,5 @@ return array (
   'demandeModif' => "Modifier",
   'exporter' => "Exporter",
   'save_commentaire' => "Enregistrer le commentaire",
+  'save_edit' => "Sauvegarder les modifications",
 );

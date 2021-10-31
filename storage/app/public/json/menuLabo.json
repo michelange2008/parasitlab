@@ -224,6 +224,12 @@
         "prefixe" : "menuLabo.outils.traductions.",
         "route" : "traductions"
       },
+      "especes" :
+      {
+        "id" : "especes",
+        "prefixe" : "menuLabo.outils.especes.",
+        "route" : "espece.index"
+      },
       "icones" :
       {
         "id" : "items",

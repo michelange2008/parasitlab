@@ -203,6 +203,8 @@
 
     Route::resource('animal', 'AnimalController');
 
+    Route::resource('espece', 'EspeceController');
+
     Route:: get('melange/create/{troupeau_id}', 'Labo\MelangeController@createAvecTroupeau')->name('melange.createAvecTroupeau');
 
     Route:: get('melange/choix_troupeau', 'Labo\MelangeController@choix_troupeau')->name('melange.choix_troupeau');

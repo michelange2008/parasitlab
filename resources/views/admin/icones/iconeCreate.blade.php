@@ -32,6 +32,15 @@
 
           @inputText(['nom' => 'nom', 'label' => 'nom_icone', 'required' => true, 'value' => ''])
 
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select class="form-control" id="type" name="type">
+              @foreach($types as $type)
+                <option value = "{{ $type }}">{{ ucwords($type) }}</option>
+              @endforeach
+            </select>
+          </div>
+
         </div>
 
       </div>

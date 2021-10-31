@@ -1,0 +1,36 @@
+{
+  "tri" : {
+
+    "colonne" : "nom",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "nom" : {
+      "id" : "nom",
+      "nom" : "tableaux.nom_espece",
+      "align" : "left",
+      "sortable" : true
+    },
+    "abbreviation" : {
+      "id" : "abbreviation",
+      "nom" : "tableaux.abbreviation",
+      "align" : "left",
+      "sortable" : true
+    },
+    "icone" : {
+      "id" : "icone",
+      "nom" : "tableaux.icone",
+      "align" : "left",
+      "sortable" : true
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "tableaux.del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}

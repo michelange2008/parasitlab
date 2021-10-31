@@ -44,9 +44,11 @@ return array (
   'list_typeprod' => 'Types de production',
   'list_animals' => 'Liste des animaux',
   'list_melanges' => 'Liste des mélanges',
+  'list_especes' => 'Liste des espèces',
 
   'troupeauCreate' => "Ajout d'un nouveau troupeau",
-
+  'especeCreate' => "Ajout d'une nouvelle espèce",
+  'especeEdit' => "Modifier une espèce",
   'saisie_resultats' => 'Saisie des résultats',
   'utilisateur_mesinfos' => "Voir / modifier mes informations personnelles",
   'utilisateur_mesfactures' => "Factures",

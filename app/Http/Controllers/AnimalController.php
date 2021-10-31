@@ -74,7 +74,7 @@ class AnimalController extends Controller
           'menu' => $this->menu,
           'eleveurs' => $eleveurs,
           'troupeaus' => Troupeau::all(),
-  ]);
+        ]);
     }
 
     /**

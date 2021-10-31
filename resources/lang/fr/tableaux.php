@@ -60,4 +60,7 @@ return array (
   'animaux' => 'Nombre d\'animaux',
   'add_to_melange' => "Ajouter au mélange",
   'in_melange' => "Enlever du mélange",
+  'abbreviation' => 'abbréviation',
+  'icone' => 'icone',
+  'nom_espece' => "nom des espèces",
 );

@@ -42,9 +42,12 @@ class IconesController extends Controller
      */
     public function index()
     {
+        $icones = Icone::all()->sortBy('type');
+        $icones_groupe = $icones->groupBy('type');
+
         return view('admin.icones.iconesIndex', [
           'menu' => $this->menu,
-          'icones' => Icone::all()->sortBy('nom'),
+          'icones_groupe' => $icones_groupe,
         ]);
     }
 
@@ -55,8 +58,11 @@ class IconesController extends Controller
      */
     public function create()
     {
+      $types = Icone::select('type')->get()->groupBy('type')->keys();
+
         return view('admin.icones.iconeCreate', [
           'menu' => $this->menu,
+          'types' => $types,
         ]);
     }
 
@@ -81,6 +87,7 @@ class IconesController extends Controller
         $nouvelle_icone = new Icone;
 
         $nouvelle_icone->nom = $icone_nom;
+        $nouvelle_icone->type = $request->type;
 
         $nouvelle_icone->save();
 

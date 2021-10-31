@@ -43,11 +43,21 @@
 
       </div>
 
-      <div class="col-md-11 col-lg-10 col-xl-9">
+      <div class="col-md-11 col-lg-10 col-xl-9 my-3">
 
-        @foreach ($icones as $icone)
+        @foreach ($icones_groupe as $type)
 
-            <img class="img-100px m-3 icone " src="{{ url('storage/img/icones/'.$icone->nom ) }}" alt="{{ $icone->nom }}" data-toggle="tooltip" title="{{ $icone->nom }}">
+          <div>
+
+            <h4>{{ $type[0]->type }}</h4>
+
+            @foreach($type as $icone)
+
+              <img class="img-100px m-3 icone " src="{{ url('storage/img/icones/'.$icone->nom ) }}" alt="{{ $icone->nom }}" data-toggle="tooltip" title="{{ $icone->nom }}">
+
+            @endforeach
+
+          </div>
 
         @endforeach
 

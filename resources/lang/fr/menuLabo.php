@@ -131,6 +131,11 @@ return array (
       'nom' => 'Exports',
       'tooltip' => 'Outils d\'exportation des données',
     ),
+    'especes' =>
+    array (
+      'nom' => 'Espèces',
+      'tooltip' => 'Gérer les espèces',
+    ),
     'icones' =>
     array (
       'nom' => 'Icones',
