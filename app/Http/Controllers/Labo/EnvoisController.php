@@ -96,9 +96,9 @@ class EnvoisController
       ]);
 
       // Puis on envoie éventuellement les résultats au véto
-      if($demande->toveto) {
+      if($demande->tovetouser_id != null) {
 
-        $veto = Veto::find($demande->veto_id);
+        $veto = Veto::find($demande->tovetouser_id);
 
         $this->envoie($veto->user->email, $demande);
       }
