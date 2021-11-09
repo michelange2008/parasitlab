@@ -42,6 +42,8 @@ return array (
   'date_prelevement' => 'Date du prélèvement',
   'date_reception' => 'Date de réception',
   'date_analyse' => 'Date d\'analyse',
+  'date_vermifuge' => 'Date de traitement',
+  'produit' => "Produit utilisé",
   'ana_demandee' => 'Analyse demandée',
   'type_acte' => 'Type d\'acte',
   'infos_diverses' => 'Informations (motifs de l\'analyse, état des animaux, etc.)',
@@ -109,6 +111,7 @@ return array (
   'browse' => 'Ouvrir',
   "demande_serie" => 'Cette demande d\'analyse fait partie d\'un pack qui compte 3 séries de prélèvement',
   'q_observation' => 'Avez-vous observé&nbsp;:',
+  'q_vermifuge' => 'Provient-il d\'animaux vermifugés ?',
 
   'abbr' => 'Abbréviation',
   'choisir' => "Choisir...",

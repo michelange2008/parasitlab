@@ -33,6 +33,10 @@ class CreatePrelevement extends Migration
           $table->foreign('etat_id')->references('id')->on('etats')->onDelete('set null');
           // PARASITE
           $table->boolean('parasite')->nullable()->default(null);
+          // EST VERMIFUGE
+          $table->boolean('vermifuge')->default(0);
+          $table->date('date_vermifuge')->nullable()->default(null);
+          $table->string('produit', 191)->nullable()->default(null);
           // DATES
           $table->timestamps();
       });

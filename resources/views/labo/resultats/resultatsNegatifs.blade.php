@@ -1,9 +1,20 @@
 <table class="table table-bordered">
 
-  @include('labo.resultats.titreResultat', [
-    'titre' => $prelevement->animal->nom ?? $prelevement->identification,
-    'soustitre' => $prelevement->animal->numero ?? '',
-  ])
+  @if ($prelevement->estMelange)
+
+    @include('labo.resultats.titreResultat', [
+      'titre' => $prelevement->melange->nom,
+      'prelevement' => $prelevement
+    ])
+
+  @else
+
+    @include('labo.resultats.titreResultat', [
+      'titre' => $prelevement->animal->nom ?? $prelevement->animal->numero,
+      'prelevement' => $prelevement
+    ])
+
+  @endif
 
   <tbody>
 

@@ -145,6 +145,7 @@ class PrelevementController extends Controller
     {
 
       $datas = $request->all();
+      // dd($datas);
       // on récupère la demande car ses paramètres vont être nécessaires
       $demande = Demande::find($request->demande_id);
 
@@ -211,6 +212,9 @@ class PrelevementController extends Controller
         }
 
         $prelevement->parasite = $datas['parasite_'.$i];
+        $prelevement->vermifuge = (isset($datas['vermifuge_'.$i]))? 1 : 0;
+        $prelevement->date_vermifuge = $datas['dateVermifuge_'.$i];
+        $prelevement->produit = $datas['produit_'.$i];
 
         $prelevement->save();
 
@@ -277,6 +281,7 @@ class PrelevementController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $prelevement = Prelevement::find($id);
 
         $prelevement->etat_id = $request->etatPrelevement;
@@ -289,6 +294,11 @@ class PrelevementController extends Controller
           $prelevement->signes()->attach($request->signe);
 
         }
+        // Si il existe $request->vermifuge c'est que c'est oui
+        $prelevement->vermifuge = (isset($request->vermifuge))? 1 : 0;
+        // Sinon, il faut passer à null la date et le produit pour ne pas laisser une situation avec vermifugé FAUX et des dates et des produits
+        $prelevement->date_vermifuge = (isset($request->vermifuge))? $request->dateVermifuge : null;
+        $prelevement->produit = (isset($request->vermifuge))? $request->produit : null;
 
         $prelevement->save();
 

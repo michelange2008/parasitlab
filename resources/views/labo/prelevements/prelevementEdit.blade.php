@@ -227,6 +227,36 @@ un suffixe (n° du préèvement) ce qui complique la méthode update --}}
 
           </div>
 
+          <div class="form-group row px-3 my-3">
+
+            <div class="col-md-4 ml-3">@lang('form.q_vermifuge')</div>
+
+            <div class="col-md-7 d-flex justify-content-between">
+
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="vermifuge"
+                  name="vermifuge"
+                  @if ($prelevement->vermifuge)
+                    checked
+                  @endif >
+                <label class="custom-control-label" for="vermifuge"></label>
+              </div>
+
+              <div class="form-inline">
+                <label for="dateVermifuge" class="mx-3">@lang('form.date_vermifuge')</label>
+                <input type="date" class="form-control" id="dateVermifuge"
+                  name="dateVermifuge" value="{{ $prelevement->date_vermifuge }}">
+              </div>
+
+              <div class="form-inline">
+                <label for="produit_" class="mx-3">@lang('form.produit')</label>
+                <input type="text" name="produit"
+                  id="produit" value="{{ $prelevement->produit }}">
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
         <div class="col-md-10 offset-md-1">

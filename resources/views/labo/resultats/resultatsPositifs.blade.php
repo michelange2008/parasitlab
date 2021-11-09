@@ -3,13 +3,15 @@
   @if ($prelevement->estMelange)
 
     @include('labo.resultats.titreResultat', [
-      'titre' => $prelevement->melange->nom
+      'titre' => $prelevement->melange->nom,
+      'prelevement' => $prelevement
     ])
 
   @else
 
     @include('labo.resultats.titreResultat', [
-      'titre' => $prelevement->animal->nom ?? $prelevement->animal->numero
+      'titre' => $prelevement->animal->nom ?? $prelevement->animal->numero,
+      'prelevement' => $prelevement
     ])
 
   @endif

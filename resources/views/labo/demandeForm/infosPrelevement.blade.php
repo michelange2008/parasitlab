@@ -1,4 +1,4 @@
-{{-- issu de infosAnalyseDemandee.blade --}}
+{{-- issu de demandeLignePrelevement.blade --}}
 <div class="form-group row my-3">
 
   <div class="col-md-12 mb-3">
@@ -58,4 +58,28 @@
 
   </div>
 
+</div>
+<hr class="divider">
+<div class="form-group row px-3 my-3">
+
+  <div class="col-md-4 ml-3">@lang('form.q_vermifuge')</div>
+
+  <div class="col-md-7 d-flex justify-content-between">
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="vermifuge_{{ $i }}" name="vermifuge_{{ $i }}">
+      <label class="custom-control-label" for="vermifuge_{{ $i }}"></label>
+    </div>
+
+    <div class="form-inline">
+      <label for="dateVermifuge" class="mx-3">@lang('form.date_vermifuge')</label>
+      <input type="date" class="form-control" id="dateVermifuge_{{ $i }}" name="dateVermifuge_{{ $i }}">
+    </div>
+
+    <div class="form-inline">
+      <label for="produit_" class="mx-3">@lang('form.produit')</label>
+      <input type="text" name="produit_{{ $i }}" id="produit_{{ $i }}" value="">
+    </div>
+
+  </div>
 </div>
