@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'api'], function() {
 
   // Requete pour sélecetionner les troupeaus d'un éleveur quelque soit l'espece
   Route::get('/troupeaus_un_eleveur/{eleveur_id}', ['uses' => 'Api\DonneesController@troupeaus_un_eleveur'])->name('troupeaus_un_eleveur');
+  Route::get('/veto_un_eleveur/{eleveur_id}', ['uses' => 'Api\DonneesController@veto_un_eleveur']);
 
   // Requete ajax pour sélectionner les observations dans le procédure de choix des analyses
   Route::get('/observations/especes/{espece_id}', ['uses' => 'Api\DonneesController@observationSelonEspece']);

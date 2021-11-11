@@ -56,7 +56,20 @@ $("select[name='user_id']").change(function() {
   } else { // Si on fait le choix d'un utilisateur déjà existant
 
 
-    choix_user = $('#userSelect > options:selected').attr('id'); // On rempli la variable
+    choix_user = $('#userSelect > option:selected').attr('id'); // On rempli la variable
+    $('#veto_user_id option[value="0"]').prop('selected', true)    
+    // requête ajax pour avoir l'id du véto ou null si l'éleveur n'a pas de véto
+    var url_nouvelle = url_actuelle.replace('laboratoire/demandes/create', 'api/veto_un_eleveur/' + choix_user)
+    $.get({
+      url : url_nouvelle
+    })
+    .done(function(datas) {
+      var user_id = JSON.parse(datas)
+      // Si l'éleveur à un véto
+      if (user_id != null) {
+        $('#veto_user_id option[value='+user_id+']').prop('selected', true)
+      }
+    })
 
     $(this).removeClass('is-invalid').addClass('is-valid'); // On passe le rouge au vert
 
@@ -176,7 +189,6 @@ function cacheVeto() {
 
   if($('select[name=tovetouser_id]').val() == 0) {
 
-    console.log("coucou");
     $("#destfact_3").hide();
 
   } else {

@@ -9,6 +9,8 @@ use App\Models\Espece;
 use App\Models\Age;
 use App\Models\Troupeau;
 use App\Models\Animal;
+use App\Models\Eleveur;
+use App\Models\Veto;
 use App\Models\Productions\Melange;
 use App\Models\Algorithme\Categorie;
 use App\Models\Algorithme\Observation;
@@ -66,6 +68,20 @@ class DonneesController extends Controller
 
     return json_encode($troupeaus);
 
+  }
+
+  /**
+   * Permet de récupérer lé véto d'un éleveur à la création d'une demande d'analyse
+   * @param int $user_id  id de l'user éleveur
+   * @return json id du véto de l'éleveur
+   */
+  public function veto_un_eleveur($user_id)
+  {
+    $eleveur = Eleveur::where('user_id', $user_id)->first();
+
+    $veto = Veto::find($eleveur->veto_id);
+    // Si l'éleveur n'a pas de véto, ça renvoi null sinon ça renvoie l'user_id du véto
+    return json_encode(($veto == null)? null : $veto->user_id);
   }
 
   /**
