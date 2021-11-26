@@ -97,10 +97,11 @@ class EnvoisController
 
       // Puis on envoie éventuellement les résultats au véto
       if($demande->tovetouser_id != null) {
+        // Dans la table demandes, l'id du véto destinataire des résultats est son id de User et non de Veto
+        // D'où l'intitulé de la variable $tovetuser_id
+        $vetouser = User::find($demande->tovetouser_id);
 
-        $veto = Veto::find($demande->tovetouser_id);
-
-        $this->envoie($veto->user->email, $demande);
+        $this->envoie($vetouser->user->email, $demande);
       }
 
     }
