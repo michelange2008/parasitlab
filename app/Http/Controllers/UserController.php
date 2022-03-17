@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Log;
 use DB;
 use App\Fournisseurs\ListeUsersFournisseur;
 use App\Http\Requests\UserRequest;
@@ -110,8 +111,8 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-
       $datas = $request->all();
+
       $nouvel_user = new User();
 
 
@@ -131,7 +132,7 @@ class UserController extends Controller
       }
       // TODO: ENREGISTRER LE NOUVEL USER SEULEMENT JUSTE AVANT L ENREGISTREMENT DE VETO LABO OU ELEVEUR
       // $nouvel_user->save();
-
+      Log::info($nouvel_user);
       session([
         'creation.nouvel_user' => $nouvel_user,
       ]);

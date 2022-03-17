@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers\Labo;
-
+use Log;
 use DB;
 use Illuminate\Http\Request;
 use Mail;
@@ -108,12 +108,12 @@ class VetoAdminController extends Controller
 
         // On le récupère par la variable de session.
         $nouvel_user = session('creation.nouvel_user');
-
+        Log::info($nouvel_user);
         session()->forget(['creation.nouvel_user']);
         // On crée le mot de passe (maintenant et non dans UserController pour ne pas pas avoir à le stoker en session)
         $mdp = str_random(8);
         $nouvel_user->password = $mdp; // On stocke d'abord le mdp sous bcrypt pour pouvoir l'envoyer par mail
-
+        
         //Envoyer au nouvel utilisateur ses identifants de connexion
         $mail = Mail::to($nouvel_user->email)->send(new EnvoiInfosConnexion($nouvel_user));
 
