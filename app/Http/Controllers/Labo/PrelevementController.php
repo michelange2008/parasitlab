@@ -113,8 +113,6 @@ class PrelevementController extends Controller
 
       }
 
-
-
       $espece_id = $demande->espece->id;
       $typeprods = Typeprod::where('espece_id', $espece_id)->get();
       $anatype_id = $demande->anaacte->anatype->id;
@@ -185,8 +183,9 @@ class PrelevementController extends Controller
           $nom = $datas['nomAnimal_'.$i];
 
           $animal = Animal::firstOrCreate(
-            ['numero' => $numero],
-            ['troupeau_id' => $demande->troupeau_id, 'nom' => $nom]
+            ['numero' => $numero,
+            'troupeau_id' => $demande->troupeau_id,
+            'nom' => $nom]
           );
 
           $prelevement->animal_id = $animal->id;

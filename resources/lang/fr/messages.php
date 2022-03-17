@@ -30,6 +30,7 @@ return array (
   'anatype_update' => "Ce type d'analyse a été mis à jour",
   'anaacte_update' => "Cette analyse a été modifiée",
   'animal_add' => "Un nouvel animal a été ajouté à ce troupeau",
+  'animal_exist' => "Cet animal existe déjà",
   'animal_del' => "L'animal sélectionné a été supprimé",
   'animal_update' => "L'animal a été modifié",
   'espece_add' => "Une nouvelle espèce a été ajoutée",

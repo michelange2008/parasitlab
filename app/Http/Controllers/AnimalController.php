@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -96,19 +97,22 @@ class AnimalController extends Controller
             'couleur' => 'alert-danger',
           ]);
         } else {
-          $datas = $request->all();
 
-          $animal = new Animal;
+          $animal = Animal::firstOrNew(
+            ['numero' => $request->numero,
+            'troupeau_id' => $request->troupeau_id,
+            'nom' => $request->nom]
+          );
+          if($animal->id == null) {
 
-          $animal->numero = $datas['numero'];
+            $animal->save();
+            return redirect()->back()->with('message', 'animal_add');
+            
+          } else {
 
-          $animal->nom = $datas['nom'];
+            return redirect()->back()->with(['message' => 'animal_exist', 'couleur' => 'alert-warning']);
+          }
 
-          $animal->troupeau_id = $datas['troupeau_id'];
-
-          $animal->save();
-
-          return redirect()->back()->with('message', 'animal_add');
         }
 
     }
