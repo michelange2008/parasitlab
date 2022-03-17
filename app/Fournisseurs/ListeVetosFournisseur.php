@@ -38,7 +38,6 @@ class ListeVetosFournisseur extends ListeFournisseur
       $description = [
         $nom,
         $email,
-        $num,
         $cp,
         $tel,
         $suppr,

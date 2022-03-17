@@ -20,12 +20,6 @@
       "align" : "left",
       "sortable" : false
     },
-    "cro" : {
-      "id" : "cro",
-      "nom" : "form.vet_id",
-      "align" : "center",
-      "sortable" : false
-    },
     "cp" : {
       "id" : "cp",
       "nom" : "form.cp",
