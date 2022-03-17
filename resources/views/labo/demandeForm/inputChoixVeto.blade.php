@@ -8,7 +8,7 @@
 
     <div class="input-group">
 
-      <select class="form-control" name="tovetouser_id">
+      <select id="veto_user_id" class="form-control" name="tovetouser_id">
 
         @if (Session::has('creation.user_eleveur'))
 
