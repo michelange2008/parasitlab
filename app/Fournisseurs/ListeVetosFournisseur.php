@@ -31,6 +31,8 @@ class ListeVetosFournisseur extends ListeFournisseur
 
       $cp = $this->itemFactory($user->veto->cp);
 
+      $commune = $this->itemFactory($user->veto->commune);
+
       $tel = $this->itemFactory($this->telAvecEspace($user->veto->tel));
 
       $suppr = $this->delFactory($user->id, 'vetoAdmin.destroy');
@@ -39,6 +41,7 @@ class ListeVetosFournisseur extends ListeFournisseur
         $nom,
         $email,
         $cp,
+        $commune,
         $tel,
         $suppr,
       ];

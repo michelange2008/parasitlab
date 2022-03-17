@@ -26,6 +26,12 @@
       "align" : "center",
       "sortable" : true
     },
+    "commune" : {
+      "id" : "commune",
+      "nom" : "form.commune",
+      "align" : "left",
+      "sortable" : true
+    },
     "tel" : {
       "id" : "tel",
       "nom" : "form.tel",
