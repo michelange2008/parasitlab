@@ -13,8 +13,8 @@
       <p class="font-weight-bold" colspan="3">@lang('form.add_new_animal')</p>
 
       <input id="troupeau_id" type="hidden" name="troupeau_id" value="{{ $troupeau->id }}">
-      
-      <input id="melange_id" type="hidden" name="melange_id" value="{{ $melange->id }}">
+
+      <input id="melange_id" type="hidden" name="melange_id" value="{{ $melange->id ?? ''}}">
 
       <table class="table">
         <tbody>
