@@ -38,6 +38,7 @@ return array (
   'espece_update' => "L'espèce a été modifiée",
   'espece_del_no' => "Impossible de supprimer une espèce avec des analyses",
   'troupeau_add' => "Un nouveau troupeau a été ajouté",
+  'troupeau_exist' => "Ce troupeau existe déjà",
   'troupeau_del' => "Le troupeau a été supprimé",
   'troupeau_update' => "Le troupeau a été modifié",
   'typeprod_add' => "Une nouveau type de production a été ajouté",

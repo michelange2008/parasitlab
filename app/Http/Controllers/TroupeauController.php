@@ -91,17 +91,19 @@ class TroupeauController extends Controller
      */
     public function store(Request $request)
     {
-      $datas = $request->all();
+      $troupeau = Troupeau::firstOrNew([
+        'nom' => $request->nom,
+        'user_id' => $request->user_id,
+        'espece_id' => $request->espece_id,
+        'typeprod_id' => $request->typeprod_id,
+      ]);
 
-      $troupeau = New Troupeau;
-
-      $troupeau->nom = $datas['nom'];
-
-      $troupeau->user_id = $datas['user_id'];
-
-      $troupeau->espece_id = $datas['espece_id'];
-
-      $troupeau->typeprod_id = $datas['typeprod_id'];
+      // $message = (empty($troupeau->id)) ? 'troupeau_add' : 'troupeau_exist';
+      // $couleur = (empty($troupeau->id)) ? 'alert-success' : 'alert-warning';
+      $flash = [
+        'message' => (empty($troupeau->id)) ? 'troupeau_add' : 'troupeau_exist',
+        'couleur' => (empty($troupeau->id)) ? 'alert-success' : 'alert-warning',
+      ];
 
       $troupeau->save();
 
@@ -111,11 +113,11 @@ class TroupeauController extends Controller
 
         session()->forget('route');
 
-        return redirect()->route($route)->with('message', 'troupeau_add');
+        return redirect()->route($route)->with($flash);
 
       }
 
-      return redirect()->route('troupeau.index')->with('message', 'troupeau_add');
+      return redirect()->route('troupeau.index')->with($flash);
       }
 
     /**
