@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Log;
 use DB;
 use App\Fournisseurs\ListeTroupeausFournisseur;
 
@@ -71,6 +72,18 @@ class TroupeauController extends Controller
     }
 
     /**
+     * Fonction intermédiaire pour créer une variable de session quand on crée
+     * un troupeau à partir d'une autre page (création d'animal par exemple)
+     * @return [route] [troupeau.create]
+     */
+    public function createAvecAnimal()
+    {
+      session(["route" => "animal.create"]);
+
+      return redirect()->action([TroupeauController::class, 'create']);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -91,6 +104,16 @@ class TroupeauController extends Controller
       $troupeau->typeprod_id = $datas['typeprod_id'];
 
       $troupeau->save();
+
+      if(session()->has('route')) {
+
+        $route = session('route');
+
+        session()->forget('route');
+
+        return redirect()->route($route)->with('message', 'troupeau_add');
+
+      }
 
       return redirect()->route('troupeau.index')->with('message', 'troupeau_add');
       }

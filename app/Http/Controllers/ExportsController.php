@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Log;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Database\Schema\Blueprint;
@@ -348,7 +349,7 @@ class ExportsController extends Controller
       $prelevements = $prelevements->concat($prelevement_par_demande);
     }
 /** INFO: la manipulation ci-dessous peut paraitre complexe mais elle tient compte du faire que
-* l'on fait un tableau avec des analyses différentes. Dans pour certains prélèvements
+* l'on fait un tableau avec des analyses différentes. Donc pour certains prélèvements
 * le parasite n'est pas toujours susceptible d'être recherché et donc il n'y pas de
 * résultat (même pas un résultat nul) --> d'où la création de cette variable _$existe_un_prelevement_
 *
@@ -359,6 +360,11 @@ class ExportsController extends Controller
     // On passe en revue tous les prélèvements
     foreach ($prelevements as $prelevement) {
       // On récupère les informations sur l'animal ou le lot prélevé
+      // Au cas où il s'agit d'un mélange
+      if($prelevement->estMelange) {
+          Log::info($prelevement);
+      }
+
       $resultat['animal_numero'] = $prelevement->animal->numero ?? $prelevement->identification;
       $resultat['animal_nom'] = $prelevement->animal->nom ?? '';
       // On passe en revue tous les anaitems listés dans le formulaire de exports/choix
@@ -389,7 +395,7 @@ class ExportsController extends Controller
       $resultat['espece'] = $prelevement->demande->espece->nom;
       $resultat['troupeau'] = $prelevement->demande->troupeau->nom;
       $resultat['demande_id'] = $prelevement->demande->id;
-      $resultat['estMelange'] = ($prelevement->estMelange === true) ? "oui" : "non";
+      $resultat['estMelange'] = ($prelevement->estMelange == true) ? "oui" : "non";
       // Et on l'ajoute à la collection
       $resultats->push($resultat);
     }

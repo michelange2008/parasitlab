@@ -1,3 +1,5 @@
+// Permet de gérer le formulaire de création d'un nouvel animal (/laboratoire/animal/create)
+
 // On récupére l'url actuelle
 var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
@@ -35,6 +37,7 @@ $("#eleveur").on('change', function() {
   })
 })
 
-$('#add_troupeau_animal_ou_melange_create').on('click', function() {
-  document.location.href=url_actuelle.replace('animal/create', 'troupeau/create');
+$("#add_troupeau_animal_create").on('click', function() {
+  console.log("coucou");
+  document.location.href=url_actuelle.replace('animal/create', 'troupeau/createAvecAnimal');
 })
