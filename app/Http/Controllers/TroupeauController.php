@@ -56,6 +56,30 @@ class TroupeauController extends Controller
     }
 
     /**
+     * Destiné à afficher les troupeaux d'un éleveur précis
+     * @param  [type] $user_id               id de l'éleveur (user_id)
+     * @return [type]          vie table commune à l'affichage des troupeaux
+     */
+    public function troupeauxUnEleveur($user_id)
+    {
+      $troupeaus = Troupeau::where('user_id', $user_id)->get();
+
+      $fournisseur = new ListeTroupeausFournisseur(); // voir class ListeFournisseur
+
+      $datas = $fournisseur->renvoieDatas($troupeaus, __('titres.list_troupeau'), 'troupeau.svg', 'tableauTroupeaus', 'troupeau.create', __('boutons.add'));
+
+      $route_retour = "eleveurAdmin.show";
+
+      return view('admin.index.pageIndex', [
+        "menu" => $this->menu,
+        "datas" => $datas,
+        "route_retour" => $route_retour,
+        "user_id" => $user_id,
+      ]);
+    // code...
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -98,8 +122,7 @@ class TroupeauController extends Controller
         'typeprod_id' => $request->typeprod_id,
       ]);
 
-      // $message = (empty($troupeau->id)) ? 'troupeau_add' : 'troupeau_exist';
-      // $couleur = (empty($troupeau->id)) ? 'alert-success' : 'alert-warning';
+      // On définit un message flash différent en fonction de l'existence préalable du troupeau ou non
       $flash = [
         'message' => (empty($troupeau->id)) ? 'troupeau_add' : 'troupeau_exist',
         'couleur' => (empty($troupeau->id)) ? 'alert-success' : 'alert-warning',
@@ -107,6 +130,7 @@ class TroupeauController extends Controller
 
       $troupeau->save();
 
+      // Cas om la création du troupeau s'est faite dans le contexte d'une création d'animal
       if(session()->has('route')) {
 
         $route = session('route');
@@ -117,6 +141,7 @@ class TroupeauController extends Controller
 
       }
 
+      // Cas où la création du troupeau est directe
       return redirect()->route('troupeau.index')->with($flash);
       }
 

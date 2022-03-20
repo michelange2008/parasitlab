@@ -14,6 +14,8 @@
 
       @include('admin.detail.nbFacturesImpayees')
 
+      @include('admin.detail.eleveur_troupeau_animaux')
+
     </ul>
 
     <div class="card-footer d-inline-flex">

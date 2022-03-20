@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Traits;
 
+use Log;
 use DB;
 
+use App\Models\Troupeau;
 use App\User;
 use App\Models\Productions\Demande;
 /**
@@ -20,8 +22,10 @@ trait EleveurInfos
   {
     $eleveurInfos = Collect();
 
+    $eleveurInfos->user = $user;
     $eleveurInfos->nbDemandes = $this->nbDemandes($user);
     $eleveurInfos->factureImpayees = $this->factureImpayees($user);
+    $eleveurInfos->troupeaux = $this->troupeaux($user);
 
     return $eleveurInfos;
 
@@ -54,5 +58,13 @@ trait EleveurInfos
 
     return $user;
 
+  }
+
+  public function troupeaux($user)
+  {
+    $troupeaux = Troupeau::where('user_id', $user->id)->get();
+    log::info($troupeaux);
+
+    return $troupeaux;
   }
 }

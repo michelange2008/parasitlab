@@ -200,6 +200,8 @@
     Route::resource('eleveurAdmin', 'Labo\EleveurAdminController');
     // Route spécifique pour l'ajout d'un troupeau à la création d'un animal pour avoir un retour sur la page de création de l'animal
     Route::get('troupeau/createAvecAnimal', 'TroupeauController@createAvecAnimal')->name('troupeau.createAvecAnimal');
+    // Route destinée à afficher tous les troupeaux d'un éleveur
+    Route::get('troupeau/troupeauxUnEleveur/{user_id}', 'TroupeauController@troupeauxUnEleveur')->name('troupeau.troupeauxUnEleveur');
 
     Route::resource('troupeau', 'TroupeauController');
 
