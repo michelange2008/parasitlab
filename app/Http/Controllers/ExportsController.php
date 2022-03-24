@@ -114,6 +114,7 @@ class ExportsController extends Controller
 
     $anaitems = $analyse->anaitems;
 
+    $entete[] = "Mélange";
     $entete[] = 'Identification';
     $entete[] = 'Nom';
 
@@ -127,7 +128,6 @@ class ExportsController extends Controller
     $entete[] = "Espece";
     $entete[] = "Date de prelevement";
     $entete[] = "Date d'analyse";
-    $entete[] = "Mélange";
     $entete[] = "Semble parasité";
 
     return $entete;
@@ -155,8 +155,26 @@ class ExportsController extends Controller
     foreach ($prelevements as $prelevement) {
 
       $resultat = []; // Un résultat = une ligne dans le fichier tableur
-      $resultat['identification'] = $prelevement->animal->numero ?? $prelevement->identification;
-      $resultat['nom'] = $prelevement->animal->nom ?? '';
+
+      $resultat['melange'] = $prelevement->melange->nom ?? '';
+      // Si c'est un mélange, il faut concaténer les numéros ou  noms de aniumaux
+      if ($prelevement->estMelange) {
+
+        $animals_melange = "";
+
+        foreach ($prelevement->melange->animals as $animal) {
+
+          $animals_melange = $animals_melange . ($animal->numero ?? $animal->nom) . ', ';
+        }
+
+        $resultat['identification'] = $animals_melange;
+        $resultat['nom'] = "";
+
+      } else {
+
+        $resultat['identification'] = $prelevement->animal->numero ?? $prelevement->identification;
+        $resultat['nom'] = $prelevement->animal->nom ?? '';
+      }
       // Il faut récupérer autant de colonne qu'il y a de parasites (= anaitem) à rechercher
       foreach ($prelevement->analyse->anaitems as $anaitem) {
         // On récupère le résultat pour le parasite
@@ -181,7 +199,6 @@ class ExportsController extends Controller
       $resultat['date_prelevement'] = (new Carbon($prelevement->demande->date_prelevement))->toDateString();
       $resultat['date_resultat'] = (new Carbon($prelevement->demande->date_resultat))->toDateString();
 
-      $resultat['melange'] = ($prelevement->estMelange) ? 'oui' : 'non';
       $resultat['estParasite'] = ($prelevement->parasite) ? 'oui' : 'non';
 
       $resultats->push($resultat);
@@ -226,8 +243,9 @@ class ExportsController extends Controller
     $anaitemsEntetes = $this->anaitemsEntete($anaitems);
 
     $entetes = array_merge([
-    'animal_numero',
-    'animal_nom',
+      'melange',
+      'animal_numero',
+      'animal_nom',
     ],
 
     $anaitemsEntetes,
@@ -243,7 +261,6 @@ class ExportsController extends Controller
     'espece',
     'troupeau',
     'demande_id',
-    'estMelange',
     ]);
 
     $resultats = $this->resultats($datas);
@@ -348,7 +365,7 @@ class ExportsController extends Controller
       $prelevement_par_demande = Prelevement::where('demande_id', $demande->id)->get();
       $prelevements = $prelevements->concat($prelevement_par_demande);
     }
-/** INFO: la manipulation ci-dessous peut paraitre complexe mais elle tient compte du faire que
+/** INFO: la manipulation ci-dessous peut paraitre complexe mais elle tient compte du fait que
 * l'on fait un tableau avec des analyses différentes. Donc pour certains prélèvements
 * le parasite n'est pas toujours susceptible d'être recherché et donc il n'y pas de
 * résultat (même pas un résultat nul) --> d'où la création de cette variable _$existe_un_prelevement_
@@ -361,12 +378,27 @@ class ExportsController extends Controller
     foreach ($prelevements as $prelevement) {
       // On récupère les informations sur l'animal ou le lot prélevé
       // Au cas où il s'agit d'un mélange
+      $resultat['melange'] = $prelevement->melange->nom ?? '';
+      // Si c'est mélange, il faut concaténer la liste de animaux (numéros ou nom)
       if($prelevement->estMelange) {
-          Log::info($prelevement);
+
+          $animals_melange = "";
+
+          foreach ($prelevement->melange->animals as $animal) {
+
+            $animals_melange = $animals_melange . ($animal->numero ?? $animal->nom) . ', ';
+          }
+
+          $resultat['animal_numero'] = $animals_melange;
+          $resultat['animal_nom'] = "";
+
+      } else {
+
+        $resultat['animal_numero'] = $prelevement->animal->numero ?? $prelevement->identification;
+        $resultat['animal_nom'] = $prelevement->animal->nom ?? '';
+
       }
 
-      $resultat['animal_numero'] = $prelevement->animal->numero ?? $prelevement->identification;
-      $resultat['animal_nom'] = $prelevement->animal->nom ?? '';
       // On passe en revue tous les anaitems listés dans le formulaire de exports/choix
       foreach ($anaitems as $anaitem) {
         // On recherche un résultat pour ce prélèvement et cet anaitem
@@ -395,7 +427,6 @@ class ExportsController extends Controller
       $resultat['espece'] = $prelevement->demande->espece->nom;
       $resultat['troupeau'] = $prelevement->demande->troupeau->nom;
       $resultat['demande_id'] = $prelevement->demande->id;
-      $resultat['estMelange'] = ($prelevement->estMelange == true) ? "oui" : "non";
       // Et on l'ajoute à la collection
       $resultats->push($resultat);
     }
