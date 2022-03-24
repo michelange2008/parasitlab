@@ -176,6 +176,14 @@
     "route" : "laboratoire",
     "sousmenu" :
     {
+      "sousmenu_0" :
+      {
+        "id" : "analyses",
+        "prefixe" : "menuLabo.item_5.sousmenu_0.",
+        "nom" : "Liste des analyses",
+        "tooltip" : "Ajouter, modifier, supprimer des analyses",
+        "route" : "analyses.index"
+      },
       "sousmenu_1" :
       {
         "id" : "detail",

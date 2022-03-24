@@ -27,7 +27,7 @@ class ListeAnalysesFournisseur extends ListeFournisseur
 
       $espece = $this->iconeFactory($analyse->espece->icone);
 
-      $type = $this->lienFactory($analyse->anatype->id, $analyse->anatype->nom, 'anatypes.show', 'affiche_detail_type');
+      $type = $this->lienFactory($analyse->anatype->id, $analyse->anatype->nom, 'anatypes.edit', 'affiche_detail_type');
 
       $suppr = $this->delFactory($analyse->id, 'analyses.destroy');
 

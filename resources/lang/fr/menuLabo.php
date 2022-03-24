@@ -95,6 +95,11 @@ return array (
   array (
     'nom' => 'Prestations',
     'tooltip' => 'Liste des différentes analyses et packs',
+    'sousmenu_0' =>
+    array (
+      'nom' => 'Liste des analyses',
+      'tooltip' => 'Ajouter, modifier, supprimer des analyses',
+    ),
     'sousmenu_1' =>
     array (
       'nom' => 'Détail des analyses',

@@ -12,6 +12,7 @@ return array (
   'affiche_detail_eleveur' => 'Cliquer pour afficher le détail de cet éleveur',
   'affiche_detail_analyse' => 'Cliquer pour afficher le détail de cette analyse',
   'affiche_detail_serie' => 'Cliquer pour afficher cette série',
+  'affiche_detail_type' => 'Cliquer pour afficher cet type d\'analyse',
   'affiche_facture' => 'Cliquer pour afficher cette facture',
   'affiche_detail_acte' => 'Cliquer pour afficher la liste des actes',
   'create_facture' => 'Cliquer pour créer la facture',

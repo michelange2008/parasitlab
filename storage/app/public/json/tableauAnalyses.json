@@ -32,9 +32,9 @@
       "align" : "center",
       "sortable" : false
     },
-    "acte" : {
-      "id" : "acte",
-      "nom" : "tableaux.acte",
+    "type" : {
+      "id" : "type",
+      "nom" : "tableaux.type",
       "align" : "left",
       "sortable" : true
     },
