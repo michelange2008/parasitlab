@@ -133,6 +133,8 @@ class AnalyseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Analyse::destroy($id);
+
+        return redirect()->back()->with("message", 'analyse_del');
     }
 }

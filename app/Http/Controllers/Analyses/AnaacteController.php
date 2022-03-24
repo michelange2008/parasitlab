@@ -84,21 +84,19 @@ class AnaacteController extends Controller
      */
     public function store(Request $request)
     {
-        $datas = $request->all();
-
         $anaacte_nouveau = new Anaacte();
 
-        $anaacte_nouveau->anatype_id = $datas['anatype'];
-        $anaacte_nouveau->num = $datas['num'];
-        $anaacte_nouveau->abbreviation = $datas['abbreviation'];
-        $anaacte_nouveau->nom = $datas['nom'];
-        $anaacte_nouveau->description = $datas['description'];
-        $anaacte_nouveau->estActif = $datas['estActif'];
-        $anaacte_nouveau->estSerie = $datas['estSerie'];
-        $anaacte_nouveau->estAnalyse = $datas['estAnalyse'];
-        $anaacte_nouveau->estTarif = $datas['estTarif'];
-        $anaacte_nouveau->pu_ht = $datas['pu_ht'];
-        $anaacte_nouveau->icone_id = $datas['icone_id'];
+        $anaacte_nouveau->anatype_id = $request->anatype;
+        $anaacte_nouveau->num = $request->num;
+        $anaacte_nouveau->abbreviation = $request->abbreviation;
+        $anaacte_nouveau->nom = $request->nom;
+        $anaacte_nouveau->description = $request->description;
+        $anaacte_nouveau->estActif = $request->estActif ?? 1;
+        $anaacte_nouveau->estSerie = $request->estSerie;
+        $anaacte_nouveau->estAnalyse = $request->estAnalyse;
+        $anaacte_nouveau->estTarif = $request->estTarif;
+        $anaacte_nouveau->pu_ht = $request->pu_ht;
+        $anaacte_nouveau->icone_id = $request->icone_id;
 
         $anaacte_nouveau->save();
 
@@ -178,7 +176,9 @@ class AnaacteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Anaacte::destroy($id);
+
+        return redirect()->back()->with('message', 'anaacte_del');
     }
 
     public function age($age_id)
@@ -227,7 +227,7 @@ class AnaacteController extends Controller
     {
       $datas = $request->all();
 
-      $animal = ($datas['type'] === "age") ? Age::find($id) : Espece::find($id);
+      $animal = ($request->type === "age") ? Age::find($id) : Espece::find($id);
 
       $anaactes_id = Collect();
 

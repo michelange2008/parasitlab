@@ -42,7 +42,7 @@ class ListeAnaactesFournisseur extends ListeFournisseur
 
       $tva = $this->itemFactory($anaacte->tva->taux);
 
-      $suppr = $this->delFactory($anaacte->id, 'analyses.destroy');
+      $suppr = $this->delFactory($anaacte->id, 'anaactes.destroy');
 
       $description = [
         $icone,
