@@ -1,3 +1,4 @@
+
 {{-- Issu d'AnalyseController@create --}}
 @extends('layouts.app')
 
@@ -43,14 +44,6 @@
             </div>
 
           </div>
-
-          @inputText([
-            'nom' => 'explication',
-            'label' => 'analyse_explication',
-            'value' => '',
-            'required' => false
-          ])
-          <hr class="divider">
 
           <div class="form-row">
 

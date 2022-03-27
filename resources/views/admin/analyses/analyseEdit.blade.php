@@ -48,14 +48,6 @@
 
           </div>
 
-          @inputText([
-            'nom' => 'explication',
-            'label' => 'analyse_explication',
-            'value' => $analyse->explication,
-          ])
-
-          <hr class="divider">
-
           <div class="form-row">
 
             <div class="col-md-5">

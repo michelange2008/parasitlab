@@ -94,9 +94,6 @@ class AnalyseController extends Controller
             'anatype_id' => $request->anatype_id,
             'espece_id' => $request->espece_id,
             'icone_id' => (is_null($request->icone_id)) ? "39" : $request->icone_id,
-            'explication' => $request->explication,
-            'ordre' => 0,
-            'important' => 0,
           ]
         );
         $nouvelle_analyse->save();
@@ -136,7 +133,6 @@ class AnalyseController extends Controller
       log::info($request);
       $analyse = Analyse::find($id);
       $analyse->nom = $request->nom;
-      $analyse->explication = $request->explication;
       $analyse->espece_id = $request->espece_id;
       $analyse->anatype_id = $request->anatype_id;
       $analyse->icone_id = $request->icone_id;
