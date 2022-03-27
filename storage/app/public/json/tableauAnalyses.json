@@ -20,12 +20,6 @@
       "align" : "left",
       "sortable" : true
     },
-    "analyse" : {
-      "id" : "analyse",
-      "nom" : "tableaux.analyse",
-      "align" : "left",
-      "sortable" : true
-    },
     "espece" : {
       "id" : "espece",
       "nom" : "tableaux.espece",

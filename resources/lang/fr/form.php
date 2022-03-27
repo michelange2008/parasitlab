@@ -170,6 +170,9 @@ return array (
   'blog_intro' => 'Introduction ou résumé',
   'blog_intro_placeholder' => "Introduction ou court résumé",
 
+  'choix_anatype' => 'Choisissez le type d\'analyse correspondant',
+  'analyse_explication' => 'Explication du contenu d\'analyse',
+
   'cout_anaacte' => "Coût de cette analyse",
   'suppr' => "Supprimer",
   'modif' => "Modifier",

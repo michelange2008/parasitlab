@@ -31,6 +31,8 @@ return array (
   'anaacte_update' => "Cette analyse a été modifiée",
   'anaacte_del' => "Cette analyse a été supprimée",
   'analyse_del' => "Cette analyse a été supprimée",
+  'analyse_create' => "Une nouvelle analyse a été crée",
+  'analyse_update' => "L'analyse a été mise à jour",
   'animal_add' => "Un nouvel animal a été ajouté à ce troupeau",
   'animal_exist' => "Cet animal existe déjà",
   'animal_del' => "L'animal sélectionné a été supprimé",

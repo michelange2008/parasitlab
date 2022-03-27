@@ -10,11 +10,19 @@
 
           maxlength="{{ $maxlength ?? 191 }}"
 
-          required={{ $required ?? false }}
+          @isset($required)
+
+            @if ($required)
+
+              required
+
+            @endif
+
+          @endisset
 
           placeholder="{{ $placeholder ?? '' }}"
 
-          step = "0.1"
+          step = {{ $step ?? "0.1" }}
 
           >
 

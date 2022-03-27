@@ -41,7 +41,7 @@
 
           @foreach ($anatype->analyses as $analyse)
 
-            <form class="" action="{{ route('analyses.update', $analyse) }}" method="post">
+            <form class="" action="{{ route('anatypes.update', $analyse) }}" method="post">
 
               @method('PUT')
 

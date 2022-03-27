@@ -1,6 +1,10 @@
 <div class="form-group">
 
-  <select class="form-control" name="espece_id" required
+  <select id="espece_id"
+
+    class="form-control @error('espece_id') is-invalid @enderror"
+
+    name="espece_id" required
 
     @if ($disabled ?? false) disabled @endif> {{-- Cas de la création d'un troupeau pendant la saisie d'une demande --}}
 

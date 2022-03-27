@@ -57,6 +57,7 @@ return array (
   'anaitem_create' => 'Ajouter un nouveau parasite',
   'anatype_create' => 'creation d\'un nouveau type d\'analyse',
   'anaacte_create' => 'Ajout d\'un nouvel acte (unité de facturation)',
+  'analyse_create' => 'Ajout d\'une nouvelle analyse (acte technique)',
 
   'algo_age_espece' => 'Algorithme de choix: espèces et âges',
   'age_espece' => 'Liste des espèces et des âges',

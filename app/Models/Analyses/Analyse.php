@@ -31,6 +31,7 @@ class Analyse extends Model
    * @var boolean
    */
     public $timestamps = false;
+    protected $guarded = [];
 
     /**
      * Toute analyse appartient à une espèce et une seule

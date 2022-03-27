@@ -21,8 +21,6 @@ class ListeAnalysesFournisseur extends ListeFournisseur
       // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
       $icone = $this->iconeFactory($analyse->icone);
 
-      $anatype = $this->itemFactory($analyse->anatype->nom);
-
       $nom = $this->lienFactory($analyse->id, $analyse->nom, 'analyses.edit', 'edit_analyse');
 
       $espece = $this->iconeFactory($analyse->espece->icone);
@@ -33,7 +31,6 @@ class ListeAnalysesFournisseur extends ListeFournisseur
 
       $description = [
         $icone,
-        $anatype,
         $nom,
         $espece,
         $type,

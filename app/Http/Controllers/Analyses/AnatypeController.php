@@ -10,6 +10,7 @@ use App\Http\Traits\LitJson;
 
 use \App\Models\Analyses\Anatype;
 use \App\Models\Analyses\Anaitem;
+use \App\Models\Analyses\Analyse;
 use \App\Models\Icone;
 use \App\Models\Espece;
 use \App\Models\Age;
@@ -121,20 +122,41 @@ class AnatypeController extends Controller
     }
 
     /**
-     * Non implémentée: Update the specified resource in storage.
+     *  Update the specified resource in storage.
+     * Met à jour les associations entre analyse et anaitem.
      *
-     * La vue formulaire appelée par edit renvoie à AnalyseController@update
+     * Cette méthode est appelée par la vue admin/anatypes/anatype.blade.php qui
+     * un formulaire pour modifier l'association entre un anatype et une espèce.
      *
-     * TODO: peut-être faudrat-il implémenter entièrement les méthodes de ce
-     * contrôleur mais il faudra revoir la relation avec AnalyseController.
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id Id de l'Anatype
      */
     public function update(Request $request, $id)
     {
-        $datas = $request->all();
+      $datas = $request->all();
+      // On récupère le préfixe qui permet de repérer les anaitems
+      $prefixe = $datas['prefixe'];
+      // On crée une collection vide
+      $liste_anaitems_id = [];
 
-        dd($datas);
+      foreach ($datas as $key => $element) {
+        // On explose les datas
+        if(explode('_', $key)[0] === $prefixe) {
+          // Pour ne récupérer que celles conernant les anaitems qu'on ajoute à la liste
+          $liste_anaitems_id[] = $element;
+
+        }
+
+      }
+      // On récupère l'analyse
+      $analyse = Analyse::find($id);
+      // On enlève toutes les associations entre cette analyse et les anaitems
+      $analyse->anaitems()->detach($analyse->anaitems);
+      // On recrée ces mêmes associations avec la nouvelle liste
+      $analyse->anaitems()->attach($liste_anaitems_id);
+      // Et on renvoie à la même page
+      return redirect()->route('anatypes.edit', $datas['anatype_id'])->with('message', 'anatype_update');
+
     }
 
     /**
