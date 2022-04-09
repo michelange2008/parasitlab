@@ -257,6 +257,13 @@
 
     Route::resource('icones', 'IconesController');
 
+    Route::get('stats', 'StatsController@index') -> name('stats.index');
+
+    Route::get('stats/analyseParMois', 'StatsController@analyseParMois') -> name('stats.analyseParMois');
+
+    // Route::resource('stats', 'StatsController');
+
+
     Route::get('documentation', 'DocController@index')->name('doc.index');
     //###########################
     // GESTION DE L'ALGORITME DE CHOIX

@@ -24,6 +24,9 @@
     "/js/melangeAdd.js.map": "/js/melangeAdd.js.map",
     "/js/melangeManager.js": "/js/melangeManager.js",
     "/js/melangeManager.js.map": "/js/melangeManager.js.map",
+    "/js/stats.js": "/js/stats.js",
+    "/js/stats.js.map": "/js/stats.js.map",
     "/css/bootstrap-table.min.css": "/css/bootstrap-table.min.css",
-    "/css/jquery-confirm.css": "/css/jquery-confirm.css"
+    "/css/jquery-confirm.css": "/css/jquery-confirm.css",
+    "/js/chart.min.js": "/js/chart.min.js"
 }

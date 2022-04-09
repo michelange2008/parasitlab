@@ -23,6 +23,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/melangeAdd', 'public/js')
     .js('resources/js/melangeManager', 'public/js')
     .js('resources/js/inputResultatValeur', 'public/js')
+    .js('resources/js/stats.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
    .options({
       processCssUrls: false
@@ -31,3 +32,4 @@ mix.js('resources/js/app.js', 'public/js')
 // mix.copy('node_modules/bootstrap-table/dist/extensions/accent-neutralise/bootstrap-table-accent-neutralise.min.js', 'public/js/bootstrap-table-accent-neutralise.min.js');
 mix.copy('node_modules/bootstrap-table/dist/bootstrap-table.min.css', 'public/css/bootstrap-table.min.css');
 mix.copy('node_modules/jquery-confirm/css/jquery-confirm.css', 'public/css/jquery-confirm.css');
+mix.copy('node_modules/chart.js/dist/chart.min.js', 'public/js/chart.min.js');

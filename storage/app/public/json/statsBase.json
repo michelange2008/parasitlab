@@ -1,0 +1,14 @@
+{
+  "nb_demandes":
+  {
+    "titre" : "stats.nb_demandes"
+  },
+  "nb_prelevements":
+  {
+    "titre" : "stats.nb_prelevements"
+  },
+  "total_factures":
+  {
+    "titre" : "stats.total_factures"
+  }
+}

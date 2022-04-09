@@ -244,6 +244,12 @@
         "prefixe" : "menuLabo.outils.icones.",
         "route" : "icones.index"
       },
+      "stats" :
+      {
+        "id" : "stats",
+        "prefixe" : "menuLabo.outils.stats.",
+        "route" : "stats.index"
+      },
       "divider" :
       {
         "id" : "divider"

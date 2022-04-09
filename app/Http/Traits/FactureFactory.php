@@ -85,6 +85,21 @@ trait FactureFactory
     return $facture;
   }
 
+  public function CalculFactureHT($facture)
+  {
+    $total_facture_HT = 0;
+
+    $anaactes_factures = Anaacte_Facture::where('facture_id', $facture->id)->get();
+
+    foreach ($anaactes_factures as $anaacte_facture) {
+
+      $total_facture_HT += floatval($anaacte_facture->pu_ht) * $anaacte_facture->nombre;
+
+    }
+
+    return $total_facture_HT;
+  }
+
   public function calculSommeFacture($facture)
   {
     $somme_facture = Collect();

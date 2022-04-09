@@ -146,6 +146,11 @@ return array (
       'nom' => 'Icones',
       'tooltip' => 'Gérer les icones',
     ),
+    'stats' =>
+    array (
+      'nom' => 'Statistiques',
+      'tooltip' => 'Afficher les statistiques',
+    ),
     'doc' =>
     array (
       'nom' => 'Documentation',

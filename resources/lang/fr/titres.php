@@ -79,4 +79,5 @@ return array (
   'melange_create' => 'Créer un nouveau mélange',
   'melange_create_suite' => 'Créer un nouveau mélange (suite)',
 
+  'stats_titre' => "statistiques",
 );
