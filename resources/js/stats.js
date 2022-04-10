@@ -1,20 +1,3 @@
-// Fonction qui renvoie un objet dans le sens contraire
-const reverseObj = (obj) => {
-  let newObj = {}
-  console.log(obj);
-Object.keys(obj)
-  .sort()
-  .reverse()
-  .forEach((key) => {
-    newObj[key] = obj[key]
-    console.log(key);
-  })
-
-  console.log(newObj);
-  return newObj
-}
-
-
 $(function() {
 
   var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
@@ -28,8 +11,8 @@ $(function() {
     var donnees = JSON.parse(datas);
     var graphiques = [];
     nb_courbes = Object.keys(donnees).length;
-    transp = 1;
-    for(const annee in reverseObj(donnees)) {
+    transp = 1; // indice de transparence de la courbe
+    for(const annee in donnees) {
       var serie = donnees[annee];
       valeurs = [];
       labels = [];
@@ -37,21 +20,20 @@ $(function() {
         labels.push(mois);
         valeurs.push(serie[mois]);
       }
-      // graphique = {
-      //   label: labels,
-      //   datasets: [{
-      //     label: annee,
-      //     backgroundColor: 'rgb(255, 99, 132)',
-      //     data: valeurs,
-      //   }]
-      // }
       graphique = {
         type: 'line',
         label: annee,
         data: valeurs,
-        borderColor: 'rgb(255, 125, 132,' + transp + ' )',
+        borderColor: 'rgb(255, 125, 132,' + transp/nb_courbes + ' )',
+        backgroundColor: 'rgb(255, 125, 132,' + transp/nb_courbes + ' )',
+        hoverBorderColor: 'rgb(255,125,132,1)',
+        borderWidth: transp,
+        order: transp/nb_courbes,
+        radius: 1,
+        tension: 0.2,
+        pointHoverRadius: 10,
       };
-      transp -= transp/nb_courbes;
+      transp += 1
       graphiques.push(graphique);
     }
     data = {
