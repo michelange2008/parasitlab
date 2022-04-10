@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Log;
+use DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\Productions\Demande;
@@ -87,6 +88,17 @@ class StatsController extends Controller
       }
     }
     return json_encode($datas);
+  }
+
+  public function analyseParEspece()
+  {
+    $prelevements = DB::table('prelevements')
+      ->join('demandes', 'prelevements.demande_id', '=', 'demandes.id')
+      ->join('especes', 'demandes.espece_id', '=', 'especes.id')
+      ->select('especes.nom', DB::raw('count(*) as total'))
+      ->groupBy('especes.nom')
+      ->get();
+    return json_encode($prelevements->all());
   }
 
   /**

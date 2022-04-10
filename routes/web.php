@@ -261,6 +261,8 @@
 
     Route::get('stats/analyseParMois', 'StatsController@analyseParMois') -> name('stats.analyseParMois');
 
+    Route::get('stats/analyseParEspece', 'StatsController@analyseParEspece') -> name('stats.analyseParEspece');
+
     // Route::resource('stats', 'StatsController');
 
 

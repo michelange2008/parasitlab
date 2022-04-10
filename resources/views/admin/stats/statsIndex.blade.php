@@ -44,9 +44,15 @@
 
     <div class="row justify-content-center">
 
-      <div class="col-md-10">
+      <div class="col-md-6">
 
         <canvas id="graph"></canvas>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <canvas id="pie"></canvas>
 
       </div>
 
