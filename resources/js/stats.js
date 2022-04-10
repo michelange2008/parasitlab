@@ -26,7 +26,7 @@ $(function() {
         data: valeurs,
         borderColor: 'rgb(255, 125, 132,' + transp/nb_courbes + ' )',
         backgroundColor: 'rgb(255, 125, 132,' + transp/nb_courbes + ' )',
-        hoverBorderColor: 'rgb(255,125,132,1)',
+        hoverBorderColor: 'rgb(255,255,132,1)',
         borderWidth: transp,
         order: transp/nb_courbes,
         radius: 1,
