@@ -1,14 +1,13 @@
 const COLORSESP = [
-  '#FFc9cca1',
-  '#FF543344',
-  '#FFcaa05a',
-  '#FF515262',
-  '#FFae6a47',
-  '#FF63787d',
-  '#FF8b4049',
-  '#FF8ea091',
+  '#6eb8a8',
+  '#2a584f',
+  '#74a33f',
+  '#fcffc0',
+  '#c6505a',
+  '#2f142f',
+  '#774448',
+  '#ee9c5d',
 ]
-
 var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
 
 var url = url_actuelle + '/analyseParEspece';
