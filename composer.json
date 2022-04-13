@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "barryvdh/laravel-dompdf": "^0.8.5",
+        "barryvdh/laravel-dompdf": "^1",
         "barryvdh/laravel-translation-manager": "^0.5.8",
         "fideloper/proxy": "^4.0",
         "graphp/graphviz": "^0.2.2",
