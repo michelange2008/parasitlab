@@ -6,6 +6,7 @@ use Log;
 use DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Eleveur;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Prelevement;
 use App\Models\Productions\Facture;
@@ -39,6 +40,7 @@ class StatsController extends Controller
     $statsBase = $this->litJson('statsBase');
     $statsBase->nb_demandes->count = Demande::count();
     $statsBase->nb_prelevements->count = Prelevement::count();
+    $statsBase->nb_eleveurs->count = Eleveur::count();
     $factures = Facture::all();
     $total_factures = 0;
     foreach ($factures as $facture) {

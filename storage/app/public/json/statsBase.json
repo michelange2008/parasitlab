@@ -10,5 +10,9 @@
   "total_factures":
   {
     "titre" : "stats.total_factures"
+  },
+  "nb_eleveurs":
+  {
+    "titre" : "stats.total_eleveurs"
   }
 }
