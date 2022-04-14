@@ -1,11 +1,11 @@
 const COLORSESP = [
-  '#6eb8a8',
+  '#c6505a',
   '#2a584f',
   '#74a33f',
-  '#fcffc0',
-  '#c6505a',
-  '#2f142f',
+  '#6eb8a8',
   '#774448',
+  '#fcffc0',
+  '#2f142f',
   '#ee9c5d',
 ]
 var url_actuelle = window.location.protocol + "//" + window.location.host + window.location.pathname; // récupère l'adresse de la page actuelle
