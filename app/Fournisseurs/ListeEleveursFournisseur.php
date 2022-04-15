@@ -72,7 +72,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
           $suppr,
         ];
 
-        $this->liste->put($user->eleveur->id , $description);
+        $this->liste->put($user->id , $description);
 
 
       }
