@@ -36,6 +36,17 @@ class ListeEleveursFournisseur extends ListeFournisseur
           $commune = $this->itemFactory($user->eleveur->commune);
 
           $tel = $this->itemFactory($this->telAvecEspace($user->eleveur->tel));
+
+          if ($user->eleveur->veto_id === null) {
+
+            $veto =$this->itemFactory("-");
+
+          }
+          else {
+
+            $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', 'affiche_veto');
+
+          }
         }
 
         else {
@@ -43,19 +54,10 @@ class ListeEleveursFournisseur extends ListeFournisseur
           $cp = '';
           $commune = '';
           $tel = '';
+          $veto = '';
         }
 
 
-        if ($user->eleveur->veto_id === null) {
-
-          $veto =$this->itemFactory("-");
-
-        }
-        else {
-
-          $veto = $this->lienFactory($user->eleveur->veto->user->id, $user->eleveur->veto->user->name,'vetoAdmin.show', 'affiche_veto');
-
-        }
 
         $suppr = $this->delFactory($user->id, 'eleveurAdmin.destroy');
 
