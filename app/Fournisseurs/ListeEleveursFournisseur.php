@@ -27,7 +27,7 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
         $email = $this->itemFactory($user->email);
 
-        $num = $this->itemFactory($this->numAvecEspace($user->eleveur->num));
+        $num = $this->itemFactory($this->numAvecEspace($user->eleveur->num) ?? '-');
 
         $cp = $this->itemFactory($user->eleveur->cp);
 
