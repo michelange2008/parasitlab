@@ -193,7 +193,7 @@ class EleveurAdminController extends Controller
 
     $user = $this->eleveurFormatNumber($user);
     // Ci-dessous méthode un peu limite pour créer une ligne vide d'infos sur l'user
-    // eleveur s'il n'existe pas... avec le trait EleveurInfos
+    // eleveur s'il n'existe pas... avec un trait EleveurInfos
     $user = $this->eleveurNul($user);
 
     $eleveurInfos = $this->eleveurInfos($user);

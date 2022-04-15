@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Anaacte;
 use App\Models\Espece;
+use App\Models\News;
 
 use App\Http\Traits\LitJson;
 
@@ -46,17 +47,21 @@ class AccueilController extends Controller
      *
      * @link https://parasitlab.org
      * @return \Illuminate\View\View extranet\accueil
+
+     * TODO mettre le prix du kit dans le texte en tant que variable et non en dur
+     * dans le fichier enpratiqueEnvoi.php
      */
     public function index()
     {
-/**
- * TODO mettre le prix du kit dans le texte en tant que variable et non en dur
- * dans le fichier enpratiqueEnvoi.php
- */
+      $new = News::where('display', true)->first();
+
+
       return view('extranet.accueil', [
         'menu' => $this->menu, //éléments du menu pour l'accès public
+        'newsBoutons' => $this->litJson('newsBoutons'),
         'accueilEntetes' => $this->litJson('accueilEntetes'), // éléments pour les cartouches et la présentation
         'carousel' => $this->litJson('carousel'), // éléments pour le carrousel de la page d'accueil (photos, texte)
+        'new' => $new,
         'resultats_rapides' => $this->litJson('resultats_rapides'),// éléments pour la partie basse de la page d'accueil
       ]);
     }

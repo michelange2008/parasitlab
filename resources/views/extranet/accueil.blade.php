@@ -28,6 +28,8 @@
 
     <div class="container-fluid text-center">
 
+      @include('extranet.news.news_index')
+
       @include('extranet.accueil.accueil_entetes')
 
       @include('extranet.accueil.accueil_labopresentation')

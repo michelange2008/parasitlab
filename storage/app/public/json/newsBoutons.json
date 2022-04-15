@@ -1,0 +1,20 @@
+{
+  "modeEmploi" :
+  {
+    "texte" : "Mode d'emploi",
+    "fa" : "wrench",
+    "route" : "howto"
+  },
+  "kits" :
+  {
+    "texte" : "Kits de prélèvement",
+    "fa" : "paper-plane",
+    "route" : "envoiKit"
+  },
+  "tarifs" :
+  {
+    "texte" : "Tarifs",
+    "fa" : "euro-sign",
+    "route" : "tarifs"
+  }
+}
