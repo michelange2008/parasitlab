@@ -5,6 +5,7 @@ use Log;
 use DB;
 
 use App\Models\Troupeau;
+use App\Models\Eleveur;
 use App\User;
 use App\Models\Productions\Demande;
 /**
@@ -52,9 +53,13 @@ trait EleveurInfos
   public function eleveurFormatNumber($user)
   {
 
-    $user->eleveur->num = $this->numAvecEspace($user->eleveur->num);
+    if($user->eleveur != null) {
 
-    $user->eleveur->tel = $this->telAvecEspace($user->eleveur->tel);
+      $user->eleveur->num = $this->numAvecEspace($user->eleveur->num);
+
+      $user->eleveur->tel = $this->telAvecEspace($user->eleveur->tel);
+
+    }
 
     return $user;
 
@@ -66,5 +71,32 @@ trait EleveurInfos
     log::info($troupeaux);
 
     return $troupeaux;
+  }
+
+  /*
+  Si un éleveur n'existe pas dans la table éleveurs mais est présent dans la
+  table user, il faut lui donner une existence
+   */
+  public function eleveurNul($user)
+  {
+    if($user->eleveur == null) {
+
+      $nouvel_eleveur = new Eleveur();
+
+      $nouvel_eleveur->user_id = $user->id;
+      $nouvel_eleveur->num = '';
+      $nouvel_eleveur->address_1 = '';
+      $nouvel_eleveur->address_2 = '';
+      $nouvel_eleveur->cp = '';
+      $nouvel_eleveur->commune = '';
+      $nouvel_eleveur->tel = '';
+
+      $nouvel_eleveur->save();
+
+      $user = User::find($user->id);
+
+    }
+
+    return $user;
   }
 }

@@ -62,7 +62,9 @@ trait UserUpdateDetail
             'pays' => $datas['pays'],
             'indicatif' => $datas['indicatif'],
             'tel' => $datas['tel'],
-            'veto_id' => ($datas['veto_id'] == 0) ? null : $datas['veto_id'] // si le veto est à créer (veto_id = 0) on lui met temporairement une valeur nulle (aucun vétérinaire) en atendant de créer le véto
+            'veto_id' => ($datas['veto_id'] == 0 || $datas['veto_id'] == "null") ? null : $datas['veto_id']
+            // si le veto est à créer (veto_id = 0) on lui met temporairement une valeur nulle (aucun vétérinaire) en atendant de créer le véto
+            // Et si on n'a pas saisi de véto, le data['veto_id'] = "null" (string) et non null 
 
           ]);
 
