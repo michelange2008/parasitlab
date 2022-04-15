@@ -100,7 +100,9 @@ trait UserCreateDetail
 
     $nouvel_eleveur->tel = $datas['tel'];
 
-    $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0) ? null : $datas['veto_id']; // si le veto est à créer (veto_id = 0) on lui met temporairement une valeur nulle (aucun vétérinaire) en atendant de créer le véto
+    $nouvel_eleveur->veto_id = ($datas['veto_id'] == 0 || $datas['veto_id'] == "null") ? null : $datas['veto_id'];
+    // si le veto est à créer (veto_id = 0) on lui met temporairement une valeur nulle (aucun vétérinaire) en attendant de créer le véto
+    // Si on n'a pas saisit de valeur pour le véto, le formulaire renvoie la valeur "null" (un string) et non pas null... donc conversion
 
     $nouvel_eleveur->save();
 
