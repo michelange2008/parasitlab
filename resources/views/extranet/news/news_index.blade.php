@@ -32,6 +32,7 @@
             'intitule' => $bouton->texte,
             'couleur' => 'btn-secondary',
             'taille' => 'btn-sm',
+            'target' => '_self',
           ])
         @endforeach
 
