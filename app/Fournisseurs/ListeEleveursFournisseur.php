@@ -27,13 +27,24 @@ class ListeEleveursFournisseur extends ListeFournisseur
 
         $email = $this->itemFactory($user->email);
 
-        $num = $this->itemFactory($this->numAvecEspace($user->eleveur->num) ?? '-');
+        if ($user->eleveur != null) {
+          // code...
+          $num = $this->itemFactory($this->numAvecEspace($user->eleveur->num));
 
-        $cp = $this->itemFactory($user->eleveur->cp);
+          $cp = $this->itemFactory($user->eleveur->cp);
 
-        $commune = $this->itemFactory($user->eleveur->commune);
+          $commune = $this->itemFactory($user->eleveur->commune);
 
-        $tel = $this->itemFactory($this->telAvecEspace($user->eleveur->tel));
+          $tel = $this->itemFactory($this->telAvecEspace($user->eleveur->tel));
+        }
+
+        else {
+          $num = '';
+          $cp = '';
+          $commune = '';
+          $tel = '';
+        }
+
 
         if ($user->eleveur->veto_id === null) {
 
