@@ -1,4 +1,4 @@
-<p>@lang('form.'.$intitule)</p>
+<p>{{ ucfirst(__('form.'.$intitule)) }}</p>
 
 <div class="custom-control custom-radio custom-control-inline">
 

@@ -58,4 +58,8 @@ return array (
   'numero_nom_null' => "Attention, le numéro doit être composé de chiffres et/ou de lettres",
   'melange_updated' => "Le mélange a été modifié",
   'pb_nb_prelevement' => "Il y a eu un problème dans le nombre de prélèvements. Veuillez réessayer.",
+  'news_store' => "Une nouvelle news a été créée",
+  'news_del' => "Cette news a été supprimée",
+  'news_choose' => "Le choix de la news à afficher a été modifié",
+
 );

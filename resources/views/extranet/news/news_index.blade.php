@@ -1,40 +1,40 @@
-<div class="row justify-content-center my-3">
+@extends('layouts.app')
 
-  <div class="col-md-10 bg-bleu-tres-clair p-3">
+@section('menu')
 
-    <h2 class="lead text-left text-white bg-bleu-tres-fonce mb-3 p-2">
-      Info du jour ({{ Carbon\Carbon::now()->isoFormat('MMMM Y') }})
-    </h2>
+  @include('labo.laboMenu')
 
-    <div class="media">
+@endsection
 
-      <img src="{{ url('storage/img/'.$new->img) }}" alt="">
+@section('content')
 
-      <div class="media-body text-left p-2">
+  <div class="container-fluid">
 
-        <h5 class="mt-0">
-          {{ $new->title }}
-        </h5>
-        <p>
-          {{ $new->content }}
-        </p>
-        <p><strong>
-          {{ $new->conclusion }}
-        </strong></p>
-        <hr class="divider">
+    <div class="row my-3 justify-content-center">
 
-        @foreach ($newsBoutons as $bouton)
+      <div class="col-md-10">
 
-          @bouton([
-            'type' => 'link',
-            'lien' => 'express/'.$bouton->route,
-            'fa' => "fas fa-".$bouton->fa,
-            'intitule' => $bouton->texte,
-            'couleur' => 'btn-secondary',
-            'taille' => 'btn-sm',
-            'target' => '_self',
-          ])
-        @endforeach
+        @include('fragments.flash')
+
+      </div>
+
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10">
+
+        @include('extranet.news.news_choice')
+
+      </div>
+
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10">
+
+        @include('admin.index.index')
 
       </div>
 
@@ -42,4 +42,4 @@
 
   </div>
 
-</div>
+@endsection

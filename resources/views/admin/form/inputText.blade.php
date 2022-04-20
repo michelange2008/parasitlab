@@ -1,6 +1,6 @@
 <div class="form-group">
 
-  <label for="{{ $nom }}">@lang('form.'.$label)</label>
+  <label for="{{ $nom }}">{{ ucfirst(__('form.'.$label)) }}</label>
 
   <input class="form-control" type="{{ $type ?? 'num' }}"
 

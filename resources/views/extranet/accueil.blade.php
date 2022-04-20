@@ -28,7 +28,11 @@
 
     <div class="container-fluid text-center">
 
-      @include('extranet.news.news_index')
+      @isset($new)
+
+        @include('extranet.news.news_display')
+
+      @endisset
 
       @include('extranet.accueil.accueil_entetes')
 

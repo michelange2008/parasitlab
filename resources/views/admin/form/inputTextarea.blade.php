@@ -1,12 +1,12 @@
 <div class="form-group">
 
-  <label for="{{ $nom }}">@lang('form.'.$label)</label>
+  <label for="{{ $nom }}">{{ucfirst(__('form.'.$label))}}</label>
 
   <textarea class="form-control"
 
     name="{{ $nom }}" id="{{ $nom }}"
 
-    rows = "3"
+    rows = {{ $rows ?? "3"}}
 
     required={{ $required ?? true }}
 

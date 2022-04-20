@@ -257,14 +257,25 @@
 
     Route::resource('icones', 'IconesController');
 
+    //###########################
+    // News
+
+    Route::post('news/choice', 'Technique\NewsController@newsChoice')->name('news.choice');
+
+    Route::resource('news', 'Technique\NewsController');
+
+    //############################
+    // STATISTIQUES
+    //############################
+
     Route::get('stats', 'StatsController@index') -> name('stats.index');
 
     Route::get('stats/analyseParMois', 'StatsController@analyseParMois') -> name('stats.analyseParMois');
 
     Route::get('stats/analyseParEspece', 'StatsController@analyseParEspece') -> name('stats.analyseParEspece');
 
-    // Route::resource('stats', 'StatsController');
-
+    // #############################
+    // DOCUMENTATION
 
     Route::get('documentation', 'DocController@index')->name('doc.index');
     //###########################

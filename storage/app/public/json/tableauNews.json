@@ -1,0 +1,48 @@
+{
+  "tri" : {
+
+    "colonne" : "title",
+
+    "ordre" : "asc"
+  },
+
+  "liste" : {
+
+    "image" : {
+      "id" : "img",
+      "nom" : "",
+      "align" : "center",
+      "sortable" : false
+    },
+    "title" : {
+      "id" : "title",
+      "nom" : "form.news_title",
+      "align" : "left",
+      "sortable" : true
+    },
+    "content" : {
+      "id" : "content",
+      "nom" : "form.news_content",
+      "align" : "left",
+      "sortable" : false
+    },
+    "conclusion" : {
+      "id" : "conclusion",
+      "nom" : "form.news_conclusion",
+      "align" : "left",
+      "sortable" : true
+    },
+    "display" : {
+      "id" : "display",
+      "nom" : "form.news_display",
+      "align" : "center",
+      "sortable" : false
+    },
+    "suppr" : {
+      "id" : "suppr",
+      "nom" : "tableaux.del",
+      "align" : "center",
+      "sortable" : false
+    }
+  }
+}

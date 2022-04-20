@@ -221,6 +221,11 @@
     "tooltip" : "Utilitaires et infos",
     "route" : "accueil",
     "sousmenu" : {
+      "news" : {
+        "id" : "news",
+        "prefixe" : "menuLabo.outils.news.",
+        "route" : "news.index"
+      },
       "export" : {
         "id" : "exports",
         "prefixe" : "menuLabo.outils.exports.",

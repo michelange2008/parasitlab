@@ -15,6 +15,7 @@ return array (
   'add_troupeau' => "Ajouter un troupeau",
   'add_melange' => "Ajouter un mélange",
   'add_espece' => "Ajouter une espèce",
+  'add_news' => "Ajouter une news",
 
   'choisir' => "Choisir",
 

@@ -35,7 +35,10 @@ $(function() {
 
 	$('.toast').toast();
 
-	$('.carousel').carousel();
+	$('.carousel').carousel({
+    pause: 'hover',
+    wrap: true,
+  });
 
 
 	// Fonction d'appel d'une boite de dialogue quand on veut supprimer quelque chose (analyse, personne, etc.)

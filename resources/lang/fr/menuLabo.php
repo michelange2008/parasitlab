@@ -131,6 +131,11 @@ return array (
       'nom' => 'Traductions',
       'tooltip' => 'Accès à l\'outil de traduction',
     ),
+    'news' =>
+    array (
+      'nom' => 'News',
+      'tooltip' => 'Ajouter, modifier et supprimer des news',
+    ),
     'exports' =>
     array (
       'nom' => 'Exports',

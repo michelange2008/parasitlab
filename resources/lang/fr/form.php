@@ -207,4 +207,14 @@ return array (
 
   'nom_espece' => "Nom de l'espèce",
   'abbreviation_espece' => "Abbréviation de l'espèce",
+
+  'news_title' => 'titre',
+  'news_content' => 'texte',
+  'news_content_placeholder' => "Texte principal de le news",
+  'news_conclusion' => 'conclusion',
+  'news_conclusion_placeholder' => "Conclusion de la news",
+  'news_display' => 'à afficher',
+  'news_img_name' => 'nom de l\'image',
+  'news_choice' => "Choix de la news à afficher",
+  'no_news' => 'Aucune news',
 );

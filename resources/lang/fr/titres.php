@@ -45,6 +45,7 @@ return array (
   'list_animals' => 'Liste des animaux',
   'list_melanges' => 'Liste des mélanges',
   'list_especes' => 'Liste des espèces',
+  'list_news' => 'Liste des news',
 
   'troupeauCreate' => "Ajout d'un nouveau troupeau",
   'especeCreate' => "Ajout d'une nouvelle espèce",
@@ -78,6 +79,9 @@ return array (
 
   'melange_create' => 'Créer un nouveau mélange',
   'melange_create_suite' => 'Créer un nouveau mélange (suite)',
+
+  'news_create' => "Créer une nouvelle News",
+  'news_edit' => "Modifier une News",
 
   'stats_titre' => "statistiques",
 );
