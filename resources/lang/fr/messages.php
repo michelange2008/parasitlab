@@ -61,5 +61,6 @@ return array (
   'news_store' => "Une nouvelle news a été créée",
   'news_del' => "Cette news a été supprimée",
   'news_choose' => "Le choix de la news à afficher a été modifié",
+  'news_edited' => "La news a été mise à jour"
 
 );
