@@ -260,6 +260,7 @@
     //###########################
     // News
 
+    Route::get('news/phpinfo', 'Technique\NewsController@phpinfo');
     Route::post('news/choice', 'Technique\NewsController@newsChoice')->name('news.choice');
 
     Route::resource('news', 'Technique\NewsController');

@@ -180,4 +180,9 @@ class NewsController extends Controller
       return redirect()->route('news.index');
 
     }
+
+    public function phpinfo()
+    {
+      phpinfo();
+    }
 }
