@@ -47,6 +47,15 @@
         "nom" : "Actes",
         "tooltip" : "Afficher les actes",
         "route" : "acte.index"
+      },
+      "divider_2" : {
+        "id": "divider"
+      },
+      "stats" :
+      {
+        "id" : "stats",
+        "prefixe" : "menuLabo.outils.stats.",
+        "route" : "stats.index"
       }
     }
   },
@@ -153,7 +162,7 @@
         "tooltip" : "Ajouter, modifier, supprimer des animaux",
         "route" : "animal.index"
       },
-      "divider" : {
+      "divider_1" : {
         "id": "divider"
       },
       "melanges" :
@@ -164,6 +173,15 @@
         "icone" : "tout.svg",
         "tooltip" : "Ajouter, modifier, supprimer des mélanges",
         "route" : "melange.index"
+      },
+      "divider" : {
+        "id": "divider"
+      },
+      "especes" :
+      {
+        "id" : "especes",
+        "prefixe" : "menuLabo.outils.especes.",
+        "route" : "espece.index"
       }
     }
   },
@@ -231,17 +249,9 @@
         "prefixe" : "menuLabo.outils.exports.",
         "route" : "exports.choix"
       },
-      "traductions" :
+      "divider" :
       {
-        "id" : "traductions",
-        "prefixe" : "menuLabo.outils.traductions.",
-        "route" : "traductions"
-      },
-      "especes" :
-      {
-        "id" : "especes",
-        "prefixe" : "menuLabo.outils.especes.",
-        "route" : "espece.index"
+        "id" : "divider"
       },
       "icones" :
       {
@@ -249,15 +259,11 @@
         "prefixe" : "menuLabo.outils.icones.",
         "route" : "icones.index"
       },
-      "stats" :
+      "traductions" :
       {
-        "id" : "stats",
-        "prefixe" : "menuLabo.outils.stats.",
-        "route" : "stats.index"
-      },
-      "divider" :
-      {
-        "id" : "divider"
+        "id" : "traductions",
+        "prefixe" : "menuLabo.outils.traductions.",
+        "route" : "traductions"
       },
       "doc" :
       {
