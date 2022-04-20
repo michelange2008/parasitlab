@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Technique;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Image;
 use App\Models\News;
 use App\Fournisseurs\ListeNewsFournisseur;
 
@@ -69,15 +69,16 @@ class NewsController extends Controller
       News::where('display', 1)->update(['display' => 0]);
 
       $file = $request->file('news_img_nouvelle');
-      $img = $file->hashName();
-      $file->storeAs('img/news', $img, 'public');
+      $image = Image::make($file); // Utilisation de intervention/image
+      $image->resize($image->width()*200/$image->height(), 200);
+      $image->save('storage/img/news/'.$file->hashName());
 
       $nouvelle_news = new News;
 
       $nouvelle_news->title = $request->title;
       $nouvelle_news->content = $request->content;
       $nouvelle_news->conclusion = $request->conclusion;
-      $nouvelle_news->img = $img;
+      $nouvelle_news->img = $file->hashName();
       $nouvelle_news->display = true;
 
       $nouvelle_news->save();
@@ -128,8 +129,10 @@ class NewsController extends Controller
       if($request->news_img_nouvelle !== null) {
         // Si on a choisit une nouvelle image, on la stocke
         $file = $request->file('news_img_nouvelle');
+        $image = Image::make($file); // Utilisation de intervention/image
+        $image->resize($image->width()*200/$image->height(), 200);
+        $image->save('storage/img/news/'.$file->hashName());
         $img = $file->hashName();
-        $file->storeAs('img/news', $img, 'public');
         // et on supprime l'ancienne
         $news_img_avec_chemin = 'storage/img/news/'.News::find($id)->img;
         $this->supprImage($news_img_avec_chemin);
