@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.0",
         "barryvdh/laravel-dompdf": "^1",
-        "barryvdh/laravel-translation-manager": "^0.5.8",
+        "barryvdh/laravel-translation-manager": "^0.6.2",
         "fideloper/proxy": "^4.0",
         "graphp/graphviz": "^0.2.2",
         "guzzlehttp/guzzle": "^7.0.1",
