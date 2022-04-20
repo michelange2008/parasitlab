@@ -8,7 +8,7 @@
 
     <div class="media">
 
-      <img src="{{ url('storage/img/news/'.$new->img) }}" alt="">
+      <img class="img-200" src="{{ url('storage/img/news/'.$new->img) }}" alt="">
 
       <div class="media-body text-left p-2">
 
