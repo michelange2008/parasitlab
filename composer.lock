@@ -1160,23 +1160,23 @@
         },
         {
             "name": "google/gax",
-            "version": "v1.12.0",
+            "version": "v1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/gax-php.git",
-                "reference": "d802c9b40c349f5368f077bfcbc2982e7c31f43c"
+                "reference": "c853202dcbaaba105c51200af0c903b69cdea6b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/d802c9b40c349f5368f077bfcbc2982e7c31f43c",
-                "reference": "d802c9b40c349f5368f077bfcbc2982e7c31f43c",
+                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/c853202dcbaaba105c51200af0c903b69cdea6b5",
+                "reference": "c853202dcbaaba105c51200af0c903b69cdea6b5",
                 "shasum": ""
             },
             "require": {
                 "google/auth": "^1.18.0",
                 "google/common-protos": "^1.0||^2.0",
                 "google/grpc-gcp": "^0.2",
-                "google/protobuf": "^3.12.2",
+                "google/protobuf": "^3.12.2, !=3.20.0",
                 "grpc/grpc": "^1.13",
                 "guzzlehttp/promises": "^1.3",
                 "guzzlehttp/psr7": "^1.7.0||^2",
@@ -1207,9 +1207,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/gax-php/issues",
-                "source": "https://github.com/googleapis/gax-php/tree/v1.12.0"
+                "source": "https://github.com/googleapis/gax-php/tree/v1.12.1"
             },
-            "time": "2022-02-24T22:04:47+00:00"
+            "time": "2022-04-20T16:46:29+00:00"
         },
         {
             "name": "google/grpc-gcp",
@@ -1258,16 +1258,16 @@
         },
         {
             "name": "google/protobuf",
-            "version": "v3.20.0",
+            "version": "v3.19.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/protocolbuffers/protobuf-php.git",
-                "reference": "c2fa02b7b39786ff9f76e3b3c1bb28a022987278"
+                "reference": "6f0a54186f133aff98f49d0f36a32d4a4f7d4cbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/c2fa02b7b39786ff9f76e3b3c1bb28a022987278",
-                "reference": "c2fa02b7b39786ff9f76e3b3c1bb28a022987278",
+                "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/6f0a54186f133aff98f49d0f36a32d4a4f7d4cbd",
+                "reference": "6f0a54186f133aff98f49d0f36a32d4a4f7d4cbd",
                 "shasum": ""
             },
             "require": {
@@ -1297,9 +1297,9 @@
             ],
             "support": {
                 "issues": "https://github.com/protocolbuffers/protobuf-php/issues",
-                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.20.0"
+                "source": "https://github.com/protocolbuffers/protobuf-php/tree/v3.19.4"
             },
-            "time": "2022-04-01T18:03:16+00:00"
+            "time": "2022-01-28T17:23:32+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -9836,5 +9836,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.0.0"
 }
