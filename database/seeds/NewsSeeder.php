@@ -22,7 +22,7 @@ class NewsSeeder extends Seeder
               gastro-intestinaux.",
             'conclusion' => "Si vous êtes inquiets sur les niveaux d'infestation parasitaire de vos animaux,
               prévoyez de faire des analyses coproscopiques au mois de mai ou juin.",
-            'img' => 'mise_a_l_herbe.jpg',
+            'img' => 'BKZ5hkFuLOw8eJe2Ugw2c15vtHrTZOVcl1ZCTcou.jpg',
 
           ]
         ]);
