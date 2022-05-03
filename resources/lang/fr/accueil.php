@@ -71,4 +71,5 @@ return array (
     'titre' => 'INFORMATION IMPORTANTE',
     'texte' => 'Pour accéder à toutes les fonctionnalités de ce site, vous devez activer JavaScript.',
   ),
+  'info_moment' => 'Info du moment',
 );
