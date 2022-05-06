@@ -3,7 +3,7 @@
   <div class="col-md-10 bg-bleu-tres-clair p-3">
     <h2 class="lead text-left alert-bleu-tres-fonce  mb-3 p-2">
       <span class="spinner-grow text-bleu-tres-fonce" role="status"></span>
-      Info du jour ({{ Carbon\Carbon::now()->isoFormat('MMMM Y') }})
+      @lang('accueil.info_moment') ({{ Carbon\Carbon::now()->isoFormat('MMMM Y') }})
     </h2>
 
     <div class="media">
