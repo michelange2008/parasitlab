@@ -12,7 +12,7 @@ Est appelé par app\Mail\EnvoiInfosConnexion.php --}}
 
     <a href="{!! url('login') !!}">Parasit'Lab
 
-      <img class="img-90" src="{{ $message->embed(url('storage/logo.svg')) }}" alt="Parasit'Lab">
+      {{-- <img class="img-90" src="{{ $message->embed(url('storage/logo.svg')) }}" alt="Parasit'Lab"> --}}
 
     </a>
 
