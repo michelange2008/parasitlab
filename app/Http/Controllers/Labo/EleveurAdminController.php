@@ -129,7 +129,6 @@ class EleveurAdminController extends Controller
     // On le récupère par la variable de session.
     $nouvel_user = session('creation.nouvel_user');
 
-    session()->forget(['creation.nouvel_user']);
 
     // On crée le mot de passe (maintenant et non dans UserController pour ne pas pas avoir à le stoker en session)
     $mdp = str_random(8);
@@ -143,6 +142,7 @@ class EleveurAdminController extends Controller
     // Et on l'enregistre
     $nouvel_user->save();
 
+    session()->forget(['creation.nouvel_user']);
     //Puis on fait appel au trait UserCreateDetail pour vérifier et enregistrer l'éleveur correspondant
     $this->eleveurCreateDetail($datas, $nouvel_user->id);
 
