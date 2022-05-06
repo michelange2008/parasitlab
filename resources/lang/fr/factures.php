@@ -33,4 +33,6 @@ return array (
   'zero_acte_a_facturer' => 'Aucun acte à facturer',
   'zero_analyse_a_facturer' => 'Aucune analyse à facturer',
   'zero_facture' => 'Il n\'y a pour l\'instant aucune facture',
+  'nbImpaye' => 'Nombre de factures impayées',
+  'nbAEtablir' => "Nombre de factures à établir",
 );

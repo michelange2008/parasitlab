@@ -8,6 +8,7 @@ use App\Models\Troupeau;
 use App\Models\Eleveur;
 use App\User;
 use App\Models\Productions\Demande;
+use App\Models\Productions\Acte;
 /**
  * RENVOI DES INFORMATIONS SUR L'UTILISATEUR: NOMBRE DE DEMANDES, NOMBRE DE FACTURES IMPAYEES
  */
@@ -26,6 +27,7 @@ trait EleveurInfos
     $eleveurInfos->user = $user;
     $eleveurInfos->nbDemandes = $this->nbDemandes($user);
     $eleveurInfos->factureImpayees = $this->factureImpayees($user);
+    $eleveurInfos->nbFacturesAEtablir = $this->nbFacturesAEtablir($user);
     $eleveurInfos->troupeaux = $this->troupeaux($user);
 
     return $eleveurInfos;
@@ -41,12 +43,35 @@ trait EleveurInfos
   {
     $facturesImpayees = DB::table('demandes')
               ->join('factures', 'factures.id', '=', 'demandes.facture_id')
-              ->where('factures.faite_date', 1)
+              ->where('demandes.facturee', 1)
               ->where('factures.payee', 0)
               ->where('demandes.user_id', $user->id)
               ->count();
 
     return $facturesImpayees;
+  }
+
+  /**
+   * Calculer le nombre d'analyses à d'actes non encore facturés
+   *
+   * Undocumented function long description
+   *
+   * @param type $user utilisateur
+   * @return return integer
+   */
+  public function nbFacturesAEtablir($user)
+  {
+    $nbDemandesAFacturer = Demande::where('userfact_id', $user->id)
+                                  ->where('facturee', 0)
+                                  ->count();
+
+    $nbActesAFacturer = Acte::where('user_id', $user->id)
+                                  ->where('facturee', 0)
+                                  ->count();
+
+    $nbFacturesAEtablir = $nbDemandesAFacturer + $nbActesAFacturer;
+
+    return $nbFacturesAEtablir;
   }
 
 

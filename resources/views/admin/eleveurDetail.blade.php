@@ -12,6 +12,8 @@
 
       @include('admin.detail.nbDemandes')
 
+      @include('admin.detail.nbFacturesAEtablir')
+
       @include('admin.detail.nbFacturesImpayees')
 
       @include('admin.detail.eleveur_troupeau_animaux')
