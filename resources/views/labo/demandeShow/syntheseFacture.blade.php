@@ -18,10 +18,9 @@
         </td>
       @elseif ($demande->acheve)
         <td class="color-rouge-tres-fonce text-left pl-0" colspan="2">
-          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createDemandeFromUser',
+          <a class="btn btn-bleu btn-sm" href="{{ route('factures.createFromUser',
             [
               $demande->userfact_id,
-              $demande->id,
             ]) }}">
             @lang('factures.faire_facture')
           </a>
