@@ -41,7 +41,7 @@ class StatsController extends Controller
     $statsBase->nb_demandes->count = Demande::count();
     $statsBase->nb_prelevements->count = Prelevement::count();
     $statsBase->nb_eleveurs->count = Eleveur::count();
-    $factures = Facture::all();
+    $factures = Facture::where('user_id', '<>', 0)->get();
     $total_factures = 0;
     foreach ($factures as $facture) {
       $total_factures += $this->CalculFactureHT($facture);
