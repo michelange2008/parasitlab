@@ -62,6 +62,7 @@ trait EleveurInfos
   public function nbFacturesAEtablir($user)
   {
     $nbDemandesAFacturer = Demande::where('userfact_id', $user->id)
+                                  ->where('envoye', 1)
                                   ->where('facturee', 0)
                                   ->count();
 
