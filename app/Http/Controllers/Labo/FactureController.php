@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
-
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 use App\User;
 use App\Models\Veto;
 use App\Models\Productions\Facture;
@@ -18,7 +18,7 @@ use App\Models\Productions\Modereglement;
 use App\Fournisseurs\ListeFacturesFournisseur;
 
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ResultatsExportation;
+use App\Exports\FacturesExportation;
 
 
 use App\Http\Traits\LitJson;
@@ -372,21 +372,23 @@ class FactureController extends Controller
         $facture = $this->ajouteSommeEtTvasEtNum($facture);
         $r["numéro de facture"] = $facture->num;
         $r["Destinataire facture"] = $facture->user->name;
-        $r["Date de la facture"] = (new Carbon($facture->faite_date))->format('j\/m\/Y');
+        $r["Date de la facture"] = Date::dateTimeToExcel(new Carbon($facture->faite_date)); //(new Carbon($facture->faite_date))->format('j\/m\/Y');
         $r["Montant HT"] = $facture->somme_facture->total_ht;
         $r["Montant TTC"] = $facture->somme_facture->total_ttc;
         $r["Envoyée"] = $facture->envoyee;
         $r["Date d'envoi"] = $facture->envoyee_date;
         $r["Payée"] = $facture->payee;
-        $r["Date du règlement"] = ($facture->reglement != null) ? (new Carbon($facture->reglement->date_reglement))->format('j\/m\/Y') : "";
-        $r["Mode de règlement"] = ($facture->reglement != null) ? $facture->reglement->modereglement->nom : "" ;
+        $r["Date du règlement"] = ($facture->reglement != null) ?
+          Date::dateTimeToExcel(new Carbon($facture->reglement->date_reglement)) : "";// (new Carbon($facture->reglement->date_reglement))->format('j\/m\/Y') : "";
+        $r["Mode de règlement"] = ($facture->reglement != null) ?
+          $facture->reglement->modereglement->nom : "" ;
         // Et on ajoute ce tableau à la callection
         $resultats->push($r);
         // Puis on réinitialise le tableau
         $r = [];
       }
       // On construit l'objet pour l'exportation
-      $resultatsExport = new ResultatsExportation($entetes, $resultats);
+      $resultatsExport = new FacturesExportation($entetes, $resultats);
       // Et on renvoie un fichier xlsx à télécharger
       return Excel::download($resultatsExport, 'factures.xlsx');
 
