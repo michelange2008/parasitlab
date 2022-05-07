@@ -138,8 +138,13 @@ return array (
     ),
     'exports' =>
     array (
-      'nom' => 'Exports',
+      'nom' => 'Exports des analyses',
       'tooltip' => 'Outils d\'exportation des données',
+    ),
+    'exportFactures' =>
+    array (
+      'nom' => 'Export des factures',
+      'tooltip' => 'Outils d\'exportation des factures',
     ),
     'especes' =>
     array (

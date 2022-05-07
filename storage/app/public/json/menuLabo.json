@@ -249,6 +249,11 @@
         "prefixe" : "menuLabo.outils.exports.",
         "route" : "exports.choix"
       },
+      "exportfactures" : {
+        "id" : "exportfactures",
+        "prefixe" : "menuLabo.outils.exportFactures.",
+        "route" : "factures.export"
+      },
       "divider" :
       {
         "id" : "divider"

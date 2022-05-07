@@ -142,6 +142,8 @@
 
     Route::get('exports/resultats', 'ExportsController@resultats')->name('exports.resultat');
 
+    Route::get('exports/factures', 'Labo\FactureController@exportFactures')->name('factures.export');
+
   });
 
   // ROUTES INTERNES AU LABORATOIRE

@@ -44,7 +44,7 @@ class StatsController extends Controller
     $factures = Facture::where('user_id', '<>', 0)->get();
     $total_factures = 0;
     foreach ($factures as $facture) {
-      $total_factures += $this->CalculFactureHT($facture);
+      $total_factures += $this->calculFactureHT($facture);
     }
     $total_factures = number_format($total_factures, 2, ",", " ")." €";
 

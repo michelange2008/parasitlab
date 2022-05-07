@@ -85,7 +85,7 @@ trait FactureFactory
     return $facture;
   }
 
-  public function CalculFactureHT($facture)
+  public function calculFactureHT($facture)
   {
     $total_facture_HT = 0;
 
