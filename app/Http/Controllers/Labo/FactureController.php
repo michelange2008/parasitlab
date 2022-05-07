@@ -357,7 +357,6 @@ class FactureController extends Controller
         "Destinataire facture",
         "Date de la facture",
         "Montant HT",
-        "Montant TTC",
         "Envoyée",
         "Date d'envoi",
         "Payée",
@@ -372,14 +371,13 @@ class FactureController extends Controller
         $facture = $this->ajouteSommeEtTvasEtNum($facture);
         $r["numéro de facture"] = $facture->num;
         $r["Destinataire facture"] = $facture->user->name;
-        $r["Date de la facture"] = Date::dateTimeToExcel(new Carbon($facture->faite_date)); //(new Carbon($facture->faite_date))->format('j\/m\/Y');
-        $r["Montant HT"] = $facture->somme_facture->total_ht;
-        $r["Montant TTC"] = $facture->somme_facture->total_ttc;
+        $r["Date de la facture"] = Date::dateTimeToExcel(new Carbon($facture->faite_date));
+        $r["Montant HT"] = $this->calculFactureHT($facture);
         $r["Envoyée"] = $facture->envoyee;
         $r["Date d'envoi"] = $facture->envoyee_date;
         $r["Payée"] = $facture->payee;
         $r["Date du règlement"] = ($facture->reglement != null) ?
-          Date::dateTimeToExcel(new Carbon($facture->reglement->date_reglement)) : "";// (new Carbon($facture->reglement->date_reglement))->format('j\/m\/Y') : "";
+          Date::dateTimeToExcel(new Carbon($facture->reglement->date_reglement)) : "";
         $r["Mode de règlement"] = ($facture->reglement != null) ?
           $facture->reglement->modereglement->nom : "" ;
         // Et on ajoute ce tableau à la callection
