@@ -374,7 +374,7 @@ class FactureController extends Controller
         $r["Date de la facture"] = Date::dateTimeToExcel(new Carbon($facture->faite_date));
         $r["Montant HT"] = $this->calculFactureHT($facture);
         $r["Envoyée"] = $facture->envoyee;
-        $r["Date d'envoi"] = $facture->envoyee_date;
+        $r["Date d'envoi"] = Date::dateTimeToExcel(new Carbon($facture->envoyee_date));
         $r["Payée"] = $facture->payee;
         $r["Date du règlement"] = ($facture->reglement != null) ?
           Date::dateTimeToExcel(new Carbon($facture->reglement->date_reglement)) : "";
