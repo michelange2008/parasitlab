@@ -1,95 +1,63 @@
 {
-  "pr" :
+  "ov" :
   {
     "item_1" :
     {
       "nom" : "animaux_symptomes",
-      "groupe_1" :
+      "icone" : "default.svg",
+      "signes" :
       {
-        "signes" :
-        {
-          "signe_1" : "amaigrissement",
-          "signe_2" : "mauvais_poil_laine",
-          "signe_3" : "diarrhees",
-          "signe_4" : "mort",
-          "signe_5" : "anemie"
-        },
-        "anatype" :
-        {
-          "ana_1" : "SGI"
-        },
-        "remarque" : {
-          "texte_1" : "pature_humide",
-          "texte_2" : "sgi_douve",
-          "texte_3" : "analyse_qualitative"
-        }
-      },
-      "groupe_2" :
-      {
-        "signes":
-        {
-          "item_1": "tous_ete_automne"
-        },
-        "anatype" :
-        {
-          "ana_1" : "SGResp"
-        },
-        "remarque" : ""
+        "signe_1" : { "nom" : "amaigrissement", "anatype" : "SGI"},
+        "signe_2" : { "nom": "mauvais_poil_laine", "anatype" : "SGI" },
+        "signe_3" : { "nom" : "diarrhees", "anatype" : "SGI" },
+        "signe_4" : { "nom" : "mort", "anatype" : "SGI" },
+        "signe_5" : { "nom" : "anemie", "anatype" : "SGI"},
+        "signe_6" : { "nom" : "toux_ete_automne", "anatype": "SGResp"}
       }
     },
     "item_2" :
     {
       "nom" : "point_parasitisme",
-      "groupe_1" :
+      "icone" : "default.svg",
+      "signes" :
       {
-        "signes" :
-        {
-          "signe_1" : "pature_seche"
-        },
-        "anatype" :
-        {
-          "ana_1" : "SGI"
-        },
-        "remarque" : ""
-      },
-      "groupe_2" :
-      {
-        "signe_1" : "pature_humide"
-      },
-      "anatype" :
-      {
-        "ana_1" : "SGI",
-        "ana_2" : "GD_PARAM"
+        "signe_1" : {"nom" : "pature_seche", "anatype" : "SGI"},
+        "signe_2" : {"nom" : "pature_humide", "anatype" : {"ana_1": "SGI", "ana_2" : "GD_PARAM"}}
       }
     },
     "item_3" :
     {
       "nom" : "resistance_vermifuge",
-      "groupe_1" :
+      "icone" : "default.svg",
+      "signes" :
       {
-        "signes" :
-        {
-          "signes_1" : "no_effet"
-        },
-        "anatype" :
-        {
-          "ana_1" : "RESIST"
-        },
-        "remarque" : ""
+        "signes_1" : {"nom" : "no_effet", "anatype" : "RESIST"}
       }
     },
     "item_4" :
     {
       "nom" : "risque_hc",
+      "icone" : "default.svg",
       "signes" :
       {
-        "signe_1" : "quantification_hc"
-      },
-      "anatype" :
+        "signe_1" : {"nom" : "quantification_hc", "anatype" : "HAEM"}
+      }
+    }
+  },
+  "cp" : {
+    "item_1" :
+    {
+      "nom" : "animaux_symptomes",
+      "icone" : "default.svg",
+      "signes" :
       {
-        "ana_1" : "HAEM"
-      },
-      "remarque" : ""
+        "signe_1" : { "nom" : "amaigrissement", "anatype" : "SGI"},
+        "signe_2" : { "nom": "mauvais_poil_laine", "anatype" : "SGI" },
+        "signe_3" : { "nom" : "diarrhees", "anatype" : "SGI" },
+        "signe_4" : { "nom" : "mort", "anatype" : "SGI" },
+        "signe_5" : { "nom" : "anemie", "anatype" : "SGI"},
+        "signe_6" : { "nom" : "tous_ete_automne", "anatype": "SGResp"}
+      }
     }
   }
 }

@@ -1,3 +1,7 @@
+
+<!--Issu de AnalyseController@choisir
+Page générale de choix d'analyse
+ -->
 @extends('layouts.app')
 
 @section('menu')
@@ -60,18 +64,15 @@
     </div>
 
 
-    <div class="row justify-content-center">
-
-      {{-- <div class="col-md-12"> --}}
-
-
-      {{-- </div> --}}
+    @include('extranet.analyses.choisir.choix')
+    {{-- <div class="row justify-content-center">
 
       <div class="col-md-5">
-        
+
         <h4 id="titre_observations" class="mb-3"  style="display:none">@lang('choisir.liste_observations')</h4>
 
         @include('extranet.analyses.choisir.methodeChoixAnalyse')
+
 
       </div>
 
@@ -83,7 +84,7 @@
 
       </div>
 
-    </div>
+    </div> --}}
 
 </div>
 

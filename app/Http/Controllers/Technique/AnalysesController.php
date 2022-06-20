@@ -13,6 +13,13 @@ use App\Models\Age;
 
 use App\Http\Traits\LitJson;
 
+/**
+ * Controller destiné à gérer le menu Analyses de l'extranet
+ * @accueil -> pourquoi
+ * @choisir -> choisir
+ * @enpratique -> prélever envoyer
+ * @interpretation -> quelle interprétation
+ */
 class AnalysesController extends Controller
 {
 
@@ -45,6 +52,17 @@ class AnalysesController extends Controller
       // $anaactes =Anaacte::where('estAnalyse', true)->groupBy('anatype_id')->orderBy('num')->get();
       $anatypes = Anatype::where('estAnalyse', true)->get();
 
+      $choix = $this->litJson('choixAnalyse');
+
+//       foreach($choix as $key => $value) {
+//         dump($key);
+//         foreach($value as $clef => $val) {
+//           foreach ($val->groupes as $k => $v) {
+//             dump($v->signes);
+//           }
+//         }
+//       }
+// dd('');
       return view('extranet.analyses.choisir', [
         'menu' => $this->menu,
         'route' => 'analyses.choisir',
@@ -53,6 +71,7 @@ class AnalysesController extends Controller
         'ages' => Age::all(),
         'categories' => Categorie::all(),
         'anatypes' => $anatypes,
+        'choix' => $choix,
       ]);
     }
 
