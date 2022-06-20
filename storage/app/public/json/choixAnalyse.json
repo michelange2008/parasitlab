@@ -1,0 +1,95 @@
+{
+  "pr" :
+  {
+    "item_1" :
+    {
+      "nom" : "animaux_symptomes",
+      "groupe_1" :
+      {
+        "signes" :
+        {
+          "signe_1" : "amaigrissement",
+          "signe_2" : "mauvais_poil_laine",
+          "signe_3" : "diarrhees",
+          "signe_4" : "mort",
+          "signe_5" : "anemie"
+        },
+        "anatype" :
+        {
+          "ana_1" : "SGI"
+        },
+        "remarque" : {
+          "texte_1" : "pature_humide",
+          "texte_2" : "sgi_douve",
+          "texte_3" : "analyse_qualitative"
+        }
+      },
+      "groupe_2" :
+      {
+        "signes":
+        {
+          "item_1": "tous_ete_automne"
+        },
+        "anatype" :
+        {
+          "ana_1" : "SGResp"
+        },
+        "remarque" : ""
+      }
+    },
+    "item_2" :
+    {
+      "nom" : "point_parasitisme",
+      "groupe_1" :
+      {
+        "signes" :
+        {
+          "signe_1" : "pature_seche"
+        },
+        "anatype" :
+        {
+          "ana_1" : "SGI"
+        },
+        "remarque" : ""
+      },
+      "groupe_2" :
+      {
+        "signe_1" : "pature_humide"
+      },
+      "anatype" :
+      {
+        "ana_1" : "SGI",
+        "ana_2" : "GD_PARAM"
+      }
+    },
+    "item_3" :
+    {
+      "nom" : "resistance_vermifuge",
+      "groupe_1" :
+      {
+        "signes" :
+        {
+          "signes_1" : "no_effet"
+        },
+        "anatype" :
+        {
+          "ana_1" : "RESIST"
+        },
+        "remarque" : ""
+      }
+    },
+    "item_4" :
+    {
+      "nom" : "risque_hc",
+      "signes" :
+      {
+        "signe_1" : "quantification_hc"
+      },
+      "anatype" :
+      {
+        "ana_1" : "HAEM"
+      },
+      "remarque" : ""
+    }
+  }
+}
