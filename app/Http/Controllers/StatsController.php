@@ -37,10 +37,18 @@ class StatsController extends Controller
   */
   public function index()
   {
+    // Fichier de base que l'on va peupler avec les résultats
     $statsBase = $this->litJson('statsBase');
-    $statsBase->nb_demandes->count = Demande::count();
-    $statsBase->nb_prelevements->count = Prelevement::count();
+    // On compte le nombre de demandes faites en prestations (l'utilisateur
+    // facturé n'est pas le labo)
+    $statsBase->nb_demandes->count = Demande::where('userfact_id', '<>', 0)->count();
+    // Idem avec les prélèvements ce qui donne le nombre d'analyses réalisées
+    $statsBase->nb_prelevements->count = DB::table('prelevements')
+          ->join('demandes', 'demandes.id', '=', 'prelevements.demande_id')
+          ->where('demandes.userfact_id', 0)->count();
+    // On compte le nombre d'éleveurs dans la base de donnée
     $statsBase->nb_eleveurs->count = Eleveur::count();
+    // On compte le total des montants facturés
     $factures = Facture::where('user_id', '<>', 0)->get();
     $total_factures = 0;
     foreach ($factures as $facture) {
@@ -63,10 +71,17 @@ class StatsController extends Controller
   public function analyseParMois()
   {
     // On récupère le nombre de prélèvements groupés par année et par mois
+    $demandes_prestations = Demande::select('id')->where('userfact_id', 0)->get();
+    $demandes_prest_id = [];
+    foreach($demandes_prestations->toArray() as $id) {
+      $demande_prest_id[] = $id['id'];
+    }
     $prelevements = Prelevement::selectRaw('year(created_at) year, monthname(created_at) month, count(*) data')
     ->groupBy('year', 'month')
     ->orderBy('year', 'desc')
+    ->whereIn('demande_id', $demande_prest_id)
     ->get();
+
     // On regroupe par année et on transforme la Collection en Array
     $grouped = $prelevements->groupBy('year')->toArray();
     // On récupère la liste des mois avec la correspondance entre anglais et français
