@@ -1,63 +1,155 @@
 {
-  "ov" :
-  {
-    "item_1" :
-    {
-      "nom" : "animaux_symptomes",
-      "icone" : "default.svg",
-      "signes" :
-      {
-        "signe_1" : { "nom" : "amaigrissement", "anatype" : "SGI"},
-        "signe_2" : { "nom": "mauvais_poil_laine", "anatype" : "SGI" },
-        "signe_3" : { "nom" : "diarrhees", "anatype" : "SGI" },
-        "signe_4" : { "nom" : "mort", "anatype" : "SGI" },
-        "signe_5" : { "nom" : "anemie", "anatype" : "SGI"},
-        "signe_6" : { "nom" : "toux_ete_automne", "anatype": "SGResp"}
-      }
-    },
-    "item_2" :
-    {
-      "nom" : "point_parasitisme",
-      "icone" : "default.svg",
-      "signes" :
-      {
-        "signe_1" : {"nom" : "pature_seche", "anatype" : "SGI"},
-        "signe_2" : {"nom" : "pature_humide", "anatype" : {"ana_1": "SGI", "ana_2" : "GD_PARAM"}}
-      }
-    },
-    "item_3" :
-    {
-      "nom" : "resistance_vermifuge",
-      "icone" : "default.svg",
-      "signes" :
-      {
-        "signes_1" : {"nom" : "no_effet", "anatype" : "RESIST"}
-      }
-    },
-    "item_4" :
-    {
-      "nom" : "risque_hc",
-      "icone" : "default.svg",
-      "signes" :
-      {
-        "signe_1" : {"nom" : "quantification_hc", "anatype" : "HAEM"}
-      }
-    }
-  },
-  "cp" : {
-    "item_1" :
-    {
-      "nom" : "animaux_symptomes",
-      "icone" : "default.svg",
-      "signes" :
-      {
-        "signe_1" : { "nom" : "amaigrissement", "anatype" : "SGI"},
-        "signe_2" : { "nom": "mauvais_poil_laine", "anatype" : "SGI" },
-        "signe_3" : { "nom" : "diarrhees", "anatype" : "SGI" },
-        "signe_4" : { "nom" : "mort", "anatype" : "SGI" },
-        "signe_5" : { "nom" : "anemie", "anatype" : "SGI"},
-        "signe_6" : { "nom" : "tous_ete_automne", "anatype": "SGResp"}
-      }
-    }
-  }
+	"ov": {
+		"item_1": {
+      "id" : "symptomes",
+			"nom": "animaux_symptomes",
+			"icone": "default.svg",
+			"signes": {
+				"signe_1": {
+					"nom": "amaigrissement",
+          "texte" : "L'infestation parasitaire favorise souvent un amaigrissement des animaux. Mais celui-ci peut aussi être dû à d'autres causes (production importante, mauvaise dentition, alimentation insuffisante)",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_2": {
+					"nom": "mauvais_poil_laine",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_3": {
+					"nom": "diarrhees",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_4": {
+					"nom": "mort",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_5": {
+					"nom": "anemie",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_6": {
+					"nom": "toux_ete_automne",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGResp"
+					}
+				}
+			}
+		},
+		"item_2": {
+      "id" : "point",
+			"nom": "point_parasitisme",
+			"icone": "default.svg",
+			"signes": {
+				"signe_1": {
+					"nom": "pature_seche",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_2": {
+					"nom": "pature_humide",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI",
+						"ana_2": "GD_PARAM"
+					}
+				}
+			}
+		},
+		"item_3": {
+      "id" : "resistance",
+			"nom": "resistance_vermifuge",
+			"icone": "default.svg",
+			"signes": {
+				"signes_1": {
+					"nom": "no_effet",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "RESIST"
+					}
+				}
+			}
+		},
+		"item_4": {
+      "id" : "hc",
+			"nom": "risque_hc",
+			"icone": "default.svg",
+			"signes": {
+				"signe_1": {
+					"nom": "quantification_hc",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "HAEM"
+					}
+				}
+			}
+		}
+	},
+	"cp": {
+		"item_1": {
+      "id" : "symptomes",
+			"nom": "animaux_symptomes",
+			"icone": "default.svg",
+			"signes": {
+				"signe_1": {
+					"nom": "amaigrissement",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_2": {
+					"nom": "mauvais_poil_laine",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_3": {
+					"nom": "diarrhees",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_4": {
+					"nom": "mort",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI"
+					}
+				},
+				"signe_5": {
+					"nom": "anemie",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGI",
+            "ana_2" : "HAEM"
+					}
+				},
+				"signe_6": {
+					"nom": "toux_ete_automne",
+          "texte" : "",
+					"anatypes": {
+						"ana_1": "SGResp"
+					}
+				}
+			}
+		}
+	}
 }

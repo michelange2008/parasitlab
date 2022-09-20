@@ -110,6 +110,6 @@ Page générale de choix d'analyse
 
 @section('scripts')
 
-  <script src="{{url('js/choisir.js')}}"></script>
+  <script type="text/javascript" src="{{url('js/choisir2.js')}}"></script>
 
 @endsection
