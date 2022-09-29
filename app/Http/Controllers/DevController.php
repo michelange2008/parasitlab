@@ -65,13 +65,18 @@ class DevController extends Controller
   // Nombre de prélèvements analysés pour les éleveurs
   public function prelevements() {
 
-    $prel = DB::table('prelevements')->join('demandes', 'demandes.id', 'prelevements.demande_id')
-              ->where('demandes.date_reception', '<', '2023-01-01' )
-              ->where('demandes.date_reception', '>=', '2022-01-01' )
-              ->where('demandes.userfact_id', '<>', 0)
+    $prel_2022 = DB::table('prelevements')->join('demandes', 'demandes.id', 'prelevements.demande_id')
+              ->whereBetween('date_reception', ['2022-01-01', '2023-01-01'])
+              ->where('demandes.userfact_id', '=', 0)
               ->count();
 
-    dd($prel);
+    $prel_2021 = DB::table('prelevements')->join('demandes', 'demandes.id', 'prelevements.demande_id')
+              ->whereBetween('date_reception', ['2021-01-01', '2022-01-01'])
+              ->where('demandes.userfact_id', '=', 0)
+              ->count();
+
+
+    dd("2022: ".$prel_2022." - 2021: ".$prel_2021);
 
   }
 
