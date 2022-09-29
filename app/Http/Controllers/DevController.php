@@ -32,7 +32,7 @@ class DevController extends Controller
                   ->join('eleveurs', 'eleveurs.user_id', 'users.id')->select('cp')->get();
 
     foreach($eleveurs as $eleveur) {
-      
+
     }
 
     dd($eleveurs);
@@ -42,7 +42,7 @@ class DevController extends Controller
   // Calcul la somme des factures éleveurs sur une année précise
   public function factures() {
 
-    $factures = Facture::where('faite_date', '>=', '2021-01-01')->get();
+    $factures = Facture::where('faite_date', '>=', '2022-01-01')->get();
     // On procède au calcul de chaque facture
     foreach ($factures as $facture) {
       $somme_facture = $this->calculSommeFacture($facture);
