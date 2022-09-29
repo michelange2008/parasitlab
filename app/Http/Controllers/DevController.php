@@ -75,4 +75,13 @@ class DevController extends Controller
 
   }
 
+  public function demandes() {
+    $demandes = DB::table('demandes')
+                ->where('userfact_id', '<>', 0)
+                ->whereBetween('date_reception', ['2022-01-01', '2023-01-01'])
+                ->count();
+
+    dd($demandes);
+  }
+
 }
