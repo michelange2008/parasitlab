@@ -281,6 +281,13 @@
     // DOCUMENTATION
 
     Route::get('documentation', 'DocController@index')->name('doc.index');
+
+    //##############################
+    //route de test
+    Route::get('dev', 'DevController@index')->name('dev.index');
+
+    Route::get('dev/factures', 'DevController@factures')->name('dev.factures');
+
     //###########################
     // GESTION DE L'ALGORITME DE CHOIX
     Route::get('algorithme', 'Analyses\Algorithme\BaseController@index')->name('algorithme.index');
