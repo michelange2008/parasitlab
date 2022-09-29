@@ -287,6 +287,7 @@
     Route::get('dev', 'DevController@index')->name('dev.index');
 
     Route::get('dev/factures', 'DevController@factures')->name('dev.factures');
+    Route::get('dev/prelevements', 'DevController@prelevements')->name('dev.prelevements');
 
     //###########################
     // GESTION DE L'ALGORITME DE CHOIX

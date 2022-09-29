@@ -68,7 +68,7 @@ class DevController extends Controller
     $prel = DB::table('prelevements')->join('demandes', 'demandes.id', 'prelevements.demande_id')
               ->where('demandes.date_reception', '<', '2022-01-01' )
               ->where('demandes.date_reception', '>=', '2021-01-01' )
-              ->where('demandes.userfact_id', '!=', 0)
+              ->where('demandes.userfact_id', '<>', 0)
               ->count();
 
     dd($prel);
