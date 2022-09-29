@@ -50,10 +50,9 @@ class StatsController extends Controller
     $statsBase->nb_eleveurs->count = Eleveur::count();
     // On compte le total des montants facturés
     $factures = Facture::where('user_id', '<>', 0)->get();
-    $total_factures = 0;
-    foreach ($factures as $facture) {
-      $total_factures += $this->calculFactureHT($facture);
-    }
+
+    $total_factures = $this->facturesExtTotales();
+
     $total_factures = number_format($total_factures, 2, ",", " ")." €";
 
     $statsBase->total_factures->count = $total_factures;
@@ -123,20 +122,88 @@ class StatsController extends Controller
   *
   * @return \Illuminate\Http\Response
   */
-  public function create()
+  public function annuel()
   {
-    //
+    $init = 2021;
+    $fin = Carbon::now()->year;
+    $libelles = [
+      "Année",
+      'Nombre de demandes extérieures',
+      'Nombre de demandes internes',
+      "Nombre d'analyses extérieures",
+      "Nombre d'analyses internes",
+      "Motant total des factures"
+    ];
+    $datas = [];
+    $demandesExtTot = 0;
+    $demandesLaboTot = 0;
+    $prelExtTot = 0;
+    $prelLaboTot = 0;
+    $facturesTot = 0;
+    for($i = $fin; $i >= $init; $i--) {
+      $demandesExt = Demande::whereYear('date_reception', $i)
+                          ->where('userfact_id', '<>', 0)
+                          ->count();
+      $demandesExtTot += $demandesExt;
+      $datas[$i]['demandesExt'] = $demandesExt;
+      $demandesLabo = Demande::whereYear('date_reception', $i)
+                          ->where('userfact_id', '=', 0)
+                          ->count();
+      $demandesLaboTot += $demandesLabo;
+      $datas[$i]['demandesLabo'] = $demandesLabo;
+      $prelExt = DB::table('prelevements')
+                ->join('demandes', 'demandes.id', 'prelevements.demande_id')
+                ->whereYear('demandes.date_reception', $i)
+                ->where('demandes.userfact_id', '<>', 0)
+                ->count();
+      $prelExtTot += $prelExt;
+      $datas[$i]['prelExt'] = $prelExt;
+      $prelLabo = DB::table('prelevements')
+                ->join('demandes', 'demandes.id', 'prelevements.demande_id')
+                ->whereYear('demandes.date_reception', $i)
+                ->where('demandes.userfact_id', '=', 0)
+                ->count();
+      $prelLaboTot += $prelLabo;
+      $datas[$i]['prelLabo'] = $prelLabo;
+      $factures =  number_format($this->facturesExtAnnuel($i), 2, ",", " ")." €";
+      $facturesTot += $this->facturesExtAnnuel($i);
+      $datas[$i]['factures'] = $factures;
+
+    }
+    dump($datas);
+    $facturesTot = number_format($facturesTot, 2, ",", " ")." €";
+
+
+
+    dd($prelLabo);
   }
 
   /**
-  * Store a newly created resource in storage.
+  * Calcul le montant des factures extérieures pour 1 année
   *
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request)
+  public function facturesExtAnnuel(Int $year)
   {
-    //
+    $factures = Facture::whereYear('faite_date', '=', $year)->get();
+    // On procède au calcul de chaque facture
+    foreach ($factures as $facture) {
+      $somme_facture = $this->calculSommeFacture($facture);
+      $facture->total_ht = $somme_facture->total_ht;
+      $facture->total_ttc = $somme_facture->total_ttc;
+    }
+    $total = 0;
+    foreach($factures as $facture) {
+
+      if($facture->user->usertype->nom != "laboratoire") {
+
+        $total += floatval($facture->total_ht);
+      }
+
+    }
+
+    return $total;
   }
 
   /**
@@ -145,8 +212,21 @@ class StatsController extends Controller
   * @param  int  $id
   * @return \Illuminate\Http\Response
   */
-  public function show($id)
+  public function facturesExtTotales()
   {
+    $factures = Facture::where('user_id', '<>', 0)->get();
+    // On procède au calcul de chaque facture
+    foreach ($factures as $facture) {
+      $somme_facture = $this->calculSommeFacture($facture);
+      $facture->total_ht = $somme_facture->total_ht;
+      $facture->total_ttc = $somme_facture->total_ttc;
+    }
+    $total = 0;
+    foreach($factures as $facture) {
+        $total += floatval($facture->total_ht);
+    }
+
+    return $total;
     //
   }
 
