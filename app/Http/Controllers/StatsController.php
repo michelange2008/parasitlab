@@ -45,7 +45,7 @@ class StatsController extends Controller
     // Idem avec les prélèvements ce qui donne le nombre d'analyses réalisées
     $statsBase->nb_prelevements->count = DB::table('prelevements')
           ->join('demandes', 'demandes.id', '=', 'prelevements.demande_id')
-          ->where('demandes.userfact_id', 0)->count();
+          ->where('demandes.userfact_id', '<>', 0)->count();
     // On compte le nombre d'éleveurs dans la base de donnée
     $statsBase->nb_eleveurs->count = Eleveur::count();
     // On compte le total des montants facturés
