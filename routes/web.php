@@ -277,10 +277,23 @@
 
     Route::get('stats/analyseParEspece', 'StatsController@analyseParEspece') -> name('stats.analyseParEspece');
 
+    Route::get('stats/annuel', 'StatsController@annuel')->name('stats.annuel');
+
     // #############################
     // DOCUMENTATION
 
     Route::get('documentation', 'DocController@index')->name('doc.index');
+
+    //##############################
+    //route de test
+    Route::get('dev', 'DevController@index')->name('dev.index');
+
+    Route::get('dev/factures', 'DevController@factures')->name('dev.factures');
+
+    Route::get('dev/prelevements', 'DevController@prelevements')->name('dev.prelevements');
+
+    Route::get('dev/demandes', 'DevController@demandes')->name('dev.demandes');
+
     //###########################
     // GESTION DE L'ALGORITME DE CHOIX
     Route::get('algorithme', 'Analyses\Algorithme\BaseController@index')->name('algorithme.index');

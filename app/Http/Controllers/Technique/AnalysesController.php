@@ -54,11 +54,12 @@ class AnalysesController extends Controller
 
       $choix = $this->litJson('choixAnalyse');
 
-//       foreach($choix as $key => $value) {
-//         dump($key);
-//         foreach($value as $clef => $val) {
-//           foreach ($val->groupes as $k => $v) {
-//             dump($v->signes);
+//       foreach($choix as $esp => $details) {
+//         foreach($details as $item) {
+//           foreach ($item->signes as $signe) {
+//             foreach($signe->anatypes as $anatype) {
+//               dump($anatype);
+//             }
 //           }
 //         }
 //       }
