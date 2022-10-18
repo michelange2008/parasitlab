@@ -180,6 +180,7 @@ return [
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         // App\Providers\PaperTrailServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
     ],
 
     /*
