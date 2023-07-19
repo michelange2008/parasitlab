@@ -101,7 +101,7 @@ class EnvoisController
         // D'où l'intitulé de la variable $tovetuser_id
         $vetouser = User::find($demande->tovetouser_id);
 
-        $this->envoie($vetouser->user->email, $demande);
+        $this->envoie($vetouser->email, $demande);
       }
 
     }
