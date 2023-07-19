@@ -23,6 +23,17 @@ class Kernel extends HttpKernel
     ];
 
     /**
+     * Ajouté par moi pour Bugsnag
+     */
+    protected function bootstrappers()
+{
+    return array_merge(
+        [\Bugsnag\BugsnagLaravel\OomBootstrapper::class],
+        parent::bootstrappers(),
+    );
+}
+
+    /**
      * The application's route middleware groups.
      *
      * @var array

@@ -37,7 +37,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single', 'daily'],
+            'channels' => ['single', 'bugsnag'],
             'ignore_exceptions' => false,
         ],
 
@@ -62,6 +62,10 @@ return [
             'level' => 'critical',
         ],
 
+        // Create a bugsnag logging channel:
+       'bugsnag' => [
+          'driver' => 'bugsnag',
+          ],
         // 'papertrail' => [
         //     'driver' => 'monolog',
         //     'level' => 'debug',
