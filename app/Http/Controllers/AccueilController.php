@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
+use RuntimeException;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
@@ -53,6 +54,7 @@ class AccueilController extends Controller
      */
     public function index()
     {
+      Bugsnag::notifyException(new RuntimeException("Test error"));
       $new = News::where('display', true)->first();
 
 
