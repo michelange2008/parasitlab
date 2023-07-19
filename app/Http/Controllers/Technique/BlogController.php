@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
-
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
 use App\Http\Traits\BlogManager;
@@ -105,8 +104,11 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::find($id);
-
-        $blog->date = $this->dateLisible($blog->updated_at);
+        if ($blog != null) {
+          $blog->date = $this->dateLisible($blog->updated_at);
+        } else {
+          $blog->date = $this->datelisible("19/07/2023");
+        }
 
         $blog->auteur = $blog->user->name;
 
