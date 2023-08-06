@@ -12,7 +12,7 @@ use App\Models\Productions\Facture;
 use App\Models\Productions\Serie;
 use App\User;
 use App\Models\Eleveur;
-use App\Models\Veterinaire;
+use App\Models\Veto;
 
 /**
 * Controleur destiné à réaiguiller vers un controleur ou une route spécifique en
@@ -271,7 +271,7 @@ class RouteurController extends Controller
 
     } elseif ($this->estVeto($user->usertype_id)) {
 
-      $user_detail = Veterinaire::where('user_id', $user->id)->first();
+      $user_detail = Veto::where('user_id', $user->id)->first();
 
     } else {
 

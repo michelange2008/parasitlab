@@ -59,7 +59,7 @@
           integrity="sha512-IoRDFiMGuP0Pc2yj3u4tlItgqpX5kXxZunqFcqLnSN1WsO9J1uQ3wfw8BRhZHv8V2iMhv5rZaphPqu9XW/OgZQ==" 
           crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script src="./js/bootstrap-table-accent-neutralise.min.js"></script>
+        <script src="{{ url('js/bootstrap-table-accent-neutralise.min.js') }}"></script>
         
         <script src="{{url('js/app.js')}}"></script>
 
