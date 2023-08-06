@@ -63,7 +63,7 @@
 @endsection
 
 @section('scripts')
-    <script src="{{url('js/chart.min.js')}}"></script>
+    <script src="{{url('js/chart.js')}}"></script>
 
     <script src="{{ url('js/stats.js') }}"></script>
 @endsection

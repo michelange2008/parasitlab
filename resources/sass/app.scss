@@ -7,16 +7,11 @@
 @import "couleurs";
 @import 'menu';
 @import "images";
-// @import "switch";
 @import "entravaux";
 @import "pdf";
 
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
 // Styles parasitlab
-@import "parasitlab";
+@import "./parasitlab";
 
 /**
   * bootstrap-table - An extended table to integration with some of the most widely used CSS frameworks. (Supports Bootstrap, Semantic UI, Bulma, Material Design, Foundation)

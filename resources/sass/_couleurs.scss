@@ -78,7 +78,7 @@ $rouge-tres-fonce-transparent: #8F230A99;
 .btn-bleu:hover {
   background: $bleu-tres-tres-clair !important;
   color: $bleu-tres-fonce !important ;
-  border: solid 1px $bleu-tres-fonce;
+  border: solid 1px $bleu-tres-fonce !important;
 }
 
 .btn-rouge {
@@ -87,12 +87,12 @@ $rouge-tres-fonce-transparent: #8F230A99;
 }
 
 .btn-rouge-clair {
-  background: $rouge ;
-  color: white ;
+  background: $rouge !important;
+  color: white !important;
 }
 .btn-rouge-tres-clair {
-  background: $rouge-tres-clair ;
-  color: $rouge-tres-fonce ;
+  background: $rouge-tres-clair !important;
+  color: $rouge-tres-fonce !important;
 }
 
 .btn-rouge-tres-clair:hover {
@@ -106,120 +106,120 @@ $rouge-tres-fonce-transparent: #8F230A99;
 }
 
 .btn-rouge-clair:hover {
-  background: $rouge-tres-clair ;
-  color:$rouge-tres-fonce ;
+  background: $rouge-tres-clair !important;
+  color:$rouge-tres-fonce !important;
 }
 
 .btn-rouge:active {
-  background: $bleu-tres-fonce ;
-  color:white ;
+  background: $bleu-tres-fonce !important;
+  color:white !important;
 }
 .alert-bleu {
-  background: $bleu-tres-clair ;
-  color: $bleu-tres-fonce;
+  background: $bleu-tres-clair !important;
+  color: $bleu-tres-fonce !important;
 }
 
 .alert-bleu-tres-fonce {
   background: $bleu-tres-fonce !important;
-  color: $bleu-tres-clair;
+  color: $bleu-tres-clair !important;
 }
 
 .alert-rouge {
-  background: $rouge-tres-clair ;
-  color: $rouge-tres-fonce;
+  background: $rouge-tres-clair !important;
+  color: $rouge-tres-fonce !important;
 }
 
 .alert-rouge-tres-fonce {
-  background: $rouge-tres-fonce ;
-  color: $rouge-tres-clair;
+  background: $rouge-tres-fonce !important;
+  color: $rouge-tres-clair !important;
 }
 
 .list-group-item.active {
-  background: $bleu-tres-fonce ;
+  background: $bleu-tres-fonce !important;
 }
 
 .list-group-item-bleu-tres-clair {
-  background: $bleu-tres-clair ;
+  background: $bleu-tres-clair !important;
 
 }
 
 .card-header-rouge-tres-fonce {
-  padding: .75rem 1.25rem;
-  margin-bottom: 0;
-  background-color: $rouge-tres-fonce;
-  color: $rouge-tres-clair;
-  border-bottom: 1px solid rgba(0,0,0,.125);
+  padding: .75rem 1.25rem !important;
+  margin-bottom: 0 !important;
+  background-color: $rouge-tres-fonce !important;
+  color: $rouge-tres-clair !important;
+  border-bottom: 1px solid rgba(0,0,0,.125) !important;
 }
 
 .table .thead-bleu th {
-	color: $bleu-tres-fonce;
-	background-color: $bleu-tres-clair;
+	color: $bleu-tres-fonce !important;
+	background-color: $bleu-tres-clair !important;
 }
 
 .bandeau-bleu-tres-fonce {
-  background-color: $bleu-tres-fonce ;
+  background-color: $bleu-tres-fonce !important;
   // background: $bleu-tres-fonce-transparent ;
   // color: white;
-  padding: 5px 10px;
-  box-shadow: 5px 5px 15px black;
+  padding: 5px 10px !important;
+  box-shadow: 5px 5px 15px black !important;
   // opacity: 65%;
-  filter: opacity(0.65);  /* Opacity for IE8 and lower */
+  filter: opacity(0.65) !important;  /* Opacity for IE8 and lower */
 }
 
 mark {
-	background-color: #ccf4ca ;
+	background-color: #ccf4ca !important;
 }
 
 .thead-bleu-tres-fonce {
-  background: $bleu-tres-fonce;
-  color: white;
+  background: $bleu-tres-fonce !important;
+  color: white !important;
 }
 
 .table-bleu-tres-tres-clair {
-  background: $bleu-tres-tres-clair;
-  color: $bleu-tres-fonce;
+  background: $bleu-tres-tres-clair !important;
+  color: $bleu-tres-fonce !important;
 }
 
 .badge-bleu-tres-fonce {
-  background: $bleu-tres-fonce;
-  color: white;
+  background: $bleu-tres-fonce !important;
+  color: white !important;
 }
 
 .progress-active {
   background: $bleu-tres-fonce !important;
-  color: white ;
+  color: white !important;
 }
 
 .progress-disabled {
   background: lightgray !important;
   // background: url('../images/fleche.svg') lightgray no-repeat ;
-  color: $bleu-tres-fonce ;
+  color: $bleu-tres-fonce !important;
 }
 .progress-disabled:hover {
   background: $bleu-tres-clair !important;
 
   &:a  {
-    color: black ;
-    text-decoration: none ;
+    color: black !important;
+    text-decoration: none !important;
   }
 }
 
 .arrow-right-active {
-  width: 0;
-  height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
+  width: 0 !important;
+  height: 0 !important;
+  border-top: 20px solid transparent !important;
+  border-bottom: 20px solid transparent !important;
 
-  border-left: 20px solid $bleu-tres-fonce;
+  border-left: 20px solid $bleu-tres-fonce !important;
 }
 
 .progress-disabled:before {
-  content:'';
-  height : 0;
-  width : 0;
-  border-style: solid;
-  border-width: 20px 0px 20px 30px;
-  border-color: transparent transparent transparent $bleu-tres-fonce ;
-  display: inline-block;
-  vertical-align: middle;
+  content:'' !important;
+  height : 0 !important;
+  width : 0 !important;
+  border-style: solid !important;
+  border-width: 20px 0px 20px 30px !important;
+  border-color: transparent transparent transparent $bleu-tres-fonce !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
 }

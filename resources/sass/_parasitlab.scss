@@ -2,45 +2,45 @@
 
 }
 .alg-bouton:hover {
-	filter: drop-shadow(2px 2px 2px black);
-	cursor: pointer;
+	filter: drop-shadow(2px 2px 2px black) !important;
+	cursor: pointer !important;
 }
 
 .alg-ligne {
-	stroke-opacity:0.6;
+	stroke-opacity:0.6 !important;
 }
 .alg-ligne:hover {
-		stroke-opacity:1;
-		cursor: pointer;
+		stroke-opacity:1 !important;
+		cursor: pointer !important;
 }
 
 // affichage des données invalides dans la vérification des formulaires
 .invalid {
-	width: 100%;
-	margin-top: 0.25rem;
-	font-size: 80%;
-	color: #e3342f;
+	width: 100% !important;
+	margin-top: 0.25rem !important;
+	font-size: 80% !important;
+	color: #e3342f !important;
 }
 
 // Affichage d'un mot en gros en arrière plan du texte
 .titre-fond {
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	position: absolute;
-	line-height: 0.5;
-	font-size: 10rem;
-	color: #f2f2f2ff;
-	font-weight: bolder;
-	z-index: -10000;
+	white-space: nowrap !important;
+	text-overflow: ellipsis !important;
+	position: absolute !important;
+	line-height: 0.5 !important;
+	font-size: 10rem !important;
+	color: #f2f2f2ff !important;
+	font-weight: bolder !important;
+	z-index: -10000 !important;
 }
 
 ul:hover > .titre-fond {
-	color: $bleu-tres-tres-clair;
+	color: $bleu-tres-tres-clair !important;
 }
 
 .card-3 {
-	min-width: 25vw;
-	max-width: 30vw;
+	min-width: 25vw !important;
+	max-width: 30vw !important;
 }
 
 // redéfinition de quelques éléments
@@ -49,7 +49,7 @@ ul:hover > .titre-fond {
 }
 
 a {
-  color: inherit;
+  color: inherit !important;
 }
 
 a:hover {
@@ -63,45 +63,45 @@ a:hover {
 }
 
 .ajuste_hauteur {
-  height: max-content;
+  height: max-content !important;
 }
 
 .col-form-label {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .bordure-epaisse {
-	border-left: solid 5px $bleu-tres-fonce;
+	border-left: solid 5px $bleu-tres-fonce !important;
 }
 
 
 // .active {
-// 	background: $bleu-tres-fonce !important;
+// 	background: $bleu-tres-fonce !important !important;
 // }
 .list-group-item-trans {
-	position: relative;
-	display: block;
+	position: relative !important;
+	display: block !important;
 	padding: .75rem 1.25rem;
-	border: 1px solid rgba(0,0,0,.125);
+	border: 1px solid rgba(0,0,0,.125) !important;
 }
 // pour avoir une barre latérale fixe meme quand on scrolle
 .bd-sidebar {
-	position: -webkit-fixed;
-	position: fixed;
-	top: 4rem;
-	z-index: 1000;
-	height: calc(100vh - 44rem);
-	-ms-flex-order: 0;
-	order: 0;
+	position: -webkit-fixed !important;
+	position: fixed !important;
+	top: 4rem !important;
+	z-index: 1000 !important;
+	height: calc(100vh - 44rem) !important;
+	-ms-flex-order: 0 !important;
+	order: 0 !important;
 }
 
 .bd-content {
-	-ms-flex-order: 1;
-	order: 1;
+	-ms-flex-order: 1 !important;
+	order: 1 !important;
 }
 
 .observation:hover {
-	background: gainsboro;
+	background: gainsboro !important;
 }
 .borderless {
 	border: 0px !important;
@@ -113,99 +113,99 @@ a:hover {
 }
 
 .resultatExiste {
-  font-weight: bold;
-  color: $bleu-fonce;
+  font-weight: bold !important;
+  color: $bleu-fonce !important;
 }
 
 .labo-divider {
-  margin: 3rem 0;
+  margin: 3rem 0 !important;
 }
 
 hr {
-  border-top: 1px solid rgba(0,0,0,.1);
+  border-top: 1px solid rgba(0,0,0,.1) !important;
 }
 
 .divider-court {
 	width: 170px !important;
-	border-top: 3px solid #d1ccb9;
-	margin: 35px auto;
+	border-top: 3px solid #d1ccb9 !important;
+	margin: 35px auto !important;
 }
 
 .texte-plus-grand {
-  font-size: 1.4rem;
+  font-size: 1.4rem !important;
 }
 
 .fond {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
 .icone-cadre {
-  width: 120px;
-  border: solid 1px lightgray;
+  width: 120px !important;
+  border: solid 1px lightgray !important;
 }
 
 .icone-cadre > img {
-  margin: auto;
+  margin: auto !important;
 }
 
 .elements-infos {
-  position: fixed;
-  width: 50vw;
-  top: 200px;
-  left: 25vw;
-  padding: 20px;
-  background: lightgray;
-  box-shadow: 1px 1px 5px gray;
+  position: fixed !important;
+  width: 50vw !important;
+  top: 200px !important;
+  left: 25vw !important;
+  padding: 20px !important;
+  background: lightgray !important;
+  box-shadow: 1px 1px 5px gray !important;
 }
 
 .presentation_cadre {
-  background: $bleu-tres-tres-clair;
-  padding: 2.5rem;
-  padding-bottom: 0rem;
+  background: $bleu-tres-tres-clair !important;
+  padding: 2.5rem !important;
+  padding-bottom: 0rem !important;
 }
 
 .p-c-dernier {
-  padding-bottom: 2.5rem;
+  padding-bottom: 2.5rem !important;
 }
 
 .custom-lead {
-  font-size: 1.25rem;
+  font-size: 1.25rem !important;
 }
 
 .choix-especes {
-	position:fixed;
-	top:20vh;
-	left:25%;
-	width:50%;
-	box-shadow: 4px 4px 17px black;
+	position:fixed !important;
+	top:20vh !important;
+	left:25% !important;
+	width:50% !important;
+	box-shadow: 4px 4px 17px black !important;
 }
 
 // Modification aspect anatype dans algorithme de choix d'analyses
 .estompe {
-	color: lightgray;
+	color: lightgray !important;
 }
 .btn-clair {
-	background: lightgray;
-	border: 0;
+	background: lightgray !important;
+	border: 0 !important;
 }
 
 @media screen and (max-width: 992px) {
 
   .alert, .card-header {
-    padding: 0.5rem 0.25rem;
+    padding: 0.5rem 0.25rem !important;
   }
   h5 {
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
   }
   .lead {
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
   }
 
 	.titre-fond {
-		display: none;
+		display: none !important;
 	}
 
 }
@@ -214,20 +214,20 @@ hr {
 {
 
 	.media {
-		flex-direction: column;
+		flex-direction: column !important;
 
 	}
 
 	.media > img {
-		width: 100%;
-		margin-bottom: 5px;
+		width: 100% !important;
+		margin-bottom: 5px !important;
 	}
 }
 
 @media screen and (max-width: 575px) {
 
 	.card-3 {
-		max-width: 90vw;
+		max-width: 90vw !important;
 		min-width: 90vw
 	}
 

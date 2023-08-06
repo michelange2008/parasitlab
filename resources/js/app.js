@@ -1,12 +1,5 @@
-// require( './usertypes.js');
 require( './bs-custom-file-input-min.js')
-require('./bootstrap.js');
 
-require( './bootstrap-table.min.js');
-require( './bootstrap-table-accent-neutralise.min.js');
-require( './bootstrap-table-locale-all.js');
-
-require( './createUser.js');
 require( './demandeShow.js');
 require( './envoi.js');
 require('./troupeauSaisieAnimal.js');
@@ -16,8 +9,8 @@ require( './telFormulaire.js');
 require( './algo.js');
 require( './exports.js');
 require('./consentement.js');
+require( './createUser.js');
 // require('./melangeManager.js');
-require( 'jquery-confirm' );
 
 $(function() {
 

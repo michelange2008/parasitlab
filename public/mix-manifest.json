@@ -13,7 +13,5 @@
     "/js/inputResultatValeur.js": "/js/inputResultatValeur.js",
     "/js/stats.js": "/js/stats.js",
     "/css/app.css": "/css/app.css",
-    "/css/bootstrap-table.min.css": "/css/bootstrap-table.min.css",
-    "/css/jquery-confirm.css": "/css/jquery-confirm.css",
-    "/js/chart.min.js": "/js/chart.min.js"
+    "/js/chart.js": "/js/chart.js"
 }
