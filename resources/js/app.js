@@ -97,7 +97,7 @@ $('.icone_del').on('click', function() {
 console.log(nom);
 	$.confirm({
 			type : 'red',
-			thme : 'dark',
+			theme : 'dark',
 	    title: 'Suppression !',
 	    content: 'Souhaitez-vous vraiment supprimer <strong>' + nom + '</strong> ?',
 	    buttons: {

@@ -16,7 +16,7 @@ $("#liste_pays").on('change', function() {
 
 });
 
-// Fontion pour vérifier si un email a un format valide
+// Fonction pour vérifier si un email a un format valide
 function isEmail(myVar){
   // La 1ère étape consiste à définir l'expression régulière d'une adresse email
   var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
@@ -42,7 +42,7 @@ $('#userCreateForm').on('submit', function(e) {
 
     var url_store = url_actuelle.replace('/create', ''); // remplace cette adresse par l'adresse correspondant à la méthode store
 
-    $.post({ // envoi une requete ajax pour stocker les données communes du nouvel utilisateur
+    $.post({ // envoi une requête ajax pour stocker les données communes du nouvel utilisateur
 
       url: url_store,
       dataType : 'html',
@@ -63,7 +63,7 @@ $('#userCreateForm').on('submit', function(e) {
       }
 
       //######################################
-      // ON RECUPERE L'usertype POUR POUVOIR AFFICHER LE FORMULAIRE CORRESPONDANT
+      // ON récupère L'usertype POUR POUVOIR AFFICHER LE FORMULAIRE CORRESPONDANT
       var usertype_code = donnees.usertype.code; // code de l'usertype du nouvel user
 
       var form = '#'+usertype_code+"CreateForm"; // création des variables pour modifier userCreate.blade.php
