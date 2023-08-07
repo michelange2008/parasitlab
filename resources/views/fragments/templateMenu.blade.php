@@ -3,11 +3,10 @@
 
     @foreach ($menu as $item)
       @if(@isset($item->sousmenu))
-        <li class="nav-item nav-item-bleu-tres-clair dropdown">
+        <li class="nav-item nav-item-bleu-tres-clair dropdown color-bleu-tres-clair">
           <a id="{{ $item->id ?? '' }}" class="nav-link dropdown-toggle" href="{{ route($item->route) }}" id="navbarDropdown_{{ $item->id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
             @lang($item->prefixe."nom")
-
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown_{{ $item->id }}">
             @foreach ($item->sousmenu as $sousmenu)
@@ -30,8 +29,10 @@
           </div>
         </li>
       @else
-        <li class="nav-item nav-item-bleu-tres-clair ">
-          <a id="{{ $item->id ?? '' }}" class="nav-link" href="{{ route($item->route) }}">@lang($item->prefixe."nom")</a>
+        <li class="nav-item nav-item-bleu-tres-clair color-bleu-tres-clair">
+          <a id="{{ $item->id ?? '' }}" class="nav-link" href="{{ route($item->route) }}">
+            @lang($item->prefixe."nom")
+          </a>
         </li>
       @endif
     @endforeach
