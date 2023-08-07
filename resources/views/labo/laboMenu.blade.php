@@ -10,7 +10,7 @@
   @include('fragments.templateMenu')
 
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown color-bleu-tres-clair">
       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ Auth::user()->name }}
       </a>
