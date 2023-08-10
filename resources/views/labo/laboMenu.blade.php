@@ -1,4 +1,4 @@
-<header class="navbar navbar-expand-lg navbar-dark bg-bleu-tres-fonce sticky-top">
+<header class="navbar navbar-expand-lg navbar-dark bg-bleu-clair sticky-top">
   <a class="navbar-brand" href="#">
     <img src="{{url('storage/logo-clair.svg')}}" alt="Parasit'Lab" height="30">
   </a>
@@ -7,10 +7,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  @include('fragments.templateMenu')
+    @include('fragments.templateMenu')
 
   <ul class="navbar-nav mr-auto">
-    <li class="nav-item dropdown color-bleu-tres-clair">
+    <li class="nav-item dropdown">
       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ Auth::user()->name }}
       </a>
