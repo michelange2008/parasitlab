@@ -6,14 +6,14 @@ use App\Fournisseurs\ListeFournisseur;
 use App\User;
 
 /**
- * FOURNIT LA LISTE DES VETOS AVEC TOUTES LES INFOS NECESSAIRES FORMATTEES POUR LES AFFICHER DANS INDEX
+ * FOURNIT LA LISTE DES ANAACTES AVEC TOUTES LES INFOS NECESSAIRES FORMATTEES POUR LES AFFICHER DANS INDEX
  */
 class ListeAnaactesFournisseur extends ListeFournisseur
 {
 
   public function creeListe($anaactes)
   {
-    $this->liste = collect();
+    $liste = collect();
     $prec = '';
     foreach ($anaactes as $anaacte) {
 
@@ -34,7 +34,7 @@ class ListeAnaactesFournisseur extends ListeFournisseur
 
       $prec = $anaacte->anatype->id;
 
-      $acte = $this->lienFactory($anaacte->id, $anaacte->nom, 'anaactes.edit', 'edit.anaacte');
+      $acte = $this->lienFactory($anaacte->id, $anaacte->nom, 'anaactes.edit', 'edit_anaacte');
 
       $estActif = $this->ouinonFactory($anaacte->id, $anaacte->estActif);
 
@@ -55,11 +55,11 @@ class ListeAnaactesFournisseur extends ListeFournisseur
         $suppr,
       ];
 
-      $this->liste->put($anaacte->id , $description);
+      $liste->put($anaacte->id , $description);
 
     }
 
-    return $this->liste;
+    return $liste;
 
   }
 }
