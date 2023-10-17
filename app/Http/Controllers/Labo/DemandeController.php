@@ -390,6 +390,12 @@ class DemandeController extends Controller
    **/
   public function storeActeToUser(Request $request, User $user)
   {
-    dd($request->all());
+    $datas = $request->all();
+    foreach ($datas as $acte => $quantite) {
+      if(explode('_', $acte)[0] == 'acte') {
+        $anaacte = Anaacte::find(explode('_', $acte)[1]);
+        $user->anaacte
+      }
+    }
   }
 }
