@@ -22,6 +22,7 @@ use App\Models\Analyses\Anatype;
 use App\Models\Analyses\Anaacte;
 use App\Models\Analyses\Analyse;
 use App\Models\Analyses\Anaitem;
+use App\Models\Productions\Acte;
 use App\Models\Usertype;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Facture;
@@ -394,7 +395,8 @@ class DemandeController extends Controller
     foreach ($datas as $acte => $quantite) {
       if(explode('_', $acte)[0] == 'acte') {
         $anaacte = Anaacte::find(explode('_', $acte)[1]);
-        $user->anaacte
+        $acte = new Acte();
+        
       }
     }
   }
