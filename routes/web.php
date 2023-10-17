@@ -73,7 +73,7 @@
 
   //##############################################################################
 
-  Auth::routes(['register' => false]);
+  Auth::Routes(['register' => false]);
 
   Route::group(['middleware' => 'web', 'middleware' => 'auth', 'middleware' => 'eleveur'], function() {
 
@@ -113,22 +113,22 @@
   });
 
 
-  // routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
+  // Routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
   Route::group(['middleware' => 'auth'], function(){
 
-    Route::get('personnel', 'RouteurController@routeurPersonnel')->name('routeurPersonnel');
+    Route::get('personnel', 'RouteurController@RouteurPersonnel')->name('RouteurPersonnel');
 
-    Route::get('routeur/serie/{serie_id}', 'RouteurController@routeurSerie')->name('routeurSerie');
+    Route::get('Routeur/serie/{serie_id}', 'RouteurController@RouteurSerie')->name('RouteurSerie');
 
-    Route::get('routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
+    Route::get('Routeur/demande/{demande_id}', 'RouteurController@RouteurDemande')->name('RouteurDemande');
 
-    Route::get('deletemoi/{id}', 'RouteurController@deletemoi')->name('routeur.deletemoi');
+    Route::get('deletemoi/{id}', 'RouteurController@deletemoi')->name('Routeur.deletemoi');
 
-    Route::get('jemedelete/{id}', 'RouteurController@jemedelete')->name('routeur.jemedelete');
+    Route::get('jemedelete/{id}', 'RouteurController@jemedelete')->name('Routeur.jemedelete');
 
-    Route::get('facturePdf/{id}', ['uses' => 'RouteurController@routeurFacturePdf', 'as' => 'routeurFacturePdf']);
+    Route::get('facturePdf/{id}', ['uses' => 'RouteurController@RouteurFacturePdf', 'as' => 'RouteurFacturePdf']);
 
-    Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@routeurResultatsPdf', 'as' => 'routeurResultatsPdf']);
+    Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@RouteurResultatsPdf', 'as' => 'RouteurResultatsPdf']);
 
     Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
 
@@ -151,51 +151,56 @@
 
     Route::get('', 'Labo\DemandeController@index')->name('laboratoire');
 
-    route::resource('analyses', 'Analyses\AnalyseController');
+    Route::resource('analyses', 'Analyses\AnalyseController');
 
-    route::resource('anaactes', 'Analyses\AnaacteController');
+    Route::resource('anaactes', 'Analyses\AnaacteController');
 
-    route::resource('anatypes', 'Analyses\AnatypeController');
+    Route::resource('anatypes', 'Analyses\AnatypeController');
 
-    route::resource('anaitems', 'Analyses\AnaitemController');
+    Route::resource('anaitems', 'Analyses\AnaitemController');
 
-    route::resource('unites', 'Analyses\UniteController');
+    Route::resource('unites', 'Analyses\UniteController');
 
-    route::get('demandes/modif/{demande_id}', 'Labo\DemandeController@modif')->name('demandes.modif');
+    Route::get('demandes/modif/{demande_id}', 'Labo\DemandeController@modif')->name('demandes.modif');
 
-    route::resource('demandes', 'Labo\DemandeController');
+    Route::resource('demandes', 'Labo\DemandeController');
 
     // Crée des nouveaux prélèvements soit au moment de la saisie de la demande soit après être passé par definitNbPrelev soit en ajoutant un nouveau prélèvement
     // Il faut redéfinir la fonction create car la création d'un prélèvement nécessite sytématiquement l'id de la demande correspondante
-    route::get('prelevement/create/{demande_id}', 'Labo\PrelevementController@create')->name('prelevement.create');
+    Route::get('prelevement/create/{demande_id}', 'Labo\PrelevementController@create')->name('prelevement.create');
 
-    route::post('prelevement', 'Labo\PrelevementController@store')->name('prelevement.store');
+    Route::post('prelevement', 'Labo\PrelevementController@store')->name('prelevement.store');
 
-    route::get('prelevement/edit/{prelevement_id}', 'Labo\PrelevementController@edit')->name('prelevement.edit');
+    Route::get('prelevement/edit/{prelevement_id}', 'Labo\PrelevementController@edit')->name('prelevement.edit');
 
-    route::put('prelevement/edit/{prelevement_id}', 'Labo\PrelevementController@update')->name('prelevement.update');
+    Route::put('prelevement/edit/{prelevement_id}', 'Labo\PrelevementController@update')->name('prelevement.update');
     // Permet de définir le nombre de prélèvements pour une demande déjà saisie mais avec 0 prélèvements
-    route::post('prelevement/definitNbPrelev', 'Labo\PrelevementController@definitNbPrelev')->name('prelevement.definitNbPrelev');
+    Route::post('prelevement/definitNbPrelev', 'Labo\PrelevementController@definitNbPrelev')->name('prelevement.definitNbPrelev');
       // Route pour demander confirmation de la suppression d'un prélèvement (j'ai eu la flemme de faire en js)
-    route::get('prelevement/suppr/{prelevement_id}', 'Labo\PrelevementController@prelevdel')->name('prelevement.prelevdel');
+    Route::get('prelevement/suppr/{prelevement_id}', 'Labo\PrelevementController@prelevdel')->name('prelevement.prelevdel');
 
-    route::delete('prelevement/delete/{prelevement_id}', 'Labo\PrelevementController@destroy')->name('prelevement.destroy');
+    Route::delete('prelevement/delete/{prelevement_id}', 'Labo\PrelevementController@destroy')->name('prelevement.destroy');
 
-    route::get('demandes/{demande_id}/paillasse', 'PdfController@fichePaillasse')->name('paillasse');
+    Route::get('demandes/{demande_id}/paillasse', 'PdfController@fichePaillasse')->name('paillasse');
 
-    route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
+    Route::get('signer/{demande_id}', 'Labo\DemandeController@signer')->name('demande.signer');
 
-    route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');
+    Route::get('envoyer/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultats')->name('mail.envoyerResultats');
 
-    route::get('envoyer_facture/{facture_id}', 'Labo\EnvoisController@envoyerFacture')->name('mail.envoyerFacture');
+    Route::get('envoyer_facture/{facture_id}', 'Labo\EnvoisController@envoyerFacture')->name('mail.envoyerFacture');
 
-    route::get('envoyer_tous/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultatsTous')->name('mail.envoyerResultatsTous');
+    Route::get('envoyer_tous/{destinataire_id}/{demande_id}', 'Labo\EnvoisController@envoyerResultatsTous')->name('mail.envoyerResultatsTous');
 
+    // Route pour l'ajout d'un acte à un utilisateur qui ne soit pas une analyse
+    Route::get('acte/{user}/add', 'Labo\DemandeController@addActeToUser')->name('acteToUser.add');
+
+    Route::post('acte/{user}/store', 'Labo\DemandeController@storeActeToUser')->name('acteToUser.store');
+    
     Route::resource('user', 'UserController');
 
     Route::resource('laboAdmin', 'Labo\LaboAdminController');
 
-    route::get('vetoAdmin/createOnDemande', 'Labo\VetoAdminController@createOnDemande')->name('vetoAdmin.createOnDemande');
+    Route::get('vetoAdmin/createOnDemande', 'Labo\VetoAdminController@createOnDemande')->name('vetoAdmin.createOnDemande');
 
     Route::resource('vetoAdmin', 'Labo\VetoAdminController');
 
@@ -290,7 +295,7 @@
     Route::get('documentation', 'DocController@index')->name('doc.index');
 
     //##############################
-    //route de test
+    //Route de test
     Route::get('dev', 'DevController@index')->name('dev.index');
 
     Route::get('dev/factures', 'DevController@factures')->name('dev.factures');
@@ -300,7 +305,7 @@
     Route::get('dev/demandes', 'DevController@demandes')->name('dev.demandes');
 
     //###########################
-    // GESTION DE L'ALGORITME DE CHOIX
+    // GESTION DE l’algorithme DE CHOIX
     Route::get('algorithme', 'Analyses\Algorithme\BaseController@index')->name('algorithme.index');
 
     Route::resource('algorithme/observations', 'Analyses\Algorithme\ObservationsController');

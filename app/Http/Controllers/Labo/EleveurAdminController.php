@@ -48,7 +48,7 @@ class EleveurAdminController extends Controller
 
   protected $menu;
   protected $pays;
-  // protected $vetos;
+  protected $vetos;
   /**
   * Display a listing of the resource.
   *

@@ -16,6 +16,8 @@
 
       @include('admin.detail.nbFacturesImpayees')
 
+      @include('admin.detail.addActe')
+
       @include('admin.detail.eleveur_troupeau_animaux')
 
     </ul>

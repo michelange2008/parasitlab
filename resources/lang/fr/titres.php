@@ -84,4 +84,6 @@ return array (
   'news_edit' => "Modifier une News",
 
   'stats_titre' => "statistiques",
+
+  'add_acte' => "Ajouter un acte à un utilisateur",
 );
