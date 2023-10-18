@@ -176,7 +176,7 @@ class ActeController extends Controller
     {
         Acte::destroy($id);
 
-        return redirect()->route('acte.index');
+        return redirect()->back();
     }
 
       /**

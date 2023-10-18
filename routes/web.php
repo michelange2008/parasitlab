@@ -240,8 +240,6 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
-  // Route::post('facture/paiement', 'Labo\FactureController@paiement')->name('facture.paiement');
-
   Route::resource('factures', 'Labo\FactureController');
 
   Route::resource('reglement', 'Labo\ReglementController');
@@ -251,7 +249,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   
   Route::post('acte/{user}/store', 'Labo\ActeController@storeActeToUser')->name('acteToUser.store');
 
-  Route::get('acte/{user}/liste', 'Labo\ActeController@indexActesUser')->name('acte.indexActes.User');
+  Route::get('acte/{user}/liste', 'Labo\ActeController@indexActesUser')->name('acte.indexActesUser');
 
   Route::resource('acte', 'Labo\ActeController');
 
