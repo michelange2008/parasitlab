@@ -34,7 +34,17 @@
 
     </div>
 
-    <div class="row my-3 justify-content-end flex-xl-nowrap">
+    <div class="row my-3 justify-content-end">
+
+      <div class="col-md-8 col-lg-9">
+  
+        @include('fragments.flash')
+  
+      </div>
+  
+    </div>
+  
+      <div class="row my-3 justify-content-end flex-xl-nowrap">
 
 
       <div class="col-md-8 col-lg-9 bd-content">

@@ -364,40 +364,4 @@ class DemandeController extends Controller
 
     return $destinataireFacture;
   }
-
-  /**
-   * Ajoute un acte à un utilisateur 
-   *
-   * @param User $user utilisateur pour lequel ajouter un acte
-   * @return view labo.addActeToUserCreate
-   **/
-  public function addActeToUser(User $user)
-  {
-    $actes = Anaacte::where('estAnalyse', 0)->get();
-
-    return view('labo.addActeToUserCreate', [
-      'menu' => $this->menu,
-      'actes' => $actes,
-      'user' => $user,
-    ]);
-  }
-
-  /**
-   * Enregistre l'acte ajouté à l'user
-   *
-   * @param Request $request, 
-   * @param User $user,
-   * @return view
-   **/
-  public function storeActeToUser(Request $request, User $user)
-  {
-    $datas = $request->all();
-    foreach ($datas as $acte => $quantite) {
-      if(explode('_', $acte)[0] == 'acte') {
-        $anaacte = Anaacte::find(explode('_', $acte)[1]);
-        $acte = new Acte();
-        
-      }
-    }
-  }
 }

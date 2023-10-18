@@ -146,7 +146,7 @@ class ActeController extends Controller
     }
 
     /**
-     * Supprime l'acté associé à un User
+     * Supprime l'acte associé à un User
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -157,4 +157,48 @@ class ActeController extends Controller
 
         return redirect()->route('acte.index');
     }
+
+      /**
+   * Ajoute un acte à un utilisateur 
+   *
+   * @param User $user utilisateur pour lequel ajouter un acte
+   * @return view labo.addActeToUserCreate
+   **/
+  public function addActeToUser(User $user)
+  {
+    $actes = Anaacte::where('estAnalyse', 0)->get();
+
+    return view('labo.addActeToUserCreate', [
+      'menu' => $this->menu,
+      'actes' => $actes,
+      'user' => $user,
+    ]);
+  }
+
+  /**
+   * Enregistre l'acte ajouté à l'user
+   *
+   * @param Request $request, 
+   * @param User $user,
+   * @return view
+   **/
+  public function storeActeToUser(Request $request, User $user)
+  {
+    $datas = $request->all();
+    $nb_acte = 0;
+    foreach ($datas as $acte => $quantite) {
+      if(explode('_', $acte)[0] == 'acte') {
+        $anaacte = Anaacte::find(explode('_', $acte)[1]);
+        $acte = new Acte();
+        $acte->user_id = $user->id;
+        $acte->anaacte_id = $anaacte->id;
+        $acte->nombre = $quantite;
+        $acte->facturee = 0;
+        $acte->facture_id = null;
+        $acte->save();
+        $nb_acte += $quantite;
+      }
+    }
+    return redirect()->route('eleveurAdmin.show', $user->id)->with('message', 'acte_added');
+  }
 }
