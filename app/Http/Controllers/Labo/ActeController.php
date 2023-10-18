@@ -67,6 +67,27 @@ class ActeController extends Controller
     }
 
     /**
+     * Liste des actes d'un user
+     *
+     * @param User $user utilisateur dont on veut voir les actes
+     * @return View affichage de la liste des actes
+     **/
+    public function indexActesUser(User $user)
+    {
+      $actes = Acte::where('user_id', $user->id)->get();
+
+      $fournisseur = new ListeActesFournisseur();
+
+      $datas = $fournisseur->renvoieDatas($actes, __('titres.list_actes'), 'acte.svg', 'tableauActes', 'acte.create', __('boutons.add_acte'));
+
+      return view('labo.actes', [
+        'menu' => $this->menu,
+        'datas' => $datas,
+      ]);
+
+  }
+
+    /**
      * Affiche un formulaire pour attirbuer un Anaacte à un User
      *
      * @return \Illuminate\View\View labo/actes/acteCreate

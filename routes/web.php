@@ -248,8 +248,10 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   // Route pour l'ajout d'un acte à un utilisateur qui ne soit pas une analyse
   Route::get('acte/{user}/add', 'Labo\ActeController@addActeToUser')->name('acteToUser.add');
-
+  
   Route::post('acte/{user}/store', 'Labo\ActeController@storeActeToUser')->name('acteToUser.store');
+
+  Route::get('acte/{user}/liste', 'Labo\ActeController@indexActesUser')->name('acte.indexActes.User');
 
   Route::resource('acte', 'Labo\ActeController');
 
