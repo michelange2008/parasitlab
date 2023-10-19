@@ -8,6 +8,8 @@
 //##############################################################################
 // MENU ACCUEIL
 
+use App\Http\Controllers\FilesController;
+
 Route::get('/essai/{id}', 'Api\DonneesController@observationSelonEspece');
 Route::post('/consentement', 'UserController@consentement')->name('consentement');
 
@@ -260,6 +262,12 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::get('icones/suppression', 'IconesController@suppr')->name('icones.suppr');
 
   Route::resource('icones', 'IconesController');
+
+  Route::group(['prefix' => 'formulaires'], function() {
+
+    Route::get('index', 'FilesController@index')->name('files.index');
+
+  });
 
   //###########################
   // News
