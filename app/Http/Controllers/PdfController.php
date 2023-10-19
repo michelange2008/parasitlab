@@ -17,7 +17,9 @@ use App\Http\Traits\DemandeFactory;
 use App\Http\Traits\FactureFactory;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\UserTypeOutil;
-
+/**
+ * Prépare les pdf: résultats d'analyse, factures, ...
+ */
 class PdfController extends Controller
 {
   use DemandeFactory, LitJson, UserTypeOutil, FactureFactory;
