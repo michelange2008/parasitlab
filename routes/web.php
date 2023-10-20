@@ -114,19 +114,19 @@ Route::group(['middleware' => 'web', 'middleware' => 'auth', 'middleware' => 've
 // Routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
 Route::group(['middleware' => 'auth'], function () {
 
-  Route::get('personnel', 'RouteurController@RouteurPersonnel')->name('RouteurPersonnel');
+  Route::get('personnel', 'RouteurController@routeurPersonnel')->name('routeurPersonnel');
 
-  Route::get('Routeur/serie/{serie_id}', 'RouteurController@RouteurSerie')->name('RouteurSerie');
+  Route::get('routeur/serie/{serie_id}', 'RouteurController@routeurSerie')->name('routeurSerie');
 
-  Route::get('Routeur/demande/{demande_id}', 'RouteurController@RouteurDemande')->name('RouteurDemande');
+  Route::get('routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
 
-  Route::get('deletemoi/{id}', 'RouteurController@deletemoi')->name('Routeur.deletemoi');
+  Route::get('deletemoi/{id}', 'RouteurController@deletemoi')->name('routeur.deletemoi');
 
-  Route::get('jemedelete/{id}', 'RouteurController@jemedelete')->name('Routeur.jemedelete');
+  Route::get('jemedelete/{id}', 'RouteurController@jemedelete')->name('routeur.jemedelete');
 
-  Route::get('facturePdf/{id}', ['uses' => 'RouteurController@RouteurFacturePdf', 'as' => 'RouteurFacturePdf']);
+  Route::get('facturePdf/{id}', ['uses' => 'RouteurController@routeurFacturePdf', 'as' => 'routeurFacturePdf']);
 
-  Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@RouteurResultatsPdf', 'as' => 'RouteurResultatsPdf']);
+  Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@routeurResultatsPdf', 'as' => 'routeurResultatsPdf']);
 
   Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
 
