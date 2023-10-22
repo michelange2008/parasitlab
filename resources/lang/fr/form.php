@@ -217,4 +217,6 @@ return array (
   'news_img_name' => 'nom de l\'image',
   'news_choice' => "Choix de la news à afficher",
   'no_news' => 'Aucune news',
+
+  'choisir_file' => "Choisir un fichier",
 );

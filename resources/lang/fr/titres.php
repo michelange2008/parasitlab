@@ -86,4 +86,8 @@ return array (
   'stats_titre' => "statistiques",
 
   'add_acte' => "Ajouter un acte à un utilisateur",
+
+  'add_file' => "Ajouter un fichier",
+  'del_file' => "Détruire ce fichier ?",
+  'edit_file' => "Modifier un fichier",
 );

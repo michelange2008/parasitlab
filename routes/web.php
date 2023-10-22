@@ -267,7 +267,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
     Route::get('index', 'FilesController@index')->name('files.index');
     Route::get('create', 'FilesController@create')->name('files.create');
-    Route::post('store/{file}', 'FilesController@store')->name('files.store');
+    Route::post('store', 'FilesController@store')->name('files.store');
     Route::get('edit/{file}', 'FilesController@edit')->name('files.edit');
     Route::post('update/{file}', 'FilesController@update')->name('files.update');
     Route::delete('{file}', 'FilesController@delete')->name('files.delete');

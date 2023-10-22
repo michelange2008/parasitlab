@@ -79,7 +79,21 @@ class FilesController extends Controller
      **/
     public function store(Request $request)
     {
-        return redirect()->route('files.index')->with('message', 'Le fichier a été créé');
+        $request->validate([
+            'description' => 'string|max:191|nullable',
+        ]);
+        $file = $request->file('file_nouvelle');
+        if ( File::where('nom', $file->getClientOriginalName())->count() > 0 ) {
+            return redirect()->back()->with(['message'=> 'file_exists', 'couleur' => "alert-danger"]);
+        }
+        $db_file = new File();
+        $db_file->nom = $file->getClientOriginalName();
+        $db_file->extension = $file->getClientOriginalExtension();
+        $db_file->description = ($request->description != null) ? $request->description : $file->getClientOriginalName();
+        $db_file->requis = ($request->requis != null) ? 1 : 0;
+dd($db_file);
+
+        // return redirect()->route('files.index')->with('message', 'Le fichier a été créé');
     }
     /**
      * Modifie un fichier

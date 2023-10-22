@@ -66,4 +66,6 @@ return array (
   'exporter' => "Exporter",
   'save_commentaire' => "Enregistrer le commentaire",
   'save_edit' => "Sauvegarder les modifications",
+
+  'add_file' => "Ajouter un fichier",
 );
