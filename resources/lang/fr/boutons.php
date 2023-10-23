@@ -49,7 +49,7 @@ return array (
   'add_exclusion' => "Ajouter une règle d'exclusion",
 
   'fermer' => 'Fermer',
-
+  'update' => 'Mettre à jour',
   'icone_add' => 'Ajouter une icone',
   'icones_suppr' => "Supprimer une icone",
 

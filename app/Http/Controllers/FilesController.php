@@ -38,17 +38,16 @@ class FilesController extends Controller
                 $new_file->nom = $file;
                 $new_file->description = $nom_file;
                 $new_file->extension = $extension_file;
+                $new_file->requis = 0;
                 $new_file->save();
                 $db_files = File::all();
             }
         }
         // On vérifie que tous les enregistrements de la table files correspondent à un fichier
-        // Si ce n'est pas le cas on donne la valeur true à orphelin (sinon on donne la valeur false)
+        // Si ce n'est pas le cas on supprime l'enregistrement.
         foreach ($db_files as $db_file) {
             if (!in_array($db_file->nom, $files)) {
-                $db_file->orphelin = true;
-            } else {
-                $db_file->orphelin = false;
+                $db_file->delete();
             }
         }
 
@@ -65,7 +64,7 @@ class FilesController extends Controller
      **/
     public function create()
     {
-        
+
         return view('admin.files.createFile', [
             'menu' => $this->litJson('menuLabo'),
         ]);
@@ -82,18 +81,22 @@ class FilesController extends Controller
         $request->validate([
             'description' => 'string|max:191|nullable',
         ]);
-        $file = $request->file('file_nouvelle');
-        if ( File::where('nom', $file->getClientOriginalName())->count() > 0 ) {
-            return redirect()->back()->with(['message'=> 'file_exists', 'couleur' => "alert-danger"]);
-        }
-        $db_file = new File();
-        $db_file->nom = $file->getClientOriginalName();
-        $db_file->extension = $file->getClientOriginalExtension();
-        $db_file->description = ($request->description != null) ? $request->description : $file->getClientOriginalName();
-        $db_file->requis = ($request->requis != null) ? 1 : 0;
-dd($db_file);
 
-        // return redirect()->route('files.index')->with('message', 'Le fichier a été créé');
+        $file = $request->file('new_file');
+        // Si le fichier existe déjà, on retourne vers le formulaire
+        if (File::where('nom', $file->getClientOriginalName())->count() > 0) {
+            return redirect()->back()->with(['message' => 'file_exists', 'couleur' => "alert-danger"]);
+        } else {
+            $file->storeAs('public/pdf', $file->getClientOriginalName());
+            $db_file = new File();
+            $db_file->nom = $file->getClientOriginalName();
+            $db_file->extension = $file->getClientOriginalExtension();
+            $db_file->description = ($request->description != null) ? $request->description : $file->getClientOriginalName();
+            $db_file->requis = ($request->requis != null) ? 1 : 0;
+            $db_file->save();
+
+            return redirect()->route('files.index')->with('message', 'file_created');
+        }
     }
     /**
      * Modifie un fichier
@@ -105,7 +108,7 @@ dd($db_file);
      **/
     public function edit(File $file)
     {
-        
+
         return view('admin.files.editFile', [
             'menu' => $this->litJson('menuLabo'),
             'file' => $file,
@@ -121,21 +124,37 @@ dd($db_file);
      **/
     public function update(Request $request, File $file)
     {
+        $request->validate([
+            'description' => 'string|max:191|nullable',
+        ]);
         
-        return redirect()->route('files.index')->with('message', 'fichier mis à jour');
+        $fichier = $request->file('new_file');
+        // Si le fichier mis à jour a une extension différente de l'ancien c'est pas normal
+        if ($fichier->getClientOriginalExtension() != $file->extension) {
+            return redirect()->back()->with(['message' => 'ext_diff', 'couleur' => 'bg-danger']);
+        }
+
+        $fichier->storeAs('public/pdf', $request->old_file);
+        File::where('id', $file->id)
+            ->update([
+                'description' => $request->description,
+            ]);
+
+
+        return redirect()->route('files.index')->with('message', 'file_updated');
     }
 
     /**
      * Affiche une page de confirmation de suppression de fichier
      *
-     * @param File $file
+     * @param Int $file->id
      * @return view
      **/
-    public function delete(File $file)
+    public function delete(Int $id)
     {
         return view('admin.files.deleteFile', [
             'menu' => $this->litJson('menuLabo'),
-            'file' => $file,
+            'file' => File::find($id),
         ]);
     }
 
@@ -147,6 +166,8 @@ dd($db_file);
      **/
     public function destroy(File $file)
     {
-        return redirect()->route('files.index')->with('message', 'fichier supprimé');
+        unlink("storage/pdf/" . $file->nom);
+        $file->delete();
+        return redirect()->route('files.index')->with('message', 'file_deleted');
     }
 }

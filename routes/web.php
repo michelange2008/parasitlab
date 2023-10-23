@@ -270,7 +270,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
     Route::post('store', 'FilesController@store')->name('files.store');
     Route::get('edit/{file}', 'FilesController@edit')->name('files.edit');
     Route::post('update/{file}', 'FilesController@update')->name('files.update');
-    Route::delete('{file}', 'FilesController@delete')->name('files.delete');
+    Route::get('delete/{file_id}', 'FilesController@delete')->name('files.delete');
+    Route::delete('destroy/{file}', 'FilesController@destroy')->name('files.destroy');
 
   });
 

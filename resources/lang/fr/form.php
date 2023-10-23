@@ -219,4 +219,5 @@ return array (
   'no_news' => 'Aucune news',
 
   'choisir_file' => "Choisir un fichier",
+  'choisir_new_file' => "Choisir un nouveau fichier",
 );

@@ -25,8 +25,8 @@
       <div class="col-md-10">
 
         @titre([
-            'icone' => 'files.svg',
-            'titre' => ""
+            'icone' => 'delete_file.svg',
+            'titre' => __('titres.del_file')
         ])
 
       </div>
@@ -35,9 +35,34 @@
 
     <div class="row my-3 justify-content-center">
 
-        <div class="col-md-10">
+      <div class="col-md-10 d-flex">
+
+        <h3>Fichier: {{ $file->nom }}</h3>
+
+      </div>
+
+    </div>
+
+    <div class="row my-3 justify-content-center">
+
+      <div class="col-md-10 d-flex">
+
+      <img src="{{ url('storage/img/courbet.jpg')}}" alt="Courbet">
+
+      </div>
+
+    </div>
+
+  <div class="row my-3 justify-content-center">
+
+        <div class="col-md-10 d-flex">
   
-  
+          @supprimer([
+            'route' => 'files.destroy',
+            'id' => $file->id,
+          ])
+
+          @retour()
         </div>
   
       </div>

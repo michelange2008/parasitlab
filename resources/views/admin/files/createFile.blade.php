@@ -40,7 +40,12 @@
           <form action="{{ route('files.store')}}" method="POST" enctype='multipart/form-data'>
             @csrf
 
-            @inputFile(['nouveau' => true, 'name' => 'file'])
+            <div class="custom-file my-3">
+              <label class="custom-file-label" for="customFile">@lang('form.choisir_file')</label>
+              <input type="file" class="custom-file-input" id="customFile" name="new_file" required>
+            </div>            
+            
+
             @inputText([
               'nom' => 'description',
               'label' => 'description',

@@ -88,6 +88,7 @@ return array (
   'add_acte' => "Ajouter un acte à un utilisateur",
 
   'add_file' => "Ajouter un fichier",
-  'del_file' => "Détruire ce fichier ?",
+  'del_file' => "Êtes-vous sûrs de vouloir supprimer ce fichier ?",
   'edit_file' => "Modifier un fichier",
+  'update_file' => "Mettre à jour le fichier",
 );
