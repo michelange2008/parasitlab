@@ -337,7 +337,7 @@ class DemandeController extends Controller
     try {
 
       $labo_id = auth()->user()->labo->id;
-
+      
       DB::table('demandes')->where('id', $demande_id)->update([
         'signe' => true,
         'date_signature' => \Carbon\Carbon::now(),

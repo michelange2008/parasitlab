@@ -258,6 +258,12 @@
       {
         "id" : "divider"
       },
+      "files" :
+      {
+        "id" : "files",
+        "prefixe" : "menuLabo.outils.files.",
+        "route" : "files.index"
+      },
       "icones" :
       {
         "id" : "items",
