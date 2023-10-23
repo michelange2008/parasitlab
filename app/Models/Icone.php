@@ -22,6 +22,8 @@ class Icone extends Model
 {
   public $timestamps = false;
 
+  protected $guarded = [];
+
   public function analyses()
   {
     return $this->hasMany(Analyses\Analyse::class);
