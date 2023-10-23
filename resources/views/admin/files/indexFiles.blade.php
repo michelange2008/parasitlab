@@ -32,7 +32,7 @@
 
         <div class="row my-3 justify-content-center">
 
-            <div class="col-md-10">
+            <div class="col-md-10 col-lg-9 col-xl-8">
 
               @boutonUser([
                 'route' => 'files.create',
@@ -43,7 +43,7 @@
                 @foreach ($db_files as $file)
                     <div class="media my-3 p-2 border @if ($file->orphelin) bg-warning @else bg-light @endif">
 
-                        <img class="img-50" src="{{ url('storage/img/extensions') . '/' . $file->extension . '.svg' }}"
+                        <img class="m-2 d-none d-md-block img-50" src="{{ url('storage/img/extensions') . '/' . $file->extension . '.svg' }}"
                             alt="Image">
 
                         <div class="media-body">
@@ -56,7 +56,7 @@
                             <p>
                                 <a target="blank" href="{{ url('storage/pdf') . '/' . $file->nom }}"
                                     class="font-italic" title="Ouvrir le fichier">
-                                    {{ $file->nom }}
+                                    {{ $file->nom }} <i class="fas fa-square-arrow-up-right"></i>
                                 </a>
                             </p>
                             <div>
