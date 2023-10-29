@@ -3,6 +3,8 @@
 namespace App\Models\Productions;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Il s'agit d'une demande d'analyse
@@ -25,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * + _serie_id_ : int(10) UNSIGNED DEFAULT NULL,
  * + _informations_ : mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
  * + _tovetouser_id_ : int(10) UNSIGNED DEFAULT NULL, vétérinaire destinataire des résultats
+ * + _toOPuser_id_ : int(10) UNSIGNED DEFAULT NULL, OP (GDS) destinataire des résultats
  * + _date_prelevement_ : timestamp NULL DEFAULT NULL,
  * + _date_reception_ : timestamp NULL DEFAULT NULL,
  * + _acheve_ : booléen(1) NOT NULL DEFAULT 0,
@@ -105,12 +108,26 @@ class Demande extends Model
     }
 
     /**
+     * Toute demande peut aussi être associée à une OP (GDS)
+     *
+     * Mais une OP est aussi un User de type Veto
+     * Comme précédemment des l'id de l'OP comme User et non comme Veto qui utilisée
+     *
+     * @see \App\User
+     * @return belongsTo
+     **/
+    public function toOPuser(): BelongsTo
+    {
+      return $this->belongsTo(\App\User::class, 'toOPuser_id', 'id');
+    }
+
+    /**
      * Toute demande est associée à plusieurs prélèvements (qui eux ne sont associés
      * qu'à cette seule demande)
      * @see \App\Models\Productions\Prelevement
      * @return hasMany
      */
-    public function prelevements()
+    public function prelevements(): HasMany
     {
       return $this->hasMany(Prelevement::class);
     }

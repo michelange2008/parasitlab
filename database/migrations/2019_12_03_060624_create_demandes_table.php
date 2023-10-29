@@ -43,6 +43,10 @@ class CreateDemandesTable extends Migration
             $table->foreign('tovetouser_id')->references('id')->on('users')
             ->onDelete('set null')->onUpdate('cascade');
 
+            $table->unsignedInteger('toOPuser_id')->nullable();
+            $table->foreign('toOPuser_id')->references('id')->on('users')
+            ->onDelete('set null')->onUpdate('cascade');
+
             $table->timestamp('date_prelevement')->nullable();
             $table->timestamp('date_reception')->nullable();
 
