@@ -32,13 +32,6 @@
           'intitule' => 'icone_add',
         ])
 
-        @boutonUser([
-          'route' => 'icones.suppr',
-          'fa' => 'fas fa-trash-alt',
-          'couleur' => 'btn-rouge',
-          'intitule' => 'icones_suppr',
-        ])
-
         @retour()
 
       </div>
@@ -52,7 +45,7 @@
             <h4>{{ $type[0]->type }}</h4>
 
             @foreach($type as $icone)
-
+              
               <img class="img-100px m-3 icone " src="{{ url('storage/img/icones/'.$icone->nom ) }}" alt="{{ $icone->nom }}" data-toggle="tooltip" title="{{ $icone->nom }}">
 
             @endforeach

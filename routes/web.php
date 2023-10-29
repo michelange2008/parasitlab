@@ -8,10 +8,12 @@
 //##############################################################################
 // MENU ACCUEIL
 
+use App\Http\Controllers\FilesController;
+
 Route::get('/essai/{id}', 'Api\DonneesController@observationSelonEspece');
+
 Route::post('/consentement', 'UserController@consentement')->name('consentement');
 
-// Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
 Route::post('/essai/store', 'Api\DonneesController@selectAnalyses')->name('essai.store');
 
 Route::get('/', 'AccueilController@index')->name('accueil');
@@ -260,6 +262,18 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::get('icones/suppression', 'IconesController@suppr')->name('icones.suppr');
 
   Route::resource('icones', 'IconesController');
+
+  Route::group(['prefix' => 'formulaires'], function() {
+
+    Route::get('index', 'FilesController@index')->name('files.index');
+    Route::get('create', 'FilesController@create')->name('files.create');
+    Route::post('store', 'FilesController@store')->name('files.store');
+    Route::get('edit/{file}', 'FilesController@edit')->name('files.edit');
+    Route::post('update/{file}', 'FilesController@update')->name('files.update');
+    Route::get('delete/{file_id}', 'FilesController@delete')->name('files.delete');
+    Route::delete('destroy/{file}', 'FilesController@destroy')->name('files.destroy');
+
+  });
 
   //###########################
   // News

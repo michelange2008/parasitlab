@@ -63,4 +63,9 @@ return array (
   'news_choose' => "Le choix de la news à afficher a été modifié",
   'news_edited' => "La news a été mise à jour",
   'acte_added' => "Ajout d'acte(s) réalisé",
+  'file_exists' => "Attention, ce fichier existe déjà! Merci d'en choisir un autre.",
+  'file_created' => "Le fichier a été créé.",
+  'file_deleted' => "Le fichier a bien été supprimé",
+  'file_updated' => "Le fichier a bien été mis à jour.",
+  'ext_diff' => "Attention, le nouveau fichier n'est pas du même type que l'ancien"
 );

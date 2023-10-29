@@ -151,6 +151,11 @@ return array (
       'nom' => 'Espèces',
       'tooltip' => 'Gérer les espèces',
     ),
+    'files' =>
+    array (
+      'nom' => 'Formulaires',
+      'tooltip' => 'Gérer les formulaires',
+    ),
     'icones' =>
     array (
       'nom' => 'Icones',

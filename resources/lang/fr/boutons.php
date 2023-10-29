@@ -49,7 +49,7 @@ return array (
   'add_exclusion' => "Ajouter une règle d'exclusion",
 
   'fermer' => 'Fermer',
-
+  'update' => 'Mettre à jour',
   'icone_add' => 'Ajouter une icone',
   'icones_suppr' => "Supprimer une icone",
 
@@ -66,4 +66,6 @@ return array (
   'exporter' => "Exporter",
   'save_commentaire' => "Enregistrer le commentaire",
   'save_edit' => "Sauvegarder les modifications",
+
+  'add_file' => "Ajouter un fichier",
 );
