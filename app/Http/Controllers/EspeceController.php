@@ -21,6 +21,8 @@ class EspeceController extends Controller
      */
     use LitJson;
 
+    protected $menu;
+    
     /**
      * Constructeur qui remplit la variable $menu avec le tableau issu du json
      */

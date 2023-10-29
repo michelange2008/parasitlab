@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-         Collective\Html\HtmlServiceProvider::class,
+        //  Collective\Html\HtmlServiceProvider::class,
         /* Bugsnag */
          Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
         /*

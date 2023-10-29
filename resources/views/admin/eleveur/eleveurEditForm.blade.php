@@ -2,9 +2,10 @@
 NECESSITE 4 VARIABLES: user, vetos, pays -->
 
 
-  {!! Form::open(['route' => ['user.update', $user->id]], $user->id) !!}
+<form action="{{ route('user.update', $user->id) }}" method="POST">
 
-  @METHOD('PUT')
+    @csrf
+    @method('PUT')
 
     <input type="hidden" name="usertype_id" value="{{ $user->usertype->id }}">
 
@@ -14,6 +15,6 @@ NECESSITE 4 VARIABLES: user, vetos, pays -->
 
     @include('admin.form.infosEleveur')
 
-    @enregistreAnnule(["route" => route('eleveurAdmin.show', $user->id)])
+    @enregistreAnnule(['route' => route('eleveurAdmin.show', $user->id)])
 
-  {!! Form::close() !!}
+</form>

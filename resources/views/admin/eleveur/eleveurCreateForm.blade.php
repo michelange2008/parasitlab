@@ -1,13 +1,12 @@
 <!-- FRAGMENT DESTINE A CREER UN ELEVEUR
 NECESSITE 4 VARIABLES: user, vetos, pays -->
 
-  {!! Form::open(['route' => 'eleveurAdmin.store']) !!}
+<form action="{{ route('eleveurAdmin.store') }}" method="POST">
+    @csrf
 
-  @METHOD('POST')
+    <div id="usereleveur_id">
 
-  <div id="usereleveur_id">
-
-  </div>
+    </div>
 
     @include('admin.form.contact')
 
@@ -15,5 +14,4 @@ NECESSITE 4 VARIABLES: user, vetos, pays -->
 
     @enregistreAnnule(['route' => 'user.index'])
 
-
-  {!! Form::close() !!}
+</form>

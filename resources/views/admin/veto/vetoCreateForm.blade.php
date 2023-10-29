@@ -1,13 +1,12 @@
 <!-- FRAGMENT DESTINE A CREER UN veto
 NECESSITE 4 VARIABLES: user, pays -->
 
-  {!! Form::open(['route' => 'vetoAdmin.store']) !!}
+<form action="{{ route('vetoAdmin.store') }}" method="POST">
+    @csrf
 
-  @METHOD('POST')
+    <div id="userveto_id">
 
-  <div id="userveto_id">
-
-  </div>
+    </div>
 
     @include('admin.form.contact')
 
@@ -15,4 +14,4 @@ NECESSITE 4 VARIABLES: user, pays -->
 
     @include('fragments.boutonEnregistre')
 
-  {!! Form::close() !!}
+</form>
