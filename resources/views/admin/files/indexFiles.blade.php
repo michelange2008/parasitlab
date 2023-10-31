@@ -63,7 +63,14 @@
                                 @boutonUser([
                                     'route' => 'files.edit',
                                     'id' => $file,
-                                    'intitule' => 'modifier',
+                                    'couleur' => 'btn-rouge-clair',
+                                    'intitule' => 'change_file',
+                                    'fa' => 'fas fa-file',
+                                ])
+                                @boutonUser([
+                                    'route' => 'files.editFileDescription',
+                                    'id' => $file,
+                                    'intitule' => 'edit_file_description',
                                     'fa' => 'fas fa-pen',
                                 ])
                                 @if (!$file->requis)
