@@ -70,7 +70,7 @@
 
               @elseif ($element->type == 'mail')
 
-                <a class="btn btn-bleu" href="mailto:$element->mail">@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle')</a>
+                <a class="btn btn-bleu" href="mailto:{{ $element->mail }}">@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle')</a>
 
               @else
 
