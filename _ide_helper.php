@@ -23869,13 +23869,10 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
-            class Form extends \Collective\Html\FormFacade {}
-            class HTML extends \Collective\Html\HtmlFacade {}
             class PDF extends \Barryvdh\DomPDF\Facade\Pdf {}
             class LaravelLocalization extends \Mcamara\LaravelLocalization\Facades\LaravelLocalization {}
             class Image extends \Intervention\Image\Facades\Image {}
             class Pdf extends \Barryvdh\DomPDF\Facade\Pdf {}
-            class Html extends \Collective\Html\HtmlFacade {}
             class Excel extends \Maatwebsite\Excel\Facades\Excel {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      

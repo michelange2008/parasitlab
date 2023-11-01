@@ -66,16 +66,15 @@
             <div class="card-footer">
               @if ($element->type == 'route')
 
-                {!! link_to_route($element->route, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), '' ,['class' => 'btn btn-bleu '.$element->id])!!}
-
+                <a class="btn btn-bleu {{ $element->id }}" href="{{ route($element->route) }}">@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle')</a>
 
               @elseif ($element->type == 'mail')
 
-                {!! HTML::mailto($element->mail, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), ['class' => 'btn btn-bleu']) !!}
+                <a class="btn btn-bleu" href="mailto:{{ $element->mail }}">@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle')</a>
 
               @else
 
-                {!! link_to_asset('storage/'.$element->file, __($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle'), ['class' => 'btn btn-bleu']) !!}
+                <a class="btn btn-bleu" href="{{ url('storage/'.$element->file) }}">@lang($enpratiqueEnvoi->prefixe.$element->prefixe.'libelle')</a>
 
               @endif
 

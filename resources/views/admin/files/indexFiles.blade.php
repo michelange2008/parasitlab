@@ -56,14 +56,21 @@
                             <p>
                                 <a target="blank" href="{{ url('storage/pdf') . '/' . $file->nom }}"
                                     class="font-italic" title="Ouvrir le fichier">
-                                    {{ $file->nom }} <i class="fas fa-square-arrow-up-right"></i>
+                                    {{ $file->nom }} <i class="text-danger fas fa-link"></i>
                                 </a>
                             </p>
                             <div>
                                 @boutonUser([
                                     'route' => 'files.edit',
                                     'id' => $file,
-                                    'intitule' => 'modifier',
+                                    'couleur' => 'btn-rouge-clair',
+                                    'intitule' => 'change_file',
+                                    'fa' => 'fas fa-file',
+                                ])
+                                @boutonUser([
+                                    'route' => 'files.editFileDescription',
+                                    'id' => $file,
+                                    'intitule' => 'edit_file_description',
                                     'fa' => 'fas fa-pen',
                                 ])
                                 @if (!$file->requis)

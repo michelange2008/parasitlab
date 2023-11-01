@@ -24,8 +24,6 @@
 
       <div class="col-md-10">
 
-        {{-- {{ Form::model($blog, ['route' => $route, 'enctype' => 'multipart/form-data']) }} --}}
-
         <form action="{{ route($route['nom'], $route['id'] ?? '') }}" method="post" enctype="multipart/form-data">
 
           @csrf
@@ -123,9 +121,6 @@
           </div>
 
         </div>
-
-
-        {{-- {{ Form::close() }} --}}
 
       </form>
 

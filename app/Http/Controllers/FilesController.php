@@ -116,6 +116,20 @@ class FilesController extends Controller
     }
 
     /**
+     * Permet de modifier le descriptif du fichier sans changer le fichier
+     *
+     * @param File $file fichier concerné
+     * @return View
+     **/
+    public function editFileDescription(File $file)
+    {
+        return view('admin.files.editFileDescription', [
+            'menu' => $this->litJson('menuLabo'),
+            'file' => $file,
+        ]);
+    }
+
+    /**
      * Met à jour un fichier
      *
      * @param Request $request 
@@ -127,7 +141,7 @@ class FilesController extends Controller
         $request->validate([
             'description' => 'string|max:191|nullable',
         ]);
-        
+
         $fichier = $request->file('new_file');
         // Si le fichier mis à jour a une extension différente de l'ancien c'est pas normal
         if ($fichier->getClientOriginalExtension() != $file->extension) {
@@ -135,6 +149,27 @@ class FilesController extends Controller
         }
 
         $fichier->storeAs('public/pdf', $request->old_file);
+        File::where('id', $file->id)
+            ->update([
+                'description' => $request->description,
+            ]);
+
+
+        return redirect()->route('files.index')->with('message', 'file_updated');
+    }
+
+    /**
+     * Mise à jour de la description d'un fichier (cf. editFileDescription)
+     *
+     * @param Request $request Retour du formulaire
+     * @param File $file objet file à mettre à jour
+     * @return Redirect
+     **/
+    public function updateFileDescription(Request $request, File $file)
+    {
+        $request->validate([
+            'description' => 'string|max:191|nullable',
+        ]);
         File::where('id', $file->id)
             ->update([
                 'description' => $request->description,
