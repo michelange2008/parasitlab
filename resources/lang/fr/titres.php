@@ -91,4 +91,5 @@ return array (
   'del_file' => "Êtes-vous sûrs de vouloir supprimer ce fichier ?",
   'edit_file' => "Modifier un fichier",
   'update_file' => "Mettre à jour le fichier",
+  'update_fileDescription' => "Mettre à jour la description du fichier",
 );

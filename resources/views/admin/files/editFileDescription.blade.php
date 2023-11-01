@@ -25,8 +25,8 @@
       <div class="col-md-10">
 
         @titre([
-            'icone' => 'edit_file.svg',
-            'titre' => __('titres.update_file')
+            'icone' => 'update_file_description.svg',
+            'titre' => __('titres.update_fileDescription')
         ])
 
       </div>
@@ -50,7 +50,7 @@
             ])
 
             @enregistreAnnule(['nomBouton' => 'boutons.update'])
-            
+
           </form>
   
         </div>
@@ -62,7 +62,7 @@
         <div class="col-md-10 lead border p-3 bg-light">
 
           <p>
-            Attention, il s'agit juste de mettre à jour la description d'un fichier, sans modifier le fichier lui-même.
+            Il s'agit juste de mettre à jour la description d'un fichier, sans modifier le fichier lui-même.
           </p>
 
         </div>

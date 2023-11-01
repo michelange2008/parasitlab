@@ -69,5 +69,5 @@ return array (
 
   'add_file' => "Ajouter un fichier",
   'change_file' => "Changer le fichier",
-  'edit_file_description' => "Modifier le description du fichier",
+  'edit_file_description' => "Modifier la description du fichier",
 );

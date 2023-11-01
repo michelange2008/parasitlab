@@ -56,7 +56,7 @@
                             <p>
                                 <a target="blank" href="{{ url('storage/pdf') . '/' . $file->nom }}"
                                     class="font-italic" title="Ouvrir le fichier">
-                                    {{ $file->nom }} <i class="fas fa-square-arrow-up-right"></i>
+                                    {{ $file->nom }} <i class="text-danger fas fa-link"></i>
                                 </a>
                             </p>
                             <div>
