@@ -5,6 +5,7 @@
     "prefixe" : "menuLabo.item_1.",
     "nom" : "Extranet",
     "tooltip" : "Retour à l'accueil général (extranet)",
+    "onDashboard" : false,
     "route" : "accueil"
   },
   "laboratoire" :
@@ -13,6 +14,7 @@
     "prefixe" : "menuLabo.item_1b.",
     "nom" : "Laboratoire",
     "tooltip" : "Liste de toutes les analyses",
+    "onDashboard" : false,
     "route" : "laboratoire"
   },
   "productions" :
@@ -21,6 +23,7 @@
     "prefixe" : "menuLabo.item_2.",
     "nom" : "Productions",
     "tooltip" : "Retour à l'accueil général (extranet)",
+    "onDashboard" : false,
     "route" : "laboratoire",
     "sousmenu" :
     {
@@ -65,6 +68,7 @@
     "prefixe" : "menuLabo.item_6.",
     "nom" : "Factures",
     "tooltip" : "Liste de factures",
+    "onDashboard" : false,
     "route" : "factures.index"
   },
   "utilisateurs" :
@@ -73,6 +77,7 @@
     "prefixe" : "menuLabo.item_4.",
     "nom" : "Utilisateurs",
     "tooltip" : "Tout ce qui concerne les utilisateurs: éleveurs et vétérinaires",
+    "onDashboard" : false,
     "route" : "laboratoire",
     "sousmenu" :
     {
@@ -132,6 +137,7 @@
     "prefixe" : "menuLabo.animaux.",
     "nom" : "Animaux",
     "tooltip" : "Liste des animaux et troupeaux",
+    "onDashboard" : false,
     "route" : "laboratoire",
     "sousmenu" :
     {
@@ -191,6 +197,7 @@
     "prefixe" : "menuLabo.item_5.",
     "nom" : "Prestations",
     "tooltip" : "Liste des différentes analyses et packs",
+    "onDashboard" : true,
     "route" : "laboratoire",
     "sousmenu" :
     {
@@ -237,6 +244,7 @@
     "prefixe" : "menuLabo.outils.",
     "nom" : "Outils",
     "tooltip" : "Utilitaires et infos",
+    "onDashboard" : true,
     "route" : "accueil",
     "sousmenu" : {
       "news" : {
@@ -283,5 +291,13 @@
         "route": "doc.index"
       }
     }
+  },
+  "dashboard" :
+  {
+    "id" : "dashboard",
+    "prefixe" : "menuLabo.dashboard.",
+    "nom" : "Tableau de bord",
+    "tooltip" : "Tableau de bord",
+    "route" : "admin.dashboard"
   }
 }
