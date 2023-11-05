@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Labo;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\FactureFactory;
 use App\Http\Traits\LitJson;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Facture;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\DB;
  */
 class AdminController extends Controller
 {
-    use LitJson;
+    use LitJson, FactureFactory;
     /**
      * Affiche un tableau de bord pour les utilisateurs 
      * du groupe Labo
@@ -33,7 +34,13 @@ class AdminController extends Controller
                                 'anaactes.pu_ht as pu_ht', 'tvas.taux as tva')
                                 ->get();
         $factures_a_etablir = $factures_a_etablir->groupBy('user_name');
+        
         $factures_dues = Facture::where('payee', 0)->orderBy('faite_date', 'DESC')->get();
+        foreach ($factures_dues as $facture) {
+            $somme_facture = $this->calculSommeFacture($facture);
+            $facture->total_ht = $somme_facture->total_ht;
+            $facture->total_ttc = $somme_facture->total_ttc;
+          }
 
         return view('admin.dashboard', [
             'menu' => $this->litJson('menuLabo'),

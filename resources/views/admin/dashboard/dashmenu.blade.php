@@ -1,4 +1,4 @@
-<div class="mt-2">
+<div class="mt-3">
 
     @foreach ($menu as $item)
         @isset($item->onDashboard)

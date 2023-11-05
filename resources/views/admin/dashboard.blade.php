@@ -21,7 +21,7 @@
 
     <div class="row">
 
-        <div class="d-none d-md-block col-md-2">
+        <div class="d-none d-md-block col-md-2 bg-secondary">
 
             @include('admin.dashboard.dashmenu')
 
@@ -33,7 +33,7 @@
 
         </div>
 
-        <div class="d-none d-lg-flex col-lg-2 bg-warning">
+        <div class="d-none d-lg-block col-lg-2 bg-secondary">
 
             @include('admin.dashboard.dashstats')
 

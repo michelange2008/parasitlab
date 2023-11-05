@@ -26,25 +26,32 @@
             <img class="img-40" src="{{ url('storage/img/icones/analyse.svg') }}" alt="">
             <h4 class="h4 mb-0 pl-1">Analyses en cours</h4>
         </div>
-        <div>
+        <table class="table table-hover table-bordered">
             @foreach ($demandes_en_cours as $demande)
-                <div class="d-flex p-3 border">
-                    <div>
-                        <img class="img-40" src="{{ url('storage/img/icones/' . $demande->espece->icone->nom) }}"
-                            alt="">
-                    </div>
-                    <div class="pl-2">
-                        <p class="mb-0">{{ $demande->user->name }}</p>
-                        <p class="mb-0 color-bleu">
-                            <a href="{{ route('demandes.show', $demande->id) }}">
-                                {{ ucfirst($demande->anaacte->anatype->nom) }}
-                                ({{ $prelevements->where('demande_id', $demande->id)->count() }} prlt.s)
-                            </a>
-                        </p>
-                    </div>
-                </div>
+                <tr>
+                    <td role="button">
+                        <a href="{{ route('demandes.show', $demande->id) }}">
+                            <div class="d-flex">
+                                <div>
+                                    <img class="img-40"
+                                        src="{{ url('storage/img/icones/' . $demande->espece->icone->nom) }}"
+                                        alt="">
+                                </div>
+                                <div class="pl-2">
+                                    <p class="mb-0">{{ $demande->user->name }}</p>
+                                    <p class="mb-0 color-bleu">
+                                        {{ ucfirst($demande->anaacte->anatype->nom) }}
+                                        <span title="Nombre de prélèvements">
+                                            ({{ $prelevements->where('demande_id', $demande->id)->count() }})
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
             @endforeach
-        </div>
+        </table>
     </div>
 
     <div class="col-lg-4">
@@ -52,25 +59,25 @@
             <img class="img-40" src="{{ url('storage/img/icones/factures_clair.svg') }}" alt="">
             <h4 class="h4 mb-0 pl-1">Factures à établir</h4>
         </div>
-        <div>
+        <table class="table table-hover">
             @foreach ($factures_a_etablir as $user_name => $demandes)
-                <div class="d-flex p-3 border">
-                    <div class="pl-2">
-                        <p class="mb-1 color-bleu">
-                            <a href="{{ route('factures.createFromUser', $demandes[0]->user_id) }}">
+                <tr class="border" role="button">
+                    <td class="pl-2">
+                        <a href="{{ route('factures.createFromUser', $demandes[0]->user_id) }}">
+                            <p class="mb-1">
                                 {{ $user_name }}
-                            </a>
-                        </p>
-                        @foreach ($demandes as $demande)
-                            <p class="mb-0">
-                                {{ ucfirst($demande->anaacte_nom) }}
-                                {{ number_format(round($demande->pu_ht * (1 + $demande->tva), 2), 2, ',', ' ') }} €
                             </p>
-                        @endforeach
-                    </div>
-                </div>
+                            @foreach ($demandes as $demande)
+                                <p class="mb-0 color-bleu">
+                                    {{ ucfirst($demande->anaacte_nom) }}
+                                    {{ number_format(round($demande->pu_ht * (1 + $demande->tva), 2), 2, ',', ' ') }} €
+                                </p>
+                            @endforeach
+                        </a>
+                    </td>
+                </tr>
             @endforeach
-        </div>
+        </table>
     </div>
 
     <div class="col-lg-4">
@@ -78,20 +85,22 @@
             <img class="img-40" src="{{ url('storage/img/icones/cash.svg') }}" alt="">
             <h4 class="h4 mb-0 pl-1">Factures dues</h4>
         </div>
-        <div>
+        <table class="table table-hover table-bordered">
             @foreach ($factures_dues as $facture)
-                <div class="d-flex p-3 border">
-                    <div class="pl-2">
-                        <p class="mb-1">
-                            {{ $user_name }}
-                            <a href="{{ route('factures.show', $facture->id) }}">
-                                <span class="color-bleu">n°{{ $facture->id}}</span>
-                            </a>
-                        </p>
-                    </div>
-                </div>
+                <tr class="" role="button">
+                    <td class="pl-2">
+                        <a href="{{ route('factures.show', $facture->id) }}">
+                            <p class="mb-1">{{ $user_name }}</p>
+
+                            <p class="color-bleu">
+                                facture n°{{ $facture->id }}:
+                                <span class="font-weight-bold">{{ $facture->total_ttc }}</span>
+                            </p>
+                        </a>
+                    </td>
+                </tr>
             @endforeach
-        </div>
+        </table>
     </div>
 
 </div>
