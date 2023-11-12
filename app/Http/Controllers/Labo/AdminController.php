@@ -48,6 +48,8 @@ class AdminController extends Controller
             $facture->total_ttc = $somme_facture->total_ttc;
         }
         $statsBase = $this->renvoieStatsBase();
+
+        $statsAnnuelles = $this->analysesAnnuelles();
         
         return view('admin.dashboard', [
             'menu' => $this->litJson('menuLabo'),
@@ -58,6 +60,7 @@ class AdminController extends Controller
             'factures_dues' => $factures_dues,
             'prelevements' => $prelevements, // Destiné à compter le nombre de prélèvements pour une analyse en cours
             'statsBase' => $statsBase,
+            'statsAnnuelles' => $statsAnnuelles,
         ]);
     }
 }

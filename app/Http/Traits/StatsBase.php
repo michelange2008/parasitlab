@@ -5,6 +5,8 @@ namespace App\Http\Traits;
 use App\Models\Eleveur;
 use App\Models\Productions\Demande;
 use App\Models\Productions\Facture;
+use App\Models\Productions\Prelevement;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -22,7 +24,7 @@ trait StatsBase
      *
      * @return object $statsBase
      **/
-    public function renvoieStatsBase()
+    public function renvoieStatsBase(): object
     {
         $statsBase = $this->litJson('statsBase');
         // On compte le nombre de demandes faites en prestations (l'utilisateur
@@ -67,6 +69,33 @@ trait StatsBase
     }
 
     return $total;
+  }
+
+  /**
+   * Renvoie le nombre d'analyses réalisées (prélèvements)
+   *
+   * par années pour faire un histogramme
+   *
+   * @return array $analyses_par_an
+   **/
+  public function analysesAnnuelles(): array
+  {
+    $users_ext = User::where('usertype_id', '<>', 2)->pluck('id');
+    $demandes_ext = Demande::whereIn('userfact_id', $users_ext)->pluck('id');
+
+    $prelevements = Prelevement::selectRaw('year(created_at) year, count(*) data')
+    ->groupBy('year')
+    ->orderBy('year', 'asc')
+    ->whereIn('demande_id', $demandes_ext)
+    ->get();
+    $analyses_par_an = [];
+    foreach ($prelevements as $annee) {
+      $analyses_par_an['years'][] = $annee->year;
+      $analyses_par_an['analyses'][] = $annee->data;
+    }
+    
+    return $analyses_par_an;
+
   }
 
 }

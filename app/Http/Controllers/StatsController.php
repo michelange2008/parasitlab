@@ -186,28 +186,4 @@ class StatsController extends Controller
     return $total;
   }
 
-  /**
-  * Renvoie la somme des factures faites depuis le début
-  *
-  * @return float $total total des factures faites
-
-  */
-  public function facturesExtTotales()
-  {
-    $factures = Facture::where('user_id', '<>', 0)->get();
-    // On procède au calcul de chaque facture
-    foreach ($factures as $facture) {
-      $somme_facture = $this->calculSommeFacture($facture);
-      $facture->total_ht = $somme_facture->total_ht;
-      $facture->total_ttc = $somme_facture->total_ttc;
-    }
-    $total = 0;
-    foreach($factures as $facture) {
-        $total += floatval($facture->total_ht);
-    }
-
-    return $total;
-    //
-  }
-
 }
