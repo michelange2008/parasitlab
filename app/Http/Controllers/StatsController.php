@@ -184,7 +184,7 @@ class StatsController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function facturesExtAnnuel(Int $year)
+  public function facturesExtAnnuel(Int $year): float
   {
     $factures = Facture::whereYear('faite_date', '=', $year)->get();
     // On procède au calcul de chaque facture
