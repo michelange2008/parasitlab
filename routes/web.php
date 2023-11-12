@@ -150,6 +150,8 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   Route::get('', 'Labo\DemandeController@index')->name('laboratoire');
 
+  Route::get('dashboard', 'Labo\AdminController@index')->name('admin.dashboard');
+
   Route::resource('analyses', 'Analyses\AnalyseController');
 
   Route::resource('anaactes', 'Analyses\AnaacteController');

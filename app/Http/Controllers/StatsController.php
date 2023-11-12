@@ -15,9 +15,11 @@ use App\Models\Analyses\Anaacte;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FactureFactory;
 use App\Http\Traits\StatsBase;
+use App\Http\Traits\StatsBase;
 
 class StatsController extends Controller
 {
+  use StatsBase, LitJson, FactureFactory;
   use StatsBase, LitJson, FactureFactory;
 
   protected $menu;
@@ -32,6 +34,7 @@ class StatsController extends Controller
   }
   /**
   * Renvoie les stats de base
+  * Renvoie les stats de base
   *
   * @return \Illuminate\Http\Response
   */
@@ -39,6 +42,7 @@ class StatsController extends Controller
   {
     return view('admin.stats.statsIndex', [
     'menu' => $this->menu,
+    'statsBase' => $this->renvoieStatsBase(),
     'statsBase' => $this->renvoieStatsBase(),
     ]);
   }
@@ -163,6 +167,8 @@ class StatsController extends Controller
   *
   * @param  int $year année pour laquelle on veut les statistiques
   * @return float $total total des factures faites une année donnée
+  * @param  int $year année pour laquelle on veut les statistiques
+  * @return float $total total des factures faites une année donnée
   */
   public function facturesExtAnnuel(Int $year)
   {
@@ -186,6 +192,7 @@ class StatsController extends Controller
     return $total;
   }
 
+}
   /**
   * Renvoie la somme des factures faites depuis le début
   *
