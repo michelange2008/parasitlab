@@ -27,7 +27,7 @@ class ListeVetosFournisseur extends ListeFournisseur
 
       $email = $this->itemFactory($user->email);
 
-      $num = $this->itemFactory($this->numAvecEspace($user->veto->num));
+      // $num = $this->itemFactory($this->numAvecEspace($user->veto->num));
 
       $cp = $this->itemFactory($user->veto->cp);
 
