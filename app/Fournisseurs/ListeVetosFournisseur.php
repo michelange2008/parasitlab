@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Fournisseurs;
 
 use App\Fournisseurs\ListeFournisseur;
@@ -6,6 +7,7 @@ use App\Fournisseurs\ListeFournisseur;
 use App\Models\Veto;
 
 use App\Http\Traits\FormatNum;
+use Illuminate\Support\Collection;
 
 /**
  * FOURNIT LA LISTE DES VETOS AVEC TOUTES LES INFOS NECESSAIRES FORMATTEES POUR LES AFFICHER DANS INDEX
@@ -15,41 +17,52 @@ class ListeVetosFournisseur extends ListeFournisseur
 
   use FormatNum;
 
+  protected Collection $liste;
+
   public function creeListe($users)
   {
     $this->liste = collect();
 
     foreach ($users as $user) {
 
-      $description = [];
-      // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
-      $nom = $this->lienFactory($user->id, $user->name, 'vetoAdmin.show', 'affiche_veto');
+      if ($user->veto == null) {
+        $veto = new Veto();
+        $veto->user_id = $user->id;
+        $veto->address_1 = "à compléter";
+        $veto->cp = "00000";
+        $veto->commune = "à compléter";
+        $veto->tel = "0000000000";
+        
+        $veto->save();
+      }
 
-      $email = $this->itemFactory($user->email);
+        $description = [];
+        // UTILISER LE TRAIT ITEMFACTORY QUI CONSTRUIT UN OBJET COLLECT AVEC 4 VARIABLES: action, id, nom, route)
+        $nom = $this->lienFactory($user->id, $user->name, 'vetoAdmin.show', 'affiche_veto');
 
-      // $num = $this->itemFactory($this->numAvecEspace($user->veto->num));
+        $email = $this->itemFactory($user->email);
 
-      $cp = $this->itemFactory($user->veto->cp);
+        $num = $this->itemFactory($this->numAvecEspace($user->veto->num));
 
-      $commune = $this->itemFactory($user->veto->commune);
+        $cp = $this->itemFactory($user->veto->cp);
 
-      $tel = $this->itemFactory($this->telAvecEspace($user->veto->tel));
+        $commune = $this->itemFactory($user->veto->commune);
 
-      $suppr = $this->delFactory($user->id, 'vetoAdmin.destroy');
+        $tel = $this->itemFactory($this->telAvecEspace($user->veto->tel));
 
-      $description = [
-        $nom,
-        $email,
-        $cp,
-        $commune,
-        $tel,
-        $suppr,
-      ];
+        $suppr = $this->delFactory($user->id, 'vetoAdmin.destroy');
 
-      $this->liste->put($user->veto->id , $description);
+        $description = [
+          $nom,
+          $email,
+          $cp,
+          $commune,
+          $tel,
+          $suppr,
+        ];
 
-    }
-
+        $this->liste->put($user->veto->id, $description);
+      }
     return $this->liste;
   }
 }
