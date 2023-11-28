@@ -8,10 +8,12 @@
 //##############################################################################
 // MENU ACCUEIL
 
+use App\Http\Controllers\FilesController;
+
 Route::get('/essai/{id}', 'Api\DonneesController@observationSelonEspece');
+
 Route::post('/consentement', 'UserController@consentement')->name('consentement');
 
-// Route::post('/essai/store', 'Api\DonneesController@options')->name('essai.store');
 Route::post('/essai/store', 'Api\DonneesController@selectAnalyses')->name('essai.store');
 
 Route::get('/', 'AccueilController@index')->name('accueil');
@@ -114,19 +116,19 @@ Route::group(['middleware' => 'web', 'middleware' => 'auth', 'middleware' => 've
 // Routes destinées à rediriger l'utilisateur sur des vues différentes en fonction du usertype
 Route::group(['middleware' => 'auth'], function () {
 
-  Route::get('personnel', 'RouteurController@RouteurPersonnel')->name('RouteurPersonnel');
+  Route::get('personnel', 'RouteurController@routeurPersonnel')->name('routeurPersonnel');
 
-  Route::get('Routeur/serie/{serie_id}', 'RouteurController@RouteurSerie')->name('RouteurSerie');
+  Route::get('routeur/serie/{serie_id}', 'RouteurController@routeurSerie')->name('routeurSerie');
 
-  Route::get('Routeur/demande/{demande_id}', 'RouteurController@RouteurDemande')->name('RouteurDemande');
+  Route::get('routeur/demande/{demande_id}', 'RouteurController@routeurDemande')->name('routeurDemande');
 
-  Route::get('deletemoi/{id}', 'RouteurController@deletemoi')->name('Routeur.deletemoi');
+  Route::get('deletemoi/{id}', 'RouteurController@deletemoi')->name('routeur.deletemoi');
 
-  Route::get('jemedelete/{id}', 'RouteurController@jemedelete')->name('Routeur.jemedelete');
+  Route::get('jemedelete/{id}', 'RouteurController@jemedelete')->name('routeur.jemedelete');
 
-  Route::get('facturePdf/{id}', ['uses' => 'RouteurController@RouteurFacturePdf', 'as' => 'RouteurFacturePdf']);
+  Route::get('facturePdf/{id}', ['uses' => 'RouteurController@routeurFacturePdf', 'as' => 'routeurFacturePdf']);
 
-  Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@RouteurResultatsPdf', 'as' => 'RouteurResultatsPdf']);
+  Route::get('resultatsPdf/{id}', ['uses' => 'RouteurController@routeurResultatsPdf', 'as' => 'routeurResultatsPdf']);
 
   Route::get('exports/choix', 'ExportsController@choix')->name('exports.choix');
 
@@ -147,6 +149,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "laboratoire"], function () {
 
   Route::get('', 'Labo\DemandeController@index')->name('laboratoire');
+
+  Route::get('dashboard', 'Labo\AdminController@index')->name('admin.dashboard');
 
   Route::resource('analyses', 'Analyses\AnalyseController');
 
@@ -240,8 +244,6 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
 
   Route::get('factures/etablir', 'Labo\FactureController@etablir')->name('factures.etablir');
 
-  // Route::post('facture/paiement', 'Labo\FactureController@paiement')->name('facture.paiement');
-
   Route::resource('factures', 'Labo\FactureController');
 
   Route::resource('reglement', 'Labo\ReglementController');
@@ -251,7 +253,7 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   
   Route::post('acte/{user}/store', 'Labo\ActeController@storeActeToUser')->name('acteToUser.store');
 
-  Route::get('acte/{user}/liste', 'Labo\ActeController@indexActesUser')->name('acte.indexActes.User');
+  Route::get('acte/{user}/liste', 'Labo\ActeController@indexActesUser')->name('acte.indexActesUser');
 
   Route::resource('acte', 'Labo\ActeController');
 
@@ -262,6 +264,20 @@ Route::group(['middleware' => 'auth', 'middleware' => 'labo', 'prefix' => "labor
   Route::get('icones/suppression', 'IconesController@suppr')->name('icones.suppr');
 
   Route::resource('icones', 'IconesController');
+
+  Route::group(['prefix' => 'formulaires'], function() {
+
+    Route::get('index', 'FilesController@index')->name('files.index');
+    Route::get('create', 'FilesController@create')->name('files.create');
+    Route::post('store', 'FilesController@store')->name('files.store');
+    Route::get('edit/{file}', 'FilesController@edit')->name('files.edit');
+    Route::get('edit/description/{file}', 'FilesController@editFileDescription')->name('files.editFileDescription');
+    Route::post('update/{file}', 'FilesController@update')->name('files.update');
+    Route::post('update/description/{file}', 'FilesController@updateFileDescription')->name('files.updateFileDescription');
+    Route::get('delete/{file_id}', 'FilesController@delete')->name('files.delete');
+    Route::delete('destroy/{file}', 'FilesController@destroy')->name('files.destroy');
+
+  });
 
   //###########################
   // News

@@ -7,8 +7,9 @@
 
     <h5 class="card-title">{{ $user->name }}</h5>
 
-    <p class="card-text">{{ HTML::mailto($user->email) }}</p>
-
+    <a href="mailto:{{$user->email}}" title="Contacter">
+      <i class="text-secondary fas fa-envelope"></i>
+    </a>
     <p class="card-text">{{ $user->labo->fonction }}</p>
 
     <img class="img-50" src="{{ url('storage/img/labo/signatures/'.$user->labo->signature) }}" alt="signature">

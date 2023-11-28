@@ -19,159 +19,156 @@ use App\Http\Traits\ImagesManager;
  */
 class IconesController extends Controller
 {
-    use LitJson, ImagesManager;
+  use LitJson, ImagesManager;
 
-    /**
-     * Données pour l'affichage du menu
-     * @var array
-     */
-    protected $menu;
+  /**
+   * Données pour l'affichage du menu
+   * @var array
+   */
+  protected $menu;
 
-    /**
-     * Peuple la variable menu avec les infos de menuLabo.json et le Trait LitJson
-     */
-    public function __construct()
-    {
-      $this->menu = $this->litJson('menuLabo');
+  /**
+   * Peuple la variable menu avec les infos de menuLabo.json et le Trait LitJson
+   */
+  public function __construct()
+  {
+    $this->menu = $this->litJson('menuLabo');
+  }
+
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\View\View admin/icones/iconesIndex
+   */
+  public function index()
+  {
+    $path = 'storage/img/icones';
+    $files = scandir($path);
+    $file_pattern = "/[a-zA-Z0-9]+\.[a-zA-Z0-9]{3}/";
+    foreach ($files as $file) {
+      if (preg_match($file_pattern, $file)) {
+        Icone::firstOrCreate(
+          ['nom' => $file],
+          ['type' => 'divers']
+        );
+      }
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\View\View admin/icones/iconesIndex
-     */
-    public function index()
-    {
-        $icones = Icone::all()->sortBy('type');
-        $icones_groupe = $icones->groupBy('type');
+    $icones = Icone::all()->sortBy('type');
+    $icones_groupe = $icones->groupBy('type');
 
-        return view('admin.icones.iconesIndex', [
-          'menu' => $this->menu,
-          'icones_groupe' => $icones_groupe,
-        ]);
-    }
+    return view('admin.icones.iconesIndex', [
+      'menu' => $this->menu,
+      'icones_groupe' => $icones_groupe,
+    ]);
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\View\View admin/icones/iconeCreate
-     */
-    public function create()
-    {
-      $types = Icone::select('type')->get()->groupBy('type')->keys();
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\View\View admin/icones/iconeCreate
+   */
+  public function create()
+  {
+    $types = Icone::select('type')->get()->groupBy('type')->keys();
 
-        return view('admin.icones.iconeCreate', [
-          'menu' => $this->menu,
-          'types' => $types,
-        ]);
-    }
+    return view('admin.icones.iconeCreate', [
+      'menu' => $this->menu,
+      'types' => $types,
+    ]);
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response redirect vers la methode index()
-     */
-    public function store(Request $request)
-    {
-        $icones = Icone::all();
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response redirect vers la methode index()
+   */
+  public function store(Request $request)
+  {
+    $icones = Icone::all();
 
-        $file = $request->file('icone_nouvelle');
+    $file = $request->file('icone_nouvelle');
 
-        $extension = $file->extension();
+    $extension = $file->extension();
 
-        $icone_nom = strtolower($request->nom).'.'.$extension;
+    $icone_nom = strtolower($request->nom) . '.' . $extension;
 
-        $file->storeAs('img/icones', $icone_nom, 'public');
+    $file->storeAs('img/icones', $icone_nom, 'public');
 
-        $nouvelle_icone = new Icone;
+    $nouvelle_icone = new Icone;
 
-        $nouvelle_icone->nom = $icone_nom;
-        $nouvelle_icone->type = $request->type;
+    $nouvelle_icone->nom = $icone_nom;
+    $nouvelle_icone->type = $request->type;
 
-        $nouvelle_icone->save();
+    $nouvelle_icone->save();
 
-        return redirect()->route('icones.index')->with('message', 'icone_store');
+    return redirect()->route('icones.index')->with('message', 'icone_store');
+  }
 
-    }
+  /**
+   * NON IMPLÉMENTÉ: Aucun intérêt
+   *
+   * @param  int  $id
+   */
+  public function show($id)
+  {
+    //
+  }
 
-    /**
-     * NON INMPLEMENTE: Display the specified resource.
-     *
-     * @param  int  $id
-     */
-    public function show($id)
-    {
-        //
-    }
+  /**
+   * NON IMPLÉMENTÉ: Car il ne faut pas pouvoir modifier des icones utilisées par le programme
+   *
+   * @param  int  $id
+   */
+  public function edit(Icone $icone)
+  {
+  }
 
-    /**
-     * NON IMPLEMENTE: Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     */
-    public function edit($id)
-    {
-        //
-    }
+  /**
+   * NON IMPLÉMENTÉ: Car il ne faut pas pouvoir modifier des icones utilisées par le programme
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  int  $id
+   */
+  public function update(Request $request, Icone $icone)
+  {
+  }
 
-    /**
-     * NON IMPLEMENTE: Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+  /**
+   * NON IMPLÉMENTÉ: Car il ne faut pas pouvoir modifier des icones utilisées par le programme
+   *
+   * @return \Illuminate\View\View admin/icones/iconeSuppr
+   */
+  public function suppr()
+  {
+  }
 
-    /**
-     * affiche la liste des icone pour suppression en cliquant dessus
-     *
-     * @return \Illuminate\View\View admin/icones/iconeSuppr
-     */
-    public function suppr()
-    {
+  /**
+   * NON IMPLÉMENTÉ: Car il ne faut pas pouvoir modifier des icones utilisées par le programme
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response redirect vers index()
+   */
+  public function destroy($id)
+  {
+  }
 
-      return view('admin.icones.iconesSuppr', [
-        'menu' => $this->menu,
-        'icones' => Icone::all()->sortBy('nom'),
-      ]);
-    }
+  /**
+   * Function pour la requête ajax pour vérifier que l'on ne crée pas de doublon
+   *
+   * @see App\resources\js\inputImage
+   *
+   * @return json
+   */
+  public function liste()
+  {
+    $icones = Icone::select('nom')->get();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response redirect vers index()
-     */
-    public function destroy($id)
-    {
-        $icone_avec_chemin = 'storage/img/icones/'.Icone::find($id)->nom;
+    $nom_icones = $icones->map(function ($item, $key) {
+      return $item->nom;
+    });
 
-        $this->supprImage($icone_avec_chemin);
-
-        Icone::destroy($id);
-
-        return redirect()->route('icones.index')->with('message', 'icone_del');
-    }
-
-    /**
-     * Function pour la requete ajax pour vérifier que l'on ne crée pas de doublon
-     *
-     * @see App\resources\js\inputImage
-     *
-     * @return json
-     */
-    public function liste()
-    {
-      $icones = Icone::select('nom')->get();
-
-      $nom_icones = $icones->map(function($item, $key) {
-        return $item->nom;
-      });
-
-      return json_encode($nom_icones);
-    }
+    return json_encode($nom_icones);
+  }
 }

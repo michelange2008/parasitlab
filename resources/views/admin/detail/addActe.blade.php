@@ -1,12 +1,18 @@
+<li class="list-group-item">
 
-
-    <li class="list-group-item">
-
-      @boutonUser([
+    @boutonUser([
         'route' => 'acteToUser.add',
         'id' => $user,
-        'fa' => 'fas fa-pen-nib',
+        'fa' => 'fas fa-plus-square',
         'intitule' => 'add_acte',
-      ])
+    ])
 
-    </li>
+    @boutonUser([
+        'couleur' => 'btn-secondary',
+        'route' => 'acte.indexActesUser',
+        'id' => $user,
+        'fa' => 'fas fa-list',
+        'intitule' => 'liste_actes',
+    ])
+
+</li>

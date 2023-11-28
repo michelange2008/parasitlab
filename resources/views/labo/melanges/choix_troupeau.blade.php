@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="Form-group col-md-4">
+        <div class="form-group col-md-4">
 
           @inputChoixTroupeau()
 

@@ -14,11 +14,13 @@ use App\Models\Analyses\Anaacte;
 
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FactureFactory;
-
+use App\Http\Traits\StatsBase;
+use App\Http\Traits\StatsBase;
 
 class StatsController extends Controller
 {
-  use LitJson, FactureFactory;
+  use StatsBase, LitJson, FactureFactory;
+  use StatsBase, LitJson, FactureFactory;
 
   protected $menu;
 
@@ -31,35 +33,17 @@ class StatsController extends Controller
 
   }
   /**
-  * Display a listing of the resource.
+  * Renvoie les stats de base
+  * Renvoie les stats de base
   *
   * @return \Illuminate\Http\Response
   */
   public function index()
   {
-    // Fichier de base que l'on va peupler avec les résultats
-    $statsBase = $this->litJson('statsBase');
-    // On compte le nombre de demandes faites en prestations (l'utilisateur
-    // facturé n'est pas le labo)
-    $statsBase->nb_demandes->count = Demande::where('userfact_id', '<>', 0)->count();
-    // Idem avec les prélèvements ce qui donne le nombre d'analyses réalisées
-    $statsBase->nb_prelevements->count = DB::table('prelevements')
-          ->join('demandes', 'demandes.id', '=', 'prelevements.demande_id')
-          ->where('demandes.userfact_id', '<>', 0)->count();
-    // On compte le nombre d'éleveurs dans la base de donnée
-    $statsBase->nb_eleveurs->count = Eleveur::count();
-    // On compte le total des montants facturés
-    $factures = Facture::where('user_id', '<>', 0)->get();
-
-    $total_factures = $this->facturesExtTotales();
-
-    $total_factures = number_format($total_factures, 2, ",", " ")." €";
-
-    $statsBase->total_factures->count = $total_factures;
-
     return view('admin.stats.statsIndex', [
     'menu' => $this->menu,
-    'statsBase' => $statsBase,
+    'statsBase' => $this->renvoieStatsBase(),
+    'statsBase' => $this->renvoieStatsBase(),
     ]);
   }
   /**
@@ -181,8 +165,10 @@ class StatsController extends Controller
   /**
   * Calcul le montant des factures extérieures pour 1 année
   *
-  * @param  \Illuminate\Http\Request  $request
-  * @return \Illuminate\Http\Response
+  * @param  int $year année pour laquelle on veut les statistiques
+  * @return float $total total des factures faites une année donnée
+  * @param  int $year année pour laquelle on veut les statistiques
+  * @return float $total total des factures faites une année donnée
   */
   public function facturesExtAnnuel(Int $year)
   {
@@ -206,11 +192,12 @@ class StatsController extends Controller
     return $total;
   }
 
+}
   /**
-  * Display the specified resource.
+  * Renvoie la somme des factures faites depuis le début
   *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
+  * @return float $total total des factures faites
+
   */
   public function facturesExtTotales()
   {
@@ -230,37 +217,4 @@ class StatsController extends Controller
     //
   }
 
-  /**
-  * Show the form for editing the specified resource.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
-  public function edit($id)
-  {
-    //
-  }
-
-  /**
-  * Update the specified resource in storage.
-  *
-  * @param  \Illuminate\Http\Request  $request
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
-  public function update(Request $request, $id)
-  {
-    //
-  }
-
-  /**
-  * Remove the specified resource from storage.
-  *
-  * @param  int  $id
-  * @return \Illuminate\Http\Response
-  */
-  public function destroy($id)
-  {
-    //
-  }
 }

@@ -1,0 +1,2 @@
+Highcharts.chart("container",{chart:{type:"column"},title:{text:"Nombre d'analyses annuelles",align:"left"},xAxis:{categories:"<?php echo $stats_annuelles['years]"},yAxis:{min:0,title:{text:"Nombre d'analyses"}},tooltip:{valueSuffix:" (1000 MT)"},plotOptions:{column:{pointPadding:.2,borderWidth:0}},series:[{name:"Analyses",data:"<?php echo $stats_annuelles['analyses]"}]});
+//# sourceMappingURL=statsAnnuelles.js.map

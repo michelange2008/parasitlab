@@ -1,3 +1,4 @@
+import bsCustomFileInput from 'bs-custom-file-input'
 require( './bs-custom-file-input-min.js')
 
 require( './demandeShow.js');
@@ -13,6 +14,8 @@ require( './createUser.js');
 // require('./melangeManager.js');
 
 $(function() {
+
+	bsCustomFileInput.init()
 
 	$.ajaxSetup({
 
