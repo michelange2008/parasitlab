@@ -1,4 +1,6 @@
 <?php
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -8,7 +10,6 @@
 //##############################################################################
 // MENU ACCUEIL
 
-use App\Http\Controllers\FilesController;
 
 Route::get('/essai/{id}', 'Api\DonneesController@observationSelonEspece');
 
