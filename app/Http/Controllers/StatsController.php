@@ -15,7 +15,6 @@ use App\Models\Analyses\Anaacte;
 use App\Http\Traits\LitJson;
 use App\Http\Traits\FactureFactory;
 use App\Http\Traits\StatsBase;
-use App\Http\Traits\StatsBase;
 
 class StatsController extends Controller
 {
@@ -192,7 +191,6 @@ class StatsController extends Controller
     return $total;
   }
 
-}
   /**
   * Renvoie la somme des factures faites depuis le début
   *
@@ -216,5 +214,4 @@ class StatsController extends Controller
     return $total;
     //
   }
-
 }
