@@ -14,5 +14,9 @@
   "nb_eleveurs":
   {
     "titre" : "stats.total_eleveurs"
+  },
+  "analyses_internes":
+  {
+    "titre" : "stats.analyses_internes"
   }
 }

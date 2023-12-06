@@ -8,6 +8,7 @@ use App\Models\Productions\Facture;
 use App\Models\Productions\Prelevement;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Http\Traits\UserTypeOutil;
 
 /**
  * Produit les statistiques de base de parasitlab
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 trait StatsBase
 {
 
-    use LitJson, FactureFactory;
+    use LitJson, FactureFactory, UserTypeOutil;
 
     /**
      * Renvoie les statistiques de base
@@ -45,6 +46,7 @@ trait StatsBase
         
         $statsBase->total_factures->count = $total_factures;
         
+        $statsBase->analyses_internes->count = $this->analysesInternes();
         
         return $statsBase;
     }
@@ -96,6 +98,19 @@ trait StatsBase
     
     return $analyses_par_an;
 
+  }
+
+  /**
+   * Nombre d'analyses réalisées en interne
+   *
+   * @return int $analysesInternes Nombre d'analyses totales réalisées en interne
+   **/
+  public function analysesInternes()
+  {
+    $laboratoire_id = $this->userTypeLabo()->id;
+    $analysesInternes = Demande::where('userfact_id', $laboratoire_id)->count();
+
+    return $analysesInternes;
   }
 
 }

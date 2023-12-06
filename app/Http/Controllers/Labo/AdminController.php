@@ -52,6 +52,8 @@ class AdminController extends Controller
         $statsBase = $this->renvoieStatsBase();
 
         $statsAnnuelles = $this->analysesAnnuelles();
+
+        $analysesInternes = $this->analysesInternes();
         
         return view('admin.dashboard', [
             'menu' => $this->litJson('menuLabo'),
@@ -63,6 +65,7 @@ class AdminController extends Controller
             'prelevements' => $prelevements, // Destiné à compter le nombre de prélèvements pour une analyse en cours
             'statsBase' => $statsBase,
             'statsAnnuelles' => $statsAnnuelles,
+            'analysesInternes' => $analysesInternes,
         ]);
     }
 }
