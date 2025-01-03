@@ -12,8 +12,8 @@
     "/js/melangeManager.js": "/js/melangeManager.js",
     "/js/inputResultatValeur.js": "/js/inputResultatValeur.js",
     "/js/stats.js": "/js/stats.js",
-    "/js/statsAnnuelles.js": "/js/statsAnnuelles.js",
     "/css/app.css": "/css/app.css",
+    "/js/statsAnnuelles.js": "/js/statsAnnuelles.js",
     "/js/chart.js": "/js/chart.js",
     "/js/highcharts.js": "/js/highcharts.js"
 }

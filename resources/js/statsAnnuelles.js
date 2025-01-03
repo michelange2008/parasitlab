@@ -1,6 +1,6 @@
 
-let annees = <?php echo json_encode($statsAnnuelles['years']); ?> ;
-let analyses = <?php echo json_encode($statsAnnuelles['analyses']); ?> ;
+annees = '<?php echo json_encode($statsAnnuelles["years"]); ?>' ;
+analyses = '<?php echo json_encode($statsAnnuelles["analyses"]); ?>' ;
 
 
 Highcharts.chart('container', {

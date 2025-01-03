@@ -24,7 +24,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/melangeManager', 'public/js')
     .js('resources/js/inputResultatValeur', 'public/js')
     .js('resources/js/stats.js', 'public/js')
-    .js('resources/js/statsAnnuelles.js', 'public/js')
+   //  .js('resources/js/statsAnnuelles.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .babelConfig({
       plugins: ['@babel/plugin-syntax-dynamic-import']
@@ -32,6 +32,7 @@ mix.js('resources/js/app.js', 'public/js')
    .options({
       processCssUrls: false
    }).sourceMaps();
-
+// mix.copy('resources/js/stats.js', 'public/js')
+mix.copy('resources/js/statsAnnuelles.js', 'public/js')
 mix.copy('node_modules/chart.js/dist/chart.js', 'public/js/chart.js');
 mix.copy('node_modules/highcharts/highcharts.js', 'public/js/highcharts.js');

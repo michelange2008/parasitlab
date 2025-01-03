@@ -64,6 +64,8 @@
 
 @section('scripts')
     <script src="{{url('js/chart.js')}}"></script>
+    <script src="{{url('js/highcharts.js')}}"></script>
 
     <script src="{{ url('js/stats.js') }}"></script>
+    <script src="{{ url('js/statsAnnuelles.js') }}"></script>
 @endsection
