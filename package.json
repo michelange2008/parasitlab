@@ -19,7 +19,7 @@
     "sass": "^1.29.0",
     "sass-loader": "^13.3.2",
     "vue-template-compiler": "^2.6.12",
-    "webpack": "^5.9.0"
+    "webpack": "^5.97.1"
   },
   "dependencies": {
     "bootstrap-table": "^1.22.1",
