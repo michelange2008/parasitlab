@@ -145,6 +145,7 @@
               'value' => $anaacte->pu_ht,
               'type' => 'number',
               'required' => true,
+              'step' => 0.01,
               ])
 
             </div>
