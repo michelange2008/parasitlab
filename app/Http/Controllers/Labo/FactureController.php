@@ -355,6 +355,7 @@ class FactureController extends Controller
       $entetes = [
         "numéro de facture",
         "Destinataire facture",
+        "Email du destinataire",
         "Date de la facture",
         "Montant HT",
         "Envoyée",
@@ -371,6 +372,7 @@ class FactureController extends Controller
         $facture = $this->ajouteSommeEtTvasEtNum($facture);
         $r["numéro de facture"] = $facture->num;
         $r["Destinataire facture"] = $facture->user->name;
+        $r["Email du destinataire"] = $facture->user->email;
         $r["Date de la facture"] = Date::dateTimeToExcel(new Carbon($facture->faite_date));
         $r["Montant HT"] = $this->calculFactureHT($facture);
         $r["Envoyée"] = $facture->envoyee;
